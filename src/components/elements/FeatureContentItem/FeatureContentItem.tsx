@@ -1,15 +1,15 @@
 import { useInView } from "react-hook-inview";
 import classNames from "classnames";
 
-const FeatureContentItem = ({ section, setVisibleId }) => {
+const FeatureContentItem = ({ section, idx, setVisibleIdx }) => {
   const [ref, isVisible] = useInView(
     {
       threshold: 0.9,
-      onEnter: () => setVisibleId(section.id)
+      onEnter: () => setVisibleIdx(idx)
     },
   )
   return (
-    <div ref={ref} key={section.id} className={classNames(
+    <div ref={ref} className={classNames(
       "content-wrapper py-[20vh] px-10 transition-opacity duration-300",
       { "is-visible opacity-100": isVisible },
       { "is-invisible opacity-10": !isVisible}

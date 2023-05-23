@@ -5,7 +5,6 @@ import FeatureContentItem from "@/components/elements/FeatureContentItem/Feature
 
 const sections = [
   {
-    id: 0,
     img: "https://www.tidio.com/_next/image/?url=%2Fimages%2Ffrontpage%2Fsection-slider%2Fstart-conversation.png&w=3840&q=75",
     content: {
       title: "Start conversations, win loyal customers",
@@ -13,7 +12,6 @@ const sections = [
     }
   },
   {
-    id: 1,
     img: "https://www.tidio.com/_next/image/?url=%2Fimages%2Ffrontpage%2Fsection-slider%2Fautomate-answers.png&w=3840&q=75",
     content: {
       title: "Automate answers and workflows in minutes",
@@ -21,7 +19,6 @@ const sections = [
     }
   },
   {
-    id: 2,
     img: "https://www.tidio.com/_next/image/?url=%2Fimages%2Ffrontpage%2Fsection-slider%2Fvisitors.png&w=3840&q=75",
     content: {
       title: "Turn visitors into paying customers",
@@ -31,8 +28,7 @@ const sections = [
 ]
 
 const FeatureRow = () => {
-  const [ visibleId, setVisibleId ] = useState(0);
-  const ref = React.useRef(null)
+  const [ visibleIdx, setVisibleIdx ] = useState(0);
   
   return (
     <section className="">
@@ -43,11 +39,11 @@ const FeatureRow = () => {
         <div className="relative w-3/5">
           <div className="sticky top-20">
             <div className="relative h-[80vh]">
-              {sections.map(section => (
-                <div key={section.id} className={classNames(
+              {sections.map((section, idx) => (
+                <div key={section.content.title} className={classNames(
                   "img-wrapper transition-opacity duration-300",
-                  { "is-visible opacity-100 h-full overflow-visible ": visibleId == section.id},
-                  { "is-invisible h-0 opacity-10 max-h-full relative overflow-hidden": visibleId != section.id}
+                  { "is-visible opacity-100 h-full overflow-visible ": visibleIdx === idx},
+                  { "is-invisible h-0 opacity-10 max-h-full relative overflow-hidden": visibleIdx !== idx}
                 )}>
                   {/* @TODO use Next/Image */}
                   <img className="h-full object-cover" src={section.img} />
@@ -58,8 +54,8 @@ const FeatureRow = () => {
         </div>
 
         <div className="w-2/5 flex flex-col">
-          {sections.map(section => (
-            <FeatureContentItem key={section.id} section={section} setVisibleId={setVisibleId} />
+          {sections.map((section, idx) => (
+            <FeatureContentItem key={section.content.title} section={section} idx={idx} setVisibleIdx={setVisibleIdx} />
           ))}
         </div>
       </div>
