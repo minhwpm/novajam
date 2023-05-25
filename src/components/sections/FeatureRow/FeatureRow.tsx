@@ -31,17 +31,38 @@ const FeatureRow = () => {
   const [ visibleIdx, setVisibleIdx ] = useState(0);
   
   return (
-    <section className="">
-      <h2 className="text-5xl text-center font-semibold mb-16">
+    <section className="px-4 lg:px-32">
+      <h2 className="text-5xl leading-snug text-center max-w-screen-lg font-semibold mb-16 mx-auto">
         Make customer experience your competitive advantage
       </h2>
-      <div className="flex">
-        <div className="relative w-3/5">
+      {/* FOR MOBILE, TABLETS */}
+      <div className="xl:hidden">
+        {sections.map((section, idx) => (
+          <div key={section.content.title} className="mb-20" >
+            <div className="mb-10">
+              <h3 className="font-semibold text-4xl leading-snug mb-6">
+                {section.content.title}
+              </h3>
+              <p className="text-xl leading-relaxed">
+                {section.content.description}
+              </p>
+            </div>
+            <div className="md:w-3/5 mx-auto">
+              {/* @TODO use Next/Image */}
+              <img className="h-full object-cover" src={section.img} />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* FOR DESKTOP */}
+      <div className="hidden xl:flex">
+        <div className=" relative w-3/5">
           <div className="sticky top-20">
             <div className="relative h-[80vh]">
               {sections.map((section, idx) => (
                 <div key={section.content.title} className={classNames(
-                  "img-wrapper transition-opacity duration-300",
+                  "transition-opacity duration-300",
                   { "is-visible opacity-100 h-full overflow-visible ": visibleIdx === idx},
                   { "is-invisible h-0 opacity-10 max-h-full relative overflow-hidden": visibleIdx !== idx}
                 )}>
