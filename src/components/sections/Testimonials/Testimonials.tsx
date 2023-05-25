@@ -26,37 +26,50 @@ const testimonials = [
   },
 ];
 
+const ArrowGroup = ({visibleIdx, setVisibleIdx}) => {
+  return (
+    <>
+      <FontAwesomeIcon
+        className="xl:inline-block cursor-pointer"
+        icon={faArrowLeft}
+        size="2xl"
+        width={26}
+        onClick={() => {
+          if (visibleIdx > 0) setVisibleIdx(visibleIdx - 1);
+          else setVisibleIdx(testimonials.length - 1);
+        }}
+      />
+      <FontAwesomeIcon
+        className="xl:inline-block cursor-pointer"
+        icon={faArrowRight}
+        size="2xl"
+        width={26}
+        onClick={() => {
+          if (visibleIdx < testimonials.length - 1)
+            setVisibleIdx(visibleIdx + 1);
+          else setVisibleIdx(0);
+        }}
+      />
+    </>
+  )
+}
+
 const Testimonials = () => {
   const [visibleIdx, setVisibleIdx] = useState(0);
+
   return (
     <section className="bg-gray-200 p-32 bg-opacity-60">
-      <div className="flex gap-5">
-        <div className="w-1/2 pr-10">
+      <div className="xl:flex gap-5">
+        <div className="xl:w-1/2 pr-10">
           <h2 className="text-4xl leading-[50px] font-bold mb-10">
             Don’t take our word for it, check how Tidio helps users grow their
             business
           </h2>
-          <FontAwesomeIcon
-            className="cursor-pointer mr-12"
-            icon={faArrowLeft}
-            size="2xl"
-            onClick={() => {
-              if (visibleIdx > 0) setVisibleIdx(visibleIdx - 1);
-              else setVisibleIdx(testimonials.length - 1);
-            }}
-          />
-          <FontAwesomeIcon
-            className="cursor-pointer"
-            icon={faArrowRight}
-            size="2xl"
-            onClick={() => {
-              if (visibleIdx < testimonials.length - 1)
-                setVisibleIdx(visibleIdx + 1);
-              else setVisibleIdx(0);
-            }}
-          />
+          <div className="hidden xl:flex gap-12">
+            <ArrowGroup visibleIdx={visibleIdx} setVisibleIdx={setVisibleIdx} />
+          </div>
         </div>
-        <div className="w-1/2 grid">
+        <div className="xl:w-1/2 grid">
           {testimonials.map((item, idx) => (
             <div
               key={item.title}
@@ -70,6 +83,9 @@ const Testimonials = () => {
               <p className="text-lg">{item.content}</p>
             </div>
           ))}
+        </div>
+        <div className="flex xl:hidden gap-12 mt-8 justify-center">
+          <ArrowGroup visibleIdx={visibleIdx} setVisibleIdx={setVisibleIdx} />
         </div>
       </div>
     </section>
