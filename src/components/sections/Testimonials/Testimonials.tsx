@@ -58,7 +58,7 @@ const Testimonials = () => {
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
-    <section className="bg-gray-200 p-32 bg-opacity-60">
+    <section className="bg-gray-200 p-16 xl:p-32 bg-opacity-60">
       <div className="xl:flex gap-5">
         <div className="xl:w-1/2 pr-10">
           <h2 className="text-4xl leading-[50px] font-bold mb-10">
