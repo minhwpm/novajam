@@ -1,8 +1,8 @@
 'use client'
 import FeatureRow from "@/components/sections/FeatureRow/FeatureRow"
 import Testimonials from '@/components/sections/Testimonials/Testimonials'
-import FakeMessageBox from '@/components/elements/FakeMessageBox/FakeMessageBox'
 import Hero from '@/components/sections/Hero/Hero'
+import ExpandingCTA from "@/components/sections/ExpandingCTA/ExpandingCTA"
 
 export default function Home() {
   return (
@@ -10,6 +10,7 @@ export default function Home() {
       <Hero />
       <FeatureRow />
       <Testimonials />
+      <ExpandingCTA />
     </main>
   )
 }

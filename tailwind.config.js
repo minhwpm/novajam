@@ -67,6 +67,14 @@ module.exports = {
           '100%': {
             opacity: 0,
           },
+        },
+        expandingWidth: {
+          '0%': {
+            width: '70%'
+          },
+          '100%': {
+            width: '100%'
+          }
         }
       },
 
@@ -75,6 +83,7 @@ module.exports = {
         fadeIn: 'fadeIn 0.5s ease-in forwards 1',
         slideUp: 'slideUp 0.3s ease-in forwards 1',
         slidingText: 'slidingText 10s linear infinite normal none running',
+        expandingWidth: 'expandingWidth 0.5s ease-in-out forwards 1'
       }
     },
   },
