@@ -75,6 +75,20 @@ module.exports = {
           '100%': {
             width: '100%'
           }
+        },
+        poop: {
+          '25%': {
+            transform: 'scale(0.95)'
+          },
+          '60%': {
+            transform: 'scale(1.03)'
+          },
+          '70%': {
+            transform: 'scale(1.02)'
+          },
+          '100%': {
+            transform: 'scale(1.05)'
+          },
         }
       },
 
@@ -83,7 +97,8 @@ module.exports = {
         fadeIn: 'fadeIn 0.5s ease-in forwards 1',
         slideUp: 'slideUp 0.3s ease-in forwards 1',
         slidingText: 'slidingText 10s linear infinite normal none running',
-        expandingWidth: 'expandingWidth 0.5s ease-in-out forwards 1'
+        expandingWidth: 'expandingWidth 0.5s ease-in-out forwards 1',
+        poop: 'poop 0.5s ease-in-out forwards 1',
       }
     },
   },

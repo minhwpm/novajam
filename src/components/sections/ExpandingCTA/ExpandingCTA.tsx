@@ -1,6 +1,7 @@
 import { useState } from "react";
 import classNames from "classnames";
 import { useInView } from "react-hook-inview";
+import Button from "@/components/elements/Button/Button";
 
 const content = {
   "title": "Grow your sales through outstanding customer service",
@@ -31,13 +32,16 @@ const ExpandingCTA = () => {
         {"animate-expandingWidth": isVisible},
         )}
       >
-        <div className="max-w-3xl mx-auto">
+        <div className="flex flex-col items-center max-w-3xl mx-auto">
           <h2 className="text-5xl leading-snug text-center text-gray-300 mb-8">
             {content.title}
           </h2>
-          <p className="text-xl text-blue-200 text-center">
+          <p className="text-xl text-blue-200 text-center mb-12">
             {content.subtitle}
           </p>
+          <Button variant="primary" size="lg" url={content.button.url}>
+            {content.button.text}
+          </Button>
         </div>
       </div>
     </section>
