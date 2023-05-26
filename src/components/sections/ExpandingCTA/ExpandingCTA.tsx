@@ -19,8 +19,6 @@ const ExpandingCTA = () => {
     threshold: 0.5,
     onEnter: (entry, observer) => {
       console.log(entry, observer);
-
-
     },
     // onLeave: () => setStart(false),
   });
@@ -28,8 +26,9 @@ const ExpandingCTA = () => {
   return (
     <section className="px-32">
       <div ref={ref} className={classNames(
-        "bg-blue-950 py-32 w-[70%] mx-auto will-change-[width]",
-        {"animate-expandingWidth": isVisible},
+          "bg-blue-950 py-32 w-[70%] mx-auto will-change-[width]",
+          {"animate-expandingWidth": isVisible},
+          {"animate-shrinkingWidth": !isVisible},
         )}
       >
         <div className="flex flex-col items-center max-w-3xl mx-auto">

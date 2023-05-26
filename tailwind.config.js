@@ -76,6 +76,14 @@ module.exports = {
             width: '100%'
           }
         },
+        shrinkingWidth: {
+          '0%': {
+            width: '100%'
+          },
+          '100%': {
+            width: '70%'
+          }
+        },
         poop: {
           '25%': {
             transform: 'scale(0.95)'
@@ -98,6 +106,7 @@ module.exports = {
         slideUp: 'slideUp 0.3s ease-in forwards 1',
         slidingText: 'slidingText 10s linear infinite normal none running',
         expandingWidth: 'expandingWidth 0.5s ease-in-out forwards 1',
+        shrinkingWidth: 'shrinkingWidth 0.5s ease-in-out forwards 1',
         poop: 'poop 0.5s ease-in-out forwards 1',
       }
     },
