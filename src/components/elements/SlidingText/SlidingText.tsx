@@ -1,6 +1,6 @@
 const SlidingText = ({content}) => {
   return (
-    <span className="inline-flex text-center h-[51px] w-64 text-orange-300 relative">
+    <span className="inline-flex text-center h-[40px] w-40 lg:w-60 lg:h-[51px] text-orange-300 relative">
       {content.map((item, idx) => (
         <span className="opacity-0 flex items-center animate-slidingText absolute" key={item.text}
           style={{ 

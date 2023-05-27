@@ -32,7 +32,7 @@ const FeatureRow = () => {
   
   return (
     <section className="px-4 lg:px-32">
-      <h2 className="text-5xl leading-snug text-center max-w-screen-lg font-semibold mb-16 mx-auto">
+      <h2 className="text-4xl lg:text-5xl leading-snug text-center max-w-screen-lg font-semibold mb-16 mx-auto">
         Make customer experience your competitive advantage
       </h2>
       {/* FOR MOBILE, TABLETS */}
@@ -40,7 +40,7 @@ const FeatureRow = () => {
         {sections.map((section, idx) => (
           <div key={section.content.title} className="mb-20" >
             <div className="mb-10">
-              <h3 className="font-semibold text-4xl leading-snug mb-6">
+              <h3 className="font-semibold text-3xl lg:text-4xl leading-snug mb-6">
                 {section.content.title}
               </h3>
               <p className="text-xl leading-relaxed">

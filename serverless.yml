@@ -1,0 +1,4 @@
+myNextApplication:
+  component: "@sls-next/serverless-component@latest"
+  inputs:
+    domain: ["bluebiz", "hellowebbie.com"]

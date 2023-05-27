@@ -56,7 +56,7 @@ const FakeMessageBox = () => {
       <div
         ref={ref}
         className={classNames(
-          "flex flex-col gap-6 w-full h-full pt-36 px-5 absolute",
+          "flex flex-col gap-6 w-full h-full pt-36 px-5 absolute text-xs sm:text-base",
           { "-top-[75%]": !start },
           { "animate-slideUp top-0": start }
         )}

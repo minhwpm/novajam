@@ -24,15 +24,15 @@ const ExpandingCTA = () => {
   });
   console.log("isVisible", isVisible)
   return (
-    <section className="px-32">
+    <section className="px-5 lg:px-20 xl:px-32">
       <div ref={ref} className={classNames(
-          "bg-blue-950 py-32 w-[70%] mx-auto will-change-[width]",
-          {"animate-expandingWidth": isVisible},
-          {"animate-shrinkingWidth": !isVisible},
+          "bg-blue-950 mx-auto px-5 py-16 lg:py-20 xl:py-32 lg:w-[70%] lg:will-change-[width]",
+          {"lg:animate-expandingWidth": isVisible},
+          {"lg:animate-shrinkingWidth": !isVisible},
         )}
       >
         <div className="flex flex-col items-center max-w-3xl mx-auto">
-          <h2 className="text-5xl leading-snug text-center text-gray-300 mb-8">
+          <h2 className="text-4xl lg:text-5xl leading-snug text-center text-gray-300 mb-8">
             {content.title}
           </h2>
           <p className="text-xl text-blue-200 text-center mb-12">

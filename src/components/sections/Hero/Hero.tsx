@@ -13,9 +13,9 @@ const content = {
 
 const Hero = () => {
   return (
-    <div className="py-16 flex flex-col items-center bg-gradient-to-b from-blue-950 from-45% to-blue-700 to-100%">
+    <section className="py-16 flex flex-col items-center bg-gradient-to-b from-blue-950 from-45% to-blue-700 to-100%">
       <div className="mb-10 flex flex-col items-center">
-        <h1 className="text-center font-semibold text-5xl text-white leading-snug max-w-screen-lg mx-auto mb-8">
+        <h1 className="text-center font-semibold text-4xl leading-snug lg:text-5xl lg:leading-snug text-white max-w-screen-md px-5 mx-auto mb-8">
           {content.title}{" "}
           <SlidingText content={[
             { text: "live chat"},
@@ -23,17 +23,17 @@ const Hero = () => {
             { text: "ticketing"},
           ]}/>
         </h1>
-        <p className="text-center text-xl text-gray-300 leading-relaxed max-w-screen-md mx-auto mb-6">
+        <p className="text-center lg:text-xl text-gray-300 leading-relaxed max-w-screen-md px-3 mx-auto mb-6">
           {content.subtitle}
         </p>
         <Button variant="secondary" url={content.button.url}>
           {content.button.text}
         </Button>
       </div>
-      <div className="w-full md:w-[600px] h-[500px]">
+      <div className="w-full sm:w-[600px] h-[500px]">
         <FakeMessageBox />
       </div>
-    </div>
+    </section>
   )
 }
 
