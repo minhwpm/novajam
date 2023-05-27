@@ -43,13 +43,13 @@ const FeatureRow = () => {
               <h3 className="font-semibold text-3xl lg:text-4xl leading-snug mb-6">
                 {section.content.title}
               </h3>
-              <p className="text-xl leading-relaxed">
+              <p className="text-base md:text-lg lg:text-xl leading-relaxed">
                 {section.content.description}
               </p>
             </div>
             <div className="md:w-3/5 mx-auto">
               {/* @TODO use Next/Image */}
-              <img className="h-full object-cover" src={section.img} />
+              <img className="w-full object-cover" src={section.img} />
             </div>
           </div>
         ))}
