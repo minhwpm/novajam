@@ -1,3 +1,4 @@
+'use client'
 import { useState } from "react";
 import classNames from "classnames";
 import { useInView } from "react-hook-inview";

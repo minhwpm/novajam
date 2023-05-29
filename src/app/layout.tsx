@@ -1,8 +1,5 @@
-'use client'
-
 import './globals.css'
 import { Inter } from 'next/font/google'
-import { ParallaxProvider } from 'react-scroll-parallax'
 import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,13 +15,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ParallaxProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          {children}
-          <Analytics />
-        </body>
-      </html>
-    </ParallaxProvider>
+    <html lang="en">
+      <body className={inter.className}>
+        {children}
+        <Analytics />
+      </body>
+    </html>
   )
 }

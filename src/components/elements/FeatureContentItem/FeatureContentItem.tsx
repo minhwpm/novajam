@@ -1,7 +1,18 @@
 import { useInView } from "react-hook-inview";
 import classNames from "classnames";
 
-const FeatureContentItem = ({ section, idx, setVisibleIdx }) => {
+interface Props {
+  section: {
+    content: {
+      title: string
+      description: string
+    }
+  }
+  idx: number
+  setVisibleIdx: (idx: number) => void
+}
+
+const FeatureContentItem = ({ section, idx, setVisibleIdx }: Props) => {
   const [ref, isVisible] = useInView(
     {
       threshold: 0.9,

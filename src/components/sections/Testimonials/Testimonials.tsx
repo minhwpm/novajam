@@ -1,3 +1,5 @@
+'use client'
+
 import classNames from "classnames";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -26,7 +28,12 @@ const testimonials = [
   },
 ];
 
-const ArrowGroup = ({visibleIdx, setVisibleIdx}) => {
+interface Props {
+  visibleIdx: number
+  setVisibleIdx: (idx: number) => void
+}
+
+const ArrowGroup = ({visibleIdx, setVisibleIdx}: Props) => {
   return (
     <>
       <FontAwesomeIcon

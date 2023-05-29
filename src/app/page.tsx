@@ -1,4 +1,3 @@
-'use client'
 import FeatureRow from "@/components/sections/FeatureRow/FeatureRow"
 import Testimonials from '@/components/sections/Testimonials/Testimonials'
 import Hero from '@/components/sections/Hero/Hero'

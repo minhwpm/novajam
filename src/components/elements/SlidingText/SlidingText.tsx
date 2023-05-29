@@ -1,4 +1,10 @@
-const SlidingText = ({content}) => {
+interface Props {
+  content: Array<{
+    text: string
+  }>
+}
+
+const SlidingText = ({content}: Props) => {
   return (
     <span className="inline-flex text-center h-[40px] w-40 lg:w-60 lg:h-[51px] text-orange-300 relative">
       {content.map((item, idx) => (
