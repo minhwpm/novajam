@@ -40,7 +40,7 @@ const FeaturesHero = ({ data = dummyData }: Props) => {
   const { label, title, subtitle, button, media } = data;
   const [animated, setAnimated] = useState(false);
   const [ref, isVisible] = useInView({
-    threshold: 0.9,
+    threshold: 0.5,
     onEnter: () => {
       // @TODO technical debt
       setTimeout(() => {
