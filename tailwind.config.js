@@ -97,6 +97,20 @@ module.exports = {
           '100%': {
             transform: 'scale(1.05)'
           },
+        },
+        animationA: {
+          '0%': {
+            opacity:0,
+            transform: 'translateY(30px) scale(0.9)',
+          },
+          '60%': {
+            transform: 'translateY(-2px) scale(0.99)',
+          },
+          '100%': {
+            opacity: 1,
+            transform: 'translateY(0) scale(1.0)',
+            visibility: 'visible'
+          }
         }
       },
 
@@ -108,6 +122,7 @@ module.exports = {
         expandingWidth: 'expandingWidth 0.5s ease-in-out forwards 1',
         shrinkingWidth: 'shrinkingWidth 0.5s ease-in-out forwards 1',
         poop: 'poop 0.5s ease-in-out forwards 1',
+        animationA: 'animationA 0.5s ease-out 0.3s forwards 1',
       }
     },
   },
