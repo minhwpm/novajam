@@ -14,6 +14,7 @@ const content = {
 }
 
 const ExpandingCTA = () => {
+  // @TODO expanding width on scrolling
   const [w, setW] = useState(70)
 
   const [ref, isVisible] = useInView({
@@ -23,7 +24,7 @@ const ExpandingCTA = () => {
     },
     // onLeave: () => setStart(false),
   });
-  console.log("isVisible", isVisible)
+  // console.log("isVisible", isVisible)
   return (
     <section className="px-5 lg:px-20 xl:px-32">
       <div ref={ref} className={classNames(

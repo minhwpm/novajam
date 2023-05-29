@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -122,7 +123,7 @@ module.exports = {
         expandingWidth: 'expandingWidth 0.5s ease-in-out forwards 1',
         shrinkingWidth: 'shrinkingWidth 0.5s ease-in-out forwards 1',
         poop: 'poop 0.5s ease-in-out forwards 1',
-        animationA: 'animationA 0.5s ease-out 0.3s forwards 1',
+        animationA: 'animationA 0.5s ease-out forwards 1',
       }
     },
   },

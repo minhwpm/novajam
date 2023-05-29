@@ -1,4 +1,9 @@
+'use client'
+
 import Button from "@/components/elements/Button/Button"
+import classNames from "classnames";
+import { useState } from "react";
+import { useInView } from "react-hook-inview";
 
 interface Props {
   data?: {
@@ -32,23 +37,49 @@ const dummyData = {
 
 const FeaturesHero = ({data = dummyData }: Props) => {
   const { label, title, subtitle, button, media } = data
+  const [animated, setAnimated] = useState(false)
+  const [ref, isVisible] = useInView({
+    threshold: 0.9,
+    onEnter: () => {
+      setTimeout(() => {
+        setAnimated(true)
+      }, 500);
+    },
+  });
+
+  const animationClasses = classNames(
+    {"invisible": !animated},
+    {"visible": animated},
+    {"animate-animationA delay-1000": isVisible && !animated}
+  )
+
+  console.log("FeaturesHero")
+  console.log("isVisible", isVisible)
+  console.log("animated", animated)
+  console.log("----")
+  
   return (
-    <section className="px-4 lg:px-32 flex flex-col-reverse lg:flex-row gap-5 items-center">
+    <section ref={ref} className="px-4 lg:px-32 flex flex-col-reverse lg:flex-row gap-5 items-center">
       <div className="lg:w-5/12">
-        <p className="uppercase font-bold text-blue-600 tracking-widest invisible animate-animationA">
+        <p className={classNames(
+          "uppercase font-bold text-blue-600 tracking-widest",
+          animationClasses
+        )}>
           {label}
         </p>
-        <h1 className="text-4xl md:text-5xl font-bold my-8 invisible animate-animationA">{title}</h1>
-        <p className="md:text-lg mb-10 invisible animate-animationA">{subtitle}</p>
-        
-        <div className="invisible animate-animationA" style={{ animationDelay: '1.0s'}} >
+        <h1 className={classNames("text-4xl md:text-5xl font-bold my-8", animationClasses)}>
+          { title }
+        </h1>
+        <p className={classNames("md:text-lg mb-10", animationClasses)}>{subtitle}</p>
+          
+        <div className={classNames(animationClasses)}>
           <Button variant="primary" url={button.url}>{button.text}</Button>
         </div>
       </div>
       <div className="lg:w-7/12">
         {/* @TODO optimize Image */}
-        {media?.type === "image" && <img className="animate-animationA invisible" style={{ animationDelay: '1.0s'}} src={media.src} />} 
-        {media?.type === "video" && <video src={media.src} />}
+        {media?.type === "image" && <img className={classNames(animationClasses)} src={media.src} />}
+        {media?.type === "video" && <video className={classNames(animationClasses)} src={media.src} />}
       </div>
     </section>
   )

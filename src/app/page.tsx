@@ -1,4 +1,4 @@
-import FeatureRow from "@/components/sections/FeatureRow/FeatureRow"
+import FeatureRow from "@/components/sections/FeaturesPresentation/FeaturesPresentation"
 import Testimonials from '@/components/sections/Testimonials/Testimonials'
 import Hero from '@/components/sections/Hero/Hero'
 import ExpandingCTA from "@/components/sections/ExpandingCTA/ExpandingCTA"
