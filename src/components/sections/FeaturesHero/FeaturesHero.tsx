@@ -42,6 +42,7 @@ const FeaturesHero = ({ data = dummyData }: Props) => {
   const [ref, isVisible] = useInView({
     threshold: 0.9,
     onEnter: () => {
+      // @TODO technical debt
       setTimeout(() => {
         setAnimated(true);
       }, 500);

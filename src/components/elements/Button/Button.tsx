@@ -4,7 +4,7 @@ import Link from "next/link"
 
 interface ButtonProps {
   children: React.ReactNode
-  variant: "primary" | "secondary"
+  variant: "primary" | "secondary" | "border"
   url?: string
   size?: "sm" | "base" | "lg"
   clickHandler?: () => void
@@ -13,6 +13,7 @@ interface ButtonProps {
 const Button = ({children, variant, url, size = "base", clickHandler}: ButtonProps) => {
   const classes = classNames(classNames(
     "rounded hover:animate-poop transition-all duration-500",
+    {"border-2" : variant === "border"},
     {"bg-blue-600 hover:bg-blue-700 text-white" : variant === "primary"},
     {"bg-orange-300 hover:bg-orange-400 hover:text-white" : variant === "secondary"},
     {"px-6 py-3": size === "base"},
