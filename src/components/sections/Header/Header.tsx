@@ -28,7 +28,11 @@ const dummyData = {
       text: "Contact",
       url: "/contact"
     }
-  ]
+  ],
+  button: {
+    text: "Get started for free",
+    url: "/register"
+  }
 }
 
 interface Props {
@@ -40,12 +44,16 @@ interface Props {
       text: string
       url: string
     }>
+    button: {
+      text: string
+      url: string
+    }
   }
   variant?: "white" | "blue"
 }
 
 const Header = ({ data = dummyData, variant }: Props) => {
-  const { nav } = data
+  const { nav, button } = data
   const fixed = useStickyOnScroll()
   const [ showed, setShowed ] = useState(false)
 
@@ -105,8 +113,8 @@ const Header = ({ data = dummyData, variant }: Props) => {
           Login
         </Link>
         <div className="hidden lg:block">
-          <Button variant="border">
-            Get started for free
+          <Button variant="border" url={button.url}>
+            {button.text}
           </Button>
         </div>
         <div className="xl:hidden">
