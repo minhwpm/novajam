@@ -73,8 +73,8 @@ const Header = ({ data = dummyData, variant }: Props) => {
           
         )}>
           {nav.map(item => (
-            <div key={item.text} className="px-3 py-1">
-              <Link href={item.url}>
+            <div key={item.text}>
+              <Link href={item.url} className="px-3 py-1">
                 {item.text}
               </Link>
             </div>
@@ -92,8 +92,8 @@ const Header = ({ data = dummyData, variant }: Props) => {
 
       <nav className="hidden xl:flex gap-5 items-center">
         {nav.map(item => (
-          <div key={item.text} className="px-3 py-1 rounded hover:bg-blue-100 hover:text-blue-600 transition-all duration-300">
-            <Link href={item.url}>
+          <div key={item.text}>
+            <Link href={item.url} className="px-3 py-1 rounded hover:bg-blue-100 hover:text-blue-600 transition-all duration-300">
               {item.text}
             </Link>
           </div>
