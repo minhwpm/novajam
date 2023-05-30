@@ -4,7 +4,7 @@ import Button from "@/components/elements/Button/Button"
 
 const content = {
   "title": "Turn your website visitors into customers with",
-  "subtitle": "Tidio is a top-rated platform for small and medium businesses to grow sales through outstanding customer service.",
+  "subtitle": "Bluebiz is a top-rated platform for small and medium businesses to grow sales through outstanding customer service.",
   "button": {
     "text": "Get started for free",
     "url": "/register"

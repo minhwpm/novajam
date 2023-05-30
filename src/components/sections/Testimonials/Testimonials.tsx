@@ -9,7 +9,7 @@ const testimonials = [
   {
     title: "Get more leads",
     content:
-      "GET THIS PROGRAM - it has already boosted my sales leads by 34% in a matter of hours. Don't waste your time, searching - Tidio does it all. I am very pleased how they helped get me started too.",
+      "GET THIS PROGRAM - it has already boosted my sales leads by 34% in a matter of hours. Don't waste your time, searching - Bluebiz does it all. I am very pleased how they helped get me started too.",
   },
   {
     title: "Increase conversion rate",
@@ -19,12 +19,12 @@ const testimonials = [
   {
     title: "Generate more sales",
     content:
-      "Tidio helped me make over 60k in sales in just a few months. Customer retention rate is a lot higher and a benefit is the sales!",
+      "Bluebiz helped me make over 60k in sales in just a few months. Customer retention rate is a lot higher and a benefit is the sales!",
   },
   {
     title: "Increase satisfaction rate",
     content:
-      "Since having Tidio integrated into our website we have seen sales nearly double and positive reviews triple.",
+      "Since having Bluebiz integrated into our website we have seen sales nearly double and positive reviews triple.",
   },
 ];
 
@@ -69,7 +69,7 @@ const Testimonials = () => {
       <div className="xl:flex xl:gap-5">
         <div className="xl:w-1/2 pr-10">
           <h2 className="text-3xl lg:text-4xl lg:leading-[50px] font-bold mb-10">
-            Don’t take our word for it, check how Tidio helps users grow their
+            Don’t take our word for it, check how Bluebiz helps users grow their
             business
           </h2>
           <div className="hidden xl:flex gap-12">

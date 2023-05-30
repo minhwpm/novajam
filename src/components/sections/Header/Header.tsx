@@ -31,7 +31,20 @@ const dummyData = {
   ]
 }
 
-const Header = ({ data = dummyData }) => {
+interface Props {
+  data: {
+    logo: {
+      src: string
+    },
+    nav: Array<{
+      text: string
+      url: string
+    }>
+  }
+  variant: "white" | "blue"
+}
+
+const Header = ({ data = dummyData, variant }) => {
   const { nav } = data
   const fixed = useStickyOnScroll()
   const [ showed, setShowed ] = useState(false)
