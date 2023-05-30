@@ -33,7 +33,7 @@ const FeatureRow = () => {
   
   return (
     <section className="px-4 lg:px-32">
-      <h2 className="text-4xl lg:text-5xl leading-snug text-center max-w-screen-lg font-semibold mb-16 mx-auto">
+      <h2 className="text-4xl leading-snug lg:text-5xl lg:leading-snug text-center max-w-screen-lg font-semibold mb-16 mx-auto">
         Make customer experience your competitive advantage
       </h2>
       {/* FOR MOBILE, TABLETS */}

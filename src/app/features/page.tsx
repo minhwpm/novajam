@@ -7,7 +7,6 @@ import FeaturesHero from "@/components/sections/FeaturesHero/FeaturesHero"
 export default function Features() {
   return (
     <main className="flex flex-col min-h-screen gap-20 py-16">
-      {/* <Hero /> */}
       <FeaturesHero />
       <FeatureRow />
       <Testimonials />

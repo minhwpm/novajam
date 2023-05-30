@@ -23,9 +23,9 @@ interface Props {
 
 const dummyData = {
   label: "FEATURES",
-  title: "Unlock the full potential of content management",
+  title: "Unlock the full potential of a business platform",
   subtitle:
-    "Strapi is the leading open-source headless CMS. It’s 100% Javascript, fully customizable and developer-first.",
+    "Bluebiz is a top-rated platform for small and medium businesses to grow sales through outstanding customer service.",
   button: {
     text: "Get started now",
     url: "/register",
@@ -40,7 +40,7 @@ const FeaturesHero = ({ data = dummyData }: Props) => {
   const { label, title, subtitle, button, media } = data;
   const [animated, setAnimated] = useState(false);
   const [ref, isVisible] = useInView({
-    threshold: 0.5,
+    threshold: 0.3,
     onEnter: () => {
       // @TODO technical debt
       setTimeout(() => {
@@ -76,7 +76,7 @@ const FeaturesHero = ({ data = dummyData }: Props) => {
         </p>
         <h1
           className={classNames(
-            "text-4xl md:text-5xl font-bold my-8",
+            "text-4xl leading-snug md:text-5xl md:leading-snug font-bold my-8 ",
             animationClasses
           )}
         >

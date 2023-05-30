@@ -1,9 +1,12 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Quicksand } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
 import Header from '@/components/sections/Header/Header';
 
-const inter = Inter({ subsets: ['latin'] })
+const font = Quicksand({
+  subsets: ['latin'],
+  display: 'swap'
+})
 
 // export const metadata = {
 //   title: 'Create Next App',
@@ -17,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={font.className}>
         <Header />
         {children}
         <Analytics />
