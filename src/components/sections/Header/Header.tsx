@@ -32,7 +32,7 @@ const dummyData = {
 }
 
 interface Props {
-  data: {
+  data?: {
     logo: {
       src: string
     },
@@ -41,10 +41,10 @@ interface Props {
       url: string
     }>
   }
-  variant: "white" | "blue"
+  variant?: "white" | "blue"
 }
 
-const Header = ({ data = dummyData, variant }) => {
+const Header = ({ data = dummyData, variant }: Props) => {
   const { nav } = data
   const fixed = useStickyOnScroll()
   const [ showed, setShowed ] = useState(false)
