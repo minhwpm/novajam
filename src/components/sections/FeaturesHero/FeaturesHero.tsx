@@ -100,6 +100,7 @@ const FeaturesHero = ({ data = dummyData }: Props) => {
             alt={title}
             width={500}
             height={400}
+            priority={true}
           />
         )}
         {media?.type === "video" && (
