@@ -66,7 +66,7 @@ const FeatureRow = () => {
 
       {/* FOR DESKTOP */}
       <div className="hidden xl:flex">
-        <div className=" relative w-3/5">
+        <div className="relative w-3/5">
           <div className="sticky top-20">
             <div className="relative h-[80vh]">
               {sections.map((section, idx) => (
