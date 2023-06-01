@@ -53,6 +53,10 @@ interface Props {
       title: string;
       description: string;
     };
+    media: {
+      src: string
+      type: string
+    }
   };
   idx: number;
   setVisibleIdx: (idx: number) => void;
