@@ -3,7 +3,8 @@
 import classNames from "classnames";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight, faQuoteLeftAlt, faQuoteRightAlt } from "@fortawesome/free-solid-svg-icons";
+import "./styles.css"
 
 const testimonials = [
   {
@@ -65,34 +66,36 @@ const Testimonials = () => {
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
-    <section className="px-5 py-10 sm:p-10 md:p-16 xl:p-32 bg-gray-200 bg-opacity-60 overflow-x-hidden">
-      <div className="xl:flex xl:gap-5">
-        <div className="xl:w-1/2 pr-10">
-          <h2 className="text-3xl lg:text-4xl lg:leading-[50px] font-bold mb-10">
-            Don’t take our word for it, check how Bluebiz helps users grow their
-            business
-          </h2>
-          <div className="hidden xl:flex gap-12">
+    <section className="bg-gray-200 bg-opacity-60 px-5">
+      <div className="overflow-x-hidden py-20 sm:p-5 md:p-16 xl:p-32 bg-quote">
+        <div className="xl:flex xl:gap-5">
+          <div className="xl:w-1/2 pr-10">
+            <h2 className="text-3xl lg:text-4xl lg:leading-[50px] font-bold mb-10">
+              Don’t take our word for it, check how Bluebiz helps users grow their
+              business
+            </h2>
+            <div className="hidden xl:flex gap-12">
+              <ArrowGroup visibleIdx={visibleIdx} setVisibleIdx={setVisibleIdx} />
+            </div>
+          </div>
+          <div className="xl:w-1/2 grid ">
+            {testimonials.map((item, idx) => (
+              <div
+                key={item.title}
+                className={classNames(
+                  "col-start-1 row-start-1 flex flex-col justify-center p-12 shadow-xl bg-white rounded-lg transition-all ease-in-out duration-500 relative ",
+                  { "opacity-100 right-0": visibleIdx == idx },
+                  { "opacity-0 -right-24": visibleIdx != idx }
+                )}
+              >
+                <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
+                <p className="text-lg">{item.content}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex xl:hidden gap-12 mt-8 justify-center">
             <ArrowGroup visibleIdx={visibleIdx} setVisibleIdx={setVisibleIdx} />
           </div>
-        </div>
-        <div className="xl:w-1/2 grid">
-          {testimonials.map((item, idx) => (
-            <div
-              key={item.title}
-              className={classNames(
-                "col-start-1 row-start-1 flex flex-col justify-center p-12 shadow-xl bg-white rounded-lg transition-all ease-in-out duration-500 relative",
-                { "opacity-100 right-0": visibleIdx == idx },
-                { "opacity-0 -right-24": visibleIdx != idx }
-              )}
-            >
-              <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
-              <p className="text-lg">{item.content}</p>
-            </div>
-          ))}
-        </div>
-        <div className="flex xl:hidden gap-12 mt-8 justify-center">
-          <ArrowGroup visibleIdx={visibleIdx} setVisibleIdx={setVisibleIdx} />
         </div>
       </div>
     </section>
