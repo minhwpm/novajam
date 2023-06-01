@@ -1,14 +1,15 @@
-import FeatureRow from "@/components/sections/FeaturesPresentation/FeaturesPresentation"
+'use client'
+
 import Testimonials from '@/components/sections/Testimonials/Testimonials'
-import Hero from '@/components/sections/Hero/Hero'
 import ExpandingCTA from "@/components/sections/ExpandingCTA/ExpandingCTA"
 import FeaturesHero from "@/components/sections/FeaturesHero/FeaturesHero"
+import Timeline from "@/components/sections/Timeline/Timeline"
 
 export default function Features() {
   return (
     <main className="flex flex-col min-h-screen gap-20 py-16">
       <FeaturesHero />
-      <FeatureRow />
+      <Timeline />
       <Testimonials />
       <ExpandingCTA />
     </main>
