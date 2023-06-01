@@ -143,7 +143,7 @@ const Timeline = ({ data = dummyData }) => {
           />
           {/* Circle */}
           <div className={classNames(
-            "flex justify-center items-center z-40 ml-[-14px] box-content h-[24px] w-[24px] transform rounded-full border-[2px] border-white ring-[2px] ring-blue-600 transition-transform duration-500 lg:left-[50%]",
+            "flex justify-center items-center z-40 ml-[-14px] box-content h-[24px] w-[24px] transform rounded-full border-[2px] border-white bg-white ring-[2px] ring-blue-600 transition-transform duration-500 lg:left-[50%]",
             {"absolute left-[-8px] top-0 sm:left-[-24px]]" : scrolled === "not-yet"},
             {"fixed left-[20px] top-[33%] sm:left-[36px]" : scrolled === "scrolling"},
             {"absolute bottom-0" : scrolled === "scrolled"}
