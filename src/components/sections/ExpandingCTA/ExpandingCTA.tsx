@@ -34,7 +34,7 @@ const ExpandingCTA = () => {
         )}
       >
         <div className="flex flex-col items-center max-w-3xl mx-auto">
-          <h2 className="text-4xl lg:text-5xl leading-snug text-center text-gray-300 mb-8">
+          <h2 className="text-4xl lg:text-5xl leading-snug lg:leading-snug text-center text-gray-300 mb-8">
             {content.title}
           </h2>
           <p className="text-xl text-blue-200 text-center mb-12">

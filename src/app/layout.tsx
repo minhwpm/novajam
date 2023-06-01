@@ -1,11 +1,12 @@
 import './globals.css'
-import { Quicksand } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
 import Header from '@/components/sections/Header/Header';
 
-const font = Quicksand({
+const font = Poppins({
   subsets: ['latin'],
-  display: 'swap'
+  display: 'swap',
+  weight: ["100","300","400","600","700"]
 })
 
 // export const metadata = {
