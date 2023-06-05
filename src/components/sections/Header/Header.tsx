@@ -44,7 +44,7 @@ interface Props {
       text: string
       url: string
     }>
-    button: {
+    button?: {
       text: string
       url: string
     }
@@ -113,9 +113,11 @@ const Header = ({ data = dummyData, variant }: Props) => {
           Login
         </Link>
         <div className="hidden lg:block">
-          <Button variant="border" url={button.url}>
-            {button.text}
-          </Button>
+          {button && (
+            <Button variant="border" url={button.url}>
+              {button.text}
+            </Button>
+          )}
         </div>
         <div className="xl:hidden">
           <FontAwesomeIcon className="cursor-pointer" width={26} icon={faBars} size="xl" onClick={() => setShowed(true)}/>

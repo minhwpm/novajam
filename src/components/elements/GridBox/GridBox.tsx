@@ -3,14 +3,14 @@ import classNames from "classnames"
 interface Props {
   gap?: 5 | 7 | 9
   columns?: 2 | 3 | 4
-  className?: string
+  className?: string // @TODO implement style config instead of passing className here
   children: React.ReactNode
 }
 
 const GridBox = ({ gap = 5, columns = 3, children } : Props) => {
   return (
     <div className={classNames(
-        "grid mt-10",
+        "grid",
         { "md:grid-cols-2": columns === 2},
         { "md:grid-cols-3": columns === 3},
         { "md:grid-cols-4": columns === 4},

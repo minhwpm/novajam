@@ -12,7 +12,7 @@ interface ButtonProps {
 
 const Button = ({children, variant, url, size = "base", clickHandler}: ButtonProps) => {
   const classes = classNames(
-    "rounded hover:animate-poop transition-all duration-500",
+    "rounded inline-block hover:animate-poop transition-all duration-500",
     {"border-2 border-black hover:bg-black hover:text-white" : variant === "border"},
     {"bg-blue-600 hover:bg-blue-700 text-white" : variant === "primary"},
     {"bg-orange-300 hover:bg-orange-400 hover:text-white" : variant === "secondary"},

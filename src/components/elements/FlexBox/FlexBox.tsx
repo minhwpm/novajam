@@ -10,7 +10,7 @@ interface Props {
 const FlexBox = ( { horizontalScrollable = false, gap = 5, className, children }: Props) => {
   return (
     <div className={classNames(
-        "u-scroll-x flex py-10 w-full",
+        "u-scroll-x flex w-full",
         { "gap-5": gap === 5},
         { "gap-7": gap === 7},
         { "gap-9": gap === 9},

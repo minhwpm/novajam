@@ -11,6 +11,7 @@ module.exports = {
       aspectRatio: {
         '4/3': '4 / 3',
         '3/2': '3 / 2',
+        '5/2': '5 / 2',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

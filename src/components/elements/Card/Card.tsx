@@ -51,8 +51,8 @@ const Card = ({
         />
       )}
       <div className={classNames(
-        "px-8 pb-10 pt-6 w-full",
-        { "absolute bottom-0 bg-gradient-to-t from-blue-900/90 to-transparent text-white": data.image?.src && imagePosition === "overlay" },
+        "px-8 pb-6 pt-5 w-full",
+        { "absolute bottom-0 bg-gradient-to-t from-gray-900/90 to-transparent text-white": data.image?.src && imagePosition === "overlay" },
         { "rounded-b-2xl": rounded }
       )}>
         <h4 className="text-2xl font-medium mb-3">
