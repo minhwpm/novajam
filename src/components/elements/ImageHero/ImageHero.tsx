@@ -17,6 +17,7 @@ interface Props {
     };
   }
   aspectRatio?: "video" | "5/2"
+  textAlignment?: "center" | "bottom left"
 }
 
 const dummyData = {
@@ -34,7 +35,7 @@ const dummyData = {
   },
 };
 
-const ImageHero = ( { data = dummyData, aspectRatio = "video" } ) => {
+const ImageHero = ( { data = dummyData, aspectRatio = "video", textAlignment = "center"} ) => {
   const { title, subtitle, button, media } = data
   return (
     <div className="relative ">
@@ -49,7 +50,11 @@ const ImageHero = ( { data = dummyData, aspectRatio = "video" } ) => {
         height={400}
         priority={true}
       />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center w-full">
+      <div className={classNames("absolute text-white",
+        { "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full": textAlignment === "center" },
+        { "left-4 md:left-32 bottom-20 w-1/2": textAlignment === "bottom left" },
+        ""
+      )}>
         <h1 className="text-4xl lg:text-6xl font-bold mb-5">
           {title}
         </h1>

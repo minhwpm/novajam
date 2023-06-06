@@ -1,6 +1,5 @@
 'use client'
 
-import ExpandingCTA from "@/components/sections/ExpandingCTA/ExpandingCTA"
 import ImageHero from "@/components/elements/ImageHero/ImageHero"
 import Accordion from "@/components/elements/Accordion/Accordion"
 import Card from "@/components/elements/Card/Card"
@@ -172,7 +171,6 @@ export default function Home() {
         </GridBox>
       </Section>
 
-
       <Section
         title={eventSection.title}
         subtitle={eventSection.subtitle}
@@ -185,9 +183,7 @@ export default function Home() {
         </FlexBox>
       </Section>
 
-      <Section
-        framed={false}
-      >
+      <Section framed={false}>
         <Testimonials data={testimonialsSection} />
       </Section>
 
