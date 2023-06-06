@@ -155,8 +155,8 @@ const dummyData = {
   }
 }
 
-export default function Features( { data = dummyData }) {
-  const { heroSection, featuresSection, eventSection, testimonialsSection } = data.sections
+export default function Home() {
+  const { heroSection, featuresSection, eventSection, testimonialsSection } = dummyData.sections
   return (
     <main className="flex flex-col min-h-screen gap-20 pb-24">
       <ImageHero data={heroSection} />
