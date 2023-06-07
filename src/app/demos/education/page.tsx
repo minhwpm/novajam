@@ -7,6 +7,7 @@ import FlexBox from "@/components/elements/FlexBox/FlexBox"
 import GridBox from "@/components/elements/GridBox/GridBox"
 import Section from "@/components/elements/Section/Section"
 import Testimonials from "@/components/sections/Testimonials/Testimonials"
+import { ButtonType } from "@/components/elements/ImageHero/ImageHero"
 
 const dummyData = {
   sections: {
@@ -14,10 +15,18 @@ const dummyData = {
       label: "",
       title: "Inspiring Tomorrows Leaders",
       subtitle: "The Future Belongs To Those Who See Possibilities Today",
-      button: {
-        text: "Find a course",
-        url: "/register",
-      },
+      buttons: [
+        {
+          text: "Find a course",
+          url: "/register",
+          type: "primary" as ButtonType
+        },
+        {
+          text: "Apply now",
+          url: "/apply",
+          type: "secondary" as ButtonType
+        }
+      ],
       media: {
         type: "image",
         src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/university/home_main_slider_bg.jpg"
@@ -130,25 +139,16 @@ const dummyData = {
       subtitle: "",
       sections: [
         {
-          title: "LEE MILLER, Physics Student",
-          content: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
+          title: "",
+          content: "Cras vel dolor ut arcu tristique luctus. Duis vitae egestas nulla. Duis faucibus, arcu eget interdum aliquet, orci risus volutpat erat, quis sodales neque arcu quis elit. Nunc sodales lacus sapien, eu pharetra massa lacinia iaculis.",
+          source: "LEE MILLER, Physics Student",
         },
         {
-          title: "EMERY BURNS, Design Student",
-          content: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
+          title: "",
+          content: "Maecenas congue dictum pretium. Sed nec sem sit amet neque egestas porttitor. Proin scelerisque commodo purus, pellentesque aliquet mauris faucibus a.",
+          source: "EMERY BURNS, Design Student",
         },
-        {
-          title: "3",
-          content: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-        },
-        {
-          title: "4",
-          content: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-        },
-        {
-          title: "5",
-          content: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-        },
+        
       ]
     }
   }

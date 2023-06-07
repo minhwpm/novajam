@@ -14,31 +14,35 @@ const dummyData = {
       title: "Get more leads",
       content:
         "GET THIS PROGRAM - it has already boosted my sales leads by 34% in a matter of hours. Don't waste your time, searching - Bluebiz does it all. I am very pleased how they helped get me started too.",
+      source: "Review on G2"
     },
     {
       title: "Increase conversion rate",
       content:
         "My conversion rate went from 1.4 to 4.8! This is amazing and makes me a lot of money automatically!",
+      source: "Review on Shopify"
     },
     {
       title: "Generate more sales",
       content:
         "Bluebiz helped me make over 60k in sales in just a few months. Customer retention rate is a lot higher and a benefit is the sales!",
+      source: "Review on G2"
     },
     {
       title: "Increase satisfaction rate",
       content:
         "Since having Bluebiz integrated into our website we have seen sales nearly double and positive reviews triple.",
+      source: "Review on G2"
     },
   ]
 }
-interface Props {
+interface ArrowGroupProps {
   visibleIdx: number
   setVisibleIdx: (idx: number) => void
   length: number
 }
 
-const ArrowGroup = ({visibleIdx, setVisibleIdx, length}: Props) => {
+const ArrowGroup = ({visibleIdx, setVisibleIdx, length}: ArrowGroupProps) => {
   return (
     <>
       <FontAwesomeIcon
@@ -66,7 +70,21 @@ const ArrowGroup = ({visibleIdx, setVisibleIdx, length}: Props) => {
   )
 }
 
-const Testimonials = ( { data = dummyData }) => {
+interface Props {
+  data?: { // @TODO modify data? later
+    label?: string
+    title?: string
+    subtitle?: string
+    sections: Array<{
+      title: string
+      content?: string
+      source?: string
+    }>
+  }
+
+}
+
+const Testimonials = ( { data = dummyData }: Props) => {
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
@@ -84,15 +102,16 @@ const Testimonials = ( { data = dummyData }) => {
           <div className="xl:w-1/2 grid ">
             {data.sections.map((item, idx) => (
               <div
-                key={item.title}
+                key={item.content} //@TODO key is too long. does it hurt performance?
                 className={classNames(
-                  "col-start-1 row-start-1 flex flex-col justify-center p-12 shadow-xl bg-white rounded-lg transition-all ease-in-out duration-500 relative ",
+                  "col-start-1 row-start-1 flex flex-col gap-5 justify-center p-12 shadow-xl bg-white rounded-lg transition-all ease-in-out duration-500 relative ",
                   { "opacity-100 right-0": visibleIdx == idx },
                   { "opacity-0 -right-24": visibleIdx != idx }
                 )}
               >
-                <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
-                <p className="text-lg">{item.content}</p>
+                <h3 className="text-2xl font-semibold">{item.title}</h3>
+                <p className="text-lg leading-8 italic">{item.content}</p>
+                <p> - {item.source}</p>
               </div>
             ))}
           </div>
