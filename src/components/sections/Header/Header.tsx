@@ -5,7 +5,9 @@ import Link from "next/link"
 import useStickyOnScroll from "@/utils/hooks/useStickyOnScroll"
 import classNames from "classnames"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudBolt, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCloudBolt, faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import './styles.css';
 
 const dummyData = {
   logo: {
@@ -13,53 +15,103 @@ const dummyData = {
   },
   nav: [
     {
-      text: "Features",
-      url: "/features"
+      title: "Demos",
+      content: [
+        {
+          title: "SaaS",
+          url: "/demos/sass",
+        },
+        {
+          title: "Education",
+          url: "/demos/education"
+        },
+        {
+          title: "Health Care",
+          url: "/demos/health-care"
+        },
+        {
+          title: "Ecommerce",
+          url: "/demos/ecommerce"
+        },
+        {
+          title: "Beauty Hair Salon",
+          url: "/demos/salon"
+        },
+        {
+          title: "Financial Services",
+          url: "/demos/financial-services"
+        }
+      ]
     },
     {
-      text: "Pricing",
-      url: "/pricing"
+      title: "Docs",
+      url: "/docs"
     },
     {
-      text: "Blog",
+      title: "Blog",
       url: "/blog"
     },
     {
-      text: "Contact",
+      title: "Help center",
+      url: "/help-center"
+    },
+    {
+      title: "Contact",
       url: "/contact"
     }
   ],
-  button: {
-    text: "Get started for free",
-    url: "/register"
-  }
+  isLoginEnabled: false
 }
 
-interface Props {
+const ListItem = ( { title, href, children }: { title: string, href: string, children?: React.ReactNode }) => {
+  return (
+    <li className="px-3 py-1 rounded hover:bg-gray-100 transition-colors duration-500">
+      <Link href={href}>
+        {children ? (
+          <>
+            <div className="font-semibold">{title}</div>
+            <div>{children}</div>
+          </>
+        ) : (
+          <div>{title}</div>
+        )}
+      </Link>
+    </li>
+  )
+}
+
+interface HeaderProps {
   data?: {
     logo: {
       src: string
     },
     nav: Array<{
-      text: string
-      url: string
+      title: string
+      url?: string
+      content?: Array<{
+        title: string
+        url: string
+      }>
     }>
+    isLoginEnabled?: boolean
     button?: {
       text: string
       url: string
     }
   }
-  variant?: "white" | "blue"
+  logoAlignments?: 'center' | 'left'
+  navAlignment?: 'center' | 'left' | 'right' // this property is for XL screens
+  backgroundColor?: 'white' | 'transparent' 
 }
 
-const Header = ({ data = dummyData, variant }: Props) => {
-  const { nav, button } = data
+const Header = ({ data = dummyData, navAlignment = 'right' }: HeaderProps) => {
+  const { nav, button, isLoginEnabled } = data
   const fixed = useStickyOnScroll()
   const [ showed, setShowed ] = useState(false)
 
   return (
     <header className={classNames(
-      "flex p-4 lg:px-32 lg:py-5 justify-between items-center bg-white",
+      "relative flex p-4 lg:px-32 lg:py-5 items-center bg-white z-[99999]",
       { "sticky w-full z-50 top-0 shadow-md": fixed },
     )}>
       <div>
@@ -72,56 +124,114 @@ const Header = ({ data = dummyData, variant }: Props) => {
       </div>
 
       {/* MOBILE NAV */}
-      <div className={classNames("absolute top-0 left-0 p-4 lg:px-32 lg:py-5 bg-white w-full h-screen",
-        { "hidden": !showed }
+      <NavigationMenu.Root className={classNames(
+        "xl:hidden w-screen h-screen absolute top-full left-0 z-[99999] bg-white",
+        { "hidden": !showed}
       )}>
-        <FontAwesomeIcon className="absolute right-5 top-5" width={26} icon={faXmark} size="xl" onClick={() => setShowed(false)}/>
-        <nav className={classNames(
-          "flex flex-col pt-20 justify-start gap-5",
-          
+        <NavigationMenu.List>
+          {nav.map(item => (
+            <NavigationMenu.Item key={item.title}>
+              { item.url && (
+                <NavigationMenu.Link className="py-2 px-3 select-none inline-block" href={item.url}>
+                  {item.title}
+                </NavigationMenu.Link>
+              )}
+              { item.content && (
+                <>
+                  <NavigationMenu.Trigger className="py-2 px-3 select-none">
+                    {item.title} <FontAwesomeIcon className="CaretDown " icon={faChevronDown} size="2xs" width={10} />
+                  </NavigationMenu.Trigger>
+                  <NavigationMenu.Content className="">
+                    <ul className="List one">
+                      {item.content.map(subItem => (
+                        <ListItem key={subItem.title} href={subItem.url} title={subItem.title} />
+                      ))}
+                    </ul>
+                  </NavigationMenu.Content>
+                </>
+              )}
+            </NavigationMenu.Item>
+          ))}
+        </NavigationMenu.List>
+      </NavigationMenu.Root>
+
+      
+      <NavigationMenu.Root
+        className={classNames(
+        "hidden xl:flex relative w-full",
+        { "justify-center": navAlignment === "center"},
+        { "justify-start": navAlignment === "left"},
+        { "justify-end": navAlignment === "right"},
+      )}>
+        <NavigationMenu.List className={classNames(
+          "flex justify-center p-2 list-none m-0",
         )}>
           {nav.map(item => (
-            <div key={item.text}>
-              <Link href={item.url} className="px-3 py-1">
-                {item.text}
-              </Link>
-            </div>
+            <NavigationMenu.Item key={item.title}>
+              { item.url && (
+                <NavigationMenu.Link className="py-2 px-3 select-none inline-block" href={item.url}>
+                  {item.title}
+                </NavigationMenu.Link>
+              )}
+              { item.content && (
+                <>
+                  <NavigationMenu.Trigger className="py-2 px-3 select-none">
+                    {item.title} <FontAwesomeIcon className="CaretDown " icon={faChevronDown} size="2xs" width={10} />
+                  </NavigationMenu.Trigger>
+                  <NavigationMenu.Content className="NavigationMenuContent">
+                    <ul className="List one">
+                      {/* <li className="row-span-6">
+                        <NavigationMenu.Link asChild>
+                          <a className="Callout" href="/">
+                            <div className="CalloutHeading">
+                              {item.title}
+                            </div>
+                            <p className="CalloutText">Bluebiz theme</p>
+                          </a>
+                        </NavigationMenu.Link>
+                      </li> */}
+                      {item.content.map(subItem => (
+                        <ListItem key={subItem.title} href={subItem.url} title={subItem.title} />
+                      ))}
+                    </ul>
+                  </NavigationMenu.Content>
+                </>
+              )}
+            </NavigationMenu.Item>
           ))}
-          <div className="self-end w-full flex justify-center items-center">
-            <Link href="/login" className="px-3 py-1">
-              Login
-            </Link>
-            <Button variant="border">
-              Get started for free
-            </Button>
-          </div>
-        </nav>
-      </div>
 
-      <nav className="hidden xl:flex gap-5 items-center">
-        {nav.map(item => (
-          <div key={item.text}>
-            <Link href={item.url} className="px-3 py-1 rounded hover:bg-blue-100 hover:text-blue-600 transition-all duration-300">
-              {item.text}
-            </Link>
-          </div>
-        ))}
-      </nav>
+          <NavigationMenu.Indicator className="NavigationMenuIndicator">
+            <div className="Arrow" />
+          </NavigationMenu.Indicator>
+        </NavigationMenu.List>
 
-      <div className="flex gap-4 items-center">
+        <div className={classNames(
+          // "ViewportPosition",
+          "absolute flex w-full top-full left-0",
+          { "justify-center": navAlignment === "center"},
+          { "justify-start": navAlignment === "left"},
+          { "justify-end": navAlignment === "right"}
+        )}>
+          <NavigationMenu.Viewport className="NavigationMenuViewport" />
+        </div>
+      </NavigationMenu.Root>
+
+      { isLoginEnabled && (
         <Link href="/login" className="px-3 py-1 rounded hover:bg-blue-100 hover:text-blue-600 transition-all duration-300 hidden lg:block">
           Login
         </Link>
-        <div className="hidden lg:block">
-          {button && (
-            <Button variant="border" url={button.url}>
-              {button.text}
-            </Button>
-          )}
-        </div>
-        <div className="xl:hidden">
-          <FontAwesomeIcon className="cursor-pointer" width={26} icon={faBars} size="xl" onClick={() => setShowed(true)}/>
-        </div>
+      )}
+      <div className="hidden lg:block">
+        {button && (
+          <Button variant="border" url={button.url}>
+            {button.text}
+          </Button>
+        )}
+      </div>
+      <div className="xl:hidden ml-auto">
+        { !showed && <FontAwesomeIcon className="cursor-pointer" width={26} icon={faBars} size="xl" onClick={() => setShowed(true)}/> }
+        { showed && <FontAwesomeIcon className="cursor-pointer" width={26} icon={faXmark} size="xl" onClick={() => setShowed(false)}/>}
+        
       </div>
     </header>
   )
