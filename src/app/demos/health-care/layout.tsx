@@ -20,23 +20,23 @@ const headerData = {
   },
   nav: [
     {
-      text: "Home",
+      title: "Home",
       url: "/"
     },
     {
-      text: "About",
+      title: "About",
       url: "/about"
     },
     {
-      text: "Departments",
+      title: "Departments",
       url: "/departments"
     },
     {
-      text: "Doctors",
+      title: "Doctors",
       url: "/doctors"
     },
     {
-      text: "Contacts",
+      title: "Contacts",
       url: "/contacts"
     },
   ],

@@ -20,19 +20,19 @@ const headerData = {
   },
   nav: [
     {
-      text: "ABOUT",
+      title: "ABOUT",
       url: "/demos/education/about"
     },
     {
-      text: "FACILITIES",
+      title: "FACILITIES",
       url: "/demos/education/facilities"
     },
     {
-      text: "NEWS",
+      title: "NEWS",
       url: "/demos/education/news"
     },
     {
-      text: "ADMISSIONS",
+      title: "ADMISSIONS",
       url: "/demos/education/admissions"
     },
   ],
