@@ -1,15 +1,14 @@
 'use client'
 
 import ImageHero from "@/components/elements/ImageHero/ImageHero"
-import Accordion from "@/components/elements/Accordion/Accordion"
 import Card from "@/components/elements/Card/Card"
 import FlexBox from "@/components/elements/FlexBox/FlexBox"
 import GridBox from "@/components/elements/GridBox/GridBox"
 import Section from "@/components/elements/Section/Section"
 import Testimonials from "@/components/sections/Testimonials/Testimonials"
-import { ButtonType } from "@/components/elements/ImageHero/ImageHero"
+import { ButtonVariant } from "@/components/elements/Button/Button"
 
-const dummyData = {
+const defaultPageData = {
   sections: {
     heroSection: {
       label: "Welcome to Medilife Clinic",
@@ -19,12 +18,12 @@ const dummyData = {
         {
           text: "MAKE AN APPOINTMENT",
           url: "#make-an-appointment",
-          type: "primary" as ButtonType,
+          type: "primary" as ButtonVariant,
         },
         {
           text: "DEPARTMENTS",
           url: "/departments",
-          type: "secondary" as ButtonType,
+          type: "secondary" as ButtonVariant,
         }
       ],
       media: {
@@ -235,8 +234,8 @@ const dummyData = {
   }
 }
 
-export default function Home() {
-  const { heroSection, featuresSection, departmentsSection, doctorsSection, testimonialsSection, contactSection } = dummyData.sections
+export default function Home({ data = defaultPageData}) {
+  const { heroSection, featuresSection, departmentsSection, doctorsSection, testimonialsSection, contactSection } = data.sections
   return (
     <main className="flex flex-col min-h-screen gap-20 pb-24">
       <ImageHero data={heroSection} textAlignment="left" textDarkBackground />

@@ -11,57 +11,23 @@ import './styles.css';
 
 const dummyData = {
   logo: {
-    text: "bluebiz",
-    src: ""
+    text: "Bluebiz",
+    src: "",
   },
   nav: [
     {
-      title: "Demos",
-      content: [
-        {
-          title: "SaaS",
-          url: "/demos/sass",
-        },
-        {
-          title: "Education",
-          url: "/demos/education"
-        },
-        {
-          title: "Health Care",
-          url: "/demos/health-care"
-        },
-        {
-          title: "Ecommerce",
-          url: "/demos/ecommerce"
-        },
-        {
-          title: "Beauty Hair Salon",
-          url: "/demos/salon"
-        },
-        {
-          title: "Financial Services",
-          url: "/demos/financial-services"
-        }
-      ]
+      title: "INTRO",
+      url: "/intro"
     },
     {
-      title: "Docs",
-      url: "/docs"
+      title: "CONTACT",
+      url: "/contact"
     },
     {
-      title: "Blog",
+      title: "BLOG",
       url: "/blog"
     },
-    {
-      title: "Help center",
-      url: "/help-center"
-    },
-    {
-      title: "Contact",
-      url: "/contact"
-    }
   ],
-  isLoginEnabled: false
 }
 
 const ListItem = ( { title, href, children }: { title: string, href: string, children?: React.ReactNode }) => {

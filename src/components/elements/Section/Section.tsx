@@ -7,12 +7,13 @@ interface Props {
   children: React.ReactNode
   framed?: boolean
   className?: string
+  id?: string
 }
 
-const Section = ( { title, label, subtitle, children, framed = true, className }: Props) => {
+const Section = ( { title, label, subtitle, children, framed = true, className, id }: Props) => {
 
   return (
-    <section className={classNames(
+    <section id={id} className={classNames(
       "flex flex-col items-center ",
       { "px-4 md:px-8 lg:px-20 xl:px-32": framed}, // @TODO make framed padding Global Settings
       className,

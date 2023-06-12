@@ -1,8 +1,7 @@
 import Image from "next/image"
 import classNames from "classnames";
-import Button from "@/components/elements/Button/Button";
+import Button , {ButtonVariant} from "@/components/elements/Button/Button";
 
-export type ButtonType = "primary" | "secondary"
 interface Props {
   data: {
     label: string
@@ -11,7 +10,7 @@ interface Props {
     buttons?: Array<{
       text: string
       url: string
-      type: ButtonType
+      type: ButtonVariant
     }>
     media: {
       type: string

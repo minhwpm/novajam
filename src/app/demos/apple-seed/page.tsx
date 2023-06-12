@@ -1,15 +1,10 @@
-
-
 'use client'
 
 import ImageHero from "@/components/elements/ImageHero/ImageHero"
-import Accordion from "@/components/elements/Accordion/Accordion"
 import Card from "@/components/elements/Card/Card"
 import FlexBox from "@/components/elements/FlexBox/FlexBox"
 import GridBox from "@/components/elements/GridBox/GridBox"
 import Section from "@/components/elements/Section/Section"
-import Testimonials from "@/components/sections/Testimonials/Testimonials"
-import { ButtonType } from "@/components/elements/ImageHero/ImageHero"
 import Image from "next/image"
 
 const dummyData = {

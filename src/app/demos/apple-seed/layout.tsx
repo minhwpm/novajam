@@ -21,15 +21,15 @@ const headerData = {
   nav: [
     {
       title: "INTRO",
-      url: "/intro"
+      url: "/demos/apple-seed/intro"
     },
     {
       title: "CONTACT",
-      url: "/contact"
+      url: "/demos/apple-seed/contact"
     },
     {
       title: "BLOG",
-      url: "/blog"
+      url: "/demos/apple-seed/blog"
     },
   ],
 }

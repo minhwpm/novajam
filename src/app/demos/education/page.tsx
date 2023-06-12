@@ -7,7 +7,7 @@ import FlexBox from "@/components/elements/FlexBox/FlexBox"
 import GridBox from "@/components/elements/GridBox/GridBox"
 import Section from "@/components/elements/Section/Section"
 import Testimonials from "@/components/sections/Testimonials/Testimonials"
-import { ButtonType } from "@/components/elements/ImageHero/ImageHero"
+import { ButtonVariant } from "@/components/elements/Button/Button"
 
 const dummyData = {
   sections: {
@@ -19,12 +19,12 @@ const dummyData = {
         {
           text: "Find a course",
           url: "/register",
-          type: "primary" as ButtonType
+          type: "primary" as ButtonVariant
         },
         {
           text: "Apply now",
           url: "/apply",
-          type: "secondary" as ButtonType
+          type: "secondary" as ButtonVariant
         }
       ],
       media: {

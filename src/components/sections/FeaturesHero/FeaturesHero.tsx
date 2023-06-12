@@ -27,10 +27,13 @@ const dummyData = {
   title: "Unlock the full potential of a business platform",
   subtitle:
     "Bluebiz is a top-rated platform for small and medium businesses to grow sales through outstanding customer service.",
-  button: {
-    text: "Get started now",
-    url: "/register",
-  },
+  buttons: [
+    {
+      text: "Get started now",
+      url: "/register",
+      type: "primary"
+    },
+  ],
   media: {
     type: "image",
     src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/hero.webp",
@@ -38,7 +41,7 @@ const dummyData = {
 };
 
 const FeaturesHero = ({ data = dummyData }: Props) => {
-  const { label, title, subtitle, button, media } = data;
+  const { label, title, subtitle, buttons, media } = data;
   const [animated, setAnimated] = useState(false);
   const [ref, isVisible] = useInView({
     threshold: 0.3,
@@ -86,10 +89,12 @@ const FeaturesHero = ({ data = dummyData }: Props) => {
         <p className={classNames("md:text-lg mb-10", animationClasses)}>
           {subtitle}
         </p>
-        <div className={classNames(animationClasses)}>
-          <Button variant="primary" size="lg" url={button.url}>
-            {button.text}
-          </Button>
+        <div className={classNames("flex flex-row flex-wrap gap-6", animationClasses)}>
+          {buttons && buttons.length > 0 && buttons.map((button: ButtonProps) => (
+            <Button key={button.text} variant={button.type} size="lg" url={button.url}>
+              {button.text}
+            </Button>
+          ))}
         </div>
       </div>
       <div className="lg:w-7/12">
