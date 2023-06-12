@@ -8,7 +8,7 @@ interface Props {
     label: string
     title: string
     subtitle: string
-    buttons: Array<{
+    buttons?: Array<{
       text: string
       url: string
       type: ButtonType
@@ -47,17 +47,23 @@ const ImageHero = ( { data = dummyData, aspectRatio = "video", textAlignment = "
   const { label, title, subtitle, buttons, media } = data
   return (
     <div className="relative">
-      <Image
-        className={classNames("w-full object-cover",
-          { "aspect-5/2": aspectRatio === "5/2" },
-          { "aspect-video": aspectRatio === "video" },
-        )} 
-        src={media.src}
-        alt={title}
-        width={500}
-        height={400}
-        priority={true}
-      />
+      {media.type === "image" && (
+        <Image
+          className={classNames("w-full object-cover",
+            { "aspect-5/2": aspectRatio === "5/2" },
+            { "aspect-video": aspectRatio === "video" },
+          )} 
+          src={media.src}
+          alt={title}
+          width={500}
+          height={400}
+          priority={true}
+        />
+      )}
+
+      {media.type === "video" && (
+        <video src={media.src} autoPlay={true} loop />
+      )}
       <div className={classNames("absolute text-white px-8 py-12",
         { "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full": textAlignment === "center" },
         { "top-1/2 left-4 md:left-32 -translate-y-1/2 w-1/2": textAlignment === "left" },
@@ -75,7 +81,7 @@ const ImageHero = ( { data = dummyData, aspectRatio = "video", textAlignment = "
         <div className={classNames("flex flex-row flex-wrap gap-6",
           {"justify-center": textAlignment === "center"}
         )}>
-        {buttons.length > 0 && buttons.map(button => (
+        {buttons && buttons.length > 0 && buttons.map(button => (
           <Button key={button.text} variant={button.type} size="lg" url={button.url}>
             {button.text}
           </Button>

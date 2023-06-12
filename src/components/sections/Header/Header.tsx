@@ -11,6 +11,7 @@ import './styles.css';
 
 const dummyData = {
   logo: {
+    text: "bluebiz",
     src: ""
   },
   nav: [
@@ -83,6 +84,7 @@ const ListItem = ( { title, href, children }: { title: string, href: string, chi
 interface HeaderProps {
   data?: {
     logo: {
+      text: string
       src: string
     },
     nav: Array<{
@@ -105,7 +107,7 @@ interface HeaderProps {
 }
 
 const Header = ({ data = dummyData, navAlignment = 'right' }: HeaderProps) => {
-  const { nav, button, isLoginEnabled } = data
+  const { logo, nav, button, isLoginEnabled } = data
   const fixed = useStickyOnScroll()
   const [ showed, setShowed ] = useState(false)
 
@@ -118,7 +120,7 @@ const Header = ({ data = dummyData, navAlignment = 'right' }: HeaderProps) => {
         <Link href="/">
           <div className="flex items-center font-semibold text-blue-600 text-3xl italic tracking-widest">
             <FontAwesomeIcon width={26} icon={faCloudBolt} />
-            <div>bluebiz</div>
+            <div>{logo.text}</div>
           </div>
         </Link>
       </div>

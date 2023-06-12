@@ -1,7 +1,7 @@
 import classNames from "classnames"
 
 interface Props {
-  gap?: 5 | 7 | 9
+  gap?: 0 | 5 | 7 | 9
   columns?: 2 | 3 | 4
   className?: string // @TODO implement style config instead of passing className here
   children: React.ReactNode
