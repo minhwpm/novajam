@@ -9,7 +9,7 @@ import Section from "@/components/elements/Section/Section"
 import Testimonials from "@/components/sections/Testimonials/Testimonials"
 import { ButtonVariant } from "@/components/elements/Button/Button"
 
-const dummyData = {
+const defaultPageData = {
   sections: {
     heroSection: {
       label: "",
@@ -155,7 +155,7 @@ const dummyData = {
 }
 
 export default function Home() {
-  const { heroSection, featuresSection, eventSection, testimonialsSection } = dummyData.sections
+  const { heroSection, featuresSection, eventSection, testimonialsSection } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen gap-20 pb-24">
       <ImageHero data={heroSection} />

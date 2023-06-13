@@ -61,30 +61,6 @@ const defaultPageData = {
           },
           url: "/demos/health-care/"
         },
-        // {
-        //   title: "Beauty Salon",
-        //   image: {
-        //     src: "",
-        //     altText: ""
-        //   },
-        //   url: "/demos/beauty-salon/"
-        // },
-        // {
-        //   title: "Ecommerce",
-        //   image: {
-        //     src: "",
-        //     altText: ""
-        //   },
-        //   url: "/demos/ecommerce/"
-        // },
-        // {
-        //   title: "Financial Services",
-        //   image: {
-        //     src: "",
-        //     altText: ""
-        //   },
-        //   url: "/demos/financial-services/"
-        // }
       ]
     },
     cta: {
@@ -96,9 +72,8 @@ const defaultPageData = {
     }
   }
 }
-
-export default function Home({ data = defaultPageData}) {
-  const { hero, features, cta} = data.sections
+export default function Home() {
+  const { hero, features, cta} = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen gap-20 pb-24">
       <Hero data={hero} />

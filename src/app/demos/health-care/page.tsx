@@ -234,8 +234,8 @@ const defaultPageData = {
   }
 }
 
-export default function Home({ data = defaultPageData}) {
-  const { heroSection, featuresSection, departmentsSection, doctorsSection, testimonialsSection, contactSection } = data.sections
+export default function Home() {
+  const { heroSection, featuresSection, departmentsSection, doctorsSection, testimonialsSection, contactSection } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen gap-20 pb-24">
       <ImageHero data={heroSection} textAlignment="left" textDarkBackground />

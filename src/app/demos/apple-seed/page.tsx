@@ -7,7 +7,7 @@ import GridBox from "@/components/elements/GridBox/GridBox"
 import Section from "@/components/elements/Section/Section"
 import Image from "next/image"
 
-const dummyData = {
+const defaultPageData = {
   sections: {
     heroSection: {
       label: "",
@@ -64,7 +64,7 @@ const dummyData = {
 }
 
 export default function Home() {
-  const { heroSection, eventSection } = dummyData.sections
+  const { heroSection, eventSection } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen pb-24">
       <ImageHero data={heroSection} />
