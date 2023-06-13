@@ -85,7 +85,7 @@ const Header = ({ data = dummyData, navAlignment = 'right' }: HeaderProps) => {
       <div>
         <Link href="/">
           <div className="flex items-center font-semibold text-blue-600 text-3xl italic tracking-widest">
-            <FontAwesomeIcon width={26} icon={faCloudBolt} />
+            {/* <FontAwesomeIcon width={26} icon={faCloudBolt} /> */}
             <div>{logo.text}</div>
           </div>
         </Link>

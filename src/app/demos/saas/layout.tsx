@@ -10,13 +10,13 @@ const font = Poppins({
 })
 
 export const metadata = {
-  title: 'PacificDigital',
-  description: 'Saas website theme',
+  title: 'Celestial',
+  description: 'Celestial theme - Saas',
 }
 
 const headerData = {
   logo: {
-    text: "Pacific Digital",
+    text: "Celestial",
     src: "",
   },
   nav: [

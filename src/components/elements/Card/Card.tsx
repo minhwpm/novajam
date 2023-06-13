@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 interface Props {
   data: {
+    label?: string
     title: string
     content?: string
     image?: {
@@ -28,7 +29,7 @@ const Card = ({
   rounded,
   imagePosition = "top"
 }: Props) => {
-  const { title, content, url } = data
+  const { label, title, content, url } = data
   return (
     <div className={classNames(
       "relative flex flex-col justify-center shrink-0 bg-white",
@@ -64,6 +65,9 @@ const Card = ({
         { "absolute bottom-0 bg-gradient-to-t from-gray-900/90 to-transparent text-white": data.image?.src && imagePosition === "overlay" },
         { "rounded-b-2xl": rounded }
       )}>
+        <p className="text-sm uppercase tracking-widest mb-3">
+          {label}
+        </p>
         <h4 className="text-2xl font-medium mb-3">
           {url ? (
             <Link href={url}>

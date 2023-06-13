@@ -9,12 +9,12 @@ const defaultPageData = {
   sections: {
     hero: {
       label: "WELCOME TO BLUEBIZ",
-      title: "Make your landing page come true with",
+      title: "Make your website come true with",
       subtitle:
         "Bluebiz is a Multipurpose Modular Theme for small and medium businesses with high performance React - NextJS technology.",
       buttons: [
         {
-          text: "Add to Cart",
+          text: "Buy now",
           type: "primary" as ButtonVariant
         },
         {
@@ -31,9 +31,20 @@ const defaultPageData = {
     },
     features: {
       label: "Eye-Catching Demos",
-      title: "Explore our +50 Pre-Designed Pages",
+      title: "Explore our Pre-Designed Pages",
       sections: [
+        
         {
+          label: "Esmeralda",
+          title: "University",
+          image: {
+            src: "",
+            altText: ""
+          },
+          url: "/demos/education/"
+        },
+        {
+          label: "Celestial",
           title: "Saas",
           image: {
             src: "",
@@ -42,6 +53,7 @@ const defaultPageData = {
           url: "/demos/saas/"
         },
         {
+          label: "Aquarium",
           title: "Health Care",
           image: {
             src: "",
@@ -49,45 +61,37 @@ const defaultPageData = {
           },
           url: "/demos/health-care/"
         },
-        {
-          title: "Beauty Salon",
-          image: {
-            src: "",
-            altText: ""
-          },
-          url: "/demos/beauty-salon/"
-        },
-        {
-          title: "Education",
-          image: {
-            src: "",
-            altText: ""
-          },
-          url: "/demos/education/"
-        },
-        {
-          title: "Ecommerce",
-          image: {
-            src: "",
-            altText: ""
-          },
-          url: "/demos/ecommerce/"
-        },
-        {
-          title: "Financial Services",
-          image: {
-            src: "",
-            altText: ""
-          },
-          url: "/demos/financial-services/"
-        }
+        // {
+        //   title: "Beauty Salon",
+        //   image: {
+        //     src: "",
+        //     altText: ""
+        //   },
+        //   url: "/demos/beauty-salon/"
+        // },
+        // {
+        //   title: "Ecommerce",
+        //   image: {
+        //     src: "",
+        //     altText: ""
+        //   },
+        //   url: "/demos/ecommerce/"
+        // },
+        // {
+        //   title: "Financial Services",
+        //   image: {
+        //     src: "",
+        //     altText: ""
+        //   },
+        //   url: "/demos/financial-services/"
+        // }
       ]
     },
     cta: {
-      title: "Grow your business plan with with our Bluebiz",
+      title: "Grow your business plan with Bluebiz",
       subtitle: "Easy-to-setup > Easy-to-use > Easy-to-scale with 6-month support services.",
       button: {
-        text: "Add to cart",
+        text: "Buy now",
       }
     }
   }

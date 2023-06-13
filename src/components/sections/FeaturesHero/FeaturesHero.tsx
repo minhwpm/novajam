@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/elements/Button/Button";
+import Button, { ButtonVariant } from "@/components/elements/Button/Button";
 import classNames from "classnames";
 import { useState } from "react";
 import { useInView } from "react-hook-inview";
@@ -8,18 +8,21 @@ import Image from 'next/image';
 
 interface Props {
   data?: {
-    label: string;
-    title: string;
-    subtitle: string;
-    button: {
-      text: string;
-      url: string;
-    };
+    label: string
+    title: string
+    subtitle: string
+    buttons: Array<
+      {
+        text: string
+        url: string
+        type: ButtonVariant
+      }
+    >
     media: {
-      type: string;
-      src: string;
-    };
-  };
+      type: string
+      src: string
+    }
+  }
 }
 
 const dummyData = {
@@ -31,8 +34,8 @@ const dummyData = {
     {
       text: "Get started now",
       url: "/register",
-      type: "primary"
-    },
+      type: "primary" as ButtonVariant
+    }
   ],
   media: {
     type: "image",
@@ -90,7 +93,7 @@ const FeaturesHero = ({ data = dummyData }: Props) => {
           {subtitle}
         </p>
         <div className={classNames("flex flex-row flex-wrap gap-6", animationClasses)}>
-          {buttons && buttons.length > 0 && buttons.map((button: ButtonProps) => (
+          {buttons && buttons.length > 0 && buttons.map(button => (
             <Button key={button.text} variant={button.type} size="lg" url={button.url}>
               {button.text}
             </Button>

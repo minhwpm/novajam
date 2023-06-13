@@ -1,6 +1,6 @@
 import Image from "next/image"
 import classNames from "classnames";
-import Button , {ButtonVariant} from "@/components/elements/Button/Button";
+import Button , { ButtonVariant } from "@/components/elements/Button/Button";
 
 interface Props {
   data: {
@@ -33,7 +33,7 @@ const dummyData = {
     {
       text: "Get started now",
       url: "/register",
-      type: "primary" as ButtonType
+      type: "primary" as ButtonVariant
     },
   ],
   media: {

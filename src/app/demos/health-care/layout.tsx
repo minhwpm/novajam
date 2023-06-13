@@ -10,12 +10,12 @@ const font = Merriweather({
 })
 
 export const metadata = {
-  title: 'AQUA+',
-  description: 'AQUA+ theme',
+  title: 'AQUA',
+  description: 'AQUA theme - Clinic',
 }
 const headerData = {
   logo: {
-    text: "AQUA+",
+    text: "AQUA",
     src: "",
   },
   nav: [
