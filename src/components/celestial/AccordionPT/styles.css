@@ -1,0 +1,41 @@
+/* .TabsTrigger[data-state='active'] > span:last-child {
+  border-bottom: 3px solid black;
+}
+ */
+
+.Item[data-state='open'] {
+  @apply shadow-lg pb-6
+}
+.Item[data-state='closed']:hover {
+  @apply bg-gray-100
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+.Content {
+  overflow: hidden;
+}
+
+.Content[data-state='open'] {
+  animation: slideDown 300ms ease-in-out;
+}
+.Content[data-state='closed'] {
+  animation: slideUp 300ms ease-in-out;
+}
+
+/* @TODO animation slideUp slideDown */
