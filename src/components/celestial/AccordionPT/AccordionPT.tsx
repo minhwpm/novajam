@@ -44,7 +44,7 @@ const VTabs = ({data}: TabsProps) => {
                 value={item.title}
                 asChild
               >
-                <div className="TabsTrigger py-4 px-6 cursor-pointer rounded-xl">
+                <div className="TabsTrigger py-4 px-6 cursor-pointer rounded-xl ">
                   {item.label && (
                     <p className="block uppercase tracking-widest">
                       {item.label}

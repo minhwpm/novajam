@@ -30,7 +30,7 @@ const dummyData = [
 const Accordion = ({ data = dummyData}) => {
 
   return (
-    <RadixAccordion.Root className="w-full lg:w-2/3" type="multiple">
+    <RadixAccordion.Root className="w-full lg:w-2/3" type="multiple" collapsible>
       {data.map((item, idx) => (
         <RadixAccordion.Item key={item.title} value={`item-${idx}`} className="mb-6 text-lg overflow-hidden">
           <RadixAccordion.Trigger className="AccordionTrigger w-full flex justify-between text-blue-600 font-medium py-4">

@@ -1,11 +1,9 @@
 'use client'
 
 import ImageHero from "@/components/elements/ImageHero/ImageHero"
-import Card from "@/components/elements/Card/Card"
-import FlexBox from "@/components/elements/FlexBox/FlexBox"
 import GridBox from "@/components/elements/GridBox/GridBox"
 import Section from "@/components/elements/Section/Section"
-import Tabs from "@/components/blueberry/Tabs/Tabs"
+import TabPT from "@/components/blueberry/TabPT/TabPT"
 import Image from "next/image"
 
 const defaultPageData = {
@@ -73,7 +71,7 @@ export default function Home() {
         className="min-h-screen py-16"
         title={presentationSection.title}
       >
-        <Tabs data={presentationSection.slides} />
+        <TabPT data={presentationSection.slides} />
       </Section>
 
       <Section framed={false} className="bg-indigo-50">

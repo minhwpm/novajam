@@ -5,7 +5,7 @@ import classNames from "classnames";
 import Image from 'next/image';
 import "./styles.css"
 
-interface TabsProps {
+interface Props {
   data?: Array<{
     label?: string
     title: string
@@ -19,26 +19,31 @@ interface TabsProps {
   }>
 }
 
-const Tabs = ({data}: TabsProps) => {
+const TabPT = ({data}: Props) => {
   const [ activeItem, setActiveItem ] = React.useState(data ? data[0].title : '')
   if (data && data.length > 0) {
     return (
       <RadixTabs.Root defaultValue={data[0].title} onValueChange={(value) => setActiveItem(value)}>
         <RadixTabs.List className="md:flex md:justify-center" aria-label="">
-          {data.map((item) => (
+          {data.map((item,idx) => (
             <RadixTabs.Trigger
               key={item.title}
               value={item.title}
-              className="TabsTrigger px-5 py-3 text-center cursor-pointer"
+              className="Trigger text-center cursor-pointer border-2"
             >
-              {item.label && (
-                <span className="block uppercase tracking-widest">
-                  {item.label}
+              <div className={classNames(
+                "px-5 pt-3",
+                {"border-r border-gray-300": idx < data.length - 1}
+              )}>
+                {item.label && (
+                  <span className="block uppercase tracking-widest">
+                    {item.label}
+                  </span>
+                )}
+                <span className="block font-bold text-2xl pb-2 border-b-[3px] border-transparent">
+                  {item.title}
                 </span>
-              )}
-              <span className="block font-bold text-2xl pb-3 border-b-[3px] border-transparent">
-                {item.title}
-              </span>
+                </div>
             </RadixTabs.Trigger>
           ))}
         </RadixTabs.List>
@@ -83,4 +88,4 @@ const Tabs = ({data}: TabsProps) => {
   return <></>
 }
 
-export default Tabs
+export default TabPT

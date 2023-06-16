@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        'shadow-all-directions': 'rgba(0, 27, 71, 0.28) 0px 2px 8px 0px'
+      },
       aspectRatio: {
         '3/4': '3 / 4',
         '4/3': '4 / 3',
