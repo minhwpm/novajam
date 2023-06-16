@@ -1,0 +1,8 @@
+.TabsTrigger[data-state='active'] > span:last-child {
+  border-bottom: 3px solid black;
+}
+
+
+.TabsTrigger[data-state='inactive'] {
+  opacity: 0.3;
+}

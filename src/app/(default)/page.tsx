@@ -33,7 +33,15 @@ const defaultPageData = {
       label: "Eye-Catching Demos",
       title: "Explore our Pre-Designed Pages",
       sections: [
-        
+        {
+          label: "Blueberry",
+          title: "Language Education Program",
+          image: {
+            src: "",
+            altText: ""
+          },
+          url: "/demos/blueberry/"
+        },
         {
           label: "Esmeralda",
           title: "University",

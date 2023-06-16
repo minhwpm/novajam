@@ -31,7 +31,7 @@ const sections = [
   },
 ];
 
-const FeatureRow = () => {
+const ScrollingPresentation = () => {
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
@@ -112,4 +112,4 @@ const FeatureRow = () => {
   );
 };
 
-export default FeatureRow;
+export default ScrollingPresentation;
