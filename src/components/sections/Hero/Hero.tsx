@@ -1,5 +1,4 @@
 import SlidingText from "@/components/elements/SlidingText/SlidingText"
-import FakeMessageBox from "@/components/elements/FakeMessageBox/FakeMessageBox"
 import Button, { ButtonVariant } from "@/components/elements/Button/Button"
 
 const dummyData = {
@@ -24,14 +23,14 @@ interface HeroProps {
   data?: {
     label?: string
     title: string
+    slidingTexts?: Array<{
+      text: string
+    }>
     subtitle?: string
     buttons?: Array<{
       text: string
       url?: string
       type: ButtonVariant
-    }>
-    slidingTexts?: Array<{
-      text: string
     }>
   }
 }

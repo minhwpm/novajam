@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from "classnames"
 
 interface Props {
@@ -38,4 +39,10 @@ const Section = ( { title, label, subtitle, children, framed = true, className, 
   )
 }
 
-export default Section 
+export const Label = ({ children }: {children: React.ReactNode}) => {
+  <p className="uppercase tracking-widest mb-3">
+    {children}
+  </p>
+}
+
+export default Section

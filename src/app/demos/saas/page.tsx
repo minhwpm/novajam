@@ -2,11 +2,12 @@
 
 import ScrollingPresentation from "@/components/sections/ScrollingPresentation/ScrollingPresentation"
 import Testimonials from '@/components/sections/Testimonials/Testimonials'
-import Hero from '@/components/sections/Hero/Hero'
 import ExpandingCTA from "@/components/sections/ExpandingCTA/ExpandingCTA"
-import FeaturesHero from "@/components/sections/FeaturesHero/FeaturesHero"
+import FeaturesHero from "@/components/sections/FeatureHero/FeatureHero"
 import AccordionPT from "@/components/celestial/AccordionPT/AccordionPT"
+import Timeline from "@/components/sections/Timeline/Timeline"
 import Section from "@/components/elements/Section/Section"
+import Accordion from "@/components/elements/Accordion/Accordion"
 
 const defaultPageData = {
   sections: {
@@ -60,6 +61,7 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen gap-20 pb-24">
       <FeaturesHero />
+      <Timeline />
       <Section
         title={presentationSection.title}
         subtitle={presentationSection.subtitle}

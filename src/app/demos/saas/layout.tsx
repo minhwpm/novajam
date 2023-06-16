@@ -21,12 +21,12 @@ const headerData = {
   },
   nav: [
     {
-      title: "INTRO",
-      url: "/demos/saas/intro"
+      title: "HOME",
+      url: "/demos/saas/"
     },
     {
-      title: "FEATURES",
-      url: "/demos/saas/features"
+      title: "FAQ",
+      url: "/demos/saas/faq"
     },
     {
       title: "CONTACT",
