@@ -121,7 +121,15 @@ module.exports = {
             transform: 'translateY(0) scale(1.0)',
             visibility: 'visible'
           }
-        }
+        },
+        headerSlideIn: {
+          '0%': {
+            top: '-100%',
+          },
+          '100%': {
+            top: '0'
+          }
+        },
       },
 
       animation: {
@@ -133,6 +141,7 @@ module.exports = {
         shrinkingWidth: 'shrinkingWidth 0.5s ease-in-out forwards 1',
         poop: 'poop 0.5s ease-in-out forwards 1',
         animationA: 'animationA 0.5s ease-out forwards 1',
+        headerSlideIn: 'headerSlideIn 0.5s ease-out forwards 1',
       }
     },
   },

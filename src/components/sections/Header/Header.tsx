@@ -2,7 +2,8 @@
 import { useState } from "react"
 import Button from "@/components/elements/Button/Button"
 import Link from "next/link"
-import useStickyOnScroll from "@/utils/hooks/useStickyOnScroll"
+import useStickyHeaderOnScrollDown from "@/utils/hooks/useStickyHeaderOnScrollDown"
+import useStickyHeaderOnScrollUp from "@/utils/hooks/useStickyHeaderOnScrollUp"
 import classNames from "classnames"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudBolt, faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
@@ -67,6 +68,7 @@ interface HeaderProps {
       url: string
     }
   }
+  stickyType?: 'none' | 'scroll-up' | 'scroll-down' //@TODO modify Hook later to handle this property
   logoAlignments?: 'center' | 'left'
   navAlignment?: 'center' | 'left' | 'right' // this property is for XL screens
   backgroundColor?: 'white' | 'transparent' 
@@ -74,13 +76,13 @@ interface HeaderProps {
 
 const Header = ({ data = dummyData, navAlignment = 'right' }: HeaderProps) => {
   const { logo, nav, button, isLoginEnabled } = data
-  const fixed = useStickyOnScroll()
+  const sticky = useStickyHeaderOnScrollUp()
   const [ showed, setShowed ] = useState(false)
 
   return (
     <header className={classNames(
       "relative flex p-4 lg:px-32 lg:py-5 items-center bg-white z-[99999]",
-      { "sticky w-full z-50 top-0 shadow-md": fixed },
+      { "sticky w-full z-50 top-0 shadow-md animate-headerSlideIn": sticky },
     )}>
       <div>
         <Link href="/">
