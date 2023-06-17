@@ -1,12 +1,12 @@
 import '@/app/globals.css'
 import { Analytics } from '@vercel/analytics/react';
-import { Source_Sans_Pro } from 'next/font/google'
+import { Noto_Sans } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
 
-const font = Source_Sans_Pro({
+const font = Noto_Sans({
   subsets: ['latin', 'vietnamese'],
   display: 'swap',
-  weight: ["200", "300","400", "600", "700", "900"]
+  weight: ["100", "300","400", "500", "700", "900"]
 })
 
 export const metadata = {

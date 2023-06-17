@@ -51,13 +51,56 @@ const defaultPageData = {
         }
 
       ]
+    },
+    presentationSection2: {
+      label: "",
+      title: "Make customer experience your competitive advantage",
+      subtitle: "",
+      slides: [
+        {
+          label: "",
+          title: "Start conversations, win loyal customers",
+          subtitle: "",
+          content:
+          "Chat with customers. Solve their problems in real time. Offer custom discounts based on browsing history. And make product recommendations based on their behavior.",
+          media: {
+            type: "image",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/f1.webp",
+          },
+          url: ""
+        },
+        {
+          label: "",
+          title: "Automate answers and workflows in minutes",
+          subtitle: "",
+          content:
+          "Automate up to 47% of repetitive answers about shipping, order status, or product availability so your agents can advise on complex topics.",
+          media: {
+            type: "image",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/f2.webp",
+          },
+          url: ""
+        },
+        {
+          label: "",
+          title: "Turn visitors into paying customers",
+          subtitle: "",
+          content:
+          "Make the most of your website traffic with sales chatbots designed to boost your revenue by 10-25%.",
+          media: {
+            type: "image",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/f3.webp",
+          },
+          url: ""
+        },
+      ]
     }
   }
 }
 
 export default function Home() {
 
-  const { presentationSection } = defaultPageData.sections
+  const { presentationSection, presentationSection2 } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen gap-20 pb-24">
       <FeaturesHero />
@@ -68,7 +111,9 @@ export default function Home() {
       >
         <AccordionPT data={presentationSection.slides} />
       </Section>
-      <ScrollingPresentation />
+      <Section title={presentationSection2.title}>
+        <ScrollingPresentation />
+      </Section>
       <Testimonials />
       <ExpandingCTA />
     </main>

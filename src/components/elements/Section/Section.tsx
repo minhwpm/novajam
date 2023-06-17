@@ -20,12 +20,15 @@ const Section = ( { title, label, subtitle, children, framed = true, className, 
       className,
     )}>
       {label && (
-        <p className="uppercase tracking-widest mb-3">
+        <p className="uppercase tracking-widest">
           {label}
         </p>
       )}
       {title && (
-        <h2 className="text-4xl lg:text-5xl leading-snug lg:leading-snug font-semibold text-center max-w-4xl mb-5">
+        <h2 className={classNames("text-4xl lg:text-5xl leading-snug lg:leading-snug font-semibold text-center max-w-4xl",
+          {"mb-5": subtitle},
+          {"mb-12": !subtitle},
+        )}>
           {title}
         </h2>
       )}

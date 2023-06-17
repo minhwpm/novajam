@@ -6,56 +6,65 @@ import FeatureContentItem from "@/components/elements/FeatureContentItem/Feature
 
 const sections = [
   {
-    img: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/f1.webp",
-    content: {
-      title: "Start conversations, win loyal customers",
-      description:
-        "Chat with customers. Solve their problems in real time. Offer custom discounts based on browsing history. And make product recommendations based on their behavior.",
+    label: "",
+    title: "Start conversations, win loyal customers",
+    subtitle: "",
+    content:
+    "Chat with customers. Solve their problems in real time. Offer custom discounts based on browsing history. And make product recommendations based on their behavior.",
+    media: {
+      type: "image",
+      src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/f1.webp",
     },
+    url: ""
   },
   {
-    img: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/f2.webp",
-    content: {
-      title: "Automate answers and workflows in minutes",
-      description:
-        "Automate up to 47% of repetitive answers about shipping, order status, or product availability so your agents can advise on complex topics.",
+    label: "",
+    title: "Automate answers and workflows in minutes",
+    subtitle: "",
+    content:
+    "Automate up to 47% of repetitive answers about shipping, order status, or product availability so your agents can advise on complex topics.",
+    media: {
+      type: "image",
+      src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/f2.webp",
     },
+    url: ""
   },
   {
-    img: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/f3.webp",
-    content: {
-      title: "Turn visitors into paying customers",
-      description:
-        "Make the most of your website traffic with sales chatbots designed to boost your revenue by 10-25%.",
+    label: "",
+    title: "Turn visitors into paying customers",
+    subtitle: "",
+    content:
+    "Make the most of your website traffic with sales chatbots designed to boost your revenue by 10-25%.",
+    media: {
+      type: "image",
+      src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/f3.webp",
     },
+    url: ""
   },
 ];
 
-const ScrollingPresentation = () => {
+const ScrollingPresentation = ( { data = sections}) => {
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
-    <section className="px-4 lg:px-32">
-      <h2 className="text-4xl leading-snug lg:text-5xl lg:leading-snug text-center max-w-screen-lg font-semibold mb-16 mx-auto">
-        Make customer experience your competitive advantage
-      </h2>
+    <>
       {/* FOR MOBILE, TABLETS */}
       <div className="xl:hidden">
-        {sections.map((section, idx) => (
-          <div key={section.content.title} className="mb-20">
+        {data.map((section, idx) => (
+          <div key={section.title} className="mb-20">
             <div className="mb-10">
               <h3 className="font-semibold text-3xl lg:text-4xl leading-snug mb-6">
-                {section.content.title}
+                {section.title}
               </h3>
               <p className="text-base md:text-lg lg:text-xl leading-relaxed">
-                {section.content.description}
+                {section.content}
               </p>
             </div>
             <div className="md:w-3/5 mx-auto">
               <Image
                 className="w-full object-cover"
-                src={section.img}
-                alt={section.content.title}
+                src={section.media.src}
+                alt={section.title}
                 width={500}
                 height={500}
               />
@@ -69,9 +78,9 @@ const ScrollingPresentation = () => {
         <div className="relative w-3/5">
           <div className="sticky top-20">
             <div className="relative h-[80vh]">
-              {sections.map((section, idx) => (
+              {data.map((section, idx) => (
                 <div
-                  key={section.content.title}
+                  key={section.title}
                   className={classNames(
                     "transition-opacity duration-300",
                     {
@@ -86,8 +95,8 @@ const ScrollingPresentation = () => {
                 >
                   <Image
                     className="h-full w-auto object-cover"
-                    src={section.img}
-                    alt={section.content.title}
+                    src={section.media.src}
+                    alt={section.title}
                     width={500}
                     height={500}
                   />
@@ -98,9 +107,9 @@ const ScrollingPresentation = () => {
         </div>
 
         <div className="w-2/5 flex flex-col">
-          {sections.map((section, idx) => (
+          {data.map((section, idx) => (
             <FeatureContentItem
-              key={section.content.title}
+              key={section.title}
               section={section}
               idx={idx}
               setVisibleIdx={setVisibleIdx}
@@ -108,7 +117,7 @@ const ScrollingPresentation = () => {
           ))}
         </div>
       </div>
-    </section>
+    </>
   );
 };
 

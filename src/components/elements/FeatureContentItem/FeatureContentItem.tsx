@@ -3,10 +3,8 @@ import classNames from "classnames";
 
 interface Props {
   section: {
-    content: {
-      title: string
-      description: string
-    }
+    title: string
+    content: string
   }
   idx: number
   setVisibleIdx: (idx: number) => void
@@ -26,10 +24,10 @@ const FeatureContentItem = ({ section, idx, setVisibleIdx }: Props) => {
       { "is-invisible opacity-10": !isVisible}
     )}>
       <h3 className="text-4xl font-semibold mb-8">
-        {section.content.title}
+        {section.title}
       </h3>
       <p className="text-xl">
-      {section.content.description}
+      {section.content}
       </p>
     </div>
   )
