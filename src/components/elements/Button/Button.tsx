@@ -1,37 +1,24 @@
 import React from "react"
-import classNames from "classnames"
 import Link from "next/link"
 
-export type ButtonVariant = "primary" | "secondary" | "border"
 export interface ButtonProps {
   children: React.ReactNode
-  variant: ButtonVariant
   url?: string
-  size?: "sm" | "base" | "lg"
   clickHandler?: () => void
+  className?: string
 }
 
-const Button = ({children, variant, url, size = "base", clickHandler}: ButtonProps) => {
-  const classes = classNames(
-    "cursor-pointer rounded inline-block hover:animate-poop transition-all duration-500",
-    {"border-2 border-black hover:bg-black hover:text-white" : variant === "border"},
-    {"bg-blue-600 hover:bg-blue-700 text-white" : variant === "primary"},
-    {"bg-orange-300 hover:bg-orange-400 hover:text-white" : variant === "secondary"},
-    {"px-6 py-3": size === "base"},
-    {"px-10 py-3 text-lg": size === "lg"},
-  )
+export const Button: React.FC<ButtonProps> = ({children, url, clickHandler, className}) => {
   if (url) {
     return (
-      <Link href={url} className={classes}>
+      <Link className={className} href={url}>
         {children}
       </Link>
     )
   }
   return (
-    <button className={classes} onClick={clickHandler}>
+    <button className={className} onClick={clickHandler}>
       {children}
     </button>
   )
 }
-
-export default Button

@@ -1,16 +1,36 @@
 'use client'
 
 import ScrollingPresentation from "@/components/sections/ScrollingPresentation/ScrollingPresentation"
-import Testimonials from '@/components/sections/Testimonials/Testimonials'
-import ExpandingCTA from "@/components/sections/ExpandingCTA/ExpandingCTA"
-import FeaturesHero from "@/components/sections/FeatureHero/FeatureHero"
+import Testimonials from '@/components/celestial/Testimonials/Testimonials'
+import ExpandingCTA from "@/components/celestial/ExpandingCTA/ExpandingCTA"
+import FeatureHero from "@/components/celestial/FeatureHero/FeatureHero"
 import AccordionPT from "@/components/celestial/AccordionPT/AccordionPT"
-import Timeline from "@/components/sections/Timeline/Timeline"
+import Timeline from "@/components/celestial/Timeline/Timeline"
 import Section from "@/components/elements/Section/Section"
-import Accordion from "@/components/elements/Accordion/Accordion"
+import { ButtonVariant } from "@/components/celestial/Button/Button"
 
 const defaultPageData = {
   sections: {
+    hero: {
+      label: "WELCOME TO CELESTIAL SAAS",
+      title: "Turn your website visitors into customers with",
+      subtitle: "",
+      slidingTexts: [
+        { text: "ticketing"},
+        { text: "live chat"},
+        { text: "chatbots"},
+      ],
+      buttons: [
+        {
+          text: "Get started now",
+          type: "primary" as ButtonVariant
+        },
+      ],
+      media: {
+        type: "image",
+        src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/hero.webp",
+      }
+    },
     presentationSection: {
       label: "",
       title: "Chatbots can reduce your customer support team’s workload",
@@ -94,16 +114,23 @@ const defaultPageData = {
           url: ""
         },
       ]
+    },
+    cta: {
+      title: "Grow your business plan with Bluebiz",
+      subtitle: "Easy-to-setup > Easy-to-use > Easy-to-scale with 6-month support services.",
+      button: {
+        text: "Buy now",
+      }
     }
   }
 }
 
 export default function Home() {
 
-  const { presentationSection, presentationSection2 } = defaultPageData.sections
+  const { hero, presentationSection, presentationSection2, cta } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen gap-20 pb-24">
-      <FeaturesHero />
+      <FeatureHero data={hero} />
       <Timeline />
       <Section
         title={presentationSection.title}
@@ -115,7 +142,7 @@ export default function Home() {
         <ScrollingPresentation />
       </Section>
       <Testimonials />
-      <ExpandingCTA />
+      <ExpandingCTA data={cta}/>
     </main>
   )
 }

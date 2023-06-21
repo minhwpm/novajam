@@ -1,26 +1,8 @@
 import SlidingText from "@/components/elements/SlidingText/SlidingText"
-import Button, { ButtonVariant } from "@/components/elements/Button/Button"
-
-const dummyData = {
-  label: "",
-  "title": "Turn your website visitors into customers with",
-  "subtitle": "Bluebiz is a top-rated platform for small and medium businesses to grow sales through outstanding customer service.",
-  "buttons": [
-    {
-      "text": "Get started for free",
-      "url": "/register",
-      "type": "secondary" as ButtonVariant,
-    },
-  ],
-  "slidingTexts": [
-    { text: "live chat"},
-    { text: "chatbots"},
-    { text: "ticketing"},
-  ]
-}
+import CeButton, { ButtonVariant } from "@/components/celestial/Button/Button"
 
 interface HeroProps {
-  data?: {
+  data: {
     label?: string
     title: string
     slidingTexts?: Array<{
@@ -35,7 +17,7 @@ interface HeroProps {
   }
 }
 
-const Hero = ( { data = dummyData}: HeroProps) => {
+const Hero: React.FC<HeroProps> = ( { data} ) => {
   const { label, subtitle, title, buttons, slidingTexts } = data
   return (
     <section className="min-h-screen py-16 flex flex-col items-center justify-center bg-gradient-to-b from-blue-950 from-45% to-blue-700 to-100%">
@@ -52,15 +34,12 @@ const Hero = ( { data = dummyData}: HeroProps) => {
         </p>
         <div className="flex flex-row flex-wrap gap-6">
           {buttons && buttons.length > 0 && buttons.map(button => (
-            <Button key={button.text} variant={button.type} size="lg" url={button.url}>
+            <CeButton key={button.text} variant={button.type} size="lg" url={button.url}>
               {button.text}
-            </Button>
+            </CeButton>
           ))}
         </div>
       </div>
-      {/* <div className="w-full sm:w-[600px] h-[500px]">
-        <FakeMessageBox />
-      </div> */}
     </section>
   )
 }

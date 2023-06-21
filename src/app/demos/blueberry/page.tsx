@@ -6,6 +6,9 @@ import Section from "@/components/elements/Section/Section"
 import TabPT from "@/components/blueberry/TabPT/TabPT"
 import ScrollingPresentation from "@/components/sections/ScrollingPresentation/ScrollingPresentation"
 import Image from "next/image"
+import Content from "@/components/blueberry/Content/Content"
+import CTA from "@/components/blueberry/CTA/CTA"
+import { ButtonVariant } from "@/components/blueberry/Button/Button"
 
 const defaultPageData = {
   sections: {
@@ -32,7 +35,10 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/grapeseed.webp",
           },
-          url: ""
+          link: {
+            text: "Learn more",
+            url: "/solutions/blueberry"
+          }
         },
         {
           label: "FOR 36-48 MONTHS",
@@ -43,7 +49,10 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/littleseed.webp",
           },
-          url: ""
+          link: {
+            text: "Learn more",
+            url: "/solutions/blueberry"
+          }
         },
         {
           label: "FOR 0-36 MONTHS",
@@ -54,7 +63,10 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/grapeseedbaby.webp",
           },
-          url: ""
+          link: {
+            text: "Learn more",
+            url: ""
+          }
         }
 
       ]
@@ -130,49 +142,53 @@ const defaultPageData = {
           },
           url: ""
         },
-        // {
-        //   label: "",
-        //   title: "PHONOGRAM CARDS",
-        //   subtitle: "",
-        //   content: "Learning phonograms and understanding how they come together to make words lays the foundation for future reading skills. Phonogram Cards allow students to focus on specific English sounds. Students will air write and learn the stroke order, name, and sound of each letter of the alphabet.",
-        //   media: {
-        //     type: "image",
-        //     src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/grapeseedbaby.webp",
-        //   },
-        //   url: ""
-        // },
-        // {
-        //   label: "",
-        //   title: "",
-        //   subtitle: "",
-        //   content: "",
-        //   media: {
-        //     type: "image",
-        //     src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/grapeseedbaby.webp",
-        //   },
-        //   url: ""
-        // }
       ]
+    },
+    introSection: {
+      title: "Technology for Success",
+      content: "How does GrapeSEED utilize digital tools to ensure a fun, convenient, and impactful experience for everyone? Check out our Technology page for more details on some of the tools we offer:",
+      media: {
+        type: "image",
+        src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/top_tech_success.webp",
+        altText: "Top tech success"
+      }
+    },
+    cta: {
+      title: "Ready to Start Your Journey?",
+      button: {
+        variant: "outline" as ButtonVariant,
+        text: "CONTACT US",
+        url: "/contact",
+      }
     }
   }
 }
 
 export default function Home() {
-  const { heroSection, presentationSection1, presentationSection2 } = defaultPageData.sections
+  const { heroSection, presentationSection1, presentationSection2, introSection, cta } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen pb-24">
       <ImageHero data={heroSection} />
       
       <Section
-        className="min-h-screen py-16"
+        className="min-h-screen mt-20"
         title={presentationSection1.title}
       >
         <TabPT data={presentationSection1.slides} />
       </Section>
 
-      
+      <Section
+        label={presentationSection2.label}
+        title={presentationSection2.title}
+        subtitle={presentationSection2.subtitle}
+        className="mt-20"
+      >
+        <ScrollingPresentation data={presentationSection2.slides} />
+      </Section>
 
-      <Section framed={false} className="bg-indigo-50">
+      <Content data={introSection} mediaAspectRatio="video"/>
+
+      <Section framed={false} className="bg-indigo-50 mt-20">
         <GridBox columns={2} gap={0}>
           <div className="p-4 md:p-8 lg:p-20 xl:p-32">
             <h2 className="text-5xl lg:text-6xl leading-snug lg:leading-snug font-bold max-w-4xl my-5 text-red-700">Teacher Training</h2>
@@ -191,9 +207,6 @@ export default function Home() {
              />
           </div>
         </GridBox>
-      </Section>
-
-      <Section framed={false} className="bg-indigo-50">
         <GridBox columns={2} gap={0}>
           <div className="">
             <Image
@@ -214,14 +227,7 @@ export default function Home() {
         </GridBox>
       </Section>
 
-      <Section
-        className="py-20 lg:py-32"
-        label={presentationSection2.label}
-        title={presentationSection2.title}
-        subtitle={presentationSection2.subtitle}
-      >
-        <ScrollingPresentation data={presentationSection2.slides} />
-      </Section>
+      <CTA data={cta} />
     </main>
   )
 }

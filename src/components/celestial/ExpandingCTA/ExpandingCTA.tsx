@@ -2,19 +2,10 @@
 import { useState } from "react";
 import classNames from "classnames";
 import { useInView } from "react-hook-inview";
-import Button from "@/components/elements/Button/Button";
-
-const defaultData = {
-  "title": "Grow your sales through outstanding customer service",
-  "subtitle": "Get your 7-day trial. No credit card required. Free plan available.",
-  "button": {
-    "text": "Get started for free",
-    "url": "/register",
-  }
-}
+import Button from "@/components/celestial/Button/Button";
 
 interface CTAProps {
-  data?: {
+  data: {
     title: string
     subtitle?: string
     button: {
@@ -24,7 +15,7 @@ interface CTAProps {
   }
 }
 
-const ExpandingCTA = ({ data = defaultData }: CTAProps) => {
+const ExpandingCTA: React.FC<CTAProps> = ({ data }) => {
   const { title, subtitle, button } = data;
   // @TODO expanding width on scrolling
   const [w, setW] = useState(70)
@@ -46,15 +37,19 @@ const ExpandingCTA = ({ data = defaultData }: CTAProps) => {
         )}
       >
         <div className="flex flex-col items-center max-w-3xl mx-auto">
-          <h2 className="text-4xl lg:text-5xl leading-snug lg:leading-snug text-center text-gray-300 mb-8">
+          <h3 className="text-4xl lg:text-5xl leading-snug lg:leading-snug text-center text-gray-300">
             {title}
-          </h2>
-          <p className="text-xl text-blue-200 text-center mb-12">
-            {subtitle}
-          </p>
-          <Button variant="primary" size="lg" url={button.url}>
-            {button.text}
-          </Button>
+          </h3>
+          {subtitle && (
+            <p className="text-xl text-blue-200 text-center mt-8">
+              {subtitle}
+            </p>
+          )}
+          <div className="mt-12">
+            <Button variant="primary" size="lg" url={button.url}>
+              {button.text}
+            </Button>
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
-import ExpandingCTA from "@/components/sections/ExpandingCTA/ExpandingCTA"
-import Hero from "@/components/sections/Hero/Hero"
-import { ButtonVariant } from "@/components/elements/Button/Button"
+import ExpandingCTA from "@/components/celestial/ExpandingCTA/ExpandingCTA"
+import Hero from "@/components/celestial/Hero/Hero"
+import { ButtonVariant } from "@/components/celestial/Button/Button"
 import GridBox from "@/components/elements/GridBox/GridBox"
 import Section from "@/components/elements/Section/Section"
 import Card from "@/components/elements/Card/Card"
@@ -34,24 +34,6 @@ const defaultPageData = {
       title: "Explore our Pre-Designed Pages",
       sections: [
         {
-          label: "Blueberry",
-          title: "Language Education Program",
-          image: {
-            src: "",
-            altText: ""
-          },
-          url: "/demos/blueberry/"
-        },
-        {
-          label: "Esmeralda",
-          title: "University",
-          image: {
-            src: "",
-            altText: ""
-          },
-          url: "/demos/education/"
-        },
-        {
           label: "Celestial",
           title: "Saas",
           image: {
@@ -61,13 +43,13 @@ const defaultPageData = {
           url: "/demos/saas/"
         },
         {
-          label: "Aquarium",
-          title: "Health Care",
+          label: "Blueberry",
+          title: "Language Education Program",
           image: {
             src: "",
             altText: ""
           },
-          url: "/demos/health-care/"
+          url: "/demos/blueberry/"
         },
       ]
     },

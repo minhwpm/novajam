@@ -1,9 +1,11 @@
 import React from 'react';
 import * as RadixTabs from '@radix-ui/react-tabs';
-import GridBox from '../../elements/GridBox/GridBox';
+import GridBox from '@/components/elements/GridBox/GridBox';
+import Button from '@/components/blueberry/Button/Button';
 import classNames from "classnames";
 import Image from 'next/image';
 import "./styles.css"
+import { link } from 'fs';
 
 interface Props {
   data?: Array<{
@@ -15,7 +17,10 @@ interface Props {
       type: string
       src: string
     }
-    url?: string
+    link?: {
+      text: string
+      url: string
+    }
   }>
 }
 
@@ -53,8 +58,8 @@ const TabPT = ({data}: Props) => {
               key={item.title} value={item.title}
               className={classNames(
                 "text-lg col-start-1 row-start-1 flex flex-col gap-5 justify-center transition-all ease-in-out duration-500 relative ",
-                { "opacity-100 right-0": activeItem === item.title },
-                { "opacity-0 -right-24": activeItem !== item.title }
+                { "opacity-100 right-0 z-10": activeItem === item.title },
+                { "opacity-0 -right-24 z-0": activeItem !== item.title }
               )}
             >
               <GridBox columns={2} gap={0}>
@@ -67,7 +72,14 @@ const TabPT = ({data}: Props) => {
                   <h3 className="text-3xl font-bold mb-6">
                     {item.title}
                   </h3>
-                  {item.content}
+                  <p>{item.content}</p>
+                  {item.link?.url && (
+                    <div className="mt-6 flex justify-end">
+                      <Button variant="outline" url={item.link?.url}>
+                        {item.link?.text}
+                      </Button>
+                    </div>
+                  )}
                 </div>
                 <div className="flex flex-col items-center lg:items-start lg:relative lg:top-10 lg:-left-10">
                   <Image
