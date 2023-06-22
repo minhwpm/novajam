@@ -1,12 +1,11 @@
 import '@/app/globals.css'
 import { Analytics } from '@vercel/analytics/react';
-import { Noto_Sans } from 'next/font/google'
+import { Nunito_Sans } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
 
-const font = Noto_Sans({
+const font = Nunito_Sans({
   subsets: ['latin', 'vietnamese'],
   display: 'swap',
-  weight: ["100", "300","400", "500", "700", "900"]
 })
 
 export const metadata = {
@@ -20,16 +19,24 @@ const headerData = {
   },
   nav: [
     {
-      title: "INTRO",
-      url: "/demos/apple-seed/intro"
+      title: "IMPACT",
+      url: "/demos/blueberry/impact"
+    },
+    {
+      title: "TRAINING",
+      url: "/demos/blueberry/training"
+    },
+    {
+      title: "TECHNOLOGY",
+      url: "/demos/blueberry/technology"
+    },
+    {
+      title: "FAQ",
+      url: "/demos/blueberry/faq"
     },
     {
       title: "CONTACT",
       url: "/demos/apple-seed/contact"
-    },
-    {
-      title: "BLOG",
-      url: "/demos/apple-seed/blog"
     },
   ],
 }
@@ -42,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <Header data={headerData} />
+        <Header data={headerData} bottomBordered={true} shadowed={false} fontBold={true} />
         {children}
         <Analytics />
       </body>
