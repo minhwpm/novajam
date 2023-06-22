@@ -1,4 +1,4 @@
-import Section from "@/components/elements/Section/Section"
+import Section from "../Section/Section"
 import Button, { ButtonVariant } from "../Button/Button"
 
 interface CTAProps {
@@ -14,7 +14,7 @@ interface CTAProps {
 const CTA: React.FC<CTAProps> = ({data}) => {
   const { title, button} = data
   return (
-    <Section className="bg-indigo-200 py-20 lg:py-32">
+    <Section background="bg-indigo-200">
       <div className="flex flex-wrap gap-10 justify-center items-center">
         <h3 className="text-4xl font-bold lg:text-5xl leading-snug lg:leading-snug text-center text-indigo-500">
           {title}
