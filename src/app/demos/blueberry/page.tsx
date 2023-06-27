@@ -1,14 +1,14 @@
 'use client'
 
-import ImageHero from "@/components/elements/ImageHero/ImageHero"
+import HeroC from "@/components/sections/HeroC/HeroC"
 import GridBox from "@/components/elements/GridBox/GridBox"
 import Section from "@/components/elements/Section/Section"
-import TabPT from "@/components/blueberry/TabPT/TabPT"
+import TabPT from "@/components/sections/TabPT/TabPT"
 import ScrollingPresentation from "@/components/sections/ScrollingPresentation/ScrollingPresentation"
 import Image from "next/image"
-import Content from "@/components/blueberry/Content/Content"
-import CTA from "@/components/blueberry/CTA/CTA"
-import { ButtonVariant } from "@/components/blueberry/Button/Button"
+import Content from "@/components/sections/Content/Content"
+import CTA from "@/components/sections/CTA/CTA"
+import { ButtonVariant } from "@/components/elements/Button/Button"
 
 const defaultPageData = {
   sections: {
@@ -168,7 +168,7 @@ export default function Home() {
   const { heroSection, presentationSection1, presentationSection2, introSection, cta } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen pb-24">
-      <ImageHero data={heroSection} />
+      <HeroC data={heroSection} />
       
       <Section
         className="min-h-screen mt-20"

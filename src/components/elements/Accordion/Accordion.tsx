@@ -33,7 +33,7 @@ const Accordion = ({ data = dummyData}) => {
     <RadixAccordion.Root className="w-full lg:w-2/3" type="multiple">
       {data.map((item, idx) => (
         <RadixAccordion.Item key={item.title} value={`item-${idx}`} className="mb-6 text-lg overflow-hidden">
-          <RadixAccordion.Trigger className="AccordionTrigger w-full flex justify-between text-blue-600 font-medium py-4">
+          <RadixAccordion.Trigger className="AccordionTrigger w-full flex justify-between text-primary-600 font-medium py-4">
             {item.title}
             <FontAwesomeIcon className="AccordionChevron" icon={faChevronDown} width={18} size="lg" />
           </RadixAccordion.Trigger>

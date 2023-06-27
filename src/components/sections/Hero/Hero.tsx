@@ -1,5 +1,5 @@
 import SlidingText from "@/components/elements/SlidingText/SlidingText"
-import CeButton, { ButtonVariant } from "@/components/celestial/Button/Button"
+import Button, { ButtonVariant } from "@/components/elements/Button/Button"
 
 interface HeroProps {
   data: {
@@ -20,7 +20,7 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ( { data} ) => {
   const { label, subtitle, title, buttons, slidingTexts } = data
   return (
-    <section className="min-h-screen py-16 flex flex-col items-center justify-center bg-gradient-to-b from-blue-950 from-45% to-blue-700 to-100%">
+    <section className="min-h-screen py-16 flex flex-col items-center justify-center bg-gradient-to-b from-primary-950 from-45% to-primary-600 to-100%">
       <div className="mb-10 flex flex-col items-center">
         <p className="uppercase tracking-widest mb-3 text-white">
           {label}
@@ -34,9 +34,9 @@ const Hero: React.FC<HeroProps> = ( { data} ) => {
         </p>
         <div className="flex flex-row flex-wrap gap-6">
           {buttons && buttons.length > 0 && buttons.map(button => (
-            <CeButton key={button.text} variant={button.type} size="lg" url={button.url}>
+            <Button key={button.text} variant={button.type} size="lg" url={button.url}>
               {button.text}
-            </CeButton>
+            </Button>
           ))}
         </div>
       </div>

@@ -1,13 +1,13 @@
 'use client'
 
 import ScrollingPresentation from "@/components/sections/ScrollingPresentation/ScrollingPresentation"
-import Testimonials from '@/components/celestial/Testimonials/Testimonials'
-import ExpandingCTA from "@/components/celestial/ExpandingCTA/ExpandingCTA"
-import FeatureHero from "@/components/celestial/FeatureHero/FeatureHero"
-import AccordionPT from "@/components/celestial/AccordionPT/AccordionPT"
-import Timeline from "@/components/celestial/Timeline/Timeline"
+import Testimonials from '@/components/sections/Testimonials/Testimonials'
+import CTAB from "@/components/sections/CTAB/CTAB"
+import HeroB from "@/components/sections/HeroB/HeroB"
+import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
+import Timeline from "@/components/sections/Timeline/Timeline"
 import Section from "@/components/elements/Section/Section"
-import { ButtonVariant } from "@/components/celestial/Button/Button"
+import { ButtonVariant } from "@/components/elements/Button/Button"
 
 const defaultPageData = {
   sections: {
@@ -23,7 +23,7 @@ const defaultPageData = {
       buttons: [
         {
           text: "Get started now",
-          type: "primary" as ButtonVariant
+          type: "standard" as ButtonVariant
         },
       ],
       media: {
@@ -130,7 +130,7 @@ export default function Home() {
   const { hero, presentationSection, presentationSection2, cta } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen gap-20 pb-24">
-      <FeatureHero data={hero} />
+      <HeroB data={hero} />
       <Timeline />
       <Section
         title={presentationSection.title}
@@ -142,7 +142,7 @@ export default function Home() {
         <ScrollingPresentation />
       </Section>
       <Testimonials />
-      <ExpandingCTA data={cta}/>
+      <CTAB data={cta}/>
     </main>
   )
 }

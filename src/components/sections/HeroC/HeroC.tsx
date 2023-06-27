@@ -33,7 +33,7 @@ const dummyData = {
     {
       text: "Get started now",
       url: "/register",
-      type: "primary" as ButtonVariant
+      type: "standard" as ButtonVariant
     },
   ],
   media: {
@@ -42,7 +42,7 @@ const dummyData = {
   },
 };
 
-const ImageHero = ( { data = dummyData, aspectRatio = "video", textAlignment = "center", textDarkBackground}: Props ) => {
+const HeroC = ( { data = dummyData, aspectRatio = "video", textAlignment = "center", textDarkBackground}: Props ) => {
   const { label, title, subtitle, buttons, media } = data
   return (
     <div className="relative">
@@ -91,4 +91,4 @@ const ImageHero = ( { data = dummyData, aspectRatio = "video", textAlignment = "
   )
 }
 
-export default ImageHero
+export default HeroC

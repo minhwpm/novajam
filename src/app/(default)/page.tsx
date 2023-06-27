@@ -1,6 +1,6 @@
-import ExpandingCTA from "@/components/celestial/ExpandingCTA/ExpandingCTA"
-import Hero from "@/components/celestial/Hero/Hero"
-import { ButtonVariant } from "@/components/celestial/Button/Button"
+import CTAB from "@/components/sections/CTAB/CTAB"
+import Hero from "@/components/sections/Hero/Hero"
+import { ButtonVariant } from "@/components/elements/Button/Button"
 import GridBox from "@/components/elements/GridBox/GridBox"
 import Section from "@/components/elements/Section/Section"
 import Card from "@/components/elements/Card/Card"
@@ -15,12 +15,12 @@ const defaultPageData = {
       buttons: [
         {
           text: "Buy now",
-          type: "primary" as ButtonVariant
+          type: "standard" as ButtonVariant
         },
         {
           text: "Live Demo",
           url: "#demos",
-          type: "secondary" as ButtonVariant
+          type: "alternate" as ButtonVariant
         },
       ],
       slidingTexts: [
@@ -78,7 +78,7 @@ export default function Home() {
           ))}
         </GridBox>
       </Section>
-      <ExpandingCTA data={cta} />
+      <CTAB data={cta} />
     </main>
   )
 }

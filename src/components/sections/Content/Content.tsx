@@ -46,7 +46,7 @@ const Content = ({ data, mediaAspectRatio }: Props) => {
               {label}
             </p>
           )}
-          <h2 className={classNames("text-6xl font-bold text-center text-indigo-400",
+          <h2 className={classNames("text-6xl font-bold text-center text-primary-400",
             { "mb-5": subtitle},
             { "mb-12": !subtitle}
           )}>

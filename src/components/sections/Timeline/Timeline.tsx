@@ -91,15 +91,15 @@ const ContentItem = ({ section, idx, setVisibleIdx }: Props) => {
           className={classNames(
             "z-20 ml-[-3px] h-[12px] w-[12px] origin-center transform rounded-full border-[2px] transition-transform",
             {
-              " border-gray-200 bg-white group-hover:border-blue-600": !active,
+              " border-gray-200 bg-white group-hover:border-primary-600": !active,
             },
-            { "border-white bg-blue-600 ring-[2px] ring-blue-600": active }
+            { "border-white bg-primary-600 ring-[2px] ring-primary-600": active }
           )}
         />
       </div>
       <h3
         className={classNames("text-2xl font-semibold mb-3", {
-          "text-blue-600": active,
+          "text-primary-600": active,
         })}
       >
         {section.content.title}
@@ -156,12 +156,12 @@ const Timeline = ({ data = dummyData }) => {
         {title}
       </h2>
       <div className="relative">
-        <div className="absolute left-0 lg:left-[50%] ml-[-1px] mt-[-60px] h-[60px] w-[2px] bg-gradient-to-b from-blue-600/0 to-blue-600/100 lg:block" />
+        <div className="absolute left-0 lg:left-[50%] ml-[-1px] mt-[-60px] h-[60px] w-[2px] bg-gradient-to-b from-primary-600/0 to-primary-600/100 lg:block" />
         <div className="absolute ml-[-8px] h-full w-[16px] sm:left-[36px] lg:left-[50%] lg:block">
           {/* Progress bar */}
           <div
             className={classNames(
-              "ml-[-1px] w-[2px] from-gray-100 bg-blue-600 <lg:hidden lg:left-[50%] z-20 origin-bottom h-[250px] transition-transform duration-100",
+              "ml-[-1px] w-[2px] from-gray-100 bg-primary-600 <lg:hidden lg:left-[50%] z-20 origin-bottom h-[250px] transition-transform duration-100",
               { hidden: scrolled === "not-yet" },
               { "fixed left-4 bottom-[67%]": scrolled === "scrolling" },
               { "absolute left-2 bottom-0": scrolled === "scrolled" }
@@ -170,7 +170,7 @@ const Timeline = ({ data = dummyData }) => {
           {/* Circle */}
           <div
             className={classNames(
-              "flex justify-center items-center lg:left-[50%] z-40 ml-[-14px] box-content h-[24px] w-[24px] transform rounded-full border-[2px] border-white bg-white ring-[2px] ring-blue-600 transition-transform duration-500",
+              "flex justify-center items-center lg:left-[50%] z-40 ml-[-14px] box-content h-[24px] w-[24px] transform rounded-full border-[2px] border-white bg-white ring-[2px] ring-primary-600 transition-transform duration-500",
               {
                 "absolute top-0 left-[10px]":
                   scrolled === "not-yet",
@@ -183,7 +183,7 @@ const Timeline = ({ data = dummyData }) => {
             )}
           >
             <FontAwesomeIcon
-              className="h-[20px] w-[20px] transform rounded-full transition duration-500 text-blue-600 bg-white"
+              className="h-[20px] w-[20px] transform rounded-full transition duration-500 text-primary-600 bg-white"
               width={20}
               icon={faCloudBolt}
             />

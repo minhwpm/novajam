@@ -81,7 +81,7 @@ const FakeMessageBox = () => {
             }}
           >
             {item.from === "client" && (
-              <div className="w-8 h-8 rounded-full bg-orange-300 shrink-0 self-end" />
+              <div className="w-8 h-8 rounded-full bg-secondary-300 shrink-0 self-end" />
             )}
             <div
               className={classNames(
@@ -92,7 +92,7 @@ const FakeMessageBox = () => {
                     item.from === "client",
                 },
                 {
-                  "bg-blue-500 text-white rounded-l-3xl rounded-tr-3xl":
+                  "bg-primary-500 text-white rounded-l-3xl rounded-tr-3xl":
                     item.from === "us",
                 }
               )}
@@ -103,7 +103,7 @@ const FakeMessageBox = () => {
               {item.content}
             </div>
             {item.from === "us" && (
-              <div className="w-8 h-8 rounded-full bg-blue-300 shrink-0 self-end relative -bottom-1" />
+              <div className="w-8 h-8 rounded-full bg-primary-300 shrink-0 self-end relative -bottom-1" />
             )}
           </div>
         ))}

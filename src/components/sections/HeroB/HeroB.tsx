@@ -1,6 +1,6 @@
 
 import SlidingText from "@/components/elements/SlidingText/SlidingText"
-import CeButton, { ButtonVariant } from "@/components/celestial/Button/Button";
+import Button, { ButtonVariant } from "@/components/elements/Button/Button";
 import classNames from "classnames";
 import { useState } from "react";
 import { useInView } from "react-hook-inview";
@@ -28,7 +28,7 @@ interface Props {
   }
 }
 
-const FeatureHero: React.FC<Props> = ({ data }) => {
+const HeroB: React.FC<Props> = ({ data }) => {
   const { label, title, slidingTexts, subtitle, buttons, media } = data;
   const [animated, setAnimated] = useState(false);
   const [ref, isVisible] = useInView({
@@ -55,7 +55,7 @@ const FeatureHero: React.FC<Props> = ({ data }) => {
       <div className="lg:w-5/12">
         <div
           className={classNames(
-            "uppercase font-semibold text-blue-600 tracking-widest",
+            "uppercase font-semibold text-primary-600 tracking-widest",
             animationClasses
           )}
         >
@@ -75,9 +75,9 @@ const FeatureHero: React.FC<Props> = ({ data }) => {
         </div>
         <div className={classNames("flex flex-row flex-wrap gap-6 mt-10", animationClasses)}>
           {buttons && buttons.length > 0 && buttons.map(button => (
-            <CeButton key={button.text} variant={button.type} size="lg" url={button.url}>
+            <Button key={button.text} variant={button.type} size="lg" url={button.url}>
               {button.text}
-            </CeButton>
+            </Button>
           ))}
         </div>
       </div>
@@ -100,4 +100,4 @@ const FeatureHero: React.FC<Props> = ({ data }) => {
   );
 };
 
-export default FeatureHero
+export default HeroB

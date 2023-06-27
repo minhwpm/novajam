@@ -1,12 +1,11 @@
 'use client'
 import { useState } from "react"
-import { Button } from "@/components/elements/Button/Button"
+import Button, { ButtonVariant } from "@/components/elements/Button/Button"
 import Link from "next/link"
-import useStickyHeaderOnScrollDown from "@/utils/hooks/useStickyHeaderOnScrollDown"
 import useStickyHeaderOnScrollUp from "@/utils/hooks/useStickyHeaderOnScrollUp"
 import classNames from "classnames"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudBolt, faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import './styles.css';
 
@@ -45,6 +44,7 @@ interface HeaderProps {
     button?: {
       text: string
       url: string
+      type: ButtonVariant
     }
   }
   stickyType?: 'none' | 'scroll-up' | 'scroll-down' //@TODO modify Hook later to handle this property
@@ -72,7 +72,7 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', shadowed 
     )}>
       <div>
         <Link href="/">
-          <div className="flex items-center font-semibold text-blue-600 text-3xl italic tracking-widest">
+          <div className="flex items-center font-semibold text-primary-600 text-3xl italic tracking-widest">
             {/* <FontAwesomeIcon width={26} icon={faCloudBolt} /> */}
             <div>{logo.text}</div>
           </div>
@@ -173,12 +173,16 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', shadowed 
       </NavigationMenu.Root>
 
       { isLoginEnabled && (
-        <Link href="/login" className="px-3 py-1 rounded hover:bg-blue-100 hover:text-blue-600 transition-all duration-300 hidden lg:block">
+        <Link href="/login" className="px-3 py-1 rounded hover:bg-primary-100 hover:text-primary-600 transition-all duration-300 hidden lg:block">
           Login
         </Link>
       )}
       <div className="hidden lg:block">
-        {button && btnComponent}
+        {button && (
+          <Button key={button.text} variant={button.type} size="lg" url={button.url}>
+            {button.text}
+          </Button>
+        )}
       </div>
       <div className="xl:hidden ml-auto">
         { !showed && <FontAwesomeIcon className="cursor-pointer" width={26} icon={faBars} size="xl" onClick={() => setShowed(true)}/> }

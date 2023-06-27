@@ -14,7 +14,7 @@ interface SectionProps {
 const Section: React.FC<SectionProps> = ({ title, label, subtitle, children, id, topMargined = true, background}) => {
   return (
     <section id={id} className={classNames(
-      "flex flex-col items-center px-4 py-20 md:px-8 lg:px-20 lg:py-32 xl:px-32 bg-indigo-200",
+      "flex flex-col items-center px-4 py-20 md:px-8 lg:px-20 lg:py-32 xl:px-32 bg-primary-200",
       {"mt-20 lg:mt-32": topMargined},
       background
     )}>

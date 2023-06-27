@@ -1,6 +1,6 @@
 'use client'
 
-import ExpandingCTA from "@/components/celestial/ExpandingCTA/ExpandingCTA"
+import CTAB from "@/components/sections/CTAB/CTAB"
 import Accordion from "@/components/elements/Accordion/Accordion"
 
 const defaultPageData = {
@@ -28,7 +28,7 @@ export default function Features() {
           <Accordion />
         </div>
       </section>
-      <ExpandingCTA data={cta} />
+      <CTAB data={cta} />
     </main>
   )
 }

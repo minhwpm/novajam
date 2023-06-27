@@ -1,5 +1,5 @@
-import Section from "../Section/Section"
-import Button, { ButtonVariant } from "../Button/Button"
+import Section from "@/components/elements/Section/Section"
+import Button, { ButtonVariant } from "@/components/elements/Button/Button"
 
 interface CTAProps {
   data: {
@@ -14,9 +14,9 @@ interface CTAProps {
 const CTA: React.FC<CTAProps> = ({data}) => {
   const { title, button} = data
   return (
-    <Section background="bg-indigo-200">
+    <Section className="bg-primary-200">
       <div className="flex flex-wrap gap-10 justify-center items-center">
-        <h3 className="text-4xl font-bold lg:text-5xl leading-snug lg:leading-snug text-center text-indigo-500">
+        <h3 className="text-4xl font-bold lg:text-5xl leading-snug lg:leading-snug text-center text-primary-500">
           {title}
         </h3>
         <div>

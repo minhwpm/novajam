@@ -1,14 +1,11 @@
 'use client'
 
-import ImageHero from "@/components/elements/ImageHero/ImageHero"
+import HeroC from "@/components/sections/HeroC/HeroC"
 import GridBox from "@/components/elements/GridBox/GridBox"
 import Section from "@/components/elements/Section/Section"
-import TabPT from "@/components/blueberry/TabPT/TabPT"
-import ScrollingPresentation from "@/components/sections/ScrollingPresentation/ScrollingPresentation"
 import Image from "next/image"
-import Content from "@/components/blueberry/Content/Content"
-import CTA from "@/components/blueberry/CTA/CTA"
-import { ButtonVariant } from "@/components/blueberry/Button/Button"
+import CTA from "@/components/sections/CTA/CTA"
+import { ButtonVariant } from "@/components/elements/Button/Button"
 
 const defaultPageData = {
   sections: {
@@ -168,15 +165,15 @@ export default function Home() {
   const { heroSection, presentationSection1, presentationSection2, introSection, cta } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen pb-24">
-      <ImageHero data={heroSection} />
+      <HeroC data={heroSection} />
 
-      <Section framed={false} className="bg-indigo-50 mt-20">
+      <Section framed={false} className="bg-primary-50 mt-20">
         <GridBox columns={2} gap={0}>
           <div className="p-4 md:p-8 lg:p-20 xl:p-32">
-            <h2 className="text-5xl lg:text-6xl leading-snug lg:leading-snug font-bold max-w-4xl my-5 text-red-700">Teacher Training</h2>
-            <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl my-3 text-indigo-400">Foundation Training</h3>
+            <h2 className="text-5xl lg:text-6xl leading-snug lg:leading-snug font-bold max-w-4xl my-5 text-secondary-700">Teacher Training</h2>
+            <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl my-3 text-primary-400">Foundation Training</h3>
             <p className="text-lg mb-3">Foundation Training prepares teachers to use the BlueBERRY curriculum and provides the foundational knowledge and skills necessary to effectively use the materials.</p>
-            <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl my-3 text-indigo-400">BlueBERRY Essentials</h3>
+            <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl my-3 text-primary-400">BlueBERRY Essentials</h3>
             <p className="text-lg mb-3">BlueBERRY Essentials is an on-demand, online training course designed to equip teachers with the basics of teaching BlueBERRY. The video-based training covers the theories and design that are foundational to BlueBERRY and `how to teach` the key components of the BlueBERRY curriculum, including real classroom examples and tips from BlueBERRY Coaches.</p>
           </div>
           <div className="">
@@ -200,10 +197,10 @@ export default function Home() {
              />
           </div>
           <div className="p-4 md:p-8 lg:p-20 xl:p-32">
-            <h2 className="text-5xl lg:text-6xl leading-snug lg:leading-snug font-bold max-w-4xl my-5 text-red-700">Implementation Support</h2>
-            <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl my-3 text-indigo-400">Teacher Support & Lesson Video Analysis</h3>
+            <h2 className="text-5xl lg:text-6xl leading-snug lg:leading-snug font-bold max-w-4xl my-5 text-secondary-700">Implementation Support</h2>
+            <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl my-3 text-primary-400">Teacher Support & Lesson Video Analysis</h3>
             <p className="text-lg mb-3">Teacher support is focused on ensuring fidelity of implementation of the GrapeSEED curriculum. Support includes coaching, co-teaching, lesson video analysis, and professional learning sessions.</p>
-            <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl my-3 text-indigo-400">Teacher Professional Development & Training Site</h3>
+            <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl my-3 text-primary-400">Teacher Professional Development & Training Site</h3>
             <p className="text-lg mb-3">Teachers have unlimited access to a comprehensive video library and online courses that serve as professional development resources, focused on implementing the GrapeSEED curriculum for impact. Content covers topics such as basic How to Effectively Teach modules to the Master Teacher series.</p>
           </div>
         </GridBox>
