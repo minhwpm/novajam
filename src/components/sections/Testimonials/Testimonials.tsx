@@ -88,8 +88,8 @@ const Testimonials = ( { data = dummyData }: Props) => {
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
-    <Section className="bg-gray-200 bg-opacity-60 min-h-[80vh]">
-      <div className="xl:flex xl:gap-5 overflow-hidden ">
+    <Section className="bg-gray-200 bg-opacity-60">
+      <div className="xl:flex xl:gap-5 overflow-x-hidden py-10">
         <div className="xl:w-1/2 pr-10">
           <h2 className="text-3xl lg:text-4xl lg:leading-[50px] font-bold mb-10">
             {data.title}
@@ -98,12 +98,12 @@ const Testimonials = ( { data = dummyData }: Props) => {
             <ArrowGroup visibleIdx={visibleIdx} setVisibleIdx={setVisibleIdx} length={data.sections.length} />
           </div>
         </div>
-        <div className="xl:w-1/2 grid ">
+        <div className="xl:w-1/2 grid pr-5">
           {data.sections.map((item, idx) => (
             <div
               key={item.content} //@TODO key is too long. does it hurt performance?
               className={classNames(
-                "col-start-1 row-start-1 flex flex-col gap-5 justify-center p-12 shadow-2xl bg-white rounded-lg transition-all ease-in-out duration-500 relative bg-[url('/images/quote-left.svg')] bg-no-repeat",
+                "col-start-1 row-start-1 flex flex-col gap-5 justify-center p-12 shadow-xl bg-white rounded-lg transition-all ease-in-out duration-500 relative bg-[url('/images/quote-left.svg')] bg-no-repeat",
                 { "opacity-100 right-0": visibleIdx == idx },
                 { "opacity-0 -right-24": visibleIdx != idx }
               )}

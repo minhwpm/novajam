@@ -1,7 +1,7 @@
 import classNames from "classnames"
 import Image from "next/image"
 import Link from "next/link"
-interface Props {
+interface CardProps {
   data: {
     label?: string
     title: string
@@ -12,30 +12,32 @@ interface Props {
     }
     url?: string
   }
-  size?: "small" | "medium" | "large"
+  // size?: "small" | "medium" | "large"
   aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
   shadow?: boolean
   border?: boolean
   rounded?: boolean
   imagePosition?: "top" | "overlay"
+  textAlign?: "left" | "right" | "center"
 }
 
-const Card = ({
+const Card: React.FC<CardProps> = ({
   data,
-  size = "medium",
+  // size = "medium",
   aspectRatio = "video",
   shadow,
   border,
   rounded,
-  imagePosition = "top"
-}: Props) => {
+  imagePosition = "top",
+  textAlign = "left"
+}) => {
   const { label, title, content, url } = data
   return (
     <div className={classNames(
-      "relative flex flex-col justify-center shrink-0 bg-white",
-      { "max-w-[250px]" : size === "small"},
-      { "max-w-xs" : size === "medium"},
-      { "max-w-xs md:max-w-sm lg:max-w-md" : size === "large"},
+      "relative flex flex-col shrink-0 bg-white",
+      // { "max-w-[250px]" : size === "small"},
+      // { "max-w-xs" : size === "medium"},
+      // { "max-w-xs md:max-w-sm lg:max-w-md" : size === "large"},
       { "shadow-lg": shadow },
       { "border": border },
       { "rounded-2xl": rounded },
@@ -59,11 +61,13 @@ const Card = ({
       )}
       <div className={classNames(
         "w-full",
-        {"px-4 py-3": size === "small"},
-        {"px-6 py-5": size === "medium"},
-        { "px-8 pb-6 pt-5": size === "large"},
+        // {"px-4 py-3": size === "small"},
+        // {"px-6 py-5": size === "medium"},
+        // { "px-8 pb-6 pt-5": size === "large"},
         { "absolute bottom-0 bg-gradient-to-t from-gray-900/90 to-transparent text-white": data.image?.src && imagePosition === "overlay" },
-        { "rounded-b-2xl": rounded }
+        { "rounded-b-2xl": rounded },
+        { "text-center": textAlign === "center" },
+        { "text-right": textAlign === "right" }
       )}>
         <p className="text-sm uppercase tracking-widest mb-3">
           {label}

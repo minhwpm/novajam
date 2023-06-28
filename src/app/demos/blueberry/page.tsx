@@ -152,9 +152,9 @@ const defaultPageData = {
     cta: {
       title: "Ready to Start Your Journey?",
       button: {
-        variant: "outline" as ButtonVariant,
         text: "CONTACT US",
         url: "/contact",
+        type: "outline" as ButtonVariant,
       }
     }
   }

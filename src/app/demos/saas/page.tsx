@@ -6,6 +6,7 @@ import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
 import Timeline from "@/components/sections/Timeline/Timeline"
 import Section from "@/components/elements/Section/Section"
 import { ButtonVariant } from "@/components/elements/Button/Button"
+import ContentB from "@/components/sections/ContentB/ContentB"
 
 const defaultPageData = {
   sections: {
@@ -28,6 +29,36 @@ const defaultPageData = {
         type: "image",
         src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/hero.webp",
       }
+    },
+    contentSection: {
+      title: "Automate your business with plug-and-play chatbots workflows",
+      subtitle: "Achieve more with less effort. Explore 35+ chatbot templates for sales, support, and customer service",
+      sections: [
+        {
+          title: "New visitor discounts",
+          content: "Encourage new visitors to make a purchase with a custom welcome discount."
+        },
+        {
+          title: "Reduce abandoned carts",
+          content: "Convince customers to complete a purchase by offering them a price reduction when they view their carts.",
+        },
+        {
+          title: "Recommend products",
+          content: "Increase your average order value by recommending products based on user activity.",
+        },
+        {
+          title: "FAQ for online store",
+          content: "Provide answers regarding shipping, order status, product availability, and more.",
+        },
+        {
+          title: "Reduce abandoned carts",
+          content: "Convince customers to complete a purchase by offering them a price reduction when they view their carts.",
+        },
+        {
+          title: "Recommend products",
+          content: "Increase your average order value by recommending products based on user activity.",
+        },
+      ]
     },
     presentationSection: {
       label: "",
@@ -118,6 +149,7 @@ const defaultPageData = {
       subtitle: "Easy-to-setup > Easy-to-use > Easy-to-scale with 6-month support services.",
       button: {
         text: "Buy now",
+        type: "standard" as ButtonVariant
       }
     }
   }
@@ -125,11 +157,11 @@ const defaultPageData = {
 
 export default function Home() {
 
-  const { hero, presentationSection, presentationSection2, cta } = defaultPageData.sections
+  const { hero, contentSection, presentationSection, presentationSection2, cta } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen pb-24">
       <HeroB data={hero} />
-      <Timeline />
+      {/* <Timeline /> */}
       <Section
         title={presentationSection.title}
         subtitle={presentationSection.subtitle}
@@ -139,6 +171,7 @@ export default function Home() {
       <Section title={presentationSection2.title}>
         <ScrollingPresentation />
       </Section>
+      <ContentB data={contentSection} />
       <Testimonials />
       <CTAB data={cta}/>
     </main>

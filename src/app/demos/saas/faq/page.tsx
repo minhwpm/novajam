@@ -1,5 +1,6 @@
 import CTAB from "@/components/sections/CTAB/CTAB"
 import Accordion from "@/components/elements/Accordion/Accordion"
+import { ButtonVariant } from "@/components/elements/Button/Button"
 
 const defaultPageData = {
   sections: {
@@ -9,6 +10,7 @@ const defaultPageData = {
       subtitle: "Easy-to-setup > Easy-to-use > Easy-to-scale with 6-month support services.",
       button: {
         text: "Buy now",
+        type: "standard" as ButtonVariant
       }
     }
   }
