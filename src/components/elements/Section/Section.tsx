@@ -26,7 +26,7 @@ const Section = ( { title, label, subtitle, children, framed = true, className, 
         </p>
       )}
       {title && (
-        <h2 className={classNames("text-4xl lg:text-5xl leading-snug lg:leading-snug font-semibold text-center max-w-4xl",
+        <h2 className={classNames("text-4xl lg:text-5xl leading-snug lg:leading-snug font-bold text-center max-w-4xl",
           {"mb-5": subtitle},
           {"mb-12": !subtitle},
         )}>

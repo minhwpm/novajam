@@ -1,11 +1,12 @@
 import '@/app/globals.css'
 import { Analytics } from '@vercel/analytics/react';
-import { Nunito_Sans } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
 
-const font = Nunito_Sans({
+const font = Montserrat({
   subsets: ['latin', 'vietnamese'],
   display: 'swap',
+  weight: ["100","200", "300","400", "500", "600", "700", "800", "900"]
 })
 
 export const metadata = {

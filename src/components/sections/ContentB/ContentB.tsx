@@ -29,9 +29,9 @@ const ContentB: React.FC<ContentProps> = ({ data }) => {
       title={title}
       subtitle={subtitle}
     >
-      <GridBox columns={3}>
+      <GridBox columns={3} gap={9}>
         {sections.map((section) => (
-          <Card key={section.title} data={section} textAlign="center"/>
+          <Card key={section.title} data={section} textAlign="left" />
         ))}
       </GridBox>
     </Section>

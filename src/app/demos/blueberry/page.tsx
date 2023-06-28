@@ -5,6 +5,7 @@ import ScrollingPresentation from "@/components/sections/ScrollingPresentation/S
 import Content from "@/components/sections/Content/Content"
 import CTA from "@/components/sections/CTA/CTA"
 import { ButtonVariant } from "@/components/elements/Button/Button"
+import ContentB from "@/components/sections/ContentB/ContentB"
 
 const defaultPageData = {
   sections: {
@@ -149,6 +150,37 @@ const defaultPageData = {
         altText: "Top tech success"
       }
     },
+    contentSection: {
+      title: "Learning English Naturally",
+      subtitle: "LittleSEED's approach to teaching helps children learn English comprehension much more quickly than traditional approaches because our curriculum draws children into learning through songs, play, and interaction.",
+      sections: [
+        {
+          title: "An opportunity to succeed naturally, not artificially:",
+          content: "By following a natural language acquisition process, each advancement in the language begins at the right time for aspiring students, creating immediate success and less stress than a grammar-based approach.",
+          media: {
+            type: "image",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/cc_songs.webp",
+          },
+        },
+        {
+          title: "A fun and engaging program:",
+          content: "Because the program features a variety of components and teaching approaches, children enjoy learning and are actively engaged—and when children are engaged, they can't help but learn.",
+          media: {
+            type: "image",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/cc_action-activity.webp",
+          },
+        },
+        {
+          title: "Both students and teachers succeed:",
+          content: "LittleSEED supports the teaching process with clear, comprehensive teacher and classroom materials, full professional training, and in-depth teacher support.",
+          media: {
+            type: "image",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/cc_stories.webp",
+          },
+
+        },
+      ]
+    },
     cta: {
       title: "Ready to Start Your Journey?",
       button: {
@@ -161,7 +193,7 @@ const defaultPageData = {
 }
 
 export default function Home() {
-  const { heroSection, presentationSection1, presentationSection2, introSection, cta } = defaultPageData.sections
+  const { heroSection, presentationSection1, presentationSection2, introSection, contentSection, cta } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen pb-24">
       <HeroC data={heroSection} />
@@ -182,6 +214,7 @@ export default function Home() {
         <ScrollingPresentation data={presentationSection2.slides} />
       </Section>
       <Content data={introSection} mediaAspectRatio="video"/>
+      <ContentB data={contentSection} />
       <CTA data={cta} />
     </main>
   )

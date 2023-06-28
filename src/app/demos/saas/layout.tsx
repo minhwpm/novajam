@@ -6,7 +6,7 @@ import Header from '@/components/sections/Header/Header';
 const font = Poppins({
   subsets: ['latin'],
   display: 'swap',
-  weight: ["100","200", "300","400", "500", "600", "700", "800", "900"]
+  weight: ["100","200", "300","400", "600", "700"]
 })
 
 export const metadata = {
