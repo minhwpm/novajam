@@ -75,7 +75,7 @@ export default function Home() {
       >
         <GridBox gap={9} columns={3} >
           {features.sections.map(section => (
-            <Card key={section.title} data={section} aspectRatio="4/3" imagePosition="top" />
+            <Card key={section.title} data={section} aspectRatio="4/3" mediaPosition="top" />
           ))}
         </GridBox>
       </Section>
