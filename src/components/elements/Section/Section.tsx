@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from "classnames"
 
+type SectionVariant = "mordern" | "vivid"
 interface Props {
   label?: string
   title?: string
@@ -16,7 +17,7 @@ const Section = ( { title, label, subtitle, children, framed = true, className, 
   return (
     <section id={id} className={classNames(
       "flex flex-col items-center ",
-      { "px-4 md:px-8 lg:px-20 xl:px-32": framed}, // @TODO make framed padding Global Settings
+      { "p-4 md:p-8 lg:p-20 xl:px-32": framed}, // @TODO make framed padding Global Settings
       className,
     )}>
       {label && (

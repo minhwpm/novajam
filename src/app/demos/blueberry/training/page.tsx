@@ -1,11 +1,10 @@
-'use client'
-
 import HeroC from "@/components/sections/HeroC/HeroC"
 import GridBox from "@/components/elements/GridBox/GridBox"
 import Section from "@/components/elements/Section/Section"
 import Image from "next/image"
 import CTA from "@/components/sections/CTA/CTA"
 import { ButtonVariant } from "@/components/elements/Button/Button"
+import Feature from "@/components/sections/Feature/Feature"
 
 const defaultPageData = {
   sections: {
@@ -30,7 +29,7 @@ const defaultPageData = {
           content: "BlueBERRY is a research-aligned curriculum that follows the principles of Natural Language Acquisition to build English oral language and critical listening skills. It helps students gain confidence and English fluency by using the continual language acquisition processes of exposure, comprehension, use, and reinforcement.",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/grapeseed.webp",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/BlueBERRY.webp",
           },
           link: {
             text: "Learn more",
@@ -55,10 +54,10 @@ const defaultPageData = {
           label: "FOR 0-36 MONTHS",
           title: "BlueBERRY Baby",
           subtitle: "",
-          content: "BlueBERRY Baby is a series of bilingual picture books for infants and toddlers. GrapeSEED Baby books provide a solid foundation for language learning in both English and the home language.",
+          content: "BlueBERRY Baby is a series of bilingual picture books for infants and toddlers. BlueBERRY Baby books provide a solid foundation for language learning in both English and the home language.",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/grapeseedbaby.webp",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/BlueBERRYbaby.webp",
           },
           link: {
             text: "Learn more",
@@ -71,7 +70,7 @@ const defaultPageData = {
     presentationSection2: {
       label: "BLUEBERRY CURRICULUM",
       title: "Core Components",
-      subtitle: "At GrapeSEED, we know a variety of teaching tools are needed to assist children when learning a language. Every curriculum component has a purpose, and together, they make a rich language learning opportunity. \n Learn how each curriculum component contributes to the GrapeSEED experience.",
+      subtitle: "At BlueBERRY, we know a variety of teaching tools are needed to assist children when learning a language. Every curriculum component has a purpose, and together, they make a rich language learning opportunity. \n Learn how each curriculum component contributes to the BlueBERRY experience.",
       slides: [
         {
           label: "",
@@ -141,71 +140,41 @@ const defaultPageData = {
         },
       ]
     },
-    introSection: {
-      title: "Technology for Success",
-      content: "How does GrapeSEED utilize digital tools to ensure a fun, convenient, and impactful experience for everyone? Check out our Technology page for more details on some of the tools we offer:",
+    featureSection: {
+      title: "Teacher Training",
+      content: "Foundation Training prepares teachers to use the BlueBERRY curriculum and provides the foundational knowledge and skills necessary to effectively use the materials. BlueBERRY Essentials is an on-demand, online training course designed to equip teachers with the basics of teaching BlueBERRY. The video-based training covers the theories and design that are foundational to BlueBERRY and `how to teach` the key components of the BlueBERRY curriculum, including real classroom examples and tips from BlueBERRY Coaches.",
       media: {
         type: "image",
-        src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/top_tech_success.webp",
+        src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/teacher_taining.webp",
+        altText: "Top tech success"
+      }
+    },
+    featureSection2: {
+      title: "Implementation Support",
+      content: "Teacher support is focused on ensuring fidelity of implementation of the BlueBERRY curriculum. Support includes coaching, co-teaching, lesson video analysis, and professional learning sessions. Teachers have unlimited access to a comprehensive video library and online courses that serve as professional development resources, focused on implementing the BlueBERRY curriculum for impact. Content covers topics such as basic How to Effectively Teach modules to the Master Teacher series.",
+      media: {
+        type: "image",
+        src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/cc_stories.webp",
         altText: "Top tech success"
       }
     },
     cta: {
       title: "Ready to Start Your Journey?",
       button: {
-        variant: "outline" as ButtonVariant,
         text: "CONTACT US",
         url: "/contact",
+        type: "outline" as ButtonVariant,
       }
     }
   }
 }
 
 export default function Home() {
-  const { heroSection, presentationSection1, presentationSection2, introSection, cta } = defaultPageData.sections
+  const { heroSection, featureSection, featureSection2, cta } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen pb-24">
-      <HeroC data={heroSection} />
-
-      <Section framed={false} className="bg-primary-50 mt-20">
-        <GridBox columns={2} gap={0}>
-          <div className="p-4 md:p-8 lg:p-20 xl:p-32">
-            <h2 className="text-5xl lg:text-6xl leading-snug lg:leading-snug font-bold max-w-4xl my-5 text-secondary-700">Teacher Training</h2>
-            <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl my-3 text-primary-400">Foundation Training</h3>
-            <p className="text-lg mb-3">Foundation Training prepares teachers to use the BlueBERRY curriculum and provides the foundational knowledge and skills necessary to effectively use the materials.</p>
-            <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl my-3 text-primary-400">BlueBERRY Essentials</h3>
-            <p className="text-lg mb-3">BlueBERRY Essentials is an on-demand, online training course designed to equip teachers with the basics of teaching BlueBERRY. The video-based training covers the theories and design that are foundational to BlueBERRY and `how to teach` the key components of the BlueBERRY curriculum, including real classroom examples and tips from BlueBERRY Coaches.</p>
-          </div>
-          <div className="">
-            <Image
-              className="w-full h-full aspect-square object-cover object-right"
-              src="https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/teacher_taining.webp"
-              alt="Teacher Training"
-              width={500}
-              height={500}
-             />
-          </div>
-        </GridBox>
-        <GridBox columns={2} gap={0}>
-          <div className="">
-            <Image
-              className="w-full h-full object-cover object-left -scale-x-100 "
-              src="https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/cc_stories.webp"
-              alt="Teacher Training"
-              width={500}
-              height={500}
-             />
-          </div>
-          <div className="p-4 md:p-8 lg:p-20 xl:p-32">
-            <h2 className="text-5xl lg:text-6xl leading-snug lg:leading-snug font-bold max-w-4xl my-5 text-secondary-700">Implementation Support</h2>
-            <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl my-3 text-primary-400">Teacher Support & Lesson Video Analysis</h3>
-            <p className="text-lg mb-3">Teacher support is focused on ensuring fidelity of implementation of the GrapeSEED curriculum. Support includes coaching, co-teaching, lesson video analysis, and professional learning sessions.</p>
-            <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl my-3 text-primary-400">Teacher Professional Development & Training Site</h3>
-            <p className="text-lg mb-3">Teachers have unlimited access to a comprehensive video library and online courses that serve as professional development resources, focused on implementing the GrapeSEED curriculum for impact. Content covers topics such as basic How to Effectively Teach modules to the Master Teacher series.</p>
-          </div>
-        </GridBox>
-      </Section>
-
+      <Feature data={featureSection} mediaPosition="right" />
+      <Feature data={featureSection2} />
       <CTA data={cta} />
     </main>
   )

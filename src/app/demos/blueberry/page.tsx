@@ -1,11 +1,7 @@
-'use client'
-
 import HeroC from "@/components/sections/HeroC/HeroC"
-import GridBox from "@/components/elements/GridBox/GridBox"
 import Section from "@/components/elements/Section/Section"
 import TabPT from "@/components/sections/TabPT/TabPT"
 import ScrollingPresentation from "@/components/sections/ScrollingPresentation/ScrollingPresentation"
-import Image from "next/image"
 import Content from "@/components/sections/Content/Content"
 import CTA from "@/components/sections/CTA/CTA"
 import { ButtonVariant } from "@/components/elements/Button/Button"
@@ -33,7 +29,7 @@ const defaultPageData = {
           content: "BlueBERRY is a research-aligned curriculum that follows the principles of Natural Language Acquisition to build English oral language and critical listening skills. It helps students gain confidence and English fluency by using the continual language acquisition processes of exposure, comprehension, use, and reinforcement.",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/grapeseed.webp",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/BlueBERRY.webp",
           },
           link: {
             text: "Learn more",
@@ -58,10 +54,10 @@ const defaultPageData = {
           label: "FOR 0-36 MONTHS",
           title: "BlueBERRY Baby",
           subtitle: "",
-          content: "BlueBERRY Baby is a series of bilingual picture books for infants and toddlers. GrapeSEED Baby books provide a solid foundation for language learning in both English and the home language.",
+          content: "BlueBERRY Baby is a series of bilingual picture books for infants and toddlers. BlueBERRY Baby books provide a solid foundation for language learning in both English and the home language.",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/grapeseedbaby.webp",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/BlueBERRYbaby.webp",
           },
           link: {
             text: "Learn more",
@@ -74,7 +70,7 @@ const defaultPageData = {
     presentationSection2: {
       label: "BLUEBERRY CURRICULUM",
       title: "Core Components",
-      subtitle: "At GrapeSEED, we know a variety of teaching tools are needed to assist children when learning a language. Every curriculum component has a purpose, and together, they make a rich language learning opportunity. \n Learn how each curriculum component contributes to the GrapeSEED experience.",
+      subtitle: "At BlueBERRY, we know a variety of teaching tools are needed to assist children when learning a language. Every curriculum component has a purpose, and together, they make a rich language learning opportunity. \n Learn how each curriculum component contributes to the BlueBERRY experience.",
       slides: [
         {
           label: "",
@@ -146,7 +142,7 @@ const defaultPageData = {
     },
     introSection: {
       title: "Technology for Success",
-      content: "How does GrapeSEED utilize digital tools to ensure a fun, convenient, and impactful experience for everyone? Check out our Technology page for more details on some of the tools we offer:",
+      content: "How does BlueBERRY utilize digital tools to ensure a fun, convenient, and impactful experience for everyone? Check out our Technology page for more details on some of the tools we offer:",
       media: {
         type: "image",
         src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/top_tech_success.webp",

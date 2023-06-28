@@ -1,6 +1,7 @@
 // Created by minhwpm (minhhien134@gmail.com)
 // AccordionPT = Accordion Presentation
 
+'use client'
 import React from 'react';
 import * as RadixAccordion from '@radix-ui/react-accordion';
 import GridBox from '../../elements/GridBox/GridBox';

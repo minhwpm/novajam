@@ -1,5 +1,3 @@
-'use client'
-
 import CTAB from "@/components/sections/CTAB/CTAB"
 import Accordion from "@/components/elements/Accordion/Accordion"
 

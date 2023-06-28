@@ -60,14 +60,14 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', shadowed = true, bottomBordered = false, fontBold = false, btnComponent }) => {
   const { logo, nav, button, isLoginEnabled } = data
   const sticky = useStickyHeaderOnScrollUp()
-  const [ showed, setShowed ] = useState(false)
+  const [ mobileMenuShowed, setMobileMenuShowed ] = useState(false)
 
   return (
     <header className={classNames(
       "relative flex p-4 lg:px-32 lg:py-5 items-center bg-white z-[99999]",
       { "sticky w-full z-50 top-0 animate-headerSlideIn": sticky },
-      { "shadow-md": shadowed },
-      { "border-b": bottomBordered },
+      { "shadow-md": sticky && shadowed },
+      { "border-b": sticky && bottomBordered },
       { "font-bold tracking-wider": fontBold}
     )}>
       <div>
@@ -82,7 +82,7 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', shadowed 
       {/* MOBILE NAV */}
       <NavigationMenu.Root className={classNames(
         "xl:hidden w-screen h-screen absolute top-full left-0 z-[99999] bg-white",
-        { "hidden": !showed}
+        { "hidden": !mobileMenuShowed}
       )}>
         <NavigationMenu.List>
           {nav.map(item => (
@@ -185,8 +185,14 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', shadowed 
         )}
       </div>
       <div className="xl:hidden ml-auto">
-        { !showed && <FontAwesomeIcon className="cursor-pointer" width={26} icon={faBars} size="xl" onClick={() => setShowed(true)}/> }
-        { showed && <FontAwesomeIcon className="cursor-pointer" width={26} icon={faXmark} size="xl" onClick={() => setShowed(false)}/>}
+        { !mobileMenuShowed && <FontAwesomeIcon className="cursor-pointer" width={26} icon={faBars} size="xl" onClick={() => {
+          setMobileMenuShowed(true)
+          document.body.style.overflowY = "hidden"
+        }}/> }
+        { mobileMenuShowed && <FontAwesomeIcon className="cursor-pointer" width={26} icon={faXmark} size="xl" onClick={() => {
+          setMobileMenuShowed(false)
+          document.body.style.overflowY = "auto"
+        }}/>}
       </div>
     </header>
   )

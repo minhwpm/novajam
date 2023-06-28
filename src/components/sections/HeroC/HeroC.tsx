@@ -45,7 +45,7 @@ const dummyData = {
 const HeroC = ( { data = dummyData, aspectRatio = "video", textAlignment = "center", textDarkBackground}: Props ) => {
   const { label, title, subtitle, buttons, media } = data
   return (
-    <div className="relative">
+    <div className="relative min-h-screen">
       {media.type === "image" && (
         <Image
           className={classNames("w-full object-cover",

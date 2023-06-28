@@ -1,4 +1,4 @@
-
+'use client';
 import SlidingText from "@/components/elements/SlidingText/SlidingText"
 import Button, { ButtonVariant } from "@/components/elements/Button/Button";
 import classNames from "classnames";

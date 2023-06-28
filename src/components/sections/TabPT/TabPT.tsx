@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import * as RadixTabs from '@radix-ui/react-tabs';
 import GridBox from '@/components/elements/GridBox/GridBox';
@@ -5,8 +7,6 @@ import Button from '@/components/elements/Button/Button';
 import classNames from "classnames";
 import Image from 'next/image';
 import "./styles.css"
-import { link } from 'fs';
-
 interface Props {
   data?: Array<{
     label?: string

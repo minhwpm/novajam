@@ -2,7 +2,8 @@
 import { useState } from "react";
 import classNames from "classnames";
 import { useInView } from "react-hook-inview";
-import Button from "@/components/elements/Button/Button";
+import Button, { ButtonVariant } from "@/components/elements/Button/Button"
+import Section from "@/components/elements/Section/Section";
 
 interface CTAProps {
   data: {
@@ -11,6 +12,7 @@ interface CTAProps {
     button: {
       text: string
       url?: string
+      type: ButtonVariant
     }
   }
 }
@@ -29,7 +31,7 @@ const CTAB: React.FC<CTAProps> = ({ data }) => {
   });
   // console.log("isVisible", isVisible)
   return (
-    <section className="px-5 lg:px-20 xl:px-32">
+    <Section>
       <div ref={ref} className={classNames(
           "bg-primary-950 mx-auto px-5 py-16 lg:py-20 xl:py-32 lg:w-[70%] lg:will-change-[width]",
           {"lg:animate-expandingWidth": isVisible},
@@ -46,13 +48,13 @@ const CTAB: React.FC<CTAProps> = ({ data }) => {
             </p>
           )}
           <div className="mt-12">
-            <Button variant="standard" size="lg" url={button.url}>
+            <Button variant={button.type} size="lg" url={button.url}>
               {button.text}
             </Button>
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   )
 }
 

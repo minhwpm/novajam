@@ -1,5 +1,3 @@
-'use client'
-
 import ScrollingPresentation from "@/components/sections/ScrollingPresentation/ScrollingPresentation"
 import Testimonials from '@/components/sections/Testimonials/Testimonials'
 import CTAB from "@/components/sections/CTAB/CTAB"
@@ -129,7 +127,7 @@ export default function Home() {
 
   const { hero, presentationSection, presentationSection2, cta } = defaultPageData.sections
   return (
-    <main className="flex flex-col min-h-screen gap-20 pb-24">
+    <main className="flex flex-col min-h-screen pb-24">
       <HeroB data={hero} />
       <Timeline />
       <Section
