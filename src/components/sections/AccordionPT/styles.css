@@ -5,6 +5,7 @@
 
 .Item[data-state='open'] {
   @apply shadow-shadow-all-directions pb-6
+  /* @apply bg-primary-50 pb-6 */
 }
 .Item[data-state='closed']:hover {
   @apply bg-gray-100

@@ -26,7 +26,7 @@ const FeatureContentItem = ({ section, idx, setVisibleIdx }: Props) => {
       <h3 className="text-4xl font-semibold mb-8">
         {section.title}
       </h3>
-      <p className="text-xl">
+      <p className="text-xl text-slate-600">
       {section.content}
       </p>
     </div>

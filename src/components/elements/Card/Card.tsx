@@ -80,7 +80,7 @@ const Card: React.FC<CardProps> = ({
             </Link>
           ) : (<>{title}</>)}
         </h4>
-        <p className="text-slate-600">
+        <p className="text-slate-600 text-lg">
           {content}
         </p>
       </div>

@@ -173,8 +173,8 @@ export default function Home() {
   const { heroSection, featureSection, featureSection2, cta } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen pb-24">
-      <Feature data={featureSection} mediaPosition="right" />
-      <Feature data={featureSection2} />
+      <Feature data={featureSection} mediaPosition="right" variant="alternate" />
+      <Feature data={featureSection2} variant="alternate" />
       <CTA data={cta} />
     </main>
   )

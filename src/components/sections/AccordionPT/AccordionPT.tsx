@@ -4,7 +4,6 @@
 'use client'
 import React from 'react';
 import * as RadixAccordion from '@radix-ui/react-accordion';
-import GridBox from '../../elements/GridBox/GridBox';
 import classNames from "classnames";
 import Image from 'next/image';
 import "./styles.css"

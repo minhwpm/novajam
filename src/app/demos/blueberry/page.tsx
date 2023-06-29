@@ -1,7 +1,7 @@
 import HeroC from "@/components/sections/HeroC/HeroC"
 import Section from "@/components/elements/Section/Section"
 import TabPT from "@/components/sections/TabPT/TabPT"
-import ScrollingPresentation from "@/components/sections/ScrollingPresentation/ScrollingPresentation"
+import ScrollingPresentation from "@/components/sections/ScrollingPT/ScrollingPT"
 import Content from "@/components/sections/Content/Content"
 import CTA from "@/components/sections/CTA/CTA"
 import { ButtonVariant } from "@/components/elements/Button/Button"
@@ -30,7 +30,7 @@ const defaultPageData = {
           content: "BlueBERRY is a research-aligned curriculum that follows the principles of Natural Language Acquisition to build English oral language and critical listening skills. It helps students gain confidence and English fluency by using the continual language acquisition processes of exposure, comprehension, use, and reinforcement.",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/BlueBERRY.webp",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/grapeseed.webp",
           },
           link: {
             text: "Learn more",
@@ -58,7 +58,7 @@ const defaultPageData = {
           content: "BlueBERRY Baby is a series of bilingual picture books for infants and toddlers. BlueBERRY Baby books provide a solid foundation for language learning in both English and the home language.",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/BlueBERRYbaby.webp",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/grapeseedbaby.webp",
           },
           link: {
             text: "Learn more",
