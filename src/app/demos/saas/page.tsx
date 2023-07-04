@@ -1,4 +1,4 @@
-import ScrollingPresentation from "@/components/sections/ScrollingPT/ScrollingPT"
+import ScrollingPT from "@/components/sections/ScrollingPT/ScrollingPT"
 import Testimonials from '@/components/sections/Testimonials/Testimonials'
 import CTAB from "@/components/sections/CTAB/CTAB"
 import HeroB from "@/components/sections/HeroB/HeroB"
@@ -65,7 +65,7 @@ const defaultPageData = {
       label: "",
       title: "Chatbots can reduce your customer support team’s workload",
       subtitle: "Reduce your customer support team’s duties, so your agents can focus on more complex issues.",
-      slides: [
+      sections: [
         {
           label: "",
           title: "Automate answers to repetitive questions",
@@ -75,7 +75,6 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/saas/feature1.webp",
           },
-          url: ""
         },
         {
           label: "",
@@ -86,7 +85,6 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/saas/feature2.webp",
           },
-          url: ""
         },
         {
           label: "",
@@ -97,7 +95,6 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/saas/feature3.webp",
           },
-          url: ""
         }
         
       ]
@@ -106,7 +103,7 @@ const defaultPageData = {
       label: "",
       title: "Make customer experience your competitive advantage",
       subtitle: "",
-      slides: [
+      sections: [
         {
           label: "",
           title: "Start conversations, win loyal customers",
@@ -192,15 +189,8 @@ export default function Home() {
     <main className="flex flex-col min-h-screen pb-24">
       <HeroB data={hero} />
       {/* <Timeline /> */}
-      <Section
-        title={presentationSection.title}
-        subtitle={presentationSection.subtitle}
-      >
-        <AccordionPT data={presentationSection.slides} />
-      </Section>
-      <Section title={presentationSection2.title}>
-        <ScrollingPresentation />
-      </Section>
+      <AccordionPT data={presentationSection} />
+      <ScrollingPT data={presentationSection2} />
       <ContentB data={contentSection} />
       <Feature data={featureSection} />
       <Feature data={featureSection2} mediaPosition="right"/>

@@ -7,37 +7,60 @@ import * as RadixAccordion from '@radix-ui/react-accordion';
 import classNames from "classnames";
 import Image from 'next/image';
 import "./styles.css"
+import Section from '@/components/elements/Section/Section';
+import { ButtonVariant } from '@/components/elements/Button/Button';
 
-interface TabsProps {
-  data?: Array<{
-    label?: string
-    title: string
-    subtitle?: string
-    content: string
-    media?: {
-      type: string
-      src: string
-    }
-    url?: string
-  }>
+interface SectionProps {
+  title: string
+  label?: string
+  subtitle?: string
+  content: string
+  media: {
+    type: string
+    src: string
+  }
+  button?: {
+    url: string
+    text: string
+    type: ButtonVariant
+  }
 }
 
-const VTabs = ({data}: TabsProps) => {
-  const [ activeItem, setActiveItem ] = React.useState(data ? data[0].title : '')
-  if (data && data.length > 0) {
-    return (
+interface PresentationProps {
+  data: {
+    title: string
+    label?: string
+    subtitle: string
+    sections: Array<SectionProps>
+  }
+  variant?: "standard" | "alternate"
+}
+
+const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) => {
+  const { label, title, subtitle, sections } = data
+  const [ activeItem, setActiveItem ] = React.useState(sections ? sections[0].title : '')
+  return (
+    <Section
+      label={label}
+      title={title}
+      subtitle={subtitle}
+    >
       <div className="grid grid-cols-12">
         <RadixAccordion.Root
           type="single"
-          defaultValue={data[0].title}
+          defaultValue={sections[0].title}
           onValueChange={(value) => setActiveItem(value)}
           className="col-span-12 lg:col-span-5 flex flex-col items-start gap-6"
         >
-          {data.map((item) => (
+          {sections.map((item) => (
             <RadixAccordion.Item
               key={item.title}
               value={item.title}
-              className="Item rounded-2xl w-full"
+              className={classNames(
+                "Item w-full",
+                {"standard rounded-2xl": variant === "standard"},
+                {"alternate": variant === "alternate"}
+              )}
             >
               <RadixAccordion.Trigger
                 key={item.title}
@@ -71,7 +94,7 @@ const VTabs = ({data}: TabsProps) => {
           ))}
         </RadixAccordion.Root>
         <div className="hidden lg:grid lg:col-span-7">
-          {data.map((item) => (
+          {sections.map((item) => (
             <div
               key={item.title}
               className={classNames(
@@ -91,9 +114,8 @@ const VTabs = ({data}: TabsProps) => {
           ))}
         </div>
       </div>
-    )
-  }
-  return <></>
+    </Section>
+  )
 }
 
-export default VTabs
+export default AccordionPT

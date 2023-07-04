@@ -1,7 +1,7 @@
 import HeroC from "@/components/sections/HeroC/HeroC"
 import Section from "@/components/elements/Section/Section"
 import TabPT from "@/components/sections/TabPT/TabPT"
-import ScrollingPresentation from "@/components/sections/ScrollingPT/ScrollingPT"
+import CarouselPT from "@/components/sections/CarouselPT/CarouselPT"
 import Content from "@/components/sections/Content/Content"
 import CTA from "@/components/sections/CTA/CTA"
 import { ButtonVariant } from "@/components/elements/Button/Button"
@@ -22,7 +22,7 @@ const defaultPageData = {
       label: "",
       title: "Our Solutions",
       subtitle: "",
-      slides: [
+      sections: [
         {
           label: "FOR AGES 4-12",
           title: "BlueBERRY",
@@ -72,7 +72,7 @@ const defaultPageData = {
       label: "BLUEBERRY CURRICULUM",
       title: "Core Components",
       subtitle: "At BlueBERRY, we know a variety of teaching tools are needed to assist children when learning a language. Every curriculum component has a purpose, and together, they make a rich language learning opportunity. \n Learn how each curriculum component contributes to the BlueBERRY experience.",
-      slides: [
+      sections: [
         {
           label: "",
           title: "Action Activities",
@@ -186,7 +186,7 @@ const defaultPageData = {
       button: {
         text: "CONTACT US",
         url: "/contact",
-        type: "outline" as ButtonVariant,
+        type: "alternate" as ButtonVariant,
       }
     }
   }
@@ -197,22 +197,8 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen pb-24">
       <HeroC data={heroSection} />
-      
-      <Section
-        className="min-h-screen mt-20"
-        title={presentationSection1.title}
-      >
-        <TabPT data={presentationSection1.slides} />
-      </Section>
-
-      <Section
-        label={presentationSection2.label}
-        title={presentationSection2.title}
-        subtitle={presentationSection2.subtitle}
-        className="mt-20"
-      >
-        <ScrollingPresentation data={presentationSection2.slides} />
-      </Section>
+      <TabPT data={presentationSection1} />
+      <CarouselPT data={presentationSection2} />
       <Content data={introSection} mediaAspectRatio="video"/>
       <ContentB data={contentSection} />
       <CTA data={cta} />

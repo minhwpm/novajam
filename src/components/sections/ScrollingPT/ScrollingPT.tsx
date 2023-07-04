@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import classNames from "classnames";
+import Section from "@/components/elements/Section/Section";
 import FeatureContentItem from "@/components/elements/FeatureContentItem/FeatureContentItem";
+import { ButtonVariant } from "@/components/elements/Button/Button";
 
 const sections = [
   {
@@ -43,14 +45,39 @@ const sections = [
   },
 ];
 
-const ScrollingPresentation = ( { data = sections}) => {
+interface SectionProps {
+  label?: string
+  title: string
+  subtitle?: string
+  content: string
+  media: {
+    type: string
+    src: string
+  }
+  button?: {
+    url: string
+    text: string
+    type: ButtonVariant
+  }
+}
+
+interface ScrollingPTProps {
+  data: {
+    title: string
+    subtitle: string
+    sections: Array<SectionProps>
+  }
+}
+
+const ScrollingPT: React.FC<ScrollingPTProps> = ({ data }) => {
+  const { title, subtitle, sections } = data
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
-    <>
+    <Section title={title} subtitle={subtitle}>
       {/* FOR MOBILE, TABLETS */}
       <div className="xl:hidden">
-        {data.map((section, idx) => (
+        {sections.map((section, idx) => (
           <div key={section.title} className="mb-20">
             <div className="mb-10">
               <h3 className="font-semibold text-3xl lg:text-4xl leading-snug mb-6">
@@ -78,7 +105,7 @@ const ScrollingPresentation = ( { data = sections}) => {
         <div className="relative w-3/5">
           <div className="sticky top-20">
             <div className="relative h-[80vh]">
-              {data.map((section, idx) => (
+              {sections.map((section, idx) => (
                 <div
                   key={section.title}
                   className={classNames(
@@ -107,7 +134,7 @@ const ScrollingPresentation = ( { data = sections}) => {
         </div>
 
         <div className="w-2/5 flex flex-col">
-          {data.map((section, idx) => (
+          {sections.map((section, idx) => (
             <FeatureContentItem
               key={section.title}
               section={section}
@@ -117,8 +144,8 @@ const ScrollingPresentation = ( { data = sections}) => {
           ))}
         </div>
       </div>
-    </>
+    </Section>
   );
 };
 
-export default ScrollingPresentation;
+export default ScrollingPT;

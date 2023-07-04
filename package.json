@@ -29,6 +29,7 @@
     "react-dom": "18.2.0",
     "react-hook-inview": "^4.5.0",
     "react-scroll-parallax": "^3.4.2",
+    "swiper": "^9.4.1",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
   },

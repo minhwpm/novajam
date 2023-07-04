@@ -6,7 +6,7 @@ import Header from '@/components/sections/Header/Header';
 const font = Montserrat({
   subsets: ['latin', 'vietnamese'],
   display: 'swap',
-  weight: ["100","200", "300","400", "500", "600", "700", "800", "900"]
+  weight: ["100", "200", "300","400", "500", "600", "700", "800", "900"]
 })
 
 export const metadata = {
@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <Header data={headerData} bottomBordered={true} shadowed={false} fontBold={true} />
+        <Header data={headerData} variant="alternate" />
         {children}
         <Analytics />
       </body>

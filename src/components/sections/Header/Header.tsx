@@ -4,28 +4,10 @@ import Button, { ButtonVariant } from "@/components/elements/Button/Button"
 import Link from "next/link"
 import useStickyHeaderOnScrollUp from "@/utils/hooks/useStickyHeaderOnScrollUp"
 import classNames from "classnames"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import './styles.css';
-
-const ListItem = ( { title, href, children }: { title: string, href: string, children?: React.ReactNode }) => {
-  return (
-    <li className="px-3 py-1 rounded hover:bg-gray-100 transition-colors duration-500">
-      <Link href={href}>
-        {children ? (
-          <>
-            <div className="font-semibold">{title}</div>
-            <div>{children}</div>
-          </>
-        ) : (
-          <div>{title}</div>
-        )}
-      </Link>
-    </li>
-  )
-}
-
 interface HeaderProps {
   data: {
     logo: {
@@ -47,17 +29,32 @@ interface HeaderProps {
       type: ButtonVariant
     }
   }
-  stickyType?: 'none' | 'scroll-up' | 'scroll-down' //@TODO modify Hook later to handle this property
-  logoAlignments?: 'center' | 'left'
+  variant?: "standard" | "alternate"
+  // @TODO following 4 properties
+  stickyType?: 'none' | 'scroll-up' | 'scroll-down'
+  logoAlignment?: 'center' | 'left'
   navAlignment?: 'center' | 'left' | 'right' // this property is for XL screens
   backgroundColor?: 'white' | 'transparent'
-  shadowed?: boolean
-  bottomBordered?: boolean
-  fontBold?: boolean 
-  btnComponent?: React.ReactNode
 }
 
-const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', shadowed = true, bottomBordered = false, fontBold = false, btnComponent }) => {
+const ListItem = ( { title, href, children }: { title: string, href: string, children?: React.ReactNode }) => {
+  return (
+    <li className="px-3 py-1 rounded hover:bg-gray-100 transition-colors duration-500">
+      <Link href={href}>
+        {children ? (
+          <>
+            <div className="font-semibold">{title}</div>
+            <div>{children}</div>
+          </>
+        ) : (
+          <div>{title}</div>
+        )}
+      </Link>
+    </li>
+  )
+}
+
+const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant = "standard" }) => {
   const { logo, nav, button, isLoginEnabled } = data
   const sticky = useStickyHeaderOnScrollUp()
   const [ mobileMenuShowed, setMobileMenuShowed ] = useState(false)
@@ -66,14 +63,13 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', shadowed 
     <header className={classNames(
       "relative flex p-4 lg:px-32 lg:py-5 items-center bg-white z-[99999]",
       { "sticky w-full z-50 top-0 animate-headerSlideIn": sticky },
-      { "shadow-md": sticky && shadowed },
-      { "border-b": sticky && bottomBordered },
-      { "font-bold tracking-wider": fontBold}
+      { "shadow-md": sticky && variant === "standard" },
+      { "border-b": sticky && variant === "alternate" },
+      { "font-bold tracking-wider": variant === "alternate"}
     )}>
       <div>
         <Link href="/">
           <div className="flex items-center font-semibold text-primary-600 text-3xl italic tracking-widest">
-            {/* <FontAwesomeIcon width={26} icon={faCloudBolt} /> */}
             <div>{logo.text}</div>
           </div>
         </Link>
@@ -95,7 +91,7 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', shadowed 
               { item.content && (
                 <>
                   <NavigationMenu.Trigger className="py-2 px-3 select-none">
-                    {item.title} <FontAwesomeIcon className="CaretDown " icon={faChevronDown} size="2xs" width={10} />
+                    {item.title} <FontAwesomeIcon className="inline-block CaretDown" icon={faChevronDown} size="2xs" width={10} />
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className="">
                     <ul className="List one">
@@ -132,7 +128,7 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', shadowed 
               { item.content && (
                 <>
                   <NavigationMenu.Trigger className="py-2 px-3 select-none">
-                    {item.title} <FontAwesomeIcon className="CaretDown " icon={faChevronDown} size="2xs" width={10} />
+                    {item.title} <FontAwesomeIcon className="inline-block CaretDown" icon={faChevronDown} size="2xs" width={10} />
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className="NavigationMenuContent">
                     <ul className="List one">

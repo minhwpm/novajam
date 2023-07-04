@@ -3,9 +3,11 @@
 }
  */
 
-.Item[data-state='open'] {
-  @apply shadow-shadow-all-directions pb-6
-  /* @apply bg-primary-50 pb-6 */
+.Item.standard[data-state='open'] {
+  @apply pb-6 shadow-shadow-all-directions 
+}
+.Item.alternate[data-state='open']{
+  @apply bg-primary-50 pb-6
 }
 .Item[data-state='closed']:hover {
   @apply bg-gray-100
