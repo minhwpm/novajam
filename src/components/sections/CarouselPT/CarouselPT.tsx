@@ -1,42 +1,39 @@
 'use client'
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Navigation, Pagination } from "swiper";
-import 'swiper/css';
-import "swiper/css/effect-fade";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import Section from "@/components/elements/Section/Section";
 import Button, { ButtonVariant } from "@/components/elements/Button/Button"
 import GridBox from "@/components/elements/GridBox/GridBox";
-import Image
- from "next/image";
-interface SectionProps {
-  title: string
-  label?: string
-  subtitle?: string
-  content: string
-  media: {
-    type: string
-    src: string
-  }
-  button?: {
-    url: string
-    text: string
-    type: ButtonVariant
-  }
-}
+import Image from "next/image";
+import Carousel from "@/components/elements/Carousel/Carousel";
+import classNames from "classnames";
 
 interface CarouselPTProps {
   data: {
     title: string
     label?: string
     subtitle: string
-    sections: Array<SectionProps>
+    sections: Array<{
+      id: string
+      media: {
+        type: string
+        src: string
+      }
+      content?: {
+        title: string
+        label?: string
+        subtitle?: string
+        body: string
+        button?: {
+          url: string
+          text: string
+          type: ButtonVariant
+        }
+      }
+    }>
   }
+  aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
 }
 
-const CarouselPT: React.FC<CarouselPTProps> = ({ data }) => {
+const CarouselPT: React.FC<CarouselPTProps> = ({ data, aspectRatio }) => {
   const { label, title, subtitle, sections } = data
   return (
     <Section
@@ -44,46 +41,41 @@ const CarouselPT: React.FC<CarouselPTProps> = ({ data }) => {
       title={title}
       subtitle={subtitle}
     >
-      <Swiper
-        className="mySwiper w-full min-h-[500px]"
-        spaceBetween={30}
-        loop={true}
-        effect={"fade"}
-        navigation={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[EffectFade, Navigation, Pagination]}
-      >
-        {sections.map((section) => (
-          <SwiperSlide key={section.title} className="bg-white px-5 md:px-10 lg:px-20">
-            <GridBox columns={2} gap={9}>
-              <div className="flex flex-col justify-center">
+      <Carousel
+        effect="fade"
+        pagination={false}
+        aspectRatio={aspectRatio}
+        slides={sections.map((section) => (
+          <div key={section.id} className={classNames("h-full grid gap-x-16 gap-y-5 bg-white px-5 md:px-10 lg:px-14", { "lg:grid-cols-2": section.content})}>
+            {section.content && (
+              <div className="flex flex-col justify-center lg:py-10">
                 <h3 className="text-3xl lg:text-4xl leading-snug lg:leading-snug font-bold max-w-4xl mb-5">
-                  {section.title}
+                  {section.content?.title}
                 </h3>
                 <p className="text-slate-600 text-lg block mb-3">
-                  {section.content}
+                  {section.content?.body}
                 </p>
-                {section.button &&
-                  <Button variant={section.button.type} url={section.button.url}>
-                    {section.button.text}
+                {section.content?.button &&
+                  <Button variant={section.content.button.type} url={section.content.button.url}>
+                    {section.content.button.text}
                   </Button>
                 }
               </div>
-              <div>
-                <Image
-                  className="w-full h-full object-cover"
-                  src={section.media?.src ?? ""}
-                  alt="Teacher Training"
-                  width={500}
-                  height={500}
-                />
-              </div>
-            </GridBox>
-          </SwiperSlide>
+            )}
+            <div>
+              <Image
+                className={classNames(
+                  "w-full h-full object-cover",
+                )}
+                src={section.media?.src ?? ""}
+                alt="Teacher Training"
+                width={500}
+                height={500}
+              />
+            </div>
+          </div>
         ))}
-      </Swiper>
+      />
     </Section>
   )
 }

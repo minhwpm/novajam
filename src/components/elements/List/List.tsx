@@ -12,7 +12,7 @@ const List: React.FC<ListProps> = ({items}) => {
   return (
     <ul className="list">
       {items.map((item, idx) => (
-        <li key={`list-item-${idx}`}>
+        <li key={item.text}>
           <FontAwesomeIcon icon={faCircle} width={18} size="lg"/>
           {item.text}
         </li>
