@@ -45,12 +45,12 @@ const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) 
       title={title}
       subtitle={subtitle}
     >
-      <div className="grid grid-cols-12">
+      <div className="w-full grid grid-cols-12">
         <RadixAccordion.Root
           type="single"
           defaultValue={sections[0].title}
           onValueChange={(value) => setActiveItem(value)}
-          className="col-span-12 lg:col-span-5 flex flex-col items-start gap-6"
+          className="col-span-12 lg:col-span-5 flex flex-col items-start justify-center gap-6"
         >
           {sections.map((item) => (
             <RadixAccordion.Item

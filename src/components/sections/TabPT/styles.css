@@ -4,10 +4,10 @@
 
 
 .Trigger[data-state='inactive'] span {
-  opacity: 0.3;
+  opacity: 0.7;
 }
 
 .Trigger[data-state='inactive']:hover span{
-  opacity: 0.7;
+  opacity: 1.0;
   transition: opacity 0.5s ease-in-out;
 }

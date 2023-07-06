@@ -8,8 +8,8 @@ import classNames from "classnames";
 
 interface CarouselPTProps {
   data: {
-    title: string
     label?: string
+    title: string
     subtitle: string
     sections: Array<{
       id: string

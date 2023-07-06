@@ -1,3 +1,7 @@
+/* 
+Created by minhwpm (minhhien134@gmail.com)
+Feature Row (Text | Media) Hero section
+ */
 'use client';
 import SlidingText from "@/components/elements/SlidingText/SlidingText"
 import Button, { ButtonVariant } from "@/components/elements/Button/Button";

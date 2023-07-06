@@ -102,7 +102,7 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
                     alt=""
                     width={500}
                     height={500}
-                    className="w-full object-cover lg:shadow-lg"
+                    className="w-full h-full object-cover lg:shadow-lg"
                   />
                 </div>
               </GridBox>
