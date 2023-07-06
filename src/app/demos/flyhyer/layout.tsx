@@ -1,12 +1,12 @@
 import '@/app/globals.css'
 import { Analytics } from '@vercel/analytics/react';
-import { Lato } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
 
-const font = Lato({
-  subsets: ['latin'],
+const font = Inter({
+  subsets: ['latin', "vietnamese"],
   display: 'swap',
-  weight: ["100", "300","400", "700", "900"]
+  weight: ["300","400", "500", "600", "700", "800"]
 })
 
 export const metadata = {
@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <Header data={headerData} variant="alternate" />
+        <Header data={headerData} />
         {children}
         <Analytics />
       </body>

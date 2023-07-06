@@ -1,12 +1,8 @@
 import HeroC from "@/components/sections/HeroC/HeroC"
-import Section from "@/components/elements/Section/Section"
 import TabPT from "@/components/sections/TabPT/TabPT"
-import CarouselPT from "@/components/sections/CarouselPT/CarouselPT"
-import Content from "@/components/sections/Content/Content"
 import CTA from "@/components/sections/CTA/CTA"
 import { ButtonVariant } from "@/components/elements/Button/Button"
 import ContentB from "@/components/sections/ContentB/ContentB"
-import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
 import Feature from "@/components/sections/Feature/Feature"
 
 const defaultPageData = {
