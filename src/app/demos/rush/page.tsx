@@ -26,14 +26,41 @@ const defaultPageData = {
         {
           title: "Same-day Appointments",
           content: "For primary care & selected specialties, see provider schedules & make your own appointment online, even if you’re new to RUSH.",
+          media: {
+            type: "icon",
+            src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/cta-grid--icon-3.png",
+          },
+          button: {
+            text: "Schedule Online",
+            url: "/schedule-online",
+            type: "alternate",
+          }
         },
         {
           title: "RUSH On Demand",
           content: "Get quick care without an appointment for common conditions and everyday health concerns with RUSH On Demand. We have many convenient ways to see a provider, including online virtual visits.",
+          media: {
+            type: "icon",
+            src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/cta-grid--icon-2.png",
+          },
+          button: {
+            text: "Get Care Today",
+            url: "/get-care-today",
+            type: "alternate",
+          }
         },
         {
           title: "New Northwest Indiana Location",
           content: "RUSH Munster offers Northwest Indiana access to top health care providers in primary care and over a dozen specialties.",
+          media: {
+            type: "icon",
+            src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/location-icon.png",
+          },
+          button: {
+            text: "Learn More",
+            url: "/locations",
+            type: "alternate",
+          }
         },
       ]
     },
@@ -140,7 +167,7 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/vizient-2022-feature_2.jpg",
           },
-          url: "",
+          url: "/stories",
         },
         {
           label: "Skin",
@@ -150,7 +177,7 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/mohs-surgery-feature.jpg",
           },
-          url: "",
+          url: "/stories",
         },
         {
           label: "Patient Stories",
@@ -160,7 +187,7 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/Mike-Taylor-771x434.gif"
           },
-          url: "",
+          url: "/stories",
         },
       ]
     },

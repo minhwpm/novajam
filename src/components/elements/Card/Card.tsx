@@ -1,6 +1,7 @@
 import classNames from "classnames"
 import Image from "next/image"
 import Link from "next/link"
+import Button, { ButtonVariant } from "../Button/Button"
 interface CardProps {
   data: {
     label?: string
@@ -12,6 +13,11 @@ interface CardProps {
       altText?: string
     }
     url?: string
+    button?: {
+      url: string
+      text: string
+      type: ButtonVariant
+    }
   }
   // size?: "small" | "medium" | "large"
   aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
@@ -32,7 +38,7 @@ const Card: React.FC<CardProps> = ({
   mediaPosition = "top",
   textAlign = "left"
 }) => {
-  const { label, title, content, url } = data
+  const { label, title, content, url, button } = data
   return (
     <div className={classNames(
       "relative flex flex-col shrink-0 bg-white",
@@ -60,6 +66,15 @@ const Card: React.FC<CardProps> = ({
           alt={data.media.altText ?? title}
         />
       )}
+      {data.media?.type === "icon" && data.media?.src && (
+        <Image
+          className="w-16 h-16"
+          src={data.media.src}
+          width={64}
+          height={64}
+          alt={data.media.altText ?? title}
+        />
+      )}
       <div className={classNames(
         "w-full py-5",
         { "px-5": border || rounded },
@@ -81,6 +96,13 @@ const Card: React.FC<CardProps> = ({
         <p className="text-slate-600 text-lg block mt-2">
           {content}
         </p>
+        {button?.url && (
+          <div className="mt-6">
+            <Button variant={button.type ?? "outline"} url={button.url}>
+              {button.text}
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   )
