@@ -1,18 +1,35 @@
 import HeroC from "@/components/sections/HeroC/HeroC"
-import Section from "@/components/elements/Section/Section"
 import TabPT from "@/components/sections/TabPT/TabPT"
 import CarouselPT from "@/components/sections/CarouselPT/CarouselPT"
 import Content from "@/components/sections/Content/Content"
 import CTA from "@/components/sections/CTA/CTA"
 import { ButtonVariant } from "@/components/elements/Button/Button"
 import ContentB from "@/components/sections/ContentB/ContentB"
+import FeatureA from "@/components/sections/FeatureA/FeatureA"
+import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
+import { type } from "os"
 
 const defaultPageData = {
   sections: {
+    // heroSection: {
+    //   label: "",
+    //   title: "English for Children",
+    //   subtitle: "Build a bright future",
+    //   media: {
+    //     type: "video",
+    //     src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/hero_video.mp4",
+    //   },
+    // },
     heroSection: {
-      label: "",
-      title: "English for Children",
-      subtitle: "Build a bright future",
+      title: "THINK IN ENGLISH | SPEAK IN ENGLISH",
+      media: {
+        type: "image",
+        src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/head_bg.jpg",
+      }
+    },
+    featureSection: {
+      title: "Welcome to BlueBERRY",
+      subtitle: "For over 50 years, we at BlueBERRY have been invested in a singular mission: the success of the next generation. We exist to give parents hope for the best possible life for their children and teachers the tools they need to be successful.",
       media: {
         type: "video",
         src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/hero_video.mp4",
@@ -32,9 +49,10 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/grapeseed.webp",
           },
-          link: {
+          button: {
             text: "Learn more",
-            url: "/solutions/blueberry"
+            url: "/solutions/blueberry",
+            type: "alternate" 
           }
         },
         {
@@ -46,9 +64,10 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/littleseed.webp",
           },
-          link: {
+          button: {
             text: "Learn more",
-            url: "/solutions/blueberry"
+            url: "/solutions/blueberry",
+            type: "alternate" 
           }
         },
         {
@@ -60,9 +79,10 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/grapeseedbaby.webp",
           },
-          link: {
+          button: {
             text: "Learn more",
-            url: ""
+            url: "/solutions/blueberry-baby",
+            type: "alternate" 
           }
         }
 
@@ -155,7 +175,7 @@ const defaultPageData = {
       subtitle: "LittleSEED's approach to teaching helps children learn English comprehension much more quickly than traditional approaches because our curriculum draws children into learning through songs, play, and interaction.",
       sections: [
         {
-          title: "An opportunity to succeed naturally, not artificially:",
+          title: "An opportunity to succeed naturally, not artificially",
           content: "By following a natural language acquisition process, each advancement in the language begins at the right time for aspiring students, creating immediate success and less stress than a grammar-based approach.",
           media: {
             type: "image",
@@ -163,7 +183,7 @@ const defaultPageData = {
           },
         },
         {
-          title: "A fun and engaging program:",
+          title: "A fun and engaging program",
           content: "Because the program features a variety of components and teaching approaches, children enjoy learning and are actively engaged—and when children are engaged, they can't help but learn.",
           media: {
             type: "image",
@@ -171,7 +191,7 @@ const defaultPageData = {
           },
         },
         {
-          title: "Both students and teachers succeed:",
+          title: "Both students and teachers succeed",
           content: "LittleSEED supports the teaching process with clear, comprehensive teacher and classroom materials, full professional training, and in-depth teacher support.",
           media: {
             type: "image",
@@ -193,14 +213,15 @@ const defaultPageData = {
 }
 
 export default function Home() {
-  const { heroSection, presentationSection1, presentationSection2, introSection, contentSection, cta } = defaultPageData.sections
+  const { heroSection, featureSection, presentationSection1, presentationSection2, introSection, contentSection, cta } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen pb-24">
       <HeroC data={heroSection} />
+      <FeatureA data={featureSection} mediaPosition="bottom" />
       <TabPT data={presentationSection1} />
       <CarouselPT data={presentationSection2} />
       <Content data={introSection} mediaAspectRatio="video"/>
-      <ContentB data={contentSection} />
+      <AccordionPT data={contentSection} />
       <CTA data={cta} />
     </main>
   )

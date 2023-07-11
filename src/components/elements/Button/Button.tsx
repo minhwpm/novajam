@@ -11,11 +11,11 @@ export interface ButtonProps {
   clickHandler?: () => void
   variant: ButtonVariant
   size?: "base" | "lg"
-  borderRadius?: "base" | "full"
+  borderRadius?: "none" | "base" | "full"
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-  const { size = "base", variant = "standard", borderRadius = "full", url, children, clickHandler } = props
+  const { size = "base", variant = "standard", borderRadius = "base", url, children, clickHandler } = props
   if (variant === "link-btn") {
     return (
       <Link className={classNames("text-blue-600 px-0 text-lg hover:underline hover:underline-offset-4")} href={url ?? "#"}>

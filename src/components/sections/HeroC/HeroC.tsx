@@ -27,28 +27,10 @@ interface Props {
   textDarkBackground?: boolean
 }
 
-const dummyData = {
-  label: "FEATURES",
-  title: "Unlock the full potential of a business platform",
-  subtitle:
-    "Bluebiz is a top-rated platform for small and medium businesses to grow sales through outstanding customer service.",
-  buttons: [
-    {
-      text: "Get started now",
-      url: "/register",
-      type: "standard" as ButtonVariant
-    },
-  ],
-  media: {
-    type: "image",
-    src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/hero.webp",
-  },
-};
-
-const HeroC = ( { data = dummyData, aspectRatio = "video", textAlignment = "center", textDarkBackground}: Props ) => {
+const HeroC = ( { data, aspectRatio = "video", textAlignment = "center", textDarkBackground}: Props ) => {
   const { label, title, subtitle, buttons, media } = data
   return (
-    <section className="relative min-h-screen">
+    <section className={classNames("relative lg:min-h-screen")}>
       {media.type === "image" && (
         <Image
           className={classNames("w-full object-cover brightness-75",

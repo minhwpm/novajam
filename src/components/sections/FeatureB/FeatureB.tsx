@@ -13,6 +13,7 @@ interface FeatureProps {
     media?: {
       type: string
       src: string
+      altText?: string
     }
     button?: {
       url: string
@@ -24,7 +25,7 @@ interface FeatureProps {
   variant?: "standard" | "alternate"
 }
 
-const Feature: React.FC<FeatureProps> = ({ data, mediaPosition = "left", variant = "standard" }) => {
+const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", variant = "standard" }) => {
   const { title, label, subtitle, content, media, button } = data
 
   if (variant === "alternate") {
@@ -32,13 +33,18 @@ const Feature: React.FC<FeatureProps> = ({ data, mediaPosition = "left", variant
       <Section framed={false}>
         <GridBox columns={2} gap={0}>
           <div className={classNames({ "lg:col-start-2" : mediaPosition === "right"})}>
-            <Image
-              className="w-full h-full object-cover"
-              src={media?.src ?? ""}
-              alt="Teacher Training"
-              width={500}
-              height={500}
+            {media?.type === "image" && (
+              <Image
+                className="w-full h-full object-cover"
+                src={media?.src ?? ""}
+                alt={media?.altText ?? title}
+                width={500}
+                height={500}
               />
+            )}
+            {media?.type === "video" && (
+              <video className="w-full h-96" src={media?.src} autoPlay={true} loop />
+            )}
           </div>
           <div className={classNames("px-4 pb-20 md:px-8 lg:p-20 xl:p-32 bg-primary-50", { "lg:col-start-1 lg:row-start-1": mediaPosition === "right"})}>
             {label && (
@@ -50,14 +56,20 @@ const Feature: React.FC<FeatureProps> = ({ data, mediaPosition = "left", variant
               {title}
             </h3>
             {subtitle && (
-              <p className="text-lg leading-8 lg:text-xl lg:leading-10 font-medium text-center mb-12 max-w-4xl">
+              <p className="text-lg leading-8 lg:text-xl lg:leading-10 font-medium mb-12 max-w-4xl">
                 {subtitle}
               </p>
             )}
-            <p className="text-lg block mb-3">
+            <p className="text-lg block mb-8">
               {content}
             </p>
-            {button && <Button variant={button.type} url={button.url}>{button.text}</Button>}
+            {button && (
+              <div>
+                <Button variant={button.type} url={button.url} size="lg">
+                  {button.text}
+                </Button>
+              </div>
+            )}
           </div>
           
         </GridBox>
@@ -68,13 +80,18 @@ const Feature: React.FC<FeatureProps> = ({ data, mediaPosition = "left", variant
     <Section>
       <GridBox columns={2} gap={0}>
         <div className={classNames({ "lg:col-start-2" : mediaPosition === "right"})}>
-          <Image
-            className="w-full h-full object-cover"
-            src={media?.src ?? ""}
-            alt="Teacher Training"
-            width={500}
-            height={500}
+          {media?.type === "image" && (
+            <Image
+              className="w-full h-full object-cover"
+              src={media?.src ?? ""}
+              alt="Teacher Training"
+              width={500}
+              height={500}
             />
+          )}
+          {media?.type === "video" && (
+            <video className="w-full h-96" src={media?.src} autoPlay={true} loop />
+          )}
         </div>
         <div className={classNames(
           "px-4 pb-20 md:p-8 lg:px-16 lg:py-12 flex flex-col justify-center",
@@ -89,16 +106,26 @@ const Feature: React.FC<FeatureProps> = ({ data, mediaPosition = "left", variant
             {title}
           </h3>
           {subtitle && (
-            <p className="text-lg leading-8 lg:text-xl lg:leading-10 font-medium text-center mb-12 max-w-4xl">
+            <p className="text-lg leading-8 lg:text-xl lg:leading-10 font-medium mb-12 max-w-4xl">
               {subtitle}
             </p>
           )}
-          <p className="text-slate-600 text-lg block mb-3">{content}</p>
-          {button && <Button variant={button.type} url={button.url}>{button.text}</Button>}
+          {content && (
+            <p className="text-slate-600 text-lg block">
+              {content}
+            </p>
+          )}
+          {button && (
+            <div className="mt-8">
+              <Button variant={button.type} url={button.url} size="lg">
+                {button.text}
+              </Button>
+            </div>
+          )}
         </div>
       </GridBox>
     </Section>
   )
 }
 
-export default Feature
+export default FeatureB

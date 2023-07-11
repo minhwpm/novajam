@@ -3,7 +3,7 @@ import TabPT from "@/components/sections/TabPT/TabPT"
 import CTA from "@/components/sections/CTA/CTA"
 import { ButtonVariant } from "@/components/elements/Button/Button"
 import ContentB from "@/components/sections/ContentB/ContentB"
-import Feature from "@/components/sections/Feature/Feature"
+import Feature from "@/components/sections/FeatureB/FeatureB"
 
 const defaultPageData = {
   sections: {
@@ -13,7 +13,7 @@ const defaultPageData = {
       subtitle: "More flexibility, freedom and choice!",
       media: {
         type: "image",
-        src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/flyhyper/1612349563-woman-on-a-business-jet-b.jpg",
+        src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/flyhyper/1612349563-woman-on-a-business-jet-b.jpg",
       },
       buttons: [
         {
@@ -36,7 +36,7 @@ const defaultPageData = {
           content: "Book your aircraft. Customize all aspects of your journey. Fly on your terms. When you want, where you want. Flying On-Demand gives you the total control of your flight and an unbeatable level of service at competitive rates. No hidden fees, no upfront investment or jet card payments.",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/flyhyper/1611761434-perseat2.jpg",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/flyhyper/1611761434-perseat2.jpg",
           },
           link: {
             text: "Learn more",
@@ -49,7 +49,7 @@ const defaultPageData = {
           content: "Fly on Hyer® exclusive routes booking a seat. Flying on a shared flight with like-minded people gives you the convenience and comfort that only private aviation can provide, for a fraction of the price.",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/flyhyper/1622551830-picture-phenon-300-interior-by-hyer-aviation.jpeg",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/flyhyper/1622551830-picture-phenon-300-interior-by-hyer-aviation.jpeg",
           },
           link: {
             text: "Learn more",
@@ -62,7 +62,7 @@ const defaultPageData = {
           content: "Our membership program is innovative, bold and offers even more personalisation and flexibility. You will start enjoying the benefits straight away.",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/flyhyper/1611670107-hyer-pay-as-you-go.avif",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/flyhyper/1611670107-hyer-pay-as-you-go.avif",
           },
           link: {
             text: "Learn more",
@@ -77,7 +77,7 @@ const defaultPageData = {
       content: "All of our flights come with complimentary Flight Manager Service. Your dedicated Flight Manager ensures that every detail of your flight is taken care of and you get the most competitive tailor-made offers. Speak with your Flight Manager in English 🇬🇧, Dutch 🇳🇱, German 🇩🇪, Spanish 🇪🇸 or Portuguese 🇵🇹.",
       media: {
         type: "image",
-        src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/flyhyper/1611581927-hyer-personal-flight-manager.avif",
+        src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/flyhyper/1611581927-hyer-personal-flight-manager.avif",
         altText: "Flight Manager"
       }
     },

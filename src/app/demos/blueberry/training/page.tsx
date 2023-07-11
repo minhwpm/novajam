@@ -1,7 +1,7 @@
 import HeroC from "@/components/sections/HeroC/HeroC"
 import CTA from "@/components/sections/CTA/CTA"
 import { ButtonVariant } from "@/components/elements/Button/Button"
-import Feature from "@/components/sections/Feature/Feature"
+import Feature from "@/components/sections/FeatureB/FeatureB"
 import Subscription from "@/components/sections/Subscription/Subscription"
 import CarouselPT from "@/components/sections/CarouselPT/CarouselPT"
 

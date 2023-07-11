@@ -7,7 +7,7 @@ import Timeline from "@/components/sections/Timeline/Timeline"
 import Section from "@/components/elements/Section/Section"
 import { ButtonVariant } from "@/components/elements/Button/Button"
 import ContentB from "@/components/sections/ContentB/ContentB"
-import Feature from "@/components/sections/Feature/Feature"
+import Feature from "@/components/sections/FeatureB/FeatureB"
 
 const defaultPageData = {
   sections: {

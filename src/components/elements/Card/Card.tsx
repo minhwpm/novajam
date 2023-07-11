@@ -61,26 +61,24 @@ const Card: React.FC<CardProps> = ({
         />
       )}
       <div className={classNames(
-        "w-full p-5",
-        // {"px-4 py-3": size === "small"},
-        // {"px-6 py-5": size === "medium"},
-        // { "px-8 pb-6 pt-5": size === "large"},
+        "w-full py-5",
+        { "px-5": border || rounded },
         { "absolute bottom-0 bg-gradient-to-t from-gray-900/90 to-transparent text-white": data.media?.src && mediaPosition === "overlay" },
         { "rounded-b-2xl": rounded },
         { "text-center": textAlign === "center" },
         { "text-right": textAlign === "right" }
       )}>
-        <p className="text-sm uppercase tracking-widest mb-3">
+        <p className="text-xs uppercase tracking-widest">
           {label}
         </p>
-        <h4 className="text-2xl font-semibold mb-3">
+        <h4 className="text-xl font-semibold mt-1">
           {url ? (
             <Link href={url}>
               {title}
             </Link>
           ) : (<>{title}</>)}
         </h4>
-        <p className="text-slate-600 text-lg">
+        <p className="text-slate-600 text-lg block mt-2">
           {content}
         </p>
       </div>

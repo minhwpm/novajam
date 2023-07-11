@@ -1,13 +1,13 @@
-.Trigger[data-state='active'] span:last-child {
+.Trigger[data-state='active'] h3 {
   border-bottom: 3px solid black;
 }
 
 
-.Trigger[data-state='inactive'] span {
-  opacity: 0.7;
+.Trigger[data-state='inactive'] * {
+  opacity: 0.85;
 }
 
-.Trigger[data-state='inactive']:hover span{
+.Trigger[data-state='inactive']:hover *{
   opacity: 1.0;
   transition: opacity 0.5s ease-in-out;
 }

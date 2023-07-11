@@ -6,7 +6,7 @@ import Header from '@/components/sections/Header/Header';
 const font = Inter({
   subsets: ['latin', "vietnamese"],
   display: 'swap',
-  weight: ["300","400", "500", "600", "700", "800"]
+  weight: ["300", "400", "500", "600", "700", "800"]
 })
 
 export const metadata = {

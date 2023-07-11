@@ -56,14 +56,14 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
                 {"border-r border-gray-300": idx < sections.length - 1}
               )}>
                 {section.label && (
-                  <span className="block uppercase tracking-widest">
+                  <p className="block uppercase tracking-widest">
                     {section.label}
-                  </span>
+                  </p>
                 )}
-                <span className="block font-bold text-2xl pb-2 border-b-[3px] border-transparent">
+                <h3 className="block font-bold text-2xl pb-2 border-b-[3px] border-transparent">
                   {section.title}
-                </span>
-                </div>
+                </h3>
+              </div>
             </RadixTabs.Trigger>
           ))}
         </RadixTabs.List>
@@ -79,18 +79,13 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
             >
               <GridBox columns={2} gap={0}>
                 <div className="flex flex-col justify-center p-5 md:p-14 lg:pr-24 bg-primary-50">
-                  {section.label && (
-                    <p className="text-base uppercase tracking-widest">
-                      {section.label}
-                    </p>
-                  )}
-                  <h3 className="text-3xl font-bold mb-6">
-                    {section.title}
-                  </h3>
+                  <h4 className="text-3xl font-bold mb-6">
+                    {section.subtitle}
+                  </h4>
                   <p>{section.content}</p>
                   {section.button?.url && (
                     <div className="mt-6 flex justify-end">
-                      <Button variant="outline" url={section.button.url}>
+                      <Button variant={section.button.type ?? "outline"} url={section.button.url}>
                         {section.button.text}
                       </Button>
                     </div>
