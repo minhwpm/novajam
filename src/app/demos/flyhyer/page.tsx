@@ -38,9 +38,10 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/flyhyper/1611761434-perseat2.jpg",
           },
-          link: {
+          button: {
             text: "Learn more",
-            url: "/solutions/on-demand"
+            url: "/solutions/on-demand",
+            type: "alternate" as ButtonVariant
           }
         },
         {
@@ -51,9 +52,10 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/flyhyper/1622551830-picture-phenon-300-interior-by-hyer-aviation.jpeg",
           },
-          link: {
+          button: {
             text: "Learn more",
-            url: "/solutions/shared"
+            url: "/solutions/shared",
+            type: "alternate" as ButtonVariant
           }
         },
         {
@@ -64,9 +66,10 @@ const defaultPageData = {
             type: "image",
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/flyhyper/1611670107-hyer-pay-as-you-go.avif",
           },
-          link: {
+          button: {
             text: "Learn more",
-            url: ""
+            url: "",
+            type: "alternate" as ButtonVariant
           }
         }
 

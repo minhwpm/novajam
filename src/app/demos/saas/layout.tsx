@@ -2,6 +2,7 @@ import '@/app/globals.css'
 import { Analytics } from '@vercel/analytics/react';
 import { Poppins } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
+import Footer from '@/components/sections/Footer/Footer';
 
 const font = Poppins({
   subsets: ['latin'],
@@ -16,8 +17,8 @@ export const metadata = {
 
 const headerData = {
   logo: {
-    text: "Celestial",
-    src: "",
+    url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/saas/celestial_logo.png",
+    altText: "Celestial"
   },
   nav: [
     {
@@ -52,6 +53,114 @@ const headerData = {
   ],
 }
 
+const footerData = {
+  logo: {
+    url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/saas/celestial_logo.png",
+    altText: "Celestial"
+  },
+  copyright: "© Celestial 2023 | All rights reserved.",
+  sns: [
+    {
+      url: "",
+      icon: {
+        url: "",
+        altText: ""
+      }
+    },
+    {
+      url: "",
+      icon: {
+        url: "",
+        altText: ""
+      }
+    },
+    {
+      url: "",
+      icon: {
+        url: "",
+        altText: ""
+      }
+    }
+  ],
+  sections: [
+    {
+      title: "PRODUCT",
+      links: [
+        {
+          text: "Pricing",
+          url: "/demos/saas/pricing"
+        },
+        {
+          text: "Live Chat",
+          url: "/demos/saas/pricing"
+        },
+        {
+          text: "Chatbots",
+          url: "/demos/saas/pricing"
+        },
+        {
+          text: "Helpdesk",
+          url: "/demos/saas/pricing"
+        },
+        {
+          text: "Celestial AI",
+          url: "/demos/saas/pricing"
+        },
+      ]
+    },
+    {
+      title: "INTEGRATIONS",
+      links: [
+        {
+          text: "Pricing",
+          url: "/demos/saas/pricing"
+        },
+        {
+          text: "Live Chat",
+          url: "/demos/saas/pricing"
+        },
+        {
+          text: "Chatbots",
+          url: "/demos/saas/pricing"
+        },
+        {
+          text: "Helpdesk",
+          url: "/demos/saas/pricing"
+        },
+        {
+          text: "Celestial AI",
+          url: "/demos/saas/pricing"
+        },
+      ]
+    },
+    {
+      title: "RESOURCES",
+      links: [
+        {
+          text: "Pricing",
+          url: "/demos/saas/pricing"
+        },
+        {
+          text: "Live Chat",
+          url: "/demos/saas/pricing"
+        },
+        {
+          text: "Chatbots",
+          url: "/demos/saas/pricing"
+        },
+        {
+          text: "Helpdesk",
+          url: "/demos/saas/pricing"
+        },
+        {
+          text: "Celestial AI",
+          url: "/demos/saas/pricing"
+        },
+      ]
+    }
+  ]
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -63,6 +172,7 @@ export default function RootLayout({
         <Header data={headerData} />
         {children}
         <Analytics />
+        <Footer data={footerData} />
       </body>
     </html>
   )

@@ -15,8 +15,8 @@ export const metadata = {
 }
 const headerData = {
   logo: {
-    text: "BlueBERRY",
-    src: "",
+    url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/blueberry_logo.png",
+    altText: "BlueBERRY",
   },
   nav: [
     {

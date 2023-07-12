@@ -92,7 +92,7 @@ const defaultPageData = {
           button: {
             text: "Learn more",
             url: "/solutions/on-demand",
-            type: "alternate"
+            type: "alternate" as ButtonVariant
           }
         },
         {
@@ -106,7 +106,7 @@ const defaultPageData = {
           button: {
             text: "Learn more",
             url: "/solutions/shared",
-            type: "alternate"
+            type: "alternate" as ButtonVariant
 
           }
         },
@@ -121,7 +121,7 @@ const defaultPageData = {
           button: {
             text: "Learn more",
             url: "",
-            type: "alternate"
+            type: "alternate" as ButtonVariant
 
           }
         },
@@ -136,7 +136,7 @@ const defaultPageData = {
           link: {
             text: "Learn more",
             url: "",
-            type: "alternate"
+            type: "alternate" as ButtonVariant
           }
         },
       ]
@@ -152,7 +152,7 @@ const defaultPageData = {
       button: {
         url: "",
         text: "Learn More",
-        type: "outline" as ButtonVariant
+        type: "standard" as ButtonVariant
 
       }
     },
@@ -212,7 +212,7 @@ export default function Home() {
       <FeatureB data={featureSection} />
       <TabPT data={presentationSection1} />
       <ContentB data={contentSection2} />
-      <FeatureB data={featureSection2} mediaPosition="right" />
+      <FeatureB data={featureSection2} mediaPosition="right" variant="alternate"/>
     </main>
   )
 }

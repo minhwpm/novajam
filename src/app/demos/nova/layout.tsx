@@ -10,13 +10,13 @@ const font = Inter({
 })
 
 export const metadata = {
-  title: 'RUSH',
-  description: 'RUSH theme - Clinic',
+  title: 'NOVA',
+  description: 'NOVA theme - Clinic',
 }
 const headerData = {
   logo: {
-    text: "RUSH",
-    src: "",
+    url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/nova_logo.png",
+    altText: "RUSH",
   },
   nav: [
     {

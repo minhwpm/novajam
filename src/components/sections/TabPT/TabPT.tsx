@@ -27,9 +27,9 @@ interface SectionProps {
 
 interface PresentationProps {
   data: {
-    title: string
+    title?: string
     label?: string
-    subtitle: string
+    subtitle?: string
     sections: Array<SectionProps>
   }
 }

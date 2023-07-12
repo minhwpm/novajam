@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react"
+import Image from "next/image"
 import Button, { ButtonVariant } from "@/components/elements/Button/Button"
 import Link from "next/link"
 import useStickyHeaderOnScrollUp from "@/utils/hooks/useStickyHeaderOnScrollUp"
@@ -11,8 +12,8 @@ import './styles.css';
 interface HeaderProps {
   data: {
     logo: {
-      text: string
-      src: string
+      url: string
+      altText: string
     },
     nav: Array<{
       title: string
@@ -69,9 +70,13 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant =
     )}>
       <div>
         <Link href="/">
-          <div className="flex items-center font-semibold text-primary-600 text-3xl italic tracking-widest">
-            <div>{logo.text}</div>
-          </div>
+          <Image
+            className="w-auto h-12 object-contain"
+            src={logo.url}
+            width={160}
+            height={48}
+            alt={logo.altText}
+          />
         </Link>
       </div>
 

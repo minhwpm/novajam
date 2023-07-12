@@ -8,7 +8,7 @@ interface FeatureProps {
     label?: string
     title: string
     subtitle?: string
-    content: string
+    content?: string
     media?: {
       type: string
       src: string
@@ -64,6 +64,7 @@ const FeatureA: React.FC<FeatureProps> = ({ data, mediaPosition, variant }) => {
             <p className="text-lg leading-8 lg:text-xl lg:leading-10 font-medium text-center mb-12 max-w-4xl">
               {subtitle}
             </p>
+
           )}
           <p className="text-lg">
             {content}

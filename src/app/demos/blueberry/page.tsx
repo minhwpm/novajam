@@ -4,22 +4,11 @@ import CarouselPT from "@/components/sections/CarouselPT/CarouselPT"
 import Content from "@/components/sections/Content/Content"
 import CTA from "@/components/sections/CTA/CTA"
 import { ButtonVariant } from "@/components/elements/Button/Button"
-import ContentB from "@/components/sections/ContentB/ContentB"
 import FeatureA from "@/components/sections/FeatureA/FeatureA"
 import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
-import { type } from "os"
 
 const defaultPageData = {
   sections: {
-    // heroSection: {
-    //   label: "",
-    //   title: "English for Children",
-    //   subtitle: "Build a bright future",
-    //   media: {
-    //     type: "video",
-    //     src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/hero_video.mp4",
-    //   },
-    // },
     heroSection: {
       title: "THINK IN ENGLISH | SPEAK IN ENGLISH",
       media: {
@@ -52,7 +41,7 @@ const defaultPageData = {
           button: {
             text: "Learn more",
             url: "/solutions/blueberry",
-            type: "alternate" 
+            type: "alternate" as ButtonVariant
           }
         },
         {
@@ -67,7 +56,7 @@ const defaultPageData = {
           button: {
             text: "Learn more",
             url: "/solutions/blueberry",
-            type: "alternate" 
+            type: "alternate" as ButtonVariant 
           }
         },
         {
@@ -82,7 +71,7 @@ const defaultPageData = {
           button: {
             text: "Learn more",
             url: "/solutions/blueberry-baby",
-            type: "alternate" 
+            type: "alternate" as ButtonVariant 
           }
         }
 
