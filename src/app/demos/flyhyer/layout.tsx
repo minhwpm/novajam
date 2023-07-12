@@ -15,8 +15,8 @@ export const metadata = {
 }
 const headerData = {
   logo: {
-    text: "FlyHyer",
-    src: "",
+    url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/bluebiz_logo.png",
+    altText: "FlyHyer",
   },
   nav: [
     {
