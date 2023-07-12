@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { Poppins } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
 import Footer from '@/components/sections/Footer/Footer';
+import { ButtonVariant } from '@/components/elements/Button/Button';
 
 const font = Poppins({
   subsets: ['latin'],
@@ -51,6 +52,11 @@ const headerData = {
       ]
     }
   ],
+  button: {
+    text: "Get started for free",
+    url: "/demos/saas/register",
+    type: "standard" as ButtonVariant
+  }
 }
 
 const footerData = {
@@ -169,7 +175,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <Header data={headerData} />
+        <Header data={headerData} navAlignment="center" />
         {children}
         <Analytics />
         <Footer data={footerData} />

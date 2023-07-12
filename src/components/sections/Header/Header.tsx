@@ -178,7 +178,7 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant =
           Login
         </Link>
       )}
-      <div className="hidden lg:block">
+      <div className="shrink-0 hidden lg:block">
         {button && (
           <Button key={button.text} variant={button.type} size="lg" url={button.url}>
             {button.text}
