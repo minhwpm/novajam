@@ -64,12 +64,12 @@ const headerData = {
       url: "/demos/sapphire/pricing"
     },
     {
-      title: "Blogs",
-      url: "/demos/sapphire/blogs"
+      title: "Gallery",
+      url: "/demos/sapphire/gallery"
     },
     {
       title: "About",
-      url: "/demos/sapphire/faq"
+      url: "/demos/sapphire/about"
     },
   ],
   button: {
@@ -113,20 +113,20 @@ const footerData = {
       title: "RESOURCES",
       links: [
         {
+          text: "Pricing",
+          url: "/demos/sapphire/pricing"
+        },
+        {
+          text: "Gallery",
+          url: "/demos/sapphire/gallery"
+        },
+        {
           text: "Career Opportunities",
           url: "/demos/sapphire/career-opportunities"
         },
         {
           text: "About Sapphire",
           url: "/demos/sapphire/about"
-        },
-        {
-          text: "Pricing",
-          url: "/demos/sapphire/pricing"
-        },
-        {
-          text: "Blogs",
-          url: "/demos/sapphire/blogs"
         },
         {
           text: "Contact Us",

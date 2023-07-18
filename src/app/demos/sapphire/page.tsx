@@ -9,6 +9,7 @@ import ImageGalleryA from "@/components/sections/ImageGalleryA/ImageGalleryA"
 import FeatureB from "@/components/sections/FeatureB/FeatureB"
 import Section from "@/components/elements/Section/Section"
 import Table from "@/components/elements/Table/Table"
+import Masonry from "@/components/elements/Masonry/Masonry"
 
 const defaultPageData = {
   sections: {
@@ -18,7 +19,13 @@ const defaultPageData = {
       buttons: [
         {
           text: "Book Appointment",
-          type: "black" as ButtonVariant
+          type: "black" as ButtonVariant,
+          url: "/demos/sapphire/book-appointment",
+        },
+        {
+          text: "See Pricing",
+          type: "outline-black" as ButtonVariant,
+          url: "/demos/sapphire/pricing",
         },
       ],
       media: {
@@ -82,6 +89,7 @@ const defaultPageData = {
     
     featureSection: {
       title: "Services to Make You Revived",
+      content: "Opened in 1992, our mission is to provide a friendly personalized service that allows customers to achieve their hair goals.",
       media: {
         type: "image",
         src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/hair-care.webp",
@@ -133,17 +141,77 @@ const defaultPageData = {
         ]
       }
     },
+    imageGallery2: {
+      label: "Hair Style | Services",
+      title: "Your Hair Is In a Good Hand",
+      subtitle: "We provide the best hair style services experience that guarantees to keep your hair healthy and make it look fabulous",
+      button: {
+        url: "/demos/sapphire/gallery",
+        text: "See all",
+        type: "outline-black" as ButtonVariant,
+      },
+      images: [
+        {
+          type: "image",
+          src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/hair-style-1.webp",
+          altText: "Hair Style"
+        },
+        {
+          type: "image",
+          src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/hair-style-2.webp",
+          altText: "Hair Style"
+        },
+        {
+          type: "image",
+          src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/hair-style-3.webp",
+          altText: "Hair Style"
+        },
+        {
+          type: "image",
+          src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/hair-style-4.webp",
+          altText: "Hair Style"
+        },
+        {
+          type: "image",
+          src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/hair-style-5.webp",
+          altText: "Hair Style"
+        },
+        {
+          type: "image",
+          src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/hair-style-6.webp",
+          altText: "Hair Style"
+        },
+        {
+          type: "image",
+          src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/hair-style-7.webp",
+          altText: "Hair Style"
+        },
+        {
+          type: "image",
+          src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/hair-style-8.webp",
+          altText: "Hair Style"
+        },
+      ]
+    },
   }
 }
 
 export default function Home() {
 
-  const { hero, contentSection, imageGallery, featureSection, pricingSection } = defaultPageData.sections
+  const { hero, contentSection, imageGallery, imageGallery2, featureSection, pricingSection } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen pb-24">
       <HeroB data={hero} />
       <ContentB data={contentSection} variant="alternate" />
+      
       <FeatureB data={featureSection} />
+      <Section
+        label={imageGallery2.label}
+        title={imageGallery2.title}
+        subtitle={imageGallery2.subtitle}
+      >
+        <Masonry items={imageGallery2.images} />
+      </Section>
       <ImageGalleryA data={imageGallery} />
     </main>
   )
