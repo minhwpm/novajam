@@ -6,7 +6,7 @@ import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
 import { ButtonVariant } from "@/components/elements/Button/Button"
 import ContentB from "@/components/sections/ContentB/ContentB"
 import ImageGalleryA from "@/components/sections/ImageGalleryA/ImageGalleryA"
-import Feature from "@/components/sections/FeatureB/FeatureB"
+import FeatureB from "@/components/sections/FeatureB/FeatureB"
 import Section from "@/components/elements/Section/Section"
 import Table from "@/components/elements/Table/Table"
 
@@ -90,7 +90,7 @@ const defaultPageData = {
       button: {
         url: "",
         text: "Learn More",
-        type: "link-btn" as ButtonVariant
+        type: "outline-black" as ButtonVariant
       }
     },
     imageGallery: {
@@ -98,7 +98,7 @@ const defaultPageData = {
       button: {
         url: "/demos/sapphire/book-appointment",
         text: "Book Appointment",
-        type: "standard" as ButtonVariant,
+        type: "black" as ButtonVariant,
       },
       images: [
         {
@@ -133,27 +133,18 @@ const defaultPageData = {
         ]
       }
     },
-    cta: {
-      title: "Grab the top 5k gift pack on summer",
-      button: {
-        text: "Shop now",
-        url: "/shop",
-        type: "standard" as ButtonVariant
-      }
-    }
   }
 }
 
 export default function Home() {
 
-  const { hero, contentSection, imageGallery, featureSection, pricingSection, cta } = defaultPageData.sections
+  const { hero, contentSection, imageGallery, featureSection, pricingSection } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen pb-24">
       <HeroB data={hero} />
       <ContentB data={contentSection} variant="alternate" />
-      <Feature data={featureSection} />
+      <FeatureB data={featureSection} />
       <ImageGalleryA data={imageGallery} />
-      <CTAB data={cta}/>
     </main>
   )
 }

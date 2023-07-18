@@ -31,7 +31,7 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", varian
   if (variant === "alternate") {
     return (
       <Section framed={false}>
-        <GridBox columns={2} gap={0}>
+        <div className="grid grid-cols-2">
           <div className={classNames({ "lg:col-start-2" : mediaPosition === "right"})}>
             {media?.type === "image" && (
               <Image
@@ -72,13 +72,13 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", varian
             )}
           </div>
           
-        </GridBox>
+        </div>
       </Section>
     )
   }
   return (
     <Section>
-      <GridBox columns={2} gap={0}>
+      <div className="grid grid-cols-2">
         <div className={classNames({ "lg:col-start-2" : mediaPosition === "right"})}>
           {media?.type === "image" && (
             <Image
@@ -123,7 +123,7 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", varian
             </div>
           )}
         </div>
-      </GridBox>
+      </div>
     </Section>
   )
 }
