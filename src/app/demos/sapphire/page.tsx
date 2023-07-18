@@ -23,7 +23,7 @@ const defaultPageData = {
       ],
       media: {
         type: "image",
-        src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/sapphire/hero.webp"
+        src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/hero.webp"
       }
     },
     contentSection: {
