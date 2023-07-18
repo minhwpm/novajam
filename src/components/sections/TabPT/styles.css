@@ -1,5 +1,5 @@
-.Trigger[data-state='active'] h3 {
-  border-bottom: 3px solid black;
+.Trigger[data-state='active'] h3::before {
+  width: 100%;
 }
 
 

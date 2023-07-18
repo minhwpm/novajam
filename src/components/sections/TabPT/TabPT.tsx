@@ -60,7 +60,7 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
                     {section.label}
                   </p>
                 )}
-                <h3 className="block font-bold text-2xl pb-2 border-b-[3px] border-transparent">
+                <h3 className="block font-bold text-2xl pb-2 underline-hover-effect">
                   {section.title}
                 </h3>
               </div>

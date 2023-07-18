@@ -3,7 +3,7 @@ import Hero from "@/components/sections/Hero/Hero"
 import { ButtonVariant } from "@/components/elements/Button/Button"
 import GridBox from "@/components/elements/GridBox/GridBox"
 import Section from "@/components/elements/Section/Section"
-import Card from "@/components/elements/Card/Card"
+import ContentPreview from "@/components/elements/ContentPreview/ContentPreview"
 
 const defaultPageData = {
   sections: {
@@ -34,22 +34,44 @@ const defaultPageData = {
       title: "Explore our Pre-Designed Pages",
       sections: [
         {
-          label: "Celestial",
-          title: "Saas",
-          image: {
-            src: "",
-            altText: ""
+          label: "SaaS",
+          title: "Celestial",
+          media: {
+            type: "image",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/thumbnail_celestial.webp",
+            altText: "Celestial"
           },
           url: "/demos/saas/"
         },
         {
-          label: "Blueberry",
-          title: "Language Education Program",
-          image: {
-            src: "",
-            altText: ""
+          label: "Education",
+          title: "Blueberry",
+          media: {
+            type: "image",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/thumbnail_blueberry.webp",
+            altText: "Blueberry"
           },
           url: "/demos/blueberry/"
+        },
+        {
+          label: "Health Care",
+          title: "Nova",
+          media: {
+            type: "image",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/thumbnail_nova.webp",
+            altText: "Nova",
+          },
+          url: "/demos/nova/"
+        },
+        {
+          label: "Beauty Salon",
+          title: "Sapphire",
+          media: {
+            type: "image",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/thumbnail_sapphire.webp",
+            altText: "Sapphire"
+          },
+          url: "/demos/sapphire/"
         },
       ]
     },
@@ -66,16 +88,17 @@ const defaultPageData = {
 export default function Home() {
   const { hero, features, cta} = defaultPageData.sections
   return (
-    <main className="flex flex-col min-h-screen gap-20 pb-24">
+    <main className="flex flex-col min-h-screen gap-20 pb-24 bg-slate-50">
       <Hero data={hero} />
       <Section
         label={features.label}
         title={features.title}
         id="demos"
+        
       >
         <GridBox gap={9} columns={3} >
           {features.sections.map(section => (
-            <Card key={section.title} data={section} aspectRatio="4/3" mediaPosition="top" />
+            <ContentPreview key={section.title} data={section} aspectRatio="4/3" mediaPosition="top" />
           ))}
         </GridBox>
       </Section>

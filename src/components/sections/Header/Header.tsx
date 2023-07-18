@@ -40,15 +40,15 @@ interface HeaderProps {
 
 const ListItem = ( { title, href, children }: { title: string, href: string, children?: React.ReactNode }) => {
   return (
-    <li className="px-3 py-1 rounded hover:bg-gray-100 transition-colors duration-500">
-      <Link href={href}>
+    <li className="px-3 py-1 rounded hover:bg-gray-100 transition-colors duration-500 ">
+      <Link href={href} className="">
         {children ? (
           <>
-            <div className="font-semibold">{title}</div>
-            <div>{children}</div>
+            <span className="font-semibold">{title}</span>
+            <span>{children}</span>
           </>
         ) : (
-          <div>{title}</div>
+          <span>{title}</span>
         )}
       </Link>
     </li>
@@ -68,13 +68,13 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant =
       { "border-b": sticky && variant === "alternate" },
       { "font-bold tracking-wider": variant === "alternate"}
     )}>
-      <div>
+      <div className="shrink-0">
         <Link href="/">
           <Image
-            className="w-auto h-12 object-contain"
+            className="w-40 h-14 object-contain"
             src={logo.url}
             width={160}
-            height={48}
+            height={56}
             alt={logo.altText}
           />
         </Link>
@@ -126,13 +126,13 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant =
           {nav.map(item => (
             <NavigationMenu.Item key={item.title}>
               { item.url && (
-                <NavigationMenu.Link className="py-2 px-5 select-none inline-block" href={item.url}>
+                <NavigationMenu.Link className="py-2 px-5 select-none inline-block underline-hover-effect before:left-5 hover:before:w-[calc(100%-40px)]" href={item.url}>
                   {item.title}
                 </NavigationMenu.Link>
               )}
               { item.content && (
                 <>
-                  <NavigationMenu.Trigger className="py-2 px-3 select-none">
+                  <NavigationMenu.Trigger className="py-2 px-5 select-none underline-hover-effect before:left-5 hover:before:w-[calc(100%-40px)]">
                     {item.title} <FontAwesomeIcon className="inline-block CaretDown" icon={faChevronDown} size="2xs" width={10} />
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className="NavigationMenuContent">

@@ -2,7 +2,8 @@ import classNames from "classnames"
 import Image from "next/image"
 import Link from "next/link"
 import Button, { ButtonVariant } from "../Button/Button"
-interface CardProps {
+
+interface ContentPreviewProps {
   data: {
     label?: string
     title: string
@@ -28,7 +29,7 @@ interface CardProps {
   textAlign?: "left" | "right" | "center"
 }
 
-const Card: React.FC<CardProps> = ({
+const Card: React.FC<ContentPreviewProps> = ({
   data,
   // size = "medium",
   aspectRatio = "video",
@@ -41,7 +42,7 @@ const Card: React.FC<CardProps> = ({
   const { label, title, content, url, button } = data
   return (
     <div className={classNames(
-      "relative flex flex-col shrink-0 bg-white",
+      "relative flex flex-col shrink-0",
       // { "max-w-[250px]" : size === "small"},
       // { "max-w-xs" : size === "medium"},
       // { "max-w-xs md:max-w-sm lg:max-w-md" : size === "large"},
@@ -53,6 +54,7 @@ const Card: React.FC<CardProps> = ({
         <Image 
           className={classNames(
             { "aspect-video" : aspectRatio === "video"},
+            { "aspect-square" : aspectRatio === "square"},
             { "aspect-3/4" : aspectRatio === "3/4"},
             { "aspect-4/3" : aspectRatio === "4/3"},
             { "aspect-3/2" : aspectRatio === "3/2"},

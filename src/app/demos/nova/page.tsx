@@ -11,7 +11,7 @@ const defaultPageData = {
       title: "Among the nation's best.",
       media: {
         type: "image",
-        src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/homepage_hero_1022_03.jpg",
+        src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/nova/hero.webp",
       },
       buttons: [
         {
@@ -28,7 +28,7 @@ const defaultPageData = {
           content: "For primary care & selected specialties, see provider schedules & make your own appointment online, even if you’re new to RUSH.",
           media: {
             type: "icon",
-            src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/cta-grid--icon-3.png",
+            src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/nova/cta-grid--icon-3.png",
           },
           button: {
             text: "Schedule Online",
@@ -41,7 +41,7 @@ const defaultPageData = {
           content: "Get quick care without an appointment for common conditions and everyday health concerns with RUSH On Demand. We have many convenient ways to see a provider, including online virtual visits.",
           media: {
             type: "icon",
-            src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/cta-grid--icon-2.png",
+            src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/nova/cta-grid--icon-2.png",
           },
           button: {
             text: "Get Care Today",
@@ -54,7 +54,7 @@ const defaultPageData = {
           content: "RUSH Munster offers Northwest Indiana access to top health care providers in primary care and over a dozen specialties.",
           media: {
             type: "icon",
-            src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/location-icon.png",
+            src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/nova/location-icon.png",
           },
           button: {
             text: "Learn More",
@@ -69,8 +69,8 @@ const defaultPageData = {
       content: "The new Joan and Paul Rubschlager Building is a destination for state-of-the-art outpatient care in cancer, neurosciences, digestive diseases and more. Read stories that highlight what RUSH means to its patients, providers, employees and community — and illustrate how the Rubschlager Building is supporting RUSH in providing excellent patient care, in 2023 and beyond.",
       media: {
         type: "image",
-        src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/rush-impact-feature-plus-yochanan.png",
-        altText: "Rush impact feature"
+        src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/nova/building.webp",
+        altText: "Built for you"
       },
       button: {
         url: "",
@@ -87,12 +87,12 @@ const defaultPageData = {
           content: "From our No. 2 ranking in the country for quality to \"A\" grades for patient safety, our hospitals are consistently recognized for excellence.",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/home-quality-care-2.jpg"
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/nova/quality-care.webp"
           },
           button: {
             text: "Learn more",
-            url: "/solutions/on-demand",
-            type: "alternate" as ButtonVariant
+            url: "demos/nova/solutions/on-demand",
+            type: "link-btn" as ButtonVariant
           }
         },
         {
@@ -101,12 +101,12 @@ const defaultPageData = {
           content: "As one of the leading academic health systems in the nation, RUSH is uncovering novel treatments through research and clinical trials.",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/2020-01-07_0848_0.png"
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/nova/research-and-innovation.webp"
           },
           button: {
             text: "Learn more",
-            url: "/solutions/shared",
-            type: "alternate" as ButtonVariant
+            url: "demos/nova/solutions/shared",
+            type: "link-btn" as ButtonVariant
 
           }
         },
@@ -116,12 +116,12 @@ const defaultPageData = {
           content: "RUSH University is training the next generation of health care providers through opportunities in clinical care, community service and leading-edge research.",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/2020-01-07_0847_0.png"
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/nova/education.webp"
           },
           button: {
             text: "Learn more",
-            url: "",
-            type: "alternate" as ButtonVariant
+            url: "/demos/nova/solutions/education",
+            type: "link-btn" as ButtonVariant
 
           }
         },
@@ -131,31 +131,17 @@ const defaultPageData = {
           content: "Through our efforts to dismantle health barriers and address social disparities of health, RUSH is recognized as a national leader in health equity.",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/2020-01-07_0839_0.png",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/nova/health-equity.webp",
           },
-          link: {
+          button: {
             text: "Learn more",
-            url: "",
-            type: "alternate" as ButtonVariant
+            url: "/demos/nova/solutions/health-equity",
+            type: "link-btn" as ButtonVariant
           }
         },
       ]
     },
-    featureSection2: {
-      title: "Giving to RUSH",
-      subtitle: "Your gift to RUSH improves health.",
-      media: {
-        type: "image",
-        src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/alzheimers-research-rush.jpg",
-        altText: "Alzheimers Researcher"
-      },
-      button: {
-        url: "",
-        text: "Learn More",
-        type: "standard" as ButtonVariant
-
-      }
-    },
+    
     contentSection2: {
       title: "RUSH Stories",
       sections: [
@@ -165,7 +151,7 @@ const defaultPageData = {
           content: "Cancer Center, Surgicenter, Children's Hospital, maternity program recognized",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/vizient-2022-feature_2.jpg",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/nova/vizient-2022-feature_2.jpg",
           },
           url: "/stories",
         },
@@ -175,7 +161,7 @@ const defaultPageData = {
           content: "Procedure for removing skin cancer has a high success rate and shorter recovery",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/mohs-surgery-feature.jpg",
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/nova/mohs-surgery-feature.jpg",
           },
           url: "/stories",
         },
@@ -185,13 +171,27 @@ const defaultPageData = {
           content: "‘Nonstop’ pain motivated landscaper Mike Taylor to choose joint replacement surgery",
           media: {
             type: "image",
-            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/rush/Mike-Taylor-771x434.gif"
+            src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/nova/Mike-Taylor-771x434.gif"
           },
           url: "/stories",
         },
       ]
     },
-    
+    featureSection2: {
+      title: "Giving to RUSH",
+      subtitle: "Your gift to RUSH improves health.",
+      media: {
+        type: "image",
+        src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/nova/research-and-innovation-2.webp",
+        altText: "Researcher"
+      },
+      button: {
+        url: "",
+        text: "Learn More",
+        type: "standard" as ButtonVariant
+
+      }
+    },
     cta: {
       title: "STAY CONNECTED",
       button: {

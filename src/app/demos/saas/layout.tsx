@@ -55,7 +55,7 @@ const headerData = {
   button: {
     text: "Get started for free",
     url: "/demos/saas/register",
-    type: "standard" as ButtonVariant
+    type: "alternate" as ButtonVariant
   }
 }
 
@@ -64,26 +64,26 @@ const footerData = {
     url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/saas/celestial_logo.png",
     altText: "Celestial"
   },
-  copyright: "© Celestial 2023 | All rights reserved.",
+  copyright: "© Bluebiz 2023 | All rights reserved.",
   sns: [
     {
       url: "",
       icon: {
-        url: "",
+        url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/facebook.png",
         altText: ""
       }
     },
     {
       url: "",
       icon: {
-        url: "",
+        url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/twitter.png",
         altText: ""
       }
     },
     {
       url: "",
       icon: {
-        url: "",
+        url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/linkedin.png",
         altText: ""
       }
     }
@@ -177,8 +177,8 @@ export default function RootLayout({
       <body className={font.className}>
         <Header data={headerData} navAlignment="center" />
         {children}
-        <Analytics />
         <Footer data={footerData} />
+        <Analytics />
       </body>
     </html>
   )

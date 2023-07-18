@@ -1,11 +1,12 @@
 import Section from "@/components/elements/Section/Section"
-import Card from "@/components/elements/Card/Card"
+import Card from "@/components/elements/ContentPreview/ContentPreview"
 import GridBox from "@/components/elements/GridBox/GridBox"
+import classNames from "classnames"
 
 interface SectionProps {
   title: string
   label?: string
-  content: string
+  content?: string
   media?: {
     type: string
     src: string
@@ -19,21 +20,23 @@ interface ContentProps {
     subtitle?: string
     sections: Array<SectionProps>
   }
+  variant: "standard" | "alternate"
 }
 
-const ContentB: React.FC<ContentProps> = ({ data }) => {
+const ContentB: React.FC<ContentProps> = ({ data, variant }) => {
   const { title, label, subtitle, sections } = data
   return (
     <Section
       label={label}
       title={title}
       subtitle={subtitle}
+      className={classNames({"bg-secondary-50": variant === "alternate"})}
     >
-      <GridBox columns={3} gap={9}>
+      <div className="grid grid-cols-3 gap-9">
         {sections.map((section) => (
           <Card key={section.title} data={section} textAlign="left" />
         ))}
-      </GridBox>
+      </div>
     </Section>
   )
 }

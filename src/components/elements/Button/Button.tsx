@@ -4,13 +4,14 @@ import classNames from "classnames"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 
-export type ButtonVariant = "standard" | "alternate" | "link-btn" | "outline" | "outline-black" | "outline-white"
+export type ButtonVariant = "standard" | "alternate" | "black" | "link-btn" | "outline" | "outline-black" | "outline-white"
 export interface ButtonProps {
   children: React.ReactNode
   url?: string
   clickHandler?: () => void
   variant: ButtonVariant
   size?: "base" | "lg"
+  fontWeight?: "normal" | "bold"
   borderRadius?: "none" | "base" | "full"
 }
 
@@ -33,6 +34,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     "cursor-pointer inline-block hover:animate-poop transition-all duration-500",
     { "bg-primary-500 hover:bg-primary-600 text-white" : variant === "standard" },
     { "bg-secondary-500 hover:bg-secondary-600 text-white" : variant === "alternate" },
+    { "bg-black text-white" : variant === "black" },
     { "!border-3 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white" : variant === "outline" },
     { "!border-3 border-black text-black hover:bg-black hover:text-white" : variant === "outline-black" },
     { "!border-3 border-white text-white hover:bg-primary-500" : variant === "outline-white" },

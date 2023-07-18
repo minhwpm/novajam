@@ -12,7 +12,7 @@ import Image from 'next/image';
 
 interface Props {
   data: {
-    label: string
+    label?: string
     title: string
     slidingTexts?: Array<{
       text: string
@@ -54,7 +54,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
   return (
     <section
       ref={ref}
-      className="p-4 lg:px-32 lg:py-20 flex flex-col-reverse lg:flex-row gap-5 items-center"
+      className="px-4 lg:px-32 flex flex-col-reverse lg:flex-row gap-5 items-center"
     >
       <div className="lg:w-5/12">
         <div
@@ -67,7 +67,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
         </div>
         <h1
           className={classNames(
-            "text-4xl leading-snug md:text-5xl md:leading-snug font-bold mt-2",
+            "font-heading text-4xl leading-snug md:text-5xl md:leading-snug font-bold mt-2",
             animationClasses
           )}
         >
