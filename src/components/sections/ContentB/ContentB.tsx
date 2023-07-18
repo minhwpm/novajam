@@ -20,10 +20,10 @@ interface ContentProps {
     subtitle?: string
     sections: Array<SectionProps>
   }
-  variant: "standard" | "alternate"
+  variant?: "standard" | "alternate"
 }
 
-const ContentB: React.FC<ContentProps> = ({ data, variant }) => {
+const ContentB: React.FC<ContentProps> = ({ data, variant = "standard" }) => {
   const { title, label, subtitle, sections } = data
   return (
     <Section

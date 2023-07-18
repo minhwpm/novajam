@@ -29,10 +29,10 @@ const ImageGalleryA: React.FC<ImageGalleryProps> = ({ data, imageAspectRatio }) 
       title={title}
       subtitle={subtitle}
     >
-      
       <div className="grid grid-cols-4 gap-5">
-        {images.map((item) => (
+        {images.map((item, idx) => (
           <Image
+            key={idx}
             className={classNames("w-full h-full object-cover",
               { "aspect-video" : imageAspectRatio === "video"},
               { "aspect-3/4" : imageAspectRatio === "3/4"},
