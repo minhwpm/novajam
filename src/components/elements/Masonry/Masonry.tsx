@@ -13,9 +13,9 @@ interface MasonryProps {
 
 const Masonry: React.FC<MasonryProps> = ({ items }) => {
   return (
-    <div className="w-full columns-2 md:columns-3 lg:columns-4">
+    <div className="w-full columns-2 md:columns-3 gap-5 lg:columns-4">
       {items.map((item, idx) => (
-        <div key={idx} className={classNames()}>
+        <div key={idx} className={classNames("mb-5")}>
           <Image
             src={item.src}
             alt={item.altText}
