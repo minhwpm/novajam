@@ -1,12 +1,12 @@
 import '@/app/globals.css'
 import { Analytics } from '@vercel/analytics/react';
-import { Roboto, Playfair_Display } from 'next/font/google'
+import { Source_Sans_Pro, Playfair_Display } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
 import Footer from '@/components/sections/Footer/Footer';
 import { ButtonVariant } from '@/components/elements/Button/Button';
 import classNames from 'classnames';
 
-const font = Roboto({
+const font = Source_Sans_Pro({
   subsets: ['latin', "vietnamese"],
   display: 'swap',
   weight: ["400"]
@@ -21,7 +21,7 @@ const fontHeading = Playfair_Display({
 
 export const metadata = {
   title: 'Sapphire',
-  description: 'Sapphire theme - Saas',
+  description: 'Sapphire theme - Hair & Beauty Salon',
 }
 
 const headerData = {

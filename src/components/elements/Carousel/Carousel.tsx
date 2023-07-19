@@ -1,6 +1,6 @@
 'use client'
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, EffectCoverflow, EffectCube, Navigation, Pagination } from "swiper";
+import { EffectFade, EffectCoverflow, EffectCube, FreeMode, Navigation, Pagination } from "swiper";
 import 'swiper/css';
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
@@ -9,18 +9,32 @@ import classNames from "classnames";
 
 interface CarouselProps {
   slides: Array<React.ReactElement>
-  effect: "fade" | "coverflow" | "cube"
+  effect?: "fade" | "coverflow" | "cube"
+  freeMode?: boolean
   pagination: boolean
   aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
+  slidesPerView?: number
 }
 
-const Carousel: React.FC<CarouselProps>= ({slides, effect, pagination, aspectRatio}) => {
+const Carousel: React.FC<CarouselProps>= ({slides, effect, pagination, freeMode, aspectRatio, slidesPerView}) => {
   return (
     <Swiper
       className="w-full"
       spaceBetween={30}
       loop={true}
       navigation={true}
+      slidesPerView={1}
+      breakpoints={{
+        768: {
+          slidesPerView: slidesPerView ? (slidesPerView - 2) : 1
+        },
+        1024: {
+          slidesPerView: slidesPerView ? (slidesPerView - 1) : 1
+        },
+        1280: {
+          slidesPerView: slidesPerView
+        }
+      }}
       pagination={{
         enabled: pagination
       }}
@@ -28,7 +42,10 @@ const Carousel: React.FC<CarouselProps>= ({slides, effect, pagination, aspectRat
       fadeEffect={{
         crossFade: true
       }}
-      modules={[EffectFade, EffectCoverflow, EffectCube, Navigation, Pagination]}
+      freeMode={{
+        enabled: freeMode
+      }}
+      modules={[EffectFade, EffectCoverflow, EffectCube, Navigation, Pagination, FreeMode]}
     >
       {slides.map((slide) => (
         <SwiperSlide key={slide?.key} className={classNames(
