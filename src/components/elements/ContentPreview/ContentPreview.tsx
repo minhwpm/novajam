@@ -88,14 +88,14 @@ const Card: React.FC<ContentPreviewProps> = ({
         <p className="text-xs uppercase tracking-widest">
           {label}
         </p>
-        <h4 className="text-xl font-semibold mt-1">
+        <h4 className="text-lg lg:text-xl font-semibold mt-1">
           {url ? (
             <Link href={url}>
               {title}
             </Link>
           ) : (<>{title}</>)}
         </h4>
-        <p className="text-slate-600 text-lg block mt-2">
+        <p className="text-slate-600 lg:text-lg block mt-2">
           {content}
         </p>
         {button?.url && (

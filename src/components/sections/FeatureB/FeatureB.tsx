@@ -31,7 +31,7 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", varian
   if (variant === "alternate") {
     return (
       <Section framed={false}>
-        <div className="grid grid-cols-2">
+        <div className="w-full grid lg:grid-cols-2">
           <div className={classNames({ "lg:col-start-2" : mediaPosition === "right"})}>
             {media?.type === "image" && (
               <Image
@@ -46,13 +46,13 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", varian
               <video className="w-full h-96" src={media?.src} autoPlay={true} loop />
             )}
           </div>
-          <div className={classNames("px-4 pb-20 md:px-8 lg:p-20 xl:p-32 bg-primary-50", { "lg:col-start-1 lg:row-start-1": mediaPosition === "right"})}>
+          <div className={classNames("px-4 pt-5 pb-20 md:px-8 lg:p-20 xl:p-32 bg-primary-50", { "lg:col-start-1 lg:row-start-1": mediaPosition === "right"})}>
             {label && (
-              <p className="uppercase tracking-widest">
+              <p className="uppercase tracking-widest mb-5">
                 {label}
               </p>
             )}
-            <h3 className="text-5xl lg:text-6xl leading-snug lg:leading-snug font-bold max-w-4xl my-5 text-secondary-700">
+            <h3 className="text-5xl lg:text-6xl leading-snug lg:leading-snug font-bold max-w-4xl mb-5 text-secondary-700">
               {title}
             </h3>
             {subtitle && (
@@ -78,7 +78,7 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", varian
   }
   return (
     <Section>
-      <div className="grid grid-cols-2">
+      <div className="w-full grid lg:grid-cols-2">
         <div className={classNames({ "lg:col-start-2" : mediaPosition === "right"})}>
           {media?.type === "image" && (
             <Image
@@ -94,11 +94,11 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", varian
           )}
         </div>
         <div className={classNames(
-          "px-4 pb-20 md:p-8 lg:px-16 lg:py-12 flex flex-col justify-center",
+          "pt-5 pb-20 md:p-8 lg:px-16 lg:py-12 flex flex-col justify-center",
           { "lg:col-start-1 lg:row-start-1": mediaPosition === "right" }
         )}>
           {label && (
-            <p className="uppercase tracking-widest">
+            <p className="uppercase tracking-widest mb-5">
               {label}
             </p>
           )}

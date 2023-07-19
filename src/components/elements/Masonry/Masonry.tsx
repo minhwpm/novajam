@@ -1,5 +1,5 @@
+// Item Order: vertical
 import Image from "next/image"
-import { ButtonVariant } from "../Button/Button"
 import classNames from "classnames"
 
 interface MasonryProps {
@@ -12,12 +12,10 @@ interface MasonryProps {
 }
 
 const Masonry: React.FC<MasonryProps> = ({ items }) => {
-  // @TODO: calculate Height base on number of items & number of columns
   return (
-    <div className="flex flex-col flex-wrap content-center gap-5 w-full md:h-[900px] lg:h-[1200px] xl:h-[700px]">
+    <div className="w-full columns-2 md:columns-3 lg:columns-4">
       {items.map((item, idx) => (
-        <div key={idx} className={classNames(`w-full md:w-[calc(33.33%-13px)] xl:w-[calc(25%-15px)]`)}>
-          {/* {idx + 1} */}
+        <div key={idx} className={classNames()}>
           <Image
             src={item.src}
             alt={item.altText}

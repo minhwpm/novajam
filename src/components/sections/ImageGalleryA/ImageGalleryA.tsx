@@ -35,6 +35,7 @@ const ImageGalleryA: React.FC<ImageGalleryProps> = ({ data, imageAspectRatio }) 
             key={idx}
             className={classNames("w-full h-full object-cover",
               { "aspect-video" : imageAspectRatio === "video"},
+              { "aspect-square" : imageAspectRatio === "square"},
               { "aspect-3/4" : imageAspectRatio === "3/4"},
               { "aspect-4/3" : imageAspectRatio === "4/3"},
               { "aspect-3/2" : imageAspectRatio === "3/2"},

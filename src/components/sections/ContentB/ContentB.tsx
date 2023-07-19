@@ -1,5 +1,5 @@
 import Section from "@/components/elements/Section/Section"
-import Card from "@/components/elements/ContentPreview/ContentPreview"
+import ContentPreview from "@/components/elements/ContentPreview/ContentPreview"
 import GridBox from "@/components/elements/GridBox/GridBox"
 import classNames from "classnames"
 
@@ -32,9 +32,9 @@ const ContentB: React.FC<ContentProps> = ({ data, variant = "standard" }) => {
       subtitle={subtitle}
       className={classNames({"bg-secondary-50": variant === "alternate"})}
     >
-      <div className="grid grid-cols-3 gap-9">
+      <div className="grid md:grid-cols-3 gap-9">
         {sections.map((section) => (
-          <Card key={section.title} data={section} textAlign="left" />
+          <ContentPreview key={section.title} data={section} textAlign="left" />
         ))}
       </div>
     </Section>

@@ -9,13 +9,13 @@ import classNames from 'classnames';
 const font = Roboto({
   subsets: ['latin', "vietnamese"],
   display: 'swap',
-  weight: ["100", "300", "400"]
+  weight: ["400"]
 })
 
 const fontHeading = Playfair_Display({
   subsets: ['latin', "vietnamese"],
   display: 'swap',
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
   variable: "--font-heading"
 })
 

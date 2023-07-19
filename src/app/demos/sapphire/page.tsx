@@ -1,15 +1,8 @@
-import ScrollingPT from "@/components/sections/ScrollingPT/ScrollingPT"
-import Testimonials from '@/components/sections/Testimonials/Testimonials'
-import CTAB from "@/components/sections/CTAB/CTAB"
 import HeroB from "@/components/sections/HeroB/HeroB"
 import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
 import { ButtonVariant } from "@/components/elements/Button/Button"
 import ContentB from "@/components/sections/ContentB/ContentB"
 import ImageGalleryA from "@/components/sections/ImageGalleryA/ImageGalleryA"
-import FeatureB from "@/components/sections/FeatureB/FeatureB"
-import Section from "@/components/elements/Section/Section"
-import Table from "@/components/elements/Table/Table"
-import Masonry from "@/components/elements/Masonry/Masonry"
 
 const defaultPageData = {
   sections: {
@@ -86,20 +79,48 @@ const defaultPageData = {
         },
       ]
     },
-    
-    featureSection: {
+    presentationSection: {
+      label: "OUR MISSION",
       title: "Services to Make You Revived",
-      content: "Opened in 1992, our mission is to provide a friendly personalized service that allows customers to achieve their hair goals.",
-      media: {
-        type: "image",
-        src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/hair-care.webp",
-        altText: "Hair Care"
-      },
-      button: {
-        url: "",
-        text: "Learn More",
-        type: "outline-black" as ButtonVariant
-      }
+      subtitle: "Opened in 1992, our mission is to provide a friendly personalized service that allows customers to achieve their hair goals.",
+      sections: [
+        {
+          title: "We are experts in our fields",
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fermentum lacus ac ligula imperdiet, sed aliquam arcu interdum.",
+          media: {
+            type: "image",
+            src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/hair-cut-service.webp",
+            altText: "Bride Makeup"
+          }
+        },
+        {
+          title: "Providing best quality products",
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fermentum lacus ac ligula imperdiet, sed aliquam arcu interdum.",
+          media: {
+            type: "image",
+            src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/cream-1.webp",
+            altText: "Bride Makeup"
+          }
+        },
+        {
+          title: "Friendly comfortable experience",
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fermentum lacus ac ligula imperdiet, sed aliquam arcu interdum.",
+          media: {
+            type: "image",
+            src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/nail-treatment-service.webp",
+            altText: "Bride Makeup"
+          }
+        },
+        {
+          title: "Excellent Customer Services",
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fermentum lacus ac ligula imperdiet, sed aliquam arcu interdum.",
+          media: {
+            type: "image",
+            src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/hair-wash-service.webp",
+            altText: "Bride Makeup"
+          }
+        },
+      ]
     },
     imageGallery: {
       title: "Bride Makeover On Sapphire",
@@ -142,9 +163,9 @@ const defaultPageData = {
       }
     },
     imageGallery2: {
-      label: "Hair Style | Services",
-      title: "Your Hair Is In a Good Hand",
-      subtitle: "We provide the best hair style services experience that guarantees to keep your hair healthy and make it look fabulous",
+      label: "Hair Lookbook",
+      title: "We Style & You Smile",
+      subtitle: "We provide the best Beauty Care services that guarantees to keep your hair healthy and make it look fabulous",
       button: {
         url: "/demos/sapphire/gallery",
         text: "See all",
@@ -193,25 +214,86 @@ const defaultPageData = {
         },
       ]
     },
+    ourTeamSection: {
+      label: "",
+      title: "Your Beauty Is In Good Hands",
+      members: [
+        {
+          name: "",
+          role: "",
+          description: "",
+          portrait: {
+            src: "",
+            altText: ""
+          }
+        },
+        {
+          name: "",
+          role: "",
+          description: "",
+          portrait: {
+            src: "",
+            altText: ""
+          }
+        },
+        {
+          name: "",
+          role: "",
+          description: "",
+          portrait: {
+            src: "",
+            altText: ""
+          }
+        },
+        {
+          name: "",
+          role: "",
+          description: "",
+          portrait: {
+            src: "",
+            altText: ""
+          }
+        },
+        {
+          name: "",
+          role: "",
+          description: "",
+          portrait: {
+            src: "",
+            altText: ""
+          }
+        },
+        {
+          name: "",
+          role: "",
+          description: "",
+          portrait: {
+            src: "",
+            altText: ""
+          }
+        },
+        {
+          name: "",
+          role: "",
+          description: "",
+          portrait: {
+            src: "",
+            altText: ""
+          }
+        }
+      ]
+    }
   }
 }
 
 export default function Home() {
-
-  const { hero, contentSection, imageGallery, imageGallery2, featureSection, pricingSection } = defaultPageData.sections
+  const { hero, contentSection, imageGallery, imageGallery2, presentationSection, pricingSection } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen pb-24">
       <HeroB data={hero} />
       <ContentB data={contentSection} variant="alternate" />
-      
-      <FeatureB data={featureSection} />
-      <Section
-        label={imageGallery2.label}
-        title={imageGallery2.title}
-        subtitle={imageGallery2.subtitle}
-      >
-        <Masonry items={imageGallery2.images} />
-      </Section>
+      <AccordionPT data={presentationSection} />
+      <ImageGalleryA data={imageGallery2} imageAspectRatio="square" />
       <ImageGalleryA data={imageGallery} />
     </main>
   )
