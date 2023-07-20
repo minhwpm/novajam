@@ -1,5 +1,4 @@
 import Section from "@/components/elements/Section/Section"
-import GridBox from "@/components/elements/GridBox/GridBox"
 import Image from "next/image"
 import classNames from "classnames"
 import Button, { ButtonVariant } from "@/components/elements/Button/Button"

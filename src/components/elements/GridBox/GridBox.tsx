@@ -1,8 +1,8 @@
 import classNames from "classnames"
 
 interface Props {
-  gap?: 0 | 5 | 7 | 9 | 12
-  columns?: 2 | 3 | 4
+  gap?: number
+  columns?: number
   className?: string // @TODO implement style config instead of passing className here
   children: React.ReactNode
 }
@@ -10,10 +10,8 @@ interface Props {
 const GridBox = ({ gap = 5, columns = 3, children } : Props) => {
   return (
     <div className={classNames(
-        "grid",
-        { "lg:grid-cols-2": columns === 2},
-        { "lg:grid-cols-3": columns === 3},
-        { "lg:grid-cols-4": columns === 4},
+        "grid relative",
+        [`lg:grid-cols-${columns}`],
         [`gap-${gap}`],
       )}
     >

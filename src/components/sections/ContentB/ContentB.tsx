@@ -1,6 +1,5 @@
 import Section from "@/components/elements/Section/Section"
 import ContentPreview from "@/components/elements/ContentPreview/ContentPreview"
-import GridBox from "@/components/elements/GridBox/GridBox"
 import classNames from "classnames"
 
 interface SectionProps {

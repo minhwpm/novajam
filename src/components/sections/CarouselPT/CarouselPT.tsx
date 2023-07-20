@@ -1,7 +1,6 @@
 'use client'
 import Section from "@/components/elements/Section/Section";
 import Button, { ButtonVariant } from "@/components/elements/Button/Button"
-import GridBox from "@/components/elements/GridBox/GridBox";
 import Image from "next/image";
 import Carousel from "@/components/elements/Carousel/Carousel";
 import classNames from "classnames";

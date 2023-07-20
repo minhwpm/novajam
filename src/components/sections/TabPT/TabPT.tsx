@@ -2,12 +2,10 @@
 
 import React from 'react';
 import * as RadixTabs from '@radix-ui/react-tabs';
-import GridBox from '@/components/elements/GridBox/GridBox';
-import Button from '@/components/elements/Button/Button';
-import classNames from "classnames";
 import Image from 'next/image';
 import Section from '@/components/elements/Section/Section';
-import { ButtonVariant } from '@/components/elements/Button/Button';
+import Button, { ButtonVariant } from '@/components/elements/Button/Button';
+import classNames from "classnames";
 import "./styles.css"
 interface SectionProps {
   title: string
@@ -77,7 +75,7 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
                 { "opacity-0 -right-24 z-0": activeItem !== section.title }
               )}
             >
-              <GridBox columns={2} gap={0}>
+              <div className="grid lg:grid-cols-2">
                 <div className="flex flex-col justify-center p-5 md:p-14 lg:pr-24 bg-primary-50">
                   <h4 className="text-3xl font-bold mb-6">
                     {section.subtitle}
@@ -100,7 +98,7 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
                     className="w-full h-full object-cover lg:shadow-lg"
                   />
                 </div>
-              </GridBox>
+              </div>
             </RadixTabs.Content>
           ))}
         </div>
