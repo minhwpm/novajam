@@ -25,11 +25,14 @@ const Carousel: React.FC<CarouselProps>= ({slides, effect, pagination, freeMode,
       navigation={true}
       slidesPerView={1}
       breakpoints={{
+        320: {
+          slidesPerView: slidesPerView && slidesPerView >=2 ? 2 : 1
+        },
         768: {
-          slidesPerView: slidesPerView ? (slidesPerView - 2) : 1
+          slidesPerView: slidesPerView && slidesPerView >=4 ? (slidesPerView - 2) : slidesPerView
         },
         1024: {
-          slidesPerView: slidesPerView ? (slidesPerView - 1) : 1
+          slidesPerView: slidesPerView && slidesPerView >=4 ? (slidesPerView - 1) : slidesPerView
         },
         1280: {
           slidesPerView: slidesPerView
@@ -47,8 +50,8 @@ const Carousel: React.FC<CarouselProps>= ({slides, effect, pagination, freeMode,
       }}
       modules={[EffectFade, EffectCoverflow, EffectCube, Navigation, Pagination, FreeMode]}
     >
-      {slides.map((slide) => (
-        <SwiperSlide key={slide?.key} className={classNames(
+      {slides.map((slide, idx) => (
+        <SwiperSlide key={idx} className={classNames(
           { "aspect-video" : aspectRatio === "video"},
           { "aspect-3/4" : aspectRatio === "3/4"},
           { "aspect-4/3" : aspectRatio === "4/3"},
