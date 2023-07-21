@@ -10,13 +10,13 @@ import classNames from "classnames";
 interface CarouselProps {
   slides: Array<React.ReactElement>
   effect?: "fade" | "coverflow" | "cube"
+  autoplay?: boolean
   freeMode?: boolean
   pagination: boolean
-  aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
   slidesPerView?: number
 }
 
-const Carousel: React.FC<CarouselProps>= ({slides, effect, pagination, freeMode, aspectRatio, slidesPerView}) => {
+const Carousel: React.FC<CarouselProps>= ({slides, effect, autoplay = false, pagination = false, freeMode, slidesPerView = 1}) => {
   return (
     <Swiper
       className="w-full"
@@ -42,6 +42,9 @@ const Carousel: React.FC<CarouselProps>= ({slides, effect, pagination, freeMode,
         enabled: pagination
       }}
       effect={effect}
+      autoplay={autoplay ? {
+        delay: 3000
+      } : false}
       fadeEffect={{
         crossFade: true
       }}
@@ -52,10 +55,6 @@ const Carousel: React.FC<CarouselProps>= ({slides, effect, pagination, freeMode,
     >
       {slides.map((slide, idx) => (
         <SwiperSlide key={idx} className={classNames(
-          { "aspect-video" : aspectRatio === "video"},
-          { "aspect-3/4" : aspectRatio === "3/4"},
-          { "aspect-4/3" : aspectRatio === "4/3"},
-          { "aspect-3/2" : aspectRatio === "3/2"},
           "bg-white"
         )}>
           {slide}

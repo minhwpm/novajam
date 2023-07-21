@@ -1,8 +1,5 @@
-import HeroB from "@/components/sections/HeroB/HeroB"
-import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
+import HeroD from "@/components/sections/HeroD/HeroD"
 import { ButtonVariant } from "@/components/elements/Button/Button"
-import ContentB from "@/components/sections/ContentB/ContentB"
-import ImageGalleryA from "@/components/sections/ImageGalleryA/ImageGalleryA"
 import FeatureB from "@/components/sections/FeatureB/FeatureB"
 import Section from "@/components/elements/Section/Section"
 import Carousel from "@/components/elements/Carousel/Carousel"
@@ -11,19 +8,22 @@ import ProductPreview from "@/components/elements/ProductPreview/ProductPreview"
 const defaultPageData = {
   sections: {
     hero: {
-      title: "The best solution for moisturizing the skin",
-      subtitle: "Only include the most potent active botanical ingredients. Nothing more.",
-      buttons: [
+      images: [
         {
-          text: "Shop Now",
-          type: "black" as ButtonVariant,
-          url: "/demos/aquarius/cart",
-        }
-      ],
-      media: {
-        type: "image",
-        src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/sapphire/hero.webp"
-      }
+          src: {
+            default: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/product-set-1.webp",
+          },
+          altText: "Locust Extract Hair Conditioner",
+          url: "/demos/aquarius/feature/locust-extract-hair-conditioner"
+        },
+        {
+          src: {
+            default: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/product-set-2.webp",
+          },
+          altText: "TENDER skincare line",
+          url: "/demos/aquarius/feature/tender-skincare-line"
+        },
+      ]
     },
     carouselSection: {
       title: "Popular Products",
@@ -90,7 +90,7 @@ const defaultPageData = {
       media: {
         type: "image",
         src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/product-set-1.webp",
-        altText: "Built for you"
+        altText: "Locust Extract Hair Conditioner"
       },
       button: {
         url: "",
@@ -105,7 +105,7 @@ const defaultPageData = {
       media: {
         type: "image",
         src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/product-set-2.webp",
-        altText: "Built for you"
+        altText: "TENDER skincare line"
       },
       button: {
         url: "",
@@ -121,7 +121,8 @@ export default function Home() {
   const { hero, featureSection, featureSection2, carouselSection } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen pb-24">
-      <HeroB data={hero} />
+      {/* <HeroB data={hero} /> */}
+      <HeroD data={hero} />
       <Section title={carouselSection.title}>
         <Carousel
           slidesPerView={5}
