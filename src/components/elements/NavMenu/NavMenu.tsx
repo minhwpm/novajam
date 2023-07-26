@@ -40,7 +40,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menuItems, navAlignment = "center" })
             )}
             { item.content && (
               <>
-                <NavigationMenu.Trigger className="py-2 select-none underline-hover-effect ">
+                <NavigationMenu.Trigger className="py-2 select-none underline-hover-effect cursor-pointer">
                   {item.title} <FontAwesomeIcon className="inline-block CaretDown" icon={faChevronDown} size="2xs" width={10} />
                 </NavigationMenu.Trigger>
                 <NavigationMenu.Content className="NavigationMenuContent">
