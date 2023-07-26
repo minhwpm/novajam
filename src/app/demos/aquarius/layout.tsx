@@ -1,7 +1,7 @@
 import '@/app/globals.css'
 import { Analytics } from '@vercel/analytics/react';
 import { Proza_Libre, Cormorant_Garamond } from 'next/font/google'
-import Header from '@/components/sections/Header/Header';
+import HeaderB from '@/components/sections/HeaderB/HeaderB';
 import Footer from '@/components/sections/Footer/Footer';
 import { ButtonVariant } from '@/components/elements/Button/Button';
 import classNames from 'classnames';
@@ -98,6 +98,12 @@ const headerData = {
       url: "/demos/aquarius/beauty-tips"
     },
   ],
+  isLoginEnabled: true,
+  isShoppingEnabled: true,
+  searchBox: {
+    enable: true,
+    placeholder: "Search for products"
+  }
 }
 
 const footerData = {
@@ -166,7 +172,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={classNames(font.className, fontHeading.variable)}>
-        <Header data={headerData} variant="alternate" />
+        <HeaderB
+          data={headerData}
+          variant="alternate"
+        />
         {children}
         <Footer data={footerData} />
         <Analytics />
