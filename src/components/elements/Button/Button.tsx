@@ -3,6 +3,7 @@ import Link from "next/link"
 import classNames from "classnames"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { Arrow } from "@/components/icons/Arrow"
 
 export type ButtonVariant = "standard" | "alternate" | "black" | "link-btn" | "outline" | "outline-black" | "outline-white"
 export interface ButtonProps {
@@ -19,14 +20,11 @@ const Button: React.FC<ButtonProps> = (props) => {
   const { size = "base", variant = "standard", borderRadius = "base", url, children, clickHandler } = props
   if (variant === "link-btn") {
     return (
-      <Link className={classNames("text-blue-600 px-0 text-lg hover:underline hover:underline-offset-4")} href={url ?? "#"}>
+      <Link className={classNames("group flex gap-2 items-center text-blue-600 px-0 text-lg hover:underline hover:underline-offset-4")} href={url ?? "#"}>
         {children}
-        <FontAwesomeIcon 
-          icon={faArrowRight}
-          width={18}
-          size="lg"
-          className="inline-block ml-4 relative hover:left-1"
-        />
+        <span className="relative group-hover:left-1">
+          <Arrow />
+        </span>
       </Link>
     )
   }
