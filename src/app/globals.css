@@ -11,6 +11,29 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
   --font-heading: unset;
+  --primary-color-50: #eff6ff;
+  --primary-color-100: #dbeafe;
+  --primary-color-200: #bfdbfe;
+  --primary-color-300: #93c5fd;
+  --primary-color-400: #60a5fa;
+  --primary-color-500: #3b82f6;
+  --primary-color-600: #2563eb;
+  --primary-color-700: #1d4ed8;
+  --primary-color-800: #1e40af;
+  --primary-color-900: #1e3a8a;
+  --primary-color-950: #172554;
+  --secondary-color-50: #fff7ed;
+  --secondary-color-100: #ffedd5;
+  --secondary-color-200: #fed7aa;
+  --secondary-color-300: #fdba74;
+  --secondary-color-400: #fb923c;
+  --secondary-color-500: #f97316;
+  --secondary-color-600: #ea580c;
+  --secondary-color-700: #c2410c;
+  --secondary-color-800: #9a3412;
+  --secondary-color-900: #7c2d12;
+  --secondary-color-950: #431407;
+
 }
 
 /* @media (prefers-color-scheme: dark) {

@@ -51,7 +51,7 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", varian
                 {label}
               </p>
             )}
-            <h3 className="font-heading text-4xl lg:text-5xl leading-snug lg:leading-snug font-bold max-w-4xl mb-5 text-secondary-700">
+            <h3 className="font-heading text-4xl lg:text-5xl leading-snug lg:leading-snug font-bold max-w-4xl mb-5 text-secondary-600">
               {title}
             </h3>
             {subtitle && (

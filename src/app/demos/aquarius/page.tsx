@@ -132,7 +132,7 @@ export default function Home() {
           ))} 
         />
       </Section>
-      <FeatureB data={featureSection} />
+      <FeatureB data={featureSection} variant="alternate" />
       <FeatureB data={featureSection2} mediaPosition="right" />
     </main>
   )

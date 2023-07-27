@@ -5,6 +5,8 @@ import HeaderB from '@/components/sections/HeaderB/HeaderB';
 import Footer from '@/components/sections/Footer/Footer';
 import { ButtonVariant } from '@/components/elements/Button/Button';
 import classNames from 'classnames';
+import styles from './aquarius.module.css'
+import colors from "tailwindcss/colors"
 
 const font = Proza_Libre({
   subsets: ['latin'],
@@ -171,7 +173,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={classNames(font.className, fontHeading.variable)}>
+      <body className={classNames(font.className, fontHeading.variable, styles["color-settings"])}>
         <HeaderB
           data={headerData}
           variant="alternate"

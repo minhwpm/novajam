@@ -2,6 +2,8 @@ import '@/app/globals.css'
 import { Analytics } from '@vercel/analytics/react';
 import { Montserrat } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
+import styles from './blueberry.module.css'
+import classNames from 'classnames';
 
 const font = Montserrat({
   subsets: ['latin', 'vietnamese'],
@@ -49,7 +51,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>
+      <body className={classNames(font.className, styles["color-settings"])}>
         <Header data={headerData} variant="alternate" />
         {children}
         <Analytics />
