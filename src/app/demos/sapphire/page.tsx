@@ -2,7 +2,7 @@ import HeroB from "@/components/sections/HeroB/HeroB"
 import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
 import { ButtonVariant } from "@/components/elements/Button/Button"
 import ContentB from "@/components/sections/ContentB/ContentB"
-import ImageGalleryA from "@/components/sections/ImageGalleryA/ImageGalleryA"
+import Lookbook from "@/components/sections/Lookbook/Lookbook"
 
 const defaultPageData = {
   sections: {
@@ -293,8 +293,8 @@ export default function Home() {
       <HeroB data={hero} />
       <ContentB data={contentSection} variant="alternate" />
       <AccordionPT data={presentationSection} />
-      <ImageGalleryA data={imageGallery2} imageAspectRatio="square" />
-      <ImageGalleryA data={imageGallery} />
+      <Lookbook data={imageGallery2} imageAspectRatio="square" />
+      <Lookbook data={imageGallery} />
     </main>
   )
 }

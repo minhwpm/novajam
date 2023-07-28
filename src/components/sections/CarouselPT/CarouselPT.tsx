@@ -43,7 +43,6 @@ const CarouselPT: React.FC<CarouselPTProps> = ({ data, aspectRatio }) => {
       <Carousel
         effect="fade"
         pagination={false}
-        aspectRatio={aspectRatio}
         slides={sections.map((section) => (
           <div key={section.id} className={classNames("h-full grid gap-x-16 gap-y-5 bg-white px-5 md:px-10 lg:px-14", { "lg:grid-cols-2": section.content})}>
             {section.content && (

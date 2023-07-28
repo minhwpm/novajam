@@ -10,7 +10,7 @@ export interface ButtonProps {
   children: React.ReactNode
   url?: string
   clickHandler?: () => void
-  variant: ButtonVariant
+  variant?: ButtonVariant
   size?: "base" | "lg"
   fontWeight?: "normal" | "bold"
   borderRadius?: "none" | "base" | "full"

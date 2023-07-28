@@ -21,7 +21,7 @@ interface ImageGalleryProps {
   imageAspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
 }
 
-const ImageGalleryA: React.FC<ImageGalleryProps> = ({ data, imageAspectRatio }) => {
+const Lookbook: React.FC<ImageGalleryProps> = ({ data, imageAspectRatio }) => {
   const { title, label, subtitle, images, button } = data
   return (
     <Section
@@ -58,4 +58,4 @@ const ImageGalleryA: React.FC<ImageGalleryProps> = ({ data, imageAspectRatio }) 
   )
 }
 
-export default ImageGalleryA
+export default Lookbook
