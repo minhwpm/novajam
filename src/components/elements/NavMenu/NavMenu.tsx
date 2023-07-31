@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import SubMenuItem from './SubMenuItem';
 import './styles.css';
+import Link from 'next/link';
 
 export interface NavMenuProps {
   menuItems: Array<{
@@ -34,9 +35,9 @@ const NavMenu: React.FC<NavMenuProps> = ({ menuItems, navAlignment = "center" })
         {menuItems.map(item => (
           <NavigationMenu.Item key={item.title}>
             { item.url && (
-              <NavigationMenu.Link className="py-2 select-none inline-block underline-hover-effect " href={item.url}>
+              <Link className="py-2 select-none inline-block underline-hover-effect " href={item.url}>
                 {item.title}
-              </NavigationMenu.Link>
+              </Link>
             )}
             { item.content && (
               <>

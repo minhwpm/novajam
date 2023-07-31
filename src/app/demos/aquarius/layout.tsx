@@ -3,10 +3,9 @@ import { Analytics } from '@vercel/analytics/react';
 import { Proza_Libre, Cormorant_Garamond } from 'next/font/google'
 import HeaderB from '@/components/sections/HeaderB/HeaderB';
 import Footer from '@/components/sections/Footer/Footer';
-import { ButtonVariant } from '@/components/elements/Button/Button';
 import classNames from 'classnames';
 import styles from './aquarius.module.css'
-import colors from "tailwindcss/colors"
+import { CustomProvider } from '@/redux/CustomProvider';
 
 const font = Proza_Libre({
   subsets: ['latin'],
@@ -32,6 +31,10 @@ const headerData = {
     altText: "Aquarius"
   },
   nav: [
+    {
+      title: "Home",
+      url: "/demos/aquarius"
+    },
     {
       title: "SALE",
       content: [
@@ -174,13 +177,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={classNames(font.className, fontHeading.variable, styles["color-settings"])}>
-        <HeaderB
-          data={headerData}
-          variant="alternate"
-        />
-        {children}
-        <Footer data={footerData} />
-        <Analytics />
+        <CustomProvider>
+          <HeaderB
+            data={headerData}
+            variant="alternate"
+          />
+          {children}
+          <Footer data={footerData} />
+          <Analytics />
+        </CustomProvider>
       </body>
     </html>
   )

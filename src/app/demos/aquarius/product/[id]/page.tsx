@@ -8,11 +8,14 @@ import ProductPreview from "@/components/elements/ProductPreview/ProductPreview"
 import ImageCarousel from "@/components/elements/ImageCarousel/ImageCarousel"
 import Counter from "@/components/elements/Counter/Counter"
 import { useRef } from "react"
+import { cartActions } from "@/redux/cartSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const defaultPageData = {
+  id: "skin-defence-multi-protection-lotion",
   title: "Skin Defence Multi-Protection Lotion SPF 50+ PA++++ 60ml",
   category: "Lotion",
-  price: "$20",
+  price: 20,
   summary: "With its lightweight texture, the serum helps to firm and reduce wrinkles, leaving skin smoother and firmer. Inspired by nature, the formula is infused with three root extracts, including ginger from Madagascar, which help smooth wrinkles, make them appear less, and reverse signs of aging. Use daily as part of your three-step Roots of Strength™ skincare routine.",
   description: "",
   images: [
@@ -21,19 +24,20 @@ const defaultPageData = {
       altText: ""
     },
     {
-      src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/serum-1.webp",
+      src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/using-serum-woman.webp",
       altText: ""
     },
     {
-      src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/cream-1.webp",
+      src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/serum-drops.webp",
       altText: ""
     },
   ],
 }
 
 export default function ProductDetail() {
-  const { title, category, price, summary, description, images } = defaultPageData
+  const { id, title, category, price, summary, description, images } = defaultPageData
   const countRef = useRef(null)
+  const dispatch = useDispatch()
 
   return (
     <main className="flex flex-col min-h-screen pb-24">
@@ -55,7 +59,17 @@ export default function ProductDetail() {
             </div>
             <div className="flex gap-5 mb-5">
               <Counter ref={countRef} />
-              <Button>
+              <Button
+                onClick={() =>{
+                  console.log("Add to Cart", countRef.current?.innerText)
+                  dispatch(cartActions.addToCart({
+                    id,
+                    name: title,
+                    price,
+                    quantity: parseInt(countRef.current.innerText)
+                  }))
+                }}
+              >
                 ADD TO CART
               </Button>
             </div>

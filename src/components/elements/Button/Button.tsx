@@ -9,7 +9,7 @@ export type ButtonVariant = "standard" | "alternate" | "black" | "link-btn" | "o
 export interface ButtonProps {
   children: React.ReactNode
   url?: string
-  clickHandler?: () => void
+  onClick?: () => void
   variant?: ButtonVariant
   size?: "base" | "lg"
   fontWeight?: "normal" | "bold"
@@ -17,7 +17,7 @@ export interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-  const { size = "base", variant = "standard", borderRadius = "base", url, children, clickHandler } = props
+  const { size = "base", variant = "standard", borderRadius = "base", url, children, onClick } = props
   if (variant === "link-btn") {
     return (
       <Link className={classNames("group flex gap-2 items-center text-blue-600 px-0 text-lg hover:underline hover:underline-offset-4")} href={url ?? "#"}>
@@ -50,7 +50,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     )
   }
   return (
-    <button className={classes} onClick={clickHandler}>
+    <button className={classes} onClick={onClick}>
       {children}
     </button>
   )

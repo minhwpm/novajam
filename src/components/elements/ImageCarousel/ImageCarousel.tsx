@@ -12,12 +12,14 @@ interface ImageSliderProps {
 const ImageCarousel: React.FC<ImageSliderProps> = ({ images, thumbsEnable = false }) => {
   return (
     <Carousel
-      pagination={true}
       thumbsEnable={thumbsEnable}
+      pagination={{
+        type: 'fraction',
+      }}
       slides={images.map((image, idx) => (
-        <div key={idx}>
+        <div key={idx} className="aspect-3/2">
           <Image
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
             src={image.src}
             alt={image.altText}
             width={500}

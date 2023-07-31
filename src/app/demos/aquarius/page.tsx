@@ -31,7 +31,7 @@ const defaultPageData = {
         {
           title: "Skin Defence Multi-Protection Lotion SPF 50+ PA++++ 60ml",
           url: "/demos/aquarius/product/skin-defence-serum",
-          price: "$20",
+          price: 20,
           image: {
             src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/lotion-1.webp",
             altText: ""
@@ -40,7 +40,7 @@ const defaultPageData = {
         {
           title: "Camomile Lotion 60ml",
           url: "/demos/aquarius/product/skin-defence-serum",
-          price: "$12",
+          price: 12,
           image: {
             src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/serum-1.webp",
             altText: ""
@@ -49,7 +49,7 @@ const defaultPageData = {
         {
           title: "Seaweed Oil-Control Gel Cream 50ml",
           url: "/demos/aquarius/product/skin-defence-serum",
-          price: "$30",
+          price: 30,
           image: {
             src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/cream-1.webp",
             altText: ""
@@ -58,7 +58,7 @@ const defaultPageData = {
         {
           title: "Retinol Serum 50ml",
           url: "/demos/aquarius/product/skin-defence-serum",
-          price: "$22",
+          price: 22,
           image: {
             src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/serum-2.webp",
             altText: ""
@@ -67,7 +67,7 @@ const defaultPageData = {
         {
           title: "Milaganics Serum 100ml",
           url: "/demos/aquarius/product/skin-defence-serum",
-          price: "$15",
+          price: 15,
           image: {
             src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/serum-3.webp",
             altText: ""
@@ -76,7 +76,7 @@ const defaultPageData = {
         {
           title: "Extra Booster Mosturizer 50ml",
           url: "/demos/aquarius/product/skin-defence-serum",
-          price: "$33",
+          price: 33,
           image: {
             src:"https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/cream-2.webp",
             altText: ""

@@ -7,13 +7,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import classNames from "classnames";
 import { useState } from "react";
+import { PaginationOptions } from "swiper/types";
 
 interface CarouselProps {
   slides: Array<React.ReactElement>
   effect?: "fade" | "coverflow" | "cube"
   autoplay?: boolean
   freeMode?: boolean
-  pagination?: boolean
+  pagination?: PaginationOptions
   slidesPerView?: number
   thumbsEnable?: boolean
 }
@@ -42,9 +43,7 @@ const Carousel: React.FC<CarouselProps>= ({slides, effect, autoplay = false, pag
             slidesPerView: slidesPerView
           }
         }}
-        pagination={{
-          enabled: pagination
-        }}
+        pagination={pagination}
         thumbs={{ swiper: thumbsSwiper }}
         effect={effect}
         autoplay={autoplay ? {

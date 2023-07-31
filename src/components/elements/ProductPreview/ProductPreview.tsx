@@ -3,11 +3,12 @@ import classNames from "classnames"
 import { ButtonVariant } from "../Button/Button"
 import Link from "next/link"
 
+const CURRENCY_UNIT = '$'
 interface ProductPreviewProps {
   data: {
     title: string
     url: string
-    price: string
+    price: number
     image: {
       src: string
       altText: string
@@ -51,7 +52,7 @@ const ProductPreview: React.FC<ProductPreviewProps> = ({ data, imgAspectRatio })
           ) : (<>{title}</>)}
         </h5>
         <p className="text-lg lg:text-xl font-semibold">
-          {price}
+          {CURRENCY_UNIT}{price}
         </p>
       </div>
     </div>
