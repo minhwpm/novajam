@@ -73,7 +73,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menuItems, navAlignment = "center" })
 
       <div className={classNames(
         // "ViewportPosition",
-        "absolute flex w-full top-full left-0",
+        "absolute flex w-full top-full left-0 z-[9999]",
         { "justify-center": navAlignment === "center"},
         { "justify-start": navAlignment === "left"},
         { "justify-end": navAlignment === "right"}

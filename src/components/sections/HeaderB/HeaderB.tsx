@@ -50,10 +50,9 @@ const Header: React.FC<HeaderProps> = ({ data, variant = "standard" }) => {
   return (
     <header className={classNames(
       "bg-white z-[99999]",
+      { "shadow-md": variant === "standard" },
+      { "font-bold tracking-wider border-b": variant === "alternate" },
       { "sticky w-full z-50 top-0 animate-headerSlideIn": sticky },
-      { "shadow-md": sticky && variant === "standard" },
-      { "border-b": sticky && variant === "alternate" },
-      { "font-bold tracking-wider": variant === "alternate"}
     )}>
       <div className={classNames(
         "relative flex p-4 lg:px-32 lg:py-5 items-center justify-between border-b",
