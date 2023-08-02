@@ -1,10 +1,11 @@
 import { ShoppingBag } from "@/components/icons/ShoppingBag"
+import { useAppSelector } from "@/redux/hooks";
 import classNames from "classnames"
 import Link from "next/link";
 import { useSelector } from "react-redux";
 
-const Cart = () => {
-  const { itemsList, quantity } = useSelector(s => s.cart);
+const CartBtn = () => {
+  const { itemsList, quantity } = useAppSelector(s => s.cart);
   console.log(itemsList, quantity);
   return (
     <Link href="/demos/aquarius/cart" className="cursor-pointer relative">
@@ -18,4 +19,4 @@ const Cart = () => {
   )
 }
 
-export default Cart
+export default CartBtn

@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-interface ItemsListType {
+type Item = {
   id: number
   name: string
   price: number
   subQuantity: number
   subTotal: number
-}[]
+}
+type ItemsListType = Array<Item>
 
 type SliceType = {
   name: string
@@ -24,7 +25,7 @@ type SliceType = {
 export const cartSlice = createSlice({
   name: 'CART',
   initialState: { 
-    itemsList: [],
+    itemsList: [] as ItemsListType,
     quantity: 0,
     total: 0,
     deleteWarnings: {
@@ -44,7 +45,7 @@ export const cartSlice = createSlice({
       }
       state.itemsList[index] = {
         ...state.itemsList[index],
-        quantity: quantity,
+        subQuantity: quantity,
       }
     },
     addToCart(state, action) {
@@ -86,7 +87,7 @@ export const cartSlice = createSlice({
       return
     },
     deleteFromCart(state, action) {
-      const deletedItem: ItemsListType = state.itemsList.splice(action.payload.index, 1)[0]
+      const deletedItem: Item = state.itemsList.splice(action.payload.index, 1)[0]
       state.quantity -= deletedItem.subQuantity
       state.total -= deletedItem.subTotal
     },
@@ -98,7 +99,7 @@ export const cartSlice = createSlice({
       state.deleteWarnings.showed = false
       const idx = state.deleteWarnings.deletedLocationIdx
       if (action.payload.delete && idx !== null) {
-        const deletedItem: ItemsListType = state.itemsList.splice(idx, 1)[0]
+        const deletedItem: Item = state.itemsList.splice(idx, 1)[0]
         state.quantity -= deletedItem.subQuantity
         state.total -= deletedItem.subTotal
         state.deleteWarnings.deletedLocationIdx = null

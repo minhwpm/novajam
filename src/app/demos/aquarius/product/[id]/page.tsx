@@ -10,6 +10,7 @@ import Counter from "@/components/elements/Counter/Counter"
 import { useRef } from "react"
 import { cartActions } from "@/redux/cartSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { useAppDispatch } from "@/redux/hooks"
 
 const defaultPageData = {
   id: "skin-defence-multi-protection-lotion",
@@ -36,8 +37,8 @@ const defaultPageData = {
 
 export default function ProductDetail() {
   const { id, title, category, price, summary, description, images } = defaultPageData
-  const countRef = useRef(null)
-  const dispatch = useDispatch()
+  const countRef = useRef<HTMLSpanElement>(null)
+  const dispatch = useAppDispatch()
 
   return (
     <main className="flex flex-col min-h-screen pb-24">
@@ -66,7 +67,7 @@ export default function ProductDetail() {
                     id,
                     name: title,
                     price,
-                    quantity: parseInt(countRef.current.innerText)
+                    quantity: parseInt(countRef.current?.innerText ?? '0')
                   }))
                 }}
               >

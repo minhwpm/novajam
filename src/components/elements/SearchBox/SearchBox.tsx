@@ -14,7 +14,7 @@ const SearchBox: React.FC<{placeholder: string}> = ({ placeholder }) => {
       </span>
       <input
         className={classNames(
-          "w-full bg-slate-100 pl-10 pr-3 py-2 rounded-3xl font-extralight"
+          "w-full bg-slate-100 pl-10 pr-3 py-2 rounded-3xl font-extralight focus:outline-none focus:shadow-inner"
         )}
         placeholder={placeholder}
       />

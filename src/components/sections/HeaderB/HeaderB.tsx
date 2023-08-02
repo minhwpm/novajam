@@ -9,7 +9,7 @@ import { ShoppingBag } from "@/components/icons/ShoppingBag"
 import { CircleUser } from "@/components/icons/CircleUser"
 import NavMenu from "@/components/elements/NavMenu/NavMenu"
 import NavMenuMobile from "@/components/elements/NavMenu/NavMenuMobile"
-import Cart from "@/components/elements/Cart/Cart"
+import CartBtn from "@/components/elements/CartBtn/CartBtn"
 
 interface HeaderProps {
   data: {
@@ -80,7 +80,7 @@ const Header: React.FC<HeaderProps> = ({ data, variant = "standard" }) => {
             </Link>
           )}
           { isShoppingEnabled && (
-            <Cart />
+            <CartBtn />
           )}
           <NavMenuMobile menuItems={nav} />
         </div>

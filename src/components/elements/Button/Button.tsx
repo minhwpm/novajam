@@ -4,6 +4,7 @@ import classNames from "classnames"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import { Arrow } from "@/components/icons/Arrow"
+import { type } from "os"
 
 export type ButtonVariant = "standard" | "alternate" | "black" | "link-btn" | "outline" | "outline-black" | "outline-white"
 export interface ButtonProps {
@@ -14,10 +15,11 @@ export interface ButtonProps {
   size?: "base" | "lg"
   fontWeight?: "normal" | "bold"
   borderRadius?: "none" | "base" | "full"
+  type?: "submit" | "button" | "reset" | undefined
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-  const { size = "base", variant = "standard", borderRadius = "base", url, children, onClick } = props
+  const { size = "base", variant = "standard", borderRadius = "base", url, children, onClick, type = "button" } = props
   if (variant === "link-btn") {
     return (
       <Link className={classNames("group flex gap-2 items-center text-blue-600 px-0 text-lg hover:underline hover:underline-offset-4")} href={url ?? "#"}>
@@ -29,7 +31,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     )
   }
   const classes = classNames(
-    "cursor-pointer inline-block hover:animate-poop transition-all duration-500",
+    "cursor-pointer inline-block text-center hover:animate-poop transition-all duration-500",
     { "bg-primary-500 hover:bg-primary-600 text-white" : variant === "standard" },
     { "bg-secondary-500 hover:bg-secondary-600 text-white" : variant === "alternate" },
     { "bg-black text-white" : variant === "black" },
@@ -50,7 +52,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     )
   }
   return (
-    <button className={classes} onClick={onClick}>
+    <button type={type} className={classes} onClick={onClick}>
       {children}
     </button>
   )

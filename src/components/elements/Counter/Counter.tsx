@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import { useState, forwardRef } from "react";
+import { useState, forwardRef, RefObject, ForwardedRef } from "react";
 
-const Counter = forwardRef(function Counter({ initalCount } : { initalCount?: number}, ref) {
+const Counter = forwardRef(function Counter({ initalCount } : { initalCount?: number}, ref: ForwardedRef<HTMLSpanElement>) {
   const [count, setQuantity] = useState(initalCount ?? 1)
 
   return (
