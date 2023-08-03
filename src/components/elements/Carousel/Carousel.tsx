@@ -1,4 +1,5 @@
 'use client'
+import type { Swiper as SwiperType } from 'swiper'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, EffectCoverflow, EffectCube, FreeMode, Navigation, Pagination, Thumbs } from "swiper";
 import 'swiper/css';
@@ -20,7 +21,7 @@ interface CarouselProps {
 }
 
 const Carousel: React.FC<CarouselProps>= ({slides, effect, autoplay = false, pagination = false, freeMode, slidesPerView = 1, thumbsEnable = false}) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper ] = useState<SwiperType | null>(null);
   return (
     <div className="w-full">
       <Swiper
@@ -67,7 +68,7 @@ const Carousel: React.FC<CarouselProps>= ({slides, effect, autoplay = false, pag
       </Swiper>
       { thumbsEnable && (
         <Swiper
-          onSwiper={setThumbsSwiper}
+          onSwiper={(s) => setThumbsSwiper(s)}
           spaceBetween={10}
           slidesPerView={4}
           freeMode={true}

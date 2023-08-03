@@ -121,12 +121,13 @@ export default function Home() {
   const { hero, featureSection, featureSection2, carouselSection } = defaultPageData.sections
   return (
     <main className="flex flex-col min-h-screen pb-24">
-      {/* <HeroB data={hero} /> */}
       <HeroD data={hero} />
       <Section title={carouselSection.title}>
         <Carousel
           slidesPerView={5}
-          pagination={true}
+          pagination={{
+            enabled: true
+          }}
           slides={carouselSection.items.map((item, idx) => (
             <ProductPreview key={idx} data={item} imgAspectRatio="square" />
           ))} 
