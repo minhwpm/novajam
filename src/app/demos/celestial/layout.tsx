@@ -24,37 +24,37 @@ const headerData = {
   nav: [
     {
       title: "HOME",
-      url: "/demos/saas/"
+      url: "/demos/celestial/"
     },
     {
       title: "FAQ",
-      url: "/demos/saas/faq"
+      url: "/demos/celestial/faq"
     },
     {
       title: "CONTACT",
-      url: "/demos/saas/contact"
+      url: "/demos/celestial/contact"
     },
     {
       title: "RESOURCES",
       content: [
         {
           title: "Blog",
-          url: "/demos/saas/blog",
+          url: "/demos/celestial/blog",
         },
         {
           title: "Docs",
-          url: "/demos/saas/docs"
+          url: "/demos/celestial/docs"
         },
         {
           title: "Help center",
-          url: "/demos/saas/help-center"
+          url: "/demos/celestial/help-center"
         },
       ]
     }
   ],
   button: {
     text: "Get started for free",
-    url: "/demos/saas/register",
+    url: "/demos/celestial/register",
     type: "alternate" as ButtonVariant
   }
 }
@@ -94,23 +94,23 @@ const footerData = {
       links: [
         {
           text: "Pricing",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
         {
           text: "Live Chat",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
         {
           text: "Chatbots",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
         {
           text: "Helpdesk",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
         {
           text: "Celestial AI",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
       ]
     },
@@ -119,23 +119,23 @@ const footerData = {
       links: [
         {
           text: "Pricing",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
         {
           text: "Live Chat",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
         {
           text: "Chatbots",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
         {
           text: "Helpdesk",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
         {
           text: "Celestial AI",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
       ]
     },
@@ -144,23 +144,23 @@ const footerData = {
       links: [
         {
           text: "Pricing",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
         {
           text: "Live Chat",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
         {
           text: "Chatbots",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
         {
           text: "Helpdesk",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
         {
           text: "Celestial AI",
-          url: "/demos/saas/pricing"
+          url: "/demos/celestial/pricing"
         },
       ]
     }

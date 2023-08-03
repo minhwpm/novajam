@@ -40,7 +40,7 @@ const defaultPageData = {
             src: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/thumbnail_celestial.webp",
             altText: "Celestial"
           },
-          url: "/demos/saas/"
+          url: "/demos/celestial/"
         },
         {
           label: "Education",
