@@ -6,7 +6,6 @@ import Image from 'next/image';
 import Section from '@/components/elements/Section/Section';
 import Button, { ButtonVariant } from '@/components/elements/Button/Button';
 import classNames from "classnames";
-import "./styles.css"
 interface SectionProps {
   title: string
   label?: string
@@ -41,13 +40,13 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
       title={title}
       subtitle={subtitle}
     >
-      <RadixTabs.Root defaultValue={sections[0].title} onValueChange={(value) => setActiveItem(value)}>
-        <RadixTabs.List className="md:flex md:justify-center" aria-label="">
+      <RadixTabs.Root className="w-full" defaultValue={sections[0].title} onValueChange={(value) => setActiveItem(value)}>
+        <RadixTabs.List className="flex lg:justify-center overflow-x-auto" aria-label="">
           {sections.map((section,idx) => (
             <RadixTabs.Trigger
               key={section.title}
               value={section.title}
-              className="Trigger text-center cursor-pointer border-2"
+              className="group shrink-0 text-center cursor-pointer data-[state='inactive']:opacity-60"
             >
               <div className={classNames(
                 "px-5 pt-3",
@@ -58,14 +57,14 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
                     {section.label}
                   </p>
                 )}
-                <h3 className="block font-bold text-2xl pb-2 underline-hover-effect">
+                <h3 className="block font-bold text-2xl pb-2 underline-hover-effect group-data-[state='active']:before:w-full group-data-[state='active']:before:bg-primary-500">
                   {section.title}
                 </h3>
               </div>
             </RadixTabs.Trigger>
           ))}
         </RadixTabs.List>
-        <div className="grid mt-16 mb-32">
+        <div className="mt-16 mb-32">
           {sections.map((section) => (
             <RadixTabs.Content
               key={section.title} value={section.title}

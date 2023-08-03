@@ -66,6 +66,7 @@ body {
 }
 
 .underline-hover-effect {
+  color: currentColor;
   display: inline-block;
   padding-bottom: 0.25rem;
   position: relative;
@@ -78,7 +79,7 @@ body {
   bottom: 0;
   width: 0;
   height: 2px;
-  background-color: rgb(0, 0, 0);
+  background-color: currentColor;
   transition: width 0.3s ease-out;
 }
 
