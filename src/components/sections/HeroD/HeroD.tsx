@@ -26,7 +26,9 @@ const HeroD: React.FC<HeroDProps> = ({data}) => {
     <section>
       <Carousel
         autoplay={true}
-        pagination={true}
+        pagination={{
+          enabled: true
+        }}
         slides={images.map((item, idx) => (
           <div key={idx}>
             <Link href={item.url}>
