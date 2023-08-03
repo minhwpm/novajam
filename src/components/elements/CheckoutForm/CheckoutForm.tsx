@@ -21,7 +21,7 @@ const CheckoutForm = () => {
 
   return (
     <form className="flex flex-col gap-3" onSubmit={handleSubmit(onSubmit)}>
-      <div>
+      <div className="">
         {errors.firstName && 
           <p className="">
             <span className="font-semibold">First Name</span> is required

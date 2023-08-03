@@ -13,8 +13,7 @@ export default function Checkout() {
         <h2 className="mb-10 font-heading text-5xl text-center">
           Checkout
         </h2>
-
-        <div className="grid lg:grid-cols-2 gap-7">
+        <div className="grid lg:grid-cols-2 gap-8">
           <CheckoutForm />
           <Order />
         </div>
