@@ -87,7 +87,7 @@ const defaultPageData = {
 export default function Home() {
   const { hero, features, cta} = defaultPageData.sections
   return (
-    <main className="flex flex-col min-h-screen gap-20 pb-24 bg-slate-50">
+    <main className="flex flex-col gap-28 md:gap-40 min-h-screen gap-20 pb-24 bg-slate-50">
       <Hero data={hero} />
       <Section
         label={features.label}

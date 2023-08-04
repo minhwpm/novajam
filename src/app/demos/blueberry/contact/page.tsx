@@ -9,7 +9,7 @@ const defaultPageData = {
 export default function ContactPage() {
   const { title, content } = defaultPageData
   return (
-    <main className="flex flex-col min-h-screen pb-24">
+    <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
       <div className={classNames("w-full", "py-20", "mx-auto", "flex", "flex-col", "gap-8", "items-center")}>
         <div className="w-full bg-primary-100 flex justify-center py-8">
           <div className="text-center max-w-4xl ">

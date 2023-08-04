@@ -58,7 +58,7 @@ export default function Gallery() {
 
   const { imageGallery2 } = defaultPageData.sections
   return (
-    <main className="flex flex-col min-h-screen pb-24">
+    <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
       <Section>
         <Masonry items={imageGallery2.images} />
       </Section>

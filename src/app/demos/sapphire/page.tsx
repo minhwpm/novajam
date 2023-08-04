@@ -289,7 +289,7 @@ const defaultPageData = {
 export default function Home() {
   const { hero, contentSection, imageGallery, imageGallery2, presentationSection, pricingSection } = defaultPageData.sections
   return (
-    <main className="flex flex-col min-h-screen pb-24">
+    <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
       <HeroB data={hero} />
       <ContentB data={contentSection} variant="alternate" />
       <AccordionPT data={presentationSection} />

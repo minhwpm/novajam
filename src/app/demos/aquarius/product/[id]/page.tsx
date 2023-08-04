@@ -41,7 +41,7 @@ export default function ProductDetail() {
   const dispatch = useAppDispatch()
 
   return (
-    <main className="flex flex-col min-h-screen pb-24">
+    <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
       <Section>
         <div className="grid lg:grid-cols-2 gap-10">
           <ImageCarousel

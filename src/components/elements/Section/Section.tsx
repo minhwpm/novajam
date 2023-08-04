@@ -20,8 +20,8 @@ const Section = ( { title, label, subtitle, children, framed = true, className, 
 
   return (
     <section id={id} className={classNames(
-      "flex flex-col items-center ",
-      { "p-4 md:p-8 lg:p-20 xl:px-32": framed}, // @TODO make framed padding Global Settings
+      "flex flex-col items-center",
+      { "container mx-auto px-4": framed}, // @TODO make framed padding Global Settings
       { "bg-fixed min-h-screen": background?.parallax },
       className,
     )}>

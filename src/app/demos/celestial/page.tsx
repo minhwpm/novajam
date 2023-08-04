@@ -8,6 +8,7 @@ import Section from "@/components/elements/Section/Section"
 import { ButtonVariant } from "@/components/elements/Button/Button"
 import ContentB from "@/components/sections/ContentB/ContentB"
 import Feature from "@/components/sections/FeatureB/FeatureB"
+import Subscription from "@/components/sections/Subscription/Subscription"
 
 const defaultPageData = {
   sections: {
@@ -142,6 +143,15 @@ const defaultPageData = {
         },
       ]
     },
+    subscriptionSection: {
+      title: "Sign Up For Our Newsletter!",
+      subtitle: "Subscribe to us to always stay in touch with us and get the latest news about our company and all of our activities!",
+      emailPlaceholder: "Please enter your email",
+      buttonText: "Subscribe!",
+      backgroundImage: {
+        url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/saas/woman-using-laptop.webp"
+      }
+    },
     featureSection: {
       title: "Grow with a customer experience solution tailored to your business: Tidio+",
       content: "Access custom limits for agent seats and chatbots. Unlock premium features. Simplify your customer service with Tidio AI. Work with a dedicated team to automate your business.",
@@ -184,14 +194,15 @@ const defaultPageData = {
 
 export default function Home() {
 
-  const { hero, contentSection, presentationSection, presentationSection2, featureSection, featureSection2, cta } = defaultPageData.sections
+  const { hero, contentSection, presentationSection, presentationSection2, subscriptionSection, featureSection, featureSection2, cta } = defaultPageData.sections
   return (
-    <main className="flex flex-col min-h-screen pb-24">
+    <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
       <HeroB data={hero} />
       {/* <Timeline /> */}
       <AccordionPT data={presentationSection} />
       <ScrollingPT data={presentationSection2} />
       <ContentB data={contentSection} />
+      <Subscription data={subscriptionSection} />
       <Feature data={featureSection} />
       <Feature data={featureSection2} mediaPosition="right"/>
       <Testimonials />

@@ -100,7 +100,7 @@ const defaultPageData = {
 export default function Home() {
   const { heroSection, presentationSection, featureSection, featureSection2, subscription } = defaultPageData.sections
   return (
-    <main className="flex flex-col min-h-screen pb-24">
+    <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
       <CarouselPT data={presentationSection} aspectRatio="video" />
       <Feature data={featureSection} mediaPosition="right" variant="alternate" />
       <Feature data={featureSection2} variant="alternate" />

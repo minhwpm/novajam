@@ -1,42 +1,47 @@
 import Section from "@/components/elements/Section/Section"
-import Button, { ButtonVariant } from "@/components/elements/Button/Button"
+import SubscribeForm from "@/components/elements/SubscribeForm/SubscribeForm"
+import Image from "next/image"
 
 interface SubscriptionProps {
   data: {
     title: string
     subtitle?: string
     emailPlaceholder?: string
-    button: {
-      text: string
+    buttonText?: string
+    backgroundImage?: {
       url: string
-      type: ButtonVariant
     }
   }
 }
 
 const Subscription: React.FC<SubscriptionProps> = ({data}) => {
-  const { title, subtitle, emailPlaceholder, button } = data
+  const { title, subtitle, emailPlaceholder, buttonText, backgroundImage = { url: 'https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/saas/woman-using-laptop.webp'}} = data
   return (
-    <Section className="bg-primary-200">
-      <div className="flex flex-col gap-8 justify-center min-h-[300px]">
-        <h3 className="text-4xl font-bold lg:text-5xl leading-snug lg:leading-snug text-center text-primary-500">
-          {title}
-        </h3>
-        {subtitle && <p>{subtitle}</p>}
-        {/* @TODO onSubmint handler */}
-        <form className="flex flex-col items-center justify-center lg:flex-row gap-6 ">
-          <input
-            className="px-4 py-3 text-lg min-w-[450px] bg-white rounded"
-            type="email"
-            name="email"
-            placeholder={emailPlaceholder ?? "Enter your email"}
-          />
-          <div>
-            <Button size="lg" variant={button.type} url={button.url}>
-              {button.text}
-            </Button>
+    <Section framed={false}>
+      <div className="relative w-full">
+        <Image
+          className="w-full h-[32rem] lg:h-auto lg:max-h-[32rem] object-cover brightness-50"
+          src={backgroundImage.url}
+          width={500}
+          height={500}
+          alt=""
+        />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col gap-8 justify-center items-center min-h-[32rem]">
+          <h3 className="text-4xl font-bold lg:text-5xl leading-snug lg:leading-snug text-center text-primary-500 max-w-3xl">
+            {title}
+          </h3>
+          {subtitle && 
+            <p className="text-slate-200 text-center max-w-lg">
+              {subtitle}
+            </p>
+          }
+          <div className="min-w-full md:min-w-min md:w-[32rem]">
+            <SubscribeForm
+              emailPlaceholder={emailPlaceholder}
+              buttonText={buttonText}
+            />
           </div>
-        </form>
+        </div>
       </div>
     </Section>
   );

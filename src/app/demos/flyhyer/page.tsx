@@ -149,7 +149,7 @@ const defaultPageData = {
 export default function Home() {
   const { heroSection, presentationSection1, featureSection, contentSection, contentSection2, cta } = defaultPageData.sections
   return (
-    <main className="flex flex-col min-h-screen pb-24">
+    <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
       <HeroC data={heroSection} />
       <ContentB data={contentSection} />
       <TabPT data={presentationSection1} />
