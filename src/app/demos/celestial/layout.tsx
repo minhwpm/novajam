@@ -4,6 +4,7 @@ import { Poppins } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
 import Footer from '@/components/sections/Footer/Footer';
 import { ButtonVariant } from '@/components/elements/Button/Button';
+import styles from './nova.module.css'
 
 const font = Poppins({
   subsets: ['latin'],
