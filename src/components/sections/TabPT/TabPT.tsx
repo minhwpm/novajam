@@ -4,8 +4,10 @@ import React from 'react';
 import * as RadixTabs from '@radix-ui/react-tabs';
 import Image from 'next/image';
 import Section from '@/components/elements/Section/Section';
-import Button, { ButtonVariant } from '@/components/elements/Button/Button';
+import Button from '@/components/elements/Button/Button';
 import classNames from "classnames";
+import { ButtonVariant } from '@/utils/types';
+
 interface SectionProps {
   title: string
   label?: string

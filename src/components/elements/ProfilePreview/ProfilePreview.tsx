@@ -1,5 +1,5 @@
+import { ButtonVariant } from "@/utils/types"
 import classNames from "classnames"
-import { ButtonVariant } from "../Button/Button"
 import Image from "next/image"
 
 interface ProfilePreviewProps {

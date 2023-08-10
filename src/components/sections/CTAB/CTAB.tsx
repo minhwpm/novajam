@@ -2,8 +2,9 @@
 import { useState } from "react";
 import classNames from "classnames";
 import { useInView } from "react-hook-inview";
-import Button, { ButtonVariant } from "@/components/elements/Button/Button"
+import Button from "@/components/elements/Button/Button"
 import Section from "@/components/elements/Section/Section";
+import { ButtonVariant } from "@/utils/types";
 
 interface CTAProps {
   data: {

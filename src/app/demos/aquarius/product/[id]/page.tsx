@@ -1,6 +1,6 @@
 'use client'
 import HeroD from "@/components/sections/HeroD/HeroD"
-import Button, { ButtonVariant } from "@/components/elements/Button/Button"
+import Button from "@/components/elements/Button/Button"
 import FeatureB from "@/components/sections/FeatureB/FeatureB"
 import Section from "@/components/elements/Section/Section"
 import Carousel from "@/components/elements/Carousel/Carousel"

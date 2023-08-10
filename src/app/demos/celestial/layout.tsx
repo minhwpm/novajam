@@ -3,8 +3,9 @@ import { Analytics } from '@vercel/analytics/react';
 import { Poppins } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
 import Footer from '@/components/sections/Footer/Footer';
-import { ButtonVariant } from '@/components/elements/Button/Button';
 import styles from './nova.module.css'
+import getHeader from '@/utils/contentful/graphql/getHeader';
+import { HeaderProps, ButtonVariant } from '@/utils/types';
 
 const font = Poppins({
   subsets: ['latin'],
@@ -22,32 +23,32 @@ const headerData = {
     url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/saas/celestial_logo.png",
     altText: "Celestial"
   },
-  nav: [
+  menu: [
     {
-      title: "HOME",
+      text: "HOME",
       url: "/demos/celestial/"
     },
     {
-      title: "FAQ",
+      text: "FAQ",
       url: "/demos/celestial/faq"
     },
     {
-      title: "CONTACT",
+      text: "CONTACT",
       url: "/demos/celestial/contact"
     },
     {
       title: "RESOURCES",
-      content: [
+      menu: [
         {
-          title: "Blog",
+          text: "Blog",
           url: "/demos/celestial/blog",
         },
         {
-          title: "Docs",
+          text: "Docs",
           url: "/demos/celestial/docs"
         },
         {
-          title: "Help center",
+          text: "Help center",
           url: "/demos/celestial/help-center"
         },
       ]
@@ -168,15 +169,19 @@ const footerData = {
   ]
 }
 
-export default function RootLayout({
+export default async function Layout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const header = await getHeader("Celestial")
   return (
     <html lang="en">
       <body className={font.className}>
-        <Header data={headerData} navAlignment="center" />
+        <Header 
+          data={header} 
+          navAlignment="center" 
+        />
         {children}
         <Footer data={footerData} />
         <Analytics />

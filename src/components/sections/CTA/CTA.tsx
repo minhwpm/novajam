@@ -1,5 +1,6 @@
 import Section from "@/components/elements/Section/Section"
-import Button, { ButtonVariant } from "@/components/elements/Button/Button"
+import Button from "@/components/elements/Button/Button"
+import { ButtonVariant } from "@/utils/types"
 
 interface CTAProps {
   data: {

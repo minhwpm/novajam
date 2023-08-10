@@ -1,7 +1,8 @@
 import Image from "next/image"
 import classNames from "classnames"
 import Section from "@/components/elements/Section/Section"
-import Button, { ButtonVariant } from "@/components/elements/Button/Button"
+import Button from "@/components/elements/Button/Button"
+import { ButtonVariant } from "@/utils/types"
 
 interface FeatureProps {
   data: {

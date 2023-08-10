@@ -5,10 +5,10 @@ import HeroB from "@/components/sections/HeroB/HeroB"
 import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
 import Timeline from "@/components/sections/Timeline/Timeline"
 import Section from "@/components/elements/Section/Section"
-import { ButtonVariant } from "@/components/elements/Button/Button"
 import ContentB from "@/components/sections/ContentB/ContentB"
 import Feature from "@/components/sections/FeatureB/FeatureB"
 import Subscription from "@/components/sections/Subscription/Subscription"
+import { ButtonVariant } from "@/utils/types"
 
 const defaultPageData = {
   sections: {

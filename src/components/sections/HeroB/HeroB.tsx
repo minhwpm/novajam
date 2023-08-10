@@ -4,11 +4,12 @@ Feature Row (Text | Media) Hero section
  */
 'use client';
 import SlidingText from "@/components/elements/SlidingText/SlidingText"
-import Button, { ButtonVariant } from "@/components/elements/Button/Button";
+import Button from "@/components/elements/Button/Button";
 import classNames from "classnames";
 import { useState } from "react";
 import { useInView } from "react-hook-inview";
 import Image from 'next/image';
+import { ButtonVariant } from "@/utils/types";
 
 interface Props {
   data: {

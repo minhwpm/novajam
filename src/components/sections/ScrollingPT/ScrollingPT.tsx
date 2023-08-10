@@ -4,7 +4,7 @@ import Image from "next/image";
 import classNames from "classnames";
 import Section from "@/components/elements/Section/Section";
 import FeatureContentItem from "@/components/elements/FeatureContentItem/FeatureContentItem";
-import { ButtonVariant } from "@/components/elements/Button/Button";
+import { ButtonVariant } from "@/utils/types";
 
 const sections = [
   {

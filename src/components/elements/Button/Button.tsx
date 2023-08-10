@@ -1,22 +1,8 @@
 import React from "react"
 import Link from "next/link"
 import classNames from "classnames"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import { Arrow } from "@/components/icons/Arrow"
-import { type } from "os"
-
-export type ButtonVariant = "standard" | "alternate" | "black" | "link-btn" | "outline" | "outline-black" | "outline-white"
-export interface ButtonProps {
-  children: React.ReactNode
-  url?: string
-  onClick?: () => void
-  variant?: ButtonVariant
-  size?: "base" | "lg"
-  fontWeight?: "normal" | "bold"
-  borderRadius?: "none" | "base" | "full"
-  type?: "submit" | "button" | "reset" | undefined
-}
+import { ButtonProps } from "@/utils/types"
 
 const Button: React.FC<ButtonProps> = (props) => {
   const { size = "base", variant = "standard", borderRadius = "base", url, children, onClick, type = "button" } = props

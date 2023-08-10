@@ -1,9 +1,10 @@
 'use client'
 import Section from "@/components/elements/Section/Section";
-import Button, { ButtonVariant } from "@/components/elements/Button/Button"
+import Button from "@/components/elements/Button/Button"
 import Image from "next/image";
 import Carousel from "@/components/elements/Carousel/Carousel";
 import classNames from "classnames";
+import { ButtonVariant } from "@/utils/types";
 
 interface CarouselPTProps {
   data: {

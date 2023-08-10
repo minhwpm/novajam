@@ -1,7 +1,7 @@
 import Image from "next/image"
 import classNames from "classnames"
-import { ButtonVariant } from "../Button/Button"
 import Link from "next/link"
+import { ButtonVariant } from "@/utils/types"
 
 const CURRENCY_UNIT = '$'
 interface ProductPreviewProps {

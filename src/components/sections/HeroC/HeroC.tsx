@@ -5,7 +5,8 @@ Single Media (Video or Image) Hero section
 
 import Image from "next/image"
 import classNames from "classnames";
-import Button , { ButtonVariant } from "@/components/elements/Button/Button";
+import Button from "@/components/elements/Button/Button";
+import { ButtonVariant } from "@/utils/types";
 
 interface Props {
   data: {

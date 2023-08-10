@@ -1,5 +1,6 @@
 import SlidingText from "@/components/elements/SlidingText/SlidingText"
-import Button, { ButtonVariant } from "@/components/elements/Button/Button"
+import Button from "@/components/elements/Button/Button"
+import { ButtonVariant } from "@/utils/types"
 
 interface HeroProps {
   data: {

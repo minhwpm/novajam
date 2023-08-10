@@ -1,7 +1,8 @@
 import classNames from "classnames"
 import Image from "next/image"
 import Link from "next/link"
-import Button, { ButtonVariant } from "../Button/Button"
+import Button from "../Button/Button"
+import { ButtonVariant } from "@/utils/types"
 
 interface ContentPreviewProps {
   data: {

@@ -5,22 +5,14 @@ import { faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icon
 import SubMenuItem from './SubMenuItem';
 import './styles.css';
 import Link from 'next/link';
+import { NavMenuProps, LinkProps, SubmenuProps } from "@/utils/types"
 
-export interface NavMenuProps {
-  menuItems: Array<{
-    title: string
-    url?: string
-    content?: Array<{
-      title: string
-      url: string
-    }>
-  }>
-  navAlignment?: "center" | "left" | "right"
-}
+const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
 
-
-
-const NavMenu: React.FC<NavMenuProps> = ({ menuItems, navAlignment = "center" }) => {
+  function getMenuItemText(item: LinkProps | SubmenuProps): string {
+    if ("text" in item) return item.text
+    return item.title
+  }
   return (
     <NavigationMenu.Root
       className={classNames(
@@ -32,14 +24,14 @@ const NavMenu: React.FC<NavMenuProps> = ({ menuItems, navAlignment = "center" })
       <NavigationMenu.List className={classNames(
         "flex justify-center px-5 list-none m-0 gap-10",
       )}>
-        {menuItems.map(item => (
-          <NavigationMenu.Item key={item.title}>
-            { item.url && (
+        {menu.map((item, idx) => (
+          <NavigationMenu.Item key={getMenuItemText(item)}>
+            { "url" in item && (
               <Link className="py-2 select-none inline-block underline-hover-effect " href={item.url}>
-                {item.title}
+                {item.text}
               </Link>
             )}
-            { item.content && (
+            { "menu" in item && (
               <>
                 <NavigationMenu.Trigger className="py-2 select-none underline-hover-effect cursor-pointer">
                   {item.title} <FontAwesomeIcon className="inline-block CaretDown" icon={faChevronDown} size="2xs" width={10} />
@@ -56,8 +48,8 @@ const NavMenu: React.FC<NavMenuProps> = ({ menuItems, navAlignment = "center" })
                         </a>
                       </NavigationMenu.Link>
                     </li> */}
-                    {item.content.map(subItem => (
-                      <SubMenuItem key={subItem.title} href={subItem.url} title={subItem.title} />
+                    {item.menu && item.menu.map(subItem => (
+                      <SubMenuItem key={subItem.text} href={subItem.url} title={subItem.text} />
                     ))}
                   </ul>
                 </NavigationMenu.Content>

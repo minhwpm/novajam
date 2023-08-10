@@ -8,7 +8,7 @@ import classNames from "classnames";
 import Image from 'next/image';
 import "./styles.css"
 import Section from '@/components/elements/Section/Section';
-import { ButtonVariant } from '@/components/elements/Button/Button';
+import { ButtonVariant } from '@/utils/types';
 
 interface SectionProps {
   title: string

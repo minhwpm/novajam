@@ -1,50 +1,19 @@
 'use client'
 import Image from "next/image"
-import Button, { ButtonVariant } from "@/components/elements/Button/Button"
+import Button from "@/components/elements/Button/Button"
 import Link from "next/link"
 import useStickyHeaderOnScrollUp from "@/utils/hooks/useStickyHeaderOnScrollUp"
 import classNames from "classnames"
 import SearchBox from "@/components/elements/SearchBox/SearchBox"
-import { ShoppingBag } from "@/components/icons/ShoppingBag"
 import { CircleUser } from "@/components/icons/CircleUser"
 import NavMenu from "@/components/elements/NavMenu/NavMenu"
 import NavMenuMobile from "@/components/elements/NavMenu/NavMenuMobile"
 import CartBtn from "@/components/elements/CartBtn/CartBtn"
+import { HeaderProps } from "@/utils/types"
 
-interface HeaderProps {
-  data: {
-    logo: {
-      url: string
-      altText: string
-    },
-    nav: Array<{
-      title: string
-      url?: string
-      content?: Array<{
-        title: string
-        url: string
-      }>
-    }>
-    button?: {
-      text: string
-      url: string
-      type: ButtonVariant
-    }
-    isLoginEnabled?: boolean
-    isShoppingEnabled?: boolean
-    searchBox?: {
-      enable?: boolean
-      placeholder?: string
-    }
-  }
-  variant?: "standard" | "alternate"
-  // @TODO following 4 properties
-  logoAlignment?: 'center' | 'left'
-  backgroundColor?: 'white' | 'transparent'
-}
 
 const Header: React.FC<HeaderProps> = ({ data, variant = "standard" }) => {
-  const { logo, nav, button, isLoginEnabled, isShoppingEnabled, searchBox } = data
+  const { logo, menu, buttons, isLoginEnabled, isShoppingEnabled, searchBox } = data
   const sticky = useStickyHeaderOnScrollUp()
 
   return (
@@ -68,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ data, variant = "standard" }) => {
             />
           </Link>
         </div>
-        { searchBox?.enable && (
+        { searchBox?.enabled && (
           <div className="hidden lg:block w-96">
             <SearchBox placeholder={searchBox.placeholder ?? "Search..."} />
           </div>
@@ -82,21 +51,21 @@ const Header: React.FC<HeaderProps> = ({ data, variant = "standard" }) => {
           { isShoppingEnabled && (
             <CartBtn />
           )}
-          <NavMenuMobile menuItems={nav} />
+          <NavMenuMobile menuItems={menu} />
         </div>
       </div>
-      { searchBox?.enable && (
+      { searchBox?.enabled && (
         <div className="lg:hidden p-4">
           <SearchBox placeholder={searchBox.placeholder ?? "Search..."} />
         </div>
       )}
-      <NavMenu menuItems={nav} />
+      <NavMenu menu={menu} />
       <div className="shrink-0 hidden lg:block">
-        {button && (
+        {buttons && buttons.length > 0 && buttons.map(button => (
           <Button key={button.text} variant={button.type} size="lg" url={button.url}>
             {button.text}
           </Button>
-        )}
+        ))}
       </div>
     </header>
   )
