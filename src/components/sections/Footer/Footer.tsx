@@ -9,14 +9,14 @@ interface FooterProps {
       altText: string
     }
     copyright?: string
-    sns: Array<{
+    sns?: Array<{
       url: string
       icon: {
         url: string
         altText: string
       }
     }>
-    sections: Array<{
+    menu: Array<{
       title?:  string
       links: Array<{
         text: string
@@ -27,7 +27,7 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ data }) => {
-  const { logo, copyright, sns, sections } = data
+  const { logo, copyright, sns, menu } = data
   return (
     <footer className="grid grid-cols-12 gap-x-5 gap-y-10 pt-6 pb-20 px-4 md:px-8 lg:px-20 xl:px-32">
       <div className="col-span-12 lg:col-span-6 xl:col-span-4 flex flex-col items-center lg:items-start">
@@ -44,7 +44,7 @@ const Footer: React.FC<FooterProps> = ({ data }) => {
           {copyright}
         </p>
         <div className="flex gap-2 mt-5">
-          {sns.map((item, idx) => (
+          {sns && sns.length > 0 && sns.map((item, idx) => (
             <div key={idx}>
               <Link href={item.url}>
                 <Image
@@ -58,10 +58,10 @@ const Footer: React.FC<FooterProps> = ({ data }) => {
           ))}
         </div>
       </div>
-      {sections.map((section, idx) => (
+      {menu.map((section, idx) => (
         <div key={idx} className={classNames(
           "col-span-6 lg:col-span-3 xl:col-span-2 flex flex-col gap-2",
-          { "xl:col-start-10": sections.length === 1},
+          { "xl:col-start-10": menu.length === 1},
         )}>
           <p className="font-semibold mb-1">{section.title}</p>
           {section.links.map(link => (

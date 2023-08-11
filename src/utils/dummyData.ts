@@ -1,4 +1,6 @@
-const CelestialHeaderData = {
+import { ButtonVariant } from '@/utils/types';
+
+export const CelestialHeaderData = {
   logo: {
     url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/saas/celestial_logo.png",
     altText: "Celestial"

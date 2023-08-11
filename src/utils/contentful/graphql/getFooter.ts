@@ -1,6 +1,6 @@
 import normalizeDataCollection from "./normalizeDataCollection"
 
-export default async function getHeader(name: string) {
+export default async function getFooter(name: string) {
   const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {
@@ -11,48 +11,30 @@ export default async function getHeader(name: string) {
     // send the GraphQL query
     body: JSON.stringify({ query: `
       query($name: String) {
-        headerCollection(
+        footerCollection(
           where: { 
             title: $name
           } 
         ) {
           items {
-            title
             logo {
               url
               title
             }
+            copyright
             menuCollection (limit: 5) {
               items {
-                __typename
-                ... on Link {
-                  text
-                  newTab
-                  url
-                }
-                ... on Submenu {
-                  title
-                  menuCollection (limit: 3) {
-                    items {
-                      title
-                      linksCollection (limit: 5) {
-                        items {
-                          text
-                          newTab
-                          url
-                        }
-                      }
+                title
+                linksCollection (limit: 15) {
+                  items {
+                    sys {
+                      id
                     }
+                    text
+                    newTab
+                    url
                   }
                 }
-              }
-            }
-            buttonsCollection {
-              items {
-                text
-                url
-                newTab
-                buttonType
               }
             }
           }
@@ -60,8 +42,6 @@ export default async function getHeader(name: string) {
       }
     ` }),
   })
-
-  // console.log(res)
 
   if (res.status !== 200) {
     // This will activate the closest `error.js` Error Boundary
