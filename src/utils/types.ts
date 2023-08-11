@@ -19,7 +19,10 @@ export interface LinkProps {
 
 export interface SubmenuProps {
   title: string
-  menu: Array<LinkProps>
+  menu: Array<{
+    title: string
+    links: Array<LinkProps>
+  }>
 }
 
 export interface NavMenuProps {
@@ -31,7 +34,7 @@ export interface HeaderProps {
   data: {
     logo: {
       url: string
-      altText: string
+      altText?: string
     },
     menu: Array<LinkProps | SubmenuProps>
     isLoginEnabled?: boolean

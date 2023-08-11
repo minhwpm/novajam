@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant =
             src={logo.url}
             width={160}
             height={56}
-            alt={logo.altText}
+            alt={logo.altText ?? ""}
           />
         </Link>
       </div>

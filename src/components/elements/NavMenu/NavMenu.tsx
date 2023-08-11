@@ -8,7 +8,6 @@ import Link from 'next/link';
 import { NavMenuProps, LinkProps, SubmenuProps } from "@/utils/types"
 
 const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
-
   function getMenuItemText(item: LinkProps | SubmenuProps): string {
     if ("text" in item) return item.text
     return item.title
@@ -36,8 +35,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
                 <NavigationMenu.Trigger className="py-2 select-none underline-hover-effect cursor-pointer">
                   {item.title} <FontAwesomeIcon className="inline-block CaretDown" icon={faChevronDown} size="2xs" width={10} />
                 </NavigationMenu.Trigger>
-                <NavigationMenu.Content className="NavigationMenuContent">
-                  <ul className="List one">
+                <NavigationMenu.Content className="NavigationMenuContent List two">
                     {/* <li className="row-span-6">
                       <NavigationMenu.Link asChild>
                         <a className="Callout" href="/">
@@ -48,10 +46,20 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
                         </a>
                       </NavigationMenu.Link>
                     </li> */}
-                    {item.menu && item.menu.map(subItem => (
-                      <SubMenuItem key={subItem.text} href={subItem.url} title={subItem.text} />
+                    {item.menu && item.menu.map((subItem, idx) => (
+                      <div key={idx} className="">
+                        {subItem.title && 
+                          <p className="text-slate-500 uppercase text-sm tracking-wide">
+                            {subItem.title}
+                          </p>
+                        }
+                        <ul>
+                          {subItem.links.map((link) => (
+                            <SubMenuItem key={link.text} href={link.url} title={link.text} />
+                          ))}
+                        </ul>
+                      </div>
                     ))}
-                  </ul>
                 </NavigationMenu.Content>
               </>
             )}

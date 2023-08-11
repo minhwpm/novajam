@@ -3,9 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { Poppins } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
 import Footer from '@/components/sections/Footer/Footer';
-import styles from './nova.module.css'
 import getHeader from '@/utils/contentful/graphql/getHeader';
-import { HeaderProps, ButtonVariant } from '@/utils/types';
 
 const font = Poppins({
   subsets: ['latin'],
@@ -16,49 +14,6 @@ const font = Poppins({
 export const metadata = {
   title: 'Celestial',
   description: 'Celestial theme - Saas',
-}
-
-const headerData = {
-  logo: {
-    url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/saas/celestial_logo.png",
-    altText: "Celestial"
-  },
-  menu: [
-    {
-      text: "HOME",
-      url: "/demos/celestial/"
-    },
-    {
-      text: "FAQ",
-      url: "/demos/celestial/faq"
-    },
-    {
-      text: "CONTACT",
-      url: "/demos/celestial/contact"
-    },
-    {
-      title: "RESOURCES",
-      menu: [
-        {
-          text: "Blog",
-          url: "/demos/celestial/blog",
-        },
-        {
-          text: "Docs",
-          url: "/demos/celestial/docs"
-        },
-        {
-          text: "Help center",
-          url: "/demos/celestial/help-center"
-        },
-      ]
-    }
-  ],
-  button: {
-    text: "Get started for free",
-    url: "/demos/celestial/register",
-    type: "alternate" as ButtonVariant
-  }
 }
 
 const footerData = {
@@ -174,7 +129,7 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  const header = await getHeader("Celestial")
+  const header = await getHeader("Celestiall")
   return (
     <html lang="en">
       <body className={font.className}>

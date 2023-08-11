@@ -1,6 +1,8 @@
+import { HeaderProps } from "@/utils/types"
+import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getHeader(name: string) {
-  const res = await fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/`, {
+  const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -9,10 +11,10 @@ export default async function getHeader(name: string) {
     },
     // send the GraphQL query
     body: JSON.stringify({ query: `
-      {
+      query($name: String) {
         headerCollection(
           where: { 
-            title: "Celestial"
+            title: $name
           } 
         ) {
           items {
@@ -21,7 +23,7 @@ export default async function getHeader(name: string) {
               url
               title
             }
-            menuCollection {
+            menuCollection (limit: 5) {
               items {
                 __typename
                 ... on Link {
@@ -31,7 +33,18 @@ export default async function getHeader(name: string) {
                 }
                 ... on Submenu {
                   title
-                  
+                  menuCollection (limit: 3) {
+                    items {
+                      title
+                      linksCollection (limit: 5) {
+                        items {
+                          text
+                          newTab
+                          url
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -49,19 +62,14 @@ export default async function getHeader(name: string) {
     ` }),
   })
 
-  // if (!res.ok) {
-  //   // This will activate the closest `error.js` Error Boundary
-  //   throw new Error('Failed to fetch Header data')
-  // }
+  // console.log(res)
+
+  if (res.status !== 200) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch Header data')
+  }
   
   const data = await res.json()
-  const result = {
-    logo: {},
-    menu: [],
-    buttons: []
-  }
-  result.logo = data.data.headerCollection.items[0].logo
-  result.menu = data.data.headerCollection.items[0].menuCollection.items
-  result.buttons = data.data.headerCollection.items[0].buttonsCollection.items
-  return result
+  const normalizedData = normalizeDataCollection({...data.data})
+  return normalizedData[0]
 }
