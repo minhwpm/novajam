@@ -6,6 +6,8 @@ import Footer from '@/components/sections/Footer/Footer';
 import classNames from 'classnames';
 import styles from './aquarius.module.css'
 import { CustomProvider } from '@/redux/CustomProvider';
+import getHeader from '@/utils/contentful/graphql/getHeader';
+import getFooter from '@/utils/contentful/graphql/getFooter';
 
 const font = Proza_Libre({
   subsets: ['latin'],
@@ -25,165 +27,23 @@ export const metadata = {
   description: 'Aquarius theme - Comestic E-commerce',
 }
 
-const headerData = {
-  logo: {
-    url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/aquarius_logo.png",
-    altText: "Aquarius"
-  },
-  nav: [
-    {
-      title: "Home",
-      url: "/demos/aquarius"
-    },
-    {
-      title: "SALE",
-      content: [
-        {
-          title: "Summer Limited Hot Deal",
-          url: "/demos/aquarius/summer-limited-hot-deal",
-        },
-        {
-          title: "Vitamin C Premium Program",
-          url: "/demos/aquarius/vitamin-c-premium-program"
-        },
-      ]
-    },
-    {
-      title: "New Products",
-      url: "/demos/aquarius/new-products"
-    },
-    {
-      title: "Skin Care",
-      content: [
-        {
-          title: "Sunscreen",
-          url: "/demos/aquarius/sunscreen"
-        },
-        {
-          title: "Cleanser",
-          url: "/demos/aquarius/cleanser",
-        },
-        {
-          title: "Toner",
-          url: "/demos/aquarius/toner"
-        },
-        {
-          title: "Serum",
-          url: "/demos/aquarius/serum"
-        },
-        {
-          title: "Moisturizer",
-          url: "/demos/aquarius/moisturizer"
-        },
-      ]
-    },
-    {
-      title: "Body Care",
-      content: [
-        {
-          title: "Hair Essence",
-          url: "/demos/aquarius/hair-essence",
-        },
-        {
-          title: "Body Scrub",
-          url: "/demos/aquarius/body-scrub"
-        },
-        {
-          title: "Body Lotion",
-          url: "/demos/aquarius/body-lotion"
-        },
-        {
-          title: "Hand Cream",
-          url: "/demos/aquarius/hand-cream"
-        },
-      ]
-    },
-    {
-      title: "Beauty Tips",
-      url: "/demos/aquarius/beauty-tips"
-    },
-  ],
-  isLoginEnabled: true,
-  isShoppingEnabled: true,
-  searchBox: {
-    enable: true,
-    placeholder: "Search for products"
-  }
-}
-
-const footerData = {
-  logo: {
-    url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/aquarius/aquarius_logo.png",
-    altText: "Aquarius"
-  },
-  copyright: "© Bluebiz 2023 | All rights reserved.",
-  sns: [
-    {
-      url: "",
-      icon: {
-        url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/facebook.png",
-        altText: ""
-      }
-    },
-    {
-      url: "",
-      icon: {
-        url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/twitter.png",
-        altText: ""
-      }
-    },
-    {
-      url: "",
-      icon: {
-        url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/linkedin.png",
-        altText: ""
-      }
-    }
-  ],
-  sections: [
-    {
-      title: "RESOURCES",
-      links: [
-        {
-          text: "Pricing",
-          url: "/demos/aquarius/pricing"
-        },
-        {
-          text: "Gallery",
-          url: "/demos/aquarius/gallery"
-        },
-        {
-          text: "Career Opportunities",
-          url: "/demos/aquarius/career-opportunities"
-        },
-        {
-          text: "About Aquarius",
-          url: "/demos/aquarius/about"
-        },
-        {
-          text: "Contact Us",
-          url: "/demos/aquarius/contact"
-        },
-      ]
-    }
-  ]
-}
-
-export default function RootLayout({
+export default async function Layout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const header = await getHeader("Aquarius")
+  const footer = await getFooter("Aquarius")
   return (
     <html lang="en">
       <body className={classNames(font.className, fontHeading.variable, styles["color-settings"])}>
         <CustomProvider>
-          <HeaderB
-            data={headerData}
+          { header  && <HeaderB
+            data={header}
             variant="alternate"
-          />
+          /> }
           {children}
-          <Footer data={footerData} />
+          {footer && <Footer data={footer} /> }
           <Analytics />
         </CustomProvider>
       </body>

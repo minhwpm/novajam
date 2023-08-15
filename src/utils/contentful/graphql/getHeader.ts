@@ -1,6 +1,6 @@
 import normalizeDataCollection from "./normalizeDataCollection"
 
-export default async function getHeader(name: string) {
+export default async function getHeader(title: string) {
   const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {
@@ -10,10 +10,10 @@ export default async function getHeader(name: string) {
     },
     // send the GraphQL query
     body: JSON.stringify({ query: `
-      query($name: String) {
+      query($title: String) {
         headerCollection(
           where: { 
-            title: $name
+            title: $title
           } 
         ) {
           items {
@@ -58,7 +58,11 @@ export default async function getHeader(name: string) {
           }
         }
       }
-    ` }),
+    `,
+      variables: {
+        title,
+      },
+   }),
   })
 
   // console.log(res)

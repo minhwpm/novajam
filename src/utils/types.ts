@@ -46,7 +46,7 @@ export interface HeaderProps {
     buttons?: Array<{
       text: string
       url: string
-      type: ButtonVariant
+      buttonType: ButtonVariant
     }>
   }
   variant?: "standard" | "alternate"

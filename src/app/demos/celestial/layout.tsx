@@ -14,115 +14,7 @@ const font = Poppins({
 
 export const metadata = {
   title: 'Celestial',
-  description: 'Celestial theme - Saas',
-}
-
-const footerData = {
-  logo: {
-    url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/saas/celestial_logo.png",
-    altText: "Celestial"
-  },
-  copyright: "© Bluebiz 2023 | All rights reserved.",
-  sns: [
-    {
-      url: "",
-      icon: {
-        url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/facebook.png",
-        altText: ""
-      }
-    },
-    {
-      url: "",
-      icon: {
-        url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/twitter.png",
-        altText: ""
-      }
-    },
-    {
-      url: "",
-      icon: {
-        url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/linkedin.png",
-        altText: ""
-      }
-    }
-  ],
-  sections: [
-    {
-      title: "PRODUCT",
-      links: [
-        {
-          text: "Pricing",
-          url: "/demos/celestial/pricing"
-        },
-        {
-          text: "Live Chat",
-          url: "/demos/celestial/pricing"
-        },
-        {
-          text: "Chatbots",
-          url: "/demos/celestial/pricing"
-        },
-        {
-          text: "Helpdesk",
-          url: "/demos/celestial/pricing"
-        },
-        {
-          text: "Celestial AI",
-          url: "/demos/celestial/pricing"
-        },
-      ]
-    },
-    {
-      title: "INTEGRATIONS",
-      links: [
-        {
-          text: "Pricing",
-          url: "/demos/celestial/pricing"
-        },
-        {
-          text: "Live Chat",
-          url: "/demos/celestial/pricing"
-        },
-        {
-          text: "Chatbots",
-          url: "/demos/celestial/pricing"
-        },
-        {
-          text: "Helpdesk",
-          url: "/demos/celestial/pricing"
-        },
-        {
-          text: "Celestial AI",
-          url: "/demos/celestial/pricing"
-        },
-      ]
-    },
-    {
-      title: "RESOURCES",
-      links: [
-        {
-          text: "Pricing",
-          url: "/demos/celestial/pricing"
-        },
-        {
-          text: "Live Chat",
-          url: "/demos/celestial/pricing"
-        },
-        {
-          text: "Chatbots",
-          url: "/demos/celestial/pricing"
-        },
-        {
-          text: "Helpdesk",
-          url: "/demos/celestial/pricing"
-        },
-        {
-          text: "Celestial AI",
-          url: "/demos/celestial/pricing"
-        },
-      ]
-    }
-  ]
+  description: 'Celestial - Saas',
 }
 
 export default async function Layout({
@@ -131,8 +23,8 @@ export default async function Layout({
   children: React.ReactNode
 }) {
   // @TODO get slug instead of "Celestiall" 
-  const header = await getHeader("Celestiall")
-  const footer = await getFooter("Celestiall")
+  const header = await getHeader("Celestial")
+  const footer = await getFooter("Celestial")
   return (
     <html lang="en">
       <body className={font.className}>

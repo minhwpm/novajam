@@ -4,6 +4,9 @@ import { Montserrat } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
 import styles from './blueberry.module.css'
 import classNames from 'classnames';
+import Footer from '@/components/sections/Footer/Footer';
+import getHeader from '@/utils/contentful/graphql/getHeader';
+import getFooter from '@/utils/contentful/graphql/getFooter'
 
 const font = Montserrat({
   subsets: ['latin', 'vietnamese'],
@@ -15,45 +18,21 @@ export const metadata = {
   title: 'Blueberry',
   description: 'Blueberry theme - English for Children',
 }
-const headerData = {
-  logo: {
-    url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/blueberry/blueberry_logo.png",
-    altText: "BlueBERRY",
-  },
-  nav: [
-    {
-      title: "IMPACT",
-      url: "/demos/blueberry/impact"
-    },
-    {
-      title: "TRAINING",
-      url: "/demos/blueberry/training"
-    },
-    {
-      title: "TECHNOLOGY",
-      url: "/demos/blueberry/technology"
-    },
-    {
-      title: "FAQ",
-      url: "/demos/blueberry/faq"
-    },
-    {
-      title: "CONTACT",
-      url: "/demos/apple-seed/contact"
-    },
-  ],
-}
 
-export default function RootLayout({
+export default async function Layout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const header = await getHeader("Blueberry")
+  const footer = await getFooter("Blueberry")
+  console.log("BLUEBERRY FOOTER", footer)
   return (
     <html lang="en">
       <body className={classNames(font.className, styles["color-settings"])}>
-        <Header data={headerData} variant="alternate" />
+        <Header data={header} variant="alternate" />
         {children}
+        <Footer data={footer} />
         <Analytics />
       </body>
     </html>

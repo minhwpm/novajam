@@ -10,6 +10,7 @@ import { HeaderProps } from "@/utils/types"
 
 const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant = "standard" }) => {
   const { logo, menu, buttons, isLoginEnabled } = data
+  console.log(data)
   const sticky = useStickyHeaderOnScrollUp()
 
   return (
@@ -40,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant =
       )}
       <div className="shrink-0 hidden lg:block">
         {buttons && buttons.length > 0 && buttons.map(button => (
-          <Button key={button.text} variant={button.type} size="lg" url={button.url}>
+          <Button key={button.text} variant={button.buttonType} size="lg" url={button.url}>
             {button.text}
           </Button>
         ))}
