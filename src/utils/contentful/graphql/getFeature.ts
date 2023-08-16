@@ -1,6 +1,6 @@
 import normalizeDataCollection from "./normalizeDataCollection"
 
-export default async function getCTA(id: string) {
+export default async function getFeature(id: string) {
   const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {
@@ -11,7 +11,7 @@ export default async function getCTA(id: string) {
     // send the GraphQL query
     body: JSON.stringify({ query: `
       query($id: String) {
-        ctaCollection(
+        featureCollection(
           where: {
             sys: {
               id: $id
@@ -19,11 +19,19 @@ export default async function getCTA(id: string) {
           } 
         ) {
           items {
+            content {
+              json
+            }
             buttonsCollection {
               items {
                 text
                 url
               }
+            }
+            media {
+              url
+              title
+              contentType
             }
           }
         }
@@ -37,7 +45,8 @@ export default async function getCTA(id: string) {
 
   const data = await res.json()
   if (res.status !== 200) {
-    throw new Error("Failed to fetch Hero data. Error: ", data.error)
+    console.error(data)
+    throw new Error("Failed to fetch Feature data. Error: ", data)
   }
   const normalizedData = normalizeDataCollection({...data.data})
   return normalizedData[0]

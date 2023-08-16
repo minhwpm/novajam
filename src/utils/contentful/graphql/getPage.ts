@@ -1,4 +1,5 @@
 import getCTA from "./getCTA"
+import getFeature from "./getFeature"
 import getHero from "./getHero"
 import getPresentation from "./getPresentation"
 import normalizeDataCollection from "./normalizeDataCollection"
@@ -25,6 +26,7 @@ export default async function getPage(slug: string) {
             contentCollection {
               items {
                 __typename
+                
                 ... on Hero {
                   sys {
                     id
@@ -42,6 +44,14 @@ export default async function getPage(slug: string) {
                   label
                   subtitle
                   style
+                }
+                ... on Feature {
+                  sys {
+                    id
+                  }
+                  title
+                  label
+                  subtitle
                 }
                 ... on Cta {
                   sys {
@@ -83,6 +93,9 @@ export default async function getPage(slug: string) {
     }
     if (contentType === "presentation") {
       return await getPresentation(id)
+    }
+    if (contentType === "feature") {
+      return await getFeature(id)
     }
   }
   for(let i = 0; i < normalizedData[0].content.length; i++) {

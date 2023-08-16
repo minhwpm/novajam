@@ -11,39 +11,40 @@ interface FeatureProps {
     subtitle?: string
     content?: string
     media?: {
-      type: string
-      src: string
-      altText?: string
+      contentType: string
+      url: string
+      title?: string
     }
-    button?: {
+    buttons?: Array<{
       url: string
       text: string
       type: ButtonVariant
-    }
+    }>
   }
   mediaPosition?: "left" | "right"
   variant?: "standard" | "alternate"
 }
 
 const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", variant = "standard" }) => {
-  const { title, label, subtitle, content, media, button } = data
+  console.log(data)
+  const { title, label, subtitle, content, media, buttons } = data
 
   if (variant === "alternate") {
     return (
       <Section framed={false}>
         <div className="w-full grid lg:grid-cols-2">
           <div className={classNames({ "lg:col-start-2" : mediaPosition === "right"})}>
-            {media?.type === "image" && (
+            {media?.contentType.includes("image") && (
               <Image
                 className="w-full h-full object-cover"
-                src={media?.src ?? ""}
-                alt={media?.altText ?? title}
+                src={media?.url ?? ""}
+                alt={media?.title ?? title}
                 width={500}
                 height={500}
               />
             )}
-            {media?.type === "video" && (
-              <video className="w-full h-96" src={media?.src} autoPlay={true} loop />
+            {media?.contentType.includes("video") && (
+              <video className="w-full h-96" src={media?.url} autoPlay={true} loop />
             )}
           </div>
           <div className={classNames("px-4 pt-5 pb-20 md:px-8 lg:p-20 xl:p-32 bg-primary-50", { "lg:col-start-1 lg:row-start-1": mediaPosition === "right"})}>
@@ -61,15 +62,15 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", varian
               </p>
             )}
             <p className="text-lg block mb-8">
-              {content}
+              {/* {content} */}
             </p>
-            {button && (
-              <div>
-                <Button variant={button.type} url={button.url} size="lg">
+            <div>
+              {buttons && buttons.map(button => 
+                <Button key={button.text} variant={button.type} url={button.url} size="lg">
                   {button.text}
                 </Button>
-              </div>
-            )}
+              )}
+            </div>
           </div>
           
         </div>
@@ -80,17 +81,17 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", varian
     <Section>
       <div className="w-full grid lg:grid-cols-2">
         <div className={classNames({ "lg:col-start-2" : mediaPosition === "right"})}>
-          {media?.type === "image" && (
+          {media?.contentType.includes("image") && (
             <Image
               className="w-full h-full object-cover"
-              src={media?.src ?? ""}
-              alt="Teacher Training"
+              src={media?.url ?? ""}
+              alt={media.title ?? title}
               width={500}
               height={500}
             />
           )}
-          {media?.type === "video" && (
-            <video className="w-full h-96" src={media?.src} autoPlay={true} loop />
+          {media?.contentType.includes("video") && (
+            <video className="w-full h-96" src={media?.url} autoPlay={true} loop />
           )}
         </div>
         <div className={classNames(
@@ -112,16 +113,16 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", varian
           )}
           {content && (
             <p className="text-slate-600 text-lg block">
-              {content}
+              {/* {content} */}
             </p>
           )}
-          {button && (
-            <div className="mt-8">
-              <Button variant={button.type} url={button.url} size="lg">
+          <div>
+            {buttons && buttons.map(button => 
+              <Button key={button.text} variant={button.type} url={button.url} size="lg">
                 {button.text}
               </Button>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </Section>

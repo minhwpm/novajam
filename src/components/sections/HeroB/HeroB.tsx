@@ -34,7 +34,6 @@ interface Props {
 }
 
 const HeroB: React.FC<Props> = ({ data }) => {
-  console.log(data)
   const { label, title, spotlightTexts, subtitle, buttons, media } = data;
   const [animated, setAnimated] = useState(false);
   const [ref, isVisible] = useInView({
