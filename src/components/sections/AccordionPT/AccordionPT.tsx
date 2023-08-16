@@ -16,8 +16,9 @@ interface SectionProps {
   subtitle?: string
   content: string
   media: {
-    type: string
-    src: string
+    contentType: string
+    url: string
+    title: string
   }
   button?: {
     url: string
@@ -31,14 +32,14 @@ interface PresentationProps {
     title: string
     label?: string
     subtitle: string
-    sections: Array<SectionProps>
+    content?: Array<SectionProps>
   }
   variant?: "standard" | "alternate"
 }
 
 const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) => {
-  const { label, title, subtitle, sections } = data
-  const [ activeItem, setActiveItem ] = React.useState(sections ? sections[0].title : '')
+  const { label, title, subtitle, content } = data
+  const [ activeItem, setActiveItem ] = React.useState(content ? content[0].title : '')
   return (
     <Section
       label={label}
@@ -48,11 +49,11 @@ const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) 
       <div className="w-full grid grid-cols-12">
         <RadixAccordion.Root
           type="single"
-          defaultValue={sections[0].title}
+          defaultValue={content && content[0].title}
           onValueChange={(value) => setActiveItem(value)}
           className="col-span-12 lg:col-span-5 flex flex-col items-start justify-center gap-6"
         >
-          {sections.map((item) => (
+          {content?.map((item) => (
             <RadixAccordion.Item
               key={item.title}
               value={item.title}
@@ -80,10 +81,10 @@ const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) 
               </RadixAccordion.Trigger>
               <RadixAccordion.Content className='Content px-6'>
                 <p className=" block text-lg">
-                  {item.content}
+                  {/* {item.content} */}
                 </p>
                 <Image
-                  src={item.media?.src ?? ''}
+                  src={item.media?.url ?? ''}
                   alt=""
                   width={500}
                   height={500}
@@ -94,7 +95,7 @@ const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) 
           ))}
         </RadixAccordion.Root>
         <div className="hidden lg:grid lg:col-span-7">
-          {sections.map((item) => (
+          {content?.map((item) => (
             <div
               key={item.title}
               className={classNames(
@@ -104,7 +105,7 @@ const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) 
               )}
             >
               <Image
-                src={item.media?.src ?? ''}
+                src={item.media?.url ?? ''}
                 alt=""
                 width={500}
                 height={500}

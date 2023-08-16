@@ -71,7 +71,7 @@ const ArrowGroup = ({visibleIdx, setVisibleIdx, length}: ArrowGroupProps) => {
 }
 
 interface Props {
-  data?: { // @TODO modify data? later
+  data: { // @TODO modify data? later
     label?: string
     title?: string
     subtitle?: string
@@ -84,7 +84,8 @@ interface Props {
 
 }
 
-const Testimonials = ( { data = dummyData }: Props) => {
+const Testimonials: React.FC<Props> = ({ data }) => {
+  const { title, sections } = data
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
@@ -93,14 +94,14 @@ const Testimonials = ( { data = dummyData }: Props) => {
         <div className="container mx-auto xl:flex xl:gap-5 overflow-x-hidden py-24 px-4">
           <div className="xl:w-1/2 pr-10">
             <h2 className="text-3xl lg:text-4xl lg:leading-[50px] font-bold mb-10">
-              {data.title}
+              {title}
             </h2>
             <div className="hidden xl:flex gap-12">
-              <ArrowGroup visibleIdx={visibleIdx} setVisibleIdx={setVisibleIdx} length={data.sections.length} />
+              <ArrowGroup visibleIdx={visibleIdx} setVisibleIdx={setVisibleIdx} length={sections.length} />
             </div>
           </div>
           <div className="xl:w-1/2 grid pr-5">
-            {data.sections.map((item, idx) => (
+            {sections.map((item, idx) => (
               <div
                 key={item.content} //@TODO key is too long. does it hurt performance?
                 className={classNames(

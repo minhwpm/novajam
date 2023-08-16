@@ -9,17 +9,17 @@ import { ButtonVariant } from "@/utils/types";
 interface CTAProps {
   data: {
     title: string
-    subtitle?: string
-    button: {
+    content?: string
+    buttons?: Array<{
       text: string
       url?: string
       type: ButtonVariant
-    }
+    }>
   }
 }
 
 const CTAB: React.FC<CTAProps> = ({ data }) => {
-  const { title, subtitle, button } = data;
+  const { title, content, buttons } = data;
   // @TODO expanding width on scrolling
   const [w, setW] = useState(70)
 
@@ -43,15 +43,17 @@ const CTAB: React.FC<CTAProps> = ({ data }) => {
           <h3 className="text-4xl lg:text-5xl leading-snug lg:leading-snug text-center text-gray-300">
             {title}
           </h3>
-          {subtitle && (
+          {content && (
             <p className="text-xl text-primary-200 text-center mt-8">
-              {subtitle}
+              {content}
             </p>
           )}
           <div className="mt-12">
-            <Button variant={button.type} size="lg" url={button.url}>
-              {button.text}
-            </Button>
+            {buttons?.map(button => (
+              <Button key={button.text} variant={button.type} size="lg" url={button.url}>
+                {button.text}
+              </Button>
+            ))}
           </div>
         </div>
       </div>

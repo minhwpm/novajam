@@ -10,7 +10,6 @@ import { HeaderProps } from "@/utils/types"
 
 const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant = "standard" }) => {
   const { logo, menu, buttons, isLoginEnabled } = data
-  console.log(data)
   const sticky = useStickyHeaderOnScrollUp()
 
   return (

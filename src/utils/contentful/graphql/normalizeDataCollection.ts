@@ -9,6 +9,14 @@ export default function normalizeDataCollection (data: { [x: string]: any }) {
         normalizeDataCollection(data[normalizedKey][i])
       }
     }
+    if (key === "sys") {
+      data.id = data.sys.id
+      delete data.sys
+    }
+    if (key === "__typename") {
+      data.contentType = data.__typename.toLowerCase()
+      delete data.__typename
+    }
   }
   return data[Object.keys(data)[0]]
 }

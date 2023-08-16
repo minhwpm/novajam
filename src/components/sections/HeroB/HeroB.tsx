@@ -13,12 +13,11 @@ import { ButtonVariant } from "@/utils/types";
 
 interface Props {
   data: {
+    id: string
     label?: string
     title: string
-    slidingTexts?: Array<{
-      text: string
-    }>
-    subtitle: string
+    spotlightTexts?: Array<string>
+    subtitle?: string
     buttons: Array<
       {
         text: string
@@ -26,15 +25,17 @@ interface Props {
         url?: string
       }
     >
-    media: {
+    media: Array<{
       type: string
-      src: string
-    }
+      url: string
+      title: string
+    }>
   }
 }
 
 const HeroB: React.FC<Props> = ({ data }) => {
-  const { label, title, slidingTexts, subtitle, buttons, media } = data;
+  console.log(data)
+  const { label, title, spotlightTexts, subtitle, buttons, media } = data;
   const [animated, setAnimated] = useState(false);
   const [ref, isVisible] = useInView({
     threshold: 0.3,
@@ -55,7 +56,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
   return (
     <section
       ref={ref}
-      className="px-4 lg:px-32 flex flex-col-reverse lg:flex-row gap-5 items-center"
+      className="px-4 lg:px-32 flex flex-col-reverse lg:flex-row gap-5 items-center lg:min-h-screen"
     >
       <div className="lg:w-5/12">
         <div
@@ -73,7 +74,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
           )}
         >
           {title}
-          {slidingTexts && <SlidingText content={slidingTexts}/>}
+          {spotlightTexts && <SlidingText content={spotlightTexts}/>}
         </h1>
         <div className={classNames("mt-6 md:text-lg", animationClasses)}>
           <p>{subtitle}</p>
@@ -87,19 +88,23 @@ const HeroB: React.FC<Props> = ({ data }) => {
         </div>
       </div>
       <div className="lg:w-7/12">
-        {media?.type === "image" && (
-          <Image
-            className={classNames("w-full object-cover", animationClasses)} 
-            src={media.src}
-            alt={title}
-            width={500}
-            height={400}
-            priority={true}
-          />
-        )}
-        {media?.type === "video" && (
-          <video className={classNames(animationClasses)} src={media.src} />
-        )}
+        {media?.map(item => (
+          <>
+            {item?.contentType.includes("image") && (
+              <Image
+                className={classNames("w-full object-cover", animationClasses)} 
+                src={item.url}
+                alt={title}
+                width={500}
+                height={400}
+                priority={true}
+              />
+            )}
+            {item?.contentType === "video" && (
+              <video className={classNames(animationClasses)} src={item.url} />
+            )}
+          </>
+        ))}
       </div>
     </section>
   );
