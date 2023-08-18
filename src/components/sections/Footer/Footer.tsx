@@ -6,7 +6,7 @@ interface FooterProps {
   data: {
     logo: {
       url: string
-      altText: string
+      title: string
     }
     copyright?: string
     sns?: Array<{
@@ -37,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({ data }) => {
             src={logo.url}
             width={160}
             height={56}
-            alt={logo.altText}
+            alt={logo.title}
           />
         </Link>
         <p className="text-slate-500">

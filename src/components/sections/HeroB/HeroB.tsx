@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useInView } from "react-hook-inview";
 import Image from 'next/image';
 import { ButtonVariant } from "@/utils/types";
+import RichText from "@/components/elements/RichText/RichText";
 
 interface Props {
   data: {
@@ -17,7 +18,7 @@ interface Props {
     label?: string
     title: string
     spotlightTexts?: Array<string>
-    subtitle?: string
+    content?: string
     buttons: Array<
       {
         text: string
@@ -26,7 +27,7 @@ interface Props {
       }
     >
     media: Array<{
-      type: string
+      contentType: string
       url: string
       title: string
     }>
@@ -34,7 +35,7 @@ interface Props {
 }
 
 const HeroB: React.FC<Props> = ({ data }) => {
-  const { label, title, spotlightTexts, subtitle, buttons, media } = data;
+  const { label, title, spotlightTexts, content, buttons, media } = data;
   const [animated, setAnimated] = useState(false);
   const [ref, isVisible] = useInView({
     threshold: 0.3,
@@ -75,9 +76,11 @@ const HeroB: React.FC<Props> = ({ data }) => {
           {title}
           {spotlightTexts && <SlidingText content={spotlightTexts}/>}
         </h1>
-        <div className={classNames("mt-6 md:text-lg", animationClasses)}>
-          <p>{subtitle}</p>
-        </div>
+        {content && 
+          <div className={classNames("mt-6 md:text-lg", animationClasses)}>
+            <RichText htmlString={content} />
+          </div>
+        }
         <div className={classNames("flex flex-row flex-wrap gap-6 mt-10", animationClasses)}>
           {buttons && buttons.length > 0 && buttons.map(button => (
             <Button key={button.text} variant={button.type} size="lg" url={button.url}>
@@ -88,12 +91,12 @@ const HeroB: React.FC<Props> = ({ data }) => {
       </div>
       <div className="lg:w-7/12">
         {media?.map(item => (
-          <>
+          <div key={item.url}>
             {item?.contentType.includes("image") && (
               <Image
                 className={classNames("w-full object-cover", animationClasses)} 
                 src={item.url}
-                alt={title}
+                alt={item.title}
                 width={500}
                 height={400}
                 priority={true}
@@ -102,7 +105,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
             {item?.contentType === "video" && (
               <video className={classNames(animationClasses)} src={item.url} />
             )}
-          </>
+          </div>
         ))}
       </div>
     </section>

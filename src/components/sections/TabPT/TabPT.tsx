@@ -7,6 +7,7 @@ import Section from '@/components/elements/Section/Section';
 import Button from '@/components/elements/Button/Button';
 import classNames from "classnames";
 import { ButtonVariant } from '@/utils/types';
+import RichText from '@/components/elements/RichText/RichText';
 
 interface SectionProps {
   title: string
@@ -14,8 +15,9 @@ interface SectionProps {
   subtitle?: string
   content: string
   media: {
-    type: string
-    src: string
+    contentType: string
+    url: string
+    title: string
   }
   button?: {
     url: string
@@ -29,22 +31,22 @@ interface PresentationProps {
     title?: string
     label?: string
     subtitle?: string
-    sections: Array<SectionProps>
+    content: Array<SectionProps>
   }
 }
 
 const TabPT: React.FC<PresentationProps> = ({data}) => {
-  const { label, title, subtitle, sections } = data
-  const [ activeItem, setActiveItem ] = React.useState(sections ? sections[0].title : '')
+  const { label, title, subtitle, content } = data
+  const [ activeItem, setActiveItem ] = React.useState(content ? content[0].title : '')
   return (
     <Section
       label={label}
       title={title}
       subtitle={subtitle}
     >
-      <RadixTabs.Root className="w-full" defaultValue={sections[0].title} onValueChange={(value) => setActiveItem(value)}>
+      <RadixTabs.Root className="w-full" defaultValue={content[0].title} onValueChange={(value) => setActiveItem(value)}>
         <RadixTabs.List className="flex lg:justify-center overflow-x-auto" aria-label="">
-          {sections.map((section,idx) => (
+          {content.map((section,idx) => (
             <RadixTabs.Trigger
               key={section.title}
               value={section.title}
@@ -52,7 +54,7 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
             >
               <div className={classNames(
                 "px-5 pt-3",
-                {"border-r border-gray-300": idx < sections.length - 1}
+                {"border-r border-gray-300": idx < content.length - 1}
               )}>
                 {section.label && (
                   <p className="block uppercase tracking-widest">
@@ -67,7 +69,7 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
           ))}
         </RadixTabs.List>
         <div className="mt-16 mb-32">
-          {sections.map((section) => (
+          {content.map((section) => (
             <RadixTabs.Content
               key={section.title} value={section.title}
               className={classNames(
@@ -81,7 +83,7 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
                   <h4 className="text-3xl font-bold mb-6">
                     {section.subtitle}
                   </h4>
-                  <p>{section.content}</p>
+                  <RichText htmlString={section.content} />
                   {section.button?.url && (
                     <div className="mt-6 flex justify-end">
                       <Button variant={section.button.type ?? "outline"} url={section.button.url}>
@@ -92,8 +94,8 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
                 </div>
                 <div className="flex flex-col items-center lg:items-start lg:relative lg:top-10 lg:-left-10">
                   <Image
-                    src={section.media?.src ?? ''}
-                    alt=""
+                    src={section.media?.url ?? ''}
+                    alt={section.media.title}
                     width={500}
                     height={500}
                     className="w-full h-full object-cover lg:shadow-lg"

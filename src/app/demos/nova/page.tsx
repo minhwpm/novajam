@@ -2,8 +2,10 @@ import HeroC from "@/components/sections/HeroC/HeroC"
 import TabPT from "@/components/sections/TabPT/TabPT"
 import CTA from "@/components/sections/CTA/CTA"
 import { ButtonVariant } from "@/components/elements/Button/Button"
-import ContentB from "@/components/sections/ContentB/ContentB"
+import CardList from "@/components/sections/CardList/CardList"
 import FeatureB from "@/components/sections/FeatureB/FeatureB"
+import getPage from "@/utils/contentful/graphql/getPage"
+import Sections from "@/components/sections/Sections/Sections"
 
 const defaultPageData = {
   sections: {
@@ -203,16 +205,27 @@ const defaultPageData = {
   }
 }
 
-export default function Home() {
-  const { heroSection, presentationSection1, featureSection, featureSection2, contentSection, contentSection2, cta } = defaultPageData.sections
-  return (
-    <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
-      <HeroC data={heroSection} />
-      <ContentB data={contentSection} />
-      <FeatureB data={featureSection} />
-      <TabPT data={presentationSection1} />
-      <ContentB data={contentSection2} />
-      <FeatureB data={featureSection2} mediaPosition="right" variant="alternate"/>
-    </main>
-  )
+export default async function Home() {
+  try {
+    const data = await getPage("/demos/nova")
+    return <Sections data={data.content} />
+    const { heroSection, presentationSection1, featureSection, featureSection2, contentSection, contentSection2, cta } = defaultPageData.sections
+    return (
+      <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
+        <HeroC data={heroSection} />
+        <CardList data={contentSection} />
+        <FeatureB data={featureSection} />
+        <TabPT data={presentationSection1} />
+        <CardList data={contentSection2} />
+        <FeatureB data={featureSection2} mediaPosition="right" variant="alternate"/>
+      </main>
+    )
+  } catch (e) {
+    return (
+      <main>
+        404 Error Page
+      </main>
+    )
+  }
+
 }

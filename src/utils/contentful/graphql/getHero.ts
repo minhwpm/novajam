@@ -46,6 +46,7 @@ export default async function getHero(id: string) {
   })
   const data = await res.json()
   if (res.status !== 200) {
+    console.error(data)
     throw new Error("Failed to fetch Hero data. Error: ", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})

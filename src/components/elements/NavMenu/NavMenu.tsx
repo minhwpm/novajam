@@ -7,11 +7,12 @@ import './styles.css';
 import Link from 'next/link';
 import { NavMenuProps, LinkProps, SubmenuProps } from "@/utils/types"
 
-const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
-  function getMenuItemText(item: LinkProps | SubmenuProps): string {
-    if ("text" in item) return item.text
-    return item.title
-  }
+export function getMenuItemText(item: LinkProps | SubmenuProps): string {
+  if ("text" in item) return item.text
+  return item.title
+}
+
+const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {  
   return (
     <NavigationMenu.Root
       className={classNames(

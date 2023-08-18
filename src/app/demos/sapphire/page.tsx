@@ -1,7 +1,7 @@
 import HeroB from "@/components/sections/HeroB/HeroB"
 import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
 import { ButtonVariant } from "@/components/elements/Button/Button"
-import ContentB from "@/components/sections/ContentB/ContentB"
+import CardList from "@/components/sections/CardList/CardList"
 import Lookbook from "@/components/sections/Lookbook/Lookbook"
 
 const defaultPageData = {
@@ -291,7 +291,7 @@ export default function Home() {
   return (
     <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
       <HeroB data={hero} />
-      <ContentB data={contentSection} variant="alternate" />
+      <CardList data={contentSection} variant="alternate" />
       <AccordionPT data={presentationSection} />
       <Lookbook data={imageGallery2} imageAspectRatio="square" />
       <Lookbook data={imageGallery} />

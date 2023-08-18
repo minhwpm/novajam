@@ -9,6 +9,7 @@ import Image from 'next/image';
 import "./styles.css"
 import Section from '@/components/elements/Section/Section';
 import { ButtonVariant } from '@/utils/types';
+import RichText from '@/components/elements/RichText/RichText';
 
 interface SectionProps {
   title: string
@@ -80,12 +81,12 @@ const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) 
                 </div>
               </RadixAccordion.Trigger>
               <RadixAccordion.Content className='Content px-6'>
-                <p className=" block text-lg">
-                  {/* {item.content} */}
-                </p>
+                <div className="block text-lg">
+                  <RichText htmlString={item.content} />
+                </div>
                 <Image
                   src={item.media?.url ?? ''}
-                  alt=""
+                  alt={item.media?.title ?? item.title}
                   width={500}
                   height={500}
                   className="block lg:hidden mt-6 h-full object-cover"
@@ -106,7 +107,7 @@ const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) 
             >
               <Image
                 src={item.media?.url ?? ''}
-                alt=""
+                alt={item.media?.title ?? item.title}
                 width={500}
                 height={500}
                 className="h-full object-cover"

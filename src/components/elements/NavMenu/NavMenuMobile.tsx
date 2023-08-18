@@ -2,11 +2,13 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { NavMenuProps } from './NavMenu';
+import { NavMenuProps } from "@/utils/types"
+
 import SubMenuItem from './SubMenuItem';
 import { useState } from 'react';
+import { getMenuItemText } from './NavMenu';
 
-const NavMenuMobile: React.FC<NavMenuProps> = ({ menuItems, navAlignment = "center" }) => {
+const NavMenuMobile: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
   const [ mobileMenuShowed, setMobileMenuShowed ] = useState(false)
 
   return (
@@ -17,24 +19,33 @@ const NavMenuMobile: React.FC<NavMenuProps> = ({ menuItems, navAlignment = "cent
         { "hidden": !mobileMenuShowed}
       )}>
         <NavigationMenu.List>
-          {menuItems.map(item => (
-            <NavigationMenu.Item key={item.title}>
-              { item.url && (
+          {menu.map(item => (
+            <NavigationMenu.Item key={getMenuItemText(item)}>
+              { "url" in item && (
                 <NavigationMenu.Link className="py-2 px-3 select-none inline-block" href={item.url}>
-                  {item.title}
+                  {item.text}
                 </NavigationMenu.Link>
               )}
-              { item.content && (
+              { "menu" in item && (
                 <>
                   <NavigationMenu.Trigger className="py-2 px-3 select-none">
                     {item.title} <FontAwesomeIcon className="inline-block CaretDown" icon={faChevronDown} size="2xs" width={10} />
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className="">
-                    <ul className="List one">
-                      {item.content.map(subItem => (
-                        <SubMenuItem key={subItem.title} href={subItem.url} title={subItem.title} />
-                      ))}
-                    </ul>
+                    {item.menu && item.menu.map((subItem, idx) => (
+                      <div key={idx}>
+                        {subItem.title && 
+                          <p className="text-slate-500 uppercase text-sm tracking-wide">
+                            {subItem.title}
+                          </p>
+                        }
+                        <ul>
+                          {subItem.links.map((link) => (
+                            <SubMenuItem key={link.url} href={link.url} title={link.text} />
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
                   </NavigationMenu.Content>
                 </>
               )}

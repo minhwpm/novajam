@@ -3,44 +3,47 @@ import Image from "next/image"
 import Link from "next/link"
 import Button from "../Button/Button"
 import { ButtonVariant } from "@/utils/types"
+import RichText from "../RichText/RichText"
 
-interface ContentPreviewProps {
+interface CardProps {
   data: {
-    label?: string
+    id: string
     title: string
+    slug?: string
+    summary?: string
     content?: string
+    tags?: Array<string>
     media?: {
-      type: string
-      src: string
-      altText?: string
+      contentType: string
+      url: string
+      title?: string
     }
-    url?: string
-    button?: {
+    buttons?: Array<{
       url: string
       text: string
-      type: ButtonVariant
-    }
+      type?: ButtonVariant
+    }>
   }
   // size?: "small" | "medium" | "large"
   aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
   shadow?: boolean
   border?: boolean
   rounded?: boolean
-  mediaPosition?: "top" | "overlay"
+  thumbnailImagePosition?: "top" | "overlay"
   textAlign?: "left" | "right" | "center"
 }
 
-const Card: React.FC<ContentPreviewProps> = ({
+const Card: React.FC<CardProps> = ({
   data,
   // size = "medium",
   aspectRatio = "video",
   shadow,
   border,
   rounded,
-  mediaPosition = "top",
+  thumbnailImagePosition = "top",
   textAlign = "left"
 }) => {
-  const { label, title, content, url, button } = data
+  const { tags, title, summary, content, slug, media, buttons } = data
   return (
     <div className={classNames(
       "relative flex flex-col shrink-0",
@@ -51,7 +54,7 @@ const Card: React.FC<ContentPreviewProps> = ({
       { "border": border },
       { "rounded-2xl": rounded },
     )}>
-      {data.media?.type === "image" && data.media?.src && (
+      {media?.url && (
         <Image 
           className={classNames(
             { "aspect-video" : aspectRatio === "video"},
@@ -59,51 +62,60 @@ const Card: React.FC<ContentPreviewProps> = ({
             { "aspect-3/4" : aspectRatio === "3/4"},
             { "aspect-4/3" : aspectRatio === "4/3"},
             { "aspect-3/2" : aspectRatio === "3/2"},
-            { "rounded-t-2xl": rounded && mediaPosition === "top"},
-            { "rounded-2xl": rounded && mediaPosition === "overlay" },
+            { "rounded-t-2xl": rounded && thumbnailImagePosition === "top"},
+            { "rounded-2xl": rounded && thumbnailImagePosition === "overlay" },
             "object-cover",
           )}
-          src={data.media.src}
+          src={media.url}
           width={500} 
           height={500} 
-          alt={data.media.altText ?? title}
+          alt={media.title ?? title}
         />
       )}
-      {data.media?.type === "icon" && data.media?.src && (
+      {/* {data.thumbnailImage?.contentType === "icon" && data.thumbnailImage?.url && (
         <Image
           className="w-16 h-16"
-          src={data.media.src}
+          src={data.thumbnailImage.url}
           width={64}
           height={64}
-          alt={data.media.altText ?? title}
+          alt={data.thumbnailImage.title ?? title}
         />
-      )}
+      )} */}
       <div className={classNames(
         "w-full py-5",
         { "px-5": border || rounded },
-        { "absolute bottom-0 bg-gradient-to-t from-gray-900/90 to-transparent text-white": data.media?.src && mediaPosition === "overlay" },
+        { "absolute bottom-0 bg-gradient-to-t from-gray-900/90 to-transparent text-white": data.thumbnailImage?.src && thumbnailImagePosition === "overlay" },
         { "rounded-b-2xl": rounded },
         { "text-center": textAlign === "center" },
         { "text-right": textAlign === "right" }
       )}>
         <p className="text-xs uppercase tracking-widest">
-          {label}
+          {tags}
         </p>
         <h4 className="text-lg lg:text-xl font-semibold mt-1">
-          {url ? (
-            <Link href={url}>
+          {slug ? (
+            <Link href={`/blog/${slug}`}>
               {title}
             </Link>
           ) : (<>{title}</>)}
         </h4>
-        <p className="text-slate-600 lg:text-lg block mt-2">
-          {content}
-        </p>
-        {button?.url && (
+        {summary && 
+          <p className="text-slate-600 lg:text-lg block mt-2">
+            {summary}
+          </p>
+        }
+        {content && 
+          <div className="text-slate-600 lg:text-lg block mt-2">
+            <RichText htmlString={content} />
+          </div>
+        }
+        {buttons && (
           <div className="mt-6">
-            <Button variant={button.type ?? "outline"} url={button.url}>
-              {button.text}
-            </Button>
+            {buttons.map(button => (
+              <Button key={button.text} variant={button.type ?? "alternate"} url={button.url}>
+                {button.text}
+              </Button>
+            ))}
           </div>
         )}
       </div>

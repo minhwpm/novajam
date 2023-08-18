@@ -23,7 +23,6 @@ export default async function getPresentation(id: string) {
               items {
                 title
                 label
-                subtitle
                 content {
                   json
                 }
@@ -53,6 +52,7 @@ export default async function getPresentation(id: string) {
 
   const data = await res.json()
   if (res.status !== 200) {
+    console.error(data)
     throw new Error("Failed to fetch Presentation data. Error: ", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})

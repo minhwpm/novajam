@@ -26,7 +26,6 @@ export default async function Layout({
 }) {
   const header = await getHeader("Blueberry")
   const footer = await getFooter("Blueberry")
-  console.log("BLUEBERRY FOOTER", footer)
   return (
     <html lang="en">
       <body className={classNames(font.className, styles["color-settings"])}>

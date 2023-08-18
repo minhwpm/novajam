@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({ data, variant = "standard" }) => {
               src={logo.url}
               width={160}
               height={56}
-              alt={logo.altText}
+              alt={logo.title}
             />
           </Link>
         </div>

@@ -2,7 +2,7 @@ import CTAB from "@/components/sections/CTAB/CTAB"
 import Hero from "@/components/sections/Hero/Hero"
 import { ButtonVariant } from "@/components/elements/Button/Button"
 import Section from "@/components/elements/Section/Section"
-import ContentPreview from "@/components/elements/ContentPreview/ContentPreview"
+import Card from "@/components/elements/Card/Card"
 
 const defaultPageData = {
   sections: {
@@ -97,7 +97,7 @@ export default function Home() {
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {features.sections.map(section => (
-            <ContentPreview key={section.title} data={section} aspectRatio="4/3" mediaPosition="top" />
+            <Card key={section.title} data={section} aspectRatio="4/3" mediaPosition="top" />
           ))}
         </div>
       </Section>

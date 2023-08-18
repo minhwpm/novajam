@@ -3,6 +3,7 @@ import Image from "next/image"
 import classNames from "classnames"
 import Button from "@/components/elements/Button/Button"
 import { ButtonVariant } from "@/utils/types"
+import RichText from "@/components/elements/RichText/RichText"
 
 interface FeatureProps {
   data: {
@@ -25,8 +26,7 @@ interface FeatureProps {
   variant?: "standard" | "alternate"
 }
 
-const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", variant = "standard" }) => {
-  console.log(data)
+const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "rightyarn", variant = "standard" }) => {
   const { title, label, subtitle, content, media, buttons } = data
 
   if (variant === "alternate") {
@@ -61,9 +61,9 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", varian
                 {subtitle}
               </p>
             )}
-            <p className="text-lg block mb-8">
-              {/* {content} */}
-            </p>
+            <div className="text-lg block mb-8">
+              { content && <RichText htmlString={content} /> }
+            </div>
             <div>
               {buttons && buttons.map(button => 
                 <Button key={button.text} variant={button.type} url={button.url} size="lg">
@@ -111,11 +111,9 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "left", varian
               {subtitle}
             </p>
           )}
-          {content && (
-            <p className="text-slate-600 text-lg block">
-              {/* {content} */}
-            </p>
-          )}
+          <div className="text-slate-600 text-lg block">
+            { content && <RichText htmlString={content} /> }
+          </div>
           <div>
             {buttons && buttons.map(button => 
               <Button key={button.text} variant={button.type} url={button.url} size="lg">

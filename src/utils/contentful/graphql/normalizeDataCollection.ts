@@ -1,3 +1,5 @@
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
 // @TODO specify type for param data
 export default function normalizeDataCollection (data: { [x: string]: any }) {
   for (let key in data) {
@@ -16,6 +18,10 @@ export default function normalizeDataCollection (data: { [x: string]: any }) {
     if (key === "__typename") {
       data.contentType = data.__typename.toLowerCase()
       delete data.__typename
+    }
+    if (data[key] && typeof data[key] === "object" && "json" in data[key]) {
+      data[key] = documentToHtmlString(data[key].json)
+      delete data[key].json
     }
   }
   return data[Object.keys(data)[0]]

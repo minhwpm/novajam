@@ -2,7 +2,7 @@ import HeroC from "@/components/sections/HeroC/HeroC"
 import TabPT from "@/components/sections/TabPT/TabPT"
 import CTA from "@/components/sections/CTA/CTA"
 import { ButtonVariant } from "@/components/elements/Button/Button"
-import ContentB from "@/components/sections/ContentB/ContentB"
+import CardList from "@/components/sections/CardList/CardList"
 import Feature from "@/components/sections/FeatureB/FeatureB"
 
 const defaultPageData = {
@@ -151,10 +151,10 @@ export default function Home() {
   return (
     <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
       <HeroC data={heroSection} />
-      <ContentB data={contentSection} />
+      <CardList data={contentSection} />
       <TabPT data={presentationSection1} />
       <Feature data={featureSection} />
-      <ContentB data={contentSection2} />
+      <CardList data={contentSection2} />
       <CTA data={cta} />
     </main>
   )

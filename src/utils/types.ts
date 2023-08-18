@@ -34,7 +34,7 @@ export interface HeaderProps {
   data: {
     logo: {
       url: string
-      altText?: string
+      title?: string
     },
     menu: Array<LinkProps | SubmenuProps>
     isLoginEnabled?: boolean

@@ -1,4 +1,5 @@
 import getCTA from "./getCTA"
+import getCardList from "./getCardList"
 import getFeature from "./getFeature"
 import getHero from "./getHero"
 import getPresentation from "./getPresentation"
@@ -51,7 +52,6 @@ export default async function getPage(slug: string) {
                   }
                   title
                   label
-                  subtitle
                 }
                 ... on Cta {
                   sys {
@@ -59,6 +59,11 @@ export default async function getPage(slug: string) {
                   }
                   title
                   content
+                }
+                ... on CardList {
+                  sys {
+                    id
+                  }
                 }
                 ... on Testimonials {
                   sys {
@@ -80,6 +85,7 @@ export default async function getPage(slug: string) {
 
   const data = await res.json()
   if (res.status !== 200) {
+    console.error(data)
     throw new Error("Failed to fetch Page data. Error", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
@@ -97,6 +103,9 @@ export default async function getPage(slug: string) {
     if (contentType === "feature") {
       return await getFeature(id)
     }
+    if (contentType === "cardlist") {
+      return await getCardList(id)
+    }
   }
   for(let i = 0; i < normalizedData[0].content.length; i++) {
     normalizedData[0].content[i] = {
@@ -104,6 +113,6 @@ export default async function getPage(slug: string) {
       ... await getSectionData(normalizedData[0].content[i].contentType, normalizedData[0].content[i].id)
     }
   }
-
+  console.log(`PAGE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

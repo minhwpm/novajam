@@ -1,8 +1,8 @@
 import Section from "@/components/elements/Section/Section"
-import ContentPreview from "@/components/elements/ContentPreview/ContentPreview"
+import Card from "@/components/elements/Card/Card"
 import classNames from "classnames"
 
-interface SectionProps {
+interface CardProps {
   title: string
   label?: string
   content?: string
@@ -12,18 +12,22 @@ interface SectionProps {
   }
 }
 
-interface ContentProps {
+interface CardListProps {
   data: {
     title: string
     label?: string
     subtitle?: string
-    sections: Array<SectionProps>
+    content: Array<CardProps>
+    link: {
+      url: string
+      text: string
+    }
   }
   variant?: "standard" | "alternate"
 }
 
-const ContentB: React.FC<ContentProps> = ({ data, variant = "standard" }) => {
-  const { title, label, subtitle, sections } = data
+const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
+  const { title, label, subtitle, content } = data
   return (
     <Section
       label={label}
@@ -32,12 +36,12 @@ const ContentB: React.FC<ContentProps> = ({ data, variant = "standard" }) => {
       className={classNames({"bg-secondary-50": variant === "alternate"})}
     >
       <div className="grid md:grid-cols-3 gap-9">
-        {sections.map((section) => (
-          <ContentPreview key={section.title} data={section} textAlign="left" />
+        {content.map((card) => (
+          <Card key={card.title} data={card} textAlign="left" />
         ))}
       </div>
     </Section>
   )
 }
 
-export default ContentB
+export default CardList
