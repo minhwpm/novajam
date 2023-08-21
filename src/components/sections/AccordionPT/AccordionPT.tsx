@@ -10,6 +10,7 @@ import "./styles.css"
 import Section from '@/components/elements/Section/Section';
 import { ButtonVariant } from '@/utils/types';
 import RichText from '@/components/elements/RichText/RichText';
+import Button from '@/components/elements/Button/Button';
 
 interface SectionProps {
   title: string
@@ -21,11 +22,11 @@ interface SectionProps {
     url: string
     title: string
   }
-  button?: {
+  buttons?: Array<{
     url: string
     text: string
     type: ButtonVariant
-  }
+  }>
 }
 
 interface PresentationProps {
@@ -83,6 +84,13 @@ const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) 
               <RadixAccordion.Content className='Content px-6'>
                 <div className="block text-lg">
                   <RichText htmlString={item.content} />
+                </div>
+                <div className="mt-6 flex justify-end">
+                {item.buttons && item.buttons?.map(button => (
+                  <Button key={button.text} variant={button.type ?? "alternate"} url={button.url}>
+                    {button.text}
+                  </Button>
+                ))}
                 </div>
                 <Image
                   src={item.media?.url ?? ''}

@@ -9,19 +9,15 @@ import Link from "next/link";
 
 interface HeroDProps {
   data: {
-    images: Array<{
-      src: {
-        default: string
-        sm?: string
-      }
-      altText: string
+    media: Array<{
       url: string
+      title:  string
     }>
   }
 }
 
 const HeroD: React.FC<HeroDProps> = ({data}) => {
-  const { images } = data
+  const { media } = data
   return (
     <section>
       <Carousel
@@ -29,19 +25,19 @@ const HeroD: React.FC<HeroDProps> = ({data}) => {
         pagination={{
           enabled: true
         }}
-        slides={images.map((item, idx) => (
+        slides={media.map((item, idx) => (
           <div key={idx}>
-            <Link href={item.url}>
+            {/* <Link href={item.url}> */}
               <Image
                 className={classNames(
                   "w-full object-cover aspect-3/4 md:aspect-video lg:aspect-5/2",
                 )}
-                src={item.src.default ?? ""}
-                alt="Teacher Training"
+                src={item.url ?? ""}
+                alt={item.title}
                 width={500}
                 height={500}
               />
-            </Link>
+            {/* </Link> */}
           </div>
         ))}
       />

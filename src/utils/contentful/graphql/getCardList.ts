@@ -78,7 +78,7 @@ export default async function getCardList(id: string) {
                   description {
                     json
                   }
-                  thumbnailImage {
+                  media {
                     url
                     title
                   }

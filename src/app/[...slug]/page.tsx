@@ -3,7 +3,7 @@ import Sections from "@/components/sections/Sections/Sections"
 
 export default async function Home() {
   try {
-    const data = await getPage("/demos/nova")
+    const data = await getPage("/demos/maple-home-design")
     return <Sections data={data.content} />
   } catch (e) {
     return (
