@@ -24,8 +24,8 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  const header = await getHeader("Blueberry")
-  const footer = await getFooter("Blueberry")
+  const header = await getHeader("/demos/blueberry")
+  const footer = await getFooter("/demos/blueberry")
   return (
     <html lang="en">
       <body className={classNames(font.className, styles["color-settings"])}>

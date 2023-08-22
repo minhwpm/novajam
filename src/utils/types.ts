@@ -1,3 +1,6 @@
+export type Params = {
+  slug: Array<string>
+}
 export type ButtonVariant = "standard" | "alternate" | "black" | "link-btn" | "outline" | "outline-black" | "outline-white"
 
 export interface ButtonProps {

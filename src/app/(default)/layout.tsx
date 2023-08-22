@@ -2,6 +2,9 @@ import '../globals.css'
 import { Analytics } from '@vercel/analytics/react';
 import { Lato } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
+import getHeader from '@/utils/contentful/graphql/getHeader';
+import getFooter from '@/utils/contentful/graphql/getFooter';
+import Footer from '@/components/sections/Footer/Footer';
 
 const font = Lato({
   subsets: ['latin'],
@@ -69,16 +72,19 @@ const headerData = {
   isLoginEnabled: false
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const header = await getHeader("/")
+  const footer = await getFooter("/")
   return (
     <html lang="en">
       <body className={font.className}>
-        <Header data={headerData} />
+        {header && <Header data={header} navAlignment="center" /> }
         {children}
+        {footer && <Footer data={footer} /> }
         <Analytics />
       </body>
     </html>

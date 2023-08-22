@@ -7,6 +7,7 @@ import Footer from '@/components/sections/Footer/Footer';
 import classNames from 'classnames';
 import getHeader from '@/utils/contentful/graphql/getHeader';
 import getFooter from '@/utils/contentful/graphql/getFooter';
+import { Params } from "@/utils/types"
 
 const font = Nunito({
   subsets: ['latin', "vietnamese"],
@@ -20,13 +21,16 @@ export const metadata = {
 }
 
 
-export default async function RootLayout({
+export default async function Layout({
   children,
-}: {
+  params
+} : {
   children: React.ReactNode
+  params: Params
 }) {
-  const header = await getHeader("Nova")
-  const footer = await getFooter("Nova")
+  console.log(params, JSON.stringify(children, null, 4))
+  const header = await getHeader(`/${params.slug.join('/')}`)
+  const footer = await getFooter(`/${params.slug.join('/')}`)
   return (
     <html lang="en">
       <body className={classNames(font.className)}>

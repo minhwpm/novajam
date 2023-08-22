@@ -9,7 +9,7 @@ interface CardProps {
   data: {
     id: string
     title: string
-    slug?: string
+    url?: string
     summary?: string
     content?: string
     tags?: Array<string>
@@ -43,7 +43,7 @@ const Card: React.FC<CardProps> = ({
   thumbnailImagePosition = "top",
   textAlign = "left"
 }) => {
-  const { tags, title, summary, content, slug, media, buttons } = data
+  const { tags, title, summary, content, url, media, buttons } = data
   return (
     <div className={classNames(
       "relative flex flex-col shrink-0",
@@ -72,19 +72,19 @@ const Card: React.FC<CardProps> = ({
           alt={media.title ?? title}
         />
       )}
-      {/* {data.thumbnailImage?.contentType === "icon" && data.thumbnailImage?.url && (
+      {/* {data.media?.contentType === "icon" && data.media?.url && (
         <Image
           className="w-16 h-16"
-          src={data.thumbnailImage.url}
+          src={data.media.url}
           width={64}
           height={64}
-          alt={data.thumbnailImage.title ?? title}
+          alt={data.media.title ?? title}
         />
       )} */}
       <div className={classNames(
         "w-full py-5",
         { "px-5": border || rounded },
-        { "absolute bottom-0 bg-gradient-to-t from-gray-900/90 to-transparent text-white": data.thumbnailImage?.src && thumbnailImagePosition === "overlay" },
+        { "absolute bottom-0 bg-gradient-to-t from-gray-900/90 to-transparent text-white": data.media?.url && thumbnailImagePosition === "overlay" },
         { "rounded-b-2xl": rounded },
         { "text-center": textAlign === "center" },
         { "text-right": textAlign === "right" }
@@ -93,8 +93,8 @@ const Card: React.FC<CardProps> = ({
           {tags}
         </p>
         <h4 className="text-lg lg:text-xl font-semibold mt-1">
-          {slug ? (
-            <Link href={`/blog/${slug}`}>
+          {url ? (
+            <Link href={`${url}`}>
               {title}
             </Link>
           ) : (<>{title}</>)}

@@ -35,7 +35,7 @@ export default async function getCardList(id: string) {
                   }
                   title
                   summary
-                  slug
+                  url
                   tags
                   media {
                     url
@@ -63,6 +63,7 @@ export default async function getCardList(id: string) {
                 }
                 ... on Product {
                   title
+                  url
                   price
                   categories
                   mediaCollection (limit: 1) {
@@ -74,8 +75,9 @@ export default async function getCardList(id: string) {
                 }
                 ... on Service {
                   title
+                  url
                   subtitle
-                  description {
+                  content {
                     json
                   }
                   media {

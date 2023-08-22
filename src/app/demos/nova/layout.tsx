@@ -7,6 +7,7 @@ import styles from './nova.module.css'
 import classNames from 'classnames';
 import getHeader from '@/utils/contentful/graphql/getHeader';
 import getFooter from '@/utils/contentful/graphql/getFooter';
+import { Params } from '@/utils/types';
 
 const font = Inter({
   subsets: ['latin', "vietnamese"],
@@ -15,18 +16,21 @@ const font = Inter({
 })
 
 export const metadata = {
-  title: 'NOVA',
+  title: 'BLUEBIZ',
   description: 'NOVA theme - Clinic',
 }
 
 
-export default async function RootLayout({
+export default async function Layout({
   children,
-}: {
+  params
+} : {
   children: React.ReactNode
+  params: Params
 }) {
-  const header = await getHeader("Nova")
-  const footer = await getFooter("Nova")
+  // console.log(params, JSON.stringify(children, null, 4))
+  const header = await getHeader("/demos/nova")
+  const footer = await getFooter("/demos/nova")
   return (
     <html lang="en">
       <body className={classNames(font.className, styles["color-settings"])}>

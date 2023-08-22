@@ -22,9 +22,8 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  // @TODO get slug instead of "Celestiall" 
-  const header = await getHeader("Celestial")
-  const footer = await getFooter("Celestial")
+  const header = await getHeader("/demos/celestial")
+  const footer = await getFooter("/demos/celestial")
   return (
     <html lang="en">
       <body className={font.className}>

@@ -26,12 +26,12 @@ const Section = ( { title, label, subtitle, children, framed = true, className, 
       className,
     )}>
       {label && (
-        <p className="uppercase tracking-widest">
+        <p className="uppercase tracking-widest text-primary-500 font-semibold">
           {label}
         </p>
       )}
       {title && (
-        <h2 className={classNames("font-heading text-4xl lg:text-5xl leading-snug lg:leading-snug font-bold text-center max-w-4xl",
+        <h2 className={classNames("font-heading text-3xl lg:text-[2.75rem] leading-snug lg:leading-snug font-bold text-center max-w-3xl",
           {"mb-5": subtitle},
           {"mb-12": !subtitle},
         )}>

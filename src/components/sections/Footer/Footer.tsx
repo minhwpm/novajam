@@ -31,15 +31,17 @@ const Footer: React.FC<FooterProps> = ({ data }) => {
   return (
     <footer className="grid grid-cols-12 gap-x-5 gap-y-10 pt-6 pb-20 px-4 md:px-8 lg:px-20 xl:px-32">
       <div className="col-span-12 lg:col-span-6 xl:col-span-4 flex flex-col items-center lg:items-start">
-        <Link href="/">
-          <Image
-            className="w-40 h-14 object-contain object-top"
-            src={logo.url}
-            width={160}
-            height={56}
-            alt={logo.title}
-          />
-        </Link>
+        {logo?.url && 
+          <Link href="/">
+            <Image
+              className="w-40 h-14 object-contain object-top"
+              src={logo.url}
+              width={160}
+              height={56}
+              alt={logo.title}
+            />
+          </Link>
+        }
         <p className="text-slate-500">
           {copyright}
         </p>
