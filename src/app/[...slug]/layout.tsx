@@ -16,8 +16,8 @@ const font = Nunito({
 })
 
 export const metadata = {
-  title: 'NOVA',
-  description: 'NOVA theme - Clinic',
+  title: 'Bluebiz',
+  description: 'Multipurpose NextJS Theme',
 }
 
 

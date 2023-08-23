@@ -1,8 +1,11 @@
 import Section from "@/components/elements/Section/Section"
 import Card from "@/components/elements/Card/Card"
 import classNames from "classnames"
+import ProductCard from "@/components/elements/ProductCard/ProductCard"
+import FeatureCard from "@/components/elements/FeatureCard/FeatureCard"
 
 interface CardProps {
+  id: string
   title: string
   label?: string
   content?: string
@@ -10,6 +13,7 @@ interface CardProps {
     type: string
     src: string
   }
+  contentType?: string
 }
 
 interface CardListProps {
@@ -35,9 +39,21 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
       subtitle={subtitle}
       className={classNames({"bg-secondary-50": variant === "alternate"})}
     >
-      <div className="grid md:grid-cols-3 gap-9">
+      <div className="flex -mx-4">
         {content.map((card) => (
-          <Card key={card.title} data={card} textAlign="left" />
+          <>
+            { card.contentType === "product" && 
+              <ProductCard key={card.id} data={card} />
+            }
+            {
+              card.contentType === "feature" &&
+              <FeatureCard key={card.id} data={card} />
+            }
+            {
+              card.contentType === "article" &&
+              <Card key={card.id} data={card} textAlign="left" />
+            }
+          </>
         ))}
       </div>
     </Section>

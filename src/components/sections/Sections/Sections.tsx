@@ -39,7 +39,7 @@ const Section = ({data}) => {
 
 export default function Sections ({ data }) {
   return (
-    <main className="flex flex-col gap-20 pb-20">
+    <main className="flex flex-col gap-32 pb-32">
       {data.map(section => (
         <Section key={section.id} data={section} />
       ))}

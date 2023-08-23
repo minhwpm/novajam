@@ -3,7 +3,7 @@ import { ButtonVariant } from "@/components/elements/Button/Button"
 import FeatureB from "@/components/sections/FeatureB/FeatureB"
 import Section from "@/components/elements/Section/Section"
 import Carousel from "@/components/elements/Carousel/Carousel"
-import ProductPreview from "@/components/elements/ProductPreview/ProductPreview"
+import ProductCard from "@/components/elements/ProductCard/ProductCard"
 
 const defaultPageData = {
   sections: {
@@ -129,7 +129,7 @@ export default function Home() {
             enabled: true
           }}
           slides={carouselSection.items.map((item, idx) => (
-            <ProductPreview key={idx} data={item} imgAspectRatio="square" />
+            <ProductCard key={idx} data={item} imgAspectRatio="square" />
           ))} 
         />
       </Section>

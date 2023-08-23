@@ -46,7 +46,7 @@ const Card: React.FC<CardProps> = ({
   const { tags, title, summary, content, url, media, buttons } = data
   return (
     <div className={classNames(
-      "relative flex flex-col shrink-0",
+      "w-1/3 px-4 relative",
       // { "max-w-[250px]" : size === "small"},
       // { "max-w-xs" : size === "medium"},
       // { "max-w-xs md:max-w-sm lg:max-w-md" : size === "large"},

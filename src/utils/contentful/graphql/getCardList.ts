@@ -29,6 +29,7 @@ export default async function getCardList(id: string) {
             }
             contentCollection (limit: 20) {
               items {
+                __typename
                 ... on Article {
                   sys {
                     id
@@ -43,6 +44,9 @@ export default async function getCardList(id: string) {
                   }
                 }
                 ... on Feature {
+                  sys {
+                    id
+                  }
                   title
                   content {
                     json
@@ -50,6 +54,10 @@ export default async function getCardList(id: string) {
                   media {
                     url
                     title
+                    size
+                    width
+                    height
+                    contentType
                   }
                   buttonsCollection {
                     items {
@@ -62,6 +70,9 @@ export default async function getCardList(id: string) {
                   }            
                 }
                 ... on Product {
+                  sys {
+                    id
+                  }
                   title
                   url
                   price
@@ -74,6 +85,9 @@ export default async function getCardList(id: string) {
                   }
                 }
                 ... on Service {
+                  sys {
+                    id
+                  }
                   title
                   url
                   subtitle
@@ -86,6 +100,9 @@ export default async function getCardList(id: string) {
                   }
                 }
                 ... on Expert {
+                  sys {
+                    id
+                  }
                   fullName
                   role
                   organization
