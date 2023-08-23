@@ -39,7 +39,7 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
       subtitle={subtitle}
       className={classNames({"bg-secondary-50": variant === "alternate"})}
     >
-      <div className="flex -mx-4">
+      <div className="flex overflow-x-scroll -mx-4">
         {content.map((card) => (
           <>
             { card.contentType === "product" && 
