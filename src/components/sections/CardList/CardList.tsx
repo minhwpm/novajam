@@ -39,18 +39,21 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
       subtitle={subtitle}
       className={classNames({"bg-secondary-50": variant === "alternate"})}
     >
-      <div className="flex overflow-x-scroll -mx-4">
+      <div className={classNames(
+        "w-full -mx-4", 
+        { "flex overflow-x-scroll" : content.length >= 3}
+      )}>
         {content.map((card) => (
           <>
             { card.contentType === "product" && 
               <ProductCard key={card.id} data={card} />
             }
             {
-              card.contentType === "feature" &&
+              card.contentType === "feature"  &&
               <FeatureCard key={card.id} data={card} />
             }
             {
-              card.contentType === "article" &&
+              (card.contentType === "article" || card.contentType === "service" )&&
               <Card key={card.id} data={card} textAlign="left" />
             }
           </>

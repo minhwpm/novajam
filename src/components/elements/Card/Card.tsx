@@ -24,7 +24,6 @@ interface CardProps {
       type?: ButtonVariant
     }>
   }
-  // size?: "small" | "medium" | "large"
   aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
   shadow?: boolean
   border?: boolean
@@ -35,7 +34,6 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({
   data,
-  // size = "medium",
   aspectRatio = "video",
   shadow,
   border,
@@ -46,10 +44,7 @@ const Card: React.FC<CardProps> = ({
   const { tags, title, summary, content, url, media, buttons } = data
   return (
     <div className={classNames(
-      "w-1/3 px-4 relative",
-      // { "max-w-[250px]" : size === "small"},
-      // { "max-w-xs" : size === "medium"},
-      // { "max-w-xs md:max-w-sm lg:max-w-md" : size === "large"},
+      "w-1/3 basis-[30%] px-4 shrink-0 grow",
       { "shadow-lg": shadow },
       { "border": border },
       { "rounded-2xl": rounded },
@@ -64,7 +59,7 @@ const Card: React.FC<CardProps> = ({
             { "aspect-3/2" : aspectRatio === "3/2"},
             { "rounded-t-2xl": rounded && thumbnailImagePosition === "top"},
             { "rounded-2xl": rounded && thumbnailImagePosition === "overlay" },
-            "object-cover",
+            "w-full object-cover",
           )}
           src={media.url}
           width={500} 
@@ -72,15 +67,6 @@ const Card: React.FC<CardProps> = ({
           alt={media.title ?? title}
         />
       )}
-      {/* {data.media?.contentType === "icon" && data.media?.url && (
-        <Image
-          className="w-16 h-16"
-          src={data.media.url}
-          width={64}
-          height={64}
-          alt={data.media.title ?? title}
-        />
-      )} */}
       <div className={classNames(
         "w-full py-5",
         { "px-5": border || rounded },

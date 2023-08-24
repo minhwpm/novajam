@@ -31,7 +31,7 @@ const FeatureCard: React.FC<CardProps> = ({
   const { title, subtitle, content, media, buttons } = data
   return (
     <div className={classNames(
-      "basis-[30%] px-4 flex flex-col shrink-0 grow",
+      "w-1/3 basis-[30%] px-4 flex flex-col shrink-0 grow",
     )}>
       {media?.url && (
         <Image 
