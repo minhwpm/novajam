@@ -34,7 +34,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({
   data,
-  aspectRatio = "video",
+  aspectRatio = "4/3",
   shadow,
   border,
   rounded,
@@ -44,7 +44,7 @@ const Card: React.FC<CardProps> = ({
   const { tags, title, summary, content, url, media, buttons } = data
   return (
     <div className={classNames(
-      "w-1/3 basis-[30%] px-4 shrink-0 grow",
+      "basis-[80%] md:basis-[40%] lg:basis-[30%] px-4 shrink-0 grow",
       { "shadow-lg": shadow },
       { "border": border },
       { "rounded-2xl": rounded },
@@ -86,14 +86,9 @@ const Card: React.FC<CardProps> = ({
           ) : (<>{title}</>)}
         </h4>
         {summary && 
-          <p className="text-slate-600 lg:text-lg block mt-2">
+          <p className="text-slate-600 lg:text-lg mt-2 line-clamp-3">
             {summary}
           </p>
-        }
-        {content && 
-          <div className="text-slate-600 lg:text-lg block mt-2">
-            <RichText htmlString={content} />
-          </div>
         }
         {buttons && (
           <div className="mt-6">

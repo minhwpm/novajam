@@ -90,13 +90,17 @@ export default async function getCardList(id: string) {
                   }
                   title
                   url
-                  subtitle
+                  summary
                   content {
                     json
                   }
                   media {
                     url
                     title
+                    size
+                    width
+                    height
+                    contentType
                   }
                 }
                 ... on Expert {

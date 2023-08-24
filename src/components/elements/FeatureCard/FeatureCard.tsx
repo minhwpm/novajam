@@ -8,8 +8,10 @@ import RichText from "../RichText/RichText"
 interface CardProps {
   data: {
     id: string
+    contentType: string
     title: string
-    subtitle?: string
+    label?: string
+    summary?: string
     content?: string
     media?: {
       url: string
@@ -17,6 +19,7 @@ interface CardProps {
       width: number
       height: number
     }
+    url?: string
     buttons?: Array<{
       id: string
       url: string
@@ -28,10 +31,10 @@ interface CardProps {
 const FeatureCard: React.FC<CardProps> = ({
   data,
 }) => {
-  const { title, subtitle, content, media, buttons } = data
+  const { contentType, title, summary, content, media, buttons } = data
   return (
     <div className={classNames(
-      "w-1/3 basis-[30%] px-4 flex flex-col shrink-0 grow",
+      "w-full md:w-1/2 lg:w-1/3 basis-[80%] md:basis-[40%] lg:basis-[30%] px-4 flex flex-col shrink-0 grow",
     )}>
       {media?.url && (
         <Image 
@@ -51,12 +54,12 @@ const FeatureCard: React.FC<CardProps> = ({
         <h4 className="text-lg lg:text-xl font-semibold mt-1">
           {title}
         </h4>
-        {subtitle && 
+        {summary && 
           <p className="text-slate-600 lg:text-lg block mt-2">
-            {subtitle}
+            {summary}
           </p>
         }
-        {content && 
+        {contentType === "feature" && content && 
           <div className="text-slate-600 lg:text-lg block mt-2">
             <RichText htmlString={content} />
           </div>
