@@ -14,38 +14,40 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant =
 
   return (
     <header className={classNames(
-      "relative flex p-4 lg:px-32 lg:py-5 items-center bg-white z-[99999]",
+      "relative bg-white z-[99999]",
       { "sticky w-full z-50 top-0 animate-headerSlideIn": sticky },
       { "shadow-md": sticky && variant === "standard" },
       { "border-b": sticky && variant === "alternate" },
       { "font-bold tracking-wider": variant === "alternate"}
     )}>
-      <div className="shrink-0">
-        <Link href="/">
-          <Image
-            className="w-40 h-14 object-contain"
-            src={logo.url}
-            width={160}
-            height={56}
-            alt={logo.title ?? ""}
-          />
-        </Link>
-      </div>
-      <NavMenu menu={menu} navAlignment={navAlignment} />
+      <div className="container px-4 mx-auto flex items-center py-4">
+        <div className="shrink-0">
+          <Link href="/">
+            <Image
+              className="w-40 h-14 object-contain"
+              src={logo.url}
+              width={160}
+              height={56}
+              alt={logo.title ?? ""}
+            />
+          </Link>
+        </div>
+        <NavMenu menu={menu} navAlignment={navAlignment} />
 
-      { isLoginEnabled && (
-        <Link href="/login" className="px-3 py-1 rounded hover:bg-primary-100 hover:text-primary-600 transition-all duration-300 hidden lg:block">
-          Login
-        </Link>
-      )}
-      <div className="shrink-0 hidden lg:block">
-        {buttons && buttons.length > 0 && buttons.map(button => (
-          <Button key={button.text} variant={button.buttonType} size="lg" url={button.url}>
-            {button.text}
-          </Button>
-        ))}
+        { isLoginEnabled && (
+          <Link href="/login" className="px-3 py-1 rounded hover:bg-primary-100 hover:text-primary-600 transition-all duration-300 hidden lg:block">
+            Login
+          </Link>
+        )}
+        <div className="shrink-0 hidden lg:block">
+          {buttons && buttons.length > 0 && buttons.map(button => (
+            <Button key={button.text} variant={button.buttonType} size="lg" url={button.url}>
+              {button.text}
+            </Button>
+          ))}
+        </div>
+        <NavMenuMobile menu={menu} navAlignment={navAlignment}/>
       </div>
-      <NavMenuMobile menu={menu} navAlignment={navAlignment}/>
     </header>
   )
 }
