@@ -55,12 +55,12 @@ const FeatureCard: React.FC<CardProps> = ({
           {title}
         </h4>
         {summary && 
-          <p className="text-slate-600 lg:text-lg block mt-2">
+          <p className="text-slate-600 lg:text-lg mt-2">
             {summary}
           </p>
         }
         {contentType === "feature" && content && 
-          <div className="text-slate-600 lg:text-lg block mt-2">
+          <div className="text-slate-600 lg:text-lg mt-2">
             <RichText htmlString={content} />
           </div>
         }
