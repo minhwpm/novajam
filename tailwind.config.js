@@ -47,6 +47,7 @@ module.exports = {
         '4/3': '4 / 3',
         '3/2': '3 / 2',
         '5/2': '5 / 2',
+        '9/8': '9 / 8',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
