@@ -20,7 +20,7 @@ const Section = ( { title, label, subtitle, children, framed = true, className, 
 
   return (
     <section id={id} className={classNames(
-      "flex flex-col items-center",
+      "flex flex-col items-center py-12",
       { "container mx-auto px-4": framed}, // @TODO make framed padding Global Settings
       { "bg-fixed min-h-screen": background?.parallax },
       className,

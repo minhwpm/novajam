@@ -1,7 +1,9 @@
+'use client'
 import Image from "next/image"
 import classNames from "classnames"
 import Link from "next/link"
 import { ButtonVariant } from "@/utils/types"
+import { usePathname } from "next/navigation"
 
 const CURRENCY_UNIT = '$'
 interface ProductCardProps {
@@ -17,46 +19,46 @@ interface ProductCardProps {
     }>
     contentType: string
   }
-  imgAspectRatio?: "video" | "square" | "4/3" | "3/2"
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ data, imgAspectRatio = "4/3" }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
   const { title, url, price, media } = data
+  const pathname = usePathname()
+  console.log(pathname)
   return (
     <div className={classNames(
-      "flex flex-col shrink-0",
+      "basis-[80%] md:basis-[40%] lg:basis-[30%] px-4 shrink-0 grow",
     )}>
-      {media.length > 0 && media[0].url && (
+      <Link href={`${pathname}/product/${url}`}>
         <Image 
           className={classNames(
-            { "aspect-video" : imgAspectRatio === "video"},
-            { "aspect-square" : imgAspectRatio === "square"},
-            { "aspect-4/3" : imgAspectRatio === "4/3"},
-            { "aspect-3/2" : imgAspectRatio === "3/2"},
-            "object-cover",
+            "aspect-9/8",
+            "object-contain",
+            "w-full",
+            "bg-slate-50"
           )}
-          src={media[0].url}
+          src={media[0]?.url ?? "/vercel.svg"}
           width={500} 
           height={500} 
-          alt={media[0].title ?? title}
+          alt={media[0]?.title ?? title}
         />
-      )}
-      <div className={classNames(
-        "w-full py-5",
-      )}>
-        <h5 className="mb-2">
-          {url ? (
-            <Link href={url}>
-              {title}
-            </Link>
-          ) : (<>{title}</>)}
-        </h5>
-        {price && 
-          <p className="text-lg lg:text-xl font-semibold">
-            {CURRENCY_UNIT}{price}
-          </p>
-        }
-      </div>
+        <div className={classNames(
+          "w-full py-5",
+        )}>
+          {price && 
+            <p className="font-semibold text-slate-600">
+              <span className="relative -top-1 text-xs">
+                {CURRENCY_UNIT}
+              </span>
+              {price}
+            </p>
+          }
+          <h5 className="mb-2 lg:text-lg">
+            {title}
+          </h5>
+          
+        </div>
+      </Link>
     </div>
   )
 }

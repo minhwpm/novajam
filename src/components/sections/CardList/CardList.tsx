@@ -40,9 +40,9 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
       className={classNames({"bg-secondary-50": variant === "alternate"})}
     >
       <div className={classNames(
-        "-mx-4", 
-        { "flex overflow-x-scroll" : content.length >= 3},
-        {"grid md:grid-cols-2 lg:grid-cols-3": content.length < 3}
+        "-mx-4 flex ", 
+        { "overflow-x-scroll" : content.length >= 3},
+        {"justify-center": content.length < 3}
       )}>
         {content.map((card) => (
           <>
