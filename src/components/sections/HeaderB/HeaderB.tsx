@@ -12,8 +12,11 @@ import CartBtn from "@/components/elements/CartBtn/CartBtn"
 import { HeaderProps } from "@/utils/types"
 
 
-const Header: React.FC<HeaderProps> = ({ data, variant = "standard" }) => {
-  const { logo, menu, buttons, isLoginEnabled, isShoppingEnabled, searchBox } = data
+const Header: React.FC<HeaderProps> = ({
+  data,
+  variant = "standard"
+}) => {
+  const { logo, menu, buttons, isLoginEnabled = true, isShoppingEnabled = true, searchBox = { enabled: true, placeholder: null } } = data
   const sticky = useStickyHeaderOnScrollUp()
 
   return (
@@ -33,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ data, variant = "standard" }) => {
               src={logo.url}
               width={160}
               height={56}
-              alt={logo.title}
+              alt={logo.title ?? ""}
             />
           </Link>
         </div>
@@ -51,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({ data, variant = "standard" }) => {
           { isShoppingEnabled && (
             <CartBtn />
           )}
-          <NavMenuMobile menuItems={menu} />
+          <NavMenuMobile menu={menu} />
         </div>
       </div>
       { searchBox?.enabled && (
