@@ -74,7 +74,7 @@ export default async function getCardList(id: string) {
                     id
                   }
                   title
-                  url
+                  slug
                   price
                   categories
                   mediaCollection (limit: 1) {
@@ -118,6 +118,21 @@ export default async function getCardList(id: string) {
                   portrait {
                     url
                     title
+                  }
+                }
+                ... on Page {
+                  sys {
+                    id
+                  }
+                  title
+                  slug
+                  seo {
+                    metaTitle
+                    metaDescription
+                    sharedImage {
+                      url
+                      title
+                    }
                   }
                 }
               }

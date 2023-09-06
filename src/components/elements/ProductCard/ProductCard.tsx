@@ -10,7 +10,7 @@ interface ProductCardProps {
   data: {
     id: string
     title: string
-    url: string
+    slug: string
     price: number
     categories: Array<string>
     media: Array<{
@@ -22,14 +22,14 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
-  const { title, url, price, media } = data
+  const { title, slug, price, media } = data
   const pathname = usePathname()
-  console.log(pathname)
+  // console.log(pathname)
   return (
     <div className={classNames(
       "basis-[80%] md:basis-[40%] lg:basis-[30%] px-4 shrink-0 grow",
     )}>
-      <Link href={`${pathname}/product/${url}`}>
+      <Link href={`${pathname === "/" ? "" : pathname}/product/${slug}`}>
         <Image 
           className={classNames(
             "aspect-9/8",

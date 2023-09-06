@@ -51,9 +51,9 @@ const Header: React.FC<HeaderProps> = ({
               <CircleUser /> Login
             </Link>
           )}
-          { isShoppingEnabled && (
+          { isShoppingEnabled &&
             <CartBtn />
-          )}
+          }
           <NavMenuMobile menu={menu} />
         </div>
       </div>

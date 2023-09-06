@@ -1,0 +1,74 @@
+.nova-color-settings {
+  --primary-color-50: #ecfdf5;
+  --primary-color-100: #d1fae5;
+  --primary-color-200: #a7f3d0;
+  --primary-color-300: #6ee7b7;
+  --primary-color-400: #34d399;
+  --primary-color-500: #10b981;
+  --primary-color-600: #059669;
+  --primary-color-700: #047857;
+  --primary-color-800: #065f46;
+  --primary-color-900: #064e3b;
+  --primary-color-950: #022c22;
+  --secondary-color-50: #fefce8;
+  --secondary-color-100: #fef9c3;
+  --secondary-color-200: #fef08a;
+  --secondary-color-300: #fde047;
+  --secondary-color-400: #facc15;
+  --secondary-color-500: #eab308;
+  --secondary-color-600: #ca8a04;
+  --secondary-color-700: #a16207;
+  --secondary-color-800: #854d0e;
+  --secondary-color-900: #713f12;
+  --secondary-color-950: #422006;
+}
+
+.blueberry-color-settings {
+  --primary-color-50: #eef2ff;
+  --primary-color-100: #e0e7ff;
+  --primary-color-200: #c7d2fe;
+  --primary-color-300: #a5b4fc;
+  --primary-color-400: #818cf8;
+  --primary-color-500: #6366f1;
+  --primary-color-600: #4f46e5;
+  --primary-color-700: #4338ca;
+  --primary-color-800: #3730a3;
+  --primary-color-900: #312e81;
+  --primary-color-950: #1e1b4b;
+  --secondary-color-50: #f7fee7;
+  --secondary-color-100: #ecfccb;
+  --secondary-color-200: #d9f99d;
+  --secondary-color-300: #bef264;
+  --secondary-color-400: #a3e635;
+  --secondary-color-500: #84cc16;
+  --secondary-color-600: #65a30d;
+  --secondary-color-700: #4d7c0f;
+  --secondary-color-800: #3f6212;
+  --secondary-color-900: #365314;
+  --secondary-color-950: #1a2e05;
+}
+
+.aquarius-color-settings {
+  --primary-color-50: #ecfeff;
+  --primary-color-100: #cffafe;
+  --primary-color-200: #a5f3fc;
+  --primary-color-300: #67e8f9;
+  --primary-color-400: #22d3ee;
+  --primary-color-500: #06b6d4;
+  --primary-color-600: #0891b2;
+  --primary-color-700: #0e7490;
+  --primary-color-800: #155e75;
+  --primary-color-900: #164e63;
+  --primary-color-950: #083344;
+  --secondary-color-50: #fefce8;
+  --secondary-color-100: #fef9c3;
+  --secondary-color-200: #fef08a;
+  --secondary-color-300: #fde047;
+  --secondary-color-400: #facc15;
+  --secondary-color-500: #eab308;
+  --secondary-color-600: #ca8a04;
+  --secondary-color-700: #a16207;
+  --secondary-color-800: #854d0e;
+  --secondary-color-900: #713f12;
+  --secondary-color-950: #422006;
+}

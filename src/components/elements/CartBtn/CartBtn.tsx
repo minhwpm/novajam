@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const CartBtn = () => {
   const { itemsList, quantity } = useAppSelector(s => s.cart);
-  console.log(itemsList, quantity);
+  // console.log(itemsList, quantity);
   return (
     <Link href="/demos/aquarius/cart" className="cursor-pointer relative">
       <ShoppingBag />

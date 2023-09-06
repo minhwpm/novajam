@@ -1,5 +1,6 @@
 import '@/app/globals.css'
 import { Analytics } from '@vercel/analytics/react';
+import { Nunito } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
 import Footer from '@/components/sections/Footer/Footer';
 import classNames from 'classnames';
@@ -8,8 +9,12 @@ import getFooter from '@/utils/contentful/graphql/getFooter';
 import { Params } from "@/utils/types"
 import { CustomProvider } from '@/redux/CustomProvider';
 import HeaderB from '@/components/sections/HeaderB/HeaderB';
-import styles from "./styles.module.css"
-import fonts from '@/utils/fonts';
+
+const font = Nunito({
+  subsets: ['latin', "vietnamese"],
+  display: 'swap',
+  weight: ["300", "400", "700", "900"]
+})
 
 export const metadata = {
   title: 'Bluebiz',
@@ -23,23 +28,17 @@ export default async function Layout({
   children: React.ReactNode
   params: Params
 }) {
-  // console.log(params, JSON.stringify(children, null, 4))
-  let header, footer
-  let slug = [...params.slug]
-  console.log("[...slug] Params:", params)
-  console.log("[...slug] STYLE:", styles)
-  while(!header && slug.length > 0) {
-    header = await getHeader(`/${slug.join('/')}`)
-    footer = await getFooter(`/${slug.join('/')}`)
-    slug.pop()
-  }
+  // header = await getHeader(`/${params.slug.join('/')}`)
+  // footer = await getFooter(`/${params.slug.join('/')}`)
   return (
-    <html>
-      <body className={classNames(fonts.Quicksand.className, styles["nova-color-settings"])}>
-        {header && <Header data={header} variant="alternate" navAlignment="right" /> }
-        {children}
-        {footer && <Footer data={footer} /> }
-        <Analytics />
+    <html lang="en">
+      <body className={classNames(font.className)}>
+        <CustomProvider>
+          {/* {header && <HeaderB data={header} variant="alternate" navAlignment="right" /> } */}
+          {children}
+          {/* {footer && <Footer data={footer} /> } */}
+          <Analytics />
+        </CustomProvider>
       </body>
     </html>
   )

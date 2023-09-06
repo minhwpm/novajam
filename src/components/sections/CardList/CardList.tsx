@@ -40,7 +40,7 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
       className={classNames({"bg-secondary-50": variant === "alternate"})}
     >
       <div className={classNames(
-        "-mx-4 flex ", 
+        "w-full -mx-4 flex", 
         { "overflow-x-scroll" : content.length >= 3},
         {"justify-center": content.length < 3}
       )}>
@@ -54,7 +54,7 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
               <FeatureCard key={card.id} data={card} />
             }
             {
-              card.contentType === "article" &&
+              (card.contentType === "article" || card.contentType === "page") &&
               <Card key={card.id} data={card} textAlign="left" />
             }
           </>

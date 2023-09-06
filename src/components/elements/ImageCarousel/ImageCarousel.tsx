@@ -3,8 +3,10 @@ import Carousel from "../Carousel/Carousel";
 
 interface ImageSliderProps {
   images: Array<{
-    src: string
-    altText: string
+    url: string
+    title: string
+    width: number
+    height: number
   }>
   thumbsEnable?: boolean
 }
@@ -19,11 +21,11 @@ const ImageCarousel: React.FC<ImageSliderProps> = ({ images, thumbsEnable = fals
       slides={images.map((image, idx) => (
         <div key={idx} className="aspect-3/2">
           <Image
-            className="w-full h-full object-contain"
-            src={image.src}
-            alt={image.altText}
-            width={500}
-            height={500}
+            className="w-full h-full object-contain bg-slate-50"
+            src={image.url}
+            alt={image.title}
+            width={image.width}
+            height={image.height}
           />
         </div>
       ))}

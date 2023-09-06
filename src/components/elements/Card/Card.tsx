@@ -80,7 +80,7 @@ const Card: React.FC<CardProps> = ({
         </p>
         <h4 className="text-lg lg:text-xl font-semibold mt-1">
           {url ? (
-            <Link href={`${url}`}>
+            <Link href={`/blog/${url}`}>
               {title}
             </Link>
           ) : (<>{title}</>)}
