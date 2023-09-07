@@ -5,11 +5,11 @@ import ImageCarousel from "@/components/elements/ImageCarousel/ImageCarousel"
 import Section from "@/components/elements/Section/Section"
 import { useRef } from "react"
 import { cartActions } from "@/redux/cartSlice";
-import { useSelector, useDispatch } from "react-redux";
 import { useAppDispatch } from "@/redux/hooks"
 import RichText from "@/components/elements/RichText/RichText"
+import { ProductType } from "@/utils/types"
 
-const ProductDetail = ({ data }) => {
+const ProductDetail: React.FC<{data: ProductType}> = ({ data }) => {
   const { id, title, categories, inStock, price, summary, media, content } = data
   const countRef = useRef<HTMLSpanElement>(null)
   const dispatch = useAppDispatch()

@@ -6,7 +6,7 @@ import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
 import CardList from "@/components/sections/CardList/CardList"
 import FeatureB from "@/components/sections/FeatureB/FeatureB"
 import Subscription from "@/components/sections/Subscription/Subscription"
-import { ButtonVariant } from "@/utils/types"
+import { ButtonVariant, CTAType, CardListType, FeatureType, HeroType, PresentationType } from "@/utils/types"
 import classNames from "classnames"
 import HeroC from '../HeroC/HeroC'
 import HeroD from '../HeroD/HeroD'
@@ -31,13 +31,20 @@ const sectionComponents = {
   cardlist: CardList,
 }
 
-const Section = ({data}) => {
-  const Component = typeof sectionComponents[data.contentType] === "object" ? sectionComponents[data.contentType][data.style] : sectionComponents[data.contentType]
+type ComponentType = typeof HeroB | typeof HeroC | typeof HeroD | typeof CTAB | typeof ScrollingPT | typeof AccordionPT | typeof CarouselPT | typeof TabPT | typeof Testimonials | typeof FeatureB | typeof CardList
+
+type SectionType = {
+  data: HeroType | CTAType | PresentationType | CardListType | FeatureType
+}
+const Section: React.FC<SectionType> = ({data}) => {
+  // @TODO
+  // @ts-ignore 
+  const Component = (typeof sectionComponents[data.contentType] === "object") ? sectionComponents[data.contentType][data.style] : sectionComponents[data.contentType]
   if (!Component) return null
   return <Component data={data} />
 }
 
-export default function Sections ({ data }) {
+const Sections: React.FC<{data: Array<HeroType | CTAType | PresentationType | CardListType | FeatureType>}> = ({ data }) => {
   return (
     <main className="flex flex-col pb-32">
       {data.map(section => (
@@ -46,3 +53,5 @@ export default function Sections ({ data }) {
     </main>
   )
 }
+
+export default Sections

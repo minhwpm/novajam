@@ -2,37 +2,10 @@ import classNames from "classnames"
 import Image from "next/image"
 import Link from "next/link"
 import Button from "../Button/Button"
-import { ButtonVariant } from "@/utils/types"
+import { ArticleCardProps } from "@/utils/types"
 import RichText from "../RichText/RichText"
 
-interface CardProps {
-  data: {
-    id: string
-    title: string
-    url?: string
-    summary?: string
-    content?: string
-    tags?: Array<string>
-    media?: {
-      contentType: string
-      url: string
-      title?: string
-    }
-    buttons?: Array<{
-      url: string
-      text: string
-      type?: ButtonVariant
-    }>
-  }
-  aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
-  shadow?: boolean
-  border?: boolean
-  rounded?: boolean
-  thumbnailImagePosition?: "top" | "overlay"
-  textAlign?: "left" | "right" | "center"
-}
-
-const Card: React.FC<CardProps> = ({
+const Card: React.FC<ArticleCardProps> = ({
   data,
   aspectRatio = "4/3",
   shadow,

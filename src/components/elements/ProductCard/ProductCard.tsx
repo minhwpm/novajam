@@ -2,24 +2,10 @@
 import Image from "next/image"
 import classNames from "classnames"
 import Link from "next/link"
-import { ButtonVariant } from "@/utils/types"
+import { ProductCardProps } from "@/utils/types"
 import { usePathname } from "next/navigation"
 
 const CURRENCY_UNIT = '$'
-interface ProductCardProps {
-  data: {
-    id: string
-    title: string
-    slug: string
-    price: number
-    categories: Array<string>
-    media: Array<{
-      title: string
-      url: string
-    }>
-    contentType: string
-  }
-}
 
 const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
   const { title, slug, price, media } = data

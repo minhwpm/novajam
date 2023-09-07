@@ -2,33 +2,11 @@ import classNames from "classnames"
 import Image from "next/image"
 import Link from "next/link"
 import Button from "../Button/Button"
-import { ButtonVariant } from "@/utils/types"
+import { FeatureCardProps } from "@/utils/types"
 import RichText from "../RichText/RichText"
 
-interface CardProps {
-  data: {
-    id: string
-    contentType: string
-    title: string
-    label?: string
-    summary?: string
-    content?: string
-    media?: {
-      url: string
-      title?: string
-      width: number
-      height: number
-    }
-    url?: string
-    buttons?: Array<{
-      id: string
-      url: string
-      text: string
-    }>
-  }
-}
 
-const FeatureCard: React.FC<CardProps> = ({
+const FeatureCard: React.FC<FeatureCardProps> = ({
   data,
 }) => {
   const { contentType, title, summary, content, media, buttons } = data

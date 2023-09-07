@@ -3,25 +3,14 @@ import Card from "@/components/elements/Card/Card"
 import classNames from "classnames"
 import ProductCard from "@/components/elements/ProductCard/ProductCard"
 import FeatureCard from "@/components/elements/FeatureCard/FeatureCard"
-
-interface CardProps {
-  id: string
-  title: string
-  label?: string
-  content?: string
-  media?: {
-    type: string
-    src: string
-  }
-  contentType?: string
-}
+import { ArticleType, CardType, FeatureType, ProductType } from "@/utils/types"
 
 interface CardListProps {
   data: {
     title: string
     label?: string
     subtitle?: string
-    content: Array<CardProps>
+    content: Array<CardType>
     link: {
       url: string
       text: string
@@ -46,17 +35,19 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
       )}>
         {content.map((card) => (
           <>
-            { card.contentType === "product" && 
-              <ProductCard key={card.id} data={card} />
+            {
+              card.contentType === "product" &&
+              <ProductCard key={card.id} data={card as ProductType} />
             }
             {
-              (card.contentType === "feature" || card.contentType === "service" ) &&
-              <FeatureCard key={card.id} data={card} />
+              card.contentType === "feature" &&
+              <FeatureCard key={card.id} data={card as FeatureType} />
             }
             {
-              (card.contentType === "article" || card.contentType === "page") &&
-              <Card key={card.id} data={card} textAlign="left" />
+              card.contentType === "article" &&
+              <Card key={card.id} data={card as ArticleType} textAlign="left" />
             }
+            {/* @TODO render Page and Service Card */}
           </>
         ))}
       </div>

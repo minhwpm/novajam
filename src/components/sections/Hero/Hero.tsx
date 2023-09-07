@@ -6,9 +6,7 @@ interface HeroProps {
   data: {
     label?: string
     title: string
-    slidingTexts?: Array<{
-      text: string
-    }>
+    slidingTexts?: Array<string>
     subtitle?: string
     buttons?: Array<{
       text: string

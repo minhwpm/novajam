@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant =
         )}
         <div className="shrink-0 hidden lg:block">
           {buttons && buttons.length > 0 && buttons.map(button => (
-            <Button key={button.text} variant={button.buttonType} size="lg" url={button.url}>
+            <Button key={button.text} variant={button.type} size="lg" url={button.url}>
               {button.text}
             </Button>
           ))}

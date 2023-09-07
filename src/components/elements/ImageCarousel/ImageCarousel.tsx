@@ -5,8 +5,8 @@ interface ImageSliderProps {
   images: Array<{
     url: string
     title: string
-    width: number
-    height: number
+    width?: number
+    height?: number
   }>
   thumbsEnable?: boolean
 }
