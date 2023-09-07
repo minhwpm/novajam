@@ -98,7 +98,7 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
                     alt={section.media.title}
                     width={500}
                     height={500}
-                    className="w-full h-full object-cover lg:shadow-lg"
+                    className="w-full h-full aspect-4/3 object-cover lg:shadow-lg"
                   />
                 </div>
               </div>

@@ -27,7 +27,6 @@ export default async function getPage(slug: string) {
             contentCollection {
               items {
                 __typename
-                
                 ... on Hero {
                   sys {
                     id
@@ -64,6 +63,7 @@ export default async function getPage(slug: string) {
                   sys {
                     id
                   }
+                  title
                 }
                 ... on Testimonials {
                   sys {

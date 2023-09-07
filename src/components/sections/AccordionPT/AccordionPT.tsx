@@ -48,7 +48,7 @@ const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) 
       title={title}
       subtitle={subtitle}
     >
-      <div className="w-full grid grid-cols-12">
+      <div className="w-full grid grid-cols-12 gap-10 lg:max-h-[80vh]">
         <RadixAccordion.Root
           type="single"
           defaultValue={content && content[0].title}
@@ -97,7 +97,7 @@ const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) 
                   alt={item.media?.title ?? item.title}
                   width={500}
                   height={500}
-                  className="block lg:hidden mt-6 h-full object-cover"
+                  className="block lg:hidden mt-6 w-full aspect-4/3 object-cover"
                 />
               </RadixAccordion.Content>
             </RadixAccordion.Item>
@@ -118,7 +118,7 @@ const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) 
                 alt={item.media?.title ?? item.title}
                 width={500}
                 height={500}
-                className="h-full object-cover"
+                className="aspect-square object-cover"
               />
             </div>
           ))}

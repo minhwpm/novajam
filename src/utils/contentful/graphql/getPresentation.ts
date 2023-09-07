@@ -28,14 +28,18 @@ export default async function getPresentation(id: string) {
                 }
                 buttonsCollection {
                   items {
+                    sys {
+                      id
+                    }
                     text
                     url
-                    newTab
                   }
                 }
                 media {
-                  title
                   url
+                  title
+                  width
+                  height
                   contentType
                 }
               }

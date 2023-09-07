@@ -48,6 +48,7 @@ export default async function getCardList(id: string) {
                     id
                   }
                   title
+                  label
                   content {
                     json
                   }
@@ -67,7 +68,7 @@ export default async function getCardList(id: string) {
                       url
                       text
                     }
-                  }            
+                  }
                 }
                 ... on Product {
                   sys {
@@ -84,25 +85,6 @@ export default async function getCardList(id: string) {
                     }
                   }
                 }
-                ... on Service {
-                  sys {
-                    id
-                  }
-                  title
-                  url
-                  summary
-                  content {
-                    json
-                  }
-                  media {
-                    url
-                    title
-                    size
-                    width
-                    height
-                    contentType
-                  }
-                }
                 ... on Expert {
                   sys {
                     id
@@ -110,11 +92,7 @@ export default async function getCardList(id: string) {
                   fullName
                   role
                   organization
-                  specializationCollection (limit: 3) {
-                    items {
-                      title
-                    }
-                  }
+                  specialization
                   portrait {
                     url
                     title
