@@ -50,7 +50,7 @@ const CTAB: React.FC<CTAProps> = ({ data }) => {
           )}
           <div className="mt-12">
             {buttons?.map(button => (
-              <Button key={button.text} variant={button.type} size="lg" url={button.url}>
+              <Button key={button.text} variant={button.type ?? "alternate"} size="lg" url={button.url}>
                 {button.text}
               </Button>
             ))}

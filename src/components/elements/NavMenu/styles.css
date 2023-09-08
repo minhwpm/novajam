@@ -111,10 +111,11 @@ p {
   transform-origin: top center;
   margin-top: 10px;
   width: 100%;
+  /* max-width: 300px; */
   background-color: white;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   overflow: hidden;
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  /* box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px; */
   height: var(--radix-navigation-menu-viewport-height);
   transition: width, height, 300ms ease;
 }
@@ -124,15 +125,15 @@ p {
 .NavigationMenuViewport[data-state='closed'] {
   animation: scaleOut 200ms ease;
 }
-@media only screen and (min-width: 600px) {
+/* @media only screen and (min-width: 600px) {
   .NavigationMenuViewport {
     width: var(--radix-navigation-menu-viewport-width);
   }
-}
+} */
 
 .List {
   display: grid;
-  padding: 22px;
+  padding: 22px 0;
   margin: 0;
   column-gap: 10px;
   list-style: none;
@@ -142,10 +143,15 @@ p {
     width: 500px;
     grid-template-columns: 0.75fr 1fr;
   }
-  .List.two {
-    width: 600px;
+  .List.dropdown{
+    width: 300px;
+    /* grid-column: 1; */
+  }
+  .List.mega {
+    /* width: 600px; */
     grid-auto-flow: column;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: repeat(2, auto); */
   }
 }
 

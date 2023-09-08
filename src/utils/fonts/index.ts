@@ -10,13 +10,14 @@ const Nunito_Font = Nunito({
 const Poppins_Font = Poppins({
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "600", "700"]
+  // weight: ["200", "300", "400", "600", "700"]
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
 })
 
 const Montserrat_Font = Montserrat({
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "700", "900"]
+  // weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
 })
 
 const Quicksand_Font = Quicksand({

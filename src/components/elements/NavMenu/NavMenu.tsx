@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import SubMenuItem from './SubMenuItem';
-import './styles.css';
+// import './styles.css';
 import Link from 'next/link';
 import { NavMenuProps, LinkProps, SubmenuProps } from "@/utils/types"
 
@@ -16,7 +16,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
   return (
     <NavigationMenu.Root
       className={classNames(
-      "hidden xl:flex relative w-full pt-2 pb-3",
+      "hidden xl:flex w-screen pt-2 pb-3",
       { "justify-center": navAlignment === "center"},
       { "justify-start": navAlignment === "left"},
       { "justify-end": navAlignment === "right"},
@@ -32,25 +32,22 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
               </Link>
             )}
             { "menu" in item && (
-              <>
+              <div className="flex flex-col items-center">
                 <NavigationMenu.Trigger className="py-2 select-none underline-hover-effect cursor-pointer">
                   {item.title} <FontAwesomeIcon className="inline-block CaretDown" icon={faChevronDown} size="2xs" width={10} />
                 </NavigationMenu.Trigger>
-                <NavigationMenu.Content className="NavigationMenuContent List two">
-                    {/* <li className="row-span-6">
-                      <NavigationMenu.Link asChild>
-                        <a className="Callout" href="/">
-                          <div className="CalloutHeading">
-                            {item.title}
-                          </div>
-                          <p className="CalloutText">Bluebiz theme</p>
-                        </a>
-                      </NavigationMenu.Link>
-                    </li> */}
+                <NavigationMenu.Content className={classNames(
+                  "absolute top-full duration-250 ease-in data-[motion=from-start]:animation bg-white border-t shadow-lg rounded-lg",
+                  // {"w-full inset-x-0": true}, //Mega menu style
+                  {"w-72": true} //Dropdown menu style
+                )}>
+                    <NavigationMenu.List className={classNames("py-6 px-8 list-none",
+                      // {"grid gap-x-5 xl:grid-cols-4 grid-flow-col": true}, //Mega menu style
+                    )}>
                     {item.menu && item.menu.map((subItem, idx) => (
-                      <div key={idx} className="">
+                      <div key={idx} className="mb-3">
                         {subItem.title && 
-                          <p className="text-slate-500 uppercase text-sm tracking-wide">
+                          <p className="text-slate-500 uppercase text-sm tracking-wide font-medium mb-1">
                             {subItem.title}
                           </p>
                         }
@@ -61,8 +58,9 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
                         </ul>
                       </div>
                     ))}
+                    </NavigationMenu.List>
                 </NavigationMenu.Content>
-              </>
+              </div>
             )}
           </NavigationMenu.Item>
         ))}
@@ -72,16 +70,9 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
         </NavigationMenu.Indicator>
       </NavigationMenu.List>
 
-      <div className={classNames(
-        // "ViewportPosition",
-        "absolute flex w-full top-full left-0 z-[9999]",
-        { "justify-center": navAlignment === "center"},
-        { "justify-start": navAlignment === "left"},
-        { "justify-end": navAlignment === "right"}
-      )}>
-        <NavigationMenu.Viewport className="NavigationMenuViewport" />
-      </div>
+      
     </NavigationMenu.Root>
+
   )
 }
 

@@ -28,15 +28,19 @@ export default async function Layout({
   let slug = [...params.slug]
   // console.log("[...slug] Params:", params)
   // console.log("[...slug] STYLE:", styles)
-  while(!header && slug.length > 0) {
-    header = await getHeader(`/${slug.join('/')}`)
-    footer = await getFooter(`/${slug.join('/')}`)
-    slug.pop()
+  try {
+    while(!header && slug.length > 0) {
+      header = await getHeader(`/${slug.join('/')}`)
+      footer = await getFooter(`/${slug.join('/')}`)
+      slug.pop()
+    }
+  } catch(e) {
+    console.error(e)
   }
   return (
     <html>
       <body className={classNames(fonts.Quicksand.className, styles["nova-color-settings"])}>
-        {header && <Header data={header} variant="alternate" navAlignment="right" /> }
+        {header && <Header data={header} variant="alternate" navAlignment="center" /> }
         {children}
         {footer && <Footer data={footer} /> }
         <Analytics />
