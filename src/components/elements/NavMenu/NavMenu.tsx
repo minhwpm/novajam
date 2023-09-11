@@ -16,14 +16,16 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
   return (
     <NavigationMenu.Root
       className={classNames(
-      "hidden xl:flex w-screen pt-2 pb-3",
+      "hidden xl:flex pt-2 pb-3",
       { "justify-center": navAlignment === "center"},
       { "justify-start": navAlignment === "left"},
       { "justify-end": navAlignment === "right"},
     )}>
-      <NavigationMenu.List className={classNames(
-        "flex justify-center px-5 list-none m-0 gap-10",
-      )}>
+      <NavigationMenu.List
+        className={classNames(
+          "flex justify-center px-5 list-none m-0 gap-10",
+        )}
+       >
         {menu.map((item, idx) => (
           <NavigationMenu.Item key={getMenuItemText(item)}>
             { "url" in item && (
@@ -32,14 +34,15 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
               </Link>
             )}
             { "menu" in item && (
-              <div className="flex flex-col items-center">
+              <>
                 <NavigationMenu.Trigger className="py-2 select-none underline-hover-effect cursor-pointer">
                   {item.title} <FontAwesomeIcon className="inline-block CaretDown" icon={faChevronDown} size="2xs" width={10} />
                 </NavigationMenu.Trigger>
                 <NavigationMenu.Content className={classNames(
-                  "absolute top-full duration-250 ease-in data-[motion=from-start]:animation bg-white border-t shadow-lg rounded-lg",
+                  "absolute top-full",
+                  "duration-250 ease-in data-[motion=from-start]:animation bg-white border-t shadow-lg rounded-lg",
                   // {"w-full inset-x-0": true}, //Mega menu style
-                  {"w-72": true} //Dropdown menu style
+                  {"w-64": true} //Dropdown menu style
                 )}>
                     <NavigationMenu.List className={classNames("py-6 px-8 list-none",
                       // {"grid gap-x-5 xl:grid-cols-4 grid-flow-col": true}, //Mega menu style
@@ -60,7 +63,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
                     ))}
                     </NavigationMenu.List>
                 </NavigationMenu.Content>
-              </div>
+              </>
             )}
           </NavigationMenu.Item>
         ))}
@@ -69,8 +72,6 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
           <div className="Arrow" />
         </NavigationMenu.Indicator>
       </NavigationMenu.List>
-
-      
     </NavigationMenu.Root>
 
   )

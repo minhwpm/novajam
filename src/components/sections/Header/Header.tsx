@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant =
       { "border-b": sticky && variant === "alternate" },
       { "font-bold tracking-wider": variant === "alternate"}
     )}>
-      <div className="container px-4 mx-auto flex items-center py-4">
+      <div className="container p-4 mx-auto flex items-center">
         <div className="shrink-0">
           <Link href="/">
             <Image
@@ -33,7 +33,9 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant =
             />
           </Link>
         </div>
-        <NavMenu menu={menu} navAlignment={navAlignment} />
+        <div className="flex-1">
+          <NavMenu menu={menu} navAlignment={navAlignment} />
+        </div>
 
         { isLoginEnabled && (
           <Link href="/login" className="px-3 py-1 rounded hover:bg-primary-100 hover:text-primary-600 transition-all duration-300 hidden lg:block">
