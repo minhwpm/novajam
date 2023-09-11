@@ -1,11 +1,11 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import SubMenuItem from './SubMenuItem';
-// import './styles.css';
 import Link from 'next/link';
 import { NavMenuProps, LinkProps, SubmenuProps } from "@/utils/types"
+// import './styles.css';
 
 export function getMenuItemText(item: LinkProps | SubmenuProps): string {
   if ("text" in item) return item.text
@@ -73,7 +73,6 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
         </NavigationMenu.Indicator>
       </NavigationMenu.List>
     </NavigationMenu.Root>
-
   )
 }
 

@@ -8,6 +8,11 @@ import fonts from '@/utils/fonts';
 export const metadata = {
   title: 'Bluebiz',
   description: 'Multipurpose NextJS Theme',
+  openGraph: {
+    images: [{
+      url: '/vercel.svg'
+    }]
+  }
 }
 
 export default async function Layout({

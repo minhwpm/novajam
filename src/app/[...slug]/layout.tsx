@@ -6,15 +6,8 @@ import classNames from 'classnames';
 import getHeader from '@/utils/contentful/graphql/getHeader';
 import getFooter from '@/utils/contentful/graphql/getFooter';
 import { Params } from "@/utils/types"
-import { CustomProvider } from '@/redux/CustomProvider';
-import HeaderB from '@/components/sections/HeaderB/HeaderB';
-import styles from "./styles.module.css"
 import fonts from '@/utils/fonts';
-
-export const metadata = {
-  title: 'Bluebiz',
-  description: 'Multipurpose NextJS Theme',
-}
+import styles from './styles.module.css'
 
 export default async function Layout({
   children,

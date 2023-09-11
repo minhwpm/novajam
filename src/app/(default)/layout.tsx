@@ -22,7 +22,7 @@ const fontHeading = League_Spartan({
 })
 
 export const metadata = {
-  title: 'Bluebiz',
+  title: 'BLUEBIZ',
   description: 'Multipurpose Modular ReactJS - NextJS Theme',
 }
 

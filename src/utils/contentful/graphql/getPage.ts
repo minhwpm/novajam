@@ -24,6 +24,15 @@ export default async function getPage(slug: string) {
           items {
             title
             slug
+            seo {
+              metaTitle
+              metaDescription
+              sharedImage {
+                title
+                description
+                url
+              }
+            }
             contentCollection {
               items {
                 __typename

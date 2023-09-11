@@ -7,8 +7,31 @@ import Cart from "@/components/sections/Cart/Cart"
 import classNames from "classnames"
 import CheckoutForm from "@/components/elements/CheckoutForm/CheckoutForm"
 import Order from "@/components/elements/Order/Order"
+import { Metadata, ResolvingMetadata } from 'next'
 
-export default async function Home({ params }: { params: Params }) {
+export async function generateMetadata(
+  { params } : {params: Params},
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const previousImages = (await parent).openGraph?.images || []
+  try {
+    const data = await getPage(`/${params.slug.join('/')}`)
+    console.log("META", data)
+    return {
+      title: data.seo.metaTitle,
+      description: data.seo.metaDescription,
+      openGraph: {
+        images: [data.seo.sharedImage ? data.seo.sharedImage : {}, ...previousImages]
+      }
+    }
+  } catch (e) {
+    console.error(e)
+    return {}
+  }
+}
+
+
+export default async function Page({ params }: { params: Params }) {
   try {
     let data
     if (params.slug.find((item) => item==="product")) {
@@ -45,6 +68,7 @@ export default async function Home({ params }: { params: Params }) {
       return <Sections data={data.content} />
     }
   } catch (e) {
+    console.error(e)
     return (
       <main>
         404 Error Page
