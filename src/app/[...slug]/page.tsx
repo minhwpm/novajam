@@ -16,7 +16,7 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images || []
   try {
     const data = await getPage(`/${params.slug.join('/')}`)
-    console.log("META", data)
+    // console.log("META", data)
     return {
       title: data.seo.metaTitle,
       description: data.seo.metaDescription,

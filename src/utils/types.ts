@@ -20,12 +20,15 @@ export interface LinkProps {
   newTab: boolean
 }
 
+export interface LinkGroupProps {
+  title: string
+  links: Array<LinkProps>
+}
+
 export interface SubmenuProps {
   title: string
-  menu: Array<{
-    title: string
-    links: Array<LinkProps>
-  }>
+  menu: Array<LinkProps | LinkGroupProps>
+  style: 'dropdown' | 'mega'
 }
 
 export interface NavMenuProps {

@@ -10,6 +10,10 @@ p {
   all: unset;
 } */
 
+.NavMenu > div {
+  position: initial !important;
+}
+
 .NavigationMenuRoot {
   position: relative;
   display: flex;

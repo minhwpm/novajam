@@ -31,19 +31,31 @@ export default async function getHeader(path: string) {
                   url
                 }
                 ... on Submenu {
+                  sys {
+                    id
+                  }
                   title
                   menuCollection (limit: 3) {
                     items {
-                      title
-                      linksCollection (limit: 5) {
-                        items {
-                          text
-                          newTab
-                          url
+                      __typename
+                      
+                      ... on Link {
+                        text
+                        url
+                      }
+                      ... on LinkGroup {
+                        title
+                        linksCollection (limit: 5) {
+                          items {
+                            text
+                            newTab
+                            url
+                          }
                         }
                       }
                     }
                   }
+                  style
                 }
               }
             }
@@ -74,5 +86,6 @@ export default async function getHeader(path: string) {
   }
   
   const normalizedData = normalizeDataCollection({...data.data})
+  console.log(`HEADER DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

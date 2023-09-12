@@ -33,15 +33,16 @@ const NavMenuMobile: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className="">
                     {item.menu && item.menu.map((subItem, idx) => (
-                      <div key={idx}>
-                        {subItem.title && 
-                          <p className="text-slate-500 uppercase text-sm tracking-wide">
+                      <div key={idx} className="mb-3">
+                        {"title" in subItem && subItem.title && 
+                          <p className="text-slate-500 uppercase text-sm tracking-wide font-medium mb-1">
                             {subItem.title}
                           </p>
                         }
                         <ul>
-                          {subItem.links.map((link) => (
-                            <SubMenuItem key={link.url} href={link.url} title={link.text} />
+                          {"url" in subItem && <SubMenuItem key={subItem.text} href={subItem.url} title={subItem.text} />}
+                          {"links" in subItem && subItem.links.map((link) => (
+                            <SubMenuItem key={link.text} href={link.url} title={link.text} />
                           ))}
                         </ul>
                       </div>

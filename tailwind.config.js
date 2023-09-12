@@ -162,6 +162,82 @@ module.exports = {
             top: '0'
           }
         },
+        navMenu_enterFromRight: {
+          'from': {
+            opacity: 0,
+            transform: 'translateX(200px)',
+          },
+          'to': {
+            opacity: 1,
+            transform: 'translateX(0)',
+          }
+        },
+        navMenu_enterFromLeft: {
+          'from': {
+            opacity: 0,
+            transform: 'translateX(-200px)',
+          },
+          'to': {
+            opacity: 1,
+            transform: 'translateX(0)',
+          }
+        },
+        navMenu_exitToRight: {
+          'from': {
+            opacity: 1,
+            transform: 'translateX(0)',
+          },
+          'to': {
+            opacity: 0,
+            transform: 'translateX(200px)',
+          }
+        },
+        navMenu_exitToLeft: {
+          'from': {
+            opacity: 1,
+            transform: 'translateX(0)',
+          },
+          'to': {
+            opacity: 0,
+            transform: 'translateX(-200px)',
+          }
+        },
+        navMenu_scaleIn: {
+          'from': {
+            opacity: 0,
+            transform: 'rotateX(-30deg) scale(0.9)',
+          },
+          'to': {
+            opacity: 1,
+            transform: 'rotateX(0deg) scale(1)',
+          }
+        },
+        navMenu_scaleOut: {
+          'from': {
+            opacity: 1,
+            transform: 'rotateX(0deg) scale(1)',
+          },
+          'to': {
+            opacity: 0,
+            transform: 'rotateX(-10deg) scale(0.95)',
+          }
+        },
+        navMenu_fadeIn: {
+          'from': {
+            opacity: 0,
+          },
+          'to': {
+            opacity: 1,
+          }
+        },
+        navMenu_fadeOut: {
+          'from': {
+            opacity: 1,
+          },
+          'to': {
+            opacity: 0,
+          }
+        }
       },
 
       animation: {
@@ -174,6 +250,8 @@ module.exports = {
         poop: 'poop 0.5s ease-in-out forwards 1',
         animationA: 'animationA 0.5s ease-out forwards 1',
         headerSlideIn: 'headerSlideIn 0.5s ease-out forwards 1',
+        navMenu_scaleIn: 'navMenu_scaleIn 0.2s ease',
+        navMenu_scaleOut: 'navMenu_scaleOut 0.2s ease',
       }
     },
   },
