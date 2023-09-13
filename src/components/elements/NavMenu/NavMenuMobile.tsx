@@ -1,7 +1,7 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark, faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { NavMenuProps } from "@/utils/types"
 
 import SubMenuItem from './SubMenuItem';
@@ -15,38 +15,52 @@ const NavMenuMobile: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }
     <>
       {/* MOBILE, TABLET */}
       <NavigationMenu.Root className={classNames(
-        "xl:hidden w-screen h-screen absolute top-full left-0 z-[99999] bg-white",
+        "xl:hidden w-screen h-screen absolute top-full left-0 z-[99999] bg-white overflow-auto",
         { "hidden": !mobileMenuShowed}
       )}>
         <NavigationMenu.List>
           {menu.map(item => (
             <NavigationMenu.Item key={getMenuItemText(item)}>
-              { "url" in item && (
+              { item.contentType === "link"  && (
                 <NavigationMenu.Link className="py-2 px-3 select-none inline-block" href={item.url}>
                   {item.text}
                 </NavigationMenu.Link>
               )}
-              { "menu" in item && (
+              { item.contentType === "submenu" && (
                 <>
-                  <NavigationMenu.Trigger className="py-2 px-3 select-none">
-                    {item.title} <FontAwesomeIcon className="inline-block CaretDown" icon={faChevronDown} size="2xs" width={10} />
+                  <NavigationMenu.Trigger className="py-2 px-3 select-none group">
+                    {item.title} <FontAwesomeIcon className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180" icon={faChevronDown} size="2xs" width={10} />
                   </NavigationMenu.Trigger>
-                  <NavigationMenu.Content className="">
-                    {item.menu && item.menu.map((subItem, idx) => (
-                      <div key={idx} className="mb-3">
-                        {"title" in subItem && subItem.title && 
-                          <p className="text-slate-500 uppercase text-sm tracking-wide font-medium mb-1">
-                            {subItem.title}
-                          </p>
-                        }
-                        <ul>
-                          {"url" in subItem && <SubMenuItem key={subItem.text} href={subItem.url} title={subItem.text} />}
-                          {"links" in subItem && subItem.links.map((link) => (
-                            <SubMenuItem key={link.text} href={link.url} title={link.text} />
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
+                  <NavigationMenu.Content>
+                    <NavigationMenu.Sub orientation="vertical" className="py-2 px-4">
+                      <NavigationMenu.List>
+                      {item.menu.length > 0 && item.menu.map((subItem) => (
+                        <NavigationMenu.Item key={subItem.id}>
+                          { subItem.contentType === "link" && (
+                            <div className="px-3 py-1.5">
+                              <SubMenuItem key={subItem.text} href={subItem.url} title={subItem.text} />
+                            </div>
+                          )}
+                          { subItem.contentType === "linkgroup" && (
+                            <div className="text-slate-700">
+                              <NavigationMenu.Trigger className="w-full font-medium select-none text-left py-1.5 px-3 rounded-md hover:bg-slate-100 transition-color duration-300 data-[state=open]:bg-slate-100 group">
+                                {subItem.title}
+                                <FontAwesomeIcon className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180" icon={faChevronDown} size="2xs" width={10} />
+                              </NavigationMenu.Trigger>
+                              <NavigationMenu.Content >
+                                <ul className="px-8 py-2 flex flex-col gap-y-3">
+                                  { subItem.links.length > 0 && subItem.links.map((link) => (
+                                    <SubMenuItem key={link.text} href={link.url} title={link.text} />
+                                  ))}
+                                </ul>
+                              </NavigationMenu.Content>
+                            </div>
+                          )}
+                        </NavigationMenu.Item>
+                      
+                      ))}
+                      </NavigationMenu.List>
+                    </NavigationMenu.Sub>
                   </NavigationMenu.Content>
                 </>
               )}
