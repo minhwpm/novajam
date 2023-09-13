@@ -111,7 +111,7 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "rightyarn", v
               {subtitle}
             </p>
           )}
-          <div className="text-slate-600 text-lg block">
+          <div className="text-slate-700 text-lg block">
             { content && <RichText htmlString={content} /> }
           </div>
           <div>

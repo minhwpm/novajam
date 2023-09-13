@@ -46,7 +46,7 @@ const ProductDetail: React.FC<{data: ProductType}> = ({ data }) => {
               ADD TO CART
             </Button>
           </div>
-          <div className="text-lg text-slate-600">
+          <div className="text-lg text-slate-700">
             <RichText htmlString={summary} />
           </div>
           <div>

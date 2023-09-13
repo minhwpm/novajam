@@ -15,6 +15,7 @@ export interface ButtonProps {
 }
 
 export interface LinkProps {
+  id: string
   text: string
   url: string
   newTab: boolean
@@ -22,11 +23,14 @@ export interface LinkProps {
 }
 
 export interface LinkGroupProps {
+  id: string
   title: string
   links: Array<LinkProps>
+  contentType: "linkgroup"
 }
 
 export interface SubmenuProps {
+  id: string
   title: string
   menu: Array<LinkProps | LinkGroupProps>
   style: 'dropdown' | 'mega'

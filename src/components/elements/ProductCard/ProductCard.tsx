@@ -32,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
           "w-full py-5",
         )}>
           {price && 
-            <p className="font-semibold text-slate-600">
+            <p className="font-semibold text-slate-700">
               <span className="relative -top-1 text-xs">
                 {CURRENCY_UNIT}
               </span>

@@ -27,7 +27,7 @@ const FeatureContentItem = ({ section, idx, setVisibleIdx }: Props) => {
       <h3 className="text-4xl font-semibold mb-8">
         {section.title}
       </h3>
-      <div className="text-xl text-slate-600">
+      <div className="text-xl text-slate-700">
         <RichText htmlString={section.content} />
       </div>
     </div>

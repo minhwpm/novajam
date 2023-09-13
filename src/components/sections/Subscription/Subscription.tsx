@@ -39,7 +39,7 @@ const Subscription: React.FC<SubscriptionProps> = ({data}) => {
               className={classNames(
                 "text-center max-w-lg",
                 { "text-slate-200" : backgroundImage?.url},
-                { "text-slate-600" : !backgroundImage?.url}
+                { "text-slate-700" : !backgroundImage?.url}
               )}
             >
               {subtitle}

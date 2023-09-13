@@ -68,7 +68,7 @@ const Footer: React.FC<FooterProps> = ({ data }) => {
           )}>
             <p className="font-semibold mb-1">{section.title}</p>
             {section.links.map(link => (
-              <p key={link.text} className="text-slate-600">
+              <p key={link.text} className="text-slate-700">
                 <Link href={link.url}>
                   {link.text}
                 </Link>

@@ -59,7 +59,7 @@ const Card: React.FC<ArticleCardProps> = ({
           ) : (<>{title}</>)}
         </h4>
         {summary && 
-          <p className="text-slate-600 lg:text-lg mt-2 line-clamp-3">
+          <p className="text-slate-700 lg:text-lg mt-2 line-clamp-3">
             {summary}
           </p>
         }

@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const SubMenuItem = ( { title, href, children }: { title: string, href: string, children?: React.ReactNode }) => {
   return (
-    <li className="px-3 py-1 rounded hover:bg-gray-100 transition-colors duration-500 ">
+    <li className="hover:underline transition-all duration-500 text-slate-700">
       <Link href={href} className="font-medium">
         {children ? (
           <>
