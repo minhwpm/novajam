@@ -1,7 +1,7 @@
-import getSubmenu from "./getSubmenu"
+import getLinkGroup from "./getLinkGroup"
 import normalizeDataCollection from "./normalizeDataCollection"
 
-export default async function getHeader(path: string) {
+export default async function getSubmenu(id: string) {
   const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {
@@ -11,18 +11,17 @@ export default async function getHeader(path: string) {
     },
     // send the GraphQL query
     body: JSON.stringify({ query: `
-      query($path: String) {
-        headerCollection(
+      query($id: String) {
+        submenuCollection (
           where: { 
-            path: $path
-          } 
+            sys: { 
+              id: $id
+            }
+          }
         ) {
           items {
-            path
-            logo {
-              url
-              title
-            }
+            title
+            style
             menuCollection {
               items {
                 __typename
@@ -31,24 +30,15 @@ export default async function getHeader(path: string) {
                     id
                   }
                   text
-                  newTab
                   url
+                  newTab
                 }
-                ... on Submenu {
+                ... on LinkGroup  {
                   sys {
                     id
                   }
                   title
-                  style
                 }
-              }
-            }
-            buttonsCollection {
-              items {
-                text
-                url
-                newTab
-                buttonType
               }
             }
           }
@@ -56,27 +46,26 @@ export default async function getHeader(path: string) {
       }
     `,
       variables: {
-        path,
+        id
       },
    }),
   })
 
   const data = await res.json()
   if (res.status !== 200) {
-    console.error(data)    
     // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch Header data')
+    throw new Error('Failed to fetch Submenu data', data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
 
   for (let i = 0; i < normalizedData[0].menu.length; i++) {
-    if (normalizedData[0].menu[i].contentType === "submenu") {
+    if (normalizedData[0].menu[i].contentType === "linkgroup") {
       normalizedData[0].menu[i] = {
         ... normalizedData[0].menu[i],
-        ... await getSubmenu(normalizedData[0].menu[i].id)
+        ... await getLinkGroup(normalizedData[0].menu[i].id)
       }
     }
   }
-  // console.log(`HEADER DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  // console.log(`SUBMENU DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

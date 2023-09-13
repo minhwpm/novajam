@@ -18,6 +18,7 @@ export interface LinkProps {
   text: string
   url: string
   newTab: boolean
+  contentType: "link"
 }
 
 export interface LinkGroupProps {
@@ -29,6 +30,7 @@ export interface SubmenuProps {
   title: string
   menu: Array<LinkProps | LinkGroupProps>
   style: 'dropdown' | 'mega'
+  contentType: "submenu"
 }
 
 export interface NavMenuProps {

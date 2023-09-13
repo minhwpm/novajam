@@ -1,6 +1,6 @@
 import normalizeDataCollection from "./normalizeDataCollection"
 
-export default async function getHero(id: string) {
+export default async function getLinkGroup(id: string) {
   const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {
@@ -11,44 +11,39 @@ export default async function getHero(id: string) {
     // send the GraphQL query
     body: JSON.stringify({ query: `
       query($id: String) {
-        heroCollection(
-          where: {
-            sys: {
+        linkGroupCollection (
+          where: { 
+            sys: { 
               id: $id
             }
-          } 
+          }
         ) {
           items {
-            content {
-              json
-            }
-            buttonsCollection {
+            title
+            linksCollection {
               items {
                 text
                 url
-              }
-            }
-            mediaCollection {
-              items {
-                title
-                url
-                contentType
+                newTab
               }
             }
           }
         }
       }
-    `, 
+    `,
       variables: {
         id
       },
-    }),
+   }),
   })
+
   const data = await res.json()
   if (res.status !== 200) {
-    throw new Error("Failed to fetch Hero data. Error: ", data.error)
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch LinkGroup data', data.error)
   }
+  
   const normalizedData = normalizeDataCollection({...data.data})
+  console.log(`LinkGroup DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
-
 }

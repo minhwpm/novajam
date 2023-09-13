@@ -94,7 +94,6 @@ export default async function getPage(slug: string) {
 
   const data = await res.json()
   if (res.status !== 200) {
-    console.error(data)
     throw new Error("Failed to fetch Page data. Error", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})

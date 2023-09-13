@@ -40,16 +40,17 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
             className={classNames({"relative" : "menu" in item && item.style === "dropdown"})}
             key={getMenuItemText(item)}
           >
-            { "url" in item && (
+            { item.contentType === "link" && (
               <Link className="py-2 select-none inline-block underline-hover-effect " href={item.url}>
                 {item.text}
               </Link>
             )}
-            { "menu" in item && 
+            { item.contentType === "submenu" && 
               <>
                 <NavigationMenu.Trigger
                   className="py-2 select-none underline-hover-effect cursor-pointer data-[state=open]:before:w-full"
                   data-menu-style={item.style}
+                  data-state="open"
                   onPointerEnter={(e) => {
                     // console.log("TRIGGER", e.target.getAttribute("data-menu-style"))
                     // setViewportShowed(e.target.getAttribute("data-menu-style"))
@@ -57,13 +58,13 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
                 >
                   {item.title} <FontAwesomeIcon className="inline-block CaretDown" icon={faChevronDown} size="2xs" width={10} />
                 </NavigationMenu.Trigger>
-                <NavigationMenu.Content className={classNames("p-5 list-none",
+                <NavigationMenu.Content data-state="open" className={classNames("px-5 list-none",
                   {"absolute top-full left-0 w-full bg-white shadow-lg rounded-lg": item.style === 'mega'}, //Mega menu style
                   {"absolute top-full left-0 w-64 bg-white shadow-lg border-t rounded-lg": item.style === 'dropdown'}, //Dropdown menu style
                 )}>
                   {/* {item.style === "mega" && ( */}
                     <div className={classNames(
-                      {"container mx-auto p-5 grid gap-x-5 xl:grid-cols-4 grid-flow-col border-t": item.style === "mega"}
+                      {"container mx-auto grid gap-x-5 xl:grid-cols-4 grid-flow-col border-t": item.style === "mega"}
                     )}>
                       {item.menu && item.menu.map((subItem, idx) => (
                         <div key={idx} className="mb-3">
@@ -96,13 +97,6 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
           <div className="Arrow" />
         </NavigationMenu.Indicator>
       </NavigationMenu.List>
-      
-      
-      {/* <div className={classNames(
-        "absolute top-full left-0 w-screen flex justify-center",
-      )}>
-        <NavigationMenu.Viewport className="relative origin-[top-center] mt-3 w-full  overflow-hidden h-[var(--radix-navigation-menu-viewport-height)] transition-all duration-300 data-[state=open]:animate-navMenu_scaleIn data-[state=closed]:animate-navMenu_scaleOut" />
-      </div> */}
     </NavigationMenu.Root>
 
   )
