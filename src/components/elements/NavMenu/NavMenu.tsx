@@ -6,7 +6,6 @@ import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons
 import SubMenuItem from './SubMenuItem';
 import Link from 'next/link';
 import { NavMenuProps, LinkProps, SubmenuProps } from "@/utils/types"
-import { useState } from 'react';
 import './styles.css';
 
 export function getMenuItemText(item: LinkProps | SubmenuProps): string {
@@ -15,27 +14,21 @@ export function getMenuItemText(item: LinkProps | SubmenuProps): string {
 }
 
 const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {  
-  const [viewportShowed, setViewportShowed] = useState(false)
   return (
     <NavigationMenu.Root
       className={classNames(
-        "NavMenu hidden xl:flex pt-2 pb-3",
+        "NavMenu hidden lg:flex pt-2 pb-3",
         { "justify-center": navAlignment === "center"},
         { "justify-start": navAlignment === "left"},
         { "justify-end": navAlignment === "right"},
-
       )}
-      onValueChange={(value: string) => {
-        console.log(value)
-        // setViewportShowed()
-      }}
     >
       <NavigationMenu.List
         className={classNames(
           "flex justify-center px-5 list-none m-0 gap-x-10",
         )}
-       >
-        {menu.map((item, idx) => (
+      >
+        {menu.map((item) => (
           <NavigationMenu.Item
             className={classNames({"relative" : "menu" in item && item.style === "dropdown"})}
             key={getMenuItemText(item)}
@@ -58,17 +51,17 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
                 )}>
                   {item.style === "mega" && (
                     <div className={classNames(
-                      {"container mx-auto py-5 grid gap-x-5 xl:grid-cols-4 grid-flow-col border-t": item.style === "mega"}
+                      {"container mx-auto py-5 grid gap-5 lg:grid-cols-3 xl:grid-cols-4 border-t": item.style === "mega"}
                     )}>
                       {item.menu.length > 0 && item.menu.map((subItem) => (
                         <div key={subItem.id} className="mb-3">
+                          { subItem.contentType === "link" && <SubMenuItem key={subItem.text} href={subItem.url} title={subItem.text} />}
                           { subItem.contentType === "linkgroup" && 
                             <p className="text-slate-500 uppercase text-sm tracking-wide font-medium mb-1">
                               {subItem.title}
                             </p>
                           }
                           <ul className="flex flex-col gap-y-2">
-                            { subItem.contentType === "link" && <SubMenuItem key={subItem.text} href={subItem.url} title={subItem.text} />}
                             { subItem.contentType === "linkgroup" && subItem.links.length > 0 && subItem.links.map((link) => (
                               <SubMenuItem key={link.text} href={link.url} title={link.text} />
                             ))}
@@ -103,7 +96,6 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
                             </div>
                           )}
                         </NavigationMenu.Item>
-                      
                       ))}
                       </NavigationMenu.List>
                     </NavigationMenu.Sub>

@@ -15,7 +15,7 @@ const NavMenuMobile: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }
     <>
       {/* MOBILE, TABLET */}
       <NavigationMenu.Root className={classNames(
-        "xl:hidden w-screen h-screen absolute top-full left-0 z-[99999] bg-white overflow-auto",
+        "lg:hidden w-screen h-screen absolute top-full left-0 z-[99999] bg-white overflow-auto",
         { "hidden": !mobileMenuShowed}
       )}>
         <NavigationMenu.List>
@@ -68,7 +68,7 @@ const NavMenuMobile: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }
           ))}
         </NavigationMenu.List>
       </NavigationMenu.Root>
-      <div className="xl:hidden ml-auto">
+      <div className="lg:hidden ml-auto">
         { !mobileMenuShowed && <FontAwesomeIcon className="cursor-pointer" width={26} icon={faBars} size="xl" onClick={() => {
           setMobileMenuShowed(true)
           document.body.style.overflowY = "hidden"
