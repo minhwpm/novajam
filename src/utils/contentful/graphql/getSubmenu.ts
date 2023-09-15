@@ -41,6 +41,45 @@ export default async function getSubmenu(id: string) {
                 }
               }
             }
+            featuredContentCollection {
+              items {
+                __typename
+                ... on Article {
+                  title
+                  url
+                  media {
+                    url
+                    title
+                    width
+                    height
+                  }
+                }
+                ... on Product {
+                  title
+                  slug
+                  mediaCollection (limit: 1) {
+                    items {
+                      url
+                      title
+                      width
+                      height
+                    }
+                  }
+                }
+                ... on Page {
+                  title
+                  slug
+                  seo {
+                    sharedImage {
+                      url
+                      title
+                      width
+                      height
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -66,6 +105,6 @@ export default async function getSubmenu(id: string) {
       }
     }
   }
-  // console.log(`SUBMENU DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  console.log(`SUBMENU DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

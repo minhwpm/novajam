@@ -3,10 +3,11 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faXmark, faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { NavMenuProps } from "@/utils/types"
-
 import SubMenuItem from './SubMenuItem';
 import { useState } from 'react';
 import { getMenuItemText } from './NavMenu';
+import Image from 'next/image';
+import SubMenuFeaturedContent from './SubMenuFeaturedContent';
 
 const NavMenuMobile: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
   const [ mobileMenuShowed, setMobileMenuShowed ] = useState(false)
@@ -31,7 +32,11 @@ const NavMenuMobile: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }
                   <NavigationMenu.Trigger className="py-2 px-3 select-none group">
                     {item.title} <FontAwesomeIcon className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180" icon={faChevronDown} size="2xs" width={10} />
                   </NavigationMenu.Trigger>
-                  <NavigationMenu.Content>
+                  <NavigationMenu.Content
+                    onInteractOutside={(e) => {
+                      e.preventDefault()
+                    }}
+                  >
                     <NavigationMenu.Sub orientation="vertical" className="py-2 px-4">
                       <NavigationMenu.List>
                       {item.menu.length > 0 && item.menu.map((subItem) => (
@@ -60,6 +65,9 @@ const NavMenuMobile: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }
                       
                       ))}
                       </NavigationMenu.List>
+                      {item.featuredContent?.length > 0 && (
+                        <SubMenuFeaturedContent data={item.featuredContent[0]} />
+                      )}
                     </NavigationMenu.Sub>
                   </NavigationMenu.Content>
                 </>

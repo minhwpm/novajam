@@ -33,6 +33,7 @@ export interface SubmenuProps {
   id: string
   title: string
   menu: Array<LinkProps | LinkGroupProps>
+  featuredContent: Array<ArticleType | ProductType | PageType>
   style: 'dropdown' | 'mega'
   contentType: "submenu"
 }
@@ -69,6 +70,25 @@ export interface HeaderProps {
   backgroundColor?: 'white' | 'transparent'
 }
 
+export type SEOType = {
+  metaTitle: string
+  metaDescription: string
+  sharedImage: {
+    url: string
+    title: string
+    width: number
+    height: number
+  }
+}
+
+export type PageType = {
+  id: string
+  title: string
+  slug: string
+  seo: SEOType
+  contentType: "page"
+}
+
 export type ArticleType = {
   id: string
   title: string
@@ -80,13 +100,15 @@ export type ArticleType = {
     contentType: string
     url: string
     title?: string
+    width: number
+    height: number
   }
   buttons?: Array<{
     url: string
     text: string
     type?: ButtonVariant
   }>
-  contentType: string
+  contentType: "article"
 }
 
 export type ProductType = {
@@ -101,8 +123,10 @@ export type ProductType = {
   media: Array<{
     title: string
     url: string
+    width: number
+    height: number
   }>
-  contentType: string
+  contentType: "product"
 }
 
 export type FeatureType = {
@@ -124,7 +148,7 @@ export type FeatureType = {
     text: string
     type: ButtonVariant
   }>
-  contentType: string
+  contentType: "feature"
 }
 
 export type HeroType = {
@@ -138,6 +162,7 @@ export type HeroType = {
     url?: string
     type: ButtonVariant
   }>
+  contentType: "hero"
 }
 
 export type CTAType = {
