@@ -7,13 +7,13 @@ const RichText: React.FC<{htmlString: string}> = ({htmlString}) => {
   return (
     <ReactMarkdown
       components={{
-        p: ({node, ...props}) => {
+        p: ({...props}) => {
           return <p className="mb-4" {...props} />
         },
-        h4: ({node, ...props}) => {
+        h4: ({...props}) => {
           return <H4 {...props} />
         },
-        li: ({node, ...props}) => {
+        li: ({...props}) => {
           return <ListItem {...props} />
         }
       }}

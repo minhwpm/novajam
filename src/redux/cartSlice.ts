@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 type Item = {
-  id: number
+  id: string
   name: string
   price: number
   subQuantity: number
@@ -9,19 +9,18 @@ type Item = {
 }
 type ItemsListType = Array<Item>
 
-type SliceType = {
-  name: string
-  initialState: {
-    itemsList: ItemsListType
-    quantity: number
-    total: number
-    deleteWarnings: {
-      showed: boolean
-      deletedLocationIdx: null | number
-    }
-  }
-
-}
+// type SliceType = {
+//   name: string
+//   initialState: {
+//     itemsList: ItemsListType
+//     quantity: number
+//     total: number
+//     deleteWarnings: {
+//       showed: boolean
+//       deletedLocationIdx: null | number
+//     }
+//   }
+// }
 export const cartSlice = createSlice({
   name: 'CART',
   initialState: { 
@@ -38,7 +37,7 @@ export const cartSlice = createSlice({
       state.itemsList = action.payload
     },
     changeQuantity: (state, action) => {
-      const { index, id, quantity } = action.payload
+      const { index, quantity } = action.payload
       if (quantity === 0) {
         state.itemsList.splice(index, 1)
         return

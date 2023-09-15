@@ -6,36 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Section from "@/components/elements/Section/Section";
 
-const dummyData = {
-  title: "Don’t take our word for it, check how Bluebiz helps users grow their business",
-  subtitle: "",
-  sections: [
-    {
-      title: "Get more leads",
-      content:
-        "GET THIS PROGRAM - it has already boosted my sales leads by 34% in a matter of hours. Don't waste your time, searching - Bluebiz does it all. I am very pleased how they helped get me started too.",
-      source: "Review on G2"
-    },
-    {
-      title: "Increase conversion rate",
-      content:
-        "My conversion rate went from 1.4 to 4.8! This is amazing and makes me a lot of money automatically!",
-      source: "Review on Shopify"
-    },
-    {
-      title: "Generate more sales",
-      content:
-        "Bluebiz helped me make over 60k in sales in just a few months. Customer retention rate is a lot higher and a benefit is the sales!",
-      source: "Review on G2"
-    },
-    {
-      title: "Increase satisfaction rate",
-      content:
-        "Since having Bluebiz integrated into our website we have seen sales nearly double and positive reviews triple.",
-      source: "Review on G2"
-    },
-  ]
-}
 interface ArrowGroupProps {
   visibleIdx: number
   setVisibleIdx: (idx: number) => void

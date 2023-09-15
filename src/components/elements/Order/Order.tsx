@@ -10,10 +10,13 @@ const Order = () => {
   return (
     <div>
       <h3 className="mt-10 mb-2 text-3xl font-heading">
-        Your Order
+        Your Order 
+        <span>
+          {`(${quantity} items)`}
+        </span>
       </h3>
       <div className={classNames("flex", "flex-col-reverse")}>
-        {itemsList.map((item, idx) => (
+        {itemsList.map((item) => (
           <div key={item.id} className={classNames("grid", "grid-cols-4", "py-6", "border-b-1")}>
             <div className={classNames("col-span-2")}>{item.name}</div>
             <div className={classNames("col-span-1", "text-rose-500")}>x {item.subQuantity}</div>

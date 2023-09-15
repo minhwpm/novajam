@@ -1,5 +1,4 @@
 'use client'
-import { useState } from "react";
 import classNames from "classnames";
 import { useInView } from "react-hook-inview";
 import Button from "@/components/elements/Button/Button"
@@ -21,7 +20,7 @@ interface CTAProps {
 const CTAB: React.FC<CTAProps> = ({ data }) => {
   const { title, content, buttons } = data;
   // @TODO expanding width on scrolling
-  const [w, setW] = useState(70)
+  // const [w, setW] = useState(70)
 
   const [ref, isVisible] = useInView({
     threshold: 0.5,

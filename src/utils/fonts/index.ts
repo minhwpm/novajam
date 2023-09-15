@@ -1,4 +1,4 @@
-import { Nunito, Quicksand, Poppins, Montserrat, Playfair_Display } from 'next/font/google'
+import { Nunito, Quicksand, Poppins, Playfair_Display } from 'next/font/google'
 
 // BODY FONTS
 const Nunito_Font = Nunito({
@@ -14,11 +14,11 @@ const Poppins_Font = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
 })
 
-const Montserrat_Font = Montserrat({
-  subsets: ["latin"],
-  display: "swap",
-  // weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
-})
+// const Montserrat_Font = Montserrat({
+//   subsets: ["latin"],
+//   display: "swap",
+//   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+// })
 
 const Quicksand_Font = Quicksand({
   subsets: ["latin", "vietnamese"],

@@ -1,12 +1,12 @@
 import classNames from "classnames";
-import { useState, forwardRef, RefObject, ForwardedRef } from "react";
+import { useState, forwardRef, ForwardedRef } from "react";
 
 const Counter = forwardRef(function Counter({ initalCount } : { initalCount?: number}, ref: ForwardedRef<HTMLSpanElement>) {
   const [count, setQuantity] = useState(initalCount ?? 1)
 
   return (
     <div className={classNames("h-10")}>
-      <span
+      <button
         className={classNames(
           "inline-block",
           "w-7",
@@ -21,7 +21,7 @@ const Counter = forwardRef(function Counter({ initalCount } : { initalCount?: nu
         }}
       >
         -
-      </span>
+      </button>
       <span
         className={classNames(
           "inline-block",
@@ -36,7 +36,7 @@ const Counter = forwardRef(function Counter({ initalCount } : { initalCount?: nu
       >
         {count}
       </span>
-      <span
+      <button
         className={classNames(
           "inline-block",
           "w-7",
@@ -49,7 +49,7 @@ const Counter = forwardRef(function Counter({ initalCount } : { initalCount?: nu
         onClick={() => setQuantity(count + 1)}
       >
         +
-      </span>
+      </button>
     </div>
   );
 })

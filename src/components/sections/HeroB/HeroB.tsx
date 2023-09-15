@@ -103,7 +103,9 @@ const HeroB: React.FC<Props> = ({ data }) => {
               />
             )}
             {item?.contentType === "video" && (
-              <video className={classNames(animationClasses)} src={item.url} />
+              <video className={classNames(animationClasses)} src={item.url}>
+                <track kind="captions" label={item.title} />
+              </video>
             )}
           </div>
         ))}

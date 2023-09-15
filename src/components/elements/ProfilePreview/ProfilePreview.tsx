@@ -22,6 +22,8 @@ interface ProfilePreviewProps {
 }
 
 const ProfilePreview: React.FC<ProfilePreviewProps> = ({ data }) => {
+  // @TODO show & style full props 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { label, title, summary, url, media, button } = data
   return (
     <div className={classNames(

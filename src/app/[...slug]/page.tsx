@@ -35,7 +35,7 @@ export default async function Page({ params }: { params: Params }) {
   try {
     let data
     if (params.slug.find((item) => item==="product")) {
-      const data = await getProductDetail(params.slug[params.slug.length - 1])
+      data = await getProductDetail(params.slug[params.slug.length - 1])
       return (
         <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
           <ProductDetail data={data} />
@@ -63,10 +63,9 @@ export default async function Page({ params }: { params: Params }) {
           </div>
         </main>
       )
-    } else {
-      data = await getPage(`/${params.slug.join('/')}`)
-      return <Sections data={data.content} />
     }
+    data = await getPage(`/${params.slug.join('/')}`)
+    return <Sections data={data.content} />
   } catch (e) {
     console.error(e)
     return (

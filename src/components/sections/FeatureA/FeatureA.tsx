@@ -1,7 +1,6 @@
 import Image from "next/image"
 import classNames from "classnames"
 import Section from "@/components/elements/Section/Section"
-import Button from "@/components/elements/Button/Button"
 import { ButtonVariant } from "@/utils/types"
 
 interface FeatureProps {
@@ -11,9 +10,9 @@ interface FeatureProps {
     subtitle?: string
     content?: string
     media?: {
-      type: string
-      src: string
-      altText?: string
+      contentType: string
+      url: string
+      title: string
     }
     button?: {
       url: string
@@ -25,8 +24,8 @@ interface FeatureProps {
   variant?: "standard" | "alternate" 
 }
 
-const FeatureA: React.FC<FeatureProps> = ({ data, mediaPosition, variant }) => {
-  const { label, title, subtitle, content, media, button } = data
+const FeatureA: React.FC<FeatureProps> = ({ data, mediaPosition }) => {
+  const { label, title, subtitle, content, media } = data
   return (
     <Section>
       <div className={classNames("flex flex-col", { "flex-col-reverse": mediaPosition === "bottom"})}>
@@ -34,19 +33,21 @@ const FeatureA: React.FC<FeatureProps> = ({ data, mediaPosition, variant }) => {
           "w-full lg:w-11/12 mx-auto",
           { "mb-12": mediaPosition === "top" }
         )}>
-          {media?.src && media?.type === "image" && (
+          {media?.url && media?.contentType === "image" && (
             <Image 
               className={classNames(
                 "w-full object-cover mb-20",
               )}
-              src={media.src}
+              src={media.url}
               width={500} 
               height={500} 
-              alt={media.altText ?? title}
+              alt={media.title ?? title}
             />
           )}
-          {media?.src && media?.type === "video" && (
-            <video src={media?.src} autoPlay={true} loop />
+          {media?.url && media?.contentType === "video" && (
+            <video src={media?.url} autoPlay={true}>
+              <track kind="captions" label={media.title} />
+            </video>
           )}
         </div>
         <div className={classNames({"mb-12": mediaPosition === "bottom"})}>

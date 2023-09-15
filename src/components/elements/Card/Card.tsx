@@ -3,7 +3,6 @@ import Image from "next/image"
 import Link from "next/link"
 import Button from "../Button/Button"
 import { ArticleCardProps } from "@/utils/types"
-import RichText from "../RichText/RichText"
 
 const Card: React.FC<ArticleCardProps> = ({
   data,
@@ -14,7 +13,7 @@ const Card: React.FC<ArticleCardProps> = ({
   thumbnailImagePosition = "top",
   textAlign = "left"
 }) => {
-  const { tags, title, summary, content, url, media, buttons } = data
+  const { tags, title, summary, url, media, buttons } = data
   return (
     <div className={classNames(
       "basis-[80%] md:basis-[40%] lg:basis-[30%] px-4 shrink-0 grow",

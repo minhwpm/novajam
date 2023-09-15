@@ -12,6 +12,8 @@ type FormValues = {
 }
 
 const ContactForm = () => {
+  // @TODO validate for this ContactForm
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { register, handleSubmit, watch, formState: { errors } } = useForm<FormValues>();
 
   function onSubmit(data: FormValues) {
@@ -20,9 +22,6 @@ const ContactForm = () => {
 
   return (
     <form className="flex flex-col gap-3" onSubmit={handleSubmit(onSubmit)}>
-      <div className="">
-        
-      </div>
       <div>
         <label className="block mb-1" htmlFor="firstName">
           First Name *

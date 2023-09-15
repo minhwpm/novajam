@@ -8,6 +8,51 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 const CURRENCY_UNIT = '$'
 const SHIPPING_FEE = 5
 
+function decreaseSubQuant (params: {
+  item: {
+    id: string,
+    name: string,
+    subQuantity:number,
+    price: number
+  },
+  idx: number
+  dispatch: ReturnType<typeof useAppDispatch>
+}): void {
+  const { item, idx, dispatch} = params
+  if (item.subQuantity === 1) {
+    dispatch(cartActions.openDeleteWarnings({
+      index: idx,
+    }))
+    return
+  }
+  dispatch(cartActions.removeFromCart({
+    index: idx,
+    id: item.id,
+    name: item.name,
+    price: item.price
+  }))
+}
+
+function increaseSubQuant(params: {
+  item: {
+    id: string,
+    name: string,
+    subQuantity:number,
+    price: number
+  },
+  idx: number
+  dispatch: ReturnType<typeof useAppDispatch>
+}) {
+  const { item, idx, dispatch} = params
+  // console.log({id: item.id, quantity: item.quantity - 1})
+  dispatch(cartActions.addToCart({
+    index: idx,
+    id: item.id,
+    name: item.name,
+    price: item.price
+  }))
+}
+
 const Cart = () => {
   const { itemsList, total, quantity } = useAppSelector(s => {
     console.log(s)
@@ -30,34 +75,29 @@ const Cart = () => {
             <div key={item.id} className={classNames("grid", "grid-rows-4", "grid-cols-3", "py-6", "border-b-1")}>
               <div className={classNames("col-span-2", "row-span-4")}>{item.name}</div>
               <div className={classNames("col-span-1", "row-span-1", "text-right")}>
-                <span className={classNames("px-2", "py-1", "border-1", "cursor-pointer")} onClick={() => {
-                  if (item.subQuantity === 1) {
-                    dispatch(cartActions.openDeleteWarnings({
-                      index: idx,
-                    }))
-                    return
-                  }
-                  dispatch(cartActions.removeFromCart({
-                    index: idx,
-                    id: item.id,
-                    name: item.name,
-                    price: item.price
-                  }))
-                }}>
+                <button
+                  className={classNames("px-2", "py-1", "border-1", "cursor-pointer")}
+                  onClick={() => decreaseSubQuant({
+                    item: item,
+                    idx: idx,
+                    dispatch: dispatch
+                  })}
+                  // onKeyDown={() => decreaseSubQuant(item, idx, dispatch)}
+                >
                   -
+                </button>
+                <span className={classNames("px-2", "py-1", "border-t-1", "border-b-1")}>
+                  {item.subQuantity}
                 </span>
-                <span className={classNames("px-2", "py-1", "border-t-1", "border-b-1")}>{item.subQuantity}</span>
-                <span className={classNames("px-2", "py-1", "border-1", "cursor-pointer")} onClick={() => {
-                  // console.log({id: item.id, quantity: item.quantity - 1})
-                  dispatch(cartActions.addToCart({
-                    index: idx,
-                    id: item.id,
-                    name: item.name,
-                    price: item.price
-                  }))
-                }}>
+                <button
+                  className={classNames("px-2", "py-1", "border-1", "cursor-pointer")}
+                  onClick={() => increaseSubQuant({
+                    item: item,
+                    idx: idx,
+                    dispatch: dispatch
+                  })}>
                   +
-                </span>
+                </button>
               </div>
               <div className={classNames("col-span-1", "row-span-1", "text-right", "text-lg", "font-medium")}>
                 {CURRENCY_UNIT}{item.subTotal}
@@ -66,13 +106,16 @@ const Cart = () => {
                 {item.subQuantity > 1 && `unit price: ${CURRENCY_UNIT}${item.price}`}
               </div>
               <div className={classNames("col-span-1", "row-span-1", "text-right")}>
-                <span className={classNames("cursor-pointer")} onClick={() => {
-                  dispatch(cartActions.openDeleteWarnings({
-                    index: idx,
-                  }))
-                }}>
+                <button
+                  className={classNames("cursor-pointer")} 
+                  onClick={() => {
+                    dispatch(cartActions.openDeleteWarnings({
+                      index: idx,
+                    }))
+                  }}
+                >
                   <TrashCan />
-                </span>
+                </button>
               </div>
             </div>
           ))}

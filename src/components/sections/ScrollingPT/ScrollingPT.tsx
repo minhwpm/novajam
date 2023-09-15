@@ -39,7 +39,7 @@ const ScrollingPT: React.FC<ScrollingPTProps> = ({ data }) => {
     <Section title={title} subtitle={subtitle}>
       {/* FOR MOBILE, TABLETS */}
       <div className="xl:hidden">
-        {content?.map((section, idx) => (
+        {content?.map((section) => (
           <div key={section.title} className="mb-20">
             <div className="mb-10">
               <h3 className="font-semibold text-3xl lg:text-4xl leading-snug mb-6">

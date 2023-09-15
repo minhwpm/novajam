@@ -1,6 +1,6 @@
 'use client'
 import classNames from "classnames";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useInView } from "react-hook-inview";
 
 const messages = [
@@ -40,8 +40,10 @@ const messages = [
 ];
 
 const FakeMessageBox = () => {
-  // const ref = useRef(null)
   const [start, setStart] = useState(false);
+  // const ref = useRef(null)
+  // @TODO 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [ref, isVisible] = useInView({
     threshold: 0.1,
     onEnter: () =>

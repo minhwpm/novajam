@@ -1,7 +1,6 @@
 import Section from "@/components/elements/Section/Section"
 import SubscribeForm from "@/components/elements/SubscribeForm/SubscribeForm"
 import classNames from "classnames"
-import Image from "next/image"
 
 interface SubscriptionProps {
   data: {

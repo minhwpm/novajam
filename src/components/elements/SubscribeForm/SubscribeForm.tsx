@@ -14,6 +14,8 @@ const SubscribeForm: React.FC<SubscribeFormProps> = ({
   emailPlaceholder = "Your email", 
   buttonText = "Subscribe",
 }) => {
+  // @TODO validate this Form
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
   function onSubmit (data: FormValues) {
     console.log(data)

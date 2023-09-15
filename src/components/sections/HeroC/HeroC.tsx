@@ -53,7 +53,10 @@ const HeroC = ( { data, aspectRatio = "video", textAlignment = "center", textDar
           {item.contentType.includes("video") && (
             <video
               className="w-full object-cover aspect-video"
-              src={item.url} autoPlay={true} loop />
+              src={item.url} autoPlay={true} loop
+            >
+              <track kind="captions" label={item.title} />
+            </video>
           )}
         </div>
       ))}

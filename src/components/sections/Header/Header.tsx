@@ -7,7 +7,6 @@ import classNames from "classnames"
 import NavMenu from "@/components/elements/NavMenu/NavMenu"
 import NavMenuMobile from "@/components/elements/NavMenu/NavMenuMobile"
 import { HeaderProps } from "@/utils/types"
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
 const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant = "standard" }) => {
   const { logo, menu, buttons, isLoginEnabled } = data

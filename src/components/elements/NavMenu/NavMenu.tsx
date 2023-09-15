@@ -7,8 +7,6 @@ import SubMenuItem from './SubMenuItem';
 import Link from 'next/link';
 import { NavMenuProps, LinkProps, SubmenuProps } from "@/utils/types"
 import './styles.css';
-import Image from 'next/image';
-import Section from '../Section/Section';
 import SubMenuFeaturedContent from './SubMenuFeaturedContent';
 
 export function getMenuItemText(item: LinkProps | SubmenuProps): string {
@@ -56,7 +54,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
                   {"absolute top-full left-0 w-full bg-white shadow-lg": item.style === 'mega'}, //Mega menu style
                   {"absolute top-full left-0 w-64 pt-5": item.style === 'dropdown'}, //Dropdown menu style
                 )}
-                  onFocusOutside={(e) => {
+                  onFocusOutside={() => {
                     console.log("HELLO CONTENT")
                   }}
                 >

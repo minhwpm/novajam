@@ -1,5 +1,3 @@
-import * as Radix from "@radix-ui/react-primitive";
-
 type PrimitiveSectionProps = Radix.ComponentPropsWithoutRef<typeof Primitive.section>;
 type PrimitiveHeading2Props = Radix.ComponentPropsWithoutRef<typeof Primitive.h2>;
 

@@ -1,8 +1,3 @@
-import getCTA from "./getCTA"
-import getCardList from "./getCardList"
-import getFeature from "./getFeature"
-import getHero from "./getHero"
-import getPresentation from "./getPresentation"
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getProductDetail(slug: string) {

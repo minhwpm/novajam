@@ -34,7 +34,7 @@ interface CarouselPTProps {
   aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
 }
 
-const CarouselPT: React.FC<CarouselPTProps> = ({ data, aspectRatio }) => {
+const CarouselPT: React.FC<CarouselPTProps> = ({ data }) => {
   const { label, title, subtitle, content } = data
   return (
     <Section

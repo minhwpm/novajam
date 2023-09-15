@@ -6,7 +6,6 @@ import getHeader from '@/utils/contentful/graphql/getHeader';
 import getFooter from '@/utils/contentful/graphql/getFooter';
 import Footer from '@/components/sections/Footer/Footer';
 import classNames from 'classnames';
-import HeaderB from '@/components/sections/HeaderB/HeaderB';
 
 const font = Quicksand({
   subsets: ["latin", "vietnamese"],

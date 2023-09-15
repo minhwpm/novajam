@@ -18,7 +18,7 @@ export default async function Layout({
 }) {
   // console.log(params, JSON.stringify(children, null, 4))
   let header, footer
-  let slug = [...params.slug]
+  const slug = [...params.slug]
   // console.log("[...slug] Params:", params)
   // console.log("[...slug] STYLE:", styles)
   try {
@@ -31,7 +31,7 @@ export default async function Layout({
     console.error(e)
   }
   return (
-    <html>
+    <html lang="en">
       <body className={classNames(fonts.Quicksand.className, styles["nova-color-settings"])}>
         {header && <Header data={header} variant="alternate" navAlignment="center" /> }
         {children}

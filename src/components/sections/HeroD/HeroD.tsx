@@ -5,7 +5,6 @@ Carousel Hero section
 import Image from "next/image"
 import Carousel from "@/components/elements/Carousel/Carousel"
 import classNames from "classnames";
-import Link from "next/link";
 
 interface HeroDProps {
   data: {

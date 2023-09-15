@@ -1,7 +1,6 @@
 'use client'
 
 import * as RadixAccordion from '@radix-ui/react-accordion';
-import classNames from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import "./styles.css"

@@ -2,7 +2,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 // @TODO specify type for param data
 export default function normalizeDataCollection (data: { [x: string]: any }) {
-  for (let key in data) {
+  for (const key in data) {
     if (key.includes("Collection")) {
       const normalizedKey = key.replace("Collection", "")
       data[normalizedKey] = data[key].items

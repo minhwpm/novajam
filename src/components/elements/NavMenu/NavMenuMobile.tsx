@@ -1,15 +1,14 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars, faXmark, faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { NavMenuProps } from "@/utils/types"
 import SubMenuItem from './SubMenuItem';
 import { useState } from 'react';
 import { getMenuItemText } from './NavMenu';
-import Image from 'next/image';
 import SubMenuFeaturedContent from './SubMenuFeaturedContent';
 
-const NavMenuMobile: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {
+const NavMenuMobile: React.FC<NavMenuProps> = ({ menu }) => {
   const [ mobileMenuShowed, setMobileMenuShowed ] = useState(false)
 
   return (

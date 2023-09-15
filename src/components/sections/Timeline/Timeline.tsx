@@ -5,8 +5,6 @@ import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCloudBolt,
-  faBars,
-  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 const dummyData = {
@@ -124,19 +122,19 @@ const Timeline = ({ data = dummyData }) => {
   const [scrolled, setScrolled] = useState("not-yet");
   useEffect(() => {
     function handler() {
-      var winScroll =
+      const winScroll =
         document.body.scrollTop || document.documentElement.scrollTop;
       if (sectionRef.current !== null) {
-        var box = sectionRef.current.getBoundingClientRect();
-        var body = document.body;
-        var docEl = document.documentElement;
+        const box = sectionRef.current.getBoundingClientRect();
+        const body = document.body;
+        const docEl = document.documentElement;
 
-        var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-        var clientTop = docEl.clientTop || body.clientTop || 0;
+        const scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+        const clientTop = docEl.clientTop || body.clientTop || 0;
 
-        var top = box.top + scrollTop - clientTop;
-        var height2 = sectionRef.current.scrollHeight;
-        var scrolled2 = ((winScroll - top + 250) / height2) * 100;
+        const top = box.top + scrollTop - clientTop;
+        const height2 = sectionRef.current.scrollHeight;
+        const scrolled2 = ((winScroll - top + 250) / height2) * 100;
 
         if (scrolled2 <= 0) {
           setScrolled("not-yet");

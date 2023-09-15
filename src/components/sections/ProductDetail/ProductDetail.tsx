@@ -46,6 +46,10 @@ const ProductDetail: React.FC<{data: ProductType}> = ({ data }) => {
               ADD TO CART
             </Button>
           </div>
+          <div>
+            {/* @TODO styling this */}
+            {inStock? "In stock": "Out of stock"}
+          </div>
           <div className="text-lg text-slate-700">
             <RichText htmlString={summary} />
           </div>

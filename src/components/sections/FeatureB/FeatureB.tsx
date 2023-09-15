@@ -26,6 +26,8 @@ interface FeatureProps {
   variant?: "standard" | "alternate"
 }
 
+// @TODO refactor to decrease complexity to 10
+// eslint-disable-next-line complexity
 const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "rightyarn", variant = "standard" }) => {
   const { title, label, subtitle, content, media, buttons } = data
 
@@ -44,7 +46,9 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "rightyarn", v
               />
             )}
             {media?.contentType.includes("video") && (
-              <video className="w-full h-96" src={media?.url} autoPlay={true} loop />
+              <video className="w-full h-96" src={media?.url} >
+                <track kind="captions" label={media.title} />
+              </video>
             )}
           </div>
           <div className={classNames("px-4 pt-5 pb-20 md:px-8 lg:p-20 xl:p-32 bg-primary-50", { "lg:col-start-1 lg:row-start-1": mediaPosition === "right"})}>
@@ -91,7 +95,9 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "rightyarn", v
             />
           )}
           {media?.contentType.includes("video") && (
-            <video className="w-full h-96" src={media?.url} autoPlay={true} loop />
+            <video className="w-full h-96" src={media?.url}>
+              <track kind="captions" label={media.title} />
+            </video>
           )}
         </div>
         <div className={classNames(

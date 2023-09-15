@@ -13,7 +13,7 @@ type FormValues = {
 };
 
 const CheckoutForm = () => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<FormValues>();
+  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
 
   function onSubmit(data: FormValues) {
     console.log(data)

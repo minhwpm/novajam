@@ -1,7 +1,8 @@
 import React from 'react';
 import classNames from "classnames"
 
-type SectionVariant = "standard" | "alternate"
+// @TODO make this as Theme Style settings
+// type SectionVariant = "standard" | "alternate"
 interface Props {
   label?: string
   title?: string

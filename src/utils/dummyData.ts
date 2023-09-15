@@ -34,7 +34,7 @@ export const CelestialHeaderData = {
   ]
 }
 
-const CelestialFooterData = {
+export const CelestialFooterData = {
   logo: {
     url: "https://bluebiz-assets.s3.ap-southeast-1.amazonaws.com/demos/saas/celestial_logo.png",
     altText: "Celestial"
