@@ -110,6 +110,8 @@ export default async function getCardList(id: string) {
                     sharedImage {
                       url
                       title
+                      width
+                      height
                     }
                   }
                 }

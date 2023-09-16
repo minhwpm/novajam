@@ -4,6 +4,7 @@ import classNames from "classnames"
 import ProductCard from "@/components/elements/ProductCard/ProductCard"
 import FeatureCard from "@/components/elements/FeatureCard/FeatureCard"
 import { ArticleType, CardType, FeatureType, ProductType } from "@/utils/types"
+import PagePreview from "../PagePreview/PagePreview"
 
 interface CardListProps {
   data: {
@@ -17,6 +18,7 @@ interface CardListProps {
     }
   }
   variant?: "standard" | "alternate"
+  layout?: "flex" | "grid"
 }
 
 const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
@@ -29,7 +31,7 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
       className={classNames({"bg-secondary-50": variant === "alternate"})}
     >
       <div className={classNames(
-        "w-full -mx-4 flex", 
+        "w-full -mx-4 flex py-5", 
         { "overflow-x-scroll" : content.length >= 3},
         {"justify-center": content.length < 3}
       )}>
@@ -46,6 +48,10 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
             {
               card.contentType === "article" &&
               <Card key={card.id} data={card as ArticleType} textAlign="left" />
+            }
+            {
+              card.contentType === "page" && 
+              <PagePreview key={card.id} data={card} />
             }
             {/* @TODO render Page and Service Card */}
           </>

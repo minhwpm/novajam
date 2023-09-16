@@ -215,4 +215,4 @@ export interface FeatureCardProps {
   data: FeatureType
 }
 
-export type CardType = ArticleType | FeatureType | ProductType
+export type CardType = ArticleType | FeatureType | ProductType | PageType
