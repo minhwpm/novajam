@@ -56,29 +56,6 @@ export default async function getProductDetail(slug: string) {
   }
   const normalizedData = normalizeDataCollection({...data.data})
 
-  // async function getSectionData(contentType: string, id: string) {
-  //   if (contentType === "hero") {
-  //     return await getHero(id)
-  //   }
-  //   if (contentType === "cta") {
-  //     return await getCTA(id)
-  //   }
-  //   if (contentType === "presentation") {
-  //     return await getPresentation(id)
-  //   }
-  //   if (contentType === "feature") {
-  //     return await getFeature(id)
-  //   }
-  //   if (contentType === "cardlist") {
-  //     return await getCardList(id)
-  //   }
-  // }
-  // for(let i = 0; i < normalizedData[0].content.length; i++) {
-  //   normalizedData[0].content[i] = {
-  //     ... normalizedData[0].content[i],
-  //     ... await getSectionData(normalizedData[0].content[i].contentType, normalizedData[0].content[i].id)
-  //   }
-  // }
-  console.log(`PRODUCT DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  // console.log(`PRODUCT DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

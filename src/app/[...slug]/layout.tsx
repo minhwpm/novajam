@@ -19,15 +19,15 @@ export default async function Layout({
   // console.log(params, JSON.stringify(children, null, 4))
   let header, footer
   const slug = [...params.slug]
-  // console.log("[...slug] Params:", params)
-  // console.log("[...slug] STYLE:", styles)
   try {
-    while(!header && slug.length > 0) {
+    while(!header && slug.length >= 0) {
+      console.log(slug)
       header = await getHeader(`/${slug.join('/')}`)
       footer = await getFooter(`/${slug.join('/')}`)
       slug.pop()
     }
   } catch(e) {
+
     console.error(e)
   }
   return (
