@@ -115,7 +115,7 @@ export type BlogType = {
   media: {
     contentType: string
     url: string
-    title?: string
+    title: string
     width: number
     height: number
   }

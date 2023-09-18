@@ -1,8 +1,8 @@
 import RichText from "@/components/elements/RichText/RichText"
+import { BlogType } from "@/utils/types"
 import Image from "next/image"
-import CardList from "../CardList/CardList"
 
-const BlogDetails = ({ data }) => {
+const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
   const { title, summary, content, media } = data
   return (
     <div>
@@ -12,7 +12,7 @@ const BlogDetails = ({ data }) => {
         </h1>
         <div className="grid lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2">
-            <p className="text-slate-600">
+            <p className="text-slate-600 text-lg">
               {summary}
             </p>
           </div>
@@ -44,7 +44,7 @@ const BlogDetails = ({ data }) => {
             </div>
           </div>
         </div>
-        <div className="grid lg:grid-cols-3 gap-10">
+        <div className="grid lg:grid-cols-3 gap-10 text-lg">
           <div className="lg:col-span-2 mb-10">
             <RichText htmlString={content} />
           </div>

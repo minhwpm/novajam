@@ -1,3 +1,5 @@
+'use client'
+
 import Section from "@/components/elements/Section/Section"
 import BlogPreview from "@/components/elements/BlogPreview/BlogPreview"
 import classNames from "classnames"
@@ -23,6 +25,7 @@ interface CardListProps {
 
 const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
   const { title, label, subtitle, content } = data
+
   return (
     <Section
       label={label}
