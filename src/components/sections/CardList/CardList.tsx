@@ -1,9 +1,9 @@
 import Section from "@/components/elements/Section/Section"
-import Card from "@/components/elements/Card/Card"
+import BlogPreview from "@/components/elements/BlogPreview/BlogPreview"
 import classNames from "classnames"
 import ProductCard from "@/components/elements/ProductCard/ProductCard"
 import FeatureCard from "@/components/elements/FeatureCard/FeatureCard"
-import { ArticleType, CardType, FeatureType, ProductType } from "@/utils/types"
+import { BlogType, CardType, FeatureType, ProductType } from "@/utils/types"
 import PagePreview from "../PagePreview/PagePreview"
 
 interface CardListProps {
@@ -46,14 +46,14 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
               <FeatureCard key={card.id} data={card as FeatureType} />
             }
             {
-              card.contentType === "article" &&
-              <Card key={card.id} data={card as ArticleType} textAlign="left" />
+              card.contentType === "blog" &&
+              <BlogPreview key={card.id} data={card as BlogType} textAlign="left" />
             }
             {
               card.contentType === "page" && 
               <PagePreview key={card.id} data={card} />
             }
-            {/* @TODO render Page and Service Card */}
+            {/* @TODO render Service Card */}
           </>
         ))}
       </div>

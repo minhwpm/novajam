@@ -1,6 +1,14 @@
 export type Params = {
   slug: Array<string>
 }
+
+type ImageType = {
+  url: string
+  title: string
+  width: number
+  height: number
+}
+
 export type ButtonVariant = "standard" | "alternate" | "black" | "link-btn" | "outline" | "outline-black" | "outline-white"
 
 export interface ButtonProps {
@@ -33,7 +41,7 @@ export interface SubmenuProps {
   id: string
   title: string
   menu: Array<LinkProps | LinkGroupProps>
-  featuredContent: Array<ArticleType | ProductType | PageType>
+  featuredContent: Array<BlogType | ProductType | PageType>
   style: 'dropdown' | 'mega'
   contentType: "submenu"
 }
@@ -85,30 +93,36 @@ export type PageType = {
   id: string
   title: string
   slug: string
-  seo: SEOType
+  content: HeroType | CTAType | PresentationType | CardListType | FeatureType
+  metaTitle: string
+  metaDescription: string
+  metaKeywords?: Array<string>
+  metaImage: ImageType
   contentType: "page"
 }
 
-export type ArticleType = {
+export type BlogType = {
   id: string
   title: string
-  url?: string
+  slug: string
   summary?: string
-  content?: string
+  content: string
+  categories?: Array<{
+    title: string
+    slug: string
+  }>
   tags?: Array<string>
-  media?: {
+  media: {
     contentType: string
     url: string
     title?: string
     width: number
     height: number
   }
-  buttons?: Array<{
-    url: string
-    text: string
-    type?: ButtonVariant
-  }>
-  contentType: "article"
+  metaTitle: string
+  metaDescription: string
+  metaKeywords?: Array<string>
+  contentType: "blog"
 }
 
 export type ProductType = {
@@ -196,17 +210,6 @@ export type CardListType = {
   }
 }
 
-
-export interface ArticleCardProps {
-  data: ArticleType
-  aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
-  shadow?: boolean
-  border?: boolean
-  rounded?: boolean
-  thumbnailImagePosition?: "top" | "overlay"
-  textAlign?: "left" | "right" | "center"
-}
-
 export interface ProductCardProps {
   data: ProductType
 }
@@ -215,4 +218,4 @@ export interface FeatureCardProps {
   data: FeatureType
 }
 
-export type CardType = ArticleType | FeatureType | ProductType | PageType
+export type CardType = BlogType | FeatureType | ProductType | PageType

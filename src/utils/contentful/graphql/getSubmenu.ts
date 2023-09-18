@@ -44,9 +44,9 @@ export default async function getSubmenu(id: string) {
             featuredContentCollection {
               items {
                 __typename
-                ... on Article {
+                ... on Blog {
                   title
-                  url
+                  slug
                   media {
                     url
                     title
@@ -69,14 +69,6 @@ export default async function getSubmenu(id: string) {
                 ... on Page {
                   title
                   slug
-                  seo {
-                    sharedImage {
-                      url
-                      title
-                      width
-                      height
-                    }
-                  }
                 }
               }
             }
@@ -105,6 +97,6 @@ export default async function getSubmenu(id: string) {
       }
     }
   }
-  console.log(`SUBMENU DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  // console.log(`SUBMENU DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

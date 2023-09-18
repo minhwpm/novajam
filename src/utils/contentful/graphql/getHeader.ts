@@ -68,7 +68,6 @@ export default async function getHeader(path: string) {
     throw new Error('Failed to fetch Header data')
   }
   const normalizedData = normalizeDataCollection({...data.data})
-  console.log("HELLO DATA", normalizedData)
 
   for (let i = 0; i < normalizedData[0]?.menu.length; i++) {
     if (normalizedData[0].menu[i].contentType === "submenu") {

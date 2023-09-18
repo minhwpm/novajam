@@ -79,8 +79,8 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
               )}
             >
               <div className="grid lg:grid-cols-2">
-                <div className="flex flex-col justify-center p-5 md:p-14 lg:pr-24 bg-primary-50">
-                  <h4 className="text-3xl font-bold mb-6">
+                <div className="flex flex-col lg:pr-24">
+                  <h4 className="text-6xl font-bold mb-6">
                     {section.subtitle}
                   </h4>
                   <RichText htmlString={section.content} />
@@ -92,7 +92,7 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
                     </div>
                   )}
                 </div>
-                <div className="flex flex-col items-center lg:items-start lg:relative lg:top-10 lg:-left-10">
+                <div className="flex flex-col items-center lg:items-start">
                   <Image
                     src={section.media?.url ?? ''}
                     alt={section.media.title}

@@ -30,17 +30,24 @@ export default async function getCardList(id: string) {
             contentCollection (limit: 20) {
               items {
                 __typename
-                ... on Article {
+                ... on Blog {
                   sys {
                     id
                   }
                   title
+                  slug
                   summary
-                  url
-                  tags
+                  categoriesCollection {
+                    items {
+                      title
+                      slug
+                    }
+                  }
                   media {
                     url
                     title
+                    width
+                    height
                   }
                 }
                 ... on Feature {
@@ -104,15 +111,14 @@ export default async function getCardList(id: string) {
                   }
                   title
                   slug
-                  seo {
-                    metaTitle
-                    metaDescription
-                    sharedImage {
-                      url
-                      title
-                      width
-                      height
-                    }
+                  metaTitle
+                  metaDescription
+                  metaKeywords
+                  metaImage {
+                    url
+                    title
+                    width
+                    height
                   }
                 }
               }

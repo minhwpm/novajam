@@ -1,14 +1,14 @@
-import { ArticleType, ProductType, PageType } from "@/utils/types"
+import { BlogType, ProductType, PageType } from "@/utils/types"
 import Image from "next/image"
 import Link from "next/link"
 
-function standardizeData(data: (ArticleType | ProductType | PageType)) {
+function standardizeData(data: (BlogType | ProductType | PageType)) {
   console.log("HEYYYY", data)
   switch(data.contentType) {
-    case "article":
+    case "blog":
       return {
         title: data.title,
-        url: data.url,
+        url: data.slug,
         media: data.media ?? null
       }
     case "product":
@@ -21,12 +21,12 @@ function standardizeData(data: (ArticleType | ProductType | PageType)) {
       return {
         title: data.title,
         url: data.slug,
-        media: data.seo.sharedImage ?? {}
+        media: data.metaImage ?? {}
       }
   }
 }
 
-const SubMenuFeaturedContent: React.FC<{data: ArticleType | ProductType | PageType}> = ({ data }) => {
+const SubMenuFeaturedContent: React.FC<{data: BlogType | ProductType | PageType}> = ({ data }) => {
   const result = standardizeData(data)
   return (
     <>

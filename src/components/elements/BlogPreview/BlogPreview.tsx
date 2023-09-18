@@ -1,10 +1,19 @@
 import classNames from "classnames"
 import Image from "next/image"
 import Link from "next/link"
-import Button from "../Button/Button"
-import { ArticleCardProps } from "@/utils/types"
+import { BlogType } from "@/utils/types"
 
-const Card: React.FC<ArticleCardProps> = ({
+interface Props {
+  data: BlogType
+  aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
+  shadow?: boolean
+  border?: boolean
+  rounded?: boolean
+  thumbnailImagePosition?: "top" | "overlay"
+  textAlign?: "left" | "right" | "center"
+}
+
+const Card: React.FC<Props> = ({
   data,
   aspectRatio = "4/3",
   shadow,
@@ -13,7 +22,7 @@ const Card: React.FC<ArticleCardProps> = ({
   thumbnailImagePosition = "top",
   textAlign = "left"
 }) => {
-  const { tags, title, summary, url, media, buttons } = data
+  const { title, summary, slug, media, categories } = data
   return (
     <div className={classNames(
       "basis-[80%] md:basis-[40%] lg:basis-[30%] px-4 shrink-0 grow",
@@ -48,11 +57,11 @@ const Card: React.FC<ArticleCardProps> = ({
         { "text-right": textAlign === "right" }
       )}>
         <p className="text-xs uppercase tracking-widest">
-          {tags}
+          {categories && categories.length > 0 && categories.map(item => item.title)}
         </p>
         <h4 className="text-lg lg:text-xl font-semibold mt-1">
-          {url ? (
-            <Link href={`/blog/${url}`}>
+          {slug ? (
+            <Link href={`/blog/${slug}`}>
               {title}
             </Link>
           ) : (<>{title}</>)}
@@ -62,15 +71,6 @@ const Card: React.FC<ArticleCardProps> = ({
             {summary}
           </p>
         }
-        {buttons && (
-          <div className="mt-6">
-            {buttons.map(button => (
-              <Button key={button.text} variant={button.type ?? "alternate"} url={button.url}>
-                {button.text}
-              </Button>
-            ))}
-          </div>
-        )}
       </div>
     </div>
   )

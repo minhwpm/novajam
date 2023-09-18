@@ -24,14 +24,14 @@ export default async function getPage(slug: string) {
           items {
             title
             slug
-            seo {
-              metaTitle
-              metaDescription
-              sharedImage {
-                title
-                description
-                url
-              }
+            metaTitle
+            metaDescription
+            metaKeywords
+            metaImage {
+              url
+              title
+              width
+              height
             }
             contentCollection {
               items {
@@ -121,6 +121,6 @@ export default async function getPage(slug: string) {
       ... await getSectionData(normalizedData[0].content[i].contentType, normalizedData[0].content[i].id)
     }
   }
-  // console.log(`PAGE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  console.log(`PAGE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }
