@@ -10,7 +10,6 @@ const CURRENCY_UNIT = '$'
 const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
   const { title, slug, price, media } = data
   const pathname = usePathname()
-  // console.log(pathname)
   return (
     <div className={classNames(
       "basis-[80%] md:basis-[40%] lg:basis-[30%] px-4 shrink-0 grow",

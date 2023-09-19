@@ -1,24 +1,24 @@
 import '../globals.css'
 import { Analytics } from '@vercel/analytics/react';
-import { Quicksand, League_Spartan } from 'next/font/google'
+import { Exo } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
 import getHeader from '@/utils/contentful/graphql/getHeader';
 import getFooter from '@/utils/contentful/graphql/getFooter';
 import Footer from '@/components/sections/Footer/Footer';
 import classNames from 'classnames';
 
-const font = Quicksand({
+const font = Exo({
   subsets: ["latin", "vietnamese"],
   display: "swap",
   weight: ["300", "400", "500", "600", "700"]
 })
 
-const fontHeading = League_Spartan({
-  subsets: ["latin", "vietnamese"],
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-heading"
-})
+// const fontHeading = League_Spartan({
+//   subsets: ["latin", "vietnamese"],
+//   display: "swap",
+//   weight: ["400", "500", "600", "700"],
+//   variable: "--font-heading"
+// })
 
 export const metadata = {
   title: 'BLUEBIZ',
@@ -34,7 +34,7 @@ export default async function RootLayout({
   const footer = await getFooter("/")
   return (
     <html lang="en">
-      <body className={classNames(font.className, fontHeading.variable)}>
+      <body className={classNames(font.className)}>
         {header && <Header data={header} navAlignment="center" /> }
         {children}
         {footer && <Footer data={footer} /> }

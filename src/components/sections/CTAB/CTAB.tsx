@@ -33,7 +33,7 @@ const CTAB: React.FC<CTAProps> = ({ data }) => {
   return (
     <Section>
       <div ref={ref} className={classNames(
-          "bg-primary-950 mx-auto px-5 py-16 lg:py-20 xl:py-32 lg:w-[70%] lg:will-change-[width]",
+          "bg-primary-900 mx-auto px-5 py-16 lg:py-20 xl:py-32 lg:w-[70%] lg:will-change-[width]",
           {"lg:animate-expandingWidth": isVisible},
           {"lg:animate-shrinkingWidth": !isVisible},
         )}

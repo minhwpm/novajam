@@ -1,6 +1,6 @@
 import normalizeDataCollection from "./normalizeDataCollection"
 
-export default async function getBlogDetails(slug: string) {
+export default async function getBlogs(limit: number, skip: number) {
   const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {
@@ -10,11 +10,10 @@ export default async function getBlogDetails(slug: string) {
     },
     // send the GraphQL query
     body: JSON.stringify({ query: `
-      query($slug: String) {
+      query($limit: Number, $skip: Number) {
         blogCollection(
-          where: { 
-            slug: $slug
-          } 
+          limit: $limit,
+          skip: $skip
         ) {
           items {
             sys {
@@ -29,9 +28,6 @@ export default async function getBlogDetails(slug: string) {
               height
             }
             summary
-            content {
-              json
-            }
             categoryCollection {
               items {
                 title
@@ -59,7 +55,8 @@ export default async function getBlogDetails(slug: string) {
       }
     `, 
       variables: {
-        slug
+        limit,
+        skip
       },
     }),
   })
@@ -67,10 +64,10 @@ export default async function getBlogDetails(slug: string) {
   const data = await res.json()
   if (res.status !== 200) {
     console.error(data)
-    throw new Error("Failed to fetch Blog data. Error", data.error)
+    throw new Error("Failed to fetch Blog List data. Error", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
 
-  console.log(`BLOG DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  console.log(`BLOG LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

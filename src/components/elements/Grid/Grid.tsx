@@ -7,7 +7,7 @@ interface Props {
   children: React.ReactNode
 }
 
-const GridBox = ({ gap = 5, columns = 3, children } : Props) => {
+const Grid = ({ gap = 5, columns = 3, children } : Props) => {
   return (
     <div className={classNames(
         "grid relative",
@@ -20,4 +20,4 @@ const GridBox = ({ gap = 5, columns = 3, children } : Props) => {
   )
 }
 
-export default GridBox
+export default Grid

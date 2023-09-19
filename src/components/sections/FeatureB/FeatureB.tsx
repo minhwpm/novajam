@@ -33,7 +33,7 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "rightyarn", v
 
   if (variant === "alternate") {
     return (
-      <Section framed={false}>
+      <Section>
         <div className="w-full grid lg:grid-cols-2">
           <div className={classNames({ "lg:col-start-2" : mediaPosition === "right"})}>
             {media?.contentType.includes("image") && (
@@ -57,9 +57,9 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "rightyarn", v
                 {label}
               </p>
             )}
-            <h3 className="font-heading text-4xl lg:text-5xl leading-snug lg:leading-snug font-bold max-w-4xl mb-5 text-secondary-600">
+            <h2 className="font-heading text-4xl lg:text-5xl leading-snug lg:leading-snug font-bold max-w-4xl mb-5 text-secondary-600">
               {title}
-            </h3>
+            </h2>
             {subtitle && (
               <p className="text-lg leading-8 lg:text-xl lg:leading-10 font-medium mb-12 max-w-4xl">
                 {subtitle}
@@ -109,9 +109,9 @@ const FeatureB: React.FC<FeatureProps> = ({ data, mediaPosition = "rightyarn", v
               {label}
             </p>
           )}
-          <h3 className="font-heading text-3xl lg:text-4xl leading-snug lg:leading-snug font-bold max-w-4xl mb-5">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl leading-snug lg:leading-snug font-bold max-w-4xl mb-5">
             {title}
-          </h3>
+          </h2>
           {subtitle && (
             <p className="text-lg leading-8 lg:text-xl lg:leading-10 font-medium mb-12 max-w-4xl">
               {subtitle}

@@ -1,5 +1,7 @@
+// Denotes a section of page content.
 import React from 'react';
 import classNames from "classnames"
+import Container from '../Container/Container';
 
 // @TODO make this as Theme Style settings
 // type SectionVariant = "standard" | "alternate"
@@ -8,7 +10,6 @@ interface Props {
   title?: string
   subtitle?: string
   children: React.ReactNode
-  framed?: boolean
   className?: string
   id?: string
   background?: {
@@ -17,12 +18,11 @@ interface Props {
   }
 }
 
-const Section = ( { title, label, subtitle, children, framed = true, className, id, background }: Props) => {
+const Section = ( { title, label, subtitle, children, className, id, background }: Props) => {
 
   return (
     <section id={id} className={classNames(
       "flex flex-col items-center py-12",
-      { "container mx-auto px-4": framed}, // @TODO make framed padding Global Settings
       { "bg-fixed min-h-screen": background?.parallax },
       className,
     )}>
@@ -32,7 +32,7 @@ const Section = ( { title, label, subtitle, children, framed = true, className, 
         </p>
       )}
       {title && (
-        <h2 className={classNames("font-heading text-3xl lg:text-[2.75rem] leading-snug lg:leading-snug font-bold text-center max-w-3xl",
+        <h2 className={classNames("font-heading text-3xl md:text-4xl lg:text-5xl leading-snug lg:leading-snug font-bold text-center max-w-3xl",
           {"mb-5": subtitle},
           {"mb-12": !subtitle},
         )}>
@@ -44,7 +44,9 @@ const Section = ( { title, label, subtitle, children, framed = true, className, 
           {subtitle}
         </p>
       )}
-      {children}
+      <Container>
+        {children}
+      </Container>
     </section>
   )
 }

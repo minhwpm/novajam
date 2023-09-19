@@ -34,24 +34,25 @@ const Card: React.FC<Props> = ({
       { "rounded-2xl": rounded },
     )}>
       <Link href={`${pathname}/blog/${slug}`}>
-        {media?.url && (
+        <div className={classNames(
+          { "aspect-video" : aspectRatio === "video"},
+          { "aspect-square" : aspectRatio === "square"},
+          { "aspect-3/4" : aspectRatio === "3/4"},
+          { "aspect-4/3" : aspectRatio === "4/3"},
+          { "aspect-3/2" : aspectRatio === "3/2"}
+        )}>
           <Image 
             className={classNames(
-              { "aspect-video" : aspectRatio === "video"},
-              { "aspect-square" : aspectRatio === "square"},
-              { "aspect-3/4" : aspectRatio === "3/4"},
-              { "aspect-4/3" : aspectRatio === "4/3"},
-              { "aspect-3/2" : aspectRatio === "3/2"},
               { "rounded-t-2xl": rounded && thumbnailImagePosition === "top"},
               { "rounded-2xl": rounded && thumbnailImagePosition === "overlay" },
-              "w-full object-cover",
+              "w-full h-full object-cover",
             )}
-            src={media.url}
+            src={media?.url ?? '/vercel.svg'}
             width={500} 
             height={500} 
-            alt={media.title ?? title}
+            alt={media?.title ?? title}
           />
-        )}
+        </div>
         <div className={classNames(
           "w-full py-5",
           { "px-5": border || rounded },
