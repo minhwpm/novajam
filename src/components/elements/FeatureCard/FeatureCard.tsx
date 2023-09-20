@@ -1,11 +1,14 @@
 import classNames from "classnames"
 import Image from "next/image"
 import Button from "../Button/Button"
-import { FeatureCardProps } from "@/utils/types"
+import { FeatureType } from "@/utils/types"
 import RichText from "../RichText/RichText"
 
+interface Props {
+  data: FeatureType
+}
 
-const FeatureCard: React.FC<FeatureCardProps> = ({
+const FeatureCard: React.FC<Props> = ({
   data,
 }) => {
   const { contentType, title, summary, content, media, buttons } = data

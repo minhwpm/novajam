@@ -3,7 +3,7 @@
 import Section from "@/components/elements/Section/Section"
 import BlogPreview from "@/components/elements/BlogPreview/BlogPreview"
 import classNames from "classnames"
-import ProductCard from "@/components/elements/ProductCard/ProductCard"
+import ProductPreview from "@/components/elements/ProductPreview/ProductPreview"
 import FeatureCard from "@/components/elements/FeatureCard/FeatureCard"
 import { BlogType, CardType, FeatureType, ProductType } from "@/utils/types"
 import PagePreview from "../PagePreview/PagePreview"
@@ -34,7 +34,7 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
       className={classNames({"bg-secondary-50": variant === "alternate"})}
     >
       <div className={classNames(
-        "w-full -mx-4 flex py-5", 
+        "w-full flex gap-6 lg:gap-10 py-5", 
         { "overflow-x-scroll" : content.length >= 3},
         {"justify-center": content.length < 3}
       )}>
@@ -42,7 +42,7 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
           <>
             {
               card.contentType === "product" &&
-              <ProductCard key={card.id} data={card as ProductType} />
+              <ProductPreview key={card.id} data={card as ProductType} />
             }
             {
               card.contentType === "feature" &&
@@ -50,7 +50,7 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
             }
             {
               card.contentType === "blog" &&
-              <BlogPreview key={card.id} data={card as BlogType} textAlign="left" />
+              <BlogPreview key={card.id} data={card as BlogType} />
             }
             {
               card.contentType === "page" && 

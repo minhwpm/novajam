@@ -218,12 +218,4 @@ export type CardListType = {
   }
 }
 
-export interface ProductCardProps {
-  data: ProductType
-}
-
-export interface FeatureCardProps {
-  data: FeatureType
-}
-
 export type CardType = BlogType | FeatureType | ProductType | PageType

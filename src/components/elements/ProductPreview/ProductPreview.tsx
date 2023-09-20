@@ -2,17 +2,20 @@
 import Image from "next/image"
 import classNames from "classnames"
 import Link from "next/link"
-import { ProductCardProps } from "@/utils/types"
 import { usePathname } from "next/navigation"
+import { ProductType } from "@/utils/types"
 
+interface Props {
+  data: ProductType
+}
 const CURRENCY_UNIT = '$'
 
-const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
+const ProductCard: React.FC<Props> = ({ data }) => {
   const { title, slug, price, media } = data
   const pathname = usePathname()
   return (
     <div className={classNames(
-      "basis-[80%] md:basis-[40%] lg:basis-[30%] px-4 shrink-0 grow",
+      "basis-[80%] md:basis-[35%] lg:basis-[25%] shrink-0 grow",
     )}>
       <Link href={`${pathname === "/" ? "" : pathname}/product/${slug}`}>
         <Image 

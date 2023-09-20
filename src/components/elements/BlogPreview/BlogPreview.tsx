@@ -7,31 +7,18 @@ import { usePathname } from "next/navigation"
 interface Props {
   data: BlogType
   aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
-  shadow?: boolean
-  border?: boolean
-  rounded?: boolean
-  thumbnailImagePosition?: "top" | "overlay"
-  textAlign?: "left" | "right" | "center"
 }
 
 const Card: React.FC<Props> = ({
   data,
-  aspectRatio = "4/3",
-  shadow,
-  border,
-  rounded,
-  thumbnailImagePosition = "top",
-  textAlign = "left"
+  aspectRatio = "video",
 }) => {
-  const { title, summary, slug, media, categories } = data
+  const { title, summary, slug, media, topics } = data
   const pathname = usePathname()
   console.log("Pathname: " + pathname)
   return (
     <div className={classNames(
-      "basis-[80%] md:basis-[40%] lg:basis-[30%] px-4 shrink-0 grow",
-      { "shadow-lg": shadow },
-      { "border": border },
-      { "rounded-2xl": rounded },
+      "basis-[80%] md:basis-[40%] lg:basis-[30%] shrink-0 grow hover:shadow-lg hover:-translate-y-4 transform transition-transform duration-500",
     )}>
       <Link href={`${pathname}/blog/${slug}`}>
         <div className={classNames(
@@ -43,8 +30,6 @@ const Card: React.FC<Props> = ({
         )}>
           <Image 
             className={classNames(
-              { "rounded-t-2xl": rounded && thumbnailImagePosition === "top"},
-              { "rounded-2xl": rounded && thumbnailImagePosition === "overlay" },
               "w-full h-full object-cover",
             )}
             src={media?.url ?? '/vercel.svg'}
@@ -54,16 +39,13 @@ const Card: React.FC<Props> = ({
           />
         </div>
         <div className={classNames(
-          "w-full py-5",
-          { "px-5": border || rounded },
-          { "absolute bottom-0 bg-gradient-to-t from-gray-900/90 to-transparent text-white": data.media?.url && thumbnailImagePosition === "overlay" },
-          { "rounded-b-2xl": rounded },
-          { "text-center": textAlign === "center" },
-          { "text-right": textAlign === "right" }
+          "w-full p-5",
         )}>
-          <p className="text-xs uppercase tracking-widest">
-            {categories && categories.length > 0 && categories.map(item => item.title)}
-          </p>
+          <div className="text-xs uppercase tracking-widest flex flex-wrap gap-3">
+            {topics && topics.length > 0 && topics.map((topic, idx) => (
+              <div key={idx}>{topic}</div>
+            ))}
+          </div>
           <h4 className="text-lg lg:text-xl font-semibold mt-1">
             {title}
           </h4>

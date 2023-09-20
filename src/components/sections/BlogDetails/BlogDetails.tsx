@@ -14,8 +14,8 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
             {title}
           </h1>
           <div className="grid lg:grid-cols-3 gap-10">
-            <div className="lg:col-span-2 prose lg:prose-xl max-w-none">
-              <p className="text-slate-600 text-lg">
+            <div className="lg:col-span-2">
+              <p className="text-slate-600 text-lg prose lg:prose-xl max-w-none">
                 {summary}
               </p>
             </div>
