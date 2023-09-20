@@ -32,12 +32,6 @@ export default async function getBlogDetails(slug: string) {
             content {
               json
             }
-            categoryCollection {
-              items {
-                title
-                slug
-              }
-            }
             topics
             author {
               sys {
@@ -51,6 +45,9 @@ export default async function getBlogDetails(slug: string) {
                 height
               }
               role
+              description {
+                json
+              }
             }
             metaTitle
             metaDescription

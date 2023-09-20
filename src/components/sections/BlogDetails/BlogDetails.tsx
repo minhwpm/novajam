@@ -2,9 +2,10 @@ import Container from "@/components/elements/Container/Container"
 import RichText from "@/components/elements/RichText/RichText"
 import { BlogType } from "@/utils/types"
 import Image from "next/image"
+import Link from "next/link"
 
 const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
-  const { title, summary, content, media } = data
+  const { title, summary, content, media, topics, author } = data
   return (
     <div>
       <Container>
@@ -31,21 +32,35 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
                 />
               </div>
             }
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1 flex flex-col gap-6">
               <div>
                 PUBLISHED
 
               </div>
-              <div>
-                AUTHOR
-
-              </div>
-              <div>
-                CATEGORY
-              </div>
-              <div>
-                TOPICS
-              </div>
+              {author && author.fullName && 
+                <div>
+                  AUTHOR
+                  {author.fullName}
+                </div>
+              }
+              {topics && topics?.length > 0  && 
+                <div className="flex flex-col gap-2">
+                  <div>
+                    TOPICS
+                  </div>
+                  <div className="flex flex-wrap gap-4">
+                    {topics.map((topic, idx) => (
+                      <Link
+                        key={idx}
+                        className="px-4 py-2 rounded-full bg-primary-50 border-primary-100"
+                        href={`/blog?topic=${topic}`}
+                      >
+                        {topic}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              }
             </div>
           </div>
           <div className="grid lg:grid-cols-3 gap-10 text-lg">

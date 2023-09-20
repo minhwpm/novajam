@@ -37,12 +37,7 @@ export default async function getCardList(id: string) {
                   title
                   slug
                   summary
-                  categoryCollection {
-                    items {
-                      title
-                      slug
-                    }
-                  }
+                  topics
                   media {
                     url
                     title

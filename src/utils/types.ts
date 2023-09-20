@@ -107,17 +107,25 @@ export type BlogType = {
   slug: string
   summary?: string
   content: string
-  categories?: Array<{
-    title: string
-    slug: string
-  }>
-  tags?: Array<string>
+  topics?: Array<string>
   media: {
     contentType: string
     url: string
     title: string
     width: number
     height: number
+  }
+  author?: {
+    id: string
+    fullName: string
+    portrait: {
+      url: string
+      title: string
+      width: number
+      height: number
+    }
+    role: string
+    description: string
   }
   metaTitle: string
   metaDescription: string
