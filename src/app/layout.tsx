@@ -10,7 +10,7 @@ export const metadata = {
   description: 'Multipurpose NextJS Theme',
   openGraph: {
     images: [{
-      url: '/vercel.svg'
+      url: '/bluebiz_square.webp'
     }]
   }
 }

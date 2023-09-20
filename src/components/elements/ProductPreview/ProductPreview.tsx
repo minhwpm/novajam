@@ -25,7 +25,7 @@ const ProductCard: React.FC<Props> = ({ data }) => {
             "w-full",
             "bg-slate-50"
           )}
-          src={media[0]?.url ?? "/vercel.svg"}
+          src={media[0]?.url ?? "/bluebiz_square.webp"}
           width={500} 
           height={500} 
           alt={media[0]?.title ?? title}

@@ -18,7 +18,7 @@ const Card: React.FC<Props> = ({
   console.log("Pathname: " + pathname)
   return (
     <div className={classNames(
-      "basis-[80%] md:basis-[40%] lg:basis-[30%] shrink-0 grow hover:shadow-lg hover:-translate-y-4 transform transition-transform duration-500",
+      "basis-[80%] md:basis-[40%] lg:basis-[28%] shrink-0 grow hover:shadow-lg hover:-translate-y-4 transform transition-transform duration-500",
     )}>
       <Link href={`${pathname}/blog/${slug}`}>
         <div className={classNames(
@@ -32,7 +32,7 @@ const Card: React.FC<Props> = ({
             className={classNames(
               "w-full h-full object-cover",
             )}
-            src={media?.url ?? '/vercel.svg'}
+            src={media?.url ?? '/bluebiz_square.webp'}
             width={500} 
             height={500} 
             alt={media?.title ?? title}
