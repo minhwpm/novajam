@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Section from "@/components/elements/Section/Section";
+import { TestimonialsType } from "@/utils/types";
 
 interface ArrowGroupProps {
   visibleIdx: number
@@ -41,25 +42,15 @@ const ArrowGroup = ({visibleIdx, setVisibleIdx, length}: ArrowGroupProps) => {
 }
 
 interface Props {
-  data: { // @TODO modify data? later
-    label?: string
-    title?: string
-    subtitle?: string
-    sections: Array<{
-      title: string
-      content?: string
-      source?: string
-    }>
-  }
-
+  data: TestimonialsType
 }
 
 const Testimonials: React.FC<Props> = ({ data }) => {
-  const { title, sections } = data
+  const { title, content } = data
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
-    <Section framed={false}>
+    <Section>
       <div className="bg-gray-200 bg-opacity-60 w-full">
         <div className="container mx-auto xl:flex xl:gap-5 overflow-x-hidden py-24 px-4">
           <div className="xl:w-1/2 pr-10">
@@ -67,13 +58,13 @@ const Testimonials: React.FC<Props> = ({ data }) => {
               {title}
             </h2>
             <div className="hidden xl:flex gap-12">
-              <ArrowGroup visibleIdx={visibleIdx} setVisibleIdx={setVisibleIdx} length={sections.length} />
+              <ArrowGroup visibleIdx={visibleIdx} setVisibleIdx={setVisibleIdx} length={content.length} />
             </div>
           </div>
           <div className="xl:w-1/2 grid pr-5">
-            {sections.map((item, idx) => (
+            {content.map((item, idx) => (
               <div
-                key={item.content} //@TODO key is too long. does it hurt performance?
+                key={item.id} //@TODO key is too long. does it hurt performance?
                 className={classNames(
                   "col-start-1 row-start-1 flex flex-col gap-5 justify-center p-12 shadow-xl bg-white rounded-lg transition-all ease-in-out duration-500 relative bg-[url('/images/quote-left.svg')] bg-no-repeat",
                   { "opacity-100 right-0": visibleIdx == idx },
@@ -82,12 +73,12 @@ const Testimonials: React.FC<Props> = ({ data }) => {
               >
                 <h3 className="text-2xl font-semibold">{item.title}</h3>
                 <p className="text-lg leading-8 italic">{item.content}</p>
-                <p> - {item.source}</p>
+                <p> - {item.witnessFullName}</p>
               </div>
             ))}
           </div>
           <div className="flex xl:hidden gap-12 mt-8 justify-center">
-            <ArrowGroup visibleIdx={visibleIdx} setVisibleIdx={setVisibleIdx} length={data.sections.length} />
+            <ArrowGroup visibleIdx={visibleIdx} setVisibleIdx={setVisibleIdx} length={content.length} />
           </div>
         </div>
       </div>

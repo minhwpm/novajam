@@ -92,7 +92,7 @@ export type SEOType = {
 export type PageType = {
   id: string
   title: string
-  slug: string
+  url: string
   content: HeroType | CTAType | PresentationType | CardListType | FeatureType
   metaTitle: string
   metaDescription: string
@@ -206,6 +206,8 @@ export type PresentationType = {
   content: Array<FeatureType>
 }
 
+export type CardType = BlogType | FeatureType | ProductType | PageType
+
 export type CardListType = {
   id: string
   title: string
@@ -218,4 +220,18 @@ export type CardListType = {
   }
 }
 
-export type CardType = BlogType | FeatureType | ProductType | PageType
+export type TestimonialsType = {
+  id: string
+  title: string
+  label?: string
+  subtitle?: string
+  content: Array<{
+    id: string
+    title: string
+    content: string
+    witnessFullName?: string
+    witnessRole?: string
+    witnessOrganization?: string
+    witnessPortrait: ImageType
+  }>
+}

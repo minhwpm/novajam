@@ -105,7 +105,7 @@ export default async function getCardList(id: string) {
                     id
                   }
                   title
-                  slug
+                  url
                   metaTitle
                   metaDescription
                   metaKeywords

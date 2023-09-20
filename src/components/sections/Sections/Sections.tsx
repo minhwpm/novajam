@@ -37,7 +37,7 @@ type SectionType = {
 const Section: React.FC<SectionType> = ({data}) => {
   // @TODO
   // @ts-ignore 
-  const Component = (typeof sectionComponents[data.contentType] === "object") ? sectionComponents[data.contentType][data.style] : sectionComponents[data.contentType]
+  const Component = (typeof sectionComponents[data.contentType] === "object") ? sectionComponents[data.contentType][data.layout] : sectionComponents[data.contentType]
   if (!Component) return null
   return <Component data={data} />
 }

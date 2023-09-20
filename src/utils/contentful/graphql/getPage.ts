@@ -3,9 +3,10 @@ import getCardList from "./getCardList"
 import getFeature from "./getFeature"
 import getHero from "./getHero"
 import getPresentation from "./getPresentation"
+import getTestimonials from "./getTestimonials"
 import normalizeDataCollection from "./normalizeDataCollection"
 
-export default async function getPage(slug: string) {
+export default async function getPage(url: string) {
   const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {
@@ -15,15 +16,15 @@ export default async function getPage(slug: string) {
     },
     // send the GraphQL query
     body: JSON.stringify({ query: `
-      query($slug: String) {
+      query($url: String) {
         pageCollection(
           where: { 
-            slug: $slug
+            url: $url
           } 
         ) {
           items {
             title
-            slug
+            url
             metaTitle
             metaDescription
             metaKeywords
@@ -52,7 +53,7 @@ export default async function getPage(slug: string) {
                   title
                   label
                   subtitle
-                  style
+                  layout
                 }
                 ... on Feature {
                   sys {
@@ -87,7 +88,7 @@ export default async function getPage(slug: string) {
       }
     `, 
       variables: {
-        slug
+        url
       },
     }),
   })
@@ -110,6 +111,9 @@ export default async function getPage(slug: string) {
     }
     if (contentType === "feature") {
       return await getFeature(id)
+    }
+    if (contentType === "testimonials") {
+      return await getTestimonials(id)
     }
     if (contentType === "cardlist") {
       return await getCardList(id)
