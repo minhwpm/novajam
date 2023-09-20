@@ -8,12 +8,12 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
   return (
     <div>
       <Container>
-        <article className="my-10 flex flex-col gap-y-10">
-          <h1 className="font-heading text-5xl font-bold mt-10">
+        <article className="w-full my-10 flex flex-col gap-y-10">
+          <h1 className="font-heading font-bold text-5xl mt-10 leading-snug max-w-5xl">
             {title}
           </h1>
           <div className="grid lg:grid-cols-3 gap-10">
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 prose lg:prose-xl max-w-none">
               <p className="text-slate-600 text-lg">
                 {summary}
               </p>
@@ -49,7 +49,7 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
             </div>
           </div>
           <div className="grid lg:grid-cols-3 gap-10 text-lg">
-            <div className="lg:col-span-2 mb-10">
+            <div className="lg:col-span-2 mb-10 prose lg:prose-xl max-w-none">
               <RichText htmlString={content} />
             </div>
           </div>

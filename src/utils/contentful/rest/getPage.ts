@@ -6,7 +6,6 @@ export async function getPage(path?: string) {
       content_type: 'Page',
       slug: path
     })
-    console.log("PAGE DATA", entry)
     return entry
   } catch (e) {
     console.error(e)

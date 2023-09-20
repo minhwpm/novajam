@@ -37,7 +37,7 @@ export default async function getCardList(id: string) {
                   title
                   slug
                   summary
-                  categoriesCollection {
+                  categoryCollection {
                     items {
                       title
                       slug
