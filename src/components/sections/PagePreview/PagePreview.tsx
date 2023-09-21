@@ -5,7 +5,7 @@ import Link from "next/link"
 const PagePreview = ({data}: {data: PageType}) => {
   const { title, url, metaTitle, metaImage } = data
   return (
-    <div className="basis-[80%] md:basis-[40%] lg:basis-[28%] shrink-0 grow">
+    <div>
       <Link href={url} className="group flex flex-col">
         <div className="aspect-4/3 overflow-hidden">
           <Image 

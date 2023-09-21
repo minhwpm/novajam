@@ -11,7 +11,7 @@ interface Props {
   orientation?: "vertical" | "horizontal"
 }
 
-const ThumbnailImage: React.FC<{
+const BlogThumbnail: React.FC<{
   media: ImageType
   title: string
   aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
@@ -35,38 +35,29 @@ const ThumbnailImage: React.FC<{
   )
 }
 
-const Horizontal: React.FC<Props> = ({
-  data,
-  aspectRatio = "square"
-}) => {
-  const { title, summary, slug, media, topics } = data
-  const pathname = usePathname() //@TODO refactor this
+const BlogText: React.FC<{
+  title: string
+  summary?: string
+  topics?: Array<string>
+}> = ({topics, title, summary}) => {
   return (
-    <Link href={`${pathname}/blog/${slug}`}>
-      <div className="w-full grid grid-cols-12 gap-5">
-        <div className="col-span-4">
-          <ThumbnailImage media={media} title={title} aspectRatio={aspectRatio} />
-        </div>
-        <div className="col-span-8">
-          <div className="text-xs uppercase tracking-widest flex flex-wrap gap-3">
-            {topics && topics.length > 0 && topics.map((topic, idx) => (
-              <div key={idx}>{topic}</div>
-            ))}
-          </div>
-          <h4 className="text-lg lg:text-xl font-semibold mt-1">
-            {title}
-          </h4>
-          {summary && 
-            <p className="text-slate-700 mt-2 line-clamp-2">
-              {summary}
-            </p>
-          }
-        </div>
+    <>
+      <div className="text-xs uppercase tracking-widest flex flex-wrap gap-3">
+        {topics && topics.length > 0 && topics.map((topic, idx) => (
+          <div key={idx}>{topic}</div>
+        ))}
       </div>
-    </Link>
+      <h4 className="text-lg lg:text-xl font-semibold mt-1">
+        {title}
+      </h4>
+      {summary && 
+        <p className="text-slate-700 mt-2 line-clamp-2">
+          {summary}
+        </p>
+      }
+    </>
   )
 }
-
 
 const BlogPreview: React.FC<Props> = ({
   data,
@@ -77,33 +68,32 @@ const BlogPreview: React.FC<Props> = ({
   const pathname = usePathname()
   if (orientation === "vertical") {
     return (
-      <div className={classNames(
-        "basis-[80%] md:basis-[40%] lg:basis-[28%] shrink-0 grow",
-      )}>
+      <div>
         <Link href={`${pathname}/blog/${slug}`}>
-          <ThumbnailImage media={media} title={title} aspectRatio={aspectRatio} />
+          <BlogThumbnail media={media} title={title} aspectRatio={aspectRatio} />
           <div className={classNames(
             "w-full py-5",
           )}>
-            <div className="text-xs uppercase tracking-widest flex flex-wrap gap-3">
-              {topics && topics.length > 0 && topics.map((topic, idx) => (
-                <div key={idx}>{topic}</div>
-              ))}
-            </div>
-            <h4 className="text-lg lg:text-xl font-semibold mt-1">
-              {title}
-            </h4>
-            {summary && 
-              <p className="text-slate-700 mt-2 line-clamp-2">
-                {summary}
-              </p>
-            }
+            <BlogText title={title} summary={summary} topics={topics}/>
           </div>
         </Link>
       </div>
     )
   }
-  return <Horizontal data={data} aspectRatio={aspectRatio} />
+  return (
+    <div>
+      <Link href={`${pathname}/blog/${slug}`}>
+        <div className="w-full grid grid-cols-12 gap-5">
+          <div className="col-span-4">
+            <BlogThumbnail media={media} title={title} aspectRatio={aspectRatio} />
+          </div>
+          <div className="col-span-8">
+            <BlogText title={title} summary={summary} topics={topics}/>
+          </div>
+        </div>
+      </Link>
+    </div>
+  )
 }
 
 export default BlogPreview

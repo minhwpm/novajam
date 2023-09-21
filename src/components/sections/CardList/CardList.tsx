@@ -4,7 +4,7 @@ import Section from "@/components/elements/Section/Section"
 import BlogPreview from "@/components/elements/BlogPreview/BlogPreview"
 import classNames from "classnames"
 import ProductPreview from "@/components/elements/ProductPreview/ProductPreview"
-import FeatureCard from "@/components/elements/FeatureCard/FeatureCard"
+import FeaturePreview from "@/components/elements/FeaturePreview/FeaturePreview"
 import { BlogType, CardType, FeatureType, ProductType } from "@/utils/types"
 import PagePreview from "../PagePreview/PagePreview"
 
@@ -39,14 +39,14 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
         {"justify-center": content.length < 3}
       )}>
         {content.map((card) => (
-          <>
+          <div key={card.id} className={classNames("basis-[80%] md:basis-[40%] lg:basis-[28%] shrink-0 grow")}>
             {
               card.contentType === "product" &&
               <ProductPreview key={card.id} data={card as ProductType} />
             }
             {
               card.contentType === "feature" &&
-              <FeatureCard key={card.id} data={card as FeatureType} />
+              <FeaturePreview key={card.id} data={card as FeatureType} />
             }
             {
               card.contentType === "blog" &&
@@ -57,7 +57,7 @@ const CardList: React.FC<CardListProps> = ({ data, variant = "standard" }) => {
               <PagePreview key={card.id} data={card} />
             }
             {/* @TODO render Service Card */}
-          </>
+          </div>
         ))}
       </div>
     </Section>

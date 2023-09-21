@@ -8,14 +8,12 @@ interface Props {
   data: FeatureType
 }
 
-const FeatureCard: React.FC<Props> = ({
+const FeaturePreview: React.FC<Props> = ({
   data,
 }) => {
   const { contentType, title, summary, content, media, buttons } = data
   return (
-    <div className={classNames(
-      "w-full md:w-1/2 lg:w-1/3 basis-[80%] md:basis-[40%] lg:basis-[30%] px-4 flex flex-col shrink-0 grow",
-    )}>
+    <div>
       {media?.url && (
         <Image 
           className={classNames(
@@ -58,4 +56,4 @@ const FeatureCard: React.FC<Props> = ({
   )
 }
 
-export default FeatureCard
+export default FeaturePreview

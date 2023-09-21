@@ -17,7 +17,7 @@ interface SubscriptionProps {
 const Subscription: React.FC<SubscriptionProps> = ({data}) => {
   const { title, subtitle, emailPlaceholder, buttonText, backgroundImage } = data
   return (
-    <Section framed={false}>
+    <Section>
       <div
         className={classNames(
           "relative w-full bg-cover bg-center px-4",

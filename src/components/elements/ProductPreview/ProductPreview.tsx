@@ -14,22 +14,21 @@ const ProductCard: React.FC<Props> = ({ data }) => {
   const { title, slug, price, media } = data
   const pathname = usePathname()
   return (
-    <div className={classNames(
-      "basis-[80%] md:basis-[35%] lg:basis-[25%] shrink-0 grow",
-    )}>
+    <div>
       <Link href={`${pathname === "/" ? "" : pathname}/product/${slug}`}>
-        <Image 
-          className={classNames(
-            "aspect-9/8",
-            "object-contain",
-            "w-full",
-            "bg-slate-50"
-          )}
-          src={media[0]?.url ?? "/bluebiz_square.webp"}
-          width={500} 
-          height={500} 
-          alt={media[0]?.title ?? title}
-        />
+        <div className="aspect-9/8">
+          <Image 
+            className={classNames(
+              "w-full",
+              "h-full",
+              "object-cover",
+            )}
+            src={media[0]?.url ?? "/bluebiz_square.webp"}
+            width={500} 
+            height={500} 
+            alt={media[0]?.title ?? title}
+          />
+        </div>
         <div className={classNames(
           "w-full py-5",
         )}>
@@ -44,7 +43,6 @@ const ProductCard: React.FC<Props> = ({ data }) => {
           <h5 className="mb-2 lg:text-lg">
             {title}
           </h5>
-          
         </div>
       </Link>
     </div>
