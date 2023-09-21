@@ -20,7 +20,7 @@ function standardizeData(data: (BlogType | ProductType | PageType)) {
     case "page":
       return {
         title: data.title,
-        url: data.slug,
+        url: data.url,
         media: data.metaImage ?? {}
       }
   }

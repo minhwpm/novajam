@@ -1,6 +1,6 @@
 import normalizeDataCollection from "./normalizeDataCollection"
 
-export default async function getBlogs(limit: number, skip: number) {
+export default async function getBlogs(limit: number, skip: number, featured?: boolean) {
   const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {
@@ -10,16 +10,20 @@ export default async function getBlogs(limit: number, skip: number) {
     },
     // send the GraphQL query
     body: JSON.stringify({ query: `
-      query($limit: Number, $skip: Number) {
+      query($limit: Int, $skip: Int, $featured: Boolean) {
         blogCollection(
           limit: $limit,
-          skip: $skip
+          skip: $skip,
+          where: { 
+            featured: $featured
+          }
         ) {
           items {
             sys {
               id
             }
             title
+            featured
             slug
             media {
               title
@@ -28,35 +32,21 @@ export default async function getBlogs(limit: number, skip: number) {
               height
             }
             summary
-            categoryCollection {
-              items {
-                title
-                slug
-              }
-            }
             topics
             author {
               sys {
                 id
               }
               fullName
-              portrait {
-                url
-                title
-                width
-                height
-              }
-              role
             }
-            metaTitle
-            metaDescription
           }
         }
       }
     `, 
       variables: {
         limit,
-        skip
+        skip,
+        featured
       },
     }),
   })
@@ -66,8 +56,9 @@ export default async function getBlogs(limit: number, skip: number) {
     console.error(data)
     throw new Error("Failed to fetch Blog List data. Error", data.error)
   }
+
   const normalizedData = normalizeDataCollection({...data.data})
 
-  console.log(`BLOG LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
-  return normalizedData[0]
+  console.log(`BLOG LIST DATA: ${JSON.stringify(normalizedData, null, 4)}`)
+  return normalizedData
 }

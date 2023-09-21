@@ -2,7 +2,7 @@ export type Params = {
   slug: Array<string>
 }
 
-type ImageType = {
+export type ImageType = {
   url: string
   title: string
   width: number
@@ -105,11 +105,11 @@ export type BlogType = {
   id: string
   title: string
   slug: string
+  featured: boolean
   summary?: string
   content: string
   topics?: Array<string>
   media: {
-    contentType: string
     url: string
     title: string
     width: number
