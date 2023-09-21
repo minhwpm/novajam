@@ -22,7 +22,6 @@ const Content = ({ data, mediaAspectRatio }: Props) => {
   const { label, title, subtitle, content, media } = data
   return (
     <Section
-      framed={false}
       // style={{ background: "linear-gradient('0deg, #EEF2FF 50%, #fff 50%')" }}
     >
       {media?.src && (
