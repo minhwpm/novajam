@@ -15,11 +15,11 @@ export default async function Page() {
             <h2 className="text-3xl font-semibold mb-4">
               FEATURED
             </h2>
-            <div className="grid grid-cols-12 gap-10">
+            <div className="grid lg:grid-cols-12 gap-10">
               <div className="lg:col-span-7">
                 <BlogPreview data={featuredBlogs[0]} />
               </div>
-              <div className="lg:col-span-5 grid">
+              <div className="lg:col-span-5 grid gap-8">
                 {featuredBlogs.slice(1, 4).map(item => (
                   <BlogPreview key={item.id} data={item} orientation="horizontal" aspectRatio="4/3" />
                 ))}
@@ -32,7 +32,7 @@ export default async function Page() {
             <h2 className="text-3xl font-semibold mb-4">
               LATEST ARTICLES
             </h2>
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {latestBlogs.map(item => (
                 <BlogPreview key={item.id} data={item} aspectRatio="4/3" />
               ))}
