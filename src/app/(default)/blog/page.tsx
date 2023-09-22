@@ -10,10 +10,10 @@ export default async function Page() {
     console.log()
     return (
       <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
-        <section>
+        <section className="mt-14">
           <Container>
-            <h2 className="text-3xl font-semibold mb-4">
-              FEATURED
+            <h2 className="text-2xl font-semibold text-slate-600 mb-4">
+              Featured
             </h2>
             <div className="grid lg:grid-cols-12 gap-10">
               <div className="lg:col-span-7">
@@ -29,8 +29,8 @@ export default async function Page() {
         </section>
         <section>
           <Container>
-            <h2 className="text-3xl font-semibold mb-4">
-              LATEST ARTICLES
+            <h2 className="text-2xl font-semibold text-slate-600 mb-4">
+              Latest articles
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {latestBlogs.map(item => (

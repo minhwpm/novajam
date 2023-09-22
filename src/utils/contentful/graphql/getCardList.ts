@@ -27,6 +27,7 @@ export default async function getCardList(id: string) {
               text
               newTab
             }
+            layout
             contentCollection (limit: 20) {
               items {
                 __typename

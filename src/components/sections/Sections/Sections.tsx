@@ -3,9 +3,9 @@ import CTAB from "@/components/sections/CTAB/CTAB"
 import HeroB from "@/components/sections/HeroB/HeroB"
 import ScrollingPT from "@/components/sections/ScrollingPT/ScrollingPT"
 import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
-import CardList from "@/components/sections/CardList/CardList"
+import CardList from "@/components/sections/ContentPreviewList/ContentPreviewList"
 import FeatureB from "@/components/sections/FeatureB/FeatureB"
-import { CTAType, CardListType, FeatureType, HeroType, PresentationType } from "@/utils/types"
+import { CTAType, ContentPreviewListType, FeatureType, HeroType, PresentationType } from "@/utils/types"
 import HeroC from '../HeroC/HeroC'
 import HeroD from '../HeroD/HeroD'
 import TabPT from '../TabPT/TabPT'
@@ -32,7 +32,7 @@ const sectionComponents = {
 // type ComponentType = typeof HeroB | typeof HeroC | typeof HeroD | typeof CTAB | typeof ScrollingPT | typeof AccordionPT | typeof CarouselPT | typeof TabPT | typeof Testimonials | typeof FeatureB | typeof CardList
 
 type SectionType = {
-  data: HeroType | CTAType | PresentationType | CardListType | FeatureType
+  data: HeroType | CTAType | PresentationType | ContentPreviewListType | FeatureType
 }
 const Section: React.FC<SectionType> = ({data}) => {
   // @TODO
@@ -42,7 +42,7 @@ const Section: React.FC<SectionType> = ({data}) => {
   return <Component data={data} />
 }
 
-const Sections: React.FC<{data: Array<HeroType | CTAType | PresentationType | CardListType | FeatureType>}> = ({ data }) => {
+const Sections: React.FC<{data: Array<HeroType | CTAType | PresentationType | ContentPreviewListType | FeatureType>}> = ({ data }) => {
   return (
     <main className="flex flex-col pb-32">
       {data.map(section => (
