@@ -97,9 +97,6 @@ const ContactForm = () => {
           Send message
         </Button>
       </div>
-      <p className="text-slate-500 text-sm mt-6">
-        By submitting this form, you confirm that you have read and understood our <Link className="underline" href="/privacy-policy">Privacy Policy</Link>.
-      </p>
     </form>
   )
 }
