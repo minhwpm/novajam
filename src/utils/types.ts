@@ -11,17 +11,6 @@ export type ImageType = {
 
 export type ButtonVariant = "standard" | "alternate" | "black" | "link-btn" | "outline" | "outline-black" | "outline-white"
 
-export interface ButtonProps {
-  children: React.ReactNode
-  url?: string
-  onClick?: () => void
-  variant?: ButtonVariant
-  size?: "base" | "lg"
-  fontWeight?: "normal" | "bold"
-  borderRadius?: "none" | "base" | "full"
-  type?: "submit" | "button" | "reset" | undefined
-}
-
 export interface LinkProps {
   id: string
   text: string
@@ -258,7 +247,7 @@ export type TestimonialsType = {
 export type InquiryFormType = {
   id: string
   title: string
-  subtitle?: string
+  subtitle: string
   type: string
   fields: Array<{
     id: string
@@ -266,10 +255,12 @@ export type InquiryFormType = {
     type: string
     options: Array<string>
     required: boolean
+    placeholder: string
   }>
   submitButton: {
     text: string
     url: string
+    buttonVariant: ButtonVariant
   }
   backgroundImage: {
     url: string

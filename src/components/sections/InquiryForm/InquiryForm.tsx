@@ -15,11 +15,12 @@ type FormValues = {
 export const InquiryForm: React.FC<Props> = ({ data }) => {
   const { title, subtitle, type, fields, submitButton, backgroundImage } = data
   const { register, handleSubmit, watch, formState: { errors } } = useForm<FormValues>();
-  console.log("HHHH", data)
 
   function onSubmit(data: FormValues) {
     console.log(data)
   }
+
+  console.log("FORM STATE", errors)
 
   return (
     <section
@@ -42,7 +43,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           </div>
           <div className="col-span-6">
             <form 
-              className="max-w-xl ml-auto grid md:grid-cols-2 gap-5 p-8 bg-white rounded" 
+              className="max-w-xl mx-auto lg:mr-0 grid md:grid-cols-2 gap-5 p-8 bg-white rounded" 
               onSubmit={handleSubmit(onSubmit)}
             >
               {fields.map(field => {
@@ -58,6 +59,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                           id={field.label}
                           className="block border rounded-sm w-full px-4 py-2 focus:outline-none focus:shadow-lg"
                           placeholder={field.placeholder ?? "Select an option"} 
+                          {...register(field.label, { required: field.required })}
                         >
                           {field.options.map(option => (
                             <option
@@ -68,6 +70,11 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                             </option>
                           ))}
                         </select>
+                        {errors[field.label] && 
+                          <p className="text-sm text-red-600">
+                            <span className="font-semibold">{field.label}</span> is required
+                          </p>
+                        }
                       </div>
                     )
                   case "textarea":
@@ -82,8 +89,13 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                           id={field.label}
                           placeholder="" //@TODO: add Placeholder to Form Field Content Type
                           rows={5}
-                          {...register(field.label)}
+                          {...register(field.label, { required: field.required })}
                         />
+                        {errors[field.label] && 
+                          <p className="text-sm text-red-600">
+                            <span className="font-semibold">{field.label}</span> is required
+                          </p>
+                        }
                       </div>
                     )
                   default:
@@ -99,13 +111,19 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                           key={field.id}
                           id={field.label}
                           type={field.type}
+                          {...register(field.label, { required: field.required })}
                         />
+                        {errors[field.label] && 
+                          <p className="text-sm text-red-600">
+                            <span className="font-semibold">{field.label}</span> is required
+                          </p>
+                        }
                       </div>
                     )
                 }
               })}
               <div className="col-span-2 mt-4 flex justify-center">
-                <Button variant={submitButton.buttonType} type="input">
+                <Button variant={submitButton.buttonVariant} type="submit">
                   {submitButton.text}
                 </Button>
               </div>

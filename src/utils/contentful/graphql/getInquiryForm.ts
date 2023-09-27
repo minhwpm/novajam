@@ -34,6 +34,7 @@ export default async function getInquiryForm(id: string) {
                 type
                 options
                 required
+                placeholder
               }
             }
             submitButton {

@@ -2,7 +2,18 @@ import React from "react"
 import Link from "next/link"
 import classNames from "classnames"
 import { Arrow } from "@/components/icons/Arrow"
-import { ButtonProps } from "@/utils/types"
+import { ButtonVariant } from "@/utils/types"
+
+interface ButtonProps {
+  children: React.ReactNode
+  url?: string
+  onClick?: () => void
+  variant?: ButtonVariant
+  size?: "base" | "lg"
+  fontWeight?: "normal" | "bold"
+  borderRadius?: "none" | "base" | "full"
+  type?: "submit" | "button" | "reset" | undefined
+}
 
 const Button: React.FC<ButtonProps> = (props) => {
   const { size = "base", variant = "standard", borderRadius = "base", url, children, onClick, type = "button" } = props
