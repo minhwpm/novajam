@@ -90,3 +90,9 @@ body {
 .font-heading {
   font-family: var(--font-heading);
 }
+
+h1 b {
+  color: var(--primary-color-500);
+  font-style: normal;
+  font-weight: unset;
+}

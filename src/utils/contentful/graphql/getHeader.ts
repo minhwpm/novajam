@@ -49,7 +49,7 @@ export default async function getHeader(url: string) {
                 text
                 url
                 newTab
-                buttonType
+                buttonVariant
               }
             }
           }

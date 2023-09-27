@@ -182,14 +182,21 @@ export type FeatureType = {
 
 export type HeroType = {
   id: string
-  label?: string
+  label: string
   title: string
-  slidingTexts?: Array<string>
-  subtitle?: string
-  buttons?: Array<{
+  heading: string
+  content: string
+  buttons: Array<{
     text: string
     url?: string
     type: ButtonVariant
+  }>
+  media: Array<{
+    url: string
+    title: string
+    width: number
+    height: number
+    contentType: string
   }>
   contentType: "hero"
 }

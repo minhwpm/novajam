@@ -43,8 +43,6 @@ export default async function getPage(url: string) {
                     id
                   }
                   title
-                  spotlightTexts
-                  label
                   layout
                 }
                 ... on Presentation {

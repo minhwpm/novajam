@@ -6,33 +6,18 @@ Single Media (Video or Image) Hero section
 import Image from "next/image"
 import classNames from "classnames";
 import Button from "@/components/elements/Button/Button";
-import { ButtonVariant } from "@/utils/types";
+import { HeroType } from "@/utils/types";
 import RichText from "@/components/elements/RichText/RichText";
 
 interface Props {
-  data: {
-    label?: string
-    title: string
-    subtitle?: string
-    content?: string
-    buttons?: Array<{
-      text: string
-      url?: string
-      type: ButtonVariant
-    }>
-    media: Array<{
-      contentType: string
-      url: string
-      title: string
-    }>
-  }
+  data: HeroType
   aspectRatio?: "video" | "5/2"
   textAlignment?: "center" | "left"
   textDarkBackground?: boolean
 }
 
 const HeroC = ( { data, aspectRatio = "video", textAlignment = "center", textDarkBackground}: Props ) => {
-  const { label, title, subtitle, content, buttons, media } = data
+  const { label, heading, content, buttons, media } = data
   return (
     <section className={classNames("relative lg:min-h-screen")}>
       {media.map(item => (
@@ -60,7 +45,6 @@ const HeroC = ( { data, aspectRatio = "video", textAlignment = "center", textDar
           )}
         </div>
       ))}
-
       
       <div className={classNames("absolute text-white px-8 py-12 drop-shadow-lg",
         { "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full lg:w-2/3": textAlignment === "center" },
@@ -71,13 +55,8 @@ const HeroC = ( { data, aspectRatio = "video", textAlignment = "center", textDar
           {label}
         </p>
         <h1 className="text-4xl lg:text-6xl lg:leading-snug font-bold">
-          {title}
+          <RichText htmlString={heading} />
         </h1>
-        { subtitle && (
-          <p className="block text-lg lg:text-2xl font-semibold mt-5">
-            {subtitle}
-          </p>
-        )}
         { content && (
           <div className="block text-lg lg:text-2xl font-semibold mt-5">
             <RichText htmlString={content} />

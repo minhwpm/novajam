@@ -3,39 +3,20 @@ Created by minhwpm (minhhien134@gmail.com)
 Feature Row (Text | Media) Hero section
  */
 'use client';
-import SlidingText from "@/components/elements/SlidingText/SlidingText"
 import Button from "@/components/elements/Button/Button";
 import classNames from "classnames";
 import { useState } from "react";
 import { useInView } from "react-hook-inview";
 import Image from 'next/image';
-import { ButtonVariant } from "@/utils/types";
+import { HeroType } from "@/utils/types";
 import RichText from "@/components/elements/RichText/RichText";
 
 interface Props {
-  data: {
-    id: string
-    label?: string
-    title: string
-    spotlightTexts?: Array<string>
-    content?: string
-    buttons: Array<
-      {
-        text: string
-        type: ButtonVariant
-        url?: string
-      }
-    >
-    media: Array<{
-      contentType: string
-      url: string
-      title: string
-    }>
-  }
+  data: HeroType
 }
 
 const HeroB: React.FC<Props> = ({ data }) => {
-  const { label, title, spotlightTexts, content, buttons, media } = data;
+  const { label, title, heading, content, buttons, media } = data;
   const [animated, setAnimated] = useState(false);
   const [ref, isVisible] = useInView({
     threshold: 0.3,
@@ -56,9 +37,9 @@ const HeroB: React.FC<Props> = ({ data }) => {
   return (
     <section
       ref={ref}
-      className="px-4 lg:px-32 flex flex-col-reverse lg:flex-row gap-5 items-center lg:min-h-screen"
+      className="px-4 xl:px-32 flex flex-col gap-16 xl:flex-row items-center xl:min-h-screen"
     >
-      <div className="lg:w-5/12">
+      <div className="flex flex-col items-center xl:items-start xl:w-6/12 xl:pr-16">
         <div
           className={classNames(
             "uppercase font-semibold text-primary-600 tracking-widest",
@@ -69,15 +50,14 @@ const HeroB: React.FC<Props> = ({ data }) => {
         </div>
         <h1
           className={classNames(
-            "font-heading text-4xl leading-snug md:text-5xl md:leading-snug font-bold mt-2",
+            "font-heading text-4xl max-w-4xl text-center xl:text-left leading-snug md:text-5xl md:leading-snug font-bold mt-2",
             animationClasses
           )}
         >
-          {title}
-          {spotlightTexts && <SlidingText content={spotlightTexts}/>}
+          <RichText htmlString={heading} />
         </h1>
         {content && 
-          <div className={classNames("mt-6 md:text-lg", animationClasses)}>
+          <div className={classNames("mt-6 prose xl:prose-xl", animationClasses)}>
             <RichText htmlString={content} />
           </div>
         }
@@ -89,7 +69,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
           ))}
         </div>
       </div>
-      <div className="lg:w-7/12">
+      <div className="xl:w-6/12">
         {media?.map(item => (
           <div key={item.url}>
             {item?.contentType.includes("image") && (

@@ -19,6 +19,10 @@ export default async function getHero(id: string) {
           } 
         ) {
           items {
+            heading {
+              json
+            }
+            label
             content {
               json
             }
