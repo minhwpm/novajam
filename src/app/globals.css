@@ -91,6 +91,7 @@ body {
   font-family: var(--font-heading);
 }
 
+/* @TODO: Heading highlighted words - Refactor needed */
 h1 b {
   color: var(--primary-color-500);
   font-style: normal;

@@ -1,6 +1,6 @@
 /* 
 Created by minhwpm (minhhien134@gmail.com)
-Feature Row (Text | Media) Hero section
+Layout: Row (Text | Media) Hero section
  */
 'use client';
 import Button from "@/components/elements/Button/Button";
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const HeroB: React.FC<Props> = ({ data }) => {
-  const { label, title, heading, content, buttons, media } = data;
+  const { label, heading, content, buttons, media } = data;
   const [animated, setAnimated] = useState(false);
   const [ref, isVisible] = useInView({
     threshold: 0.3,
@@ -37,7 +37,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
   return (
     <section
       ref={ref}
-      className="px-4 xl:px-32 flex flex-col gap-16 xl:flex-row items-center xl:min-h-screen"
+      className="px-4 xl:px-32 flex flex-col gap-16 xl:flex-row xl:gap-0 items-center xl:min-h-screen"
     >
       <div className="flex flex-col items-center xl:items-start xl:w-6/12 xl:pr-16">
         <div
@@ -61,7 +61,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
             <RichText htmlString={content} />
           </div>
         }
-        <div className={classNames("flex flex-row flex-wrap gap-6 mt-10", animationClasses)}>
+        <div className={classNames("flex flex-row flex-wrap gap-6 mt-4", animationClasses)}>
           {buttons && buttons.length > 0 && buttons.map(button => (
             <Button key={button.text} variant={button.type} size="lg" url={button.url}>
               {button.text}
