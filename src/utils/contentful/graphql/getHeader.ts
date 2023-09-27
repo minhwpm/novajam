@@ -1,7 +1,7 @@
 import getSubmenu from "./getSubmenu"
 import normalizeDataCollection from "./normalizeDataCollection"
 
-export default async function getHeader(path: string) {
+export default async function getHeader(url: string) {
   const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {
@@ -11,18 +11,19 @@ export default async function getHeader(path: string) {
     },
     // send the GraphQL query
     body: JSON.stringify({ query: `
-      query($path: String) {
+      query($url: String) {
         headerCollection(
           where: { 
-            path: $path
+            url: $url
           } 
         ) {
           items {
-            path
+            url
             logo {
               url
               title
             }
+            logoRedirect
             menuCollection {
               items {
                 __typename
@@ -56,7 +57,7 @@ export default async function getHeader(path: string) {
       }
     `,
       variables: {
-        path,
+        url,
       },
    }),
   })

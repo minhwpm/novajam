@@ -51,31 +51,49 @@ export interface NavMenuProps {
   navAlignment?: "center" | "left" | "right"
 }
 
-export interface HeaderProps {
-  data: {
-    logo: {
+export interface HeaderType {
+  url: string
+  logo: {
+    url: string
+    title?: string
+  },
+  logoRedirect?: string
+  menu: Array<LinkProps | SubmenuProps>
+  isLoginEnabled?: boolean
+  isShoppingEnabled?: boolean
+  searchBox?: {
+    enabled: boolean
+    placeholder: string
+  } 
+  buttons?: Array<{
+    text: string
+    url: string
+    type: ButtonVariant
+  }>
+}
+
+export interface FooterType {
+  url: string
+  logo: {
+    url: string
+    title: string
+  }
+  logoRedirect?: string
+  copyright?: string
+  sns?: Array<{
+    url: string
+    icon: {
       url: string
-      title?: string
-    },
-    menu: Array<LinkProps | SubmenuProps>
-    isLoginEnabled?: boolean
-    isShoppingEnabled?: boolean
-    searchBox?: {
-      enabled: boolean
-      placeholder: string
-    } 
-    buttons?: Array<{
+      altText: string
+    }
+  }>
+  menu: Array<{
+    title?:  string
+    links: Array<{
       text: string
       url: string
-      type: ButtonVariant
     }>
-  }
-  variant?: "standard" | "alternate"
-  // @TODO following 4 properties
-  stickyType?: 'none' | 'scroll-up' | 'scroll-down'
-  logoAlignment?: 'center' | 'left'
-  navAlignment?: 'center' | 'left' | 'right' // this property is for XL screens
-  backgroundColor?: 'white' | 'transparent'
+  }>
 }
 
 export type SEOType = {
@@ -235,4 +253,28 @@ export type TestimonialsType = {
     witnessOrganization?: string
     witnessPortrait: ImageType
   }>
+}
+
+export type InquiryFormType = {
+  id: string
+  title: string
+  subtitle?: string
+  type: string
+  fields: Array<{
+    id: string
+    label: string
+    type: string
+    options: Array<string>
+    required: boolean
+  }>
+  submitButton: {
+    text: string
+    url: string
+  }
+  backgroundImage: {
+    url: string
+    title: string
+    width: number
+    height: number
+  }
 }

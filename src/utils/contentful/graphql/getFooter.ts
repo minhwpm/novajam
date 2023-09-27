@@ -1,6 +1,6 @@
 import normalizeDataCollection from "./normalizeDataCollection"
 
-export default async function getFooter(path: string) {
+export default async function getFooter(url: string) {
   const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {
@@ -10,17 +10,19 @@ export default async function getFooter(path: string) {
     },
     // send the GraphQL query
     body: JSON.stringify({ query: `
-      query($path: String) {
+      query($url: String) {
         footerCollection(
           where: { 
-            path: $path
+            url: $url
           } 
         ) {
           items {
+            url
             logo {
               url
               title
             }
+            logoRedirect
             copyright
             menuCollection (limit: 5) {
               items {
@@ -42,7 +44,7 @@ export default async function getFooter(path: string) {
       }
     `,
       variables: {
-        path,
+        url,
       },
     }),
   })

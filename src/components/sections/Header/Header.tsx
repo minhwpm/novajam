@@ -6,10 +6,20 @@ import useStickyHeaderOnScrollUp from "@/utils/hooks/useStickyHeaderOnScrollUp"
 import classNames from "classnames"
 import NavMenu from "@/components/elements/NavMenu/NavMenu"
 import NavMenuMobile from "@/components/elements/NavMenu/NavMenuMobile"
-import { HeaderProps } from "@/utils/types"
+import { HeaderType } from "@/utils/types"
 
-const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant = "standard" }) => {
-  const { logo, menu, buttons, isLoginEnabled } = data
+interface Props {
+  data: HeaderType
+  variant?: "standard" | "alternate"
+  // @TODO following 4 properties
+  stickyType?: 'none' | 'scroll-up' | 'scroll-down'
+  logoAlignment?: 'center' | 'left'
+  navAlignment?: 'center' | 'left' | 'right' // this property is for XL screens
+  backgroundColor?: 'white' | 'transparent'
+}
+
+const Header: React.FC<Props> = ({ data, navAlignment = 'right', variant = "standard" }) => {
+  const { logo, logoRedirect, menu, buttons, isLoginEnabled } = data
   const sticky = useStickyHeaderOnScrollUp()
 
   return (
@@ -22,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({ data, navAlignment = 'right', variant =
     )}>
       <div className="container p-4 mx-auto flex items-center">
         <div className="shrink-0">
-          <Link href="/">
+          <Link href={logoRedirect ?? "/"}>
             <Image
               className="w-40 h-14 object-contain"
               src={logo.url}

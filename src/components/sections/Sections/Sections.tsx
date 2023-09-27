@@ -5,11 +5,12 @@ import ScrollingPT from "@/components/sections/ScrollingPT/ScrollingPT"
 import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
 import CardList from "@/components/sections/ContentPreviewList/ContentPreviewList"
 import FeatureB from "@/components/sections/FeatureB/FeatureB"
-import { CTAType, ContentPreviewListType, FeatureType, HeroType, PresentationType } from "@/utils/types"
+import { CTAType, ContentPreviewListType, FeatureType, HeroType, InquiryFormType, PresentationType } from "@/utils/types"
 import HeroC from '../HeroC/HeroC'
 import HeroD from '../HeroD/HeroD'
 import TabPT from '../TabPT/TabPT'
 import CarouselPT from '../CarouselPT/CarouselPT'
+import { InquiryForm } from '../InquiryForm/InquiryForm'
 
 const sectionComponents = {
   hero: {
@@ -27,12 +28,13 @@ const sectionComponents = {
   testimonials: Testimonials,
   feature: FeatureB,
   cardlist: CardList,
+  inquiryform: InquiryForm,
 }
 
 // type ComponentType = typeof HeroB | typeof HeroC | typeof HeroD | typeof CTAB | typeof ScrollingPT | typeof AccordionPT | typeof CarouselPT | typeof TabPT | typeof Testimonials | typeof FeatureB | typeof CardList
 
 type SectionType = {
-  data: HeroType | CTAType | PresentationType | ContentPreviewListType | FeatureType
+  data: HeroType | CTAType | PresentationType | ContentPreviewListType | FeatureType | InquiryFormType
 }
 const Section: React.FC<SectionType> = ({data}) => {
   // @TODO

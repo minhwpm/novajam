@@ -2,6 +2,7 @@ import getCTA from "./getCTA"
 import getCardList from "./getCardList"
 import getFeature from "./getFeature"
 import getHero from "./getHero"
+import getInquiryForm from "./getInquiryForm"
 import getPresentation from "./getPresentation"
 import getTestimonials from "./getTestimonials"
 import normalizeDataCollection from "./normalizeDataCollection"
@@ -81,6 +82,12 @@ export default async function getPage(url: string) {
                   }
                   title
                 }
+                ... on InquiryForm  {
+                  sys {
+                    id
+                  }
+                  title
+                }
               }
             }
           }
@@ -118,6 +125,9 @@ export default async function getPage(url: string) {
     if (contentType === "cardlist") {
       return await getCardList(id)
     }
+    if (contentType === "inquiryform") {
+      return await getInquiryForm(id)
+    }
   }
   for(let i = 0; i < normalizedData[0]?.content.length; i++) {
     normalizedData[0].content[i] = {
@@ -125,6 +135,6 @@ export default async function getPage(url: string) {
       ... await getSectionData(normalizedData[0].content[i].contentType, normalizedData[0].content[i].id)
     }
   }
-  // console.log(`PAGE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  console.log(`PAGE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }
