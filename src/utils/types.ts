@@ -161,14 +161,15 @@ export type ProductType = {
 export type FeatureType = {
   id: string
   title: string
-  label?: string
-  summary?: string
-  content?: string
-  media?: {
+  heading: string
+  label: string
+  content: string
+  media: {
     url: string
-    title?: string
+    title: string
     width: number
     height: number
+    contentType: string
   }
   url?: string
   buttons?: Array<{
@@ -177,6 +178,7 @@ export type FeatureType = {
     text: string
     type: ButtonVariant
   }>
+  layout: string
   contentType: "feature"
 }
 
@@ -220,7 +222,21 @@ export type PresentationType = {
   content: Array<FeatureType>
 }
 
-export type ContentPreviewType = BlogType | FeatureType | ProductType | PageType
+export type LinkType = {
+  id: string
+  text: string
+  image: {
+    url: string
+    title: string
+    width: number
+    height: number
+  }
+  url: string
+  newTab: boolean
+  contentType: "link"
+}
+
+export type ContentPreviewType = BlogType | FeatureType | ProductType | PageType | LinkType
 
 export type ContentPreviewListType = {
   id: string

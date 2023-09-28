@@ -117,6 +117,20 @@ export default async function getCardList(id: string) {
                     height
                   }
                 }
+                ... on Link {
+                  sys {
+                    id
+                  }
+                  text
+                  image {
+                    url
+                    title
+                    width
+                    height
+                  }
+                  url
+                  newTab
+                }
               }
             }
           }
@@ -136,5 +150,4 @@ export default async function getCardList(id: string) {
   const normalizedData = normalizeDataCollection({...data.data})
   // console.log(`CARD LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
-
 }

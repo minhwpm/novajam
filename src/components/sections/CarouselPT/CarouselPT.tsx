@@ -50,7 +50,7 @@ const CarouselPT: React.FC<CarouselPTProps> = ({ data }) => {
               <h3 className="text-3xl lg:text-4xl leading-snug lg:leading-snug font-bold max-w-4xl mb-5">
                 {section.title}
               </h3>
-              <div className="text-slate-700 text-lg block mb-3">
+              <div className="text-slate-700 text-lg block mb-3 prose lg:prose-lg">
                 <RichText htmlString={section.content} />
               </div>
               {section.button &&

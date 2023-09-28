@@ -38,7 +38,7 @@ const FeaturePreview: React.FC<Props> = ({
           </p>
         }
         {contentType === "feature" && content && 
-          <div className="text-slate-700 lg:text-lg mt-2">
+          <div className="text-slate-700 lg:text-lg mt-2 prose lg:prose-lg">
             <RichText htmlString={content} />
           </div>
         }

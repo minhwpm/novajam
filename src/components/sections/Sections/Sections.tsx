@@ -3,7 +3,7 @@ import CTAB from "@/components/sections/CTAB/CTAB"
 import HeroB from "@/components/sections/HeroB/HeroB"
 import ScrollingPT from "@/components/sections/ScrollingPT/ScrollingPT"
 import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
-import CardList from "@/components/sections/ContentPreviewList/ContentPreviewList"
+import CardList from "@/components/sections/CardList/CardList"
 import FeatureB from "@/components/sections/FeatureB/FeatureB"
 import { CTAType, ContentPreviewListType, FeatureType, HeroType, InquiryFormType, PresentationType } from "@/utils/types"
 import HeroC from '../HeroC/HeroC'

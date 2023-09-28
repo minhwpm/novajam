@@ -7,6 +7,8 @@ import ProductPreview from "@/components/elements/ProductPreview/ProductPreview"
 import FeaturePreview from "@/components/elements/FeaturePreview/FeaturePreview"
 import { ContentPreviewListType, ContentPreviewType } from "@/utils/types"
 import PagePreview from "../PagePreview/PagePreview"
+import Link from "next/link"
+import Image from "next/image"
 
 interface Props {
   data: ContentPreviewListType
@@ -22,7 +24,20 @@ const ContentItem: React.FC<{data: ContentPreviewType}> = ({data}) => {
       return <BlogPreview data={data} />
     case "page":
       return <PagePreview data={data} />
-    {/* @TODO render Service Card */}
+    case "link":
+      return (
+        <Link href={data.url}>
+          { data.image.url ? (
+            <Image
+              src={data.image.url}
+              alt={data.text}
+              width={data.image.width}
+              height={data.image.height}
+            />
+          ) : data.text }
+        </Link>
+      )
+    {/* @TODO render Expert, Service Card */}
   }
 }
 

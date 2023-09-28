@@ -68,7 +68,7 @@ export default async function getSubmenu(id: string) {
                 }
                 ... on Page {
                   title
-                  slug
+                  url
                 }
               }
             }
@@ -97,6 +97,6 @@ export default async function getSubmenu(id: string) {
       }
     }
   }
-  // console.log(`SUBMENU DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  console.log(`SUBMENU DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

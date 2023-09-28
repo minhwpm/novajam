@@ -19,6 +19,9 @@ export default async function getFeature(id: string) {
           } 
         ) {
           items {
+            heading {
+              json
+            }
             content {
               json
             }
@@ -31,8 +34,11 @@ export default async function getFeature(id: string) {
             media {
               url
               title
+              width
+              height
               contentType
             }
+            layout
           }
         }
       }
