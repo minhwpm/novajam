@@ -41,7 +41,7 @@ const FeatureB: React.FC<FeatureProps> = ({ data }) => {
           "flex-1 pt-5 pb-20 md:p-8 lg:px-16 lg:py-12 flex flex-col",
         )}>
           {label && (
-            <p className={classNames("uppercase tracking-widest mb-5",
+            <p className={classNames("uppercase tracking-widest mb-5 text-secondary-500 font-semibold",
               { "text-center": layout === "Column [ Text | Image ]" || layout === "Column [ Image | Text ]"}
             )}>
               {label}

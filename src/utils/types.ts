@@ -100,7 +100,7 @@ export type PageType = {
   id: string
   title: string
   url: string
-  content: HeroType | CTAType | PresentationType | ContentPreviewListType | FeatureType
+  content: HeroType | CTAType | PresentationType | CardListType | FeatureType
   metaTitle: string
   metaDescription: string
   metaKeywords?: Array<string>
@@ -236,19 +236,19 @@ export type LinkType = {
   contentType: "link"
 }
 
-export type ContentPreviewType = BlogType | FeatureType | ProductType | PageType | LinkType
+export type CardType = BlogType | FeatureType | ProductType | PageType | LinkType
 
-export type ContentPreviewListType = {
+export type CardListType = {
   id: string
   title: string
   label?: string
   subtitle?: string
-  content: Array<ContentPreviewType>
+  content: Array<CardType>
   link: {
     url: string
     text: string
   }
-  layout?: "carousel" | "grid"
+  layout: "carousel" | "grid" | "carousel"
 }
 
 export type TestimonialsType = {

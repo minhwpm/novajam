@@ -27,7 +27,7 @@ const Section = ( { title, label, subtitle, children, className, id, background 
       className,
     )}>
       {label && (
-        <p className="uppercase tracking-widest text-primary-500 font-semibold">
+        <p className="uppercase tracking-widest text-secondary-500 font-semibold">
           {label}
         </p>
       )}

@@ -5,16 +5,17 @@ import BlogPreview from "@/components/elements/BlogPreview/BlogPreview"
 import classNames from "classnames"
 import ProductPreview from "@/components/elements/ProductPreview/ProductPreview"
 import FeaturePreview from "@/components/elements/FeaturePreview/FeaturePreview"
-import { ContentPreviewListType, ContentPreviewType } from "@/utils/types"
+import { CardListType, CardType } from "@/utils/types"
 import PagePreview from "../PagePreview/PagePreview"
 import Link from "next/link"
 import Image from "next/image"
+import Carousel from "@/components/elements/Carousel/Carousel"
 
 interface Props {
-  data: ContentPreviewListType
+  data: CardListType
 }
 
-const ContentItem: React.FC<{data: ContentPreviewType}> = ({data}) => {
+const ContentItem: React.FC<{data: CardType}> = ({data}) => {
   switch(data.contentType){
     case "product": 
       return <ProductPreview data={data} />
@@ -49,13 +50,14 @@ const CardList: React.FC<Props> = ({ data}) => {
       title={title}
       subtitle={subtitle}
     >
-      {layout === "grid" ? (
+      {layout === "grid" && (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {content.map((item) => (
             <ContentItem key={item.id} data={item} />
           ))}
         </div>
-      ) : (
+      )}
+      { layout === "flex" && (
         <div className={classNames(
           "w-full flex gap-6 lg:gap-8 py-5", 
           { "overflow-x-scroll" : content.length >= 3},
@@ -67,6 +69,17 @@ const CardList: React.FC<Props> = ({ data}) => {
             </div>
           ))}
         </div>
+      )}
+      {layout === "carousel" && (
+        <Carousel
+          slides={content.map((item) => (
+            <div key={item.id} className={classNames("mx-4")}>
+              <ContentItem data={item} />
+            </div>
+          ))}
+          freeMode={true}
+          slidesPerView={4}
+        />
       )}
     </Section>
   )
