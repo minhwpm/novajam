@@ -36,6 +36,17 @@ export default async function getHero(id: string) {
               items {
                 title
                 url
+                width
+                height
+                contentType
+              }
+            }
+            mediaForMobileCollection {
+              items {
+                title
+                url
+                width
+                height
                 contentType
               }
             }

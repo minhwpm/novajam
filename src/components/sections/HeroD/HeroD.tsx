@@ -21,11 +21,11 @@ const HeroD: React.FC<HeroDProps> = ({data}) => {
           enabled: true
         }}
         slides={media.map((item, idx) => (
-          <div key={idx}>
+          <div key={idx} className="w-full h-[90vh]">
             {/* <Link href={item.url}> */}
               <Image
                 className={classNames(
-                  "w-full object-cover aspect-3/4 md:aspect-video lg:aspect-5/2",
+                  "w-full h-full object-cover",
                 )}
                 src={item.url ?? ""}
                 alt={item.title}

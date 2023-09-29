@@ -200,6 +200,13 @@ export type HeroType = {
     height: number
     contentType: string
   }>
+  mediaForMobile: Array<{
+    url: string
+    title: string
+    width: number
+    height: number
+    contentType: string
+  }>
   contentType: "hero"
 }
 

@@ -1,6 +1,6 @@
 /* 
 Created by minhwpm (minhhien134@gmail.com) 
-Single Media (Video or Image) Hero section 
+Layout: Overlay
 */
 
 import Image from "next/image"
@@ -11,27 +11,50 @@ import RichText from "@/components/elements/RichText/RichText";
 
 interface Props {
   data: HeroType
-  aspectRatio?: "video" | "5/2"
   textAlignment?: "center" | "left"
   textDarkBackground?: boolean
 }
 
-const HeroC = ( { data, aspectRatio = "video", textAlignment = "center", textDarkBackground}: Props ) => {
-  const { label, heading, content, buttons, media } = data
+const HeroC = ( { data, textAlignment = "center", textDarkBackground}: Props ) => {
+  const { label, heading, content, buttons, media, mediaForMobile } = data
   return (
-    <section className={classNames("relative lg:min-h-screen")}>
-      {media.map(item => (
-        <div key={item.title}>
+    <section className={classNames("relative")}>
+      {mediaForMobile.length > 0 && mediaForMobile.map(item => (
+        <div key={item.title} className={classNames(
+          "w-full h-[70vh] lg:h-[90vh] lg:hidden",
+        )}>
           {item.contentType.includes("image") && (
             <Image
-              className={classNames("w-full object-cover brightness-75",
-                { "aspect-5/2": aspectRatio === "5/2" },
-                { "aspect-video": aspectRatio === "video" },
-              )} 
+              className={classNames("w-full h-full object-cover brightness-75")} 
               src={item.url}
               alt={item.title}
-              width={500}
-              height={400}
+              width={item.width}
+              height={item.height}
+              priority={true}
+            />
+          )}
+          {item.contentType.includes("video") && (
+            <video
+              className="w-full object-cover aspect-video"
+              src={item.url} autoPlay={true} loop
+            >
+              <track kind="captions" label={item.title} />
+            </video>
+          )}
+        </div>
+      ))}
+      {media.length > 0 && media.map(item => (
+        <div key={item.title} className={classNames(
+          "w-full h-[70vh] lg:h-[90vh]",
+          {"hidden lg:block" : mediaForMobile.length > 0}
+        )}>
+          {item.contentType.includes("image") && (
+            <Image
+              className={classNames("w-full h-full object-cover brightness-75")} 
+              src={item.url}
+              alt={item.title}
+              width={item.width}
+              height={item.height}
               priority={true}
             />
           )}
