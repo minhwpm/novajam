@@ -21,21 +21,25 @@ const FeatureB: React.FC<FeatureProps> = ({ data }) => {
         { "flex-col-reverse": layout === "Column [ Text | Image ]"},
         { "flex-row-reverse": layout === "Row [ Text | Image ]" },
       )}>
-        <div className="flex-1">
-          {media?.contentType.includes("image") && (
-            <Image
-              className="w-full h-full object-cover"
-              src={media?.url ?? ""}
-              alt={media.title ?? title}
-              width={media.width}
-              height={media.height}
-            />
-          )}
-          {media?.contentType.includes("video") && (
-            <video className="w-full h-96" src={media?.url}>
-              <track kind="captions" label={media.title} />
-            </video>
-          )}
+        <div className="flex-1 max-w-5xl mx-auto">
+          <div className={classNames("w-full aspect-square",
+            { "aspect-video": layout === "Column [ Text | Image ]" || layout === "Column [ Image | Text ]" }
+          )}>
+            {media?.contentType.includes("image") && (
+              <Image
+                className="w-full h-full object-cover"
+                src={media?.url ?? ""}
+                alt={media.title ?? title}
+                width={media.width}
+                height={media.height}
+              />
+            )}
+            {media?.contentType.includes("video") && (
+              <video className="w-full h-96" src={media?.url}>
+                <track kind="captions" label={media.title} />
+              </video>
+            )}
+          </div>
         </div>
         <div className={classNames(
           "flex-1 pt-5 pb-20 md:p-8 lg:px-16 lg:py-12 flex flex-col",
@@ -47,7 +51,7 @@ const FeatureB: React.FC<FeatureProps> = ({ data }) => {
               {label}
             </p>
           )}
-          <h2 className={classNames("font-heading text-3xl md:text-4xl lg:text-5xl leading-snug lg:leading-snug font-bold max-w-4xl mb-5",
+          <h2 className={classNames("font-heading text-3xl md:text-3xl lg:text-5xl leading-snug lg:leading-snug font-bold max-w-3xl mb-5",
             { "text-center mx-auto": layout === "Column [ Text | Image ]" || layout === "Column [ Image | Text ]"}
           )}>
             <RichText htmlString={heading} />
