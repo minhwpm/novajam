@@ -18,7 +18,7 @@ const Pagination: React.FC<{totalPages: number, currentPageNumber?: number}> = (
           Previous
         </Link>
         <Link 
-          href={`/blog/page/${currentPageNumber + 1}`}
+          href={`/blog/page/${currentPageNumber - (-1)}`}
           className={classNames(
             "py-2 px-8 rounded-md border-2 border-primary-600 bg-primary-600 text-white",
           )}

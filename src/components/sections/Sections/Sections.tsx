@@ -16,7 +16,6 @@ const sectionComponents = {
   hero: {
     "side by side": HeroB,
     overlay: HeroC,
-    carousel: HeroD
   },
   cta: CTAB,
   presentation: {
