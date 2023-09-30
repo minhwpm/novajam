@@ -34,6 +34,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.2",
     "react-hook-inview": "^4.5.0",
+    "react-icons": "^4.11.0",
     "react-markdown": "^8.0.7",
     "react-redux": "^8.1.1",
     "react-scroll-parallax": "^3.4.2",

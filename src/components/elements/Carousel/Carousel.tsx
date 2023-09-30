@@ -8,27 +8,31 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import classNames from "classnames";
 import { useState } from "react";
-import { PaginationOptions } from "swiper/types";
+import { PaginationOptions, NavigationOptions, FreeModeOptions } from "swiper/types";
+import "./styles.css"
 
 interface CarouselProps {
   slides: Array<React.ReactElement>
+  children?: React.ReactNode
   effect?: "fade" | "coverflow" | "cube"
   autoplay?: boolean
-  freeMode?: boolean
+  freeMode?: FreeModeOptions
   pagination?: PaginationOptions
+  navigation?: NavigationOptions
   slidesPerView?: number
   thumbsEnable?: boolean
 }
 
-const Carousel: React.FC<CarouselProps>= ({slides, effect, autoplay = false, pagination = false, freeMode, slidesPerView = 1, thumbsEnable = false}) => {
+const Carousel: React.FC<CarouselProps>= ({slides, children, effect, autoplay = false, pagination = false, navigation, freeMode, slidesPerView = 1, thumbsEnable = false}) => {
   const [thumbsSwiper, setThumbsSwiper ] = useState<SwiperType | null>(null);
   return (
-    <div className="w-full">
+    <>
       <Swiper
         className="w-full"
         spaceBetween={30}
         loop={true}
-        navigation={true}
+        navigation={navigation}
+        pagination={pagination}
         slidesPerView={1}
         breakpoints={{
           320: {
@@ -53,9 +57,7 @@ const Carousel: React.FC<CarouselProps>= ({slides, effect, autoplay = false, pag
         fadeEffect={{
           crossFade: true
         }}
-        freeMode={{
-          enabled: freeMode
-        }}
+        freeMode={freeMode}
         modules={[EffectFade, EffectCoverflow, EffectCube, Navigation, Pagination, FreeMode, Thumbs]}
       >
         {slides.map((slide, idx) => (
@@ -65,6 +67,7 @@ const Carousel: React.FC<CarouselProps>= ({slides, effect, autoplay = false, pag
             {slide}
           </SwiperSlide>
         ))}
+        {children}
       </Swiper>
       { thumbsEnable && (
         <Swiper
@@ -83,9 +86,10 @@ const Carousel: React.FC<CarouselProps>= ({slides, effect, autoplay = false, pag
               {slide}
             </SwiperSlide>
           ))}
+          
         </Swiper>      
       )}
-    </div>
+    </>
   )
 }
 

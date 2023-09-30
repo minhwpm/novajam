@@ -3312,6 +3312,11 @@ react-hook-inview@^4.5.0:
   resolved "https://registry.yarnpkg.com/react-hook-inview/-/react-hook-inview-4.5.0.tgz#f4ac4117a46f1368599538c36dba96429db934ca"
   integrity sha512-Hm61BK32/K2Cc3bjBe2bQkndHbQP6NhHvWVX7zYitaitB6T28uUV+wlgxbXU9twxUt7+17HyHq6aezpMUCijQQ==
 
+react-icons@^4.11.0:
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.11.0.tgz#4b0e31c9bfc919608095cc429c4f1846f4d66c65"
+  integrity sha512-V+4khzYcE5EBk/BvcuYRq6V/osf11ODUM2J8hg2FDSswRrGvqiYUYPRy4OdrWaQOBj4NcpJfmHZLNaD+VH0TyA==
+
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
