@@ -60,16 +60,20 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
           />
         </div>
         <div className="w-full px-2 py-4">
-          <div className="font-semibold text-xl mb-2">
-            <Link className="underline-hover-effect" href={`/expert/${slug}`}>
+          <div className="flex flex-wrap mb-2 items-center gap-2">
+            <Link className="block underline-hover-effect font-semibold text-xl" href={`/expert/${slug}`}>
               {fullName}
             </Link>
+            <div className="font-semibold text-slate-600">
+              {role}
+            </div>
           </div>
-          <div className="font-semibold">
-            {role}
-          </div>
-          <div className="text-base">
-            Specialty: {specialization}
+          
+          <div className="text-base flex flex-wrap items-center gap-2">
+            <div className="text-slate-500 uppercase text-sm tracking-wider">
+              Specialty: 
+            </div>
+            {specialization}
           </div>
         </div>
       </div>
