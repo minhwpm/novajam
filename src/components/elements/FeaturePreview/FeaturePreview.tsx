@@ -11,9 +11,9 @@ interface Props {
 const FeaturePreview: React.FC<Props> = ({
   data,
 }) => {
-  const { contentType, title, summary, content, media, buttons } = data
+  const { contentType, title, content, media, buttons } = data
   return (
-    <div>
+    <div className="flex flex-col">
       {media?.url && (
         <Image 
           className={classNames(
@@ -27,23 +27,20 @@ const FeaturePreview: React.FC<Props> = ({
         />
       )}
       <div className={classNames(
-        "pt-5 flex flex-col grow",
+        "pt-5 flex-1 flex flex-col justify-between",
       )}>
-        <h4 className="text-lg lg:text-xl font-semibold mt-1">
-          {title}
-        </h4>
-        {summary && 
-          <p className="text-slate-700 lg:text-lg mt-2">
-            {summary}
-          </p>
-        }
-        {contentType === "feature" && content && 
-          <div className="text-slate-700 lg:text-lg mt-2 prose lg:prose-lg">
-            <RichText htmlString={content} />
-          </div>
-        }
+        <div>
+          <h4 className="text-lg lg:text-xl font-semibold mt-1">
+            {title}
+          </h4>
+          {contentType === "feature" && content && 
+            <div className="text-slate-700 lg:text-lg mt-2 prose lg:prose-lg">
+              <RichText htmlString={content} />
+            </div>
+          }
+        </div>
         {buttons && (
-          <div className="mt-auto">
+          <div className="mt-8">
             {buttons.map(button => (
               <Button key={button.text} variant={button.type ?? "alternate"} url={button.url}>
                 {button.text}

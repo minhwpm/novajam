@@ -11,6 +11,7 @@ import Link from "next/link"
 import Image from "next/image"
 import Carousel from "@/components/elements/Carousel/Carousel"
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
+import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
 
 interface Props {
   data: CardListType
@@ -39,6 +40,9 @@ const ContentItem: React.FC<{data: CardType}> = ({data}) => {
           ) : data.text }
         </Link>
       )
+    case "expert":
+      return <ExpertPreview data={data} layout="column" />
+
     {/* @TODO render Expert, Service Card */}
   }
 }
@@ -80,19 +84,16 @@ const CardList: React.FC<Props> = ({ data}) => {
               prevEl: '.custom-swiper-btn-prev'
             }}
             slides={content.map((item) => (
-              <div key={item.id} className={classNames("mx-4")}>
+              <div key={item.id} className={classNames("")}>
                 <ContentItem data={item} />
               </div>
             ))}
             slidesPerView={4}
-            // freeMode={{
-            //   enabled: true,
-            // }}
           >
-            <div className="custom-swiper-btn-prev cursor-pointer w-14 h-14 rounded-full bg-white border border-black items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-10 opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+            <div className="custom-swiper-btn-prev cursor-pointer w-14 h-14 rounded-full bg-white bg-opacity-80 shadow items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-10 opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
               <AiOutlineArrowLeft size={30} />
             </div>
-            <div className="custom-swiper-btn-next cursor-pointer w-14 h-14 rounded-full bg-white border border-black items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-10 opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+            <div className="custom-swiper-btn-next cursor-pointer w-14 h-14 rounded-full bg-white bg-opacity-80 shadow items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 z-10 opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
               <AiOutlineArrowRight size={30} />
             </div>
           </Carousel>

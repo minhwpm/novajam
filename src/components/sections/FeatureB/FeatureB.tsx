@@ -21,8 +21,8 @@ const FeatureB: React.FC<FeatureProps> = ({ data }) => {
         { "flex-col-reverse": layout === "Column [ Text | Image ]"},
         { "flex-row-reverse": layout === "Row [ Text | Image ]" },
       )}>
-        <div className="flex-1 max-w-5xl mx-auto">
-          <div className={classNames("w-full aspect-square",
+        <div className="w-6/12 max-w-5xl mx-auto">
+          <div className={classNames("w-full",
             { "aspect-video": layout === "Column [ Text | Image ]" || layout === "Column [ Image | Text ]" }
           )}>
             {media?.contentType.includes("image") && (
@@ -42,7 +42,9 @@ const FeatureB: React.FC<FeatureProps> = ({ data }) => {
           </div>
         </div>
         <div className={classNames(
-          "flex-1 pt-5 pb-20 md:p-8 lg:px-16 lg:py-12 flex flex-col",
+          "w-6/12 pt-5 pb-20 md:py-8 lg:py-12 flex flex-col",
+          { "md:pr-8 lg:pr-16": layout === "Row [ Text | Image ]"},
+          { "md:pl-8 lg:pl-16": layout === "Row [ Image | Text ]"},
         )}>
           {label && (
             <p className={classNames("uppercase tracking-widest mb-5 text-secondary-500 font-semibold",
@@ -61,7 +63,7 @@ const FeatureB: React.FC<FeatureProps> = ({ data }) => {
           )}>
             { content && <RichText htmlString={content} /> }
           </div>
-          <div>
+          <div className="mt-10">
             {buttons && buttons.map(button => 
               <Button key={button.text} variant={button.type} url={button.url} size="lg">
                 {button.text}

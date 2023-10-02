@@ -28,6 +28,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
       style={backgroundImage?.url ? {
         backgroundColor: 'rgba(0, 0, 0, 0.1)',
         backgroundImage: `url(${backgroundImage.url})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
         backgroundBlendMode: 'overlay'
       } : {} }
     >
@@ -43,7 +45,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           </div>
           <div className="col-span-6">
             <form 
-              className="max-w-xl mx-auto lg:mr-0 grid md:grid-cols-2 gap-5 p-8 bg-white rounded" 
+              className="max-w-xl mx-auto lg:mr-0 grid md:grid-cols-2 gap-5 p-8 bg-white bg-opacity-80 rounded" 
               onSubmit={handleSubmit(onSubmit)}
             >
               {fields.map(field => {

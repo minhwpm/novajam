@@ -37,6 +37,7 @@ export default async function getBlogDetails(slug: string) {
               sys {
                 id
               }
+              slug
               fullName
               portrait {
                 url
@@ -45,9 +46,9 @@ export default async function getBlogDetails(slug: string) {
                 height
               }
               role
-              description {
-                json
-              }
+              specialization
+              organization
+              summary
             }
             metaTitle
             metaDescription

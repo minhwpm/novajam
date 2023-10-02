@@ -132,7 +132,9 @@ export type BlogType = {
       height: number
     }
     role: string
-    description: string
+    specialization: Array<string>
+    organization: string
+    summary: string
   }
   metaTitle: string
   metaDescription: string
@@ -156,6 +158,24 @@ export type ProductType = {
     height: number
   }>
   contentType: "product"
+}
+
+export type ExpertType = {
+  id: string
+  slug: string
+  fullName: string
+  portrait: {
+    title: string
+    url: string
+    width: number
+    height: number
+  }
+  role: string
+  specialization: Array<string>
+  organization: string
+  summary: string
+  description?: string
+  contentType: "expert"
 }
 
 export type FeatureType = {
@@ -243,7 +263,7 @@ export type LinkType = {
   contentType: "link"
 }
 
-export type CardType = BlogType | FeatureType | ProductType | PageType | LinkType
+export type CardType = BlogType | FeatureType | ProductType | PageType | LinkType | ExpertType
 
 export type CardListType = {
   id: string

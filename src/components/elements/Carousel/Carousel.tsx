@@ -23,7 +23,7 @@ interface CarouselProps {
   thumbsEnable?: boolean
 }
 
-const Carousel: React.FC<CarouselProps>= ({slides, children, effect, autoplay = false, pagination = false, navigation, freeMode, slidesPerView = 1, thumbsEnable = false}) => {
+const Carousel: React.FC<CarouselProps>= ({slides, children, effect, autoplay = false, pagination, navigation, freeMode, slidesPerView = 1, thumbsEnable = false}) => {
   const [thumbsSwiper, setThumbsSwiper ] = useState<SwiperType | null>(null);
   return (
     <>

@@ -93,12 +93,16 @@ export default async function getCardList(id: string) {
                     id
                   }
                   fullName
+                  slug
                   role
                   organization
                   specialization
+                  summary
                   portrait {
                     url
                     title
+                    width
+                    height
                   }
                 }
                 ... on Page {

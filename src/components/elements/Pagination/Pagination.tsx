@@ -2,6 +2,7 @@
 import classNames from "classnames"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const Pagination: React.FC<{totalPages: number, currentPageNumber?: number}> = ({totalPages, currentPageNumber = 1}) => {
   const router = useRouter()
@@ -11,11 +12,11 @@ const Pagination: React.FC<{totalPages: number, currentPageNumber?: number}> = (
         <Link
           href={(currentPageNumber - 1 === 1) ? "/blog" : `/blog/page/${currentPageNumber - 1}`}
           className={classNames(
-            "py-2 px-4 rounded-md border-2 border-primary-600 text-primary-600",
+            "py-2 px-4 rounded-md border-2 border-primary-600 text-primary-600 inline-flex items-center",
             { hidden: currentPageNumber <= 1 }
           )}
         >
-          Previous
+          <AiOutlineArrowLeft size={20} />
         </Link>
         <Link 
           href={`/blog/page/${currentPageNumber - (-1)}`}

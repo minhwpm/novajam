@@ -1,4 +1,5 @@
 import Container from "@/components/elements/Container/Container"
+import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
 import RichText from "@/components/elements/RichText/RichText"
 import { BlogType } from "@/utils/types"
 import Image from "next/image"
@@ -45,14 +46,14 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
               }
               {topics && topics?.length > 0  && 
                 <div className="flex flex-col gap-2">
-                  <div>
+                  <p className="text-slate-600 tracking-wider text-sm">
                     TOPICS
-                  </div>
+                  </p>
                   <div className="flex flex-wrap gap-4">
                     {topics.map((topic, idx) => (
                       <Link
                         key={idx}
-                        className="px-4 py-2 rounded-full bg-primary-50 border-primary-100"
+                        className="px-4 py-2 rounded-full bg-primary-50 border-primary-100 text-slate-600 text-sm tracking-wider"
                         href={`/blog?topic=${topic}`}
                       >
                         {topic}
@@ -66,13 +67,21 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
           <div className="grid lg:grid-cols-3 gap-10 text-lg">
             <div className="lg:col-span-2 mb-10 prose lg:prose-xl max-w-none">
               <RichText htmlString={content} />
+              
             </div>
           </div>
-          <div>
-            <p>ABOUT THE AUTHOR</p>
-            {/* @TODO implement <Author /> */}
-          </div>
-          
+
+          { author && 
+            <div className="grid lg:grid-cols-3 gap-10 text-lg">
+              <div className="lg:col-span-2 mb-10">
+                <p className="text-slate-600 tracking-wider text-sm md:text-base">
+                  ABOUT THE AUTHOR
+                </p>
+                <ExpertPreview data={author} layout="row" />
+              </div>
+            </div>
+          }
+
         </article>
       </Container>
       <div className="bg-primary-50 py-14">
