@@ -23,23 +23,26 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
             />
           </div>
         </div>
-        <div className="w-full pt-6 md:w-3/4 md:pt-0 md:pl-10 prose lg:prose-lg max-w-none">
+        <div className="w-full pt-6 md:w-3/4 md:pt-0 md:pl-10">
           <div className="font-semibold text-2xl md:text-3xl mb-5">
-            <Link href={`/expert/${slug}`}>
+            <Link className="underline-hover-effect" href={`/expert/${slug}`}>
               {fullName}
             </Link>
           </div>
           <div className="font-semibold">
             {role}
           </div>
-          <div>
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="text-slate-500 uppercase text-sm tracking-wider">
+              Specialty: 
+            </div>
             {specialization}
           </div>
           <div>
             {organization}
           </div>
           {summary && 
-            <div className="my-5">
+            <div className="my-5 prose lg:prose-lg max-w-none">
               {summary}
             </div>
           }
@@ -68,7 +71,6 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
               {role}
             </div>
           </div>
-          
           <div className="text-base flex flex-wrap items-center gap-2">
             <div className="text-slate-500 uppercase text-sm tracking-wider">
               Specialty: 
