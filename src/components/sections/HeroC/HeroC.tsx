@@ -35,8 +35,8 @@ const HeroC = ( { data, textAlignment = "center", textDarkBackground}: Props ) =
           )}
           {item.contentType.includes("video") && (
             <video
-              className="w-full object-cover aspect-video"
-              src={item.url} autoPlay={true} loop
+              className="w-full h-full object-cover"
+              src={item.url} autoPlay loop muted
             >
               <track kind="captions" label={item.title} />
             </video>
@@ -60,8 +60,8 @@ const HeroC = ( { data, textAlignment = "center", textDarkBackground}: Props ) =
           )}
           {item.contentType.includes("video") && (
             <video
-              className="w-full object-cover aspect-video"
-              src={item.url} autoPlay={true} loop
+              className="w-full h-full object-cover"
+              src={item.url} autoPlay loop muted
             >
               <track kind="captions" label={item.title} />
             </video>
