@@ -11,6 +11,7 @@ import HeroD from '../HeroD/HeroD'
 import TabPT from '../TabPT/TabPT'
 import CarouselPT from '../CarouselPT/CarouselPT'
 import { InquiryForm } from '../InquiryForm/InquiryForm'
+import { Gallery } from '../Gallery/Gallery'
 
 const sectionComponents = {
   hero: {
@@ -27,6 +28,7 @@ const sectionComponents = {
   testimonials: Testimonials,
   feature: FeatureB,
   cardlist: CardList,
+  gallery: Gallery,
   inquiryform: InquiryForm,
 }
 

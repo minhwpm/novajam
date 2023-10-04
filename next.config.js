@@ -22,6 +22,12 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'downloads.ctfassets.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'bluebiz-assets.s3.ap-southeast-1.amazonaws.com',
         port: '',
         pathname: '/**',

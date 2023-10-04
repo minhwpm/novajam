@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from "classnames"
 import Container from '../Container/Container';
+import RichText from '../RichText/RichText';
 
 // @TODO make this as Theme Style settings
 // type SectionVariant = "standard" | "alternate"
@@ -36,7 +37,7 @@ const Section = ( { title, label, subtitle, children, className, id, background 
           {"mb-5": subtitle},
           {"mb-12": !subtitle},
         )}>
-          {title}
+          <RichText htmlString={title} />
         </h2>
       )}
       {subtitle && (
