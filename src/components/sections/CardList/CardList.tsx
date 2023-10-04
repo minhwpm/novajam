@@ -88,7 +88,7 @@ const CardList: React.FC<Props> = ({ data}) => {
                 <ContentItem data={item} />
               </div>
             ))}
-            slidesPerView={4}
+            slidesPerView={3}
           >
             <div className="custom-swiper-btn-prev cursor-pointer w-14 h-14 rounded-full bg-white bg-opacity-80 shadow items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-10 opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
               <AiOutlineArrowLeft size={30} />

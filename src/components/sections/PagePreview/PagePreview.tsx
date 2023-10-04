@@ -16,7 +16,7 @@ const PagePreview = ({data}: {data: PageType}) => {
             height={metaImage?.height ?? 400}
           />
         </div>
-        <h4 className="mt-3 text-center pb-5">
+        <h4 className="mt-3 text-xl font-semibold text-center pb-5">
           {metaTitle ?? title}
         </h4>
       </Link>

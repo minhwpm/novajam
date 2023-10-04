@@ -47,6 +47,7 @@ export default async function getInquiryForm(id: string) {
               width
               height
             }
+            htmlid
           }
         }
       }

@@ -13,7 +13,7 @@ type FormValues = {
 }
 
 export const InquiryForm: React.FC<Props> = ({ data }) => {
-  const { title, subtitle, type, fields, submitButton, backgroundImage } = data
+  const { title, subtitle, type, fields, submitButton, backgroundImage, htmlid } = data
   const { register, handleSubmit, watch, formState: { errors } } = useForm<FormValues>();
 
   function onSubmit(data: FormValues) {
@@ -24,7 +24,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
 
   return (
     <section
-      className=""
+      id={htmlid}
       style={backgroundImage?.url ? {
         backgroundColor: 'rgba(0, 0, 0, 0.1)',
         backgroundImage: `url(${backgroundImage.url})`,

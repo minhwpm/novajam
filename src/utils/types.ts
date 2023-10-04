@@ -318,4 +318,5 @@ export type InquiryFormType = {
     width: number
     height: number
   }
+  htmlid: string
 }
