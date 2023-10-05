@@ -122,20 +122,7 @@ export type BlogType = {
     width: number
     height: number
   }
-  author?: {
-    id: string
-    fullName: string
-    portrait: {
-      url: string
-      title: string
-      width: number
-      height: number
-    }
-    role: string
-    specialization: Array<string>
-    organization: string
-    summary: string
-  }
+  author?: ExpertType
   metaTitle: string
   metaDescription: string
   metaKeywords?: Array<string>
@@ -275,7 +262,7 @@ export type CardListType = {
     url: string
     text: string
   }
-  layout: "carousel" | "grid" | "carousel"
+  layout: "carousel" | "grid" | "flex"
 }
 
 export type TestimonialsType = {
@@ -297,6 +284,7 @@ export type TestimonialsType = {
 export type GalleryType = {
   id: string
   title: string
+  heading: string
   label?: string
   subtitle?: string
   content: Array<{

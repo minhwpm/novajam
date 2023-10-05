@@ -1,7 +1,7 @@
 import BlogDetails from "@/components/sections/BlogDetails/BlogDetails"
 import getBlogDetails from "@/utils/contentful/graphql/getBlogDetails"
 
-export default async function Page({ params}: {params: {slug: string}},) {
+export default async function Page({ params }: {params: { slug: string } },) {
   try {
     const data = await getBlogDetails(params.slug)
     return (

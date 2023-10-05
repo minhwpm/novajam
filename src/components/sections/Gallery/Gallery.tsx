@@ -1,4 +1,3 @@
-import Container from "@/components/elements/Container/Container"
 import Section from "@/components/elements/Section/Section"
 import { GalleryType } from "@/utils/types"
 import Image from "next/image"
@@ -8,7 +7,7 @@ interface Props {
 }
 
 export const Gallery: React.FC<Props> = ( { data }) => {
-  const {title, heading, label, subtitle, content} = data
+  const { heading, label, subtitle, content } = data
   return (
     <Section
       title={heading}

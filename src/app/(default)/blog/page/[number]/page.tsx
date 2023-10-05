@@ -4,8 +4,7 @@ import getBlogs from "@/utils/contentful/graphql/getBlogs"
 import { BlogType } from "@/utils/types"
 import Pagination from "@/components/elements/Pagination/Pagination"
 
-export default async function Page({params}) {
-  console.log(params)
+export default async function Page({ params } : { params: { number: number } } ) {
   const { number } = params
   try {
     const latestBlogs = await getBlogs(6, (number-1) * 6) as Array<BlogType>

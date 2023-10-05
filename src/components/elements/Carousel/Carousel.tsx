@@ -48,7 +48,6 @@ const Carousel: React.FC<CarouselProps>= ({slides, children, effect, autoplay = 
             slidesPerView: slidesPerView
           }
         }}
-        pagination={pagination}
         thumbs={{ swiper: thumbsSwiper }}
         effect={effect}
         autoplay={autoplay ? {

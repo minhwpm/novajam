@@ -9,8 +9,12 @@ import { CircleUser } from "@/components/icons/CircleUser"
 import NavMenu from "@/components/elements/NavMenu/NavMenu"
 import NavMenuMobile from "@/components/elements/NavMenu/NavMenuMobile"
 import CartBtn from "@/components/elements/CartBtn/CartBtn"
-import { HeaderProps } from "@/utils/types"
+import { HeaderType } from "@/utils/types"
 
+interface HeaderProps {
+  data: HeaderType
+  variant: "standard" | "minimal" | "extended"
+}
 
 const Header: React.FC<HeaderProps> = ({
   data,
@@ -22,8 +26,7 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header className={classNames(
       "bg-white z-[99999]",
-      { "shadow-md": variant === "standard" },
-      { "font-bold tracking-wider border-b": variant === "alternate" },
+      { "font-bold tracking-wider border-b": variant === "standard" },
       { "sticky w-full z-50 top-0 animate-headerSlideIn": sticky },
     )}>
       <div className={classNames(
