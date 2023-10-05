@@ -10,15 +10,14 @@ import { HeaderType } from "@/utils/types"
 
 interface Props {
   data: HeaderType
-  variant?: "standard" | "alternate"
+  variant?: "standard" | "minimal" | "extended"
   // @TODO following 4 properties
   stickyType?: 'none' | 'scroll-up' | 'scroll-down'
   logoAlignment?: 'center' | 'left'
-  navAlignment?: 'center' | 'left' | 'right' // this property is for XL screens
   backgroundColor?: 'white' | 'transparent'
 }
 
-const Header: React.FC<Props> = ({ data, navAlignment = 'right', variant = "standard" }) => {
+const Header: React.FC<Props> = ({ data, variant = "standard" }) => {
   const { logo, logoRedirect, menu, buttons, isLoginEnabled } = data
   const sticky = useStickyHeaderOnScrollUp()
 
@@ -26,9 +25,7 @@ const Header: React.FC<Props> = ({ data, navAlignment = 'right', variant = "stan
     <header className={classNames(
       "relative bg-white z-[99999]",
       { "sticky w-full z-50 top-0 animate-headerSlideIn": sticky },
-      { "shadow-md": sticky && variant === "standard" },
-      { "border-b": sticky && variant === "alternate" },
-      { "font-bold tracking-wider": variant === "alternate"}
+      { "border-b font-bold tracking-wider": variant === "standard" },
     )}>
       <div className="container p-4 mx-auto flex items-center">
         <div className="shrink-0">
@@ -43,7 +40,7 @@ const Header: React.FC<Props> = ({ data, navAlignment = 'right', variant = "stan
           </Link>
         </div>
         <div className="flex-1">
-          <NavMenu menu={menu} navAlignment={navAlignment} />
+          <NavMenu menu={menu} />
         </div>
 
         { isLoginEnabled && (
@@ -58,7 +55,7 @@ const Header: React.FC<Props> = ({ data, navAlignment = 'right', variant = "stan
             </Button>
           ))}
         </div>
-        <NavMenuMobile menu={menu} navAlignment={navAlignment}/>
+        <NavMenuMobile menu={menu} />
       </div>
 
     </header>

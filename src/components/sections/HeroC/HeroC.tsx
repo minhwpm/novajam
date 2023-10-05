@@ -15,7 +15,7 @@ interface Props {
   textDarkBackground?: boolean
 }
 
-const HeroC = ( { data, textAlignment = "center", textDarkBackground}: Props ) => {
+const HeroC = ({ data, textAlignment = "center", textDarkBackground }: Props ) => {
   const { label, heading, content, buttons, media, mediaForMobile } = data
   return (
     <section className={classNames("relative")}>

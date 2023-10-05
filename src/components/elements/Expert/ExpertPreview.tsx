@@ -51,33 +51,30 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
     )
   }
   return (
-    <div>
-      <div className="">
-        <div className="aspect-square">
-          <Image
-            className="w-full h-full object-cover"
-            src={portrait?.url ?? "/bluebiz_square.webp"}
-            alt={portrait?.title ?? fullName}
-            width={portrait?.width ?? 500}
-            height={portrait?.height ?? 500}
-          />
-        </div>
-        <div className="w-full px-2 py-4">
-          <div className="flex flex-wrap mb-2 items-center gap-2">
-            <Link className="block underline-hover-effect font-semibold text-xl" href={`/expert/${slug}`}>
-              {fullName}
-            </Link>
-            <div className="font-semibold text-slate-600">
-              {role}
-            </div>
+    <div className="group">
+      <div className="aspect-[5/6] overflow-hidden rounded-t-md">
+        <Image
+          className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ease-in-out rounded-t-md"
+          src={portrait?.url ?? "/bluebiz_square.webp"}
+          alt={portrait?.title ?? fullName}
+          width={portrait?.width ?? 500}
+          height={portrait?.height ?? 500}
+        />
+      </div>
+      <div className="w-full px-4 py-4 bg-neutral-100 rounded-b-md">
+        <div className="flex flex-wrap mb-2 items-center justify-center gap-2">
+          <Link className="block underline-hover-effect font-semibold text-xl" href={`/expert/${slug}`}>
+            {fullName}
+          </Link>
+          <div className="font-semibold text-neutral-600">
+            {role}
           </div>
-          <div className="text-base flex flex-wrap items-center gap-2">
-            <div className="text-slate-500 uppercase text-sm tracking-wider">
-              Specialty: 
-            </div>
+        </div>
+        { specialization && 
+          <div className="text-base flex flex-wrap items-center justify-center gap-2 text-neutral-600 font-semibold tracking-wide">
             {specialization}
           </div>
-        </div>
+        }
       </div>
     </div>
   )

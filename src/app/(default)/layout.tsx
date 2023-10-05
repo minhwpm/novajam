@@ -35,7 +35,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={classNames(font.className)}>
-        {header && <Header data={header} navAlignment="center" /> }
+        {header && <Header data={header} /> }
         {children}
         {footer && <Footer data={footer} /> }
         <Analytics />

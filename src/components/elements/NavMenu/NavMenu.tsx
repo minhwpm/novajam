@@ -14,14 +14,11 @@ export function getMenuItemText(item: LinkProps | SubmenuProps): string {
   return item.title
 }
 
-const NavMenu: React.FC<NavMenuProps> = ({ menu, navAlignment = "center" }) => {  
+const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {  
   return (
     <NavigationMenu.Root
       className={classNames(
-        "NavMenu hidden lg:flex pt-2 pb-3",
-        { "justify-center": navAlignment === "center"},
-        { "justify-start": navAlignment === "left"},
-        { "justify-end": navAlignment === "right"},
+        "NavMenu hidden lg:flex pt-2 pb-3 justify-end",
       )}
     >
       <NavigationMenu.List
