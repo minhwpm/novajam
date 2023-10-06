@@ -23,7 +23,7 @@ const Section = ( { title, label, subtitle, children, className, id, background 
 
   return (
     <section id={id} className={classNames(
-      "flex flex-col items-center py-12",
+      "flex flex-col items-center py-16",
       { "bg-fixed min-h-screen": background?.parallax },
       className,
     )}>
