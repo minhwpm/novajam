@@ -11,9 +11,15 @@ export type ImageType = {
 
 export type ButtonVariant = "standard" | "alternate" | "black" | "link-btn" | "outline" | "outline-black" | "outline-white"
 
-export interface LinkType {
+export type LinkType = {
   id: string
   text: string
+  image: {
+    url: string
+    title: string
+    width: number
+    height: number
+  }
   url: string
   newTab: boolean
   contentType: "link"
@@ -230,20 +236,6 @@ export type PresentationType = {
   label?: string
   subtitle?: string
   content: Array<FeatureType>
-}
-
-export type LinkType = {
-  id: string
-  text: string
-  image: {
-    url: string
-    title: string
-    width: number
-    height: number
-  }
-  url: string
-  newTab: boolean
-  contentType: "link"
 }
 
 export type CardType = BlogType | FeatureType | ProductType | PageType | LinkType | ExpertType
