@@ -5,11 +5,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import SubMenuItem from './SubMenuItem';
 import Link from 'next/link';
-import { NavMenuProps, LinkProps, SubmenuProps } from "@/utils/types"
+import { LinkType, SubmenuType } from "@/utils/types"
 import './styles.css';
 import SubMenuFeaturedContent from './SubMenuFeaturedContent';
 
-export function getMenuItemText(item: LinkProps | SubmenuProps): string {
+export interface NavMenuProps {
+  menu: Array<LinkType | SubmenuType>
+}
+
+export function getMenuItemText(item: LinkType | SubmenuType): string {
   if ("text" in item) return item.text
   return item.title
 }

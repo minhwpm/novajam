@@ -11,7 +11,7 @@ export type ImageType = {
 
 export type ButtonVariant = "standard" | "alternate" | "black" | "link-btn" | "outline" | "outline-black" | "outline-white"
 
-export interface LinkProps {
+export interface LinkType {
   id: string
   text: string
   url: string
@@ -19,25 +19,20 @@ export interface LinkProps {
   contentType: "link"
 }
 
-export interface LinkGroupProps {
+export interface LinkGroupType {
   id: string
   title: string
-  links: Array<LinkProps>
+  links: Array<LinkType>
   contentType: "linkgroup"
 }
 
-export interface SubmenuProps {
+export interface SubmenuType {
   id: string
   title: string
-  menu: Array<LinkProps | LinkGroupProps>
+  menu: Array<LinkType | LinkGroupType>
   featuredContent: Array<BlogType | ProductType | PageType>
   style: 'dropdown' | 'mega'
   contentType: "submenu"
-}
-
-export interface NavMenuProps {
-  menu: Array<LinkProps | SubmenuProps>
-  navAlignment?: "center" | "left" | "right"
 }
 
 export interface HeaderType {
@@ -47,7 +42,7 @@ export interface HeaderType {
     title?: string
   },
   logoRedirect?: string
-  menu: Array<LinkProps | SubmenuProps>
+  menu: Array<LinkType | SubmenuType>
   isLoginEnabled?: boolean
   isShoppingEnabled?: boolean
   searchBox?: {
@@ -59,6 +54,7 @@ export interface HeaderType {
     url: string
     type: ButtonVariant
   }>
+  uiVariant: "standard" | "extended" | "minimal"
 }
 
 export interface FooterType {

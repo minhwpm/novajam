@@ -7,7 +7,7 @@ import classNames from "classnames"
 import SearchBox from "@/components/elements/SearchBox/SearchBox"
 import { CircleUser } from "@/components/icons/CircleUser"
 import NavMenu from "@/components/elements/NavMenu/NavMenu"
-import NavMenuMobile from "@/components/elements/NavMenu/NavMenuMobile"
+import NavMenuMobile from "@/components/elements/NavMenu/NavMenuFull"
 import CartBtn from "@/components/elements/CartBtn/CartBtn"
 import { HeaderType } from "@/utils/types"
 

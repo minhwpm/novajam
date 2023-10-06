@@ -52,6 +52,7 @@ export default async function getHeader(url: string) {
                 buttonVariant
               }
             }
+            uiVariant
           }
         }
       }

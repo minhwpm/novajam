@@ -33,7 +33,7 @@ export default async function Layout({
   return (
     <html lang="en">
       <body className={classNames(fonts.Quicksand.className, styles["nova-color-settings"])}>
-        {header && <Header data={header} /> }
+        {header && <Header data={header} variant="minimal" /> }
         {children}
         {footer && <Footer data={footer} /> }
         <Analytics />

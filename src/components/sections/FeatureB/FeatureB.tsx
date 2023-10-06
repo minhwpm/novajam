@@ -16,14 +16,14 @@ const FeatureB: React.FC<FeatureProps> = ({ data }) => {
 
   return (
     <Section>
-      <div className={classNames("w-full flex",
+      <div className={classNames("w-full flex flex-wrap",
         { "flex-col": layout === "Column [ Image | Text ]"},
         { "flex-col-reverse": layout === "Column [ Text | Image ]"},
         { "flex-row-reverse": layout === "Row [ Text | Image ]" },
       )}>
         <div className={classNames(
           "max-w-5xl mx-auto",
-          { "w-6/12": layout === "Row [ Text | Image ]" || layout === "Row [ Image | Text ]" }
+          { "w-full lg:w-6/12": layout === "Row [ Text | Image ]" || layout === "Row [ Image | Text ]" }
         )}>
           <div className={classNames("w-full",
             { "aspect-video": layout === "Column [ Text | Image ]" || layout === "Column [ Image | Text ]" }
@@ -46,8 +46,8 @@ const FeatureB: React.FC<FeatureProps> = ({ data }) => {
         </div>
         <div className={classNames(
           "pt-5 pb-20 md:py-8 lg:py-12 flex flex-col",
-          { "w-6/12 md:pr-8 lg:pr-16": layout === "Row [ Text | Image ]"},
-          { "w-6/12 md:pl-8 lg:pl-16": layout === "Row [ Image | Text ]"},
+          { "lg:w-6/12 md:pr-8 lg:pr-16": layout === "Row [ Text | Image ]"},
+          { "lg:w-6/12 md:pl-8 lg:pl-16": layout === "Row [ Image | Text ]"},
         )}>
           {label && (
             <p className={classNames("uppercase tracking-widest mb-5 text-secondary-500 font-semibold",

@@ -21,7 +21,7 @@ const HeroC = ({ data, textAlignment = "center", textDarkBackground }: Props ) =
     <section className={classNames("relative")}>
       {mediaForMobile.length > 0 && mediaForMobile.map(item => (
         <div key={item.title} className={classNames(
-          "w-full h-[70vh] lg:h-[90vh] lg:hidden",
+          "w-full h-screen lg:hidden",
         )}>
           {item.contentType.includes("image") && (
             <Image
@@ -45,7 +45,7 @@ const HeroC = ({ data, textAlignment = "center", textDarkBackground }: Props ) =
       ))}
       {media.length > 0 && media.map(item => (
         <div key={item.title} className={classNames(
-          "w-full h-[70vh] lg:h-[90vh]",
+          "w-full h-screen",
           {"hidden lg:block" : mediaForMobile.length > 0}
         )}>
           {item.contentType.includes("image") && (
