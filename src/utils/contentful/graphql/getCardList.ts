@@ -28,6 +28,7 @@ export default async function getCardList(id: string) {
               newTab
             }
             layout
+            size
             contentCollection (limit: 20) {
               items {
                 __typename
@@ -135,6 +136,13 @@ export default async function getCardList(id: string) {
                   url
                   newTab
                 }
+                ... on Statistics {
+                  sys {
+                    id
+                  }
+                  number
+                  text
+                }
               }
             }
           }
@@ -152,6 +160,6 @@ export default async function getCardList(id: string) {
     throw new Error("Failed to fetch Card List data. Error: ", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
-  // console.log(`CARD LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  console.log(`CARD LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

@@ -238,7 +238,14 @@ export type PresentationType = {
   content: Array<FeatureType>
 }
 
-export type CardType = BlogType | FeatureType | ProductType | PageType | LinkType | ExpertType
+export type StatisticsType = {
+  id: string
+  number: string
+  text: string
+  contentType: 'statistics'
+}
+
+export type CardType = BlogType | FeatureType | ProductType | PageType | LinkType | ExpertType | StatisticsType
 
 export type CardListType = {
   id: string
@@ -251,6 +258,7 @@ export type CardListType = {
     text: string
   }
   layout: "carousel" | "grid" | "flex"
+  size: 1 | 2 | 3 | 4 | 5
 }
 
 export type TestimonialsType = {

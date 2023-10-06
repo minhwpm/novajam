@@ -12,6 +12,7 @@ import Image from "next/image"
 import Carousel from "@/components/elements/Carousel/Carousel"
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
+import { Statistics } from "@/components/elements/Statistics/Statistics"
 
 interface Props {
   data: CardListType
@@ -42,21 +43,30 @@ const ContentItem: React.FC<{data: CardType}> = ({data}) => {
       )
     case "expert":
       return <ExpertPreview data={data} layout="column" />
+    case "statistics":
+      return <Statistics data={data} />
 
-    {/* @TODO render Expert, Service Card */}
+    {/* @TODO render Service (may be?) */}
   }
 }
 
 const CardList: React.FC<Props> = ({ data}) => {
-  const { title, label, subtitle, content, layout } = data
+  const { title, label, subtitle, content, layout, size = 3 } = data
   return (
     <Section
+      className="bg-neutral-50"
       label={label}
       title={title}
       subtitle={subtitle}
     >
       {layout === "grid" && (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className={classNames(
+          "grid gap-8",
+          { "lg:grid-cols-2": size >= 2 },
+          { "lg:grid-cols-3": size === 3 },
+          { "grid-cols-2 lg:grid-cols-4": size === 4 },
+          { "grid-cols-2 md:grid-cols-3 lg:grid-cols-5": size === 5}
+        )}>
           {content.map((item) => (
             <ContentItem key={item.id} data={item} />
           ))}
