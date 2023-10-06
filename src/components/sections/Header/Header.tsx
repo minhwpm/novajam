@@ -42,7 +42,7 @@ const Header: React.FC<Props> = ({ data }) => {
           <div className="flex gap-5 items-center">
             <div className="hidden md:block">
               {buttons && buttons.length > 0 && buttons.map(button => (
-                <Button key={button.text} variant={button.type ?? "outline-white"} size="lg" url={button.url}>
+                <Button key={button.text} variant={button.type ?? "outline-white"} url={button.url}>
                   {button.text}
                 </Button>
               ))}
@@ -83,7 +83,7 @@ const Header: React.FC<Props> = ({ data }) => {
         )}
         <div className="shrink-0 hidden lg:block">
           {buttons && buttons.length > 0 && buttons.map(button => (
-            <Button key={button.text} variant={button.type} size="lg" url={button.url}>
+            <Button key={button.text} variant={button.type ?? "outline"} url={button.url}>
               {button.text}
             </Button>
           ))}

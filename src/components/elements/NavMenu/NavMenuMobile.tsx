@@ -2,13 +2,13 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { NavMenuProps } from "@/utils/types"
 import SubMenuItem from './SubMenuItem';
 import { useState } from 'react';
 import { getMenuItemText } from './NavMenu';
 import SubMenuFeaturedContent from './SubMenuFeaturedContent';
+import { LinkType, SubmenuType } from '@/utils/types';
 
-const NavMenuMobile: React.FC<NavMenuProps> = ({ menu }) => {
+const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu }) => {
   const [ mobileMenuShowed, setMobileMenuShowed ] = useState(false)
 
   return (
