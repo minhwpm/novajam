@@ -9,6 +9,15 @@ export type ImageType = {
   height: number
 }
 
+export type MediaType = {
+  id: string
+  url: string
+  title: string
+  width: number
+  height: number
+  contentType: string
+}
+
 export type ButtonVariant = "standard" | "alternate" | "black" | "link-btn" | "outline" | "outline-black" | "outline-white"
 
 export type LinkType = {
@@ -173,15 +182,16 @@ export type FeatureType = {
   heading: string
   label: string
   content: string
-  media: {
+  media: Array<{
+    id: string
     url: string
     title: string
     width: number
     height: number
     contentType: string
-  }
+  }>
   url?: string
-  buttons?: Array<{
+  buttons: Array<{
     id: string
     url: string
     text: string

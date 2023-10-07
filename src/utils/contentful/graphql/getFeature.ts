@@ -31,12 +31,14 @@ export default async function getFeature(id: string) {
                 url
               }
             }
-            media {
-              url
-              title
-              width
-              height
-              contentType
+            mediaCollection {
+              items {
+                url
+                title
+                width
+                height
+                contentType
+              }
             }
             layout
           }

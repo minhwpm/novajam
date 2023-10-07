@@ -56,13 +56,17 @@ export default async function getCardList(id: string) {
                   content {
                     json
                   }
-                  media {
-                    url
-                    title
-                    size
-                    width
-                    height
-                    contentType
+                  mediaCollection (limit: 1) {
+                    items {
+                      sys {
+                        id
+                      }
+                      url
+                      title
+                      width
+                      height
+                      contentType
+                    }
                   }
                   buttonsCollection {
                     items {

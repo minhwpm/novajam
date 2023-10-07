@@ -35,12 +35,17 @@ export default async function getPresentation(id: string) {
                     url
                   }
                 }
-                media {
-                  url
-                  title
-                  width
-                  height
-                  contentType
+                mediaCollection (limit: 1) {
+                  items {
+                    sys {
+                      id
+                    }
+                    url
+                    title
+                    width
+                    height
+                    contentType
+                  }
                 }
               }
             }

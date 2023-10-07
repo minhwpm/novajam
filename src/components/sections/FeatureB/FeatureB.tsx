@@ -4,6 +4,7 @@ import classNames from "classnames"
 import Button from "@/components/elements/Button/Button"
 import { FeatureType } from "@/utils/types"
 import RichText from "@/components/elements/RichText/RichText"
+import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel"
 
 interface FeatureProps {
   data: FeatureType
@@ -25,23 +26,11 @@ const FeatureB: React.FC<FeatureProps> = ({ data }) => {
           "max-w-5xl mx-auto",
           { "w-full lg:w-6/12": layout === "Row [ Text | Image ]" || layout === "Row [ Image | Text ]" }
         )}>
+          {/* @TODO tech debt */}
           <div className={classNames("w-full",
             { "aspect-video": layout === "Column [ Text | Image ]" || layout === "Column [ Image | Text ]" }
           )}>
-            {media?.contentType.includes("image") && (
-              <Image
-                className="w-full h-full object-cover"
-                src={media?.url ?? ""}
-                alt={media.title ?? title}
-                width={media.width}
-                height={media.height}
-              />
-            )}
-            {media?.contentType.includes("video") && (
-              <video className="w-full h-96" src={media?.url}>
-                <track kind="captions" label={media.title} />
-              </video>
-            )}
+            {media.length > 0 && <MediaCarousel data={media} /> }
           </div>
         </div>
         <div className={classNames(

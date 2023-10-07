@@ -5,41 +5,14 @@
 import React from 'react';
 import * as RadixAccordion from '@radix-ui/react-accordion';
 import classNames from "classnames";
-import Image from 'next/image';
-import "./styles.css"
 import Section from '@/components/elements/Section/Section';
-import { ButtonVariant } from '@/utils/types';
+import { PresentationType } from '@/utils/types';
 import RichText from '@/components/elements/RichText/RichText';
 import Button from '@/components/elements/Button/Button';
+import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
+import "./styles.css"
 
-interface SectionProps {
-  title: string
-  label?: string
-  subtitle?: string
-  content: string
-  media: {
-    contentType: string
-    url: string
-    title: string
-  }
-  buttons?: Array<{
-    url: string
-    text: string
-    type: ButtonVariant
-  }>
-}
-
-interface PresentationProps {
-  data: {
-    title: string
-    label?: string
-    subtitle: string
-    content?: Array<SectionProps>
-  }
-  variant?: "standard" | "alternate"
-}
-
-const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) => {
+const AccordionPT: React.FC<{ data: PresentationType }> = ({data}) => {
   const { label, title, subtitle, content } = data
   const [ activeItem, setActiveItem ] = React.useState(content ? content[0].title : '')
   return (
@@ -53,16 +26,18 @@ const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) 
           type="single"
           defaultValue={content && content[0].title}
           onValueChange={(value) => setActiveItem(value)}
-          className="col-span-12 lg:col-span-5 flex flex-col items-start justify-center gap-6"
+          className={classNames(
+            "col-span-12 lg:col-span-6 flex flex-col items-start justify-center gap-6",
+          )}
         >
           {content?.map((item) => (
             <RadixAccordion.Item
               key={item.title}
               value={item.title}
               className={classNames(
-                "Item w-full",
-                {"standard rounded-2xl": variant === "standard"},
-                {"alternate": variant === "alternate"}
+                "w-full border-l-4 border-l-transparent",
+                "data-[state=open]:border-l-primary-500",
+                "data-[state=closed]:hover:bg-neutral-100"
               )}
             >
               <RadixAccordion.Trigger
@@ -92,18 +67,12 @@ const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) 
                   </Button>
                 ))}
                 </div>
-                <Image
-                  src={item.media?.url ?? ''}
-                  alt={item.media?.title ?? item.title}
-                  width={500}
-                  height={500}
-                  className="block lg:hidden mt-6 w-full aspect-4/3 object-cover"
-                />
+                { item.media.length > 0 && <MediaCarousel data={item.media} /> }
               </RadixAccordion.Content>
             </RadixAccordion.Item>
           ))}
         </RadixAccordion.Root>
-        <div className="hidden lg:grid lg:col-span-7">
+        <div className="hidden lg:col-span-6">
           {content?.map((item) => (
             <div
               key={item.title}
@@ -113,13 +82,7 @@ const AccordionPT: React.FC<PresentationProps> = ({data, variant = "standard"}) 
                 { "opacity-0 -right-24": activeItem !== item.title }
               )}
             >
-              <Image
-                src={item.media?.url ?? ''}
-                alt={item.media?.title ?? item.title}
-                width={500}
-                height={500}
-                className="aspect-square object-cover"
-              />
+              <MediaCarousel data={item.media} />
             </div>
           ))}
         </div>

@@ -2,40 +2,14 @@
 
 import React from 'react';
 import * as RadixTabs from '@radix-ui/react-tabs';
-import Image from 'next/image';
 import Section from '@/components/elements/Section/Section';
 import Button from '@/components/elements/Button/Button';
 import classNames from "classnames";
-import { ButtonVariant } from '@/utils/types';
+import { ButtonVariant, PresentationType } from '@/utils/types';
 import RichText from '@/components/elements/RichText/RichText';
+import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
 
-interface SectionProps {
-  title: string
-  label?: string
-  subtitle?: string
-  content: string
-  media: {
-    contentType: string
-    url: string
-    title: string
-  }
-  button?: {
-    url: string
-    text: string
-    type: ButtonVariant
-  }
-}
-
-interface PresentationProps {
-  data: {
-    title?: string
-    label?: string
-    subtitle?: string
-    content: Array<SectionProps>
-  }
-}
-
-const TabPT: React.FC<PresentationProps> = ({data}) => {
+const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
   const { label, title, subtitle, content } = data
   const [ activeItem, setActiveItem ] = React.useState(content ? content[0].title : '')
   return (
@@ -79,28 +53,23 @@ const TabPT: React.FC<PresentationProps> = ({data}) => {
               )}
             >
               <div className="grid lg:grid-cols-2">
-                <div className="flex flex-col lg:pr-24">
-                  <h4 className="text-6xl font-bold mb-6">
-                    {section.subtitle}
-                  </h4>
+                <div className="flex flex-col lg:pr-24 prose lg:prose-lg">
                   <RichText htmlString={section.content} />
-                  {section.button?.url && (
+                  {section.buttons.length > 0 && (
                     <div className="mt-6 flex justify-end">
-                      <Button variant={section.button.type ?? "outline"} url={section.button.url}>
-                        {section.button.text}
-                      </Button>
+                      {section.buttons.map(button => (
+                        <Button key={button.id} variant={button.type} url={button.url}>
+                          {button.text}
+                        </Button>
+                      ))}
                     </div>
                   )}
                 </div>
-                <div className="flex flex-col items-center lg:items-start">
-                  <Image
-                    src={section.media?.url ?? ''}
-                    alt={section.media.title}
-                    width={500}
-                    height={500}
-                    className="w-full h-full aspect-4/3 object-cover lg:shadow-lg"
-                  />
-                </div>
+                { section.media.length > 0 && 
+                  <div className="flex flex-col items-center lg:items-start">
+                    <MediaCarousel data={section.media} />
+                  </div>
+                }
               </div>
             </RadixTabs.Content>
           ))}
