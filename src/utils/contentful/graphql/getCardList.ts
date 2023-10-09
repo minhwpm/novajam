@@ -139,6 +139,21 @@ export default async function getCardList(id: string) {
                     }
                   }
                 }
+                ... on PricingPlan {
+                  sys {
+                    id
+                  }
+                  title
+                  pricing
+                  pricingSuffix
+                  features
+                  ctaButton {
+                    url
+                    text
+                    newTab
+                    buttonVariant
+                  }
+                }
               }
             }
           }

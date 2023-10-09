@@ -9,12 +9,6 @@ export type ImageType = {
   height: number
 }
 
-export type ButtonType = {
-  url: string
-  text: string
-  buttonVariant: string
-}
-
 export type MediaType = {
   id: string
   url: string
@@ -25,6 +19,12 @@ export type MediaType = {
 }
 
 export type ButtonVariant = "standard" | "alternate" | "black" | "link-btn" | "outline" | "outline-black" | "outline-white"
+
+export type ButtonType = {
+  url: string
+  text: string
+  buttonVariant: ButtonVariant
+}
 
 export type LinkType = {
   id: string
@@ -270,7 +270,17 @@ export type ContentPieceType = {
   contentType: 'contentpiece'
 }
 
-export type CardType = BlogType | FeatureType | ProductType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType
+export type PricingPlanType = {
+  id: string
+  title: string
+  pricing: string
+  pricingSuffix: string
+  features: Array<string>
+  ctaButton: ButtonType
+  contentType: 'pricingplan'
+}
+
+export type CardType = BlogType | FeatureType | ProductType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType | PricingPlanType
 
 export type CardListType = {
   id: string

@@ -12,6 +12,7 @@ import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
 import { Statistics } from "@/components/elements/Statistics/Statistics"
 import { ContentPiece } from "@/components/elements/ContentPiece/ContentPiece"
+import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan"
 
 interface Props {
   data: CardListType
@@ -46,6 +47,8 @@ const ContentItem: React.FC<{data: CardType}> = ({data}) => {
       return <Statistics data={data} />
     case "contentpiece":
       return <ContentPiece data={data} />
+    case "pricingplan":
+      return <PricingPlan data={data} />
 
     {/* @TODO render Service (may be?) */}
   }
