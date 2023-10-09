@@ -7,7 +7,7 @@ import Button from "../Button/Button"
 export const ContentPiece: React.FC<{ data: ContentPieceType }> = ({ data }) => {
   const { title, content, media, ctaButton } = data
   return (
-    <div>
+    <div className="flex flex-col">
       <div>
         {media.length > 0 && media.map(item => (
           <Image
@@ -24,7 +24,7 @@ export const ContentPiece: React.FC<{ data: ContentPieceType }> = ({ data }) => 
         ))}
       </div>
       <div className={classNames(
-        "py-5 px-4 flex-1 flex flex-col justify-between",
+        "py-5 pr-5 flex-1 flex flex-col justify-between",
       )}>
         <div>
           <h4 className="text-xl lg:text-2xl font-semibold mt-1">

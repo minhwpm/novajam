@@ -47,37 +47,6 @@ export default async function getCardList(id: string) {
                     height
                   }
                 }
-                ... on Feature {
-                  sys {
-                    id
-                  }
-                  title
-                  label
-                  content {
-                    json
-                  }
-                  mediaCollection (limit: 1) {
-                    items {
-                      sys {
-                        id
-                      }
-                      url
-                      title
-                      width
-                      height
-                      contentType
-                    }
-                  }
-                  buttonsCollection {
-                    items {
-                      sys {
-                        id
-                      }
-                      url
-                      text
-                    }
-                  }
-                }
                 ... on Product {
                   sys {
                     id
