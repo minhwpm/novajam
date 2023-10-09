@@ -106,10 +106,10 @@ const CardList: React.FC<Props> = ({ data}) => {
             ))}
             slidesPerView={size}
           >
-            <div className="custom-swiper-btn-prev cursor-pointer w-14 h-14 rounded-full bg-white border border-neutral-200 items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-10 opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+            <div className="custom-swiper-btn-prev cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-50 text-white items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-10 opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
               <AiOutlineArrowLeft size={30} />
             </div>
-            <div className="custom-swiper-btn-next cursor-pointer w-14 h-14 rounded-full bg-white border border-neutral-200 items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 z-10 opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+            <div className="custom-swiper-btn-next cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-50 text-white items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 z-10 opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
               <AiOutlineArrowRight size={30} />
             </div>
           </Carousel>
