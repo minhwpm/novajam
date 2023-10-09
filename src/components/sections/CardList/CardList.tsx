@@ -1,5 +1,3 @@
-'use client'
-
 import Section from "@/components/elements/Section/Section"
 import BlogPreview from "@/components/elements/BlogPreview/BlogPreview"
 import classNames from "classnames"
@@ -13,6 +11,7 @@ import Carousel from "@/components/elements/Carousel/Carousel"
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
 import { Statistics } from "@/components/elements/Statistics/Statistics"
+import { ContentPiece } from "@/components/elements/ContentPiece/ContentPiece"
 
 interface Props {
   data: CardListType
@@ -45,6 +44,8 @@ const ContentItem: React.FC<{data: CardType}> = ({data}) => {
       return <ExpertPreview data={data} layout="column" />
     case "statistics":
       return <Statistics data={data} />
+    case "contentpiece":
+      return <ContentPiece data={data} />
 
     {/* @TODO render Service (may be?) */}
   }
@@ -54,7 +55,6 @@ const CardList: React.FC<Props> = ({ data}) => {
   const { title, label, subtitle, content, layout, size = 3 } = data
   return (
     <Section
-      className="bg-neutral-50"
       label={label}
       title={title}
       subtitle={subtitle}
@@ -93,17 +93,20 @@ const CardList: React.FC<Props> = ({ data}) => {
               nextEl: '.custom-swiper-btn-next',
               prevEl: '.custom-swiper-btn-prev'
             }}
+            pagination={{
+              enabled: true,
+            }}
             slides={content.map((item) => (
               <div key={item.id} className={classNames("")}>
                 <ContentItem data={item} />
               </div>
             ))}
-            slidesPerView={3}
+            slidesPerView={size}
           >
-            <div className="custom-swiper-btn-prev cursor-pointer w-14 h-14 rounded-full bg-white bg-opacity-80 shadow items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-10 opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+            <div className="custom-swiper-btn-prev cursor-pointer w-14 h-14 rounded-full bg-white border border-neutral-200 items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-10 opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
               <AiOutlineArrowLeft size={30} />
             </div>
-            <div className="custom-swiper-btn-next cursor-pointer w-14 h-14 rounded-full bg-white bg-opacity-80 shadow items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 z-10 opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+            <div className="custom-swiper-btn-next cursor-pointer w-14 h-14 rounded-full bg-white border border-neutral-200 items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 z-10 opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
               <AiOutlineArrowRight size={30} />
             </div>
           </Carousel>

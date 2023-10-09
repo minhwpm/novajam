@@ -5,7 +5,6 @@ import getGallery from "./getGallery"
 import getHero from "./getHero"
 import getInquiryForm from "./getInquiryForm"
 import getPresentation from "./getPresentation"
-import getTestimonials from "./getTestimonials"
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getPage(url: string) {
@@ -75,12 +74,6 @@ export default async function getPage(url: string) {
                   }
                   title
                 }
-                ... on Testimonials {
-                  sys {
-                    id
-                  }
-                  title
-                }
                 ... on Gallery {
                   sys {
                     id
@@ -122,9 +115,6 @@ export default async function getPage(url: string) {
     }
     if (contentType === "feature") {
       return await getFeature(id)
-    }
-    if (contentType === "testimonials") {
-      return await getTestimonials(id)
     }
     if (contentType === "cardlist") {
       return await getCardList(id)

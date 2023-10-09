@@ -147,6 +147,29 @@ export default async function getCardList(id: string) {
                   number
                   text
                 }
+                ... on ContentPiece {
+                  sys {
+                    id
+                  }
+                  title
+                  content {
+                    json
+                  }
+                  ctaButton {
+                    url
+                    text
+                    newTab
+                    buttonVariant
+                  }
+                  mediaCollection (limit: 3) {
+                    items {
+                      url
+                      title
+                      width
+                      height
+                    }
+                  }
+                }
               }
             }
           }

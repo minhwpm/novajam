@@ -9,6 +9,12 @@ export type ImageType = {
   height: number
 }
 
+export type ButtonType = {
+  url: string
+  text: string
+  buttonVariant: string
+}
+
 export type MediaType = {
   id: string
   url: string
@@ -255,7 +261,16 @@ export type StatisticsType = {
   contentType: 'statistics'
 }
 
-export type CardType = BlogType | FeatureType | ProductType | PageType | LinkType | ExpertType | StatisticsType
+export type ContentPieceType = {
+  id: string
+  title: string
+  content: string
+  media: Array<MediaType>
+  ctaButton: ButtonType
+  contentType: 'contentpiece'
+}
+
+export type CardType = BlogType | FeatureType | ProductType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType
 
 export type CardListType = {
   id: string
