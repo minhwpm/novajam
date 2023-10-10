@@ -11,16 +11,16 @@ import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel
 
 const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
   const { label, title, subtitle, content } = data
-  const [ activeItem, setActiveItem ] = React.useState(content ? content[0].title : '')
+  const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0].title : '')
   return (
     <Section
       label={label}
       title={title}
       subtitle={subtitle}
     >
-      <RadixTabs.Root className="w-full" defaultValue={content[0].title} onValueChange={(value) => setActiveItem(value)}>
+      <RadixTabs.Root className="w-full" defaultValue={ content.length > 0 ? content[0].title : "" } onValueChange={(value) => setActiveItem(value)}>
         <RadixTabs.List className="flex lg:justify-center overflow-x-auto" aria-label="">
-          {content.map((section,idx) => (
+          {content.length > 0 && content.map((section,idx) => (
             <RadixTabs.Trigger
               key={section.id}
               value={section.title}
