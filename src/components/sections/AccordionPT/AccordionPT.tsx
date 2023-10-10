@@ -14,7 +14,7 @@ import "./styles.css"
 
 const AccordionPT: React.FC<{ data: PresentationType }> = ({data}) => {
   const { label, title, subtitle, content } = data
-  const [ activeItem, setActiveItem ] = React.useState(content ? content[0].title : '')
+  const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0]?.title : "")
   return (
     <Section
       label={label}
@@ -24,13 +24,13 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({data}) => {
       <div className="w-full grid grid-cols-12 gap-10 lg:max-h-[80vh]">
         <RadixAccordion.Root
           type="single"
-          defaultValue={content && content[0].title}
+          defaultValue={content.length > 0 ? content[0].title : ""}
           onValueChange={(value) => setActiveItem(value)}
           className={classNames(
             "col-span-12 lg:col-span-6 flex flex-col items-start justify-center gap-6",
           )}
         >
-          {content?.map((section) => (
+          {content.length > 0 && content.map((section) => (
             <RadixAccordion.Item
               key={section.title}
               value={section.title}

@@ -27,10 +27,10 @@ export const ContentPiece: React.FC<{ data: ContentPieceType }> = ({ data }) => 
         "py-5 pr-5 flex-1 flex flex-col justify-between",
       )}>
         <div>
-          <h4 className="text-lg lg:text-xl font-semibold mt-1">
+          <h4 className="text-lg lg:text-2xl font-semibold mt-1">
             {title}
           </h4>
-          <div className="py-3 prose">
+          <div className="py-3 prose lg:prose-lg">
             <RichText htmlString={content} />
           </div>
         </div>
