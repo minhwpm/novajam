@@ -1,6 +1,6 @@
 import { PricingPlanType } from "@/utils/types"
 import Button from "../Button/Button"
-import { BsCheck2 } from "react-icons/bs"
+import { BsCheckLg } from "react-icons/bs"
 
 export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
   const { title, pricing, pricingSuffix, features, ctaButton } = data
@@ -24,8 +24,8 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
       </div>
       <ul className="text-neutral-600 leading-loose py-4 border-t">
         {features.map(item => (
-          <li key={item} className="mb-2 inline-flex gap-3">
-            <BsCheck2 className="flex-shrink-0 relative top-1.5 ml-2 text-primary-500" size={20} />
+          <li key={item} className="mb-2 inline-flex gap-2">
+            <BsCheckLg className="flex-shrink-0 relative top-1.5 ml-2 text-primary-500" size={20} />
             {item}
           </li>
         ))}
