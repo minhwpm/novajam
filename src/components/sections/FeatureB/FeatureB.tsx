@@ -1,5 +1,4 @@
 import Section from "@/components/elements/Section/Section"
-import Image from "next/image"
 import classNames from "classnames"
 import Button from "@/components/elements/Button/Button"
 import { FeatureType } from "@/utils/types"
@@ -13,7 +12,7 @@ interface FeatureProps {
 // @TODO refactor to decrease complexity to 10
 // eslint-disable-next-line complexity
 const FeatureB: React.FC<FeatureProps> = ({ data }) => {
-  const { title, label, heading, content, media, buttons, layout } = data
+  const { label, heading, content, media, buttons, layout } = data
 
   return (
     <Section>
@@ -34,7 +33,7 @@ const FeatureB: React.FC<FeatureProps> = ({ data }) => {
           </div>
         </div>
         <div className={classNames(
-          "pt-5 pb-20 md:py-8 lg:py-12 flex flex-col",
+          "pt-5 md:py-8 lg:py-12 flex flex-col",
           { "lg:w-6/12 md:pr-8 lg:pr-16": layout === "Row [ Text | Image ]"},
           { "lg:w-6/12 md:pl-8 lg:pl-16": layout === "Row [ Image | Text ]"},
         )}>
@@ -55,13 +54,15 @@ const FeatureB: React.FC<FeatureProps> = ({ data }) => {
           )}>
             { content && <RichText htmlString={content} /> }
           </div>
-          <div className="mt-10">
-            {buttons && buttons.map(button => 
-              <Button key={button.text} variant={button.type} url={button.url} size="lg">
-                {button.text}
-              </Button>
-            )}
-          </div>
+          {buttons.length > 0  && 
+            <div className="mt-10">
+              {buttons.map(button => 
+                <Button key={button.text} variant={button.type} url={button.url} size="lg">
+                  {button.text}
+                </Button>
+              )}
+            </div>
+          }
         </div>
       </div>
     </Section>

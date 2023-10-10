@@ -30,10 +30,10 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({data}) => {
             "col-span-12 lg:col-span-6 flex flex-col items-start justify-center gap-6",
           )}
         >
-          {content?.map((item) => (
+          {content?.map((section) => (
             <RadixAccordion.Item
-              key={item.title}
-              value={item.title}
+              key={section.title}
+              value={section.title}
               className={classNames(
                 "w-full border-l-4 border-l-transparent",
                 "data-[state=open]:border-l-primary-500",
@@ -41,48 +41,45 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({data}) => {
               )}
             >
               <RadixAccordion.Trigger
-                key={item.title}
-                value={item.title}
+                key={section.title}
+                value={section.title}
                 asChild
               >
-                <div className="TabsTrigger py-4 px-6 cursor-pointer rounded-xl ">
-                  {item.label && (
-                    <p className="block uppercase tracking-widest">
-                      {item.label}
-                    </p>
-                  )}
+                <div className="py-4 px-6 cursor-pointer rounded-xl ">
                   <h3 className="block font-semibold text-2xl">
-                    {item.title}
+                    {section.title}
                   </h3>
                 </div>
               </RadixAccordion.Trigger>
               <RadixAccordion.Content className='Content px-6'>
-                <div className="block text-lg">
-                  <RichText htmlString={item.content} />
+                <div className="prose lg:prose-lg">
+                  <RichText htmlString={section.content} />
                 </div>
-                <div className="mt-6 flex justify-end">
-                {item.buttons && item.buttons?.map(button => (
-                  <Button key={button.text} variant={button.type ?? "alternate"} url={button.url}>
-                    {button.text}
+                <div className="my-3 flex justify-end">
+                  <Button key={section.ctaButton?.id} variant={section.ctaButton?.buttonVariant} url={section.ctaButton?.url}>
+                    {section.ctaButton?.text}
                   </Button>
-                ))}
                 </div>
-                { item.media.length > 0 && <MediaCarousel data={item.media} /> }
+                { section.media.length > 0 && 
+                  <div className="lg:hidden">
+                    <MediaCarousel data={section.media} /> 
+                  </div>
+                }
               </RadixAccordion.Content>
             </RadixAccordion.Item>
           ))}
         </RadixAccordion.Root>
-        <div className="hidden lg:col-span-6">
-          {content?.map((item) => (
+        <div className="hidden lg:grid lg:col-span-6">
+          {content?.map((section) => (
             <div
-              key={item.title}
+              key={section.title}
               className={classNames(
-                "TabsContent text-lg col-start-1 row-start-1 flex flex-col gap-5 items-center justify-center transition-all ease-in-out duration-500 relative ",
-                { "opacity-100 right-0": activeItem === item.title },
-                { "opacity-0 -right-24": activeItem !== item.title }
+                "text-lg col-start-1 row-start-1 flex flex-col gap-5 items-center justify-center transition-all ease-in-out duration-500 relative ",
+                { "opacity-100 right-0": activeItem === section.title },
+                { "opacity-0 -right-24": activeItem !== section.title }
               )}
             >
-              <MediaCarousel data={item.media} />
+              <MediaCarousel data={section.media} />
             </div>
           ))}
         </div>

@@ -27,24 +27,26 @@ const Section = ( { title, label, subtitle, children, className, id, background 
       { "bg-fixed min-h-screen": background?.parallax },
       className,
     )}>
-      {label && (
-        <p className="uppercase tracking-widest text-secondary-500 font-semibold">
-          {label}
-        </p>
-      )}
-      {title && (
-        <h2 className={classNames("font-heading text-3xl md:text-4xl lg:text-5xl leading-snug lg:leading-snug font-bold text-center max-w-3xl",
-          {"mb-5": subtitle},
-          {"mb-12": !subtitle},
-        )}>
-          <RichText htmlString={title} />
-        </h2>
-      )}
-      {subtitle && (
-        <p className="text-lg leading-8 lg:text-xl lg:leading-10 font-medium text-center mb-12 max-w-4xl">
-          {subtitle}
-        </p>
-      )}
+      <Container>
+        {label && (
+          <p className="uppercase tracking-widest text-secondary-500 font-semibold text-center mx-auto">
+            {label}
+          </p>
+        )}
+        {title && (
+          <h2 className={classNames("font-heading text-3xl md:text-4xl lg:text-5xl leading-snug lg:leading-snug font-bold text-center max-w-3xl mx-auto",
+            {"mb-5": subtitle},
+            {"mb-12": !subtitle},
+          )}>
+            <RichText htmlString={title} />
+          </h2>
+        )}
+        {subtitle && (
+          <p className="prose-lg lg:prose-xl text-center mb-12 lg:max-w-4xl mx-auto">
+            {subtitle}
+          </p>
+        )}
+      </Container>
       <Container>
         {children}
       </Container>

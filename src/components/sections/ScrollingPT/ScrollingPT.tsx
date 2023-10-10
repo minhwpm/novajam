@@ -1,37 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
 import classNames from "classnames";
 import Section from "@/components/elements/Section/Section";
 import FeatureContentItem from "@/components/elements/FeatureContentItem/FeatureContentItem";
-import { ButtonVariant } from "@/utils/types";
+import { PresentationType } from "@/utils/types";
+import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
+import RichText from "@/components/elements/RichText/RichText";
 
-interface SectionProps {
-  label?: string
-  title: string
-  subtitle?: string
-  content: string
-  media: {
-    contentType: string
-    title: string
-    url: string
-  }
-  button?: {
-    url: string
-    text: string
-    type: ButtonVariant
-  }
-}
-
-interface ScrollingPTProps {
-  data: {
-    title: string
-    subtitle: string
-    content?: Array<SectionProps>
-  }
-}
-
-const ScrollingPT: React.FC<ScrollingPTProps> = ({ data }) => {
+const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
   const { title, subtitle, content } = data
   const [visibleIdx, setVisibleIdx] = useState(0);
 
@@ -45,19 +21,13 @@ const ScrollingPT: React.FC<ScrollingPTProps> = ({ data }) => {
               <h3 className="font-semibold text-3xl lg:text-4xl leading-snug mb-6">
                 {section.title}
               </h3>
-              <p className="text-base md:text-lg lg:text-xl leading-relaxed">
-                {/* {section.content} */}
-              </p>
+              <div className="prose">
+                <RichText htmlString={section.content} />
+              </div>
             </div>
             <div className="md:w-3/5 mx-auto">
-              {section.media && 
-                <Image
-                  className="w-full object-cover"
-                  src={section.media.url}
-                  alt={section.title}
-                  width={500}
-                  height={500}
-                />
+              {section.media?.length > 0 && 
+                <MediaCarousel data={section.media} />
               }
             </div>
           </div>
@@ -84,14 +54,8 @@ const ScrollingPT: React.FC<ScrollingPTProps> = ({ data }) => {
                     }
                   )}
                 >
-                  {section.media && 
-                    <Image
-                      className="h-full w-auto object-cover"
-                      src={section.media.url}
-                      alt={section.media.title}
-                      width={500}
-                      height={500}
-                    />
+                  {section.media?.length > 0 && 
+                    <MediaCarousel data={section.media} />
                   }
                 </div>
               ))}

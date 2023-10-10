@@ -28,7 +28,7 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
             <div key={section.id} className={classNames("h-full grid grid-cols-2 gap-x-16 gap-y-5 bg-white px-5 md:px-20 lg:px-24")}>
               <div className={classNames(
                 "flex flex-col justify-center lg:py-10 mx-auto",
-                { "col-span-2": section.media.length === 0}
+                { "col-span-2": section.media?.length === 0}
               )}>
                 <h3 className="text-3xl lg:text-4xl leading-snug lg:leading-snug font-bold max-w-4xl mb-5">
                   {section.title}
@@ -36,17 +36,17 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                 <div className="text-slate-700 text-lg block mb-3 prose lg:prose-lg">
                   <RichText htmlString={section.content} />
                 </div>
-                {section.buttons.length > 0 && section.buttons.map(button => (
-                  <Button key={button.id} variant={button.type} url={button.url}>
-                    {button.text}
+                <div className="self-end">
+                  <Button key={section.ctaButton?.id} variant={section.ctaButton?.buttonVariant} url={section.ctaButton?.url}>
+                    {section.ctaButton?.text}
                   </Button>
-                ))}
+                </div>
                 <div className="flex items-center justify-center gap-8 py-6">
                   <AiOutlineArrowLeft className="custom-swiper-btn-prev cursor-pointer md:hidden" size={40} />
                   <AiOutlineArrowRight className="custom-swiper-btn-next cursor-pointer md:hidden" size={40} />
                 </div>
               </div>
-              {section.media.length > 0 && 
+              {section.media?.length > 0 && 
                 <div className="">
                   <MediaCarousel data={section.media} />
                 </div>

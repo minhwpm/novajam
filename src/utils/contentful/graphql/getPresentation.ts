@@ -21,30 +21,30 @@ export default async function getPresentation(id: string) {
           items {
             contentCollection (limit: 20) {
               items {
-                title
-                label
-                content {
-                  json
-                }
-                buttonsCollection {
-                  items {
+                ... on ContentPiece {
+                  title
+                  content {
+                    json
+                  }
+                  ctaButton {
                     sys {
                       id
                     }
                     text
                     url
+                    buttonVariant
                   }
-                }
-                mediaCollection (limit: 1) {
-                  items {
-                    sys {
-                      id
+                  mediaCollection (limit: 3) {
+                    items {
+                      sys {
+                        id
+                      }
+                      url
+                      title
+                      width
+                      height
+                      contentType
                     }
-                    url
-                    title
-                    width
-                    height
-                    contentType
                   }
                 }
               }

@@ -21,6 +21,7 @@ export type MediaType = {
 export type ButtonVariant = "standard" | "alternate" | "black" | "link-btn" | "outline" | "outline-black" | "outline-white"
 
 export type ButtonType = {
+  id?: string
   url: string
   text: string
   buttonVariant: ButtonVariant
@@ -248,10 +249,10 @@ export type CTAType = {
 
 export type PresentationType = {
   id: string
-  title?: string
-  label?: string
-  subtitle?: string
-  content: Array<FeatureType>
+  title: string
+  label: string
+  subtitle: string
+  content: Array<ContentPieceType>
 }
 
 export type StatisticsType = {
