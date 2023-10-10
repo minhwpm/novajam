@@ -171,6 +171,6 @@ export default async function getCardList(id: string) {
     throw new Error("Failed to fetch Card List data. Error: ", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
-  console.log(`CARD LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  // console.log(`CARD LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

@@ -37,16 +37,12 @@ export const MediaCarousel: React.FC<{ data: Array<MediaType>}> = ({data}) => {
           )
         })}
       >
-        {data.length > 1 && (
-          <>
-            <div className="media-carousel-btn-prev absolute right-2 bottom-16 z-10 cursor-pointer w-10 h-10 rounded-full bg-white bg-opacity-80 shadow items-center justify-center flex">
-              <AiOutlineArrowLeft size={20} />
-            </div>
-            <div className="media-carousel-btn-next absolute right-2 bottom-4 z-10 cursor-pointer w-10 h-10 rounded-full bg-white bg-opacity-80 shadow items-center justify-center flex">
-              <AiOutlineArrowRight size={20} />
-            </div>
-          </>
-        )}
+        <div className="media-carousel-btn-prev absolute right-2 bottom-16 z-10 cursor-pointer w-10 h-10 rounded-full bg-white bg-opacity-80 shadow items-center justify-center flex">
+          <AiOutlineArrowLeft size={20} />
+        </div>
+        <div className="media-carousel-btn-next absolute right-2 bottom-4 z-10 cursor-pointer w-10 h-10 rounded-full bg-white bg-opacity-80 shadow items-center justify-center flex">
+          <AiOutlineArrowRight size={20} />
+        </div>
       </Carousel>
     </div>
   )

@@ -65,6 +65,7 @@ export default async function getPresentation(id: string) {
     throw new Error("Failed to fetch Presentation data. Error: ", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
+  console.log(`PRESENTATION DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 
 }

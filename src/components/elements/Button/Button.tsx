@@ -1,8 +1,8 @@
 import React from "react"
 import Link from "next/link"
 import classNames from "classnames"
-import { Arrow } from "@/components/icons/Arrow"
 import { ButtonVariant } from "@/utils/types"
+import { BsArrowRight } from "react-icons/bs";
 
 interface ButtonProps {
   children: React.ReactNode
@@ -17,12 +17,12 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = (props) => {
   const { size = "base", variant = "standard", borderRadius = "base", url, children, onClick, type = "button" } = props
-  if (variant === "link-btn") {
+  if (variant === "link") {
     return (
-      <Link className={classNames("group flex gap-2 items-center text-blue-600 px-0 text-lg hover:underline hover:underline-offset-4")} href={url ?? "#"}>
-        {children}
-        <span className="relative group-hover:left-1">
-          <Arrow />
+      <Link className={classNames("group text-blue-600 px-0 text-lg")} href={url ?? "#"}>
+        <span className="underline-hover-effect">
+          {children}
+          <BsArrowRight className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-300 ease" size={20} />
         </span>
       </Link>
     )

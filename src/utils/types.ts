@@ -18,7 +18,7 @@ export type MediaType = {
   contentType: string
 }
 
-export type ButtonVariant = "standard" | "alternate" | "black" | "link-btn" | "outline" | "outline-black" | "outline-white"
+export type ButtonVariant = "standard" | "alternate" | "black" | "link" | "outline" | "outline-black" | "outline-white"
 
 export type ButtonType = {
   id?: string

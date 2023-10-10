@@ -74,7 +74,7 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({data}) => {
             <div
               key={section.title}
               className={classNames(
-                "text-lg col-start-1 row-start-1 flex flex-col gap-5 items-center justify-center transition-all ease-in-out duration-500 relative ",
+                "text-lg col-start-1 row-start-1 transition-all ease-in-out duration-500 relative ",
                 { "opacity-100 right-0": activeItem === section.title },
                 { "opacity-0 -right-24": activeItem !== section.title }
               )}
