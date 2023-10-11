@@ -136,8 +136,10 @@ export default async function getCardList(id: string) {
                       title
                       width
                       height
+                      contentType
                     }
                   }
+                  alignment
                 }
                 ... on PricingPlan {
                   sys {

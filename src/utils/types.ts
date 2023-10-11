@@ -268,6 +268,7 @@ export type ContentPieceType = {
   content: string
   media: Array<MediaType>
   ctaButton: ButtonType
+  alignment: 'auto' | 'left' | 'right' | 'center'
   contentType: 'contentpiece'
 }
 
