@@ -77,7 +77,7 @@ const HeroC = ({ data, textAlignment = "center", textDarkBackground }: Props ) =
         <p className="uppercase tracking-widest">
           {label}
         </p>
-        <h1 className="text-4xl lg:text-6xl lg:leading-snug font-bold">
+        <h1 className="text-5xl lg:text-6xl lg:leading-snug font-bold max-w-3xl">
           <RichText htmlString={heading} />
         </h1>
         { content && (

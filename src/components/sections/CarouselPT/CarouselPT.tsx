@@ -25,37 +25,39 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
             prevEl: '.custom-swiper-btn-prev'
           }}
           slides={content.map((section) => (
-            <div key={section.id} className={classNames("h-full grid grid-cols-2 gap-x-16 gap-y-5 bg-white px-5 md:px-20 lg:px-24")}>
+            <div key={section.id} className={classNames(
+              "h-full grid grid-cols-2 gap-x-16 gap-y-5 bg-white px-5 md:px-20 lg:px-24"
+            )}>
               <div className={classNames(
-                "flex flex-col justify-center lg:py-10 mx-auto",
-                { "col-span-2": section.media?.length === 0}
+                "flex flex-col lg:py-10 mx-auto col-span-2 lg:col-span-1",
+                { "lg:col-span-2": section.media?.length === 0}
               )}>
-                <h3 className="text-3xl lg:text-4xl leading-snug lg:leading-snug font-bold max-w-4xl mb-5">
+                <div className="flex items-center justify-center gap-8 py-6 lg:hidden">
+                  <AiOutlineArrowLeft className="custom-swiper-btn-prev cursor-pointer" size={40} />
+                  <AiOutlineArrowRight className="custom-swiper-btn-next cursor-pointer" size={40} />
+                </div>
+                <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl">
                   {section.title}
                 </h3>
-                <div className="text-slate-700 text-lg block mb-3 prose lg:prose-lg">
+                <div className="mt-5 prose lg:prose-lg">
                   <RichText htmlString={section.content} />
                 </div>
-                <div className="self-end">
+                <div className="self-end mt-8">
                   <Button key={section.ctaButton?.id} variant={section.ctaButton?.buttonVariant} url={section.ctaButton?.url}>
                     {section.ctaButton?.text}
                   </Button>
                 </div>
-                <div className="flex items-center justify-center gap-8 py-6">
-                  <AiOutlineArrowLeft className="custom-swiper-btn-prev cursor-pointer md:hidden" size={40} />
-                  <AiOutlineArrowRight className="custom-swiper-btn-next cursor-pointer md:hidden" size={40} />
-                </div>
               </div>
-              {section.media?.length > 0 && 
-                <div className="">
-                  <MediaCarousel data={section.media} />
+              { section.media?.length > 0 &&  
+                <div className="col-span-2 row-start-1 lg:col-span-1 lg:row-start-auto">
+                  <MediaCarousel data={section.media} /> 
                 </div>
               }
             </div>
           ))}
         >
-          <AiOutlineArrowLeft className="custom-swiper-btn-prev cursor-pointer absolute left-0 top-1/2 z-10 hidden md:block" size={40} />
-          <AiOutlineArrowRight className="custom-swiper-btn-next cursor-pointer absolute right-0 top-1/2 z-10 hidden md:block" size={40} />
+          <AiOutlineArrowLeft className="custom-swiper-btn-prev cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden lg:block" size={40} />
+          <AiOutlineArrowRight className="custom-swiper-btn-next cursor-pointer absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden lg:block" size={40} />
         </Carousel>
       </div>
     </Section>

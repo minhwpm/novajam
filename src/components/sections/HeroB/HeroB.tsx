@@ -50,7 +50,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
         </div>
         <h1
           className={classNames(
-            "font-heading text-4xl max-w-4xl text-center xl:text-left leading-snug md:text-5xl md:leading-snug font-bold mt-2",
+            "font-heading text-4xl md:text-5xl md:leading-snug max-w-4xl text-center xl:text-left leading-snug font-bold mt-2",
             animationClasses
           )}
         >
