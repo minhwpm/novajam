@@ -70,14 +70,14 @@ const HeroC = ({ data, textAlignment = "center", textDarkBackground }: Props ) =
       ))}
       
       <div className={classNames("absolute text-white px-8 py-12 drop-shadow-lg",
-        { "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full lg:w-2/3": textAlignment === "center" },
+        { "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full lg:w-2/3 flex flex-col justify-center text-center": textAlignment === "center" },
         { "top-1/2 left-4 md:left-32 -translate-y-1/2 w-1/2": textAlignment === "left" },
         { "bg-gray-800 bg-opacity-30" : textDarkBackground}
       )}>
         <p className="uppercase tracking-widest">
           {label}
         </p>
-        <h1 className="text-5xl lg:text-6xl lg:leading-snug font-bold max-w-3xl">
+        <h1 className="text-5xl lg:text-6xl lg:leading-snug font-bold max-w-3xl mx-auto">
           <RichText htmlString={heading} />
         </h1>
         { content && (
