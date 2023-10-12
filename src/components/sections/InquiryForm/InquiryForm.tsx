@@ -117,7 +117,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                     )
                 }
               })}
-              <div className="col-span-2 flex justify-center">
+              <div className="flex flex-col col-start-2">
                 <Button variant={submitButton.buttonVariant ?? "black"} size="lg" type="submit">
                   {submitButton.text}
                 </Button>
