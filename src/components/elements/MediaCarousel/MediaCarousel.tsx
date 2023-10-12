@@ -4,7 +4,8 @@ import Image from "next/image"
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import classNames from "classnames";
 
-export const MediaCarousel: React.FC<{ data: Array<MediaType>}> = ({data}) => {
+export const MediaCarousel: React.FC<{ data: Array<MediaType>, aspectRatio?: string }> = ({data, aspectRatio = ""} ) => {
+  console.log(aspectRatio)
   return (
     <div className="relative">
       <Carousel
@@ -19,11 +20,10 @@ export const MediaCarousel: React.FC<{ data: Array<MediaType>}> = ({data}) => {
         }}
         slides = { data.map((item) => (
             <div key={item.id} className={classNames(
-              {"aspect-4/3": item.width >= 160 }
+              { [aspectRatio] : item.width >= 160 }
             )}> 
               {item.contentType.includes("image") && (
                 <Image
-                  // className="w-full h-full object-cover"
                   className={classNames(
                     { "object-cover w-full h-full": (item.width >= 160)},
                     { "w-20 object-contain": (item.width < 160)},

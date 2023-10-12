@@ -4,7 +4,7 @@ import HeroB from "@/components/sections/HeroB/HeroB"
 import ScrollingPT from "@/components/sections/ScrollingPT/ScrollingPT"
 import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
 import CardList from "@/components/sections/CardList/CardList"
-import FeatureB from "@/components/sections/FeatureB/FeatureB"
+import Feature from "@/components/sections/Feature/Feature"
 import { CTAType, CardListType, FeatureType, HeroType, InquiryFormType, PresentationType } from "@/utils/types"
 import HeroC from '../HeroC/HeroC'
 import TabPT from '../TabPT/TabPT'
@@ -25,13 +25,13 @@ const sectionComponents = {
     carousel: CarouselPT,
   },
   testimonials: Testimonials,
-  feature: FeatureB,
+  feature: Feature,
   cardlist: CardList,
   gallery: Gallery,
   inquiryform: InquiryForm,
 }
 
-// type ComponentType = typeof HeroB | typeof HeroC | typeof HeroD | typeof CTAB | typeof ScrollingPT | typeof AccordionPT | typeof CarouselPT | typeof TabPT | typeof Testimonials | typeof FeatureB | typeof CardList
+// type ComponentType = typeof HeroB | typeof HeroC | typeof HeroD | typeof CTAB | typeof ScrollingPT | typeof AccordionPT | typeof CarouselPT | typeof TabPT | typeof Testimonials | typeof Feature | typeof CardList
 
 type SectionType = {
   data: HeroType | CTAType | PresentationType | CardListType | FeatureType | InquiryFormType

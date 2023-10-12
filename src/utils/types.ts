@@ -204,7 +204,8 @@ export type FeatureType = {
     text: string
     type: ButtonVariant
   }>
-  layout: string
+  layout: "Row [ Image | Text ]" | "Row [ Text | Image ]" | "Column [ Image | Text ]" | "Column [ Text | Image ]"
+  uiVariant: "standard" | "extended"
   contentType: "feature"
 }
 
