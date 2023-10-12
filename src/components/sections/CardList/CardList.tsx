@@ -2,7 +2,6 @@ import Section from "@/components/elements/Section/Section"
 import BlogPreview from "@/components/elements/BlogPreview/BlogPreview"
 import classNames from "classnames"
 import ProductPreview from "@/components/elements/ProductPreview/ProductPreview"
-import FeaturePreview from "@/components/elements/FeaturePreview/FeaturePreview"
 import { CardListType, CardType } from "@/utils/types"
 import PagePreview from "../PagePreview/PagePreview"
 import Link from "next/link"
@@ -22,8 +21,6 @@ const ContentItem: React.FC<{data: CardType}> = ({data}) => {
   switch(data.contentType){
     case "product": 
       return <ProductPreview data={data} />
-    case "feature":
-      return <FeaturePreview data={data} />
     case "blog":
       return <BlogPreview data={data} />
     case "page":

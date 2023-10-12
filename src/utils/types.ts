@@ -283,7 +283,7 @@ export type PricingPlanType = {
   contentType: 'pricingplan'
 }
 
-export type CardType = BlogType | FeatureType | ProductType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType | PricingPlanType
+export type CardType = BlogType | ProductType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType | PricingPlanType
 
 export type CardListType = {
   id: string
