@@ -1,3 +1,4 @@
+import getContentPiece from "./getContentPiece"
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getCardList(id: string) {
@@ -121,23 +122,11 @@ export default async function getCardList(id: string) {
                     id
                   }
                   title
-                  content {
-                    json
-                  }
                   ctaButton {
                     url
                     text
                     newTab
                     buttonVariant
-                  }
-                  mediaCollection (limit: 3) {
-                    items {
-                      url
-                      title
-                      width
-                      height
-                      contentType
-                    }
                   }
                   alignment
                 }
@@ -168,11 +157,23 @@ export default async function getCardList(id: string) {
     }),
   })
   const data = await res.json()
+  // console.log(`RAW CARD LIST DATA: ${JSON.stringify(data, null, 4)}`)
   if (res.status !== 200) {
     console.error(data)
     throw new Error("Failed to fetch Card List data. Error: ", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
-  // console.log(`CARD LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  async function getSectionData(contentType: string, id: string) {
+    if (contentType === "contentpiece") {
+      return await getContentPiece(id)
+    }
+  }
+  for(let i = 0; i < normalizedData[0]?.content.length; i++) {
+    normalizedData[0].content[i] = {
+      ... normalizedData[0].content[i],
+      ... await getSectionData(normalizedData[0].content[i].contentType, normalizedData[0].content[i].id)
+    }
+  }
+  console.log(`CARD LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

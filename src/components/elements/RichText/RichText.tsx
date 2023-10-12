@@ -1,6 +1,5 @@
 import ReactMarkdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
-import { ListItem }  from "./ListItem/ListItem"
 
 const RichText: React.FC<{htmlString: string}> = ({htmlString}) => {
   return (
