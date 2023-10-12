@@ -16,7 +16,7 @@ const TextPart: React.FC<FeatureProps> = ({ data }) => {
       {label && (
         <p
           className={classNames(
-            "uppercase tracking-widest mb-5 text-secondary-500 font-semibold",
+            "uppercase tracking-widest mb-2 text-secondary-500 font-semibold",
             {
               "text-center":
                 layout === "Column [ Text | Image ]" ||
@@ -49,11 +49,11 @@ const TextPart: React.FC<FeatureProps> = ({ data }) => {
         {content && <RichText htmlString={content} />}
       </div>
       {buttons.length > 0 && (
-        <div className="mt-10">
+        <div className="mt-10 flex items-center gap-5">
           {buttons.map((button) => (
             <Button
-              key={button.text}
-              variant={button.type}
+              key={button.id}
+              variant={button.buttonVariant}
               url={button.url}
               size="lg"
             >

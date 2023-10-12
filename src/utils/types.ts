@@ -198,12 +198,7 @@ export type FeatureType = {
     contentType: string
   }>
   url?: string
-  buttons: Array<{
-    id: string
-    url: string
-    text: string
-    type: ButtonVariant
-  }>
+  buttons: Array<ButtonType>
   layout: "Row [ Image | Text ]" | "Row [ Text | Image ]" | "Column [ Image | Text ]" | "Column [ Text | Image ]"
   uiVariant: "standard" | "extended"
   contentType: "feature"

@@ -27,8 +27,12 @@ export default async function getFeature(id: string) {
             }
             buttonsCollection {
               items {
+                sys {
+                  id
+                }
                 text
                 url
+                buttonVariant
               }
             }
             mediaCollection {

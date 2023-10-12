@@ -29,7 +29,7 @@ const Section = ( { title, label, subtitle, children, className, id, background 
     )}>
       <Container>
         {label && (
-          <p className="uppercase tracking-widest text-secondary-500 font-semibold text-center mx-auto">
+          <p className="uppercase tracking-widest text-secondary-500 font-semibold text-center mx-auto mb-2">
             {label}
           </p>
         )}
