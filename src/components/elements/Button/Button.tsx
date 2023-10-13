@@ -19,22 +19,28 @@ const Button: React.FC<ButtonProps> = (props) => {
   const { size = "base", variant = "standard", borderRadius = "base", url, children, onClick, type = "button" } = props
   if (variant === "link") {
     return (
-      <Link className={classNames("group text-blue-600 px-0 text-lg")} href={url ?? "#"}>
+      <Link
+        className={classNames("group inline-block text-blue-600 px-0 text-lg")}
+        href={url ?? "#"}
+      >
         <span className="underline-hover-effect">
           {children}
-          <BsArrowRight className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-300 ease" size={20} />
+          <BsArrowRight
+            className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-300 ease"
+            size={20}
+          />
         </span>
       </Link>
-    )
+    );
   }
   const classes = classNames(
-    "cursor-pointer inline-block text-center hover:animate-poop transition-all duration-500",
+    "relative inline-block text-center bottom-0 hover:bottom-1 transition-all duration-600 ease",
     { "bg-primary-500 hover:bg-primary-600 text-white" : variant === "standard" },
     { "bg-secondary-500 hover:bg-secondary-600 text-white" : variant === "alternate" },
     { "bg-black text-white" : variant === "black" },
     { "!border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white" : variant === "outline" },
     { "!border-2 border-black text-black hover:bg-black hover:text-white" : variant === "outline-black" },
-    { "!border-2 border-white text-white hover:bg-primary-500" : variant === "outline-white" },
+    { "!border-2 border-white text-white hover:bg-white hover:text-neutral-800 drop-shadow-lg" : variant === "outline-white" },
     { "px-6 py-2": size === "base" },
     { "px-8 py-3 text-lg font-semibold": size === "lg" },
     { "rounded-md": borderRadius === "base" },

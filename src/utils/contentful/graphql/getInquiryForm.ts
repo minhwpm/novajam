@@ -40,6 +40,7 @@ export default async function getInquiryForm(id: string) {
             submitButton {
               text
               url
+              buttonVariant
             }
             backgroundImage {
               url

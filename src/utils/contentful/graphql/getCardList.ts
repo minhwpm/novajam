@@ -157,7 +157,7 @@ export default async function getCardList(id: string) {
     }),
   })
   const data = await res.json()
-  // console.log(`RAW CARD LIST DATA: ${JSON.stringify(data, null, 4)}`)
+  console.log(`RAW CARD LIST DATA: ${JSON.stringify(data, null, 4)}`)
   if (res.status !== 200) {
     console.error(data)
     throw new Error("Failed to fetch Card List data. Error: ", data.error)
@@ -174,6 +174,6 @@ export default async function getCardList(id: string) {
       ... await getSectionData(normalizedData[0].content[i].contentType, normalizedData[0].content[i].id)
     }
   }
-  console.log(`CARD LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  // console.log(`CARD LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

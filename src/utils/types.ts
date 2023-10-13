@@ -71,11 +71,7 @@ export interface HeaderType {
     enabled: boolean
     placeholder: string
   } 
-  buttons?: Array<{
-    text: string
-    url: string
-    type: ButtonVariant
-  }>
+  buttons?: Array<ButtonType>
   uiVariant: "standard" | "extended" | "minimal"
 }
 
