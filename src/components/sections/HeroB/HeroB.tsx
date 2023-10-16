@@ -37,9 +37,9 @@ const HeroB: React.FC<Props> = ({ data }) => {
   return (
     <section
       ref={ref}
-      className="px-4 xl:px-32 py-16 flex flex-col gap-16 xl:flex-row xl:gap-0 items-center xl:min-h-screen"
+      className="px-4 xl:px-32 py-16 flex flex-col gap-16 lg:flex-row lg:gap-0 items-center lg:min-h-screen"
     >
-      <div className="flex flex-col items-center xl:items-start xl:w-6/12 xl:pr-16">
+      <div className="flex flex-col items-center xl:items-start lg:w-6/12 lg:pr-16">
         <div
           className={classNames(
             "uppercase font-semibold text-primary-600 tracking-widest",
@@ -50,14 +50,14 @@ const HeroB: React.FC<Props> = ({ data }) => {
         </div>
         <h1
           className={classNames(
-            "font-heading text-4xl md:text-5xl md:leading-snug max-w-4xl text-center xl:text-left leading-snug font-bold mt-2",
+            "font-heading text-4xl md:text-5xl md:leading-snug max-w-4xl text-center lg:text-left leading-snug font-bold mt-2",
             animationClasses
           )}
         >
           <RichText htmlString={heading} />
         </h1>
         {content && 
-          <div className={classNames("mt-6 prose xl:prose-xl", animationClasses)}>
+          <div className={classNames("mt-6 prose lg:prose-lg xl:prose-xl", animationClasses)}>
             <RichText htmlString={content} />
           </div>
         }
@@ -69,7 +69,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
           ))}
         </div>
       </div>
-      <div className="xl:w-6/12">
+      <div className="lg:w-6/12">
         {media?.map(item => (
           <div key={item.url}>
             {item?.contentType.includes("image") && (
