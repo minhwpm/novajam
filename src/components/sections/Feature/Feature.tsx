@@ -67,24 +67,26 @@ const TextPart: React.FC<FeatureProps> = ({ data }) => {
 }
 
 const MediaPart: React.FC<FeatureProps> = ({ data }) => {
-  const { media, layout } = data
+  const { media, layout, uiVariant } = data
   return (
     <MediaCarousel
       data={media}
       aspectRatio={classNames(
         {
           "aspect-video":
-            layout === "Column [ Text | Image ]" ||
-            layout === "Column [ Image | Text ]",
+            uiVariant === "standard" &&
+            (layout === "Column [ Text | Image ]" ||
+              layout === "Column [ Image | Text ]"),
         },
         {
           "aspect-4/3":
-            layout === "Row [ Text | Image ]" ||
-            layout === "Row [ Image | Text ]",
+            uiVariant === "standard" &&
+            (layout === "Row [ Text | Image ]" ||
+            layout === "Row [ Image | Text ]"),
         }
       )}
     />
-  )
+  );
 }
 
 const Feature: React.FC<FeatureProps> = ({ data }) => {
@@ -112,10 +114,10 @@ const Feature: React.FC<FeatureProps> = ({ data }) => {
           className={classNames(
             "container mx-auto px-4",
             {
-              "lg:absolute lg:left-1/2 lg:-translate-x-1/2":
+              "lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2":
                 layout === "Row [ Text | Image ]",
             },
-            { "lg:absolute lg:left-1/2": layout === "Row [ Image | Text ]" }
+            { "lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2": layout === "Row [ Image | Text ]" }
           )}
         >
           <div
@@ -131,8 +133,9 @@ const Feature: React.FC<FeatureProps> = ({ data }) => {
       </section>
     );
   }
-  //default uiVariant = "standard"
+  
   return (
+    //default uiVariant = "standard"
     <Section>
       <div
         className={classNames(
@@ -149,7 +152,7 @@ const Feature: React.FC<FeatureProps> = ({ data }) => {
               layout === "Row [ Image | Text ]",
           })}
         >
-          {media.length > 0 && <MediaPart data={data} /> }
+          {media.length > 0 && <MediaPart data={data} />}
         </div>
         <div
           className={classNames(
