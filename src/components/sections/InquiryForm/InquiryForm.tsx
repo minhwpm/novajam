@@ -1,9 +1,11 @@
+/* eslint-disable complexity */
 'use client'
+import classNames from "classnames";
+import  { useForm }  from "react-hook-form";
 import Button from "@/components/elements/Button/Button";
 import Container from "@/components/elements/Container/Container";
+import { DatePicker } from "@/components/elements/DatePicker/DatePicker";
 import { InquiryFormType } from "@/utils/types";
-import classNames from "classnames";
-import  { useForm }  from  "react-hook-form";
 
 interface Props {
   data: InquiryFormType
@@ -16,7 +18,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { title, subtitle, type, fields, submitButton, backgroundImage, htmlid } = data
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<FormValues>();
+  const { register, control, handleSubmit, watch, formState: { errors } } = useForm<FormValues>();
 
   function onSubmit(data: FormValues) {
     console.log(data)
@@ -41,33 +43,35 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
       className={classNames({ "bg-primary-600": !backgroundImage })}
     >
       <Container>
-        <div className="grid lg:grid-cols-12 gap-10 my-24">
-          <div className={classNames("col-span-5 text-white drop-shadow-lg")}>
-            <h3 className="text-5xl font-bold mb-8 tracking-wide leading-snug">
+        <div className="grid grid-cols-12 gap-y-10 md:gap-x-10 my-24">
+          <div className={classNames("col-span-12 lg:col-span-5 text-white drop-shadow-lg")}>
+            <h3 className="text-4xl md:text-5xl font-bold mb-8 tracking-wide leading-snug text-center lg:text-start">
               {title}
             </h3>
-            <p className="max-w-lg prose lg:prose-xl text-white">{subtitle}</p>
+            <p className="max-w-lg md:text-lg tracking-wide leading-snug text-center mx-auto lg:text-start lg:mx-0">{subtitle}</p>
           </div>
-          <div className="col-span-7">
+          <div className="col-span-12 lg:col-span-7">
             <form
               className={classNames(
-                "max-w-2xl mx-auto lg:max-w-auto lg:mr-0 grid md:grid-cols-2 gap-x-5 gap-y-3 px-8 py-12 bg-white bg-opacity-70 rounded",
+                "max-w-2xl mx-auto lg:max-w-auto lg:mr-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 py-12 bg-white bg-opacity-70 rounded",
                 { "gap-x-0": fields.length === 1 }
               )}
               onSubmit={handleSubmit(onSubmit)}
             >
               {fields.length > 0 &&
-                fields.map((field) => {
-                  switch (field.type) {
+                fields.map((fieldItem) => {
+                  switch (fieldItem.type) {
                     case "select":
                       return (
-                        <div className="col-span-2">
+                        <div className={classNames("col-span-2",
+                          { "md:col-span-1": fieldItem.uiWidth === "half-size"}
+                        )}>
                           <select
-                            key={field.id}
-                            id={field.label}
+                            key={fieldItem.id}
+                            id={fieldItem.label}
                             className="block border rounded-md w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
-                            {...register(field.label, {
-                              required: field.required,
+                            {...register(fieldItem.label, {
+                              required: fieldItem.required,
                             })}
                           >
                             <option
@@ -76,17 +80,17 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                               selected
                               className="text-neutral-400"
                             >
-                              {field.placeholder ?? field.label}
+                              {fieldItem.placeholder ?? fieldItem.label}
                             </option>
-                            {field.options.map((option) => (
+                            {fieldItem.options.map((option) => (
                               <option key={option} value={option} className="text-neutral-800">
                                 {option}
                               </option>
                             ))}
                           </select>
                           <div className="text-sm text-red-500 h-6 pt-1 pl-4">
-                            {errors[field.label] && (
-                              <p>This field is required</p>
+                            {errors[fieldItem.label] && (
+                              <p>This fieldItem is required</p>
                             )}
                           </div>
                         </div>
@@ -95,21 +99,46 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                       return (
                         <div className="col-span-2">
                           <textarea
-                            key={field.id}
+                            key={fieldItem.id}
                             className="block border rounded-md w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
-                            id={field.label}
+                            id={fieldItem.label}
                             placeholder={
-                              field.placeholder ??
-                              "Your message..." + (field.required ? "*" : "")
+                              fieldItem.placeholder ??
+                              "Your message..." + (fieldItem.required ? "*" : "")
                             }
                             rows={5}
-                            {...register(field.label, {
-                              required: field.required,
+                            {...register(fieldItem.label, {
+                              required: fieldItem.required,
                             })}
                           />
                           <div className="text-sm text-red-500 h-6 pt-1 pl-4">
-                            {errors[field.label] && (
-                              <p>This field is required</p>
+                            {errors[fieldItem.label] && (
+                              <p>This fieldItem is required</p>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    case "date":
+                      return (
+                        <div className={classNames("col-span-2 flex flex-col",
+                          { "md:col-span-1": fieldItem.uiWidth === "half-size"}
+                        )}>
+                          <DatePicker
+                            key={fieldItem.id}
+                            className="w-full border rounded-md px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
+                            placeholder={
+                              fieldItem.placeholder ??
+                              fieldItem.label + (fieldItem.required ? "*" : "")
+                            }
+                            control={control}
+                            {...register(fieldItem.label, {
+                              required: fieldItem.required,
+                            })}
+                            required={fieldItem.required}
+                          />
+                          <div className="text-sm text-red-500 h-6 pt-1 pl-4">
+                            {errors[fieldItem.label] && (
+                              <p>This fieldItem is required</p>
                             )}
                           </div>
                         </div>
@@ -119,35 +148,35 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                         <div
                           className={classNames(
                             "col-span-2 relative",
-                            { "md:col-span-1": fields.length > 1 } // For subscription form (Email field & Submit button)
+                            { "md:col-span-1": fieldItem.uiWidth === "half-size" } // For subscription form (Email fieldItem & Submit button)
                           )}
                         >
-                          {field.type === "date" && (
+                          {fieldItem.type === "date" && (
                             <label
                               className="block mb-1 absolute -top-6 text-neutral-800"
-                              htmlFor={field.label}
+                              htmlFor={fieldItem.label}
                             >
-                              {field.label} {field.required && "*"}
+                              {fieldItem.label} {fieldItem.required && "*"}
                             </label>
                           )}
                           <input
                             className={classNames(
                               "block border rounded-md w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
                             )}
-                            key={field.id}
-                            id={field.label}
-                            type={field.type}
-                            {...register(field.label, {
-                              required: field.required,
+                            key={fieldItem.id}
+                            id={fieldItem.label}
+                            type={fieldItem.type}
+                            {...register(fieldItem.label, {
+                              required: fieldItem.required,
                             })}
                             placeholder={
-                              field.placeholder ??
-                              field.label + (field.required ? "*" : "")
+                              fieldItem.placeholder ??
+                              fieldItem.label + (fieldItem.required ? "*" : "")
                             }
                           />
                           <div className="text-sm text-red-500 h-6 pt-1 pl-4">
-                            {errors[field.label] && (
-                              <p>This field is required</p>
+                            {errors[fieldItem.label] && (
+                              <p>This fieldItem is required</p>
                             )}
                           </div>
                         </div>

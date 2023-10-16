@@ -333,6 +333,7 @@ export type InquiryFormType = {
     options: Array<string>
     required: boolean
     placeholder: string
+    uiWidth: "half-size" | "full-size"
   }>
   submitButton: {
     text: string
