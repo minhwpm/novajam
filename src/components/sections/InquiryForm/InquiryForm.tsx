@@ -53,7 +53,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           <div className="col-span-12 lg:col-span-7">
             <form
               className={classNames(
-                "max-w-2xl mx-auto lg:max-w-auto lg:mr-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 py-12 bg-white bg-opacity-70 rounded",
+                "max-w-xl mx-auto lg:mr-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 py-12 bg-white bg-opacity-70 rounded",
                 { "gap-x-0": fields.length === 1 }
               )}
               onSubmit={handleSubmit(onSubmit)}
