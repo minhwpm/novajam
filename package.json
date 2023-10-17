@@ -40,6 +40,7 @@
     "react-markdown": "^8.0.7",
     "react-redux": "^8.1.1",
     "react-scroll-parallax": "^3.4.2",
+    "react-select": "^5.7.7",
     "rehype-raw": "^6.1.1",
     "swiper": "^9.4.1",
     "tailwindcss": "3.3.2",

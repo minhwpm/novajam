@@ -6,6 +6,7 @@ import Button from "@/components/elements/Button/Button";
 import Container from "@/components/elements/Container/Container";
 import { DatePicker } from "@/components/elements/DatePicker/DatePicker";
 import { InquiryFormType } from "@/utils/types";
+import { Select } from "@/components/elements/Select/Select";
 
 interface Props {
   data: InquiryFormType
@@ -59,130 +60,87 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               onSubmit={handleSubmit(onSubmit)}
             >
               {fields.length > 0 &&
-                fields.map((fieldItem) => {
-                  switch (fieldItem.type) {
-                    case "select":
-                      return (
-                        <div className={classNames("col-span-2",
-                          { "md:col-span-1": fieldItem.uiWidth === "half-size"}
-                        )}>
-                          <select
-                            key={fieldItem.id}
-                            id={fieldItem.label}
-                            className="block border rounded-md w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
-                            {...register(fieldItem.label, {
-                              required: fieldItem.required,
-                            })}
-                          >
-                            <option
-                              value=""
-                              disabled
-                              selected
-                              className="text-neutral-400"
-                            >
-                              {fieldItem.placeholder ?? fieldItem.label}
-                            </option>
-                            {fieldItem.options.map((option) => (
-                              <option key={option} value={option} className="text-neutral-800">
-                                {option}
-                              </option>
-                            ))}
-                          </select>
-                          <div className="text-sm text-red-500 h-6 pt-1 pl-4">
-                            {errors[fieldItem.label] && (
-                              <p>This fieldItem is required</p>
-                            )}
+                fields.map((fieldItem) => (
+                  <div
+                    key={fieldItem.id} 
+                    className={classNames("relative col-span-2 flex flex-col",
+                      { "md:col-span-1": fieldItem.uiWidth === "half-size"}
+                    )}
+                  >
+                    {fieldItem.type === "select" && (
+                      <Select
+                        className="rounded-md w-full"
+                        control={control}
+                        options={fieldItem.options.map(option => {
+                          return {
+                            label: option,
+                            value: option
+                          }
+                        })}
+                        placeholder={(
+                          <div className="text-neutral-400">
+                            {fieldItem.placeholder ?? fieldItem.label}
                           </div>
-                        </div>
-                      );
-                    case "textarea":
-                      return (
-                        <div className="col-span-2">
-                          <textarea
-                            key={fieldItem.id}
-                            className="block border rounded-md w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
-                            id={fieldItem.label}
-                            placeholder={
-                              fieldItem.placeholder ??
-                              "Your message..." + (fieldItem.required ? "*" : "")
-                            }
-                            rows={5}
-                            {...register(fieldItem.label, {
-                              required: fieldItem.required,
-                            })}
-                          />
-                          <div className="text-sm text-red-500 h-6 pt-1 pl-4">
-                            {errors[fieldItem.label] && (
-                              <p>This fieldItem is required</p>
-                            )}
-                          </div>
-                        </div>
-                      );
-                    case "date":
-                      return (
-                        <div className={classNames("col-span-2 flex flex-col",
-                          { "md:col-span-1": fieldItem.uiWidth === "half-size"}
-                        )}>
-                          <DatePicker
-                            key={fieldItem.id}
-                            className="w-full border rounded-md px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
-                            placeholder={
-                              fieldItem.placeholder ??
-                              fieldItem.label + (fieldItem.required ? "*" : "")
-                            }
-                            control={control}
-                            {...register(fieldItem.label, {
-                              required: fieldItem.required,
-                            })}
-                            required={fieldItem.required}
-                          />
-                          <div className="text-sm text-red-500 h-6 pt-1 pl-4">
-                            {errors[fieldItem.label] && (
-                              <p>This fieldItem is required</p>
-                            )}
-                          </div>
-                        </div>
-                      );
-                    default:
-                      return (
-                        <div
-                          className={classNames(
-                            "col-span-2 relative",
-                            { "md:col-span-1": fieldItem.uiWidth === "half-size" } // For subscription form (Email fieldItem & Submit button)
-                          )}
-                        >
-                          {fieldItem.type === "date" && (
-                            <label
-                              className="block mb-1 absolute -top-6 text-neutral-800"
-                              htmlFor={fieldItem.label}
-                            >
-                              {fieldItem.label} {fieldItem.required && "*"}
-                            </label>
-                          )}
-                          <input
-                            className={classNames(
-                              "block border rounded-md w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
-                            )}
-                            key={fieldItem.id}
-                            id={fieldItem.label}
-                            type={fieldItem.type}
-                            {...register(fieldItem.label, {
-                              required: fieldItem.required,
-                            })}
-                            placeholder={
-                              fieldItem.placeholder ??
-                              fieldItem.label + (fieldItem.required ? "*" : "")
-                            }
-                          />
-                          <div className="text-sm text-red-500 h-6 pt-1 pl-4">
-                            {errors[fieldItem.label] && (
-                              <p>This fieldItem is required</p>
-                            )}
-                          </div>
-                        </div>
-                      );
-                  }
-                })}
+                        )}
+                        {...register(fieldItem.label, {
+                          required: fieldItem.required,
+                        })}
+                      />
+                    )}
+                    
+                    {fieldItem.type === "date" && (
+                      <DatePicker
+                        className="w-full border rounded-md px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
+                        placeholder={
+                          fieldItem.placeholder ??
+                          fieldItem.label + (fieldItem.required ? "*" : "")
+                        }
+                        control={control}
+                        {...register(fieldItem.label, {
+                          required: fieldItem.required,
+                        })}
+                        required={fieldItem.required}
+                      />
+                    )}
+
+                    {fieldItem.type === "textarea" && (
+                      <textarea
+                        key={fieldItem.id}
+                        className="block border rounded-md w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
+                        id={fieldItem.label}
+                        placeholder={
+                          fieldItem.placeholder ??
+                          "Your message..." + (fieldItem.required ? "*" : "")
+                        }
+                        rows={5}
+                        {...register(fieldItem.label, {
+                          required: fieldItem.required,
+                        })}
+                      />
+                    )}
+
+                    {(fieldItem.type !== "textarea" && fieldItem.type !== "select" && fieldItem.type !== "date") && (
+                      <input
+                        className={classNames(
+                          "block border rounded-md w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
+                        )}
+                        type={fieldItem.type}
+                        {...register(fieldItem.label, {
+                          required: fieldItem.required,
+                        })}
+                        placeholder={
+                          fieldItem.placeholder ??
+                          fieldItem.label + (fieldItem.required ? "*" : "")
+                        }
+                      />
+                    )}
+                    <div className="text-sm text-red-500 h-6 pt-1 pl-4">
+                      {errors[fieldItem.label] && (
+                        <p>{fieldItem.label} is required</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
               <div className={classNames("col-span-2 flex flex-col")}>
                 <Button
                   variant={submitButton.buttonVariant ?? "black"}
