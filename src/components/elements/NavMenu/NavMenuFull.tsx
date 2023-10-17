@@ -99,7 +99,7 @@ const NavMenuFull: React.FC<{ data: HeaderType}> = ({ data }) => {
         </NavigationMenu.List>
         <div className="fixed bottom-0 bg-primary-800 bg-opacity-80 w-full md:hidden flex flex-col p-4 items-center">
           {buttons && buttons.length > 0 && buttons.map(button => (
-            <Button key={button.text} variant={button.type ?? "outline-white"} size="lg" url={button.url}>
+            <Button key={button.text} variant={button.buttonVariant ?? "outline-white"} size="lg" url={button.url}>
               {button.text}
             </Button>
           ))}

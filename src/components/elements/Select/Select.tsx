@@ -27,6 +27,7 @@ export function Select(props: Props) {
       className={classNames(className)}
       options={options}
       styles={{
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         control: (baseStyles, state) => ({
           ...baseStyles,
           padding: "8px 6px",
