@@ -21,8 +21,26 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { register, control, handleSubmit, watch, formState: { errors } } = useForm<FormValues>();
 
-  function onSubmit(data: FormValues) {
-    console.log(data)
+  async function onSubmit(formValues: FormValues) {
+    console.log("FORM VALUES:", formValues)
+    try {
+      const res = await fetch(`/api/inquiry-form-submission/`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify({
+          title: title,
+          type: type,
+          submittedContent: {
+            ...formValues,
+          },
+        }),
+      });
+      console.log(res);
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   console.log("FORM STATE", errors)
