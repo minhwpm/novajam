@@ -97,3 +97,18 @@ h1 b, h2 b {
   font-style: normal;
   font-weight: unset;
 }
+
+.show-scrollbar::-webkit-scrollbar {
+  height: 5px; /* for Horizonatal scrollbar */
+  width: 5px; /* for Vertical scrollbar */
+  @apply bg-neutral-200
+}
+
+.show-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-primary-400;
+  border-radius: 5px;
+}
+
+.show-scrollbar::-webkit-scrollbar-thumb:hover {
+  cursor: grabbing;
+}
