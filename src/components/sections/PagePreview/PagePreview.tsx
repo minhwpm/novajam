@@ -1,4 +1,4 @@
-import { PageType } from "@/utils/types"
+import { PageType } from "@/helpers/types"
 import Image from "next/image"
 import Link from "next/link"
 

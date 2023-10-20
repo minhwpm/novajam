@@ -1,4 +1,4 @@
-import { FooterType } from "@/utils/types"
+import { FooterType } from "@/helpers/types"
 import classNames from "classnames"
 import Image from "next/image"
 import Link from "next/link"

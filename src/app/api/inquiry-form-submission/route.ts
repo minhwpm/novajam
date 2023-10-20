@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
   // console.log("REQ", reqBody)
   for (const key in reqBody) {
     reqBody[key] = {
-      'en-US': reqBody[key]
+      'en-US': reqBody[key] //@TODO locale
     }
   }
   return client

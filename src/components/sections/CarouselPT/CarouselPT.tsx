@@ -3,7 +3,7 @@ import Section from "@/components/elements/Section/Section";
 import Button from "@/components/elements/Button/Button"
 import Carousel from "@/components/elements/Carousel/Carousel";
 import classNames from "classnames";
-import { PresentationType } from "@/utils/types";
+import { PresentationType } from "@/helpers/types";
 import RichText from "@/components/elements/RichText/RichText";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";

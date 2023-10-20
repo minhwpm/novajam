@@ -1,4 +1,4 @@
-import { ExpertType } from "@/utils/types"
+import { ExpertType } from "@/helpers/types"
 import Image from "next/image"
 import Link from "next/link"
 

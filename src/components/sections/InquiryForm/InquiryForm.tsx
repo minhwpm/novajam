@@ -5,8 +5,9 @@ import  { useForm }  from "react-hook-form";
 import Button from "@/components/elements/Button/Button";
 import Container from "@/components/elements/Container/Container";
 import { DatePicker } from "@/components/elements/DatePicker/DatePicker";
-import { InquiryFormType } from "@/utils/types";
+import { InquiryFormType } from "@/helpers/types";
 import { Select } from "@/components/elements/Select/Select";
+import { getRegEx } from "@/helpers/utils";
 
 interface Props {
   data: InquiryFormType
@@ -19,7 +20,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { title, subtitle, type, fields, submitButton, backgroundImage, htmlid } = data
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { register, control, handleSubmit, watch, formState: { errors } } = useForm<FormValues>();
+  const { register, control, handleSubmit, setError, watch, formState: { errors } } = useForm<FormValues>();
 
   async function onSubmit(formValues: FormValues) {
     console.log("FORM VALUES:", formValues)
@@ -145,6 +146,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                         type={fieldItem.type}
                         {...register(fieldItem.label, {
                           required: fieldItem.required,
+                          pattern: getRegEx(fieldItem.type),
+
                         })}
                         placeholder={
                           fieldItem.placeholder ??
@@ -152,9 +155,12 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                         }
                       />
                     )}
-                    <div className="text-sm text-red-500 h-6 pt-1 pl-4">
-                      {errors[fieldItem.label] && (
-                        <p>{fieldItem.label} is required</p>
+                    <div className="text-xs text-red-500 h-6 pt-1 pl-4">
+                      { errors[fieldItem.label]?.type === "required" && (
+                        <p>required * </p>
+                      )}
+                      { errors[fieldItem.label]?.type === "pattern" &&  (
+                        <p>Wrong format. Please try again. </p> 
                       )}
                     </div>
                   </div>

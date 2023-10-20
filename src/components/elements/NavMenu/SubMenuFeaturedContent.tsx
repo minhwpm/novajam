@@ -1,4 +1,4 @@
-import { BlogType, ProductType, PageType } from "@/utils/types"
+import { BlogType, ProductType, PageType } from "@/helpers/types"
 import Image from "next/image"
 import Link from "next/link"
 

@@ -1,7 +1,7 @@
 import Container from "@/components/elements/Container/Container"
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
 import RichText from "@/components/elements/RichText/RichText"
-import { BlogType } from "@/utils/types"
+import { BlogType } from "@/helpers/types"
 import Image from "next/image"
 import Link from "next/link"
 

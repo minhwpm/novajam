@@ -2,8 +2,8 @@ import '../globals.css'
 import { Analytics } from '@vercel/analytics/react';
 import { Exo } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
-import getHeader from '@/utils/contentful/graphql/getHeader';
-import getFooter from '@/utils/contentful/graphql/getFooter';
+import getHeader from '@/helpers/contentful/graphql/getHeader';
+import getFooter from '@/helpers/contentful/graphql/getFooter';
 import Footer from '@/components/sections/Footer/Footer';
 import classNames from 'classnames';
 

@@ -1,4 +1,4 @@
-import { PricingPlanType } from "@/utils/types"
+import { PricingPlanType } from "@/helpers/types"
 import Button from "../Button/Button"
 import { BsCheckLg } from "react-icons/bs"
 

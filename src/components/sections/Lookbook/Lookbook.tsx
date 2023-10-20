@@ -2,7 +2,7 @@ import Section from "@/components/elements/Section/Section"
 import classNames from "classnames"
 import Button from "@/components/elements/Button/Button"
 import Image from "next/image"
-import { ButtonVariant } from "@/utils/types"
+import { ButtonVariant } from "@/helpers/types"
 
 interface ImageGalleryProps {
   data: {

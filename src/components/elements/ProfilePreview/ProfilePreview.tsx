@@ -1,4 +1,4 @@
-import { ButtonVariant } from "@/utils/types"
+import { ButtonVariant } from "@/helpers/types"
 import classNames from "classnames"
 import Image from "next/image"
 

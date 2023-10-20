@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import Section from "@/components/elements/Section/Section";
 import FeatureContentItem from "@/components/elements/FeatureContentItem/FeatureContentItem";
-import { PresentationType } from "@/utils/types";
+import { PresentationType } from "@/helpers/types";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import RichText from "@/components/elements/RichText/RichText";
 

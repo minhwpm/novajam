@@ -2,12 +2,12 @@
 import Image from "next/image"
 import Button from "@/components/elements/Button/Button"
 import Link from "next/link"
-import useStickyHeaderOnScrollUp from "@/utils/hooks/useStickyHeaderOnScrollUp"
+import useStickyHeaderOnScrollUp from "@/helpers/hooks/useStickyHeaderOnScrollUp"
 import classNames from "classnames"
 import NavMenu from "@/components/elements/NavMenu/NavMenu"
 import NavMenuMobile from "@/components/elements/NavMenu/NavMenuMobile"
 import NavMenuFull from "@/components/elements/NavMenu/NavMenuFull"
-import { HeaderType } from "@/utils/types"
+import { HeaderType } from "@/helpers/types"
 interface Props {
   data: HeaderType
   // @TODO following 4 properties

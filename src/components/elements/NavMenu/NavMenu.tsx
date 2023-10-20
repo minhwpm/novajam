@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import SubMenuItem from './SubMenuItem';
 import Link from 'next/link';
-import { LinkType, SubmenuType } from "@/utils/types"
+import { LinkType, SubmenuType } from "@/helpers/types"
 import './styles.css';
 import SubMenuFeaturedContent from './SubMenuFeaturedContent';
 

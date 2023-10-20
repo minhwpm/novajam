@@ -4,7 +4,7 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { HeaderType } from "@/utils/types"
+import { HeaderType } from "@/helpers/types"
 import SubMenuItem from './SubMenuItem';
 import { useState } from 'react';
 import { getMenuItemText } from './NavMenu';

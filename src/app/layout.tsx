@@ -1,9 +1,9 @@
 import '@/app/globals.css'
 import { Analytics } from '@vercel/analytics/react';
 import classNames from 'classnames';
-import { Params } from "@/utils/types"
+import { Params } from "@/helpers/types"
 import { CustomProvider } from '@/redux/CustomProvider';
-import fonts from '@/utils/fonts';
+import fonts from '@/helpers/fonts';
 
 export const metadata = {
   title: 'Bluebiz',

@@ -1,14 +1,14 @@
-import getPage from "@/utils/contentful/graphql/getPage"
+import getPage from "@/helpers/contentful/graphql/getPage"
 import Sections from "@/components/sections/Sections/Sections"
-import { Params } from "@/utils/types"
-import getProductDetail from "@/utils/contentful/graphql/getProductDetail"
+import { Params } from "@/helpers/types"
+import getProductDetail from "@/helpers/contentful/graphql/getProductDetail"
 import ProductDetail from "@/components/sections/ProductDetail/ProductDetail"
 import Cart from "@/components/sections/Cart/Cart"
 import classNames from "classnames"
 import CheckoutForm from "@/components/elements/CheckoutForm/CheckoutForm"
 import Order from "@/components/elements/Order/Order"
 import { Metadata, ResolvingMetadata } from 'next'
-import getBlogDetails from "@/utils/contentful/graphql/getBlogDetails"
+import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails"
 import BlogDetails from "@/components/sections/BlogDetails/BlogDetails"
 
 export async function generateMetadata(

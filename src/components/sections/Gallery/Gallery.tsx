@@ -1,5 +1,5 @@
 import Section from "@/components/elements/Section/Section"
-import { GalleryType } from "@/utils/types"
+import { GalleryType } from "@/helpers/types"
 import Image from "next/image"
 
 interface Props {

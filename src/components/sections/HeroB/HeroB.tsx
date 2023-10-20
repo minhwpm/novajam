@@ -8,7 +8,7 @@ import classNames from "classnames";
 import { useState } from "react";
 import { useInView } from "react-hook-inview";
 import Image from 'next/image';
-import { HeroType } from "@/utils/types";
+import { HeroType } from "@/helpers/types";
 import RichText from "@/components/elements/RichText/RichText";
 
 interface Props {

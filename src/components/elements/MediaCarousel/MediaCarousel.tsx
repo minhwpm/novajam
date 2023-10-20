@@ -1,4 +1,4 @@
-import { MediaType } from "@/utils/types"
+import { MediaType } from "@/helpers/types"
 import Carousel from "../Carousel/Carousel"
 import Image from "next/image"
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";

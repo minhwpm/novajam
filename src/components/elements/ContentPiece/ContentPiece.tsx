@@ -1,4 +1,4 @@
-import { ContentPieceType } from "@/utils/types"
+import { ContentPieceType } from "@/helpers/types"
 import classNames from "classnames"
 import RichText from "../RichText/RichText"
 import Button from "../Button/Button"

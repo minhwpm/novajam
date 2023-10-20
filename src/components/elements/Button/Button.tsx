@@ -1,7 +1,7 @@
 import React from "react"
 import Link from "next/link"
 import classNames from "classnames"
-import { ButtonVariant } from "@/utils/types"
+import { ButtonVariant } from "@/helpers/types"
 import { BsArrowRight } from "react-icons/bs";
 
 interface ButtonProps {

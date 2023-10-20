@@ -6,7 +6,7 @@ import React from 'react';
 import * as RadixAccordion from '@radix-ui/react-accordion';
 import classNames from "classnames";
 import Section from '@/components/elements/Section/Section';
-import { PresentationType } from '@/utils/types';
+import { PresentationType } from '@/helpers/types';
 import RichText from '@/components/elements/RichText/RichText';
 import Button from '@/components/elements/Button/Button';
 import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';

@@ -6,7 +6,7 @@ import SubMenuItem from './SubMenuItem';
 import { useState } from 'react';
 import { getMenuItemText } from './NavMenu';
 import SubMenuFeaturedContent from './SubMenuFeaturedContent';
-import { LinkType, SubmenuType } from '@/utils/types';
+import { LinkType, SubmenuType } from '@/helpers/types';
 
 const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu }) => {
   const [ mobileMenuShowed, setMobileMenuShowed ] = useState(false)

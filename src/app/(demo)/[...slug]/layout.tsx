@@ -3,10 +3,10 @@ import { Analytics } from '@vercel/analytics/react';
 import Header from '@/components/sections/Header/Header';
 import Footer from '@/components/sections/Footer/Footer';
 import classNames from 'classnames';
-import getHeader from '@/utils/contentful/graphql/getHeader';
-import getFooter from '@/utils/contentful/graphql/getFooter';
-import { Params } from "@/utils/types"
-import fonts from '@/utils/fonts';
+import getHeader from '@/helpers/contentful/graphql/getHeader';
+import getFooter from '@/helpers/contentful/graphql/getFooter';
+import { Params } from "@/helpers/types"
+import fonts from '@/helpers/fonts';
 import styles from './styles.module.css'
 
 export default async function Layout({

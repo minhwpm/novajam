@@ -1,7 +1,7 @@
 import BlogPreview from "@/components/elements/BlogPreview/BlogPreview"
 import Container from "@/components/elements/Container/Container"
-import getBlogs from "@/utils/contentful/graphql/getBlogs"
-import { BlogType } from "@/utils/types"
+import getBlogs from "@/helpers/contentful/graphql/getBlogs"
+import { BlogType } from "@/helpers/types"
 import Pagination from "@/components/elements/Pagination/Pagination"
 
 export default async function Page({ params } : { params: { number: number } } ) {

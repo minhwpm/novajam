@@ -1,8 +1,8 @@
 import BlogPreview from "@/components/elements/BlogPreview/BlogPreview"
 import Container from "@/components/elements/Container/Container"
 import Pagination from "@/components/elements/Pagination/Pagination"
-import getBlogs from "@/utils/contentful/graphql/getBlogs"
-import { BlogType } from "@/utils/types"
+import getBlogs from "@/helpers/contentful/graphql/getBlogs"
+import { BlogType } from "@/helpers/types"
 
 export default async function Page() {
   try {

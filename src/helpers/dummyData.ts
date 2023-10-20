@@ -1,4 +1,4 @@
-import { ButtonVariant } from '@/utils/types';
+import { ButtonVariant } from '@/helpers/types';
 
 export const CelestialHeaderData = {
   logo: {

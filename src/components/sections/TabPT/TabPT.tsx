@@ -5,7 +5,7 @@ import * as RadixTabs from '@radix-ui/react-tabs';
 import Section from '@/components/elements/Section/Section';
 import Button from '@/components/elements/Button/Button';
 import classNames from "classnames";
-import { PresentationType } from '@/utils/types';
+import { PresentationType } from '@/helpers/types';
 import RichText from '@/components/elements/RichText/RichText';
 import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
 

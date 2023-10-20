@@ -6,7 +6,7 @@ Layout: Overlay
 import Image from "next/image"
 import classNames from "classnames";
 import Button from "@/components/elements/Button/Button";
-import { HeroType } from "@/utils/types";
+import { HeroType } from "@/helpers/types";
 import RichText from "@/components/elements/RichText/RichText";
 
 interface Props {

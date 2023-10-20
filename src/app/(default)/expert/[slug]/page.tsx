@@ -1,7 +1,7 @@
 import Container from "@/components/elements/Container/Container"
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
 import RichText from "@/components/elements/RichText/RichText"
-import getExpertDetails from "@/utils/contentful/graphql/getExpertDetails"
+import getExpertDetails from "@/helpers/contentful/graphql/getExpertDetails"
 
 export default async function Page({ params}: {params: {slug: string}},) {
   try {

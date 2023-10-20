@@ -1,4 +1,4 @@
-import { StatisticsType } from "@/utils/types"
+import { StatisticsType } from "@/helpers/types"
 
 export const Statistics: React.FC<{ data: StatisticsType }> = ({ data }) => {
   const { number, text } = data

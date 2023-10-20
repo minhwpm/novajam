@@ -1,7 +1,7 @@
 import Section from "@/components/elements/Section/Section";
 import classNames from "classnames";
 import Button from "@/components/elements/Button/Button";
-import { FeatureType } from "@/utils/types";
+import { FeatureType } from "@/helpers/types";
 import RichText from "@/components/elements/RichText/RichText";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 

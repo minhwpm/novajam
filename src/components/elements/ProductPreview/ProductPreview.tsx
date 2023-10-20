@@ -3,7 +3,7 @@ import Image from "next/image"
 import classNames from "classnames"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ProductType } from "@/utils/types"
+import { ProductType } from "@/helpers/types"
 
 interface Props {
   data: ProductType

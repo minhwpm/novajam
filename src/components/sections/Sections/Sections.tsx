@@ -5,7 +5,7 @@ import ScrollingPT from "@/components/sections/ScrollingPT/ScrollingPT"
 import AccordionPT from "@/components/sections/AccordionPT/AccordionPT"
 import CardList from "@/components/sections/CardList/CardList"
 import Feature from "@/components/sections/Feature/Feature"
-import { CTAType, CardListType, FeatureType, HeroType, InquiryFormType, PresentationType } from "@/utils/types"
+import { CTAType, CardListType, FeatureType, HeroType, InquiryFormType, PresentationType } from "@/helpers/types"
 import HeroC from '../HeroC/HeroC'
 import TabPT from '../TabPT/TabPT'
 import CarouselPT from '../CarouselPT/CarouselPT'

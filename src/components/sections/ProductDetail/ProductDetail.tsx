@@ -7,7 +7,7 @@ import { useRef } from "react"
 import { cartActions } from "@/redux/cartSlice";
 import { useAppDispatch } from "@/redux/hooks"
 import RichText from "@/components/elements/RichText/RichText"
-import { ProductType } from "@/utils/types"
+import { ProductType } from "@/helpers/types"
 
 const ProductDetail: React.FC<{data: ProductType}> = ({ data }) => {
   const { id, title, categories, inStock, price, summary, media, content } = data
