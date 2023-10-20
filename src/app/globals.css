@@ -98,6 +98,7 @@ h1 b, h2 b {
   font-weight: unset;
 }
 
+/* @TODO Refactor - move into module CSS for CardList ? */
 .show-scrollbar::-webkit-scrollbar {
   height: 5px; /* for Horizonatal scrollbar */
   width: 5px; /* for Vertical scrollbar */
