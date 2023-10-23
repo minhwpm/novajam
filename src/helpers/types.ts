@@ -265,6 +265,7 @@ export type PricingPlanType = {
   title: string
   pricing: string
   pricingSuffix: string
+  badge: string
   features: Array<string>
   ctaButton: ButtonType
   contentType: 'pricingplan'
