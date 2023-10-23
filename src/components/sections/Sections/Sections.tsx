@@ -1,4 +1,3 @@
-import Testimonials from '@/components/sections/Testimonials/Testimonials'
 import CTAB from "@/components/sections/CTAB/CTAB"
 import HeroB from "@/components/sections/HeroB/HeroB"
 import ScrollingPT from "@/components/sections/ScrollingPT/ScrollingPT"
@@ -9,6 +8,7 @@ import { CTAType, CardListType, FeatureType, HeroType, InquiryFormType, Presenta
 import HeroC from '../HeroC/HeroC'
 import TabPT from '../TabPT/TabPT'
 import CarouselPT from '../CarouselPT/CarouselPT'
+import MiniCarouselPT from '../MiniCarouselPT/MiniCarouselPT'
 import { InquiryForm } from '../InquiryForm/InquiryForm'
 import { Gallery } from '../Gallery/Gallery'
 
@@ -23,12 +23,13 @@ const sectionComponents = {
     accordion: AccordionPT,
     tab: TabPT,
     carousel: CarouselPT,
+    "mini-carousel": MiniCarouselPT,
   },
-  testimonials: Testimonials,
   feature: Feature,
   cardlist: CardList,
   gallery: Gallery,
   inquiryform: InquiryForm,
+  
 }
 
 // type ComponentType = typeof HeroB | typeof HeroC | typeof HeroD | typeof CTAB | typeof ScrollingPT | typeof AccordionPT | typeof CarouselPT | typeof TabPT | typeof Testimonials | typeof Feature | typeof CardList

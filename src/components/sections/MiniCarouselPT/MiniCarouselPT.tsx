@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import classNames from "classnames";
 import React, { useState } from "react";
@@ -6,14 +6,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Section from "@/components/elements/Section/Section";
 import { TestimonialsType } from "@/helpers/types";
+import RichText from "@/components/elements/RichText/RichText";
 
 interface ArrowGroupProps {
-  visibleIdx: number
-  setVisibleIdx: (idx: number) => void
-  length: number
+  visibleIdx: number;
+  setVisibleIdx: (idx: number) => void;
+  length: number;
 }
 
-const ArrowGroup = ({visibleIdx, setVisibleIdx, length}: ArrowGroupProps) => {
+const ArrowGroup = ({ visibleIdx, setVisibleIdx, length }: ArrowGroupProps) => {
   return (
     <>
       <FontAwesomeIcon
@@ -32,21 +33,16 @@ const ArrowGroup = ({visibleIdx, setVisibleIdx, length}: ArrowGroupProps) => {
         size="2xl"
         width={26}
         onClick={() => {
-          if (visibleIdx < length - 1)
-            setVisibleIdx(visibleIdx + 1);
+          if (visibleIdx < length - 1) setVisibleIdx(visibleIdx + 1);
           else setVisibleIdx(0);
         }}
       />
     </>
-  )
-}
+  );
+};
 
-interface Props {
-  data: TestimonialsType
-}
-
-const Testimonials: React.FC<Props> = ({ data }) => {
-  const { title, content } = data
+const MiniCarousel: React.FC<{ data: TestimonialsType }> = ({ data }) => {
+  const { title, content } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
@@ -58,27 +54,36 @@ const Testimonials: React.FC<Props> = ({ data }) => {
               {title}
             </h2>
             <div className="hidden xl:flex gap-12">
-              <ArrowGroup visibleIdx={visibleIdx} setVisibleIdx={setVisibleIdx} length={content.length} />
+              <ArrowGroup
+                visibleIdx={visibleIdx}
+                setVisibleIdx={setVisibleIdx}
+                length={content.length}
+              />
             </div>
           </div>
           <div className="xl:w-1/2 grid pr-5">
-            {content.map((item, idx) => (
+            {content.map((section, idx) => (
               <div
-                key={item.id} //@TODO key is too long. does it hurt performance?
+                key={section.id}
                 className={classNames(
                   "col-start-1 row-start-1 flex flex-col gap-5 justify-center p-12 shadow-xl bg-white rounded-lg transition-all ease-in-out duration-500 relative bg-[url('/images/quote-left.svg')] bg-no-repeat",
                   { "opacity-100 right-0": visibleIdx == idx },
                   { "opacity-0 -right-24": visibleIdx != idx }
                 )}
               >
-                <h3 className="text-2xl font-semibold">{item.title}</h3>
-                <p className="text-lg leading-8 italic">{item.content}</p>
-                <p> - {item.witnessFullName}</p>
+                <h3 className="text-2xl font-semibold">{section.title}</h3>
+                <div className="text-lg leading-8 italic">
+                  <RichText htmlString={section.content} />
+                </div>
               </div>
             ))}
           </div>
           <div className="flex xl:hidden gap-12 mt-8 justify-center">
-            <ArrowGroup visibleIdx={visibleIdx} setVisibleIdx={setVisibleIdx} length={content.length} />
+            <ArrowGroup
+              visibleIdx={visibleIdx}
+              setVisibleIdx={setVisibleIdx}
+              length={content.length}
+            />
           </div>
         </div>
       </div>
@@ -86,4 +91,4 @@ const Testimonials: React.FC<Props> = ({ data }) => {
   );
 };
 
-export default Testimonials;
+export default MiniCarousel;
