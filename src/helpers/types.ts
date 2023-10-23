@@ -206,11 +206,7 @@ export type HeroType = {
   title: string
   heading: string
   content: string
-  buttons: Array<{
-    text: string
-    url?: string
-    type: ButtonVariant
-  }>
+  buttons: Array<ButtonType>
   media: Array<{
     url: string
     title: string

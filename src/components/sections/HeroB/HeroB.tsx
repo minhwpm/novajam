@@ -63,7 +63,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
         }
         <div className={classNames("flex flex-row flex-wrap gap-6 mt-4", animationClasses)}>
           {buttons && buttons.length > 0 && buttons.map(button => (
-            <Button key={button.text} variant={button.type} size="lg" url={button.url}>
+            <Button key={button.text} variant={button.buttonVariant} size="lg" url={button.url}>
               {button.text}
             </Button>
           ))}

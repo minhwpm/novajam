@@ -129,7 +129,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                         id={fieldItem.label}
                         placeholder={
                           fieldItem.placeholder ??
-                          "Your message..." + (fieldItem.required ? "*" : "")
+                          fieldItem.label + (fieldItem.required ? "*" : "")
                         }
                         rows={5}
                         {...register(fieldItem.label, {
@@ -166,13 +166,24 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                   </div>
                 ))}
               <div className={classNames("col-span-2 flex flex-col")}>
-                <Button
-                  variant={submitButton.buttonVariant ?? "black"}
-                  size="lg"
-                  type="submit"
-                >
-                  {submitButton.text}
-                </Button>
+                
+                {submitButton ? (
+                  <Button
+                    variant={submitButton.buttonVariant ?? "black"}
+                    size="lg"
+                    type="submit"
+                  >
+                    {submitButton.text}
+                  </Button>
+                ) : (
+                  <Button
+                    variant="black"
+                    size="lg"
+                    type="submit"
+                  >
+                    SUBMIT
+                  </Button>
+                )}
               </div>
             </form>
           </div>
