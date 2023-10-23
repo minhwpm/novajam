@@ -30,6 +30,7 @@ export default async function getHero(id: string) {
               items {
                 text
                 url
+                buttonVariant
               }
             }
             mediaCollection {
