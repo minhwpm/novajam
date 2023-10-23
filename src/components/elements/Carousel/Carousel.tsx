@@ -36,10 +36,10 @@ const Carousel: React.FC<CarouselProps>= ({slides, children, effect, autoplay = 
         slidesPerView={1}
         breakpoints={{
           320: {
-            slidesPerView: slidesPerView && slidesPerView > 2 ? 2 : 1
+            slidesPerView: 1
           },
           768: {
-            slidesPerView: slidesPerView && slidesPerView >= 4 ? (slidesPerView - 2) : slidesPerView
+            slidesPerView: slidesPerView && slidesPerView >= 3 ? (slidesPerView - 1) : slidesPerView
           },
           1024: {
             slidesPerView: slidesPerView && slidesPerView >= 4 ? (slidesPerView - 1) : slidesPerView
