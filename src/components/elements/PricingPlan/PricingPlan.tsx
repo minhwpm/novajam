@@ -7,8 +7,8 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
   const { title, pricing, pricingSuffix, badge, features, ctaButton } = data
   return (
     <div className={classNames("relative flex flex-col gap-5 items-center pt-12 pb-6 px-4 rounded-md border shadow",
-      { "bg-primary-100": badge},
-      { "top-14": !badge}
+      { "mt-8": !badge },
+      { "bg-primary-100 mt-0": badge},
     )}>
       <h4 className="text-2xl font-bold">
         {title}
