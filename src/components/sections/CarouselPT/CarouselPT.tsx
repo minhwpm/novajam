@@ -42,11 +42,13 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                 <div className="mt-5 prose lg:prose-lg">
                   <RichText htmlString={section.content} />
                 </div>
-                <div className="self-end mt-8">
-                  <Button key={section.ctaButton?.id} variant={section.ctaButton?.buttonVariant} url={section.ctaButton?.url}>
-                    {section.ctaButton?.text}
-                  </Button>
-                </div>
+                {section.ctaButton && (
+                  <div className="self-end mt-8">
+                    <Button key={section.ctaButton?.id} variant={section.ctaButton?.buttonVariant} url={section.ctaButton?.url}>
+                      {section.ctaButton?.text}
+                    </Button>
+                  </div>
+                )}
               </div>
               { section.media?.length > 0 &&  
                 <div className="col-span-2 row-start-1 lg:col-span-1 lg:row-start-auto">

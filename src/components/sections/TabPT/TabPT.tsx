@@ -53,11 +53,13 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                   <div className="prose lg:prose-lg">
                     <RichText htmlString={section.content} />
                   </div>
-                  <div className="self-end">
-                    <Button key={section.ctaButton?.id} variant={section.ctaButton?.buttonVariant} url={section.ctaButton?.url}>
-                      {section.ctaButton?.text}
-                    </Button>
-                  </div>
+                  {section.ctaButton && (
+                    <div className="self-end">
+                      <Button key={section.ctaButton?.id} variant={section.ctaButton?.buttonVariant} url={section.ctaButton?.url}>
+                        {section.ctaButton?.text}
+                      </Button>
+                    </div>
+                  )}
                 </div>
                 { section.media.length > 0 && 
                   <MediaCarousel data={section.media} />
