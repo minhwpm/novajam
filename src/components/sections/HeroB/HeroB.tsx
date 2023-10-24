@@ -39,7 +39,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
       ref={ref}
       className="px-4 xl:px-32 py-16 flex flex-col gap-16 lg:flex-row lg:gap-0 items-center lg:min-h-screen"
     >
-      <div className="flex flex-col items-center xl:items-start lg:w-6/12 lg:pr-16">
+      <div className="flex flex-col items-center lg:items-start lg:w-6/12 lg:pr-16">
         <div
           className={classNames(
             "uppercase font-semibold text-primary-600 tracking-widest",
@@ -61,7 +61,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
             <RichText htmlString={content} />
           </div>
         }
-        <div className={classNames("flex flex-row flex-wrap gap-6 mt-4", animationClasses)}>
+        <div className={classNames("flex flex-row flex-wrap gap-6 mt-6 lg:mt-10", animationClasses)}>
           {buttons && buttons.length > 0 && buttons.map(button => (
             <Button key={button.text} variant={button.buttonVariant} size="lg" url={button.url}>
               {button.text}

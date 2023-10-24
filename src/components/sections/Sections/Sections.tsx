@@ -14,7 +14,7 @@ import { Gallery } from '../Gallery/Gallery'
 
 const sectionComponents = {
   hero: {
-    "side by side": HeroB,
+    horizontal: HeroB,
     overlay: HeroC,
   },
   cta: CTAB,
