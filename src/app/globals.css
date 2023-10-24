@@ -106,7 +106,7 @@ h1 b, h2 b {
 }
 
 .show-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-primary-400;
+  @apply bg-neutral-700;
   border-radius: 5px;
 }
 

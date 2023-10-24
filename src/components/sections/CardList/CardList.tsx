@@ -75,7 +75,7 @@ const CardList: React.FC<Props> = ({ data}) => {
       { layout === "flex" && (
         <div className={classNames(
           "show-scrollbar",
-          "w-full flex gap-6 lg:gap-8 pb-5", 
+          "w-full flex gap-6 lg:gap-8 pb-10", 
           { "overflow-x-scroll" : content.length >= 3},
           { "justify-center": content.length < 3}
         )}>
