@@ -189,7 +189,7 @@ export type FeatureType = {
   mediaAspectRatio: "auto" | "video" | "4/3" | "square" | "3/4"
   url?: string
   buttons: Array<ButtonType>
-  layout: "Row [ Image | Text ]" | "Row [ Text | Image ]" | "Column [ Image | Text ]" | "Column [ Text | Image ]"
+  layout: "Horizontal (Image | Text)" | "Horizontal (Text | Image)" | "Vertical (Image | Text)" | "Vertical (Text | Image)"
   uiVariant: "standard" | "extended"
   backgroundImage: MediaType
   contentType: "feature"

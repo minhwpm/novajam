@@ -15,8 +15,8 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
             "uppercase tracking-widest mb-2 text-secondary-500 font-semibold",
             {
               "text-center":
-                layout === "Column [ Text | Image ]" ||
-                layout === "Column [ Image | Text ]",
+                layout === "Vertical (Text | Image)" ||
+                layout === "Vertical (Image | Text)",
             }
           )}
         >
@@ -28,8 +28,8 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
           "font-heading text-3xl md:text-3xl lg:text-5xl leading-snug lg:leading-snug font-bold max-w-3xl mb-5",
           {
             "text-center mx-auto":
-              layout === "Column [ Text | Image ]" ||
-              layout === "Column [ Image | Text ]",
+              layout === "Vertical (Text | Image)" ||
+              layout === "Vertical (Image | Text)",
           }
         )}
       >
@@ -38,8 +38,8 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
       <div
         className={classNames("block prose lg:prose-lg", {
           "mx-auto":
-            layout === "Column [ Text | Image ]" ||
-            layout === "Column [ Image | Text ]",
+            layout === "Vertical (Text | Image)" ||
+            layout === "Vertical (Image | Text)",
         })}
       >
         {content && <RichText htmlString={content} />}
@@ -67,9 +67,7 @@ const MediaPart: React.FC<{ data: FeatureType }> = ({ data }) => {
   return (
     <MediaCarousel
       data={media}
-      aspectRatio={classNames(
-        { "aspect-video": mediaAspectRatio },
-      )}
+      aspectRatio={classNames({ "aspect-video": mediaAspectRatio })}
     />
   );
 };
@@ -91,32 +89,35 @@ const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
         }
         className={classNames(
           "relative flex flex-wrap",
-          { "flex-row-reverse": layout === "Row [ Text | Image ]" },
-          { "flex-col": layout === "Column [ Image | Text ]" },
-          { "flex-col-reverse": layout === "Column [ Text | Image ]" }
+          { "flex-row-reverse": layout === "Horizontal (Text | Image)" },
+          { "flex-col": layout === "Vertical (Image | Text)" },
+          { "flex-col-reverse": layout === "Vertical (Text | Image)" }
         )}
       >
         <div
           className={classNames(
-            "w-full", 
-            {"lg:w-6/12": layout === "Row [ Text | Image ]" },
-            {"lg:w-6/12": layout === "Row [ Image | Text ]" },
+            "w-full",
+            { "lg:w-6/12": layout === "Horizontal (Text | Image)" },
+            { "lg:w-6/12": layout === "Horizontal (Image | Text)" }
           )}
         >
           {media.length > 0 && <MediaPart data={data} />}
         </div>
         <div
           className={classNames(
-            "w-full pt-4 md:pt-8 lg:pt-16 pb-16",
+            "w-full pt-4 md:pt-8 lg:pt-16 pb-16 flex flex-col items-center",
             {
-              "lg:w-1/2 px-4 md:px-10 lg:pl-20 lg:pr-16": layout === "Row [ Text | Image ]",
+              "lg:w-1/2 px-4 md:px-10 lg:pl-20 lg:pr-16":
+                layout === "Horizontal (Text | Image)",
             },
-            { "lg:w-1/2 px-4 md:px-10 lg:pr-20 lg:pl-16": layout === "Row [ Image | Text ]" }
+            {
+              "lg:w-1/2 px-4 md:px-10 lg:pr-20 lg:pl-16":
+                layout === "Horizontal (Image | Text)",
+            }
           )}
         >
           <TextPart data={data} />
         </div>
-          
       </section>
     );
   }
@@ -127,25 +128,31 @@ const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
       <div
         className={classNames(
           "w-full flex flex-wrap",
-          { "flex-col": layout === "Column [ Image | Text ]" },
-          { "flex-col-reverse": layout === "Column [ Text | Image ]" },
-          { "flex-row-reverse": layout === "Row [ Text | Image ]" }
+          { "flex-col": layout === "Vertical (Image | Text)" },
+          { "flex-col-reverse": layout === "Vertical (Text | Image)" },
+          { "flex-row-reverse": layout === "Horizontal (Text | Image)" }
         )}
       >
         <div
           className={classNames("max-w-5xl mx-auto", {
             "w-full lg:w-6/12":
-              layout === "Row [ Text | Image ]" ||
-              layout === "Row [ Image | Text ]",
+              layout === "Horizontal (Text | Image)" ||
+              layout === "Horizontal (Image | Text)",
           })}
         >
           {media.length > 0 && <MediaPart data={data} />}
         </div>
         <div
           className={classNames(
-            "pt-5 md:py-5 lg:py-8 flex flex-col",
-            { "lg:w-1/2 md:pr-8 lg:pr-16": layout === "Row [ Text | Image ]" },
-            { "lg:w-1/2 md:pl-8 lg:pl-16": layout === "Row [ Image | Text ]" }
+            "pt-5 md:py-5 lg:py-8 flex flex-col mx-auto",
+            {
+              "lg:w-1/2 md:pr-8 lg:pr-16":
+                layout === "Horizontal (Text | Image)",
+            },
+            {
+              "lg:w-1/2 md:pl-8 lg:pl-16":
+                layout === "Horizontal (Image | Text)",
+            }
           )}
         >
           <TextPart data={data} />
