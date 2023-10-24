@@ -52,7 +52,7 @@ const Section: React.FC<Props> = ( { title, label, subtitle, children, className
           </h2>
         )}
         {subtitle && (
-          <p className="prose-lg lg:prose-xl text-center mb-12 lg:max-w-4xl mx-auto">
+          <p className="prose md:prose-lg lg:prose-xl text-center mb-12 max-w-xl lg:max-w-3xl mx-auto">
             {subtitle}
           </p>
         )}
