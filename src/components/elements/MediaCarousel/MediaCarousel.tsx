@@ -5,7 +5,6 @@ import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import classNames from "classnames";
 
 export const MediaCarousel: React.FC<{ data: Array<MediaType>, aspectRatio?: string }> = ({data, aspectRatio = ""} ) => {
-  console.log(aspectRatio)
   return (
     <div className="relative">
       <Carousel

@@ -44,8 +44,15 @@ export default async function getFeature(id: string) {
                 contentType
               }
             }
+            mediaAspectRatio
             layout
             uiVariant
+            backgroundImage {
+              url
+              title
+              width
+              height
+            }
           }
         }
       }

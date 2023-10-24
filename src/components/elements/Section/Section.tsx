@@ -3,30 +3,40 @@ import React from 'react';
 import classNames from "classnames"
 import Container from '../Container/Container';
 import RichText from '../RichText/RichText';
+import { MediaType } from '@/helpers/types';
 
 // @TODO make this as Theme Style settings
 // type SectionVariant = "standard" | "alternate"
 interface Props {
+  id?: string
   label?: string
   title?: string
   subtitle?: string
-  children: React.ReactNode
   className?: string
-  id?: string
-  background?: {
-    bgImage?: string
-    parallax?: boolean
-  }
+  background?: MediaType
+  children: React.ReactNode
 }
 
-const Section = ( { title, label, subtitle, children, className, id, background }: Props) => {
+const Section: React.FC<Props> = ( { title, label, subtitle, children, className, id, background }) => {
 
   return (
-    <section id={id} className={classNames(
-      "flex flex-col items-center py-16",
-      { "bg-fixed min-h-screen": background?.parallax },
-      className,
-    )}>
+    <section 
+      id={id} 
+      className={classNames(
+        "flex flex-col items-center py-16",
+        className,
+      )}
+      style={
+        background
+          ? {
+              backgroundImage: `url(${background.url})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundBlendMode: "overlay",
+            }
+          : {}
+      }
+    >
       <Container>
         {label && (
           <p className="uppercase tracking-widest text-secondary-500 font-semibold text-center mx-auto mb-2">

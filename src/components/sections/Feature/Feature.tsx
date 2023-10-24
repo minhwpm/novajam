@@ -5,11 +5,7 @@ import { FeatureType } from "@/helpers/types";
 import RichText from "@/components/elements/RichText/RichText";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 
-interface FeatureProps {
-  data: FeatureType;
-}
-
-const TextPart: React.FC<FeatureProps> = ({ data }) => {
+const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
   const { label, heading, content, buttons, layout } = data;
   return (
     <>
@@ -63,37 +59,36 @@ const TextPart: React.FC<FeatureProps> = ({ data }) => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-const MediaPart: React.FC<FeatureProps> = ({ data }) => {
-  const { media, layout, uiVariant } = data
+const MediaPart: React.FC<{ data: FeatureType }> = ({ data }) => {
+  const { media, mediaAspectRatio } = data;
   return (
     <MediaCarousel
       data={media}
       aspectRatio={classNames(
-        {
-          "aspect-video":
-            uiVariant === "standard" &&
-            (layout === "Column [ Text | Image ]" ||
-              layout === "Column [ Image | Text ]"),
-        },
-        {
-          "aspect-4/3":
-            uiVariant === "standard" &&
-            (layout === "Row [ Text | Image ]" ||
-            layout === "Row [ Image | Text ]"),
-        }
+        { "aspect-video": mediaAspectRatio },
       )}
     />
   );
-}
+};
 
-const Feature: React.FC<FeatureProps> = ({ data }) => {
-  const { media, layout, uiVariant } = data;
+const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
+  const { media, layout, uiVariant, backgroundImage } = data;
   if (uiVariant === "extended") {
     return (
       <section
+        style={
+          backgroundImage
+            ? {
+                backgroundImage: `url(${backgroundImage.url})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundBlendMode: "overlay",
+              }
+            : {}
+        }
         className={classNames(
           "relative flex flex-wrap",
           { "flex-row-reverse": layout === "Row [ Text | Image ]" },
@@ -102,41 +97,33 @@ const Feature: React.FC<FeatureProps> = ({ data }) => {
         )}
       >
         <div
-          className={classNames("w-full", {
-            "lg:w-6/12":
-              layout === "Row [ Text | Image ]" ||
-              layout === "Row [ Image | Text ]",
-          })}
+          className={classNames(
+            "w-full", 
+            {"lg:w-6/12": layout === "Row [ Text | Image ]" },
+            {"lg:w-6/12": layout === "Row [ Image | Text ]" },
+          )}
         >
           {media.length > 0 && <MediaPart data={data} />}
         </div>
         <div
           className={classNames(
-            "container mx-auto px-4",
+            "w-full pt-4 md:pt-8 lg:pt-16 pb-16",
             {
-              "lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2":
-                layout === "Row [ Text | Image ]",
+              "lg:w-1/2 px-4 md:px-10 lg:pl-20 lg:pr-16": layout === "Row [ Text | Image ]",
             },
-            { "lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2": layout === "Row [ Image | Text ]" }
+            { "lg:w-1/2 px-4 md:px-10 lg:pr-20 lg:pl-16": layout === "Row [ Image | Text ]" }
           )}
         >
-          <div
-            className={classNames(
-              "w-full py-5 md:py-8",
-              { "lg:w-1/2 md:pr-8 lg:pr-16": layout === "Row [ Text | Image ]" },
-              { "lg:w-1/2 md:pl-8 lg:pl-16": layout === "Row [ Image | Text ]" }
-            )}
-          >
-            <TextPart data={data} />
-          </div>
+          <TextPart data={data} />
         </div>
+          
       </section>
     );
   }
-  
+
   return (
     //default uiVariant = "standard"
-    <Section>
+    <Section background={backgroundImage}>
       <div
         className={classNames(
           "w-full flex flex-wrap",

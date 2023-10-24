@@ -185,18 +185,13 @@ export type FeatureType = {
   heading: string
   label: string
   content: string
-  media: Array<{
-    id: string
-    url: string
-    title: string
-    width: number
-    height: number
-    contentType: string
-  }>
+  media: Array<MediaType>
+  mediaAspectRatio: "auto" | "video" | "4/3" | "square" | "3/4"
   url?: string
   buttons: Array<ButtonType>
   layout: "Row [ Image | Text ]" | "Row [ Text | Image ]" | "Column [ Image | Text ]" | "Column [ Text | Image ]"
   uiVariant: "standard" | "extended"
+  backgroundImage: MediaType
   contentType: "feature"
 }
 
@@ -207,20 +202,8 @@ export type HeroType = {
   heading: string
   content: string
   buttons: Array<ButtonType>
-  media: Array<{
-    url: string
-    title: string
-    width: number
-    height: number
-    contentType: string
-  }>
-  mediaForMobile: Array<{
-    url: string
-    title: string
-    width: number
-    height: number
-    contentType: string
-  }>
+  media: Array<MediaType>
+  mediaForMobile: Array<MediaType>
   contentType: "hero"
 }
 
