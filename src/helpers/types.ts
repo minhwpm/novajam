@@ -268,6 +268,7 @@ export type CardListType = {
   }
   layout: "carousel" | "grid" | "flex"
   size: 1 | 2 | 3 | 4 | 5
+  htmlid: string
 }
 
 export type TestimonialsType = {

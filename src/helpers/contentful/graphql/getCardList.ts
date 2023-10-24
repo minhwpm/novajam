@@ -30,6 +30,7 @@ export default async function getCardList(id: string) {
             }
             layout
             size
+            htmlid
             contentCollection (limit: 20) {
               items {
                 __typename

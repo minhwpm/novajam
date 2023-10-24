@@ -13,10 +13,6 @@ import { Statistics } from "@/components/elements/Statistics/Statistics"
 import { ContentPiece } from "@/components/elements/ContentPiece/ContentPiece"
 import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan"
 
-interface Props {
-  data: CardListType
-}
-
 const ContentItem: React.FC<{data: CardType}> = ({data}) => {
   switch(data.contentType){
     case "product": 
@@ -51,13 +47,14 @@ const ContentItem: React.FC<{data: CardType}> = ({data}) => {
   }
 }
 
-const CardList: React.FC<Props> = ({ data}) => {
-  const { title, label, subtitle, content, layout, size = 3 } = data
+const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
+  const { title, label, subtitle, content, layout, size = 3, htmlid } = data
   return (
     <Section
       label={label}
       title={title}
       subtitle={subtitle}
+      id={htmlid}
     >
       {layout === "grid" && (
         <div className={classNames(

@@ -37,7 +37,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
   return (
     <section
       ref={ref}
-      className="px-4 xl:px-32 py-16 flex flex-col gap-16 lg:flex-row lg:gap-0 items-center lg:min-h-screen"
+      className="px-4 xl:px-32 py-16 flex flex-col gap-16 lg:flex-row lg:gap-0 items-center lg:max-h-screen"
     >
       <div className="flex flex-col items-center lg:items-start lg:w-6/12 lg:pr-16">
         <div
