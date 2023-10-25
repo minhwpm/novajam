@@ -1,11 +1,14 @@
+import classNames from "classnames"
+
 // Constrains the maximum width of page content.
 interface Props {
   children: React.ReactNode
+  className?: string
 }
 
-export default function Container ({children}: Props) {
+export default function Container ({children, className}: Props) {
   return (
-    <div className="container mx-auto px-4">
+    <div className={classNames("container mx-auto px-4", className)}>
       {children}
     </div>
   )
