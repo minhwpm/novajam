@@ -24,7 +24,7 @@ const ContentItem: React.FC<{data: CardType}> = ({data}) => {
     case "link":
       return (
         <Link href={data.url}>
-          { data.image.url ? (
+          { data.image ? (
             <Image
               src={data.image.url}
               alt={data.text}
@@ -50,34 +50,40 @@ const ContentItem: React.FC<{data: CardType}> = ({data}) => {
 const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
   const { title, label, subtitle, content, layout, size = 3, htmlid } = data
   return (
-    <Section
-      label={label}
-      title={title}
-      subtitle={subtitle}
-      id={htmlid}
-    >
+    <Section label={label} title={title} subtitle={subtitle} id={htmlid}>
       {layout === "grid" && (
-        <div className={classNames(
-          "grid gap-8",
-          { "lg:grid-cols-2": size >= 2 },
-          { "lg:grid-cols-3": size === 3 },
-          { "grid-cols-2 lg:grid-cols-4": size === 4 },
-          { "grid-cols-2 md:grid-cols-3 lg:grid-cols-5": size === 5}
-        )}>
+        <div
+          className={classNames(
+            "grid gap-8",
+            { "lg:grid-cols-2": size >= 2 },
+            { "lg:grid-cols-3": size === 3 },
+            { "grid-cols-2 lg:grid-cols-4": size === 4 },
+            { "grid-cols-2 md:grid-cols-3 lg:grid-cols-5": size === 5 }
+          )}
+        >
           {content.map((item) => (
             <ContentItem key={item.id} data={item} />
           ))}
         </div>
       )}
-      { layout === "flex" && (
-        <div className={classNames(
-          "show-scrollbar",
-          "w-full flex gap-6 lg:gap-8 pb-10", 
-          { "overflow-x-scroll" : content.length >= 3},
-          { "justify-center": content.length < 3}
-        )}>
+      {layout === "flex" && (
+        <div
+          className={classNames(
+            "show-scrollbar",
+            "w-full flex gap-6 lg:gap-8 pb-10",
+            { "overflow-x-auto": content.length >= 3 },
+            { "justify-center": content.length < 3 }
+          )}
+        >
           {content.map((item) => (
-            <div key={item.id} className={classNames("basis-[80%] md:basis-[40%] lg:basis-[28%] shrink-0 grow")}>
+            <div
+              key={item.id}
+              className={classNames(
+                { "basis-[80%] md:basis-[40%] lg:basis-[30%] shrink-0 grow": size <= 3 },
+                { "basis-[70%] md:basis-[35%] lg:basis-[22%] shrink-0 grow": size === 4 },
+                { "basis-[60%] md:basis-[30%] lg:basis-[18%] shrink-0 grow": size === 5 }
+              )}
+            >
               <ContentItem data={item} />
             </div>
           ))}
@@ -88,8 +94,8 @@ const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
           <Carousel
             navigation={{
               enabled: true,
-              nextEl: '.cardlist-btn-next',
-              prevEl: '.cardlist-btn-prev'
+              nextEl: ".cardlist-btn-next",
+              prevEl: ".cardlist-btn-prev",
             }}
             pagination={{
               enabled: true,
@@ -111,7 +117,7 @@ const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
         </div>
       )}
     </Section>
-  )
+  );
 }
 
 export default CardList
