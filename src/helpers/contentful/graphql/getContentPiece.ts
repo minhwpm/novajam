@@ -54,6 +54,9 @@ export default async function getContentPiece(id: string) {
         id
       },
     }),
+    next: {
+      revalidate: 10
+    }
   })
   const data = await res.json()
   // console.log(`RAW CONTENT PIECE DATA: ${JSON.stringify(data, null, 4)}`)
