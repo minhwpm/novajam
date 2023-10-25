@@ -25,7 +25,7 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
           defaultValue={content.length > 0 ? content[0].title : ""}
           onValueChange={(value) => setActiveItem(value)}
           className={classNames(
-            "col-span-12 lg:col-span-6 flex flex-col items-start justify-center gap-6"
+            "col-span-12 lg:col-span-6 xl:col-span-5 flex flex-col items-start justify-center gap-6"
           )}
         >
           {content.length > 0 &&
@@ -34,8 +34,9 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                 key={section.title}
                 value={section.title}
                 className={classNames(
-                  "w-full border-l-4 border-l-transparent",
+                  "w-full rounded border-l-4 border-l-transparent",
                   "data-[state=open]:border-l-primary-500",
+                  "data-[state=open]:bg-neutral-50",
                   "data-[state=closed]:hover:bg-neutral-100"
                 )}
               >
@@ -50,7 +51,7 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                     </h3>
                   </div>
                 </RadixAccordion.Trigger>
-                <RadixAccordion.Content className="Content px-6">
+                <RadixAccordion.Content className="Content px-10">
                   <div className="prose lg:prose-lg">
                     <RichText htmlString={section.content} />
                   </div>
@@ -75,7 +76,7 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
               </RadixAccordion.Item>
             ))}
         </RadixAccordion.Root>
-        <div className="hidden lg:grid lg:col-span-6 content-center">
+        <div className="hidden lg:grid lg:col-span-6 xl:col-span-7 content-center">
           {/* Media container for large devices */}
           {content?.map((section) => (
             <div
