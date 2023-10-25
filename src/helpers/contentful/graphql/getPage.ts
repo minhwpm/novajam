@@ -95,6 +95,9 @@ export default async function getPage(url: string) {
         url
       },
     }),
+    next: {
+      revalidate: 10
+    }
   })
 
   const data = await res.json()
