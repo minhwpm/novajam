@@ -1,9 +1,9 @@
-export function simpleStringify (object){
+export function simpleStringify (object: {[x: PropertyKey]: any}){
   // stringify an object, avoiding circular structures
   // https://stackoverflow.com/a/31557814
-  const simpleObject = {};
+  const simpleObject: {[x: PropertyKey]: any} = {};
   for (const prop in object ){
-    if (!object.hasOwnProperty(prop)) {
+    if (!Object.prototype.hasOwnProperty.call(object, prop)) {
       continue;
     }
     if (typeof object[prop] == "object") {
