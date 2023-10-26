@@ -39,12 +39,12 @@ const Section: React.FC<Props> = ( { title, label, subtitle, children, className
     >
       <Container>
         {label && (
-          <p className="uppercase tracking-widest text-secondary-500 font-semibold text-center mx-auto mb-2">
+          <p className="uppercase tracking-widest text-secondary-500 text-center mx-auto">
             {label}
           </p>
         )}
         {title && (
-          <h2 className={classNames("font-heading text-3xl md:text-4xl lg:text-5xl leading-snug lg:leading-snug font-bold text-center max-w-3xl mx-auto",
+          <h2 className={classNames("font-heading text-3xl md:text-4.5xl leading-snug lg:leading-snug font-bold text-center max-w-3xl mx-auto",
             {"mb-5": subtitle},
             {"mb-12": !subtitle},
           )}>

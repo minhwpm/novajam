@@ -8,6 +8,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        '4.5xl': [
+          '2.75rem', {
+            lineHeight: '3rem'
+          }
+        ]
+      },
       colors: {
         primary: {
           50: 'var(--primary-color-50)',
