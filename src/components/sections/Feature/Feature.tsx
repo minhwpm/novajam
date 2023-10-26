@@ -4,6 +4,7 @@ import Button from "@/components/elements/Button/Button";
 import { FeatureType } from "@/helpers/types";
 import RichText from "@/components/elements/RichText/RichText";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
+import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 
 const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
   const { label, heading, content, buttons, layout } = data;
@@ -65,6 +66,17 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
 const MediaPart: React.FC<{ data: FeatureType }> = ({ data }) => {
   const { media, mediaAspectRatio } = data;
   console.log("****", mediaAspectRatio)
+  if (media.length === 1) {
+    return (
+      <MediaItem
+        data={media[0]}
+        aspectRatio={classNames(
+          `aspect-${mediaAspectRatio === "16/9" ? "video" : mediaAspectRatio}`
+        )}
+      />
+    );
+  }
+  // media.length > 1
   return (
     <MediaCarousel
       data={media}

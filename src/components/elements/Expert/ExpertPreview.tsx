@@ -4,12 +4,12 @@ import Link from "next/link"
 
 interface Props {
   data: ExpertType
-  layout: "row" | "column"
+  layout: "horizontal" | "vertical"
 }
 
 export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
   const { slug, fullName, portrait, role, specialization, organization, summary } = data
-  if (layout === "row") {
+  if (layout === "horizontal") {
     return (
       <div className="flex flex-wrap py-5">
         <div className="w-1/3 md:w-1/4">
@@ -52,7 +52,7 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
   }
   return (
     <div className="group">
-      <div className="aspect-[5/6] overflow-hidden rounded-t-md">
+      <div className="aspect-square overflow-hidden rounded-t-md">
         <Image
           className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ease-in-out rounded-t-md"
           src={portrait?.url ?? "/bluebiz_square.webp"}
@@ -62,7 +62,7 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
         />
       </div>
       <div className="w-full px-4 py-4 bg-neutral-100 rounded-b-md">
-        <div className="flex flex-wrap mb-2 items-center justify-center gap-2">
+        <div className="flex flex-wrap items-center justify-center gap-2">
           <Link className="block underline-hover-effect font-semibold text-xl" href={`/expert/${slug}`}>
             {fullName}
           </Link>

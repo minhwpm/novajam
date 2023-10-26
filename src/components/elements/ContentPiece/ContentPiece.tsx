@@ -3,6 +3,7 @@ import classNames from "classnames"
 import RichText from "../RichText/RichText"
 import Button from "../Button/Button"
 import { MediaCarousel } from "../MediaCarousel/MediaCarousel"
+import { MediaItem } from "../MediaItem/MediaItem"
 
 export const ContentPiece: React.FC<{ data: ContentPieceType }> = ({ data }) => {
   const { title, content, media, ctaButton, alignment } = data
@@ -11,7 +12,10 @@ export const ContentPiece: React.FC<{ data: ContentPieceType }> = ({ data }) => 
       <div className={classNames(
         { "flex justify-center": alignment === "center"}
       )}>
-        { media.length > 0 && <MediaCarousel data={media} /> }
+        { media.length === 1 && (
+          <MediaItem data={media[0]} />
+        )}
+        { media.length > 1 && <MediaCarousel data={media} /> }
       </div>
       <div className={classNames(
         "py-5 pr-5 flex-1 flex flex-col justify-between",

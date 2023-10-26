@@ -1,3 +1,5 @@
+'use client'
+
 import Section from "@/components/elements/Section/Section"
 import BlogPreview from "@/components/elements/BlogPreview/BlogPreview"
 import classNames from "classnames"
@@ -35,7 +37,7 @@ const ContentItem: React.FC<{data: CardType}> = ({data}) => {
         </Link>
       )
     case "expert":
-      return <ExpertPreview data={data} layout="column" />
+      return <ExpertPreview data={data} layout="vertical" />
     case "statistics":
       return <Statistics data={data} />
     case "contentpiece":
@@ -90,7 +92,7 @@ const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
         </div>
       )}
       {layout === "carousel" && (
-        <div className="relative group">
+        <div className="relative group/cardlist">
           <Carousel
             navigation={{
               enabled: true,
@@ -99,18 +101,17 @@ const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
             }}
             pagination={{
               enabled: true,
+              clickable: true,
             }}
-            slides={content.map((item) => (
-              <div key={item.id} className={classNames("")}>
-                <ContentItem data={item} />
-              </div>
-            ))}
             slidesPerView={size}
+            slides={content.map((item) => (
+              <ContentItem key={item.id} data={item} />
+            ))}
           >
-            <div className="cardlist-btn-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-50 text-white items-center justify-center opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+            <div className="cardlist-btn-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-50 text-white items-center justify-center opacity-0 flex group-hover/cardlist:opacity-100 transition-opacity duration-500 ease-in-out">
               <AiOutlineArrowLeft size={30} />
             </div>
-            <div className="cardlist-btn-next absolute right-2 top-1/2 -translate-y-1/2 z-10 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-50 text-white items-center justify-center opacity-0 flex group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+            <div className="cardlist-btn-next absolute right-2 top-1/2 -translate-y-1/2 z-10 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-50 text-white items-center justify-center opacity-0 flex group-hover/cardlist:opacity-100 transition-opacity duration-500 ease-in-out">
               <AiOutlineArrowRight size={30} />
             </div>
           </Carousel>

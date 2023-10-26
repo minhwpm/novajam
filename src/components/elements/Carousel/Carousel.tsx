@@ -1,21 +1,21 @@
 'use client'
 import type { Swiper as SwiperType } from 'swiper'
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, EffectCoverflow, EffectCube, FreeMode, Navigation, Pagination, Thumbs } from "swiper";
+import { EffectFade, EffectCoverflow, FreeMode, Navigation, Pagination, Thumbs } from "swiper/modules";
+import classNames from "classnames";
+import { useState } from "react";
+import { PaginationOptions, NavigationOptions, FreeModeOptions } from "swiper/types";
 import 'swiper/css';
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import classNames from "classnames";
-import { useState } from "react";
-import { PaginationOptions, NavigationOptions, FreeModeOptions } from "swiper/types";
-import "./styles.css"
 
 interface CarouselProps {
   slides: Array<React.ReactElement>
   children?: React.ReactNode
   effect?: "fade" | "coverflow" | "cube"
   autoplay?: boolean
+  loop?: boolean
   freeMode?: FreeModeOptions
   pagination?: PaginationOptions
   navigation?: NavigationOptions
@@ -23,17 +23,17 @@ interface CarouselProps {
   thumbsEnable?: boolean
 }
 
-const Carousel: React.FC<CarouselProps>= ({slides, children, effect, autoplay = false, pagination, navigation, freeMode, slidesPerView = 1, thumbsEnable = false}) => {
+const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autoplay = false, pagination, navigation, freeMode, slidesPerView = 1, thumbsEnable = false}) => {
   const [thumbsSwiper, setThumbsSwiper ] = useState<SwiperType | null>(null);
   return (
     <>
       <Swiper
         className="w-full"
         spaceBetween={30}
-        loop={true}
+        loop={loop}
         navigation={navigation}
         pagination={pagination}
-        slidesPerView={1}
+        slidesPerView={slidesPerView}
         breakpoints={{
           320: {
             slidesPerView: 1
@@ -48,16 +48,23 @@ const Carousel: React.FC<CarouselProps>= ({slides, children, effect, autoplay = 
             slidesPerView: slidesPerView
           }
         }}
-        thumbs={{ swiper: thumbsSwiper }}
-        effect={effect}
         autoplay={autoplay ? {
           delay: 3000
         } : false}
+        effect={effect}
         fadeEffect={{
           crossFade: true
         }}
+        thumbs={{ swiper: thumbsSwiper }}
         freeMode={freeMode}
-        modules={[EffectFade, EffectCoverflow, EffectCube, Navigation, Pagination, FreeMode, Thumbs]}
+        modules={[
+          EffectFade,
+          EffectCoverflow,
+          Navigation,
+          Pagination,
+          FreeMode,
+          Thumbs
+        ]} //@TODO: refactor - only include if props enabled
       >
         {slides.map((slide, idx) => (
           <SwiperSlide key={idx} className={classNames(
