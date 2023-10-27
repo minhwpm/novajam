@@ -10,7 +10,7 @@ export default async function Page({ params}: {params: {slug: string}},) {
       <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
         <Container>
           <div className="w-full lg:w-3/4 xl:w-2/3 mx-auto">
-            <ExpertPreview data={data} layout="row" />
+            <ExpertPreview data={data} layout="horizontal" />
             <div className="prose lg:prose-xl">
               <RichText htmlString={data.description} />
             </div>

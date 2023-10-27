@@ -77,7 +77,7 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
                 <p className="text-slate-600 tracking-wider text-sm md:text-base">
                   ABOUT THE AUTHOR
                 </p>
-                <ExpertPreview data={author} layout="row" />
+                <ExpertPreview data={author} layout="horizontal" />
               </div>
             </div>
           }
