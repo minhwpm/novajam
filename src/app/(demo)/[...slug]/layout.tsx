@@ -1,4 +1,3 @@
-import '@/app/globals.css'
 import { Analytics } from '@vercel/analytics/react';
 import Header from '@/components/sections/Header/Header';
 import Footer from '@/components/sections/Footer/Footer';
@@ -6,7 +5,7 @@ import classNames from 'classnames';
 import getHeader from '@/helpers/contentful/graphql/getHeader';
 import getFooter from '@/helpers/contentful/graphql/getFooter';
 import { Params } from "@/helpers/types"
-import fonts from '@/helpers/fonts';
+import { Montserrat_Font } from '@/helpers/fonts';
 import styles from './styles.module.css'
 
 export default async function Layout({
@@ -31,13 +30,11 @@ export default async function Layout({
     console.error(e)
   }
   return (
-    <html lang="en">
-      <body className={classNames(fonts.Quicksand.className, styles["nova-color-settings"])}>
-        {header && <Header data={header} /> }
-        {children}
-        {footer && <Footer data={footer} /> }
-        <Analytics />
-      </body>
-    </html>
+    <div className={classNames(Montserrat_Font.className, styles["nova-color-settings"])}>
+      {header && <Header data={header} /> }
+      {children}
+      {footer && <Footer data={footer} /> }
+      <Analytics />
+    </div>
   )
 }

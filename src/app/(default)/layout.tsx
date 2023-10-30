@@ -1,24 +1,10 @@
-import '../globals.css'
 import { Analytics } from '@vercel/analytics/react';
-import { Exo } from 'next/font/google'
 import Header from '@/components/sections/Header/Header';
 import getHeader from '@/helpers/contentful/graphql/getHeader';
 import getFooter from '@/helpers/contentful/graphql/getFooter';
 import Footer from '@/components/sections/Footer/Footer';
+import { Poppins_Font } from '@/helpers/fonts';
 import classNames from 'classnames';
-
-const font = Exo({
-  subsets: ["latin", "vietnamese"],
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"]
-})
-
-// const fontHeading = League_Spartan({
-//   subsets: ["latin", "vietnamese"],
-//   display: "swap",
-//   weight: ["400", "500", "600", "700"],
-//   variable: "--font-heading"
-// })
 
 export const metadata = {
   title: 'BLUEBIZ',
@@ -33,13 +19,11 @@ export default async function RootLayout({
   const header = await getHeader("/")
   const footer = await getFooter("/")
   return (
-    <html lang="en">
-      <body className={classNames(font.className)}>
-        {header && <Header data={header} /> }
-        {children}
-        {footer && <Footer data={footer} /> }
-        <Analytics />
-      </body>
-    </html>
+    <div className={classNames(Poppins_Font.className)}>
+      {header && <Header data={header} /> }
+      {children}
+      {footer && <Footer data={footer} /> }
+      <Analytics />
+    </div>
   )
 }
