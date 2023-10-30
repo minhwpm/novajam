@@ -1,5 +1,3 @@
-'use client'
-
 import Section from "@/components/elements/Section/Section"
 import BlogPreview from "@/components/elements/BlogPreview/BlogPreview"
 import classNames from "classnames"
@@ -44,8 +42,6 @@ const ContentItem: React.FC<{data: CardType}> = ({data}) => {
       return <ContentPiece data={data} />
     case "pricingplan":
       return <PricingPlan data={data} />
-
-    {/* @TODO render Service (may be?) */}
   }
 }
 
@@ -92,7 +88,7 @@ const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
         </div>
       )}
       {layout === "carousel" && (
-        <div className="relative group/cardlist">
+        <div className={classNames("relative group/cardlist")}>
           <Carousel
             navigation={{
               enabled: true,

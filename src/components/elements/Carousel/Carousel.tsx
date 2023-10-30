@@ -1,9 +1,9 @@
 'use client'
+import { useEffect, useState } from "react";
+import classNames from "classnames";
 import type { Swiper as SwiperType } from 'swiper'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, EffectCoverflow, FreeMode, Navigation, Pagination, Thumbs } from "swiper/modules";
-import classNames from "classnames";
-import { useState } from "react";
 import { PaginationOptions, NavigationOptions, FreeModeOptions } from "swiper/types";
 import 'swiper/css';
 import "swiper/css/effect-fade";
@@ -25,6 +25,9 @@ interface CarouselProps {
 
 const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autoplay = false, pagination, navigation, freeMode, slidesPerView = 1, thumbsEnable = false}) => {
   const [thumbsSwiper, setThumbsSwiper ] = useState<SwiperType | null>(null);
+  const [isLoaded, setLoaded] = useState(false)
+  useEffect(() => setLoaded(true), [])
+
   return (
     <>
       <Swiper
@@ -33,27 +36,37 @@ const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autop
         loop={loop}
         navigation={navigation}
         pagination={pagination}
-        slidesPerView={slidesPerView}
+        slidesPerView={1}
         breakpoints={{
           320: {
-            slidesPerView: 1
+            slidesPerView: "auto",
           },
           768: {
-            slidesPerView: slidesPerView && slidesPerView >= 3 ? (slidesPerView - 1) : slidesPerView
+            slidesPerView:
+              slidesPerView && slidesPerView >= 3
+                ? slidesPerView - 1
+                : slidesPerView,
           },
           1024: {
-            slidesPerView: slidesPerView && slidesPerView >= 4 ? (slidesPerView - 1) : slidesPerView
+            slidesPerView:
+              slidesPerView && slidesPerView >= 4
+                ? slidesPerView - 1
+                : slidesPerView,
           },
           1280: {
-            slidesPerView: slidesPerView
-          }
+            slidesPerView: slidesPerView,
+          },
         }}
-        autoplay={autoplay ? {
-          delay: 3000
-        } : false}
+        autoplay={
+          autoplay
+            ? {
+                delay: 3000,
+              }
+            : false
+        }
         effect={effect}
         fadeEffect={{
-          crossFade: true
+          crossFade: true,
         }}
         thumbs={{ swiper: thumbsSwiper }}
         freeMode={freeMode}
@@ -63,19 +76,24 @@ const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autop
           Navigation,
           Pagination,
           FreeMode,
-          Thumbs
+          Thumbs,
         ]} //@TODO: refactor - only include if props enabled
       >
         {slides.map((slide, idx) => (
-          <SwiperSlide key={idx} className={classNames(
-            "bg-white"
-          )}>
+          <SwiperSlide
+            key={idx}
+            className={classNames(
+              "bg-white",
+              // for partly-SSR components ("use client") html is rendered on Server-side while the Swiper script which calculates the width of slide (base on sliderPerView) happens on browsers. Therefore, when the component is loading on browser, at first the slide width is still full width, then it will be injected inline CSS width by Swiper - which makes an UI bug "width shrinking moment"
+              { invisible: !isLoaded }
+            )}
+          >
             {slide}
           </SwiperSlide>
         ))}
         {children}
       </Swiper>
-      { thumbsEnable && (
+      {thumbsEnable && (
         <Swiper
           onSwiper={(s) => setThumbsSwiper(s)}
           spaceBetween={10}
@@ -86,17 +104,14 @@ const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autop
           className="mt-2"
         >
           {slides.map((slide, idx) => (
-            <SwiperSlide key={idx} className={classNames(
-              "bg-white"
-            )}>
+            <SwiperSlide key={idx} className={classNames("bg-white")}>
               {slide}
             </SwiperSlide>
           ))}
-          
-        </Swiper>      
+        </Swiper>
       )}
     </>
-  )
+  );
 }
 
 export default Carousel
