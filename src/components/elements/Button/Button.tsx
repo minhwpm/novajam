@@ -20,7 +20,11 @@ const Button: React.FC<ButtonProps> = (props) => {
   if (variant === "link") {
     return (
       <Link
-        className={classNames("group inline-block text-blue-600 px-0 text-lg")}
+        className={classNames(
+          "group inline-block text-blue-500 text-lg hover:text-blue-700 transition-colors duration-500",
+          { "p-2": size === "base" },
+          { "p-3 text-lg": size === "lg" },
+        )}
         href={url ?? "#"}
       >
         {children}

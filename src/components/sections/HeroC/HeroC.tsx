@@ -84,7 +84,7 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
         )}
       >
         <p className="uppercase tracking-widest">{label}</p>
-        <h1 className="text-5xl lg:text-6xl lg:leading-snug font-heading font-bold max-w-3xl mx-auto">
+        <h1 className="text-5xl lg:text-6xl font-heading font-bold max-w-3xl mx-auto">
           <RichText htmlString={heading} />
         </h1>
         {content && (
