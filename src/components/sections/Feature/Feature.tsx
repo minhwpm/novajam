@@ -65,7 +65,6 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
 
 const MediaPart: React.FC<{ data: FeatureType }> = ({ data }) => {
   const { media, mediaAspectRatio } = data;
-  console.log("****", mediaAspectRatio)
   if (media.length === 1) {
     return (
       <MediaItem

@@ -35,6 +35,10 @@ export default async function getPage(url: string) {
               width
               height
             }
+            fontMain
+            fontHeading
+            colorPrimary
+            colorSecondary
             contentCollection {
               items {
                 __typename

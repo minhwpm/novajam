@@ -93,7 +93,7 @@ body {
 
 /* @TODO: Heading highlighted words - Refactor needed */
 h1 b, h2 b {
-  color: var(--primary-color-500);
+  @apply text-primary-500;
   font-style: normal;
   font-weight: unset;
 }
