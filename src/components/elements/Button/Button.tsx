@@ -23,13 +23,11 @@ const Button: React.FC<ButtonProps> = (props) => {
         className={classNames("group inline-block text-blue-600 px-0 text-lg")}
         href={url ?? "#"}
       >
-        <span className="underline-hover-effect">
-          {children}
-          <BsArrowRight
-            className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-300 ease"
-            size={20}
-          />
-        </span>
+        {children}
+        <BsArrowRight
+          className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-300 ease"
+          size={20}
+        />
       </Link>
     );
   }

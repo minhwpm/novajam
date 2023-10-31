@@ -9,6 +9,7 @@ import {
   Inter,
   Lora,
   Rubik,
+  Bricolage_Grotesque
 } from "next/font/google";
 
 // BODY FONTS
@@ -72,6 +73,13 @@ export const Rubik_Font = Rubik({
   variable: "--font-heading",
 });
 
+export const Bricolage_Grotesque_Font = Bricolage_Grotesque({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-heading",
+})
+
 export const getFontClassNames = (fontMain: string | null, fontHeading: string | null) => classNames({
   [Poppins_Font.className]: fontMain === "Poppins",
   [Montserrat_Font.className]: fontMain === "Montserrat",
@@ -82,4 +90,5 @@ export const getFontClassNames = (fontMain: string | null, fontHeading: string |
   [Playfair_Display_Font.variable]: fontHeading === "Playfair_Display",
   [Lora_Font.variable]: fontHeading === "Lora",
   [Rubik_Font.variable]: fontHeading === "Rubik",
+  [Bricolage_Grotesque_Font.variable]: fontHeading === "Bricolage_Grotesque",
 })

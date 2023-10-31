@@ -21,14 +21,11 @@ export default async function Layout({
   let header, footer, pageTheme, pageThemeClassNames
   try {
     while(slug.length > 0 && (!header || !footer || !pageTheme) ) {
-      // console.log("SLUG", slug)
       if (!header) header = await getHeader(`/${slug.join('/')}`)
       if (!footer) footer = await getFooter(`/${slug.join('/')}`)
       if (!pageTheme) {
-        console.log("HI HI HI!!!!!!!!!!!!!!")
         const page = await getPage(`/${slug.join('/')}`)
         const { fontMain, fontHeading, colorPrimary, colorSecondary } = page
-        // console.log("PAGE DATA", "|", fontMain, fontHeading, colorPrimary, colorSecondary)
         // if (!fontMain && !colorPrimary) {
           pageTheme = {
             fontMain: fontMain,
