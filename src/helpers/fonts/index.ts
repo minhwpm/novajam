@@ -92,6 +92,7 @@ export const Rubik_Font = Rubik({
 export const Merriweather_Font = Merriweather({
   subsets: ["latin"],
   display: "swap",
+  style: "italic",
   weight: ["300", "400", "700", "900"],
   variable: "--font-heading",
 })
@@ -105,7 +106,7 @@ export const Bricolage_Grotesque_Font = Bricolage_Grotesque({
 
 export const getFontClassNames = (fontMain: string | null, fontHeading: string | null) => classNames({
   [Poppins_Font.className]: fontMain === "Poppins",
-  // [Montserrat_Font.className]: fontMain === "Montserrat",
+  [Montserrat_Font.className]: fontMain === "Montserrat",
   [Montserrat_Font.variable]: fontHeading === "Montserrat",
   [Open_Sans_Font.className]: fontMain === "Open Sans",
   [Raleway_Font.className]: fontMain === "Raleway",
