@@ -14,6 +14,7 @@ import {
   Merriweather,
   Bricolage_Grotesque,
 } from "next/font/google";
+import localFont from "next/font/local"
 
 // BODY FONTS
 export const Poppins_Font = Poppins({
@@ -104,7 +105,7 @@ export const Bricolage_Grotesque_Font = Bricolage_Grotesque({
   variable: "--font-heading",
 })
 
-export const getFontClassNames = (fontMain: string | null, fontHeading: string | null) => classNames({
+export const generateFontClassnames = (fontMain: string | null, fontHeading: string | null) => classNames({
   [Poppins_Font.className]: fontMain === "Poppins",
   [Montserrat_Font.className]: fontMain === "Montserrat",
   [Montserrat_Font.variable]: fontHeading === "Montserrat",

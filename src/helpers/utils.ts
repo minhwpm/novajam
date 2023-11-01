@@ -1,3 +1,5 @@
+import { generateFontClassnames } from "./fonts";
+
 export function simpleStringify (object: {[x: PropertyKey]: any}){
   // stringify an object, avoiding circular structures
   // https://stackoverflow.com/a/31557814
@@ -22,4 +24,15 @@ export function getRegEx(fieldType: string) {
     return /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
   if(fieldType === "email")
     return /^\S+@\S+\.\S+$/
+}
+
+type ThemeProps = {
+  fontMain: string | null
+  fontHeading: string | null
+  colorPrimary: string | null
+  colorSecondary: string | null
+}
+
+export function generateThemeClassnames({ fontMain, fontHeading, colorPrimary, colorSecondary}: ThemeProps) {
+  return generateFontClassnames(fontMain, fontHeading)
 }
