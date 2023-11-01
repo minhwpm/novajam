@@ -65,7 +65,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
       <Container>
         <div className="grid grid-cols-12 gap-y-10 md:gap-x-10 my-24">
           <div className={classNames("col-span-12 lg:col-span-5 text-white drop-shadow-lg")}>
-            <h3 className="text-4xl md:text-5xl font-bold mb-8 tracking-wide leading-snug text-center lg:text-start">
+            <h3 className="text-4xl md:text-5xl font-heading font-bold mb-8 tracking-wide leading-snug text-center lg:text-start">
               {title}
             </h3>
             <p className="max-w-lg md:text-lg tracking-wide leading-snug text-center mx-auto lg:text-start lg:mx-0">{subtitle}</p>
@@ -73,7 +73,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           <div className="col-span-12 lg:col-span-7">
             <form
               className={classNames(
-                "max-w-xl mx-auto lg:mr-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 py-12 bg-white bg-opacity-70 rounded",
+                "max-w-xl mx-auto lg:mr-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-6 pb-12 bg-white bg-opacity-70 rounded",
                 { "gap-x-0": fields.length === 1 }
               )}
               onSubmit={handleSubmit(onSubmit)}
@@ -86,6 +86,14 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                       { "md:col-span-1": fieldItem.uiWidth === "half-size"}
                     )}
                   >
+                    <div className="text-xs text-red-500 h-6 pt-1 pl-4">
+                      { errors[fieldItem.label]?.type === "required" && (
+                        <p>required * </p>
+                      )}
+                      { errors[fieldItem.label]?.type === "pattern" &&  (
+                        <p>Wrong format. Please try again. </p> 
+                      )}
+                    </div>
                     {fieldItem.type === "select" && (
                       <Select
                         className="rounded-md w-full"
@@ -155,14 +163,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                         }
                       />
                     )}
-                    <div className="text-xs text-red-500 h-6 pt-1 pl-4">
-                      { errors[fieldItem.label]?.type === "required" && (
-                        <p>required * </p>
-                      )}
-                      { errors[fieldItem.label]?.type === "pattern" &&  (
-                        <p>Wrong format. Please try again. </p> 
-                      )}
-                    </div>
+                    
                   </div>
                 ))}
               <div className={classNames("col-span-2 flex flex-col")}>

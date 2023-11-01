@@ -39,7 +39,7 @@ const CTAB: React.FC<CTAProps> = ({ data }) => {
         )}
       >
         <div className="flex flex-col items-center max-w-3xl mx-auto">
-          <h3 className="text-4xl lg:text-5xl leading-snug lg:leading-snug text-center text-gray-300">
+          <h3 className="text-4xl lg:text-5xl font-heading font-semibold leading-snug lg:leading-snug text-center text-gray-300">
             {title}
           </h3>
           {content && (
