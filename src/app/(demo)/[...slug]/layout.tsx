@@ -6,8 +6,9 @@ import getHeader from '@/helpers/contentful/graphql/getHeader';
 import getFooter from '@/helpers/contentful/graphql/getFooter';
 import getPage from '@/helpers/contentful/graphql/getPage';
 import { Params } from "@/helpers/types"
-import { generateThemeClassnames } from '@/helpers/utils';
+import { generateColorClassnames, generateThemeClassnames } from '@/helpers/utils';
 import styles from './styles.module.css'
+import { generateFontClassnames } from '@/helpers/fonts';
 
 export default async function Layout({
   children,
@@ -18,20 +19,17 @@ export default async function Layout({
 }) {
   // console.log(params, JSON.stringify(children, null, 4))
   const slug = [...params.slug]
-  let header, footer, pageTheme, pageThemeClassNames
+  let header, footer, pageTheme, pageThemeClassNames, colorThemeClassNames
   try {
     while(slug.length > 0 && (!header || !footer || !pageTheme) ) {
       if (!header) header = await getHeader(`/${slug.join('/')}`)
       if (!footer) footer = await getFooter(`/${slug.join('/')}`)
       if (!pageThemeClassNames) {
         const page = await getPage(`/${slug.join('/')}`)
-        if (page && (!page.fontMain || !page.colorPrimary)) {
-          pageThemeClassNames = generateThemeClassnames({
-            fontMain: page.fontMain, 
-            fontHeading: page.fontHeading, 
-            colorPrimary: page.colorPrimary,
-            colorSecondary: page.colorSecondary
-          })
+        if (page ) {
+          // console.log("PAGE THEME", page.fontMain, page.fontHeading, page.colorPrimary, page.colorSecondary)
+          pageThemeClassNames = generateFontClassnames(page.fontMain, page.fontHeading)
+          colorThemeClassNames = generateColorClassnames(page.colorPrimary, page.colorSecondary)
         }
       }
       slug.pop()
@@ -41,7 +39,11 @@ export default async function Layout({
   }
 
   return (
-    <div className={classNames(pageThemeClassNames, styles["custom-color-settings"])}>
+    <div className={classNames(pageThemeClassNames,
+      // @TODO refactor
+      styles[colorThemeClassNames ? colorThemeClassNames[0] : ""],
+      styles[colorThemeClassNames ? colorThemeClassNames[1] : ""]
+    )}>
       {header && <Header data={header} /> }
       {children}
       {footer && <Footer data={footer} /> }

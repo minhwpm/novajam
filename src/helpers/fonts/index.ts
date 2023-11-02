@@ -14,7 +14,6 @@ import {
   Merriweather,
   Bricolage_Grotesque,
 } from "next/font/google";
-import localFont from "next/font/local"
 
 // BODY FONTS
 export const Poppins_Font = Poppins({
@@ -32,14 +31,12 @@ export const Open_Sans_Font = Open_Sans({
 export const Montserrat_Font = Montserrat({
   subsets: ["latin"],
   display: "swap",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-heading",
 });
 
 export const Libre_Franklin_Font = Libre_Franklin({
   subsets: ["latin"],
   display: "swap",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 })
 
 export const Roboto_Font = Roboto({

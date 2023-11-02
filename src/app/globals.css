@@ -5,35 +5,35 @@
 * {
   box-sizing: border-box;
 }
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  --font-heading: unset;
-  --primary-color-50: #eff6ff;
-  --primary-color-100: #dbeafe;
-  --primary-color-200: #bfdbfe;
-  --primary-color-300: #93c5fd;
-  --primary-color-400: #60a5fa;
-  --primary-color-500: #3b82f6;
-  --primary-color-600: #2563eb;
-  --primary-color-700: #1d4ed8;
-  --primary-color-800: #1e40af;
-  --primary-color-900: #1e3a8a;
-  --primary-color-950: #172554;
-  --secondary-color-50: #fff7ed;
-  --secondary-color-100: #ffedd5;
-  --secondary-color-200: #fed7aa;
-  --secondary-color-300: #fdba74;
-  --secondary-color-400: #fb923c;
-  --secondary-color-500: #f97316;
-  --secondary-color-600: #ea580c;
-  --secondary-color-700: #c2410c;
-  --secondary-color-800: #9a3412;
-  --secondary-color-900: #7c2d12;
-  --secondary-color-950: #431407;
-
+@layer base {
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+    --font-heading: unset;
+    --primary-color-50: 239, 246, 255;
+    --primary-color-100: 219, 234, 254;
+    --primary-color-200: 191, 219, 254;
+    --primary-color-300: 147, 197, 253;
+    --primary-color-400: 96, 165, 250;
+    --primary-color-500: 59, 130, 246;
+    --primary-color-600: 37, 99, 235;
+    --primary-color-700: 29, 78, 216;
+    --primary-color-800: 30, 64, 175;
+    --primary-color-900: 30, 58, 138;
+    --primary-color-950: 23, 37, 84;
+    --secondary-color-50: 255, 247, 237;
+    --secondary-color-100: 255, 237, 213;
+    --secondary-color-200: 254, 215, 170;
+    --secondary-color-300: 253, 186, 116;
+    --secondary-color-400: 251, 146, 60;
+    --secondary-color-500: 249, 115, 22;
+    --secondary-color-600: 234, 88, 12;
+    --secondary-color-700: 194, 65, 12;
+    --secondary-color-800: 154, 52, 18;
+    --secondary-color-900: 124, 45, 18;
+    --secondary-color-950: 67, 20, 7;
+  }
 }
 
 /* @media (prefers-color-scheme: dark) {

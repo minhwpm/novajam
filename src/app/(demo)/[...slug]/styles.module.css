@@ -1,74 +1,451 @@
-.custom-color-settings {
-  --primary-color-50: #ecfdf5;
-  --primary-color-100: #d1fae5;
-  --primary-color-200: #a7f3d0;
-  --primary-color-300: #6ee7b7;
-  --primary-color-400: #34d399;
-  --primary-color-500: #10b981;
-  --primary-color-600: #059669;
-  --primary-color-700: #047857;
-  --primary-color-800: #065f46;
-  --primary-color-900: #064e3b;
-  --primary-color-950: #022c22;
-  --secondary-color-50: #fefce8;
-  --secondary-color-100: #fef9c3;
-  --secondary-color-200: #fef08a;
-  --secondary-color-300: #fde047;
-  --secondary-color-400: #facc15;
-  --secondary-color-500: #eab308;
-  --secondary-color-600: #ca8a04;
-  --secondary-color-700: #a16207;
-  --secondary-color-800: #854d0e;
-  --secondary-color-900: #713f12;
-  --secondary-color-950: #422006;
+.red-primary-color {
+  --primary-color-50: 254, 242, 242;
+  --primary-color-100: 254, 226, 226;
+  --primary-color-200: 254, 202, 202;
+  --primary-color-300: 252, 165, 165;
+  --primary-color-400: 248, 113, 113;
+  --primary-color-500: 239, 68, 68;
+  --primary-color-600: 220, 38, 38;
+  --primary-color-700: 185, 28, 28;
+  --primary-color-800: 153, 27, 27;
+  --primary-color-900: 127, 29, 29;
+  --primary-color-950: 69, 10, 10;
+}
+.red-secondary-color {
+  --secondary-color-50: 254, 242, 242;
+  --secondary-color-100: 254, 226, 226;
+  --secondary-color-200: 254, 202, 202;
+  --secondary-color-300: 252, 165, 165;
+  --secondary-color-400: 248, 113, 113;
+  --secondary-color-500: 239, 68, 68;
+  --secondary-color-600: 220, 38, 38;
+  --secondary-color-700: 185, 28, 28;
+  --secondary-color-800: 153, 27, 27;
+  --secondary-color-900: 127, 29, 29;
+  --secondary-color-950: 69, 10, 10;
+}
+.orange-primary-color {
+  --primary-color-50: 255, 247, 237;
+  --primary-color-100: 255, 237, 213;
+  --primary-color-200: 254, 215, 170;
+  --primary-color-300: 253, 186, 116;
+  --primary-color-400: 251, 146, 60;
+  --primary-color-500: 249, 115, 22;
+  --primary-color-600: 234, 88, 12;
+  --primary-color-700: 194, 65, 12;
+  --primary-color-800: 154, 52, 18;
+  --primary-color-900: 124, 45, 18;
+  --primary-color-950: 67, 20, 7;
+}
+.orange-secondary-color {
+  --secondary-color-50: 255, 247, 237;
+  --secondary-color-100: 255, 237, 213;
+  --secondary-color-200: 254, 215, 170;
+  --secondary-color-300: 253, 186, 116;
+  --secondary-color-400: 251, 146, 60;
+  --secondary-color-500: 249, 115, 22;
+  --secondary-color-600: 234, 88, 12;
+  --secondary-color-700: 194, 65, 12;
+  --secondary-color-800: 154, 52, 18;
+  --secondary-color-900: 124, 45, 18;
+  --secondary-color-950: 67, 20, 7;
+}
+.emerald-primary-color {
+  --primary-color-50: 236, 253, 245;
+  --primary-color-100: 209, 250, 229;
+  --primary-color-200: 167, 243, 208;
+  --primary-color-300: 110, 231, 183;
+  --primary-color-400: 52, 211, 153;
+  --primary-color-500: 16, 185, 129;
+  --primary-color-600: 5, 150, 105;
+  --primary-color-700: 4, 120, 87;
+  --primary-color-800: 6, 95, 70;
+  --primary-color-900: 6, 78, 59;
+  --primary-color-950: 2, 44, 34;
+}
+.emerald-secondary-color {
+  --secondary-color-50: 236, 253, 245;
+  --secondary-color-100: 209, 250, 229;
+  --secondary-color-200: 167, 243, 208;
+  --secondary-color-300: 110, 231, 183;
+  --secondary-color-400: 52, 211, 153;
+  --secondary-color-500: 16, 185, 129;
+  --secondary-color-600: 5, 150, 105;
+  --secondary-color-700: 4, 120, 87;
+  --secondary-color-800: 6, 95, 70;
+  --secondary-color-900: 6, 78, 59;
+  --secondary-color-950: 2, 44, 34;
+}
+.teal-primary-color {
+  --primary-color-50: 240, 253, 250;
+  --primary-color-100: 204, 251, 241;
+  --primary-color-200: 153, 246, 228;
+  --primary-color-300: 94, 234, 212;
+  --primary-color-400: 45, 212, 191;
+  --primary-color-500: 20, 184, 166;
+  --primary-color-600: 13, 148, 136;
+  --primary-color-700: 15, 118, 110;
+  --primary-color-800: 17, 94, 89;
+  --primary-color-900: 19, 78, 74;
+  --primary-color-950: 4, 47, 46;
+}
+.teal-secondary-color {
+  --secondary-color-50: 240, 253, 250;
+  --secondary-color-100: 204, 251, 241;
+  --secondary-color-200: 153, 246, 228;
+  --secondary-color-300: 94, 234, 212;
+  --secondary-color-400: 45, 212, 191;
+  --secondary-color-500: 20, 184, 166;
+  --secondary-color-600: 13, 148, 136;
+  --secondary-color-700: 15, 118, 110;
+  --secondary-color-800: 17, 94, 89;
+  --secondary-color-900: 19, 78, 74;
+  --secondary-color-950: 4, 47, 46;
+}
+.sky-primary-color {
+  --primary-color-50: 240, 249, 255;
+  --primary-color-100: 224, 242, 254;
+  --primary-color-200: 186, 230, 253;
+  --primary-color-300: 125, 211, 252;
+  --primary-color-400: 56, 189, 248;
+  --primary-color-500: 14, 165, 233;
+  --primary-color-600: 2, 132, 199;
+  --primary-color-700: 3, 105, 161;
+  --primary-color-800: 7, 89, 133;
+  --primary-color-900: 12, 74, 110;
+  --primary-color-950: 8, 47, 73;
+}
+.sky-secondary-color {
+  --secondary-color-50: 240, 249, 255;
+  --secondary-color-100: 224, 242, 254;
+  --secondary-color-200: 186, 230, 253;
+  --secondary-color-300: 125, 211, 252;
+  --secondary-color-400: 56, 189, 248;
+  --secondary-color-500: 14, 165, 233;
+  --secondary-color-600: 2, 132, 199;
+  --secondary-color-700: 3, 105, 161;
+  --secondary-color-800: 7, 89, 133;
+  --secondary-color-900: 12, 74, 110;
+  --secondary-color-950: 8, 47, 73;
+}
+.blue-primary-color {
+  --primary-color-50: 239, 246, 255;
+  --primary-color-100: 219, 234, 254;
+  --primary-color-200: 191, 219, 254;
+  --primary-color-300: 147, 197, 253;
+  --primary-color-400: 96, 165, 250;
+  --primary-color-500: 59, 130, 246;
+  --primary-color-600: 37, 99, 235;
+  --primary-color-700: 29, 78, 216;
+  --primary-color-800: 30, 64, 175;
+  --primary-color-900: 30, 58, 138;
+  --primary-color-950: 23, 37, 84;
+}
+.blue-secondary-color {
+  --secondary-color-50: 239, 246, 255;
+  --secondary-color-100: 219, 234, 254;
+  --secondary-color-200: 191, 219, 254;
+  --secondary-color-300: 147, 197, 253;
+  --secondary-color-400: 96, 165, 250;
+  --secondary-color-500: 59, 130, 246;
+  --secondary-color-600: 37, 99, 235;
+  --secondary-color-700: 29, 78, 216;
+  --secondary-color-800: 30, 64, 175;
+  --secondary-color-900: 30, 58, 138;
+  --secondary-color-950: 23, 37, 84;
+}
+.violet-primary-color {
+  --primary-color-50: 245, 243, 255;
+  --primary-color-100: 237, 233, 254;
+  --primary-color-200: 221, 214, 254;
+  --primary-color-300: 196, 181, 253;
+  --primary-color-400: 167, 139, 250;
+  --primary-color-500: 139, 92, 246;
+  --primary-color-600: 124, 58, 237;
+  --primary-color-700: 109, 40, 217;
+  --primary-color-800: 91, 33, 182;
+  --primary-color-900: 76, 29, 149;
+  --primary-color-950: 46, 16, 101;
+}
+.violet-secondary-color {
+  --secondary-color-50: 245, 243, 255;
+  --secondary-color-100: 237, 233, 254;
+  --secondary-color-200: 221, 214, 254;
+  --secondary-color-300: 196, 181, 253;
+  --secondary-color-400: 167, 139, 250;
+  --secondary-color-500: 139, 92, 246;
+  --secondary-color-600: 124, 58, 237;
+  --secondary-color-700: 109, 40, 217;
+  --secondary-color-800: 91, 33, 182;
+  --secondary-color-900: 76, 29, 149;
+  --secondary-color-950: 46, 16, 101;
+}
+.purple-primary-color {
+  --primary-color-50: 250, 245, 255;
+  --primary-color-100: 243, 232, 255;
+  --primary-color-200: 233, 213, 255;
+  --primary-color-300: 216, 180, 254;
+  --primary-color-400: 192, 132, 252;
+  --primary-color-500: 168, 85, 247;
+  --primary-color-600: 147, 51, 234;
+  --primary-color-700: 126, 34, 206;
+  --primary-color-800: 107, 33, 168;
+  --primary-color-900: 88, 28, 135;
+  --primary-color-950: 59, 7, 100;
+}
+.purple-secondary-color {
+  --secondary-color-50: 250, 245, 255;
+  --secondary-color-100: 243, 232, 255;
+  --secondary-color-200: 233, 213, 255;
+  --secondary-color-300: 216, 180, 254;
+  --secondary-color-400: 192, 132, 252;
+  --secondary-color-500: 168, 85, 247;
+  --secondary-color-600: 147, 51, 234;
+  --secondary-color-700: 126, 34, 206;
+  --secondary-color-800: 107, 33, 168;
+  --secondary-color-900: 88, 28, 135;
+  --secondary-color-950: 59, 7, 100;
 }
 
-.blueberry-color-settings {
-  --primary-color-50: #eef2ff;
-  --primary-color-100: #e0e7ff;
-  --primary-color-200: #c7d2fe;
-  --primary-color-300: #a5b4fc;
-  --primary-color-400: #818cf8;
-  --primary-color-500: #6366f1;
-  --primary-color-600: #4f46e5;
-  --primary-color-700: #4338ca;
-  --primary-color-800: #3730a3;
-  --primary-color-900: #312e81;
-  --primary-color-950: #1e1b4b;
-  --secondary-color-50: #f7fee7;
-  --secondary-color-100: #ecfccb;
-  --secondary-color-200: #d9f99d;
-  --secondary-color-300: #bef264;
-  --secondary-color-400: #a3e635;
-  --secondary-color-500: #84cc16;
-  --secondary-color-600: #65a30d;
-  --secondary-color-700: #4d7c0f;
-  --secondary-color-800: #3f6212;
-  --secondary-color-900: #365314;
-  --secondary-color-950: #1a2e05;
+.fuchsia-primary-color {
+  --primary-color-50: 253, 244, 255;
+  --primary-color-100: 250, 232, 255;
+  --primary-color-200: 245, 208, 254;
+  --primary-color-300: 240, 171, 252;
+  --primary-color-400: 232, 121, 249;
+  --primary-color-500: 217, 70, 239;
+  --primary-color-600: 192, 38, 211;
+  --primary-color-700: 162, 28, 175;
+  --primary-color-800: 134, 25, 143;
+  --primary-color-900: 112, 26, 117;
+  --primary-color-950: 74, 4, 78;
+}
+.fuchsia-secondary-color {
+  --secondary-color-50: 253, 244, 255;
+  --secondary-color-100: 250, 232, 255;
+  --secondary-color-200: 245, 208, 254;
+  --secondary-color-300: 240, 171, 252;
+  --secondary-color-400: 232, 121, 249;
+  --secondary-color-500: 217, 70, 239;
+  --secondary-color-600: 192, 38, 211;
+  --secondary-color-700: 162, 28, 175;
+  --secondary-color-800: 134, 25, 143;
+  --secondary-color-900: 112, 26, 117;
+  --secondary-color-950: 74, 4, 78;
 }
 
-.aquarius-color-settings {
-  --primary-color-50: #ecfeff;
-  --primary-color-100: #cffafe;
-  --primary-color-200: #a5f3fc;
-  --primary-color-300: #67e8f9;
-  --primary-color-400: #22d3ee;
-  --primary-color-500: #06b6d4;
-  --primary-color-600: #0891b2;
-  --primary-color-700: #0e7490;
-  --primary-color-800: #155e75;
-  --primary-color-900: #164e63;
-  --primary-color-950: #083344;
-  --secondary-color-50: #fefce8;
-  --secondary-color-100: #fef9c3;
-  --secondary-color-200: #fef08a;
-  --secondary-color-300: #fde047;
-  --secondary-color-400: #facc15;
-  --secondary-color-500: #eab308;
-  --secondary-color-600: #ca8a04;
-  --secondary-color-700: #a16207;
-  --secondary-color-800: #854d0e;
-  --secondary-color-900: #713f12;
-  --secondary-color-950: #422006;
+.pink-primary-color {
+  --primary-color-50: 253, 242, 248;
+  --primary-color-100: 252, 231, 243;
+  --primary-color-200: 251, 207, 232;
+  --primary-color-300: 249, 168, 212;
+  --primary-color-400: 244, 114, 182;
+  --primary-color-500: 236, 72, 153;
+  --primary-color-600: 219, 39, 119;
+  --primary-color-700: 190, 24, 93;
+  --primary-color-800: 157, 23, 77;
+  --primary-color-900: 131, 24, 67;
+  --primary-color-950: 80, 7, 36;
+}
+.pink-secondary-color {
+  --secondary-color-50: 253, 242, 248;
+  --secondary-color-100: 252, 231, 243;
+  --secondary-color-200: 251, 207, 232;
+  --secondary-color-300: 249, 168, 212;
+  --secondary-color-400: 244, 114, 182;
+  --secondary-color-500: 236, 72, 153;
+  --secondary-color-600: 219, 39, 119;
+  --secondary-color-700: 190, 24, 93;
+  --secondary-color-800: 157, 23, 77;
+  --secondary-color-900: 131, 24, 67;
+  --secondary-color-950: 80, 7, 36;
+}
+
+.rose-primary-color {
+  --primary-color-50: 255, 241, 242;
+  --primary-color-100: 255, 228, 230;
+  --primary-color-200: 254, 205, 211;
+  --primary-color-300: 253, 164, 175;
+  --primary-color-400: 251, 113, 133;
+  --primary-color-500: 244, 63, 94;
+  --primary-color-600: 225, 29, 72;
+  --primary-color-700: 190, 18, 60;
+  --primary-color-800: 159, 18, 57;
+  --primary-color-900: 136, 19, 55;
+  --primary-color-950: 76, 5, 25;
+}
+.rose-secondary-color {
+  --secondary-color-50: 255, 241, 242;
+  --secondary-color-100: 255, 228, 230;
+  --secondary-color-200: 254, 205, 211;
+  --secondary-color-300: 253, 164, 175;
+  --secondary-color-400: 251, 113, 133;
+  --secondary-color-500: 244, 63, 94;
+  --secondary-color-600: 225, 29, 72;
+  --secondary-color-700: 190, 18, 60;
+  --secondary-color-800: 159, 18, 57;
+  --secondary-color-900: 136, 19, 55;
+  --secondary-color-950: 76, 5, 25;
+}
+
+.green-primary-color {
+  --primary-color-50: 236, 253, 245;
+  --primary-color-100: 209, 250, 229;
+  --primary-color-200: 167, 243, 208;
+  --primary-color-300: 110, 231, 183;
+  --primary-color-400: 52, 211, 153;
+  --primary-color-500: 16, 185, 129;
+  --primary-color-600: 5, 150, 105;
+  --primary-color-700: 4, 120, 87;
+  --primary-color-800: 6, 95, 70;
+  --primary-color-900: 6, 78, 59;
+  --primary-color-950: 2, 44, 34;
+}
+.green-secondary-color {
+  --secondary-color-50: 236, 253, 245;
+  --secondary-color-100: 209, 250, 229;
+  --secondary-color-200: 167, 243, 208;
+  --secondary-color-300: 110, 231, 183;
+  --secondary-color-400: 52, 211, 153;
+  --secondary-color-500: 16, 185, 129;
+  --secondary-color-600: 5, 150, 105;
+  --secondary-color-700: 4, 120, 87;
+  --secondary-color-800: 6, 95, 70;
+  --secondary-color-900: 6, 78, 59;
+  --secondary-color-950: 2, 44, 34;
+}
+
+.amber-primary-color {
+  --primary-color-50: 254, 252, 232;
+  --primary-color-100: 254, 249, 195;
+  --primary-color-200: 254, 240, 138;
+  --primary-color-300: 253, 224, 71;
+  --primary-color-400: 250, 204, 21;
+  --primary-color-500: 234, 179, 8;
+  --primary-color-600: 202, 138, 4;
+  --primary-color-700: 161, 98, 7;
+  --primary-color-800: 133, 77, 14;
+  --primary-color-900: 113, 63, 18;
+  --primary-color-950: 66, 32, 6;
+}
+.amber-secondary-color {
+  --secondary-color-50: 254, 252, 232;
+  --secondary-color-100: 254, 249, 195;
+  --secondary-color-200: 254, 240, 138;
+  --secondary-color-300: 253, 224, 71;
+  --secondary-color-400: 250, 204, 21;
+  --secondary-color-500: 234, 179, 8;
+  --secondary-color-600: 202, 138, 4;
+  --secondary-color-700: 161, 98, 7;
+  --secondary-color-800: 133, 77, 14;
+  --secondary-color-900: 113, 63, 18;
+  --secondary-color-950: 66, 32, 6;
+}
+
+.indigo-primary-color {
+  --primary-color-50: 238, 242, 255;
+  --primary-color-100: 224, 231, 255;
+  --primary-color-200: 199, 210, 254;
+  --primary-color-300: 165, 180, 252;
+  --primary-color-400: 129, 140, 248;
+  --primary-color-500: 99, 102, 241;
+  --primary-color-600: 79, 70, 229;
+  --primary-color-700: 67, 56, 202;
+  --primary-color-800: 55, 48, 163;
+  --primary-color-900: 49, 46, 129;
+  --primary-color-950: 30, 27, 75;
+}
+.indigo-secondary-color {
+  --secondary-color-50: 238, 242, 255;
+  --secondary-color-100: 224, 231, 255;
+  --secondary-color-200: 199, 210, 254;
+  --secondary-color-300: 165, 180, 252;
+  --secondary-color-400: 129, 140, 248;
+  --secondary-color-500: 99, 102, 241;
+  --secondary-color-600: 79, 70, 229;
+  --secondary-color-700: 67, 56, 202;
+  --secondary-color-800: 55, 48, 163;
+  --secondary-color-900: 49, 46, 129;
+  --secondary-color-950: 30, 27, 75;
+}
+
+.lime-primary-color {
+  --primary-color-50: 247, 254, 231;
+  --primary-color-100: 236, 252, 203;
+  --primary-color-200: 217, 249, 157;
+  --primary-color-300: 190, 242, 100;
+  --primary-color-400: 163, 230, 53;
+  --primary-color-500: 132, 204, 22;
+  --primary-color-600: 101, 163, 13;
+  --primary-color-700: 77, 124, 15;
+  --primary-color-800: 63, 98, 18;
+  --primary-color-900: 54, 83, 20;
+  --primary-color-950: 26, 46, 5;
+}
+.lime-secondary-color {
+  --secondary-color-50: 247, 254, 231;
+  --secondary-color-100: 236, 252, 203;
+  --secondary-color-200: 217, 249, 157;
+  --secondary-color-300: 190, 242, 100;
+  --secondary-color-400: 163, 230, 53;
+  --secondary-color-500: 132, 204, 22;
+  --secondary-color-600: 101, 163, 13;
+  --secondary-color-700: 77, 124, 15;
+  --secondary-color-800: 63, 98, 18;
+  --secondary-color-900: 54, 83, 20;
+  --secondary-color-950: 26, 46, 5;
+}
+
+.cyan-primary-color {
+  --primary-color-50: 236, 254, 255;
+  --primary-color-100: 207, 250, 254;
+  --primary-color-200: 165, 243, 252;
+  --primary-color-300: 103, 232, 249;
+  --primary-color-400: 34, 211, 238;
+  --primary-color-500: 6, 182, 212;
+  --primary-color-600: 8, 145, 178;
+  --primary-color-700: 14, 116, 144;
+  --primary-color-800: 21, 94, 117;
+  --primary-color-900: 22, 78, 99;
+  --primary-color-950: 8, 51, 68;
+}
+.cyan-secondary-color {
+  --secondary-color-50: 236, 254, 255;
+  --secondary-color-100: 207, 250, 254;
+  --secondary-color-200: 165, 243, 252;
+  --secondary-color-300: 103, 232, 249;
+  --secondary-color-400: 34, 211, 238;
+  --secondary-color-500: 6, 182, 212;
+  --secondary-color-600: 8, 145, 178;
+  --secondary-color-700: 14, 116, 144;
+  --secondary-color-800: 21, 94, 117;
+  --secondary-color-900: 22, 78, 99;
+  --secondary-color-950: 8, 51, 68;
+}
+
+.yellow-primary-color {
+  --primary-color-50: 254, 252, 232;
+  --primary-color-100: 254, 249, 195;
+  --primary-color-200: 254, 240, 138;
+  --primary-color-300: 253, 224, 71;
+  --primary-color-400: 250, 204, 21;
+  --primary-color-500: 234, 179, 8;
+  --primary-color-600: 202, 138, 4;
+  --primary-color-700: 161, 98, 7;
+  --primary-color-800: 133, 77, 14;
+  --primary-color-900: 113, 63, 18;
+  --primary-color-950: 66, 32, 6;
+}
+.yellow-secondary-color {
+  --secondary-color-50: 254, 252, 232;
+  --secondary-color-100: 254, 249, 195;
+  --secondary-color-200: 254, 240, 138;
+  --secondary-color-300: 253, 224, 71;
+  --secondary-color-400: 250, 204, 21;
+  --secondary-color-500: 234, 179, 8;
+  --secondary-color-600: 202, 138, 4;
+  --secondary-color-700: 161, 98, 7;
+  --secondary-color-800: 133, 77, 14;
+  --secondary-color-900: 113, 63, 18;
+  --secondary-color-950: 66, 32, 6;
 }

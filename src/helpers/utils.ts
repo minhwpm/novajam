@@ -1,5 +1,3 @@
-import { generateFontClassnames } from "./fonts";
-
 export function simpleStringify (object: {[x: PropertyKey]: any}){
   // stringify an object, avoiding circular structures
   // https://stackoverflow.com/a/31557814
@@ -26,13 +24,7 @@ export function getRegEx(fieldType: string) {
     return /^\S+@\S+\.\S+$/
 }
 
-type ThemeProps = {
-  fontMain: string | null
-  fontHeading: string | null
-  colorPrimary: string | null
-  colorSecondary: string | null
+export function generateColorClassnames(colorPrimary: string | null, colorSecondary: string | null) {
+  return [ `${colorPrimary}-primary-color`, `${colorSecondary}-secondary-color` ]
 }
 
-export function generateThemeClassnames({ fontMain, fontHeading, colorPrimary, colorSecondary}: ThemeProps) {
-  return generateFontClassnames(fontMain, fontHeading)
-}
