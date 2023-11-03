@@ -33,57 +33,50 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params }: { params: Params }) {
-  try {
-    let data
-    if (params.slug.find((item) => item==="product")) {
-      data = await getProductDetail(params.slug[params.slug.length - 1])
-      return (
-        <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
-          <ProductDetail data={data} />
-        </main>
-      )
-    }
-    if (params.slug.find((item) => item === "blog")) {
-      data = await getBlogDetails(params.slug[params.slug.length - 1])
-      return (
-        <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
-          <BlogDetails data={data} />
-        </main>
-      )
-    }
-    if (params.slug[params.slug.length - 1] === "cart") {
-      return (
-        <main className="min-h-screen">
-          <div className={classNames("container", "px-4", "mx-auto", "mt-32")}>
-            <Cart />
-          </div>
-        </main>
-      )
-    }
-    if (params.slug[params.slug.length - 1] === "checkout") {
-      return (
-        <main className="min-h-screen">
-          <div className={classNames("container", "px-4", "py-20", "mx-auto")}>
-            <h2 className="mb-10 font-heading text-5xl text-center">
-              Checkout
-            </h2>
-            <div className="grid lg:grid-cols-2 gap-8">
-              <CheckoutForm />
-              <Order />
-            </div>
-          </div>
-        </main>
-      )
-    }
-    data = await getPage(`/${params.slug.join('/')}`)
-    return <Sections data={data.content} />
-  } catch (e) {
-    console.error(e)
+  let data
+  if (params.slug.find((item) => item==="product")) {
+    data = await getProductDetail(params.slug[params.slug.length - 1])
     return (
-      <main>
-        404 Error Page
+      <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
+        <ProductDetail data={data} />
       </main>
     )
   }
-
+  if (params.slug.find((item) => item === "blog")) {
+    data = await getBlogDetails(params.slug[params.slug.length - 1])
+    return (
+      <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
+        <BlogDetails data={data} />
+      </main>
+    )
+  }
+  if (params.slug[params.slug.length - 1] === "cart") {
+    return (
+      <main className="min-h-screen">
+        <div className={classNames("container", "px-4", "mx-auto", "mt-32")}>
+          <Cart />
+        </div>
+      </main>
+    )
+  }
+  if (params.slug[params.slug.length - 1] === "checkout") {
+    return (
+      <main className="min-h-screen">
+        <div className={classNames("container", "px-4", "py-20", "mx-auto")}>
+          <h2 className="mb-10 font-heading text-5xl text-center">
+            Checkout
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-8">
+            <CheckoutForm />
+            <Order />
+          </div>
+        </div>
+      </main>
+    )
+  }
+  data = await getPage(`/${params.slug.join('/')}`)
+  if (!data) {
+    throw new Error("Page Not Found")
+  }
+  return <Sections data={data.content} />
 }

@@ -42,6 +42,12 @@ export default async function getHeader(url: string) {
                   title
                   style
                 }
+                ... on Menu {
+                  sys {
+                    id
+                  }
+                  title
+                }
               }
             }
             buttonsCollection {
