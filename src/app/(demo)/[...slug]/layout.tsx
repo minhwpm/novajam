@@ -6,7 +6,7 @@ import getHeader from '@/helpers/contentful/graphql/getHeader';
 import getFooter from '@/helpers/contentful/graphql/getFooter';
 import getPage from '@/helpers/contentful/graphql/getPage';
 import { Params } from "@/helpers/types"
-import { generateColorClassnames, generateThemeClassnames } from '@/helpers/utils';
+import { generateColorClassnames } from '@/helpers/utils';
 import styles from './styles.module.css'
 import { generateFontClassnames } from '@/helpers/fonts';
 
