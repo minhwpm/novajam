@@ -22,8 +22,8 @@ const Button: React.FC<ButtonProps> = (props) => {
       <Link
         className={classNames(
           "group inline-block text-blue-500 text-lg hover:text-blue-700 transition-colors duration-500",
-          { "p-2": size === "base" },
-          { "p-3 text-lg": size === "lg" },
+          { "py-2": size === "base" },
+          { "py-3 text-lg": size === "lg" },
         )}
         href={url ?? "#"}
       >
