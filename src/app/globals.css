@@ -11,6 +11,7 @@
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
     --font-heading: unset;
+    /* Default Primary Color & Secondary Color = BLUE */
     --primary-color-50: 239, 246, 255;
     --primary-color-100: 219, 234, 254;
     --primary-color-200: 191, 219, 254;
@@ -22,17 +23,17 @@
     --primary-color-800: 30, 64, 175;
     --primary-color-900: 30, 58, 138;
     --primary-color-950: 23, 37, 84;
-    --secondary-color-50: 255, 247, 237;
-    --secondary-color-100: 255, 237, 213;
-    --secondary-color-200: 254, 215, 170;
-    --secondary-color-300: 253, 186, 116;
-    --secondary-color-400: 251, 146, 60;
-    --secondary-color-500: 249, 115, 22;
-    --secondary-color-600: 234, 88, 12;
-    --secondary-color-700: 194, 65, 12;
-    --secondary-color-800: 154, 52, 18;
-    --secondary-color-900: 124, 45, 18;
-    --secondary-color-950: 67, 20, 7;
+    --secondary-color-50: var(--primary-color-50);
+    --secondary-color-100: var(--primary-color-100);
+    --secondary-color-200: var(--primary-color-200);
+    --secondary-color-300: var(--primary-color-300);
+    --secondary-color-400: var(--primary-color-400);
+    --secondary-color-500: var(--primary-color-500);
+    --secondary-color-600: var(--primary-color-600); 
+    --secondary-color-700: var(--primary-color-700); 
+    --secondary-color-800: var(--primary-color-800); 
+    --secondary-color-900: var(--primary-color-900); 
+    --secondary-color-950: var(--primary-color-950);
   }
 }
 
