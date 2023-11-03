@@ -47,7 +47,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
                           )}
                           { subItem.contentType === "linkgroup" && (
                             <div className="text-slate-700">
-                              <NavigationMenu.Trigger className="w-full font-medium select-none text-left py-1.5 px-3 rounded-md hover:bg-slate-100 transition-color duration-300 data-[state=open]:bg-slate-100 group">
+                              <NavigationMenu.Trigger className="w-full font-medium select-none text-left py-1.5 px-3 rounded-sm hover:bg-slate-100 transition-color duration-300 data-[state=open]:bg-slate-100 group">
                                 {subItem.title}
                                 <FontAwesomeIcon className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180" icon={faChevronDown} size="2xs" width={10} />
                               </NavigationMenu.Trigger>

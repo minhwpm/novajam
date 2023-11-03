@@ -45,7 +45,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     { "!border-2 border-white text-white hover:bg-white hover:text-neutral-800 drop-shadow-lg" : variant === "outline-white" },
     { "px-6 py-2": size === "base" },
     { "px-8 py-3 text-lg font-semibold": size === "lg" },
-    { "rounded-md": borderRadius === "base" },
+    { "rounded-sm": borderRadius === "base" },
     { "rounded-full": borderRadius === "full" },
   )
 

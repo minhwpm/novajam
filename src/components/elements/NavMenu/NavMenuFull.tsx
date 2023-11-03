@@ -70,7 +70,7 @@ const NavMenuFull: React.FC<{ data: HeaderType}> = ({ data }) => {
                           )}
                           { subItem.contentType === "linkgroup" && (
                             <div className="">
-                              <NavigationMenu.Trigger className="w-full font-medium select-none text-left py-2 px-3 rounded-md hover:bg-neutral-100 hover:text-neutral-900 transition-color duration-300 data-[state=open]:bg-neutral-100 data-[state=open]:text-neutral-900 group">
+                              <NavigationMenu.Trigger className="w-full font-medium select-none text-left py-2 px-3 rounded-sm hover:bg-neutral-100 hover:text-neutral-900 transition-color duration-300 data-[state=open]:bg-neutral-100 data-[state=open]:text-neutral-900 group">
                                 {subItem.title}
                                 <FontAwesomeIcon className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180" icon={faChevronDown} size="2xs" width={10} />
                               </NavigationMenu.Trigger>

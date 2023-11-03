@@ -6,9 +6,9 @@ import classNames from "classnames"
 export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
   const { title, pricing, pricingSuffix, badge, features, ctaButton } = data
   return (
-    <div className={classNames("relative flex flex-col gap-5 items-center pt-12 pb-6 px-4 rounded-md border",
+    <div className={classNames("relative flex flex-col gap-5 items-center pt-12 pb-6 px-4 rounded-sm shadow-md",
       { "mt-8": !badge },
-      { "bg-primary-100 mt-0": badge},
+      { "bg-primary-50 mt-0": badge},
     )}>
       <h4 className="text-2xl font-bold">
         {title}
@@ -22,7 +22,7 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
         </div>
       </div>
       {badge && (
-        <div className="absolute -top-4 bg-primary-700 text-white px-3 py-1 font-bold rounded-sm">
+        <div className="absolute -top-4 bg-secondary-500 text-white px-3 py-1 font-bold rounded-sm">
           {badge}
         </div>
       )}

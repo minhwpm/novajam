@@ -96,7 +96,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                     </div>
                     {fieldItem.type === "select" && (
                       <Select
-                        className="rounded-md w-full"
+                        className="rounded-sm w-full"
                         control={control}
                         options={fieldItem.options.map(option => {
                           return {
@@ -117,7 +117,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                     
                     {fieldItem.type === "date" && (
                       <DatePicker
-                        className="w-full border rounded-md px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
+                        className="w-full border rounded-sm px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
                         placeholder={
                           fieldItem.placeholder ??
                           fieldItem.label + (fieldItem.required ? "*" : "")
@@ -133,7 +133,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                     {fieldItem.type === "textarea" && (
                       <textarea
                         key={fieldItem.id}
-                        className="block border rounded-md w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
+                        className="block border rounded-sm w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
                         id={fieldItem.label}
                         placeholder={
                           fieldItem.placeholder ??
@@ -149,7 +149,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                     {(fieldItem.type !== "textarea" && fieldItem.type !== "select" && fieldItem.type !== "date") && (
                       <input
                         className={classNames(
-                          "block border rounded-md w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
+                          "block border rounded-sm w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
                         )}
                         type={fieldItem.type}
                         {...register(fieldItem.label, {

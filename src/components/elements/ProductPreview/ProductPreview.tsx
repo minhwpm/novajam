@@ -16,10 +16,10 @@ const ProductCard: React.FC<Props> = ({ data }) => {
   return (
     <div>
       <Link href={`${pathname === "/" ? "" : pathname}/product/${slug}`}>
-        <div className="aspect-[11/12] bg-slate-100 rounded-md">
+        <div className="aspect-[11/12] bg-slate-100 rounded-sm">
           <Image 
             className={classNames(
-              "w-full h-full object-cover rounded-md",
+              "w-full h-full object-cover rounded-sm",
             )}
             src={media[0]?.url ?? "/bluebiz_square.webp"}
             width={500} 

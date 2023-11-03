@@ -12,7 +12,7 @@ const Pagination: React.FC<{totalPages: number, currentPageNumber?: number}> = (
         <Link
           href={(currentPageNumber - 1 === 1) ? "/blog" : `/blog/page/${currentPageNumber - 1}`}
           className={classNames(
-            "py-2 px-4 rounded-md border-2 border-primary-600 text-primary-600 inline-flex items-center",
+            "py-2 px-4 rounded-sm border-2 border-primary-600 text-primary-600 inline-flex items-center",
             { hidden: currentPageNumber <= 1 }
           )}
         >
@@ -21,7 +21,7 @@ const Pagination: React.FC<{totalPages: number, currentPageNumber?: number}> = (
         <Link 
           href={`/blog/page/${currentPageNumber - (-1)}`}
           className={classNames(
-            "py-2 px-8 rounded-md border-2 border-primary-600 bg-primary-600 text-white",
+            "py-2 px-8 rounded-sm border-2 border-primary-600 bg-primary-600 text-white",
           )}
         >
           Next page
@@ -30,7 +30,7 @@ const Pagination: React.FC<{totalPages: number, currentPageNumber?: number}> = (
       <div className="xl:absolute right-0 bottom-0">
         Page 
         <select
-          className="border-slate-400 border w-14 inline-block p-2 mx-2 rounded-md text-center"
+          className="border-slate-400 border w-14 inline-block p-2 mx-2 rounded-sm text-center"
           name="page"
           defaultValue={currentPageNumber} 
           onChange={(e) => {
