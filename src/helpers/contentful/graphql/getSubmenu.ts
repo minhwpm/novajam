@@ -69,6 +69,12 @@ export default async function getSubmenu(id: string) {
                 ... on Page {
                   title
                   url
+                  metaImage {
+                    url
+                    title
+                    width
+                    height
+                  }
                 }
               }
             }

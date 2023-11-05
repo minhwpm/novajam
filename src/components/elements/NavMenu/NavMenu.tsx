@@ -63,27 +63,36 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
                     <div className={classNames(
                       {"container mx-auto px-4 pb-10 ": item.style === "mega"}
                     )}>
-                      <div className="flex gap-7 pt-5 border-t">
-                        <div className={classNames("flex-1 py-5 grid gap-5 lg:grid-cols-3 xl:grid-cols-4")}>
-                          {item.menu.length > 0 && item.menu.map((subItem) => (
-                            <div key={subItem.id} className="mb-3">
-                              { subItem.contentType === "link" && <SubMenuItem key={subItem.text} href={subItem.url} title={subItem.text} />}
-                              { subItem.contentType === "linkgroup" && 
-                                <p className="text-slate-500 uppercase text-sm tracking-wide font-medium mb-2">
-                                  {subItem.title}
-                                </p>
-                              }
-                              <ul className="flex flex-col gap-y-2">
-                                { subItem.contentType === "linkgroup" && subItem.links.length > 0 && subItem.links.map((link) => (
-                                  <SubMenuItem key={link.text} href={link.url} title={link.text} />
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
-                        </div>
-                        {item.featuredContent?.length > 0 && (
-                          <div className="w-1/4 xl:w-3/10">
-                            <SubMenuFeaturedContent data={item.featuredContent[0]} />
+                      <div className="grow flex gap-12 pt-5 border-t">
+                        {item.menu.length > 0 && (
+                          <div className={classNames("grow flex flex-wrap gap-8 py-5")}>
+                            {item.menu.map((subItem) => (
+                              <div key={subItem.id} className="basis-60 shrink-0 mb-3">
+                                { subItem.contentType === "link" && <SubMenuItem key={subItem.text} href={subItem.url} title={subItem.text} />}
+                                { subItem.contentType === "linkgroup" && 
+                                  <p className="text-slate-500 uppercase text-sm tracking-wide font-medium mb-2">
+                                    {subItem.title}
+                                  </p>
+                                }
+                                <ul className="flex flex-col gap-y-2">
+                                  { subItem.contentType === "linkgroup" && subItem.links.length > 0 && subItem.links.map((link) => (
+                                    <SubMenuItem key={link.text} href={link.url} title={link.text} />
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        {item.featuredContent.length > 0 && (
+                          <div className={classNames(
+                            "basis-1/3 xl:basis-1/4 shrink-0 grow flex gap-2 overflow-y-scroll overscroll-y-contain",
+                            { "justify-end": item.featuredContent.length === 1}
+                          )}>
+                            {item.featuredContent.map(item => (
+                              <div key={item.id} className="basis-72 shrink-0 grow max-w-xs">
+                                <SubMenuFeaturedContent data={item} />
+                              </div>
+                            ))}
                           </div>
                         )}
                       </div>
@@ -117,8 +126,14 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
                           </NavigationMenu.Item>
                         ))}
                       </NavigationMenu.List>
-                      {item.featuredContent?.length > 0 && (
-                        <SubMenuFeaturedContent data={item.featuredContent[0]} />
+                      {item.featuredContent.length > 0 && (
+                        <div className="mt-2 flex gap-2 overflow-y-scroll overscroll-y-contain">
+                          {item.featuredContent.map(item => (
+                            <div key={item.id} className="basis-5/6 shrink-0 grow">
+                              <SubMenuFeaturedContent data={item} />
+                            </div>
+                          ))}
+                        </div>
                       )}
                     </NavigationMenu.Sub>
                   )}

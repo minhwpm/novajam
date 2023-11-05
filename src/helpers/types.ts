@@ -140,6 +140,7 @@ export type BlogType = {
   metaTitle: string
   metaDescription: string
   metaKeywords?: Array<string>
+  metaImage: ImageType
   contentType: "blog"
 }
 
@@ -158,6 +159,10 @@ export type ProductType = {
     width: number
     height: number
   }>
+  metaTitle: string
+  metaDescription: string
+  metaKeywords?: Array<string>
+  metaImage: ImageType
   contentType: "product"
 }
 
