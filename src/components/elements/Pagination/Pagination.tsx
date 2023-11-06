@@ -1,53 +1,53 @@
 'use client'
-import classNames from "classnames"
-import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import Button from "../Button/Button";
 
 const Pagination: React.FC<{totalPages: number, currentPageNumber?: number}> = ({totalPages, currentPageNumber = 1}) => {
   const router = useRouter()
   return (
     <div className="relative w-full flex flex-col items-center gap-5 my-12">
       <div className="flex justify-center gap-5">
-        <Link
-          href={(currentPageNumber - 1 === 1) ? "/blog" : `/blog/page/${currentPageNumber - 1}`}
-          className={classNames(
-            "py-2 px-4 rounded-sm border-2 border-primary-600 text-primary-600 inline-flex items-center",
-            { hidden: currentPageNumber <= 1 }
-          )}
+        <Button
+          url={
+            currentPageNumber - 1 <= 1
+              ? "/blog"
+              : `/blog/page/${currentPageNumber - 1}`
+          }
+          variant="outline"
+          disabled={ currentPageNumber <= 1 }
         >
           <AiOutlineArrowLeft size={20} />
-        </Link>
-        <Link 
-          href={`/blog/page/${currentPageNumber - (-1)}`}
-          className={classNames(
-            "py-2 px-8 rounded-sm border-2 border-primary-600 bg-primary-600 text-white",
-          )}
-        >
-          Next page
-        </Link>
+        </Button>
+        <Button url={`/blog/page/${currentPageNumber - -1}`}>Next page</Button>
       </div>
       <div className="xl:absolute right-0 bottom-0">
-        Page 
+        Page
         <select
-          className="border-slate-400 border w-14 inline-block p-2 mx-2 rounded-sm text-center"
+          className="border-slate-400 border w-14 inline-block p-2 mx-2 rounded-assets text-center"
           name="page"
-          defaultValue={currentPageNumber} 
+          defaultValue={currentPageNumber}
           onChange={(e) => {
-            const targetPageNumber = parseInt(e.target.value)
-            router.push(targetPageNumber === 1 ? "/blog" : `/blog/page/${targetPageNumber}`)
+            const targetPageNumber = parseInt(e.target.value);
+            router.push(
+              targetPageNumber === 1
+                ? "/blog"
+                : `/blog/page/${targetPageNumber}`
+            );
           }}
         >
-          {Array.from({length: totalPages}, (_, i) => i + 1).map(pageNumber => (
-            <option key={pageNumber} value={pageNumber}>
-              {pageNumber}
-            </option>
-          ))}
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+            (pageNumber) => (
+              <option key={pageNumber} value={pageNumber}>
+                {pageNumber}
+              </option>
+            )
+          )}
         </select>
         of {totalPages}
       </div>
     </div>
-  )
+  );
 }
 
 export default Pagination

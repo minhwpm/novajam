@@ -49,7 +49,6 @@ const Header: React.FC<Props> = ({ data }) => {
                     key={button.text}
                     url={button.url}
                     variant={button.buttonVariant ?? "outline-white"}
-                    size="lg"
                   >
                     {button.text}
                   </Button>
@@ -102,7 +101,6 @@ const Header: React.FC<Props> = ({ data }) => {
                 key={button.text}
                 url={button.url}
                 variant={button.buttonVariant ?? "outline"}
-                size="lg"
               >
                 {button.text}
               </Button>

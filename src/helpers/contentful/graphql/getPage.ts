@@ -39,6 +39,7 @@ export default async function getPage(url: string) {
             fontHeading
             colorPrimary
             colorSecondary
+            borderRadius
             contentCollection {
               items {
                 __typename

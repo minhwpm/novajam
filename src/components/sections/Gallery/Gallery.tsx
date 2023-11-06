@@ -18,7 +18,7 @@ export const Gallery: React.FC<Props> = ( { data }) => {
         {content.map(item => (
           <div key={item.id} className="mb-5">
             <Image
-              className="w-full h-full object-cover rounded"
+              className="w-full h-full object-cover rounded-assets"
               src={item.url}
               alt={item.title}
               width={item.width}

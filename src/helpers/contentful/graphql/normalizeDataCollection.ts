@@ -24,5 +24,5 @@ export default function normalizeDataCollection (data: { [x: string]: any }) {
       delete data[key].json
     }
   }
-  return data[Object.keys(data)[0]]
+  return data ? data[Object.keys(data)[0]] : null
 }

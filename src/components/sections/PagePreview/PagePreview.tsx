@@ -7,7 +7,7 @@ const PagePreview = ({data}: {data: PageType}) => {
   return (
     <div>
       <Link href={url} className="group flex flex-col">
-        <div className="aspect-4/3 overflow-hidden">
+        <div className="aspect-4/3 overflow-hidden rounded-assets">
           <Image 
             className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ease-in-out"
             src={metaImage?.url ?? "/bluebiz_square.webp"}

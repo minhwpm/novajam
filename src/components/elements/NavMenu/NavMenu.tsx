@@ -99,7 +99,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
                     </div>
                   )}
                   {item.style === "dropdown" && (
-                    <NavigationMenu.Sub orientation="vertical" className="py-4 px-2 bg-white shadow-lg border-t rounded-lg">
+                    <NavigationMenu.Sub orientation="vertical" className="py-4 px-2 bg-white shadow-lg border-t rounded-assets">
                       <NavigationMenu.List>
                         {item.menu.length > 0 && item.menu.map((subItem) => (
                           <NavigationMenu.Item key={subItem.id} className="relative">
@@ -115,7 +115,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
                                   <FontAwesomeIcon className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180" icon={faChevronRight} size="2xs" width={10} />
                                 </NavigationMenu.Trigger>
                                 <NavigationMenu.Content className="absolute left-full top-0 pl-4">
-                                  <ul className="px-5 py-5 bg-white rounded-lg shadow-lg w-64 flex flex-col gap-y-3">
+                                  <ul className="px-5 py-5 bg-white rounded-assets shadow-lg w-64 flex flex-col gap-y-3">
                                     { subItem.links.length > 0 && subItem.links.map((link) => (
                                       <SubMenuItem key={link.text} href={link.url} title={link.text} />
                                     ))}

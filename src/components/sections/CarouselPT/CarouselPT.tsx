@@ -51,7 +51,7 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                 )}
               </div>
               { section.media?.length > 0 &&  
-                <div className="col-span-2 row-start-1 lg:col-span-1 lg:row-start-auto">
+                <div className="col-span-2 row-start-1 lg:col-span-1 lg:row-start-auto rounded-assets">
                   <MediaCarousel data={section.media} /> 
                 </div>
               }

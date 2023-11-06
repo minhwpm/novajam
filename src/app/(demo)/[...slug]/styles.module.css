@@ -1,3 +1,15 @@
+.small-border-radius-assets {
+  --border-radius-assets: 0.125rem;
+}
+
+.medium-border-radius-assets {
+  --border-radius-assets: 0.5rem;
+}
+
+.large-border-radius-assets {
+  --border-radius-assets: 1.75rem;
+}
+
 .red-primary-color {
   --primary-color-50: 254, 242, 242;
   --primary-color-100: 254, 226, 226;

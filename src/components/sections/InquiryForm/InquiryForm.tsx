@@ -73,7 +73,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           <div className="col-span-12 lg:col-span-7">
             <form
               className={classNames(
-                "max-w-xl mx-auto lg:mr-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-6 pb-12 bg-white bg-opacity-70 rounded",
+                "max-w-xl mx-auto lg:mr-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-6 pb-12 bg-white bg-opacity-70 rounded-assets",
                 { "gap-x-0": fields.length === 1 }
               )}
               onSubmit={handleSubmit(onSubmit)}
@@ -96,7 +96,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                     </div>
                     {fieldItem.type === "select" && (
                       <Select
-                        className="rounded-sm w-full"
+                        className="rounded-assets w-full"
                         control={control}
                         options={fieldItem.options.map(option => {
                           return {
@@ -117,7 +117,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                     
                     {fieldItem.type === "date" && (
                       <DatePicker
-                        className="w-full border rounded-sm px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
+                        className="w-full border rounded-assets px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
                         placeholder={
                           fieldItem.placeholder ??
                           fieldItem.label + (fieldItem.required ? "*" : "")
@@ -133,7 +133,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                     {fieldItem.type === "textarea" && (
                       <textarea
                         key={fieldItem.id}
-                        className="block border rounded-sm w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
+                        className="block border rounded-assets w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
                         id={fieldItem.label}
                         placeholder={
                           fieldItem.placeholder ??
@@ -149,7 +149,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                     {(fieldItem.type !== "textarea" && fieldItem.type !== "select" && fieldItem.type !== "date") && (
                       <input
                         className={classNames(
-                          "block border rounded-sm w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
+                          "block border rounded-assets w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
                         )}
                         type={fieldItem.type}
                         {...register(fieldItem.label, {

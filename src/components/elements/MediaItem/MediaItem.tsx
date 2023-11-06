@@ -11,6 +11,7 @@ export const MediaItem: React.FC<{data: MediaType, aspectRatio?: string }> = ({d
       {contentType.includes("image") && (
         <Image
           className={classNames(
+            "rounded-assets",
             { "object-cover w-full h-full": (width >= 160)},
             { "w-20 object-contain": (width < 160)},
           )}

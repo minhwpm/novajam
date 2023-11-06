@@ -31,13 +31,12 @@ export function Select(props: Props) {
         control: (baseStyles, state) => ({
           ...baseStyles,
           padding: "8px 6px",
-          borderRadius: "6px",
+          borderRadius: "var(--border-radius-assets)", // @TODO set borderRadius based on css --border-radius-assets
         }),
       }}
       placeholder={placeholder}
       onChange={(value) => {
         field.onChange(value)
-        console.log("HELLO", value)
       }}
     />
   );

@@ -23,7 +23,7 @@ const Section: React.FC<Props> = ( { title, label, subtitle, children, className
     <section 
       id={id} 
       className={classNames(
-        "flex flex-col items-center py-16",
+        "flex flex-col items-center py-16 rounded-assets",
         className,
       )}
       style={

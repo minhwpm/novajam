@@ -115,6 +115,11 @@ export type PageType = {
   title: string
   url: string
   content: HeroType | CTAType | PresentationType | CardListType | FeatureType
+  fontMain: string
+  fontHeading: string
+  colorPrimary: string
+  colorSecondary: string
+  borderRadius: string
   metaTitle: string
   metaDescription: string
   metaKeywords?: Array<string>

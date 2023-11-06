@@ -52,16 +52,16 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
   }
   return (
     <div className="group">
-      <div className="aspect-square overflow-hidden rounded-t-md">
+      <div className="aspect-square overflow-hidden rounded-t-assets">
         <Image
-          className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ease-in-out rounded-t-md"
+          className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ease-in-out rounded-t-assets"
           src={portrait?.url ?? "/bluebiz_square.webp"}
           alt={portrait?.title ?? fullName}
           width={portrait?.width ?? 500}
           height={portrait?.height ?? 500}
         />
       </div>
-      <div className="w-full px-4 py-4 bg-neutral-100 rounded-b-md">
+      <div className="w-full px-4 py-4 bg-neutral-100 rounded-b-assets">
         <div className="flex flex-wrap items-center justify-center gap-2">
           <Link className="block underline-hover-effect font-semibold text-xl" href={`/expert/${slug}`}>
             {fullName}

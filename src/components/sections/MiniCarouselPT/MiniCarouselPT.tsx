@@ -71,7 +71,7 @@ const MiniCarousel: React.FC<{ data: TestimonialsType }> = ({ data }) => {
               <div
                 key={section.id}
                 className={classNames(
-                  "col-start-1 row-start-1 flex flex-col gap-5 justify-center p-12 shadow-xl bg-white rounded-lg transition-all ease-in-out duration-500 relative",
+                  "col-start-1 row-start-1 flex flex-col gap-5 justify-center p-12 shadow-xl bg-white rounded-assets transition-all ease-in-out duration-500 relative",
                   { "opacity-100 right-0": visibleIdx == idx },
                   { "opacity-0 -right-24": visibleIdx != idx }
                 )}

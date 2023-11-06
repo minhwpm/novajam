@@ -25,7 +25,7 @@ const BlogThumbnail: React.FC<{
       { "aspect-3/2" : aspectRatio === "3/2"}
     )}>
       <Image
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover rounded-assets"
         src={media?.url ?? '/bluebiz_square.webp'}
         width={media?.width ?? 1600} 
         height={media?.height ?? 900}
@@ -61,7 +61,7 @@ const BlogText: React.FC<{
 
 const BlogPreview: React.FC<Props> = ({
   data,
-  aspectRatio = "video",
+  aspectRatio = "3/2",
   orientation = "vertical"
 }) => {
   const { title, summary, slug, media, topics } = data

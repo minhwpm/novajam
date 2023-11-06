@@ -36,7 +36,7 @@ const SubMenuFeaturedContent: React.FC<{data: BlogType | ProductType | PageType}
         className="group flex flex-col items-center p-5 rounded-sm hover:bg-primary-50 transition-colors duration-500"
       >
         {result.thumbnailImage && (
-          <div  className="w-full overflow-hidden">
+          <div  className="w-full overflow-hidden rounded-assets">
             <Image
               className="w-full aspect-square object-cover group-hover:scale-110 transition-all duration-500"
               alt={result.thumbnailImage?.title ?? result.title}

@@ -5,14 +5,21 @@
 * {
   box-sizing: border-box;
 }
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
 @layer base {
   :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
+    /* THEME CONFIG STYLING VARIABLES */
     --font-heading: unset;
-    /* Default Primary Color & Secondary Color = BLUE */
-    --primary-color-50: 239, 246, 255;
+    --border-radius-assets: 0.125rem; /* 0.125rem / 0.5rem / 1.75rem */
+    --primary-color-50: 239, 246, 255;  /* Default Primary Color & Secondary Color = BLUE */
     --primary-color-100: 219, 234, 254;
     --primary-color-200: 191, 219, 254;
     --primary-color-300: 147, 197, 253;
@@ -36,14 +43,6 @@
     --secondary-color-950: var(--primary-color-950);
   }
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-} */
 
 body {
   color: rgb(var(--foreground-rgb));
@@ -86,10 +85,6 @@ body {
 
 .underline-hover-effect:hover::before {
   width: 100%;
-}
-
-.font-heading {
-  font-family: var(--font-heading);
 }
 
 /* @TODO: Heading highlighted words - Refactor needed */

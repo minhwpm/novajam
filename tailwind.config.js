@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'heading': 'var(--font-heading)',
+      },
       fontSize: {
         '4.5xl': [
           '2.75rem', {
@@ -42,6 +45,9 @@ module.exports = {
           900: 'rgb(var(--secondary-color-900), <alpha-value>)',
           950: 'rgb(var(--secondary-color-950), <alpha-value>)',
         },
+      },
+      borderRadius: {
+        'assets': 'var(--border-radius-assets)',
       },
       borderWidth: {
         '3': '3px',

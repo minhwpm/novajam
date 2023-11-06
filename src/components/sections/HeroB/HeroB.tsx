@@ -90,7 +90,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
             <div key={item.url}>
               {item?.contentType.includes("image") && (
                 <Image
-                  className={classNames("w-full object-cover", animationClasses)}
+                  className={classNames("w-full object-cover rounded-assets", animationClasses)}
                   src={item.url}
                   alt={item.title}
                   width={500}
@@ -100,7 +100,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
               )}
               {item?.contentType === "video" && (
                 <video
-                  className={classNames(animationClasses, "w-full object-cover")}
+                  className={classNames(animationClasses, "w-full object-cover rounded-assets")}
                   src={item.url}
                 >
                   <track kind="captions" label={item.title} />
