@@ -220,12 +220,8 @@ export type HeroType = {
 export type CTAType = {
   id: string
   title: string
-  subtitle?: string
-  button: {
-    text: string
-    url: string
-    type: ButtonVariant
-  }
+  content: string
+  buttons: Array<ButtonType>
 }
 
 export type PresentationType = {
@@ -276,25 +272,9 @@ export type CardListType = {
     url: string
     text: string
   }
-  layout: "carousel" | "grid" | "flex"
+  layout: "carousel" | "grid" | "flex" | "masonry"
   size: 1 | 2 | 3 | 4 | 5
   htmlid: string
-}
-
-export type TestimonialsType = {
-  id: string
-  title: string
-  label?: string
-  subtitle?: string
-  content: Array<{
-    id: string
-    title: string
-    content: string
-    witnessFullName?: string
-    witnessRole?: string
-    witnessOrganization?: string
-    witnessPortrait: ImageType
-  }>
 }
 
 export type GalleryType = {

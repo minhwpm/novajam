@@ -22,7 +22,7 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
             {item.contentType.includes("image") && (
               <Image
                 className={classNames(
-                  "w-full h-full object-cover brightness-75"
+                  "w-full h-full object-cover"
                 )}
                 src={item.url}
                 alt={item.title}
@@ -55,7 +55,7 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
             {item.contentType.includes("image") && (
               <Image
                 className={classNames(
-                  "w-full h-full object-cover brightness-75"
+                  "w-full h-full object-cover"
                 )}
                 src={item.url}
                 alt={item.title}
@@ -84,7 +84,7 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
         )}
       >
         <p className="uppercase tracking-widest">{label}</p>
-        <h1 className="text-5xl lg:text-6xl font-heading font-bold max-w-3xl mx-auto">
+        <h1 className="text-5xl lg:text-6xl !leading-snug font-heading font-bold max-w-3xl mx-auto">
           <RichText htmlString={heading} />
         </h1>
         {content && (

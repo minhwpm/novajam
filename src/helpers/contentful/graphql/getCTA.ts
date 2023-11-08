@@ -21,8 +21,12 @@ export default async function getCTA(id: string) {
           items {
             buttonsCollection {
               items {
+                sys {
+                  id
+                }
                 text
                 url
+                buttonVariant
               }
             }
           }
@@ -37,7 +41,8 @@ export default async function getCTA(id: string) {
 
   const data = await res.json()
   if (res.status !== 200) {
-    throw new Error("Failed to fetch Hero data. Error: ", data.error)
+    console.error(data.error)
+    // throw new Error("Failed to fetch CTA data. Error: ", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
   return normalizedData[0]

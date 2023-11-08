@@ -21,25 +21,29 @@ export default async function Layout({
   // console.log(params, JSON.stringify(children, null, 4))
   const slug = [...params.slug];
   let header, footer, page, fontTheme, colorTheme, borderRadiusTheme;
-  while (
-    slug.length > 0 &&
-    (!header || !footer || !fontTheme || !colorTheme || !borderRadiusTheme)
-  ) {
-    if (!header) header = await getHeader(`/${slug.join("/")}`);
-    if (!footer) footer = await getFooter(`/${slug.join("/")}`);
-    if (!fontTheme || !colorTheme || !borderRadiusTheme) {
-      page = await getPage(`/${slug.join("/")}`);
-      if (page) {
-        // console.log("PAGE THEME", page.fontMain, page.fontHeading, page.colorPrimary, page.colorSecondary)
-        fontTheme = generateFontClassnames(page.fontMain, page.fontHeading);
-        colorTheme = generateColorClassnames(
-          page.colorPrimary,
-          page.colorSecondary
-        );
-        borderRadiusTheme = `${page?.borderRadius}-border-radius-assets`;
+  try {
+    while (
+      slug.length > 0 &&
+      (!header || !footer || !fontTheme || !colorTheme || !borderRadiusTheme)
+    ) {
+      if (!header) header = await getHeader(`/${slug.join("/")}`);
+      if (!footer) footer = await getFooter(`/${slug.join("/")}`);
+      if (!fontTheme || !colorTheme || !borderRadiusTheme) {
+        page = await getPage(`/${slug.join("/")}`);
+        if (page) {
+          // console.log("PAGE THEME", page.fontMain, page.fontHeading, page.colorPrimary, page.colorSecondary)
+          fontTheme = generateFontClassnames(page.fontMain, page.fontHeading);
+          colorTheme = generateColorClassnames(
+            page.colorPrimary,
+            page.colorSecondary
+          );
+          borderRadiusTheme = `${page?.borderRadius}-border-radius-assets`;
+        }
       }
+      slug.pop();
     }
-    slug.pop();
+  } catch(e) {
+    console.error(e);
   }
 
   return (

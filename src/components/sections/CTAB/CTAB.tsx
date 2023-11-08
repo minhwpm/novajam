@@ -3,21 +3,9 @@ import classNames from "classnames";
 import { useInView } from "react-hook-inview";
 import Button from "@/components/elements/Button/Button"
 import Section from "@/components/elements/Section/Section";
-import { ButtonVariant } from "@/helpers/types";
+import { ButtonVariant, CTAType } from "@/helpers/types";
 
-interface CTAProps {
-  data: {
-    title: string
-    content?: string
-    buttons?: Array<{
-      text: string
-      url?: string
-      type: ButtonVariant
-    }>
-  }
-}
-
-const CTAB: React.FC<CTAProps> = ({ data }) => {
+const CTAB: React.FC<{data: CTAType} > = ({ data }) => {
   const { title, content, buttons } = data;
   // @TODO expanding width on scrolling
   // const [w, setW] = useState(70)
@@ -49,7 +37,7 @@ const CTAB: React.FC<CTAProps> = ({ data }) => {
           )}
           <div className="mt-12">
             {buttons?.map(button => (
-              <Button key={button.text} variant={button.type ?? "alternate"} size="lg" url={button.url}>
+              <Button key={button.id} variant={button.buttonVariant ?? "alternate"} size="lg" url={button.url}>
                 {button.text}
               </Button>
             ))}

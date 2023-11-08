@@ -67,15 +67,13 @@ export const Lato_Font = Lato({
 export const Playfair_Display_Font = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
-  style: "italic",
-  weight: ["400", "500", "700", "900"],
+  weight: ["400"],
   variable: "--font-heading",
 });
 
 export const Lora_Font = Lora({
   subsets: ["latin"],
   display: "swap",
-  style: "italic",
   weight: ["400", "500", "600", "700"],
   variable: "--font-heading",
 });
@@ -90,7 +88,6 @@ export const Rubik_Font = Rubik({
 export const Merriweather_Font = Merriweather({
   subsets: ["latin"],
   display: "swap",
-  style: "italic",
   weight: ["300", "400", "700", "900"],
   variable: "--font-heading",
 })
