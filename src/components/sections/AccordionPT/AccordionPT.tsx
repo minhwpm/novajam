@@ -10,7 +10,7 @@ import { PresentationType } from "@/helpers/types";
 import RichText from "@/components/elements/RichText/RichText";
 import Button from "@/components/elements/Button/Button";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
-import "./styles.css";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 
 const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
   const { label, title, subtitle, content } = data;
@@ -29,7 +29,7 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                 key={section.title}
                 value={section.title}
                 className={classNames(
-                  "w-full rounded-assets border",
+                  "group w-full rounded-assets border",
                   "data-[state=closed]:hover:bg-primary-50"
                 )}
               >
@@ -38,15 +38,17 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                   value={section.title}
                   asChild
                 >
-                  <div className="py-4 px-6 cursor-pointer">
+                  <div className="py-4 px-6 cursor-pointer flex justify-between items-center">
                     <h3 className="block font-semibold text-2xl">
                       {section.title}
                     </h3>
+                    <AiOutlinePlus size={25} className="group-data-[state=open]:hidden" />
+                    <AiOutlineMinus size={25} className="group-data-[state=closed]:hidden" />
                   </div>
                 </RadixAccordion.Trigger>
                 <RadixAccordion.Content className={classNames("overflow-hidden px-10 pt-5 pb-10",
                   "data-[state=closed]:animate-accordionSlideUp",
-                  "data-[state=open]:animate-accordionSlideDown",
+                  "data-[state=open]:border-t data-[state=open]:animate-accordionSlideDown",
                 )}>
                   <div className="prose lg:prose-lg">
                     <RichText htmlString={section.content} />
