@@ -42,7 +42,7 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                     <AiOutlineMinus size={25} className="group-data-[state=closed]:hidden shrink-0" />
                   </div>
                 </RadixAccordion.Trigger>
-                <RadixAccordion.Content className={classNames("overflow-hidden px-10 pt-5 pb-10",
+                <RadixAccordion.Content className={classNames("overflow-hidden px-4 lg:px-10 pt-5 pb-10",
                   "data-[state=closed]:animate-accordionSlideUp",
                   "data-[state=open]:border-t data-[state=open]:animate-accordionSlideDown",
                 )}>
