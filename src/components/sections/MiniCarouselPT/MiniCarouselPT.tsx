@@ -89,7 +89,7 @@ const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
                 )}
               >
                 <h3 className={classNames("text-2xl font-semibold")}>
-                  {section.title}
+                  {section.heading}
                 </h3>
                 <div className="prose lg:prose-lg">
                   <RichText htmlString={section.content} />

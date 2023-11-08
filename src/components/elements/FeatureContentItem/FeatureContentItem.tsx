@@ -1,12 +1,10 @@
 import { useInView } from "react-hook-inview";
 import classNames from "classnames";
 import RichText from "../RichText/RichText";
+import { ContentPieceType } from "@/helpers/types";
 
 interface Props {
-  section: {
-    title: string
-    content: string
-  }
+  section: ContentPieceType
   idx: number
   setVisibleIdx: (idx: number) => void
 }
@@ -25,7 +23,7 @@ const FeatureContentItem = ({ section, idx, setVisibleIdx }: Props) => {
       { "is-invisible opacity-10": !isVisible}
     )}>
       <h3 className="text-4xl font-semibold mb-8">
-        {section.title}
+        {section.heading}
       </h3>
       <div className="prose lg:prose-lg">
         <RichText htmlString={section.content} />

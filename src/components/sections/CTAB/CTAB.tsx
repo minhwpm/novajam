@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { useInView } from "react-hook-inview";
 import Button from "@/components/elements/Button/Button"
 import Section from "@/components/elements/Section/Section";
-import { ButtonVariant, CTAType } from "@/helpers/types";
+import { CTAType } from "@/helpers/types";
 
 const CTAB: React.FC<{data: CTAType} > = ({ data }) => {
   const { title, content, buttons } = data;

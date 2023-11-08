@@ -16,10 +16,10 @@ const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
       {/* FOR MOBILE, TABLETS */}
       <div className="xl:hidden">
         {content?.map((section) => (
-          <div key={section.title} className="mb-20">
+          <div key={section.id} className="mb-20">
             <div className="mb-10">
               <h3 className="font-semibold text-3xl lg:text-4xl leading-snug mb-6">
-                {section.title}
+                {section.heading}
               </h3>
               <div className="prose">
                 <RichText htmlString={section.content} />
@@ -41,7 +41,7 @@ const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
             <div className="relative h-[80vh]">
               {content?.map((section, idx) => (
                 <div
-                  key={section.title}
+                  key={section.id}
                   className={classNames(
                     "transition-opacity duration-300",
                     {
@@ -66,7 +66,7 @@ const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
         <div className="w-2/5 flex flex-col">
           {content?.map((section, idx) => (
             <FeatureContentItem
-              key={section.title}
+              key={section.heading}
               section={section}
               idx={idx}
               setVisibleIdx={setVisibleIdx}

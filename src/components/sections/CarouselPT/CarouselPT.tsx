@@ -37,7 +37,7 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                   <AiOutlineArrowRight className="carouselPT-btn-next cursor-pointer" size={40} />
                 </div>
                 <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl">
-                  {section.title}
+                  {section.heading}
                 </h3>
                 <div className="mt-5 prose lg:prose-lg">
                   <RichText htmlString={section.content} />
