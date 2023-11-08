@@ -250,6 +250,22 @@ module.exports = {
           'to': {
             opacity: 0,
           }
+        },
+        accordionSlideUp: {
+          'from': {
+            height: "var(--radix-accordion-content-height)"
+          },
+          'to': {
+            height: 0
+          }
+        },
+        accordionSlideDown: {
+          'from': {
+            height: 0
+          },
+          'to': {
+            height: "var(--radix-accordion-content-height)"
+          }
         }
       },
 
@@ -265,6 +281,8 @@ module.exports = {
         headerSlideIn: 'headerSlideIn 0.5s ease-out forwards 1',
         navMenu_scaleIn: 'navMenu_scaleIn 0.2s ease',
         navMenu_scaleOut: 'navMenu_scaleOut 0.2s ease',
+        accordionSlideUp: 'accordionSlideUp 0.3s ease-in-out',
+        accordionSlideDown: 'accordionSlideDown 0.3s ease-in-out',
       }
     },
   },

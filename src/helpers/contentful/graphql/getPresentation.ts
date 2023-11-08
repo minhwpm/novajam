@@ -36,6 +36,7 @@ export default async function getPresentation(id: string) {
                     url
                     buttonVariant
                   }
+                  alignment
                 }
               }
             }
