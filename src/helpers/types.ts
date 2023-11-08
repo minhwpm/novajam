@@ -277,21 +277,6 @@ export type CardListType = {
   htmlid: string
 }
 
-export type GalleryType = {
-  id: string
-  title: string
-  heading: string
-  label?: string
-  subtitle?: string
-  content: Array<{
-    id: string
-    url: string
-    title: string
-    width: number
-    height: number
-  }>
-}
-
 export type InquiryFormType = {
   id: string
   title: string

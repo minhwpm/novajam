@@ -1,7 +1,6 @@
 import getCTA from "./getCTA"
 import getCardList from "./getCardList"
 import getFeature from "./getFeature"
-import getGallery from "./getGallery"
 import getHero from "./getHero"
 import getInquiryForm from "./getInquiryForm"
 import getPresentation from "./getPresentation"
@@ -79,11 +78,6 @@ export default async function getPage(url: string) {
                   }
                   title
                 }
-                ... on Gallery {
-                  sys {
-                    id
-                  }
-                }
                 ... on InquiryForm  {
                   sys {
                     id
@@ -106,6 +100,7 @@ export default async function getPage(url: string) {
   })
 
   const data = await res.json()
+  // console.log(`RAW PAGE DATA: ${JSON.stringify(data, null, 4)}`)
   if (res.status !== 200) {
     throw new Error("Failed to fetch Page data. Error", data.error)
   }
@@ -126,9 +121,6 @@ export default async function getPage(url: string) {
     }
     if (contentType === "cardlist") {
       return await getCardList(id)
-    }
-    if (contentType === "gallery") {
-      return await getGallery(id)
     }
     if (contentType === "inquiryform") {
       return await getInquiryForm(id)

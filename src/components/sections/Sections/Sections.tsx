@@ -10,7 +10,6 @@ import TabPT from '../TabPT/TabPT'
 import CarouselPT from '../CarouselPT/CarouselPT'
 import MiniCarouselPT from '../MiniCarouselPT/MiniCarouselPT'
 import { InquiryForm } from '../InquiryForm/InquiryForm'
-import { Gallery } from '../Gallery/Gallery'
 
 const sectionComponents = {
   hero: {
@@ -27,9 +26,7 @@ const sectionComponents = {
   },
   feature: Feature,
   cardlist: CardList,
-  gallery: Gallery,
   inquiryform: InquiryForm,
-  
 }
 
 // type ComponentType = typeof HeroB | typeof HeroC | typeof HeroD | typeof CTAB | typeof ScrollingPT | typeof AccordionPT | typeof CarouselPT | typeof TabPT | typeof Testimonials | typeof Feature | typeof CardList
