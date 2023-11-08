@@ -3,7 +3,7 @@ import Carousel from "../Carousel/Carousel"
 import { MediaItem } from "../MediaItem/MediaItem";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
-export const MediaCarousel: React.FC<{ data: Array<MediaType>, aspectRatio?: string }> = ({data, aspectRatio = ""} ) => {
+export const MediaCarousel: React.FC<{ data: Array<MediaType>, aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2" | "auto" }> = ({data, aspectRatio = "auto"} ) => {
   return (
     <div className="relative">
       <Carousel

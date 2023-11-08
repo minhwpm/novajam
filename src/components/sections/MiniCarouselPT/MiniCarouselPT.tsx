@@ -6,6 +6,7 @@ import Section from "@/components/elements/Section/Section";
 import { PresentationType } from "@/helpers/types";
 import RichText from "@/components/elements/RichText/RichText";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 
 interface ArrowGroupProps {
   visibleIdx: number;
@@ -70,14 +71,20 @@ const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
             <div
               key={section.id}
               className={classNames(
-                "col-start-1 row-start-1 flex flex-col gap-5 justify-center p-8 lg:p-12 shadow-xl bg-white rounded-assets transition-all ease-in-out duration-500 relative",
+                "col-start-1 row-start-1 flex flex-col shadow-xl bg-white rounded-assets transition-all ease-in-out duration-500 relative",
                 { "opacity-100 right-0": visibleIdx == idx },
                 { "opacity-0 -right-24": visibleIdx != idx }
               )}
             >
-              <h3 className="text-2xl font-semibold">{section.title}</h3>
-              <div className="prose lg:prose-lg">
-                <RichText htmlString={section.content} />
+              { section.media.length > 0 &&  
+                // @TODO <MediaCarousel /> breaks layout here
+                <MediaItem data={section.media[0]} aspectRatio="3/2" />
+              }
+              <div className="grow flex flex-col gap-5 justify-center p-8 lg:px-12">
+                <h3 className="text-2xl font-semibold">{section.title}</h3>
+                <div className="prose lg:prose-lg">
+                  <RichText htmlString={section.content} />
+                </div>
               </div>
             </div>
           ))}

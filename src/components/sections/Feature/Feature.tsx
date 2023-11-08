@@ -69,9 +69,7 @@ const MediaPart: React.FC<{ data: FeatureType }> = ({ data }) => {
     return (
       <MediaItem
         data={media[0]}
-        aspectRatio={classNames(
-          `aspect-${mediaAspectRatio === "16/9" ? "video" : mediaAspectRatio}`
-        )}
+        aspectRatio={mediaAspectRatio === "16/9" ? "video" : mediaAspectRatio}
       />
     );
   }
@@ -79,7 +77,7 @@ const MediaPart: React.FC<{ data: FeatureType }> = ({ data }) => {
   return (
     <MediaCarousel
       data={media}
-      aspectRatio={classNames(`aspect-${mediaAspectRatio === "16/9" ? "video" : mediaAspectRatio}`)}
+      aspectRatio={mediaAspectRatio === "16/9" ? "video" : mediaAspectRatio}
     />
   );
 };

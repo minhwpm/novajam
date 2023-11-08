@@ -196,7 +196,7 @@ export type FeatureType = {
   label: string
   content: string
   media: Array<MediaType>
-  mediaAspectRatio: "auto" | "16/9" | "4/3" | "square" | "3/4"
+  mediaAspectRatio: "auto" | "16/9" | "4/3" | "square" | "3/4" | "3/2"
   url?: string
   buttons: Array<ButtonType>
   layout: "Horizontal (Image | Text)" | "Horizontal (Text | Image)" | "Vertical (Image | Text)" | "Vertical (Text | Image)"
