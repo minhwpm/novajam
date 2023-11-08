@@ -27,7 +27,7 @@ export default async function getPresentation(id: string) {
                   sys {
                     id
                   }
-                  title
+                  heading
                   ctaButton {
                     sys {
                       id

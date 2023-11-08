@@ -122,7 +122,7 @@ export default async function getCardList(id: string) {
                   sys {
                     id
                   }
-                  title
+                  heading
                   ctaButton {
                     url
                     text

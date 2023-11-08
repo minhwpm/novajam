@@ -1,12 +1,14 @@
-import { ContentPieceType } from "@/helpers/types"
-import classNames from "classnames"
-import RichText from "../RichText/RichText"
-import Button from "../Button/Button"
-import { MediaCarousel } from "../MediaCarousel/MediaCarousel"
-import { MediaItem } from "../MediaItem/MediaItem"
+import { ContentPieceType } from "@/helpers/types";
+import classNames from "classnames";
+import RichText from "../RichText/RichText";
+import Button from "../Button/Button";
+import { MediaCarousel } from "../MediaCarousel/MediaCarousel";
+import { MediaItem } from "../MediaItem/MediaItem";
 
-export const ContentPiece: React.FC<{ data: ContentPieceType }> = ({ data }) => {
-  const { title, content, media, ctaButton, alignment } = data
+export const ContentPiece: React.FC<{ data: ContentPieceType }> = ({
+  data,
+}) => {
+  const { heading, content, media, ctaButton, alignment } = data;
   return (
     <div className="flex flex-col">
       <div
@@ -17,31 +19,36 @@ export const ContentPiece: React.FC<{ data: ContentPieceType }> = ({ data }) => 
         {media.length === 1 && <MediaItem data={media[0]} />}
         {media.length > 1 && <MediaCarousel data={media} />}
       </div>
-      <div
-        className={classNames("py-5 pr-5 flex-1 flex flex-col justify-between")}
-      >
-        <div className={classNames({ "text-center": alignment === "center" })}>
-          <h4 className="text-lg lg:text-2xl font-semibold mt-1">{title}</h4>
+      {(heading || content || ctaButton) && (
+        <div
+          className={classNames(
+            "py-5 pr-5 flex-1 flex flex-col justify-between",
+            { "text-center": alignment === "center" }
+          )}
+        >
+          <h4 className="text-lg lg:text-2xl font-semibold mt-1">
+            {heading}
+          </h4>
           <div className="py-3 prose lg:prose-lg">
             <RichText htmlString={content} />
           </div>
-        </div>
-        {ctaButton && (
-          <div
-            className={classNames("mt-8", {
-              "flex justify-center": alignment === "center",
-            })}
-          >
-            <Button
-              key={ctaButton.text}
-              url={ctaButton.url}
-              variant={ctaButton.buttonVariant}
+          {ctaButton && (
+            <div
+              className={classNames("mt-8", {
+                "flex justify-center": alignment === "center",
+              })}
             >
-              {ctaButton.text}
-            </Button>
-          </div>
-        )}
-      </div>
+              <Button
+                key={ctaButton.text}
+                url={ctaButton.url}
+                variant={ctaButton.buttonVariant}
+              >
+                {ctaButton.text}
+              </Button>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
-}
+};

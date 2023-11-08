@@ -113,6 +113,15 @@ const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
           </Carousel>
         </div>
       )}
+      { layout === "masonry" && (
+        <div className="w-full columns-1 md:columns-2 gap-5 lg:columns-3">
+        {content.map(item => (
+          <div key={item.id} className="mb-5">
+            <ContentItem data={item} />
+          </div>
+        ))}
+      </div>
+      )}
     </Section>
   );
 }

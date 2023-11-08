@@ -241,7 +241,7 @@ export type StatisticsType = {
 
 export type ContentPieceType = {
   id: string
-  title: string
+  heading: string
   content: string
   media: Array<MediaType>
   ctaButton: ButtonType

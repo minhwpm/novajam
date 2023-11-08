@@ -26,24 +26,20 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
           {content.length > 0 &&
             content.map((section) => (
               <RadixAccordion.Item
-                key={section.title}
-                value={section.title}
+                key={section.id}
+                value={section.id}
                 className={classNames(
                   "group w-full rounded-assets border",
                   "data-[state=closed]:hover:bg-primary-50"
                 )}
               >
-                <RadixAccordion.Trigger
-                  key={section.title}
-                  value={section.title}
-                  asChild
-                >
+                <RadixAccordion.Trigger asChild>
                   <div className="py-4 px-6 cursor-pointer flex justify-between items-center">
                     <h3 className="block font-semibold text-2xl">
-                      {section.title}
+                      {section.heading}
                     </h3>
-                    <AiOutlinePlus size={25} className="group-data-[state=open]:hidden" />
-                    <AiOutlineMinus size={25} className="group-data-[state=closed]:hidden" />
+                    <AiOutlinePlus size={25} className="group-data-[state=open]:hidden shrink-0" />
+                    <AiOutlineMinus size={25} className="group-data-[state=closed]:hidden shrink-0" />
                   </div>
                 </RadixAccordion.Trigger>
                 <RadixAccordion.Content className={classNames("overflow-hidden px-10 pt-5 pb-10",
