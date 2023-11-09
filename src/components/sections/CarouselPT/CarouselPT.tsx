@@ -52,7 +52,7 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
               </div>
               { section.media?.length > 0 &&  
                 <div className="col-span-2 row-start-1 lg:col-span-1 lg:row-start-auto rounded-assets">
-                  <MediaCarousel data={section.media} /> 
+                  <MediaCarousel data={section.media} aspectRatio="4/3" /> 
                 </div>
               }
             </div>
