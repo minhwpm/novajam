@@ -27,7 +27,7 @@ const Lookbook: React.FC<ImageGalleryProps> = ({ data, imageAspectRatio }) => {
   return (
     <Section
       label={label}
-      title={title}
+      heading={title}
       subtitle={subtitle}
     >
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">

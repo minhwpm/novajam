@@ -12,7 +12,7 @@ const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
-    <Section label={label} title={heading} subtitle={subtitle}>
+    <Section label={label} heading={heading} subtitle={subtitle}>
       {/* FOR MOBILE, TABLETS */}
       <div className="xl:hidden">
         {content?.map((section) => (

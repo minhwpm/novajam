@@ -12,7 +12,7 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
   return (
     <Section
       label={label}
-      title={heading}
+      heading={heading}
       subtitle={subtitle}
     >
       <div className="relative">

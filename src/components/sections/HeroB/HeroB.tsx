@@ -37,11 +37,11 @@ const HeroB: React.FC<Props> = ({ data }) => {
 
   return (
     <section ref={ref}>
-      <Container className="flex flex-col gap-16 lg:flex-row lg:gap-0 items-center lg:max-h-screen">
-        <div className="flex flex-col items-center lg:items-start lg:w-5/12 lg:pr-16">
+      <Container className="flex flex-col lg:flex-row items-center lg:max-h-screen mb-12">
+        <div className="flex flex-col items-center lg:items-start py-12 lg:w-5/12 lg:pr-16">
           <div
             className={classNames(
-              "uppercase font-semibold text-primary-600 tracking-widest",
+              "uppercase font-semibold text-primary-600 tracking-widest text-center lg:text-start",
               animationClasses
             )}
           >
@@ -49,7 +49,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
           </div>
           <h1
             className={classNames(
-              "font-heading text-4xl md:text-5xl md:leading-snug max-w-4xl text-center lg:text-left leading-snug font-bold mt-2",
+              "font-heading text-4xl md:text-5xl md:leading-snug max-w-4xl text-center lg:text-start leading-snug font-bold mt-2",
               animationClasses
             )}
           >

@@ -48,7 +48,7 @@ const ContentItem: React.FC<{data: CardType}> = ({data}) => {
 const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
   const { heading, label, subtitle, content, layout, size = 3, htmlid } = data
   return (
-    <Section label={label} title={heading} subtitle={subtitle} id={htmlid}>
+    <Section label={label} heading={heading} subtitle={subtitle} id={htmlid}>
       {layout === "grid" && (
         <div
           className={classNames(

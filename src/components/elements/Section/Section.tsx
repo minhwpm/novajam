@@ -10,20 +10,20 @@ import { MediaType } from '@/helpers/types';
 interface Props {
   id?: string
   label?: string
-  title?: string
+  heading?: string
   subtitle?: string
   className?: string
   background?: MediaType
   children: React.ReactNode
 }
 
-const Section: React.FC<Props> = ( { title, label, subtitle, children, className, id, background }) => {
+const Section: React.FC<Props> = ( { id, heading, label, subtitle, children, className, background }) => {
 
   return (
     <section 
       id={id} 
       className={classNames(
-        "flex flex-col items-center py-16",
+        "flex flex-col items-center py-18",
         className,
       )}
       style={
@@ -39,25 +39,28 @@ const Section: React.FC<Props> = ( { title, label, subtitle, children, className
     >
       <Container>
         {label && (
-          <p className="uppercase tracking-widest text-secondary-500 font-semibold text-center mx-auto mb-2">
+          <p className="uppercase tracking-widest text-secondary-500 font-semibold text-center mx-auto">
             {label}
           </p>
         )}
-        {title && (
+        {heading && (
           <h2 className={classNames("font-heading text-3xl md:text-4.5xl font-bold text-center max-w-3xl mx-auto",
-            {"mb-5": subtitle},
-            {"mb-12": !subtitle},
+            {"mt-2": label},
           )}>
-            <RichText htmlString={title} />
+            <RichText htmlString={heading} />
           </h2>
         )}
         {subtitle && (
-          <p className="prose md:prose-lg lg:prose-xl text-center mb-12 max-w-xl lg:max-w-3xl mx-auto">
+          <p className={classNames("prose md:prose-lg lg:prose-xl text-center max-w-xl lg:max-w-3xl mx-auto",
+            {"mt-5": heading},
+          )}>
             {subtitle}
           </p>
         )}
       </Container>
-      <Container className="rounded-assets">
+      <Container className={classNames("rounded-assets",
+        { "mt-12": (heading || label || subtitle) }
+      )}>
         {children}
       </Container>
     </section>

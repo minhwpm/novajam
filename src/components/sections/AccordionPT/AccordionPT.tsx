@@ -15,7 +15,7 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
   const { label, heading, subtitle, content } = data;
   return (
-    <Section label={label} title={heading} subtitle={subtitle}>
+    <Section label={label} heading={heading} subtitle={subtitle}>
       <div className="w-full flex flex-col gap-10">
         <RadixAccordion.Root
           type="multiple"

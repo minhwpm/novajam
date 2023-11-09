@@ -47,7 +47,7 @@ type SectionType = {
     | FeatureType
     | InquiryFormType;
 };
-const Section: React.FC<SectionType> = ({ data }) => {
+const SectionComponent: React.FC<SectionType> = ({ data }) => {
   // @TODO
   // @ts-ignore
   const Component = typeof sectionComponents[data.contentType] === "object" ? sectionComponents[data.contentType][data.layout] : sectionComponents[data.contentType];
@@ -63,7 +63,7 @@ const Sections: React.FC<{
   return (
     <main className="flex flex-col pb-32">
       {data.map((section) => (
-        <Section key={section.id} data={section} />
+        <SectionComponent key={section.id} data={section} />
       ))}
     </main>
   );

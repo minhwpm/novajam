@@ -21,9 +21,7 @@ interface Props {
 const Content = ({ data, mediaAspectRatio }: Props) => {
   const { label, title, subtitle, content, media } = data
   return (
-    <Section
-      // style={{ background: "linear-gradient('0deg, #EEF2FF 50%, #fff 50%')" }}
-    >
+    <Section>
       {media?.src && (
         <div className="w-full lg:w-11/12 px-4 pt-10 lg:px-32 lg:pt-20">
           <Image 
