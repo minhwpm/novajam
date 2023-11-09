@@ -32,7 +32,7 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
             <div key={section.id} className={classNames(
               "h-full flex flex-col lg:flex-row gap-x-16 gap-y-5 bg-white mx-5 md:mx-20 lg:mx-16 rounded-assets"
             )}>
-              {(section.heading || section.content || section.ctaButton) && (
+              {(section.heading || section.content) && (
                 <div className={classNames(
                   "flex flex-col lg:py-10 pl-10",
                 )}>
