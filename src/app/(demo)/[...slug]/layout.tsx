@@ -1,15 +1,15 @@
 /* eslint-disable complexity */ // @TODO fix eslint complexity
 import { Analytics } from "@vercel/analytics/react";
-import Header from "@/components/sections/Header/Header";
+import Navigation from "@/components/sections/Navigation/Navigation";
 import Footer from "@/components/sections/Footer/Footer";
 import classNames from "classnames";
-import getHeader from "@/helpers/contentful/graphql/getHeader";
 import getFooter from "@/helpers/contentful/graphql/getFooter";
 import getPage from "@/helpers/contentful/graphql/getPage";
 import { Params } from "@/helpers/types";
 import { generateColorClassnames } from "@/helpers/utils";
 import styles from "./styles.module.css";
 import { generateFontClassnames } from "@/helpers/fonts";
+import getNavigation from "@/helpers/contentful/graphql/getNavigation";
 
 export default async function Layout({
   children,
@@ -20,13 +20,13 @@ export default async function Layout({
 }) {
   // console.log(params, JSON.stringify(children, null, 4))
   const slug = [...params.slug];
-  let header, footer, page, fontTheme, colorTheme, borderRadiusTheme;
+  let navigation, footer, page, fontTheme, colorTheme, borderRadiusTheme;
   try {
     while (
       slug.length > 0 &&
-      (!header || !footer || !fontTheme || !colorTheme || !borderRadiusTheme)
+      (!navigation || !footer || !fontTheme || !colorTheme || !borderRadiusTheme)
     ) {
-      if (!header) header = await getHeader(`/${slug.join("/")}`);
+      if (!navigation) navigation = await getNavigation(`/${slug.join("/")}`);
       if (!footer) footer = await getFooter(`/${slug.join("/")}`);
       if (!fontTheme || !colorTheme || !borderRadiusTheme) {
         page = await getPage(`/${slug.join("/")}`);
@@ -56,7 +56,7 @@ export default async function Layout({
         styles[colorTheme ? colorTheme[1] : ""]
       )}
     >
-      {header && <Header data={header} />}
+      {navigation && <Navigation data={navigation} />}
       {children}
       {footer && <Footer data={footer} />}
       <Analytics />
