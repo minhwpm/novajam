@@ -31,7 +31,7 @@ const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autop
   return (
     <>
       <Swiper
-        className="w-full"
+        className="w-full rounded-assets"
         spaceBetween={30}
         loop={loop}
         navigation={navigation}
@@ -83,7 +83,6 @@ const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autop
           <SwiperSlide
             key={idx}
             className={classNames(
-              "bg-white",
               // for partly-SSR components ("use client") html is rendered on Server-side while the Swiper script which calculates the width of slide (base on sliderPerView) happens on browsers. Therefore, when the component is loading on browser, at first the slide width is still full width, then it will be injected inline CSS width by Swiper - which makes an UI bug "width shrinking moment"
               { invisible: !isLoaded }
             )}

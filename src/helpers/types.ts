@@ -20,6 +20,8 @@ export type MediaType = {
 
 export type ButtonVariant = "standard" | "alternate" | "black" | "link" | "outline" | "outline-black" | "outline-white"
 
+export type AspectRatioType = "video" | "square" | "3/4" | "4/3" | "3/2" | "auto" 
+
 export type ButtonType = {
   id?: string
   url: string
