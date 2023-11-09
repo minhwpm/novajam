@@ -20,7 +20,9 @@ export default async function getCardList(id: string) {
           } 
         ) {
           items {
-            title
+            heading {
+              json
+            }
             label
             subtitle
             link {
@@ -123,13 +125,19 @@ export default async function getCardList(id: string) {
                     id
                   }
                   heading
+                  content {
+                    json
+                  }
+                  alignment
                   ctaButton {
+                    sys {
+                      id
+                    }
                     url
                     text
                     newTab
                     buttonVariant
                   }
-                  alignment
                 }
                 ... on PricingPlan {
                   sys {

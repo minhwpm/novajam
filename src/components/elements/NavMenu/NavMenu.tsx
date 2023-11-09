@@ -33,7 +33,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
         {menu.map((item) => (
           <NavigationMenu.Item
             className={classNames({"relative" : "menu" in item && item.style === "dropdown"})}
-            key={getMenuItemText(item)}
+            key={item.id}
           >
             { item.contentType === "link" && (
               <Link className="py-2 select-none inline-block underline-hover-effect " href={item.url}>

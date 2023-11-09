@@ -68,11 +68,11 @@ const BlogPreview: React.FC<Props> = ({
   const pathname = usePathname()
   if (orientation === "vertical") {
     return (
-      <div>
+      <div className="rounded-assets bg-white">
         <Link href={`${pathname}/blog/${slug}`}>
           <BlogThumbnail media={media} title={title} aspectRatio={aspectRatio} />
           <div className={classNames(
-            "w-full py-5",
+            "w-full p-5",
           )}>
             <BlogText title={title} summary={summary} topics={topics}/>
           </div>

@@ -4,9 +4,10 @@ import { useInView } from "react-hook-inview";
 import Button from "@/components/elements/Button/Button"
 import Section from "@/components/elements/Section/Section";
 import { CTAType } from "@/helpers/types";
+import RichText from "@/components/elements/RichText/RichText";
 
 const CTAB: React.FC<{data: CTAType} > = ({ data }) => {
-  const { title, content, buttons } = data;
+  const { heading, content, buttons } = data;
   // @TODO expanding width on scrolling
   // const [w, setW] = useState(70)
 
@@ -28,7 +29,7 @@ const CTAB: React.FC<{data: CTAType} > = ({ data }) => {
       >
         <div className="flex flex-col items-center max-w-3xl mx-auto">
           <h3 className="text-4xl lg:text-5xl font-heading font-semibold leading-snug lg:leading-snug text-center text-gray-300">
-            {title}
+            <RichText htmlString={heading} />
           </h3>
           {content && (
             <p className="text-xl text-primary-200 text-center mt-8">

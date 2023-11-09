@@ -10,10 +10,10 @@ import RichText from '@/components/elements/RichText/RichText';
 import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
 
 const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
-  const { label, title, subtitle, content } = data
+  const { label, heading, subtitle, content } = data
   const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0].heading : '')
   return (
-    <Section label={label} title={title} subtitle={subtitle}>
+    <Section label={label} title={heading} subtitle={subtitle}>
       <RadixTabs.Root
         className="w-full"
         defaultValue={content.length > 0 ? content[0].heading : ""}

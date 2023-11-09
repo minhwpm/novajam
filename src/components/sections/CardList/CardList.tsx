@@ -46,9 +46,9 @@ const ContentItem: React.FC<{data: CardType}> = ({data}) => {
 }
 
 const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
-  const { title, label, subtitle, content, layout, size = 3, htmlid } = data
+  const { heading, label, subtitle, content, layout, size = 3, htmlid } = data
   return (
-    <Section label={label} title={title} subtitle={subtitle} id={htmlid}>
+    <Section label={label} title={heading} subtitle={subtitle} id={htmlid}>
       {layout === "grid" && (
         <div
           className={classNames(
@@ -101,7 +101,9 @@ const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
             }}
             slidesPerView={size}
             slides={content.map((item) => (
-              <ContentItem key={item.id} data={item} />
+              <div key={item.id} className="pb-8">
+                <ContentItem data={item} />
+              </div>
             ))}
           >
             <div className="cardlist-btn-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-50 text-white items-center justify-center opacity-0 flex group-hover/cardlist:opacity-100 transition-opacity duration-500 ease-in-out">

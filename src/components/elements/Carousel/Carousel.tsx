@@ -31,7 +31,7 @@ const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autop
   return (
     <>
       <Swiper
-        className="w-full rounded-assets"
+        className={classNames("w-full rounded-assets")}
         spaceBetween={30}
         loop={loop}
         navigation={navigation}

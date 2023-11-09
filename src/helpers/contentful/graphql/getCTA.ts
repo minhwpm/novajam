@@ -19,6 +19,10 @@ export default async function getCTA(id: string) {
           } 
         ) {
           items {
+            heading {
+              json
+            }
+            content
             buttonsCollection {
               items {
                 sys {
@@ -42,8 +46,9 @@ export default async function getCTA(id: string) {
   const data = await res.json()
   if (res.status !== 200) {
     console.error(data.error)
-    // throw new Error("Failed to fetch CTA data. Error: ", data.error)
+    throw new Error("Failed to fetch CTA data. Error: ", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
+  console.log(`CTA DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

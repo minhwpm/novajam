@@ -20,6 +20,12 @@ export default async function getPresentation(id: string) {
           } 
         ) {
           items {
+            heading {
+              json
+            }
+            label
+            subtitle
+            layout
             contentCollection (limit: 20) {
               items {
                 __typename
@@ -28,15 +34,19 @@ export default async function getPresentation(id: string) {
                     id
                   }
                   heading
+                  content {
+                    json
+                  }
+                  alignment
                   ctaButton {
                     sys {
                       id
                     }
                     text
                     url
+                    newTab
                     buttonVariant
                   }
-                  alignment
                 }
               }
             }

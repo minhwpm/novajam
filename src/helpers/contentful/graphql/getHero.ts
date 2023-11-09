@@ -26,6 +26,7 @@ export default async function getHero(id: string) {
             content {
               json
             }
+            layout
             buttonsCollection {
               items {
                 text
@@ -65,6 +66,7 @@ export default async function getHero(id: string) {
     throw new Error("Failed to fetch Hero data. Error: ", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
+  console.log(`HERO DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 
 }

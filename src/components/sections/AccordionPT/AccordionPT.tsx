@@ -13,9 +13,9 @@ import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 
 const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, title, subtitle, content } = data;
+  const { label, heading, subtitle, content } = data;
   return (
-    <Section label={label} title={title} subtitle={subtitle}>
+    <Section label={label} title={heading} subtitle={subtitle}>
       <div className="w-full flex flex-col gap-10">
         <RadixAccordion.Root
           type="multiple"

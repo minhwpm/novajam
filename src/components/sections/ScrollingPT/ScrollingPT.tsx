@@ -8,11 +8,11 @@ import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel
 import RichText from "@/components/elements/RichText/RichText";
 
 const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, title, subtitle, content } = data
+  const { label, heading, subtitle, content } = data
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
-    <Section label={label} title={title} subtitle={subtitle}>
+    <Section label={label} title={heading} subtitle={subtitle}>
       {/* FOR MOBILE, TABLETS */}
       <div className="xl:hidden">
         {content?.map((section) => (

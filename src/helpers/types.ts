@@ -221,17 +221,18 @@ export type HeroType = {
 
 export type CTAType = {
   id: string
-  title: string
+  heading: string
   content: string
   buttons: Array<ButtonType>
 }
 
 export type PresentationType = {
   id: string
-  title: string
+  heading: string
   label: string
   subtitle: string
   content: Array<ContentPieceType>
+  layout: "carousel" | "mini-carousel" | "tab" | "vertical-tab" | "accordion" | "scrolling"
 }
 
 export type StatisticsType = {
@@ -266,9 +267,9 @@ export type CardType = BlogType | ProductType | PageType | LinkType | ExpertType
 
 export type CardListType = {
   id: string
-  title: string
-  label?: string
-  subtitle?: string
+  heading: string
+  label: string
+  subtitle: string
   content: Array<CardType>
   link: {
     url: string

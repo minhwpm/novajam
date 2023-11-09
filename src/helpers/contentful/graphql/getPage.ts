@@ -46,43 +46,31 @@ export default async function getPage(url: string) {
                   sys {
                     id
                   }
-                  title
-                  layout
                 }
                 ... on Presentation {
                   sys {
                     id
                   }
-                  title
-                  label
-                  subtitle
-                  layout
                 }
                 ... on Feature {
                   sys {
                     id
                   }
-                  title
-                  label
                 }
                 ... on Cta {
                   sys {
                     id
                   }
-                  title
-                  content
                 }
                 ... on CardList {
                   sys {
                     id
                   }
-                  title
                 }
                 ... on InquiryForm  {
                   sys {
                     id
                   }
-                  title
                 }
               }
             }
