@@ -17,6 +17,7 @@ import TabPT from "../TabPT/TabPT";
 import CarouselPT from "../CarouselPT/CarouselPT";
 import MiniCarouselPT from "../MiniCarouselPT/MiniCarouselPT";
 import { InquiryForm } from "../InquiryForm/InquiryForm";
+import VerticalTabPT from "../VerticalTabPT/VerticalTabPT";
 
 const sectionComponents = {
   "hero": {
@@ -28,6 +29,7 @@ const sectionComponents = {
     "scrolling": ScrollingPT,
     "accordion": AccordionPT,
     "tab": TabPT,
+    "vertical-tab": VerticalTabPT,
     "carousel": CarouselPT,
     "mini-carousel": MiniCarouselPT,
   },

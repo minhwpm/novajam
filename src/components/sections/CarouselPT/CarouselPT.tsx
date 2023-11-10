@@ -30,7 +30,7 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
           loop={true}
           slides={content.map((section) => (
             <div key={section.id} className={classNames(
-              "h-full flex flex-col-reverse lg:flex-row gap-x-16 gap-y-5 bg-white mx-5 mb-5 md:mx-20 lg:mx-16 rounded-assets"
+              "h-full flex flex-col-reverse lg:flex-row gap-x-16 gap-y-5 bg-white mx-5 md:mx-20 lg:mx-16 mb-5 rounded-assets"
             )}>
               {(section.heading || section.content) && (
                 <div className={classNames(
