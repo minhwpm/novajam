@@ -30,11 +30,11 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
           loop={true}
           slides={content.map((section) => (
             <div key={section.id} className={classNames(
-              "h-full flex flex-col lg:flex-row gap-x-16 gap-y-5 bg-white mx-5 md:mx-20 lg:mx-16 rounded-assets"
+              "h-full flex flex-col-reverse lg:flex-row gap-x-16 gap-y-5 bg-white mx-5 mb-5 md:mx-20 lg:mx-16 rounded-assets"
             )}>
               {(section.heading || section.content) && (
                 <div className={classNames(
-                  "flex flex-col lg:py-10 pl-10",
+                  "flex flex-col lg:py-10 lg:pl-10",
                 )}>
                   <div className="flex items-center justify-center gap-8 py-6 lg:hidden">
                     <AiOutlineArrowLeft className="carouselPT-btn-prev cursor-pointer" size={40} />
@@ -53,11 +53,12 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                       </Button>
                     </div>
                   )}
+                  
                 </div>
               )}
               { section.media?.length > 0 &&  
                 <div className={classNames(
-                  { "w-1/2 shrink-0": (section.heading || section.content) },
+                  { "lg:w-1/2 shrink-0": (section.heading || section.content) },
                   { "w-full": (!section.heading && !section.content) },
                 )}>
                   <MediaCarousel 
