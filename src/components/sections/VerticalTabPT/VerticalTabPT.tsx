@@ -15,28 +15,56 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({data}) => {
   return (
     <Section label={label} heading={heading} subtitle={subtitle}>
       <RadixTabs.Root
-        className="w-full flex gap-10"
+        className="w-full lg:flex lg:gap-10"
         defaultValue={content.length > 0 ? content[0].heading : ""}
         onValueChange={(value) => setActiveItem(value)}
       >
         <RadixTabs.List
-          className="w-1/3 flex flex-col gap-y-3"
+          className="lg:w-1/3 flex flex-col gap-y-3"
           aria-label=""
         >
           {content.length > 0 &&
             content.map((section) => (
-              <RadixTabs.Trigger
-                key={section.id}
-                value={section.heading}
-                className="text-start cursor-pointer px-8 py-4 hover:bg-neutral-50 data-[state='active']:bg-neutral-100 rounded-assets"
-              >
-                <h4 className="block font-semibold text-2xl">
-                  {section.heading}
-                </h4>
-              </RadixTabs.Trigger>
+              <>
+                <RadixTabs.Trigger
+                  key={section.id}
+                  value={section.heading}
+                  className="text-start cursor-pointer px-8 py-4 bg-neutral-100 hover:bg-neutral-200 data-[state='active']:bg-primary-500 data-[state='active']:text-white rounded-assets transition-colors duration-300 ease-in-out"
+                >
+                  <h4 className="block font-semibold text-xl">
+                    {section.heading}
+                  </h4>
+                </RadixTabs.Trigger>
+                <RadixTabs.Content
+                  key={section.id}
+                  value={section.heading}
+                  className={classNames("lg:hidden pt-5 transition-all ease-in-out duration-500 relative",
+                    { "opacity-100 right-0 z-10": activeItem === section.heading },
+                    { "opacity-0 -right-24 z-0": activeItem !== section.heading }
+                  )}
+                >
+                  {section.media.length > 0 && (
+                    <MediaCarousel data={section.media} />
+                  )}
+                  <div className="mt-5 flex flex-col gap-2 justify-center pb-8 lg:pr-24">
+                    <div className="prose lg:prose-lg">
+                      <RichText htmlString={section.content} />
+                    </div>
+                    {section.ctaButton && (
+                      <Button
+                        key={section.ctaButton?.id}
+                        variant={section.ctaButton?.buttonVariant}
+                        url={section.ctaButton?.url}
+                      >
+                        {section.ctaButton?.text}
+                      </Button>
+                    )}
+                  </div>
+                </RadixTabs.Content>
+              </>
             ))}
         </RadixTabs.List>
-        <div className="w-2/3">
+        <div className="hidden pt-5 lg:block lg:w-2/3 lg:pt-0">
           {content.map((section) => (
             <RadixTabs.Content
               key={section.id}
