@@ -124,19 +124,25 @@ export default async function getCardList(id: string) {
                   sys {
                     id
                   }
-                  heading
+                  label
+                  heading {
+                    json
+                  }
+                  subheading
                   content {
                     json
                   }
                   alignment
-                  ctaButton {
-                    sys {
-                      id
+                  buttonsCollection {
+                    items {
+                      sys {
+                        id
+                      }
+                      url
+                      text
+                      newTab
+                      buttonVariant
                     }
-                    url
-                    text
-                    newTab
-                    buttonVariant
                   }
                 }
                 ... on PricingPlan {

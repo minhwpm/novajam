@@ -18,9 +18,11 @@ import CarouselPT from "../CarouselPT/CarouselPT";
 import MiniCarouselPT from "../MiniCarouselPT/MiniCarouselPT";
 import { InquiryForm } from "../InquiryForm/InquiryForm";
 import VerticalTabPT from "../VerticalTabPT/VerticalTabPT";
+import Hero from "../Hero/Hero";
 
 const sectionComponents = {
   "hero": {
+    "vertical": Hero,
     "horizontal": HeroB,
     "overlay": HeroC,
   },

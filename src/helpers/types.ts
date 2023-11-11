@@ -209,13 +209,8 @@ export type FeatureType = {
 
 export type HeroType = {
   id: string
-  label: string
-  title: string
-  heading: string
-  content: string
-  buttons: Array<ButtonType>
-  media: Array<MediaType>
-  mediaForMobile: Array<MediaType>
+  content: Array<ContentPieceType>
+  layout: "overlay" | "vertical" | "horizontal"
   contentType: "hero"
 }
 
@@ -244,9 +239,12 @@ export type StatisticsType = {
 
 export type ContentPieceType = {
   id: string
-  heading: string
-  content: string
   media: Array<MediaType>
+  label: string
+  heading: string
+  subheading: string
+  content: string
+  buttons: Array<ButtonType>
   ctaButton: ButtonType
   alignment: 'auto' | 'left' | 'right' | 'center'
   contentType: 'contentpiece'

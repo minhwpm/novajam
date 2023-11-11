@@ -1,19 +1,20 @@
-import { MediaType } from "@/helpers/types"
-import classNames from "classnames"
-import Image from "next/image"
+import { AspectRatioType, MediaType } from "@/helpers/types";
+import classNames from "classnames";
+import Image from "next/image";
 
-export const MediaItem: React.FC<{data: MediaType, aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2" | "auto" }> = ({data, aspectRatio = "auto" }) => {
-  const { url, width, height, title, contentType } = data
+export const MediaItem: React.FC<{
+  data: MediaType;
+  aspectRatio?: AspectRatioType;
+  videoAutoplay?: boolean;
+}> = ({ data, aspectRatio = "auto", videoAutoplay }) => {
+  const { url, width, height, title, contentType } = data;
   return (
-    <div className={classNames(
-      { [`aspect-${aspectRatio}`] : width >= 160 }
-    )}> 
+    <div className={classNames({ [`aspect-${aspectRatio}`]: width >= 160 })}>
       {contentType.includes("image") && (
         <Image
           className={classNames(
-            "rounded-assets",
-            { "object-cover w-full h-full": (width >= 160)},
-            { "w-20 object-contain": (width < 160)},
+            { "object-cover w-full h-full": width >= 160 },
+            { "w-20 object-contain": width < 160 }
           )}
           src={url ?? "/bluebiz_square.webp"}
           alt={title}
@@ -22,10 +23,10 @@ export const MediaItem: React.FC<{data: MediaType, aspectRatio?: "video" | "squa
         />
       )}
       {contentType.includes("video") && (
-        <video className="w-full h-96 rounded-assets" src={url}>
+        <video className="w-full h-full" src={url} autoPlay={videoAutoplay} loop={videoAutoplay} muted={videoAutoplay} >
           <track kind="captions" label={title} />
         </video>
       )}
     </div>
-  )
-}
+  );
+};

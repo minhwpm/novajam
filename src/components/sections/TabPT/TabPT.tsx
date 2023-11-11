@@ -11,12 +11,12 @@ import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel
 
 const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
   const { label, heading, subtitle, content } = data
-  const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0].heading : '')
+  const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0].id : '')
   return (
     <Section label={label} heading={heading} subtitle={subtitle}>
       <RadixTabs.Root
         className="w-full"
-        defaultValue={content.length > 0 ? content[0].heading : ""}
+        defaultValue={content.length > 0 ? content[0].id : ""}
         onValueChange={(value) => setActiveItem(value)}
       >
         <RadixTabs.List
@@ -27,7 +27,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
             content.map((section, idx) => (
               <RadixTabs.Trigger
                 key={section.id}
-                value={section.heading}
+                value={section.id}
                 className="group shrink-0 text-center cursor-pointer data-[state='inactive']:opacity-60"
               >
                 <div
@@ -36,7 +36,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                   })}
                 >
                   <h3 className="block font-bold text-2xl pb-2 underline-hover-effect group-data-[state='active']:before:w-full group-data-[state='active']:before:bg-primary-500">
-                    {section.heading}
+                    <RichText htmlString={section.heading} />
                   </h3>
                 </div>
               </RadixTabs.Trigger>
@@ -46,11 +46,11 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
           {content.map((section) => (
             <RadixTabs.Content
               key={section.id}
-              value={section.heading}
+              value={section.id}
               className={classNames(
                 "text-lg col-start-1 row-start-1 transition-all ease-in-out duration-500 relative ",
-                { "opacity-100 right-0 z-10": activeItem === section.heading },
-                { "opacity-0 -right-24 z-0": activeItem !== section.heading }
+                { "opacity-100 right-0 z-10": activeItem === section.id },
+                { "opacity-0 -right-24 z-0": activeItem !== section.id }
               )}
             >
               <div className="grid lg:grid-cols-2">

@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import classNames from "classnames";
 import type { Swiper as SwiperType } from 'swiper'
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, EffectCoverflow, FreeMode, Navigation, Pagination, Thumbs } from "swiper/modules";
-import { PaginationOptions, NavigationOptions, FreeModeOptions } from "swiper/types";
+import { Autoplay, EffectFade, EffectCoverflow, FreeMode, Navigation, Pagination, Thumbs } from "swiper/modules";
+import { AutoplayOptions, PaginationOptions, NavigationOptions, FreeModeOptions } from "swiper/types";
 import 'swiper/css';
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
@@ -14,7 +14,7 @@ interface CarouselProps {
   slides: Array<React.ReactElement>
   children?: React.ReactNode
   effect?: "fade" | "coverflow" | "cube"
-  autoplay?: boolean
+  autoplay?: AutoplayOptions
   loop?: boolean
   freeMode?: FreeModeOptions
   pagination?: PaginationOptions
@@ -23,7 +23,7 @@ interface CarouselProps {
   thumbsEnable?: boolean
 }
 
-const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autoplay = false, pagination, navigation, freeMode, slidesPerView = 1, thumbsEnable = false}) => {
+const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autoplay, pagination, navigation, freeMode, slidesPerView = 1, thumbsEnable = false}) => {
   const [thumbsSwiper, setThumbsSwiper ] = useState<SwiperType | null>(null);
   const [isLoaded, setLoaded] = useState(false)
   useEffect(() => setLoaded(true), [])
@@ -31,7 +31,7 @@ const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autop
   return (
     <>
       <Swiper
-        className={classNames("w-full rounded-assets")}
+        className={classNames("w-full")}
         spaceBetween={30}
         loop={loop}
         navigation={navigation}
@@ -71,6 +71,7 @@ const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autop
         thumbs={{ swiper: thumbsSwiper }}
         freeMode={freeMode}
         modules={[
+          Autoplay,
           EffectFade,
           EffectCoverflow,
           Navigation,

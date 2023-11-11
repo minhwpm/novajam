@@ -1,9 +1,13 @@
-import { AspectRatioType, MediaType } from "@/helpers/types"
-import Carousel from "../Carousel/Carousel"
+import { AspectRatioType, MediaType } from "@/helpers/types";
+import Carousel from "../Carousel/Carousel";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
-export const MediaCarousel: React.FC<{ data: Array<MediaType>, aspectRatio?: AspectRatioType }> = ({data, aspectRatio = "auto"} ) => {
+export const MediaCarousel: React.FC<{
+  data: Array<MediaType>;
+  aspectRatio?: AspectRatioType;
+  videoAutoplay?: boolean;
+}> = ({ data, aspectRatio = "auto", videoAutoplay }) => {
   return (
     <div className="relative">
       <Carousel
@@ -11,15 +15,15 @@ export const MediaCarousel: React.FC<{ data: Array<MediaType>, aspectRatio?: Asp
         loop={true}
         navigation={{
           enabled: true,
-          nextEl: '.media-carousel-btn-next',
-          prevEl: '.media-carousel-btn-prev'
+          nextEl: ".media-carousel-btn-next",
+          prevEl: ".media-carousel-btn-prev",
         }}
         pagination={{
           enabled: true,
           type: "fraction",
         }}
-        slides = { data.map((item) => (
-          <MediaItem key={item.id} data={item} aspectRatio={aspectRatio} />
+        slides={data.map((item) => (
+          <MediaItem key={item.id} data={item} aspectRatio={aspectRatio} videoAutoplay={videoAutoplay} />
         ))}
       >
         <div className="media-carousel-btn-prev absolute right-2 bottom-4 z-10 cursor-pointer w-12 h-12 rounded-full bg-white bg-opacity-80 shadow items-center justify-center flex">
@@ -30,5 +34,5 @@ export const MediaCarousel: React.FC<{ data: Array<MediaType>, aspectRatio?: Asp
         </div>
       </Carousel>
     </div>
-  )
-}
+  );
+};

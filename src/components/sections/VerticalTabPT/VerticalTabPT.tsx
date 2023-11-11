@@ -11,12 +11,12 @@ import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel
 
 const VerticalTabPT: React.FC<{ data: PresentationType }> = ({data}) => {
   const { label, heading, subtitle, content } = data
-  const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0].heading : '')
+  const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0].id : '')
   return (
     <Section label={label} heading={heading} subtitle={subtitle}>
       <RadixTabs.Root
         className="w-full lg:flex lg:gap-10"
-        defaultValue={content.length > 0 ? content[0].heading : ""}
+        defaultValue={content.length > 0 ? content[0].id : ""}
         onValueChange={(value) => setActiveItem(value)}
       >
         <RadixTabs.List
@@ -28,7 +28,7 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({data}) => {
               <>
                 <RadixTabs.Trigger
                   key={section.id}
-                  value={section.heading}
+                  value={section.id}
                   className="text-start cursor-pointer px-8 py-4 bg-neutral-100 hover:bg-neutral-200 data-[state='active']:bg-primary-500 data-[state='active']:text-white rounded-assets transition-colors duration-300 ease-in-out"
                 >
                   <h4 className="block font-semibold text-xl">
@@ -37,10 +37,10 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                 </RadixTabs.Trigger>
                 <RadixTabs.Content
                   key={section.id}
-                  value={section.heading}
+                  value={section.id}
                   className={classNames("lg:hidden pt-5 transition-all ease-in-out duration-500 relative",
-                    { "opacity-100 right-0 z-10": activeItem === section.heading },
-                    { "opacity-0 -right-24 z-0": activeItem !== section.heading }
+                    { "opacity-100 right-0 z-10": activeItem === section.id },
+                    { "opacity-0 -right-24 z-0": activeItem !== section.id }
                   )}
                 >
                   {section.media.length > 0 && (
@@ -83,13 +83,15 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                   <RichText htmlString={section.content} />
                 </div>
                 {section.ctaButton && (
-                  <Button
-                    key={section.ctaButton?.id}
-                    variant={section.ctaButton?.buttonVariant}
-                    url={section.ctaButton?.url}
-                  >
-                    {section.ctaButton?.text}
-                  </Button>
+                  <div className="mt-5 flex flex-wrap">
+                    <Button
+                      key={section.ctaButton?.id}
+                      variant={section.ctaButton?.buttonVariant}
+                      url={section.ctaButton?.url}
+                    >
+                      {section.ctaButton?.text}
+                    </Button>
+                  </div>
                 )}
               </div>
             </RadixTabs.Content>

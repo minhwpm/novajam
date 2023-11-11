@@ -33,19 +33,25 @@ export default async function getPresentation(id: string) {
                   sys {
                     id
                   }
-                  heading
+                  label
+                  heading {
+                    json
+                  }
+                  subheading
                   content {
                     json
                   }
                   alignment
-                  ctaButton {
-                    sys {
-                      id
+                  buttonsCollection {
+                    items {
+                      sys {
+                        id
+                      }
+                      text
+                      url
+                      newTab
+                      buttonVariant
                     }
-                    text
-                    url
-                    newTab
-                    buttonVariant
                   }
                 }
               }

@@ -1,3 +1,4 @@
+import getContentPiece from "./getContentPiece"
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getHero(id: string) {
@@ -19,39 +20,32 @@ export default async function getHero(id: string) {
           } 
         ) {
           items {
-            heading {
-              json
-            }
-            label
-            content {
-              json
+            contentCollection {
+              items {
+                __typename
+                sys {
+                  id
+                }
+                label
+                heading {
+                  json
+                }
+                subheading
+                alignment
+                buttonsCollection {
+                  items {
+                    sys {
+                      id
+                    }
+                    text
+                    url
+                    newTab
+                    buttonVariant
+                  }
+                }
+              }
             }
             layout
-            buttonsCollection {
-              items {
-                text
-                url
-                buttonVariant
-              }
-            }
-            mediaCollection {
-              items {
-                title
-                url
-                width
-                height
-                contentType
-              }
-            }
-            mediaForMobileCollection {
-              items {
-                title
-                url
-                width
-                height
-                contentType
-              }
-            }
           }
         }
       }
@@ -66,7 +60,18 @@ export default async function getHero(id: string) {
     throw new Error("Failed to fetch Hero data. Error: ", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
-  // console.log(`HERO DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  async function getSectionData(contentType: string, id: string) {
+    if (contentType === "contentpiece") {
+      return await getContentPiece(id)
+    }
+  }
+  for(let i = 0; i < normalizedData[0]?.content.length; i++) {
+    normalizedData[0].content[i] = {
+      ... normalizedData[0].content[i],
+      ... await getSectionData(normalizedData[0].content[i].contentType, normalizedData[0].content[i].id)
+    }
+  }
+  console.log(`HERO DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 
 }
