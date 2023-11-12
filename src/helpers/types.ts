@@ -2,13 +2,6 @@ export type Params = {
   slug: Array<string>
 }
 
-export type ImageType = {
-  url: string
-  title: string
-  width: number
-  height: number
-}
-
 export type MediaType = {
   id: string
   url: string
@@ -125,7 +118,7 @@ export type PageType = {
   metaTitle: string
   metaDescription: string
   metaKeywords?: Array<string>
-  metaImage: ImageType
+  metaImage: MediaType
   contentType: "page"
 }
 
@@ -134,20 +127,15 @@ export type BlogType = {
   title: string
   slug: string
   featured: boolean
-  summary?: string
+  summary: string
   content: string
-  topics?: Array<string>
-  media: {
-    url: string
-    title: string
-    width: number
-    height: number
-  }
-  author?: ExpertType
+  topics: Array<string>
+  media: MediaType | null
+  author: ExpertType
   metaTitle: string
   metaDescription: string
-  metaKeywords?: Array<string>
-  metaImage: ImageType
+  metaKeywords: Array<string>
+  metaImage: MediaType
   contentType: "blog"
 }
 
@@ -169,7 +157,7 @@ export type ProductType = {
   metaTitle: string
   metaDescription: string
   metaKeywords?: Array<string>
-  metaImage: ImageType
+  metaImage: MediaType
   contentType: "product"
 }
 
@@ -242,7 +230,6 @@ export type ContentPieceType = {
   media: Array<MediaType>
   label: string
   heading: string
-  subheading: string
   content: string
   buttons: Array<ButtonType>
   ctaButton: ButtonType

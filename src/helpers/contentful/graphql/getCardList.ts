@@ -49,6 +49,7 @@ export default async function getCardList(id: string) {
                     title
                     width
                     height
+                    contentType
                   }
                 }
                 ... on Product {
@@ -128,11 +129,9 @@ export default async function getCardList(id: string) {
                   heading {
                     json
                   }
-                  subheading
                   content {
                     json
                   }
-                  alignment
                   buttonsCollection {
                     items {
                       sys {

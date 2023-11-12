@@ -37,11 +37,9 @@ export default async function getPresentation(id: string) {
                   heading {
                     json
                   }
-                  subheading
                   content {
                     json
                   }
-                  alignment
                   buttonsCollection {
                     items {
                       sys {

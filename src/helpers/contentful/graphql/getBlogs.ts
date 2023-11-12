@@ -31,6 +31,7 @@ export default async function getBlogs(limit: number, skip: number, featured?: b
               url
               width
               height
+              contentType
             }
             summary
             topics

@@ -35,6 +35,9 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                     "border-r border-gray-300": idx < content.length - 1,
                   })}
                 >
+                  <div className={classNames("uppercase tracking-widest mb-2 text-secondary-500 font-semibold")}>
+                    {label}
+                  </div>
                   <h3 className="block font-bold text-2xl pb-2 underline-hover-effect group-data-[state='active']:before:w-full group-data-[state='active']:before:bg-primary-500">
                     <RichText htmlString={section.heading} />
                   </h3>

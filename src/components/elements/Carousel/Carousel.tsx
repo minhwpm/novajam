@@ -57,13 +57,7 @@ const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autop
             slidesPerView: slidesPerView,
           },
         }}
-        autoplay={
-          autoplay
-            ? {
-                delay: 3000,
-              }
-            : false
-        }
+        autoplay={autoplay}
         effect={effect}
         fadeEffect={{
           crossFade: true,

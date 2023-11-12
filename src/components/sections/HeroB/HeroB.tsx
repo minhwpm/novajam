@@ -72,14 +72,6 @@ const HeroB: React.FC<Props> = ({ data }) => {
                 >
                   <RichText htmlString={section.heading} />
                 </div>
-                <div
-                  className={classNames(
-                    "text-xl lg:text-3xl font-semibold max-w-3xl mx-auto text-center lg:text-start",
-                    animationClasses
-                  )}
-                >
-                  {section.subheading}
-                </div>
                 {section.content && (
                   <div
                     className={classNames(

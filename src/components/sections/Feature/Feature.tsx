@@ -11,7 +11,7 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
   return (
     <>
       {label && (
-        <p
+        <div
           className={classNames(
             "uppercase tracking-widest mb-2 text-secondary-500 font-semibold",
             {
@@ -22,7 +22,7 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
           )}
         >
           {label}
-        </p>
+        </div>
       )}
       <h2
         className={classNames(

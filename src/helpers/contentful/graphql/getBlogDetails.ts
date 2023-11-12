@@ -27,6 +27,7 @@ export default async function getBlogDetails(slug: string) {
               url
               width
               height
+              contentType
             }
             summary
             content {
@@ -44,6 +45,7 @@ export default async function getBlogDetails(slug: string) {
                 title
                 width
                 height
+                contentType
               }
               role
               specialization

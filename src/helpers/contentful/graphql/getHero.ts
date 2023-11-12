@@ -20,6 +20,7 @@ export default async function getHero(id: string) {
           } 
         ) {
           items {
+            layout
             contentCollection {
               items {
                 __typename
@@ -30,8 +31,6 @@ export default async function getHero(id: string) {
                 heading {
                   json
                 }
-                subheading
-                alignment
                 buttonsCollection {
                   items {
                     sys {
@@ -45,7 +44,6 @@ export default async function getHero(id: string) {
                 }
               }
             }
-            layout
           }
         }
       }
@@ -71,7 +69,7 @@ export default async function getHero(id: string) {
       ... await getSectionData(normalizedData[0].content[i].contentType, normalizedData[0].content[i].id)
     }
   }
-  console.log(`HERO DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  // console.log(`HERO DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 
 }
