@@ -37,9 +37,8 @@ const BlogThumbnail: React.FC<{
 
 const BlogText: React.FC<{
   title: string
-  summary?: string
   topics?: Array<string>
-}> = ({topics, title, summary}) => {
+}> = ({ topics, title }) => {
   return (
     <>
       <div className="text-xs uppercase tracking-widest flex flex-wrap gap-3">
@@ -50,11 +49,6 @@ const BlogText: React.FC<{
       <h4 className="text-lg lg:text-xl font-semibold mt-1">
         {title}
       </h4>
-      {summary && 
-        <p className="text-slate-700 mt-2 line-clamp-2">
-          {summary}
-        </p>
-      }
     </>
   )
 }
@@ -64,7 +58,7 @@ const BlogPreview: React.FC<Props> = ({
   aspectRatio = "3/2",
   orientation = "vertical"
 }) => {
-  const { title, summary, slug, media, topics } = data
+  const { title, slug, media, topics } = data
   const pathname = usePathname()
   if (orientation === "vertical") {
     return (
@@ -72,9 +66,16 @@ const BlogPreview: React.FC<Props> = ({
         <Link href={`${pathname}/blog/${slug}`}>
           <BlogThumbnail media={media} title={title} aspectRatio={aspectRatio} />
           <div className={classNames(
-            "w-full p-5",
+            "w-full p-5 flex flex-col gap-y-2",
           )}>
-            <BlogText title={title} summary={summary} topics={topics}/>
+            <div className="text-xs uppercase tracking-widest flex flex-wrap gap-x-5 gap-y-1">
+              {topics && topics.length > 0 && topics.map((topic, idx) => (
+                <div key={idx}>{topic}</div>
+              ))}
+            </div>
+            <h4 className="text-lg lg:text-xl font-semibold mt-1">
+              {title}
+            </h4>
           </div>
         </Link>
       </div>
@@ -87,8 +88,15 @@ const BlogPreview: React.FC<Props> = ({
           <div className="col-span-4">
             <BlogThumbnail media={media} title={title} aspectRatio={aspectRatio} />
           </div>
-          <div className="col-span-8">
-            <BlogText title={title} summary={summary} topics={topics}/>
+          <div className="col-span-8 flex flex-col gap-y-2">
+            <div className="text-xs uppercase tracking-widest flex flex-wrap gap-x-5 gap-y-1">
+              {topics && topics.length > 0 && topics.map((topic, idx) => (
+                <div key={idx}>{topic}</div>
+              ))}
+            </div>
+            <h4 className="lg:text-lg font-semibold mt-1">
+              {title}
+            </h4>
           </div>
         </div>
       </Link>

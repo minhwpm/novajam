@@ -20,7 +20,7 @@ export default async function Page() {
               <div className="lg:col-span-7">
                 <BlogPreview data={featuredBlogs[0]} />
               </div>
-              <div className="lg:col-span-5 grid gap-8">
+              <div className="lg:col-span-5 flex flex-col gap-y-10">
                 {featuredBlogs.slice(1, 4).map(item => (
                   <BlogPreview key={item.id} data={item} orientation="horizontal" aspectRatio="4/3" />
                 ))}

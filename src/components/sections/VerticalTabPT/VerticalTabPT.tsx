@@ -32,7 +32,7 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                   className="text-start cursor-pointer px-8 py-4 bg-neutral-100 hover:bg-neutral-200 data-[state='active']:bg-primary-500 data-[state='active']:text-white rounded-assets transition-colors duration-300 ease-in-out"
                 >
                   <h4 className="block font-semibold text-xl">
-                    {section.heading}
+                    <RichText htmlString={section.heading} />
                   </h4>
                 </RadixTabs.Trigger>
                 <RadixTabs.Content
@@ -68,11 +68,11 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({data}) => {
           {content.map((section) => (
             <RadixTabs.Content
               key={section.id}
-              value={section.heading}
+              value={section.id}
               className={classNames(
                 "text-lg col-start-1 row-start-1 transition-all ease-in-out duration-500 relative ",
-                { "opacity-100 right-0 z-10": activeItem === section.heading },
-                { "opacity-0 -right-24 z-0": activeItem !== section.heading }
+                { "opacity-100 right-0 z-10": activeItem === section.id },
+                { "opacity-0 -right-24 z-0": activeItem !== section.id }
               )}
             >
               {section.media.length > 0 && (

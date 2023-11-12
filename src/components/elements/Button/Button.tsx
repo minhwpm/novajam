@@ -37,8 +37,8 @@ const Button: React.FC<ButtonProps> = (props) => {
   }
   const classes = classNames(
     "relative inline-block text-center rounded-assets bottom-0 hover:bottom-1 transition-all duration-500 ease",
-    { "bg-primary-500 hover:bg-primary-400 text-white" : variant === "standard" },
-    { "bg-secondary-500 hover:bg-secondary-400 text-white" : variant === "alternate" },
+    { "bg-primary-500 hover:bg-primary-600 text-white" : variant === "standard" },
+    { "bg-secondary-500 hover:bg-secondary-600 text-white" : variant === "alternate" },
     { "bg-neutral-900 text-white hover:bg-neutral-800" : variant === "black" },
     { "!border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white" : variant === "outline" },
     { "!border-2 border-black text-black hover:bg-black hover:text-white" : variant === "outline-black" },
