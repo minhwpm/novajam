@@ -54,7 +54,7 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
   const {
     heading,
     label,
-    subtitle,
+    subheading,
     content,
     layout,
     size = 3,
@@ -62,7 +62,7 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
     htmlid,
   } = data;
   return (
-    <Section label={label} heading={heading} subheading={subtitle} id={htmlid}>
+    <Section label={label} heading={heading} subheading={subheading} id={htmlid}>
       {layout === "grid" && (
         <div
           className={classNames(

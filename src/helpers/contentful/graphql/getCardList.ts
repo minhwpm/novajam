@@ -24,8 +24,8 @@ export default async function getCardList(id: string) {
               json
             }
             label
-            subtitle
-            link {
+            subheading
+            seeAllLink {
               url
               text
               newTab

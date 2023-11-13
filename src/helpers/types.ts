@@ -256,12 +256,9 @@ export type CardListType = {
   id: string
   heading: string
   label: string
-  subtitle: string
+  subheading: string
   content: Array<CardType>
-  link: {
-    url: string
-    text: string
-  }
+  seeAllLink: LinkType
   layout: "carousel" | "grid" | "masonry"
   size: 1 | 2 | 3 | 4 | 5
   alignment: AlignmentType
