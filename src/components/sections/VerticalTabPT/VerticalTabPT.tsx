@@ -10,12 +10,12 @@ import RichText from "@/components/elements/RichText/RichText";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 
 const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, heading, subtitle, content, alignment } = data;
+  const { label, heading, subheading, content, alignment } = data;
   const [activeItem, setActiveItem] = React.useState(
     content.length > 0 ? content[0].id : ""
   );
   return (
-    <Section label={label} heading={heading} subtitle={subtitle}>
+    <Section label={label} heading={heading} subheading={subheading}>
       <RadixTabs.Root
         className="w-full lg:flex lg:gap-10"
         defaultValue={content.length > 0 ? content[0].id : ""}

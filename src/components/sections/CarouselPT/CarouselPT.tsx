@@ -8,12 +8,12 @@ import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
 const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, heading, subtitle, content, alignment } = data
+  const { label, heading, subheading, content, alignment } = data
   return (
     <Section
       label={label}
       heading={heading}
-      subtitle={subtitle}
+      subheading={subheading}
     >
       <div className="relative">
         <Carousel

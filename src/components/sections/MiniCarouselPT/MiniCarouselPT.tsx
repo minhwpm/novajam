@@ -38,7 +38,7 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length }: ArrowGroupProps) => {
 };
 
 const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, heading, subtitle, content, alignment } = data;
+  const { label, heading, subheading, content, alignment } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
@@ -53,9 +53,9 @@ const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
           <h2 className="text-3xl lg:text-4xl lg:leading-[50px] font-heading font-bold mb-3">
             <RichText htmlString={heading} />
           </h2>
-          {subtitle && (
+          {subheading && (
             <p className="prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl">
-              {subtitle}
+              {subheading}
             </p>
           )}
           <div className="mt-8 hidden lg:flex gap-10">

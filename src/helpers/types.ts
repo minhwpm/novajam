@@ -216,7 +216,7 @@ export type PresentationType = {
   id: string
   heading: string
   label: string
-  subtitle: string
+  subheading: string
   content: Array<ContentPieceType>
   layout: "carousel" | "mini-carousel" | "tab" | "vertical-tab" | "accordion" | "scrolling"
   alignment: AlignmentType
@@ -262,7 +262,7 @@ export type CardListType = {
     url: string
     text: string
   }
-  layout: "carousel" | "grid" | "flex" | "masonry"
+  layout: "carousel" | "grid" | "masonry"
   size: 1 | 2 | 3 | 4 | 5
   alignment: AlignmentType
   htmlid: string

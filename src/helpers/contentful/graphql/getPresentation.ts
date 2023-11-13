@@ -24,7 +24,7 @@ export default async function getPresentation(id: string) {
               json
             }
             label
-            subtitle
+            subheading
             layout
             alignment
             contentCollection (limit: 20) {

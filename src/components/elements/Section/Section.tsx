@@ -11,13 +11,13 @@ interface Props {
   id?: string
   label?: string
   heading?: string
-  subtitle?: string
+  subheading?: string
   className?: string
   background?: MediaType
   children: React.ReactNode
 }
 
-const Section: React.FC<Props> = ( { id, heading, label, subtitle, children, className, background }) => {
+const Section: React.FC<Props> = ( { id, heading, label, subheading, children, className, background }) => {
 
   return (
     <section 
@@ -50,16 +50,16 @@ const Section: React.FC<Props> = ( { id, heading, label, subtitle, children, cla
             <RichText htmlString={heading} />
           </h2>
         )}
-        {subtitle && (
+        {subheading && (
           <p className={classNames("prose md:prose-lg lg:prose-xl text-center max-w-xl lg:max-w-3xl mx-auto",
             {"mt-5": heading},
           )}>
-            {subtitle}
+            {subheading}
           </p>
         )}
       </Container>
       <Container className={classNames("rounded-assets",
-        { "mt-12": (heading || label || subtitle) }
+        { "mt-12": (heading || label || subheading) }
       )}>
         {children}
       </Container>

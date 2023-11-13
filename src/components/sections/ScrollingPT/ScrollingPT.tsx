@@ -9,11 +9,11 @@ import RichText from "@/components/elements/RichText/RichText";
 import Button from "@/components/elements/Button/Button";
 
 const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, heading, subtitle, content, alignment } = data
+  const { label, heading, subheading, content, alignment } = data
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
-    <Section label={label} heading={heading} subtitle={subtitle}>
+    <Section label={label} heading={heading} subheading={subheading}>
       {/* FOR MOBILE, TABLETS */}
       <div className="xl:hidden">
         {content?.map((section) => (

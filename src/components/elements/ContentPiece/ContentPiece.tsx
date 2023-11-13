@@ -32,7 +32,7 @@ export const ContentPiece: React.FC<{
           )}
         >
           <div>
-            <div className={classNames("font-semibold text-neutral-500 tracking-widest text-center lg:text-start")}>
+            <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest")}>
               {label}
             </div>
             <div className="text-lg lg:text-2xl font-semibold mt-1">

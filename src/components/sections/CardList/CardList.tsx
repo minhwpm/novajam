@@ -62,7 +62,7 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
     htmlid,
   } = data;
   return (
-    <Section label={label} heading={heading} subtitle={subtitle} id={htmlid}>
+    <Section label={label} heading={heading} subheading={subtitle} id={htmlid}>
       {layout === "grid" && (
         <div
           className={classNames(
@@ -75,38 +75,6 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
         >
           {content.map((item) => (
             <ContentItem key={item.id} data={item} alignment={alignment} />
-          ))}
-        </div>
-      )}
-      {layout === "flex" && (
-        <div
-          className={classNames(
-            "show-scrollbar",
-            "w-full flex gap-6 lg:gap-8 pb-10",
-            { "overflow-x-auto": content.length >= 3 },
-            { "justify-center": content.length < 3 }
-          )}
-        >
-          {content.map((item) => (
-            <div
-              key={item.id}
-              className={classNames(
-                {
-                  "basis-[80%] md:basis-[40%] lg:basis-[30%] shrink-0 grow":
-                    size <= 3,
-                },
-                {
-                  "basis-[70%] md:basis-[35%] lg:basis-[22%] shrink-0 grow":
-                    size === 4,
-                },
-                {
-                  "basis-[60%] md:basis-[30%] lg:basis-[18%] shrink-0 grow":
-                    size === 5,
-                }
-              )}
-            >
-              <ContentItem data={item} alignment={alignment} />
-            </div>
           ))}
         </div>
       )}
