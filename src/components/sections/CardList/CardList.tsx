@@ -1,52 +1,66 @@
-import Section from "@/components/elements/Section/Section"
-import BlogPreview from "@/components/elements/BlogPreview/BlogPreview"
-import classNames from "classnames"
-import ProductPreview from "@/components/elements/ProductPreview/ProductPreview"
-import { CardListType, CardType } from "@/helpers/types"
-import PagePreview from "../PagePreview/PagePreview"
-import Link from "next/link"
-import Image from "next/image"
-import Carousel from "@/components/elements/Carousel/Carousel"
+import Section from "@/components/elements/Section/Section";
+import BlogPreview from "@/components/elements/BlogPreview/BlogPreview";
+import classNames from "classnames";
+import ProductPreview from "@/components/elements/ProductPreview/ProductPreview";
+import { AlignmentType, CardListType, CardType } from "@/helpers/types";
+import PagePreview from "../PagePreview/PagePreview";
+import Link from "next/link";
+import Image from "next/image";
+import Carousel from "@/components/elements/Carousel/Carousel";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
-import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
-import { Statistics } from "@/components/elements/Statistics/Statistics"
-import { ContentPiece } from "@/components/elements/ContentPiece/ContentPiece"
-import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan"
+import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview";
+import { Statistics } from "@/components/elements/Statistics/Statistics";
+import { ContentPiece } from "@/components/elements/ContentPiece/ContentPiece";
+import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan";
 
-const ContentItem: React.FC<{data: CardType}> = ({data}) => {
-  switch(data.contentType){
-    case "product": 
-      return <ProductPreview data={data} />
+const ContentItem: React.FC<{
+  data: CardType;
+  alignment: AlignmentType
+}> = ({ data, alignment }) => {
+  switch (data.contentType) {
+    case "product":
+      return <ProductPreview data={data} />;
     case "blog":
-      return <BlogPreview data={data} />
+      return <BlogPreview data={data} />;
     case "page":
-      return <PagePreview data={data} />
+      return <PagePreview data={data} />;
     case "link":
       return (
         <Link href={data.url}>
-          { data.image ? (
+          {data.image ? (
             <Image
               src={data.image.url}
               alt={data.text}
               width={data.image.width}
               height={data.image.height}
             />
-          ) : data.text }
+          ) : (
+            data.text
+          )}
         </Link>
-      )
+      );
     case "expert":
-      return <ExpertPreview data={data} layout="vertical" />
+      return <ExpertPreview data={data} layout="vertical" />;
     case "statistics":
-      return <Statistics data={data} />
+      return <Statistics data={data} />;
     case "contentpiece":
-      return <ContentPiece data={data} />
+      return <ContentPiece data={data} alignment={alignment} />;
     case "pricingplan":
-      return <PricingPlan data={data} />
+      return <PricingPlan data={data} />;
   }
-}
+};
 
-const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
-  const { heading, label, subtitle, content, layout, size = 3, htmlid } = data
+const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
+  const {
+    heading,
+    label,
+    subtitle,
+    content,
+    layout,
+    size = 3,
+    alignment,
+    htmlid,
+  } = data;
   return (
     <Section label={label} heading={heading} subtitle={subtitle} id={htmlid}>
       {layout === "grid" && (
@@ -60,7 +74,7 @@ const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
           )}
         >
           {content.map((item) => (
-            <ContentItem key={item.id} data={item} />
+            <ContentItem key={item.id} data={item} alignment={alignment} />
           ))}
         </div>
       )}
@@ -77,12 +91,21 @@ const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
             <div
               key={item.id}
               className={classNames(
-                { "basis-[80%] md:basis-[40%] lg:basis-[30%] shrink-0 grow": size <= 3 },
-                { "basis-[70%] md:basis-[35%] lg:basis-[22%] shrink-0 grow": size === 4 },
-                { "basis-[60%] md:basis-[30%] lg:basis-[18%] shrink-0 grow": size === 5 }
+                {
+                  "basis-[80%] md:basis-[40%] lg:basis-[30%] shrink-0 grow":
+                    size <= 3,
+                },
+                {
+                  "basis-[70%] md:basis-[35%] lg:basis-[22%] shrink-0 grow":
+                    size === 4,
+                },
+                {
+                  "basis-[60%] md:basis-[30%] lg:basis-[18%] shrink-0 grow":
+                    size === 5,
+                }
               )}
             >
-              <ContentItem data={item} />
+              <ContentItem data={item} alignment={alignment} />
             </div>
           ))}
         </div>
@@ -102,30 +125,30 @@ const CardList: React.FC<{ data: CardListType }> = ({ data}) => {
             slidesPerView={size}
             slides={content.map((item) => (
               <div key={item.id} className="pb-8">
-                <ContentItem data={item} />
+                <ContentItem data={item} alignment={alignment} />
               </div>
             ))}
           >
-            <div className="cardlist-btn-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-50 text-white items-center justify-center opacity-0 flex group-hover/cardlist:opacity-100 transition-opacity duration-500 ease-in-out">
+            <div className="cardlist-btn-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-80 text-white items-center justify-center opacity-0 flex group-hover/cardlist:opacity-100 transition-opacity duration-500 ease-in-out">
               <AiOutlineArrowLeft size={30} />
             </div>
-            <div className="cardlist-btn-next absolute right-2 top-1/2 -translate-y-1/2 z-10 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-50 text-white items-center justify-center opacity-0 flex group-hover/cardlist:opacity-100 transition-opacity duration-500 ease-in-out">
+            <div className="cardlist-btn-next absolute right-2 top-1/2 -translate-y-1/2 z-10 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-80 text-white items-center justify-center opacity-0 flex group-hover/cardlist:opacity-100 transition-opacity duration-500 ease-in-out">
               <AiOutlineArrowRight size={30} />
             </div>
           </Carousel>
         </div>
       )}
-      { layout === "masonry" && (
+      {layout === "masonry" && (
         <div className="w-full columns-1 md:columns-2 gap-5 lg:columns-3">
-        {content.map(item => (
-          <div key={item.id} className="mb-5">
-            <ContentItem data={item} />
-          </div>
-        ))}
-      </div>
+          {content.map((item) => (
+            <div key={item.id} className="mb-5">
+              <ContentItem data={item} alignment={alignment} />
+            </div>
+          ))}
+        </div>
       )}
     </Section>
   );
-}
+};
 
-export default CardList
+export default CardList;

@@ -6,9 +6,10 @@ import FeatureContentItem from "@/components/elements/FeatureContentItem/Feature
 import { PresentationType } from "@/helpers/types";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import RichText from "@/components/elements/RichText/RichText";
+import Button from "@/components/elements/Button/Button";
 
 const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, heading, subtitle, content } = data
+  const { label, heading, subtitle, content, alignment } = data
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
@@ -17,13 +18,36 @@ const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
       <div className="xl:hidden">
         {content?.map((section) => (
           <div key={section.id} className="mb-20">
-            <div className="mb-10">
-              <h3 className="font-semibold text-3xl lg:text-4xl leading-snug mb-6">
-                {section.heading}
-              </h3>
+            <div className={classNames("mb-10",
+              { "text-center": alignment === "center" },
+              { "text-end": alignment === "reverse" }
+            )}>
+              <div className={classNames("font-semibold text-primary-600 tracking-widest text-center lg:text-start")}>
+                {section.label}
+              </div>
+              <div className="font-semibold text-2xl lg:text-3xl leading-snug mb-6">
+                <RichText htmlString={section.heading} />
+              </div>
               <div className="prose">
                 <RichText htmlString={section.content} />
               </div>
+              {section.buttons && section.buttons.length > 0 && (
+                <div
+                  className={classNames("mt-8", {
+                    "flex justify-center": alignment === "center",
+                  })}
+                >
+                  {section.buttons.map(button => (
+                    <Button
+                      key={button.id}
+                      url={button.url}
+                      variant={button.buttonVariant}
+                    >
+                      {button.text}
+                    </Button>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="md:w-3/5 mx-auto">
               {section.media?.length > 0 && 
@@ -67,9 +91,10 @@ const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
           {content?.map((section, idx) => (
             <FeatureContentItem
               key={section.heading}
-              section={section}
+              data={section}
               idx={idx}
               setVisibleIdx={setVisibleIdx}
+              alignment={alignment}
             />
           ))}
         </div>

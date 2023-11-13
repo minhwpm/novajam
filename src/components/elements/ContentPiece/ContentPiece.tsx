@@ -1,50 +1,62 @@
-import { ContentPieceType } from "@/helpers/types";
+import { AlignmentType, ContentPieceType } from "@/helpers/types";
 import classNames from "classnames";
 import RichText from "../RichText/RichText";
 import Button from "../Button/Button";
 import { MediaCarousel } from "../MediaCarousel/MediaCarousel";
 import { MediaItem } from "../MediaItem/MediaItem";
 
-export const ContentPiece: React.FC<{ data: ContentPieceType }> = ({
-  data,
+export const ContentPiece: React.FC<{
+  data: ContentPieceType;
+  alignment: AlignmentType
+}> = ({
+  data, alignment
 }) => {
-  const { heading, content, media, ctaButton, alignment } = data;
+  const { heading, label, content, media, buttons } = data;
   return (
     <div className="flex flex-col">
       <div
-        className={classNames({
-          "flex justify-center": alignment === "center",
-        })}
+        className={classNames("flex", 
+          { "justify-center": alignment === "center" },
+          { "justify-end": alignment === "reverse" },
+        )}
       >
         {media.length === 1 && <MediaItem data={media[0]} />}
         {media.length > 1 && <MediaCarousel data={media} />}
       </div>
-      {(heading || content || ctaButton) && (
+      {(heading || label || content || buttons) && (
         <div
           className={classNames(
             "py-5 pr-5 flex-1 flex flex-col justify-between",
-            { "text-center": alignment === "center" }
+            { "text-center": alignment === "center" },
+            { "text-end": alignment === "reverse" }
           )}
         >
-          <h4 className="text-lg lg:text-2xl font-semibold mt-1">
-            {heading}
-          </h4>
-          <div className="py-3 prose lg:prose-lg">
-            <RichText htmlString={content} />
+          <div>
+            <div className={classNames("font-semibold text-neutral-500 tracking-widest text-center lg:text-start")}>
+              {label}
+            </div>
+            <div className="text-lg lg:text-2xl font-semibold mt-1">
+              <RichText htmlString={heading} />
+            </div>
+            <div className="py-3 prose lg:prose-lg">
+              <RichText htmlString={content} />
+            </div>
           </div>
-          {ctaButton && (
+          {buttons && buttons.length > 0 && (
             <div
               className={classNames("mt-8", {
                 "flex justify-center": alignment === "center",
               })}
             >
-              <Button
-                key={ctaButton.text}
-                url={ctaButton.url}
-                variant={ctaButton.buttonVariant}
-              >
-                {ctaButton.text}
-              </Button>
+              {buttons.map(button => (
+                <Button
+                  key={button.id}
+                  url={button.url}
+                  variant={button.buttonVariant}
+                >
+                  {button.text}
+                </Button>
+              ))}
             </div>
           )}
         </div>

@@ -13,7 +13,7 @@ import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 
 const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, heading, subtitle, content } = data;
+  const { label, heading, subtitle, content, alignment } = data;
   return (
     <Section label={label} heading={heading} subtitle={subtitle}>
       <div className="w-full flex flex-col gap-10">
@@ -35,10 +35,13 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
               >
                 <RadixAccordion.Trigger asChild>
                   <div className="py-4 px-6 cursor-pointer flex gap-3 items-center rounded-t-assets data-[state=open]:bg-primary-500 data-[state=open]:text-white">
-                    <div className="flex-1 flex justify-center">
-                      <h3 className="block font-semibold text-xl">
-                        {section.heading}
-                      </h3>
+                    <div className="flex-1 flex flex-col items-center">
+                      <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest group-data-[state='open']:text-neutral-100")}>
+                        {section.label}
+                      </div>
+                      <div className="font-semibold text-xl">
+                        <RichText htmlString={section.heading} />
+                      </div>
                     </div>
                     <AiOutlinePlus size={25} className="group-data-[state=open]:hidden shrink-0" />
                     <AiOutlineMinus size={25} className="group-data-[state=closed]:hidden shrink-0" />
@@ -47,23 +50,32 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                 <RadixAccordion.Content className={classNames("overflow-hidden px-4 lg:px-10 pt-5 pb-10",
                   "data-[state=closed]:animate-accordionSlideUp",
                   "data-[state=open]:border-t data-[state=open]:animate-accordionSlideDown",
+                  { "text-center": alignment === "center" },
+                  { "text-end": alignment === "reverse" }
                 )}>
+                  
                   <div className="prose lg:prose-lg">
                     <RichText htmlString={section.content} />
                   </div>
-                  {section.ctaButton && (
-                    <div className="my-6">
-                      <Button
-                        key={section.ctaButton?.id}
-                        variant={section.ctaButton?.buttonVariant}
-                        url={section.ctaButton?.url}
-                      >
-                        {section.ctaButton?.text}
-                      </Button>
+                  {section.buttons && section.buttons.length > 0 && (
+                    <div
+                      className={classNames("mt-8", {
+                        "flex justify-center": alignment === "center",
+                      })}
+                    >
+                      {section.buttons.map(button => (
+                        <Button
+                          key={button.id}
+                          url={button.url}
+                          variant={button.buttonVariant}
+                        >
+                          {button.text}
+                        </Button>
+                      ))}
                     </div>
                   )}
                   {section.media.length > 0 && (
-                    <div className="max-w-xl mx-auto">
+                    <div className="max-w-xl mx-auto mt-10">
                       <MediaCarousel data={section.media} />
                     </div>
                   )}

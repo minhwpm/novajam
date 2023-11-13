@@ -26,6 +26,7 @@ export default async function getPresentation(id: string) {
             label
             subtitle
             layout
+            alignment
             contentCollection (limit: 20) {
               items {
                 __typename

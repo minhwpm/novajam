@@ -30,9 +30,10 @@ export default async function getCardList(id: string) {
               text
               newTab
             }
+            htmlid
             layout
             size
-            htmlid
+            alignment
             contentCollection (limit: 20) {
               items {
                 __typename

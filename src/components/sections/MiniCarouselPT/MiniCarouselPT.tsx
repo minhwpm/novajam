@@ -38,7 +38,7 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length }: ArrowGroupProps) => {
 };
 
 const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, heading, subtitle, content } = data;
+  const { label, heading, subtitle, content, alignment } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
@@ -72,7 +72,8 @@ const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
               key={section.id}
               className={classNames(
                 "col-start-1 row-start-1 flex flex-col gap-6 p-8 lg:p-12 shadow-xl bg-white rounded-assets transition-all ease-in-out duration-500 relative",
-                { "items-center": section.alignment === "center" },
+                { "items-center": alignment === "center" },
+                { "items-end": alignment === "reverse" },
                 { "opacity-100 right-0": visibleIdx == idx },
                 { "opacity-0 -right-24": visibleIdx != idx }
               )}
@@ -83,29 +84,35 @@ const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
               )}
               <div
                 className={classNames(
-                  "grow flex flex-col gap-5 justify-center",
-                  { "text-center": section.alignment === "center" }
+                  "grow flex flex-col justify-center",
+                  { "text-center": alignment === "center" },
+                  { "text-end": alignment === "reverse" }
                 )}
               >
-                <h3 className={classNames("text-2xl font-semibold")}>
-                  {section.heading}
-                </h3>
-                <div className="prose lg:prose-lg">
+                <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest")}>
+                  {section.label}
+                </div>
+                <div className={classNames("text-2xl font-semibold")}>
+                  <RichText htmlString={section.heading} />
+                </div>
+                <div className="prose lg:prose-lg mt-5">
                   <RichText htmlString={section.content} />
                 </div>
-                {section.ctaButton && (
+                {section.buttons && section.buttons.length > 0 && (
                   <div
-                    className={classNames("mt-3", {
-                      "flex justify-center": section.alignment === "center",
+                    className={classNames("mt-8", {
+                      "flex justify-center": alignment === "center",
                     })}
                   >
-                    <Button
-                      key={section.ctaButton.text}
-                      url={section.ctaButton.url}
-                      variant={section.ctaButton.buttonVariant}
-                    >
-                      {section.ctaButton.text}
-                    </Button>
+                    {section.buttons.map(button => (
+                      <Button
+                        key={button.id}
+                        url={button.url}
+                        variant={button.buttonVariant}
+                      >
+                        {button.text}
+                      </Button>
+                    ))}
                   </div>
                 )}
               </div>

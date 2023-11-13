@@ -8,7 +8,7 @@ import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
 const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, heading, subtitle, content } = data
+  const { label, heading, subtitle, content, alignment } = data
   return (
     <Section
       label={label}
@@ -32,28 +32,42 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
             <div key={section.id} className={classNames(
               "h-full flex flex-col-reverse lg:flex-row gap-x-16 gap-y-5 bg-white mx-5 md:mx-20 lg:mx-16 mb-5 rounded-assets"
             )}>
-              {(section.heading || section.content) && (
+              {(section.heading || section.content || section.buttons) && (
                 <div className={classNames(
                   "flex flex-col lg:py-10 lg:pl-10",
+                  { "text-center": alignment === "center" },
+                  { "text-end": alignment === "reverse" }
                 )}>
                   <div className="flex items-center justify-center gap-8 py-6 lg:hidden">
                     <AiOutlineArrowLeft className="carouselPT-btn-prev cursor-pointer" size={40} />
                     <AiOutlineArrowRight className="carouselPT-btn-next cursor-pointer" size={40} />
                   </div>
-                  <h3 className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl">
-                    {section.heading}
-                  </h3>
+                  <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest")}>
+                    {section.label}
+                  </div>
+                  <div className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl">
+                    <RichText htmlString={section.heading} />
+                  </div>
                   <div className="mt-5 prose lg:prose-lg">
                     <RichText htmlString={section.content} />
                   </div>
-                  {section.ctaButton && (
-                    <div className="mt-5">
-                      <Button key={section.ctaButton?.id} variant={section.ctaButton?.buttonVariant} url={section.ctaButton?.url}>
-                        {section.ctaButton?.text}
-                      </Button>
+                  {section.buttons && section.buttons.length > 0 && (
+                    <div
+                      className={classNames("mt-8", {
+                        "flex justify-center": alignment === "center",
+                      })}
+                    >
+                      {section.buttons.map(button => (
+                        <Button
+                          key={button.id}
+                          url={button.url}
+                          variant={button.buttonVariant}
+                        >
+                          {button.text}
+                        </Button>
+                      ))}
                     </div>
                   )}
-                  
                 </div>
               )}
               { section.media?.length > 0 &&  

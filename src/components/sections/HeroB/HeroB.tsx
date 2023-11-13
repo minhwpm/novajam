@@ -58,7 +58,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
               <div className="flex flex-col justify-center gap-2 lg:pr-10 py-10">
                 <div
                   className={classNames(
-                    "uppercase font-semibold text-primary-600 tracking-widest text-center lg:text-start",
+                    "font-semibold text-primary-600 tracking-widest text-center lg:text-start",
                     animationClasses
                   )}
                 >

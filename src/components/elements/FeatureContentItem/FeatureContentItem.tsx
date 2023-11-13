@@ -1,15 +1,16 @@
 import { useInView } from "react-hook-inview";
 import classNames from "classnames";
 import RichText from "../RichText/RichText";
-import { ContentPieceType } from "@/helpers/types";
+import { AlignmentType, ContentPieceType } from "@/helpers/types";
 
 interface Props {
-  section: ContentPieceType
+  data: ContentPieceType
   idx: number
   setVisibleIdx: (idx: number) => void
+  alignment: AlignmentType
 }
 
-const FeatureContentItem = ({ section, idx, setVisibleIdx }: Props) => {
+const FeatureContentItem = ({ data, idx, setVisibleIdx, alignment }: Props) => {
   const [ref, isVisible] = useInView(
     {
       threshold: 0.9,
@@ -20,13 +21,15 @@ const FeatureContentItem = ({ section, idx, setVisibleIdx }: Props) => {
     <div ref={ref} className={classNames(
       "py-[20vh] px-10 transition-opacity duration-300",
       { "is-visible opacity-100": isVisible },
-      { "is-invisible opacity-10": !isVisible}
+      { "is-invisible opacity-10": !isVisible},
+      { "text-center": alignment === "center" },
+      { "text-end": alignment === "reverse" }
     )}>
-      <h3 className="text-4xl font-semibold mb-8">
-        {section.heading}
-      </h3>
+      <div className="text-2xl lg:text-3xl font-semibold mb-8">
+        <RichText htmlString={data.heading} />
+      </div>
       <div className="prose lg:prose-lg">
-        <RichText htmlString={section.content} />
+        <RichText htmlString={data.content} />
       </div>
     </div>
   )

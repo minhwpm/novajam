@@ -37,7 +37,7 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
                   "absolute text-white px-8 py-12 drop-shadow-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full lg:w-2/3 flex flex-col justify-center text-center"
                 )}
               >
-                <p className="uppercase tracking-widest">{section.label}</p>
+                <p className="tracking-widest">{section.label}</p>
                 <div className="text-5xl lg:text-6xl !leading-snug font-heading font-bold max-w-3xl mx-auto">
                   <RichText htmlString={section.heading} />
                 </div>

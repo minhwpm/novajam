@@ -10,7 +10,7 @@ import RichText from '@/components/elements/RichText/RichText';
 import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
 
 const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
-  const { label, heading, subtitle, content } = data
+  const { label, heading, subtitle, content, alignment } = data
   const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0].id : '')
   return (
     <Section label={label} heading={heading} subtitle={subtitle}>
@@ -35,12 +35,12 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                     "border-r border-gray-300": idx < content.length - 1,
                   })}
                 >
-                  <div className={classNames("uppercase tracking-widest mb-2 text-secondary-500 font-semibold")}>
-                    {label}
+                  <div className={classNames("text-sm tracking-widest text-neutral-500 font-semibold")}>
+                    {section.label}
                   </div>
-                  <h3 className="block font-bold text-2xl pb-2 underline-hover-effect group-data-[state='active']:before:w-full group-data-[state='active']:before:bg-primary-500">
+                  <div className="block font-bold text-2xl pb-2 underline-hover-effect group-data-[state='active']:before:w-full group-data-[state='active']:before:bg-primary-500">
                     <RichText htmlString={section.heading} />
-                  </h3>
+                  </div>
                 </div>
               </RadixTabs.Trigger>
             ))}
@@ -53,7 +53,9 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
               className={classNames(
                 "text-lg col-start-1 row-start-1 transition-all ease-in-out duration-500 relative ",
                 { "opacity-100 right-0 z-10": activeItem === section.id },
-                { "opacity-0 -right-24 z-0": activeItem !== section.id }
+                { "opacity-0 -right-24 z-0": activeItem !== section.id },
+                { "text-center": alignment === "center" },
+                { "text-end": alignment === "reverse" }
               )}
             >
               <div className="grid lg:grid-cols-2">
@@ -61,15 +63,21 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                   <div className="prose lg:prose-lg">
                     <RichText htmlString={section.content} />
                   </div>
-                  {section.ctaButton && (
-                    <div className="self-end">
-                      <Button
-                        key={section.ctaButton?.id}
-                        variant={section.ctaButton?.buttonVariant}
-                        url={section.ctaButton?.url}
-                      >
-                        {section.ctaButton?.text}
-                      </Button>
+                  {section.buttons && section.buttons.length > 0 && (
+                    <div
+                      className={classNames("mt-8", {
+                        "flex justify-center": alignment === "center",
+                      })}
+                    >
+                      {section.buttons.map(button => (
+                        <Button
+                          key={button.id}
+                          url={button.url}
+                          variant={button.buttonVariant}
+                        >
+                          {button.text}
+                        </Button>
+                      ))}
                     </div>
                   )}
                 </div>

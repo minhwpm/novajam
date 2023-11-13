@@ -31,7 +31,7 @@ const NavMenuFull: React.FC<{ data: HeaderType}> = ({ data }) => {
         />
       </div>
       <NavigationMenu.Root className={classNames(
-        "absolute top-0 left-0 z-[99999] w-screen h-screen bg-neutral-950 bg-opacity-90 text-white overflow-auto",
+        "absolute top-0 left-0 z-[99999] w-screen h-screen bg-neutral-950 bg-text-neutral-500 text-white overflow-auto",
         { "hidden": !navMenuShowed}
       )}>
         <AiOutlineClose 

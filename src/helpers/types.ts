@@ -15,6 +15,8 @@ export type ButtonVariant = "standard" | "alternate" | "black" | "link" | "outli
 
 export type AspectRatioType = "video" | "square" | "3/4" | "4/3" | "3/2" | "auto" 
 
+export type AlignmentType = "inherit" | "center" | "reverse"
+
 export type ButtonType = {
   id?: string
   url: string
@@ -199,6 +201,7 @@ export type HeroType = {
   id: string
   content: Array<ContentPieceType>
   layout: "overlay" | "vertical" | "horizontal"
+  alignment: AlignmentType
   contentType: "hero"
 }
 
@@ -216,6 +219,7 @@ export type PresentationType = {
   subtitle: string
   content: Array<ContentPieceType>
   layout: "carousel" | "mini-carousel" | "tab" | "vertical-tab" | "accordion" | "scrolling"
+  alignment: AlignmentType
 }
 
 export type StatisticsType = {
@@ -232,8 +236,6 @@ export type ContentPieceType = {
   heading: string
   content: string
   buttons: Array<ButtonType>
-  ctaButton: ButtonType
-  alignment: 'auto' | 'left' | 'right' | 'center'
   contentType: 'contentpiece'
 }
 
@@ -262,6 +264,7 @@ export type CardListType = {
   }
   layout: "carousel" | "grid" | "flex" | "masonry"
   size: 1 | 2 | 3 | 4 | 5
+  alignment: AlignmentType
   htmlid: string
 }
 
