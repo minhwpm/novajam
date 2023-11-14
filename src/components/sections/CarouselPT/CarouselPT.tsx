@@ -30,11 +30,11 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
           loop={true}
           slides={content.map((section) => (
             <div key={section.id} className={classNames(
-              "h-full flex flex-col-reverse lg:flex-row gap-x-16 gap-y-5 bg-white mx-5 md:mx-20 lg:mx-16 mb-5 rounded-assets"
+              "h-full flex flex-col-reverse lg:flex-row lg:items-center gap-x-16 gap-y-5 bg-neutral-50 px-5 pt-5 pb-10 md:px-10 md:pt-10 lg:px-16 lg:pt-12 lg:pb-12 rounded-assets"
             )}>
               {(section.heading || section.content || section.buttons) && (
                 <div className={classNames(
-                  "flex flex-col lg:py-10 lg:pl-10",
+                  "flex flex-col",
                   { "text-center": alignment === "center" },
                   { "text-end": alignment === "reverse" }
                 )}>
@@ -72,7 +72,7 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
               )}
               { section.media?.length > 0 &&  
                 <div className={classNames(
-                  { "lg:w-1/2 shrink-0": (section.heading || section.content) },
+                  { "lg:w-1/2 shrink-0 ": (section.heading || section.content) },
                   { "w-full": (!section.heading && !section.content) },
                 )}>
                   <MediaCarousel 
@@ -86,8 +86,12 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
             </div>
           ))}
         >
-          <AiOutlineArrowLeft className="carouselPT-btn-prev cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden lg:block" size={40} />
-          <AiOutlineArrowRight className="carouselPT-btn-next cursor-pointer absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden lg:block" size={40} />
+          <div className="carouselPT-btn-prev cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-neutral-200 transition-colors duration-300 ease-in-out">
+            <AiOutlineArrowLeft size={35} />
+          </div>
+          <div className="carouselPT-btn-next cursor-pointer absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-neutral-200 transition-colors duration-300 ease-in-out">
+            <AiOutlineArrowRight size={35} />
+          </div>
         </Carousel>
       </div>
     </Section>

@@ -44,11 +44,11 @@ const Section: React.FC<Props> = ( { id, heading, label, subheading, children, c
           </p>
         )}
         {heading && (
-          <h2 className={classNames("font-heading text-3xl md:text-4.5xl font-bold text-center max-w-3xl mx-auto",
+          <div className={classNames("font-heading text-4xl md:text-4.5xl lg:text-5xl lg:leading-snug font-bold text-center max-w-3xl mx-auto",
             {"mt-2": label},
           )}>
             <RichText htmlString={heading} />
-          </h2>
+          </div>
         )}
         {subheading && (
           <p className={classNames("prose md:prose-lg lg:prose-xl text-center max-w-xl lg:max-w-3xl mx-auto",

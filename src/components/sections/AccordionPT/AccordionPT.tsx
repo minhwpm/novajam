@@ -29,14 +29,13 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                 key={section.id}
                 value={section.id}
                 className={classNames(
-                  "group w-full rounded-assets border shadow",
-                  "data-[state=closed]:hover:bg-primary-50"
+                  "group w-full rounded-assets border shadow data-[state=closed]:hover:bg-primary-50 data-[state=closed]:hover:text-primary-500 transition-colors duration-300 ease-in-out",
                 )}
               >
                 <RadixAccordion.Trigger asChild>
                   <div className="py-4 px-6 cursor-pointer flex gap-3 items-center rounded-t-assets data-[state=open]:bg-primary-500 data-[state=open]:text-white">
                     <div className="flex-1 flex flex-col items-center">
-                      <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest group-data-[state='open']:text-neutral-100")}>
+                      <div className={classNames("text-sm font-semibold tracking-widest")}>
                         {section.label}
                       </div>
                       <div className="font-semibold text-xl">
