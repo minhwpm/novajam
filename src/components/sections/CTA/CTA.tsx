@@ -1,31 +1,48 @@
-import Section from "@/components/elements/Section/Section"
+'use client'
+import classNames from "classnames";
+import { useInView } from "react-hook-inview";
 import Button from "@/components/elements/Button/Button"
-import { ButtonVariant } from "@/helpers/types"
+import Section from "@/components/elements/Section/Section";
+import { CTAType } from "@/helpers/types";
+import RichText from "@/components/elements/RichText/RichText";
 
-interface CTAProps {
-  data: {
-    title: string
-    subtitle?: string
-    button: {
-      text: string
-      url: string
-      type: ButtonVariant
-    }
-  }
-}
-const CTA: React.FC<CTAProps> = ({data}) => {
-  const { title, subtitle, button} = data
+const CTA: React.FC<{data: CTAType} > = ({ data }) => {
+  const { heading, subheading, buttons } = data;
+  // @TODO expanding width on scrolling
+  // const [w, setW] = useState(70)
+
+  const [ref, isVisible] = useInView({
+    threshold: 0.5,
+    onEnter: (entry, observer) => {
+      console.log(entry, observer);
+    },
+    // onLeave: () => setStart(false),
+  });
+  // console.log("isVisible", isVisible)
   return (
-    <Section className="bg-primary-200">
-      <div className="flex flex-wrap gap-10 justify-center items-center min-h-[200px]">
-        <h3 className="text-4xl font-bold lg:text-5xl leading-snug lg:leading-snug text-center text-primary-500">
-          {title}
-        </h3>
-        { subtitle && <p>{subtitle}</p> }
-        <div>
-          <Button size="lg" variant={button.type} url={button.url}>
-            {button.text}
-          </Button>
+    <Section>
+      <div ref={ref} className={classNames(
+          "bg-primary-800 mx-auto px-5 py-16 lg:py-20 xl:py-32 lg:w-[70%] lg:will-change-[width] rounded-assets",
+          {"lg:animate-expandingWidth": isVisible},
+          {"lg:animate-shrinkingWidth": !isVisible},
+        )}
+      >
+        <div className="flex flex-col items-center max-w-3xl mx-auto">
+          <div className="text-4xl lg:text-5xl font-heading font-semibold !leading-normal text-center text-gray-300">
+            <RichText htmlString={heading} />
+          </div>
+          {subheading && (
+            <p className="text-xl text-primary-200 text-center mt-8">
+              {subheading}
+            </p>
+          )}
+          <div className="mt-12">
+            {buttons?.map(button => (
+              <Button key={button.id} variant={button.buttonVariant ?? "alternate"} size="lg" url={button.url}>
+                {button.text}
+              </Button>
+            ))}
+          </div>
         </div>
       </div>
     </Section>
