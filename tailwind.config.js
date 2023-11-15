@@ -16,7 +16,9 @@ module.exports = {
           '2.75rem', {
             lineHeight: '3.25rem'
           }
-        ]
+        ],
+        'heading': 'var(--heading-font-size)',
+        'super-heading': 'var(--super-heading-font-size)',
       },
       colors: {
         primary: {

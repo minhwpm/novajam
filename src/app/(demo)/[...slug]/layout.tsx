@@ -20,7 +20,7 @@ export default async function Layout({
 }) {
   // console.log(params, JSON.stringify(children, null, 4))
   const slug = [...params.slug];
-  let navigation, footer, page, fontTheme, colorTheme, borderRadiusTheme;
+  let navigation, footer, page, fontTheme, colorTheme, borderRadiusTheme, headingFontSizeTheme;
   try {
     while (
       slug.length > 0 &&
@@ -38,6 +38,7 @@ export default async function Layout({
             page.colorSecondary
           );
           borderRadiusTheme = `${page?.borderRadius}-border-radius-assets`;
+          headingFontSizeTheme= `${page.headingFontSize}-heading-font-size`;
         }
       }
       slug.pop();
@@ -51,6 +52,7 @@ export default async function Layout({
       className={classNames(
         fontTheme,
         styles[borderRadiusTheme ?? ""],
+        styles[headingFontSizeTheme ?? ""],
         // @TODO refactor
         styles[colorTheme ? colorTheme[0] : ""],
         styles[colorTheme ? colorTheme[1] : ""]

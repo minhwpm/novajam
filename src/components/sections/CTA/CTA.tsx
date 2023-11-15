@@ -28,7 +28,7 @@ const CTA: React.FC<{data: CTAType} > = ({ data }) => {
         )}
       >
         <div className="flex flex-col items-center max-w-3xl mx-auto">
-          <div className="text-4xl lg:text-5xl font-heading font-semibold !leading-normal text-center text-gray-300">
+          <div className="text-heading leading-normal font-heading font-semibold text-center text-gray-300">
             <RichText htmlString={heading} />
           </div>
           {subheading && (

@@ -43,9 +43,9 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
                   </div>
                 )}
                 {section.heading && (
-                <div className="text-5xl lg:text-6xl !leading-tight font-heading max-w-3xl mx-auto">
-                  <RichText htmlString={section.heading} />
-                </div>
+                  <div className="text-super-heading leading-tight font-heading max-w-3xl mx-auto">
+                    <RichText htmlString={section.heading} />
+                  </div>
                 )}
                 {section.content && (
                   <div className="block text-lg lg:text-2xl font-semibold mt-5">

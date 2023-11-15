@@ -36,6 +36,7 @@ export default async function getPage(url: string) {
             }
             fontMain
             fontHeading
+            headingFontSize
             colorPrimary
             colorSecondary
             borderRadius

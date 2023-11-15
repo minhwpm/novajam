@@ -41,6 +41,8 @@
     --secondary-color-800: var(--primary-color-800); 
     --secondary-color-900: var(--primary-color-900); 
     --secondary-color-950: var(--primary-color-950);
+    --heading-font-size: clamp(2.25rem, 6vw, 3rem);
+    --super-heading-font-size: clamp(3.375rem, 6vw, 4.5rem);
   }
 }
 

@@ -112,8 +112,9 @@ export type PageType = {
   title: string
   url: string
   content: HeroType | CTAType | PresentationType | CardListType | FeatureType
-  fontMain: string
-  fontHeading: string
+  fontMain: string //@TODO font family options here
+  fontHeading: string //@TODO font family options here
+  headingFontSize: 'standard' | 'standout' | 'impactful'
   colorPrimary: string
   colorSecondary: string
   borderRadius: string
