@@ -66,7 +66,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
                 </div>
                 <div
                   className={classNames(
-                    "text-4xl lg:text-5xl !leading-snug font-heading max-w-3xl mx-auto text-center lg:text-start",
+                    "text-4xl lg:text-5xl !leading-normal font-heading max-w-3xl mx-auto text-center lg:text-start",
                     animationClasses
                   )}
                 >

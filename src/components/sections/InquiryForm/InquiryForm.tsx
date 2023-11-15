@@ -72,12 +72,16 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               </div>
             )}
             {heading && (
-              <div className="text-4xl md:text-4.5xl lg:text-5xl font-heading font-bold mb-8 tracking-wide leading-snug text-center lg:text-start">
+              <div className={classNames("text-4xl md:text-4.5xl lg:text-5xl !leading-normal font-heading tracking-wide  text-center lg:text-start",
+                {"mt-2": label},
+              )}>
                 <RichText htmlString={heading} />
               </div>
             )}
             {subheading && (
-              <div className="text-white prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center lg:text-start">
+              <div className={classNames("text-white prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center lg:text-start",
+                {"mt-5": heading},
+              )}>
                 {subheading}
               </div>
             )}

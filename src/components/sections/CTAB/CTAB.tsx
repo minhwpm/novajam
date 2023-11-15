@@ -28,9 +28,9 @@ const CTAB: React.FC<{data: CTAType} > = ({ data }) => {
         )}
       >
         <div className="flex flex-col items-center max-w-3xl mx-auto">
-          <h3 className="text-4xl lg:text-5xl font-heading font-semibold leading-snug lg:leading-snug text-center text-gray-300">
+          <div className="text-4xl lg:text-5xl font-heading font-semibold !leading-normal text-center text-gray-300">
             <RichText htmlString={heading} />
-          </h3>
+          </div>
           {content && (
             <p className="text-xl text-primary-200 text-center mt-8">
               {content}

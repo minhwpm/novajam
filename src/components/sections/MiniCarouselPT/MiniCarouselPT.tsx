@@ -50,9 +50,12 @@ const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
               {label}
             </p>
           )}
-          <h2 className="text-3xl lg:text-4xl lg:leading-[50px] font-heading font-bold mb-3">
-            <RichText htmlString={heading} />
-          </h2>
+          {heading && (
+            <div className="font-heading text-3xl lg:text-4xl !leading-normal mb-3">
+              <RichText htmlString={heading} />
+            </div>
+          )}
+
           {subheading && (
             <p className="prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl">
               {subheading}
@@ -92,7 +95,7 @@ const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
                 <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest")}>
                   {section.label}
                 </div>
-                <div className={classNames("text-2xl font-semibold")}>
+                <div className={classNames("text-2xl font-semibold ")}>
                   <RichText htmlString={section.heading} />
                 </div>
                 <div className="prose lg:prose-lg mt-5">
