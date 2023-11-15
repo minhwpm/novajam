@@ -24,9 +24,9 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
           {label}
         </div>
       )}
-      <h2
+      <div
         className={classNames(
-          "font-heading text-3xl md:text-4.5xl leading-snug lg:leading-snug font-bold max-w-3xl mb-5",
+          "font-heading text-3xl md:text-4.5xl lg:text-5xl leading-snug lg:leading-snug max-w-3xl mb-5",
           {
             "text-center mx-auto":
               layout === "Vertical (Text | Image)" ||
@@ -35,7 +35,7 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
         )}
       >
         <RichText htmlString={heading} />
-      </h2>
+      </div>
       <div
         className={classNames("block prose lg:prose-lg", {
           "mx-auto":

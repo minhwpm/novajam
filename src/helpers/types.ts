@@ -268,8 +268,10 @@ export type CardListType = {
 export type InquiryFormType = {
   id: string
   title: string
-  subtitle: string
-  type: string
+  heading: string
+  label: string
+  subheading: string
+  content: string
   fields: Array<{
     id: string
     label: string
@@ -291,4 +293,7 @@ export type InquiryFormType = {
     height: number
   }
   htmlid: string
+  formType: string
+  dateFormat: string
+  displayMode: string
 }

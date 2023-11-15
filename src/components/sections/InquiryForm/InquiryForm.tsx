@@ -8,6 +8,7 @@ import { DatePicker } from "@/components/elements/DatePicker/DatePicker";
 import { InquiryFormType } from "@/helpers/types";
 import { Select } from "@/components/elements/Select/Select";
 import { getRegEx } from "@/helpers/utils";
+import RichText from "@/components/elements/RichText/RichText";
 
 interface Props {
   data: InquiryFormType
@@ -18,7 +19,7 @@ type FormValues = {
 
 export const InquiryForm: React.FC<Props> = ({ data }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { title, subtitle, type, fields, submitButton, backgroundImage, htmlid } = data
+  const { title, heading, label, subheading, formType, fields, submitButton, backgroundImage, htmlid, dateFormat, displayMode } = data
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { register, control, handleSubmit, setError, watch, formState: { errors } } = useForm<FormValues>();
 
@@ -32,7 +33,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
         method: "POST",
         body: JSON.stringify({
           title: title,
-          type: type,
+          type: formType,
           submittedContent: {
             ...formValues,
           },
@@ -64,11 +65,22 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
     >
       <Container>
         <div className="grid grid-cols-12 gap-y-10 md:gap-x-10 my-24">
-          <div className={classNames("col-span-12 lg:col-span-5 text-white drop-shadow-lg")}>
-            <h3 className="text-4xl md:text-5xl font-heading font-bold mb-8 tracking-wide leading-snug text-center lg:text-start">
-              {title}
-            </h3>
-            <p className="max-w-lg md:text-lg tracking-wide leading-snug text-center mx-auto lg:text-start lg:mx-0">{subtitle}</p>
+          <div className={classNames("col-span-12 lg:col-span-5 text-white drop-shadow-lg flex flex-col items-center lg:items-start")}>
+            {label && (
+              <div className="tracking-widest text-white font-semibold text-center lg:text-start">
+                {label}
+              </div>
+            )}
+            {heading && (
+              <div className="text-4xl md:text-4.5xl lg:text-5xl font-heading font-bold mb-8 tracking-wide leading-snug text-center lg:text-start">
+                <RichText htmlString={heading} />
+              </div>
+            )}
+            {subheading && (
+              <div className="text-white prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center lg:text-start">
+                {subheading}
+              </div>
+            )}
           </div>
           <div className="col-span-12 lg:col-span-7">
             <form

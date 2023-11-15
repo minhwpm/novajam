@@ -88,10 +88,9 @@ body {
 }
 
 /* @TODO: Heading highlighted words - Refactor needed */
-h1 b, h2 b {
+h1 u, h2 u, h3 u, h4 u {
   @apply text-primary-500;
-  font-style: normal;
-  font-weight: unset;
+  text-decoration: unset;
 }
 
 /* @TODO Refactor - move into module CSS for CardList ? */

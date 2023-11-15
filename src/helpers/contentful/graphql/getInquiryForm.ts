@@ -22,9 +22,14 @@ export default async function getInquiryForm(id: string) {
             sys {
               id
             }
-            title
-            subtitle
-            type
+            heading {
+              json
+            }
+            label
+            subheading
+            content {
+              json
+            }
             fieldsCollection {
               items {
                 sys {
@@ -50,6 +55,9 @@ export default async function getInquiryForm(id: string) {
               height
             }
             htmlid
+            formType
+            dateFormat
+            displayMode
           }
         }
       }

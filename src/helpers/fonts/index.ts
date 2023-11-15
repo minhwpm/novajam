@@ -67,7 +67,7 @@ export const Lato_Font = Lato({
 export const Playfair_Display_Font = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
-  weight: ["400"],
+  weight: ["400", "600"],
   variable: "--font-heading",
 });
 
