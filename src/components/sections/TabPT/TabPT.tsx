@@ -32,7 +32,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
           [`justify-${justify}`]
         )}>
           <RadixTabs.List
-            className="group/list rounded-assets p-2 inline-flex gap-x-5 gap-y-2 border"
+            className="group/list rounded-assets p-2 inline-flex gap-x-5 gap-y-2"
             aria-label={heading}
           >
             {content.length > 0 &&
@@ -40,7 +40,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                 <RadixTabs.Trigger
                   key={section.id}
                   value={section.id}
-                  className="shrink-0 px-6 py-2 flex flex-col justify-center items-center cursor-pointer rounded-assets bg-neutral-100 hover:bg-primary-50 hover:text-primary-500 data-[state='active']:bg-primary-500 data-[state='active']:text-white transition-colors duration-300 ease-in-out"
+                  className="shrink-0 px-6 py-2 flex flex-col justify-center items-center cursor-pointer rounded-assets  bg-neutral-100 hover:bg-primary-50 hover:text-primary-500 data-[state='active']:bg-primary-500 data-[state='active']:text-white transition-all duration-300 ease-in-out"
                 >
                   <div className={classNames("text-sm tracking-widest text-neutral-500 font-semibold")}>
                     {section.label}

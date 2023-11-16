@@ -7,17 +7,31 @@ export const MediaItem: React.FC<{
   altText?: string;
   aspectRatio?: AspectRatioType;
   videoAutoplay?: boolean;
-}> = ({ data, altText, aspectRatio = "auto", videoAutoplay }) => {
-
+  dimensionBase?: "width" | "height";
+}> = ({
+  data,
+  altText,
+  aspectRatio = "auto",
+  videoAutoplay = false,
+  dimensionBase = "width",
+}) => {
   if (!data) {
     return (
-      <div className={classNames(`aspect-${aspectRatio}`)}>
+      <div
+        className={classNames(
+          `aspect-${aspectRatio}`,
+          { "w-full": dimensionBase === "width" },
+          { "h-full": dimensionBase === "height" }
+        )}
+      >
         <Image
-          className="object-cover w-full h-full"
+          className={classNames(
+            "object-cover w-full h-full",
+          )}
           src="/bluebiz_square.webp"
           width={500}
           height={500}
-          alt={altText ?? ""}
+          alt={altText ?? "No image"}
         />
       </div>
     );
@@ -25,12 +39,18 @@ export const MediaItem: React.FC<{
 
   const { url, width, height, title, contentType } = data;
   return (
-    <div className={classNames({ [`aspect-${aspectRatio}`]: width >= 160 })}>
+    <div
+      className={classNames(
+        { [`aspect-${aspectRatio}`]: width >= 160 },
+        { "w-full": dimensionBase === "width" },
+        { "h-full": dimensionBase === "height" }
+      )}
+    >
       {contentType.includes("image") && (
         <Image
           className={classNames(
             { "object-cover w-full h-full": width >= 160 },
-            { "w-20 object-contain": width < 160 }
+            { "w-20 mx-5 object-contain": width < 160 }
           )}
           src={url ?? "/bluebiz_square.webp"}
           alt={altText ?? title}
@@ -40,7 +60,7 @@ export const MediaItem: React.FC<{
       )}
       {contentType.includes("video") && (
         <video
-          className="w-full h-full"
+          className="object-cover w-full h-full"
           src={url}
           autoPlay={videoAutoplay}
           loop={videoAutoplay}

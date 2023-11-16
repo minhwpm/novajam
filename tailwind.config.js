@@ -55,7 +55,7 @@ module.exports = {
         '3': '3px',
       },
       boxShadow: {
-        'shadow-all-directions': 'rgba(0, 27, 71, 0.28) 0px 2px 8px 0px'
+        'all-directions': 'rgba(0, 27, 71, 0.28) .5px .5px 3px .5px'
       },
       spacing: {
         '18': '72px',

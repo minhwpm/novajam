@@ -49,13 +49,13 @@ const Section: React.FC<Props> = ( { id, heading, label, subheading, children, c
           </div>
         )}
         {subheading && (
-          <p className={classNames("prose-lg lg:prose-xl text-center max-w-xl lg:max-w-3xl mx-auto")}>
+          <p className={classNames("prose-lg lg:prose-xl text-center max-w-xl lg:max-w-3xl mx-auto mb-5")}>
             {subheading}
           </p>
         )}
       </Container>
       <Container className={classNames("rounded-assets",
-        { "mt-12": (heading || label || subheading) }
+        { "mt-8": (heading || label || subheading) }
       )}>
         {children}
       </Container>

@@ -27,11 +27,11 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
         loop={true}
         slides={content.map(section => (
           <div key={section.id} className="relative w-screen h-screen">
-            <div className={classNames("w-full h-full",
+            <div className={classNames("h-full",
               { "bg-gradient-to-bl from-primary-800 via-primary-600 to-primary-500" : section.media.length === 0 }
             )}>
-              {section.media.length === 1 && <MediaItem data={section.media[0]} videoAutoplay={true} />}
-              {section.media.length > 1 && <MediaCarousel data={section.media} videoAutoplay={true} />}
+              {section.media.length === 1 && <MediaItem data={section.media[0]} dimensionBase="height" videoAutoplay={true} />}
+              {section.media.length > 1 && <MediaCarousel data={section.media} dimensionBase="height" videoAutoplay={true} />}
             </div>
             {(section.heading || section.content || section.buttons.length) && (
               <div
