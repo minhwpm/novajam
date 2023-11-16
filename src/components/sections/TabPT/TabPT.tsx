@@ -52,7 +52,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
               ))}
           </RadixTabs.List>
         </div>
-        <div className="mt-8 lg:mt-10">
+        <div className="mt-2 lg:mt-3">
           {content.map((section) => (
             <RadixTabs.Content
               key={section.id}

@@ -71,17 +71,17 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
           </div>
         </div>
         { summary && 
-          <div className="text-base flex flex-wrap gap-2 text-neutral-600 font-semibold tracking-wide">
+          <div className="text-base flex flex-wrap gap-2 tracking-wide">
             { specialization && 
-              <div className="flex flex-wrap items-center gap-2">
-                <div className="text-slate-500 uppercase text-sm tracking-wider">
+              <div className="flex flex-wrap items-center gap-2 ">
+                <div className="text-neutral-500 uppercase text-sm tracking-wider">
                   Specialty: 
                 </div>
-                {specialization}
+                <div className="text-neutral-600 ">{specialization} </div>
               </div>
             }
             {summary && 
-              <div className="prose line-clamp-2">
+              <div className="prose line-clamp-3">
                 {summary}
               </div>
             }
