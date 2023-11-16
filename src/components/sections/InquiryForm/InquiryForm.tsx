@@ -19,7 +19,7 @@ type FormValues = {
 
 export const InquiryForm: React.FC<Props> = ({ data }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { title, heading, label, subheading, formType, fields, submitButton, backgroundImage, htmlid, dateFormat, displayMode } = data
+  const { title, heading, label, subheading, content, formType, fields, submitButton, backgroundImage, htmlid, dateFormat, displayMode } = data
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { register, control, handleSubmit, setError, watch, formState: { errors } } = useForm<FormValues>();
 
@@ -44,9 +44,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
       console.error(err);
     }
   }
-
-  console.log("FORM STATE", errors)
-
+  // console.log("FORM STATE", errors)
   return (
     <section
       id={htmlid}
@@ -61,35 +59,38 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             }
           : {}
       }
-      className={classNames({ "bg-primary-600": !backgroundImage })}
+      className={classNames(
+        { "bg-gradient-to-br from-primary-800 via-primary-700 to-primary-500": !backgroundImage }
+      )}
     >
       <Container>
         <div className="grid grid-cols-12 gap-y-10 md:gap-x-10 my-24">
-          <div className={classNames("col-span-12 lg:col-span-5 text-white drop-shadow-lg flex flex-col items-center lg:items-start")}>
+          <div className={classNames("col-span-12 lg:col-span-5 text-neutral-50 drop-shadow-lg flex flex-col items-center lg:items-start")}>
             {label && (
-              <div className="tracking-widest text-white font-semibold text-center lg:text-start">
+              <div className={classNames("tracking-widest text-neutral-50 font-semibold text-center lg:text-start mb-2")}>
                 {label}
               </div>
             )}
             {heading && (
-              <div className={classNames("text-heading leading-normal font-heading tracking-wide  text-center lg:text-start",
-                {"mt-2": label},
-              )}>
+              <div className={classNames("text-heading leading-normal font-heading tracking-wide text-center lg:text-start mb-5")}>
                 <RichText htmlString={heading} />
               </div>
             )}
             {subheading && (
-              <div className={classNames("text-white prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center lg:text-start",
-                {"mt-5": heading},
-              )}>
+              <div className={classNames("text-neutral-50 prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center lg:text-start mb-5")}>
                 {subheading}
+              </div>
+            )}
+            {content && (
+              <div className={classNames("text-neutral-50 prose lg;prose-lg")}>
+                <RichText htmlString={content} />
               </div>
             )}
           </div>
           <div className="col-span-12 lg:col-span-7">
             <form
               className={classNames(
-                "max-w-xl mx-auto lg:mr-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-6 pb-12 bg-white bg-opacity-70 rounded-assets",
+                "max-w-xl mx-auto lg:mr-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-6 pb-12 bg-neutral-50 bg-opacity-70 rounded-assets",
                 { "gap-x-0": fields.length === 1 }
               )}
               onSubmit={handleSubmit(onSubmit)}

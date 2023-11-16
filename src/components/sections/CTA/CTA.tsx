@@ -22,13 +22,13 @@ const CTA: React.FC<{data: CTAType} > = ({ data }) => {
   return (
     <Section>
       <div ref={ref} className={classNames(
-          "bg-primary-800 mx-auto px-5 py-16 lg:py-20 xl:py-32 lg:w-[70%] lg:will-change-[width] rounded-assets",
+          "bg-gradient-to-bl from-primary-800 via-primary-700 to-primary-500 mx-auto px-5 py-16 lg:py-20 xl:py-32 lg:w-[70%] lg:will-change-[width] rounded-assets",
           {"lg:animate-expandingWidth": isVisible},
           {"lg:animate-shrinkingWidth": !isVisible},
         )}
       >
         <div className="flex flex-col items-center max-w-3xl mx-auto">
-          <div className="text-heading leading-normal font-heading font-semibold text-center text-gray-300">
+          <div className="text-heading leading-normal font-heading font-semibold text-center text-neutral-100">
             <RichText htmlString={heading} />
           </div>
           {subheading && (

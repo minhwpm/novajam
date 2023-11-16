@@ -36,15 +36,17 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
       >
         <RichText htmlString={heading} />
       </div>
-      <div
-        className={classNames("block prose lg:prose-lg", {
-          "mx-auto":
-            layout === "Vertical (Text | Image)" ||
-            layout === "Vertical (Image | Text)",
-        })}
-      >
-        {content && <RichText htmlString={content} />}
-      </div>
+      {content && 
+        <div
+          className={classNames("block prose lg:prose-lg", {
+            "mx-auto":
+              layout === "Vertical (Text | Image)" ||
+              layout === "Vertical (Image | Text)",
+          })}
+        >
+          <RichText htmlString={content} />
+        </div>
+      }
       {buttons.length > 0 && (
         <div className="mt-10 flex items-center gap-5">
           {buttons.map((button) => (

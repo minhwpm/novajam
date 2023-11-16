@@ -61,18 +61,30 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
           height={portrait?.height ?? 500}
         />
       </div>
-      <div className="w-full px-4 py-4 bg-neutral-100 rounded-b-assets">
-        <div className="flex flex-wrap items-center justify-center gap-2">
-          <Link className="block underline-hover-effect font-semibold text-xl" href={`/expert/${slug}`}>
+      <div className="w-full px-4 py-4 flex flex-col gap-2 bg-white rounded-b-assets">
+        <div className="flex flex-wrap gap-x-2 items-center">
+          <Link className="underline-hover-effect font-semibold text-xl" href={`/expert/${slug}`}>
             {fullName}
           </Link>
-          <div className="font-semibold text-neutral-600">
+          <div className="font-semibold">
             {role}
           </div>
         </div>
-        { specialization && 
-          <div className="text-base flex flex-wrap items-center justify-center gap-2 text-neutral-600 font-semibold tracking-wide">
-            {specialization}
+        { summary && 
+          <div className="text-base flex flex-wrap gap-2 text-neutral-600 font-semibold tracking-wide">
+            { specialization && 
+              <div className="flex flex-wrap items-center gap-2">
+                <div className="text-slate-500 uppercase text-sm tracking-wider">
+                  Specialty: 
+                </div>
+                {specialization}
+              </div>
+            }
+            {summary && 
+              <div className="prose line-clamp-2">
+                {summary}
+              </div>
+            }
           </div>
         }
       </div>

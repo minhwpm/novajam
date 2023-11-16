@@ -13,7 +13,7 @@ export const ContentPiece: React.FC<{
 }) => {
   const { heading, label, content, media, buttons } = data;
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col rounded-assets bg-white">
       <div
         className={classNames("flex", 
           { "justify-center": alignment === "center" },
@@ -26,7 +26,7 @@ export const ContentPiece: React.FC<{
       {(heading || label || content || buttons) && (
         <div
           className={classNames(
-            "py-5 pr-5 flex-1 flex flex-col justify-between",
+            "p-5 flex-1 flex flex-col justify-between",
             { "text-center": alignment === "center" },
             { "text-end": alignment === "reverse" }
           )}

@@ -39,21 +39,17 @@ const Section: React.FC<Props> = ( { id, heading, label, subheading, children, c
     >
       <Container>
         {label && (
-          <div className="tracking-widest text-secondary-500 font-semibold text-center mx-auto">
+          <div className="tracking-widest text-secondary-500 font-semibold text-center mx-auto mb-2">
             {label}
           </div>
         )}
         {heading && (
-          <div className={classNames("font-heading text-heading !leading-normal text-center max-w-3xl mx-auto",
-            {"mt-2": label},
-          )}>
+          <div className={classNames("font-heading text-heading !leading-normal text-center max-w-3xl mx-auto mb-5")}>
             <RichText htmlString={heading} />
           </div>
         )}
         {subheading && (
-          <p className={classNames("prose-lg lg:prose-xl text-center max-w-xl lg:max-w-3xl mx-auto",
-            {"mt-5": heading},
-          )}>
+          <p className={classNames("prose-lg lg:prose-xl text-center max-w-xl lg:max-w-3xl mx-auto")}>
             {subheading}
           </p>
         )}
