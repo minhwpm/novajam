@@ -8,7 +8,7 @@ export const MediaCarousel: React.FC<{
   aspectRatio?: AspectRatioType;
   videoAutoplay?: boolean;
   dimensionBase?: "width" | "height";
-}> = ({ data, aspectRatio = "auto", videoAutoplay = false, dimensionBase }) => {
+}> = ({ data, aspectRatio = "auto", videoAutoplay = false, dimensionBase = "width" }) => {
   return (
     <div className="relative">
       <Carousel

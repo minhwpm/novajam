@@ -13,17 +13,15 @@
 .standard-heading-font-size {
   --heading-font-size: clamp(1.875rem, 6vw, 2.5rem);
   --super-heading-font-size: clamp(2.875rem, 8vw, 3.75rem);
-
 }
 
 .standout-heading-font-size {
   --heading-font-size: clamp(2.25rem, 6vw, 3rem);
   --super-heading-font-size: clamp(3.375rem, 8vw, 4.5rem);
-
 }
 
 .impactful-heading-font-size {
-  --heading-font-size: clamp(2.5rem, 6vw, 4.125rem);
+  --heading-font-size: clamp(2.75rem, 6vw, 4.125rem);
   --super-heading-font-size: clamp(3.75rem, 8vw, 6.125rem);
 }
 

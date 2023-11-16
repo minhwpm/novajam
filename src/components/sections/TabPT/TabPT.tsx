@@ -58,7 +58,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
               key={section.id}
               value={section.id}
               className={classNames(
-                "text-lg col-start-1 row-start-1 transition-all ease-in-out duration-500 relative",
+                "text-lg transition-all ease-in-out duration-500 relative",
                 { "opacity-100 right-0 z-10": activeItem === section.id },
                 { "opacity-0 -right-24 z-0": activeItem !== section.id },
                 { "text-center": alignment === "center" },
