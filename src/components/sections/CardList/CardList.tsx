@@ -1,7 +1,6 @@
 import Section from "@/components/elements/Section/Section";
 import BlogPreview from "@/components/elements/BlogPreview/BlogPreview";
 import classNames from "classnames";
-import ProductPreview from "@/components/elements/ProductPreview/ProductPreview";
 import { AlignmentType, CardListType, CardType } from "@/helpers/types";
 import PagePreview from "../PagePreview/PagePreview";
 import Link from "next/link";
@@ -18,8 +17,6 @@ const ContentItem: React.FC<{
   alignment: AlignmentType
 }> = ({ data, alignment }) => {
   switch (data.contentType) {
-    case "product":
-      return <ProductPreview data={data} />;
     case "blog":
       return <BlogPreview data={data} />;
     case "page":

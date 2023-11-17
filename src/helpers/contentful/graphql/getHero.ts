@@ -38,7 +38,7 @@ export default async function getHero(id: string) {
                     }
                     text
                     url
-                    newTab
+                    openNewTab
                     buttonVariant
                   }
                 }

@@ -28,7 +28,7 @@ export default async function getCardList(id: string) {
             seeAllLink {
               url
               text
-              newTab
+              openNewTab
             }
             htmlid
             layout
@@ -51,21 +51,6 @@ export default async function getCardList(id: string) {
                     width
                     height
                     contentType
-                  }
-                }
-                ... on Product {
-                  sys {
-                    id
-                  }
-                  title
-                  slug
-                  price
-                  categories
-                  mediaCollection (limit: 1) {
-                    items {
-                      url
-                      title
-                    }
                   }
                 }
                 ... on Expert {
@@ -113,7 +98,7 @@ export default async function getCardList(id: string) {
                     height
                   }
                   url
-                  newTab
+                  openNewTab
                 }
                 ... on Statistics {
                   sys {
@@ -140,7 +125,7 @@ export default async function getCardList(id: string) {
                       }
                       url
                       text
-                      newTab
+                      openNewTab
                       buttonVariant
                     }
                   }
@@ -157,7 +142,7 @@ export default async function getCardList(id: string) {
                   ctaButton {
                     url
                     text
-                    newTab
+                    openNewTab
                     buttonVariant
                   }
                 }

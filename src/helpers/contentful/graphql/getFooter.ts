@@ -33,7 +33,7 @@ export default async function getFooter(url: string) {
                       id
                     }
                     text
-                    newTab
+                    openNewTab
                     url
                   }
                 }

@@ -48,7 +48,7 @@ export default async function getPresentation(id: string) {
                       }
                       text
                       url
-                      newTab
+                      openNewTab
                       buttonVariant
                     }
                   }

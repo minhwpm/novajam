@@ -33,7 +33,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
         method: "POST",
         body: JSON.stringify({
           title: title,
-          type: formType,
+          formType: formType,
           submittedContent: {
             ...formValues,
           },
@@ -111,7 +111,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                         <p>Wrong format. Please try again. </p> 
                       )}
                     </div>
-                    {fieldItem.type === "select" && (
+                    {fieldItem.fieldType === "select" && (
                       <Select
                         className="rounded-assets w-full"
                         control={control}
@@ -132,7 +132,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                       />
                     )}
                     
-                    {fieldItem.type === "date" && (
+                    {fieldItem.fieldType === "date" && (
                       <DatePicker
                         className="w-full border rounded-assets px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
                         placeholder={
@@ -147,7 +147,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                       />
                     )}
 
-                    {fieldItem.type === "textarea" && (
+                    {fieldItem.fieldType === "textarea" && (
                       <textarea
                         key={fieldItem.id}
                         className="block border rounded-assets w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
@@ -163,15 +163,15 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                       />
                     )}
 
-                    {(fieldItem.type !== "textarea" && fieldItem.type !== "select" && fieldItem.type !== "date") && (
+                    {(fieldItem.fieldType !== "textarea" && fieldItem.fieldType !== "select" && fieldItem.fieldType !== "date") && (
                       <input
                         className={classNames(
                           "block border rounded-assets w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
                         )}
-                        type={fieldItem.type}
+                        type={fieldItem.fieldType}
                         {...register(fieldItem.label, {
                           required: fieldItem.required,
-                          pattern: getRegEx(fieldItem.type),
+                          pattern: getRegEx(fieldItem.fieldType),
 
                         })}
                         placeholder={

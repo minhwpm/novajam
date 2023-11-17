@@ -74,7 +74,7 @@ export const Playfair_Display_Font = Playfair_Display({
 export const Lora_Font = Lora({
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600"],
   variable: "--font-heading",
 });
 
@@ -88,7 +88,7 @@ export const Rubik_Font = Rubik({
 export const Merriweather_Font = Merriweather({
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "700", "900"],
+  weight: ["300", "400", "700"],
   variable: "--font-heading",
 })
 

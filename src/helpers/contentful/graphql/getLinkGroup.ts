@@ -24,7 +24,7 @@ export default async function getLinkGroup(id: string) {
               items {
                 text
                 url
-                newTab
+                openNewTab
               }
             }
           }

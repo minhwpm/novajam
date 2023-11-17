@@ -32,7 +32,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
       >
         {menu.map((item) => (
           <NavigationMenu.Item
-            className={classNames({"relative" : "menu" in item && item.style === "dropdown"})}
+            className={classNames({"relative" : "menu" in item && item.layout === "dropdown"})}
             key={item.id}
           >
             { item.contentType === "link" && (
@@ -52,16 +52,16 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
                   {item.title} <FontAwesomeIcon className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180" icon={faChevronDown} size="2xs" width={10} />
                 </NavigationMenu.Trigger>
                 <NavigationMenu.Content data-state="open" className={classNames("list-none",
-                  {"absolute top-full left-0 w-full bg-white shadow-lg": item.style === 'mega'}, //Mega menu style
-                  {"absolute top-full left-0 w-64 pt-5": item.style === 'dropdown'}, //Dropdown menu style
+                  {"absolute top-full left-0 w-full bg-white shadow-lg": item.layout === 'mega'}, //Mega menu style
+                  {"absolute top-full left-0 w-64 pt-5": item.layout === 'dropdown'}, //Dropdown menu style
                 )}
                   onFocusOutside={() => {
                     console.log("HELLO CONTENT")
                   }}
                 >
-                  {item.style === "mega" && (
+                  {item.layout === "mega" && (
                     <div className={classNames(
-                      {"container mx-auto px-4 pb-10 ": item.style === "mega"}
+                      {"container mx-auto px-4 pb-10 ": item.layout === "mega"}
                     )}>
                       <div className="grow flex gap-12 pt-5 border-t">
                         {item.menu.length > 0 && (
@@ -98,7 +98,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
                       </div>
                     </div>
                   )}
-                  {item.style === "dropdown" && (
+                  {item.layout === "dropdown" && (
                     <NavigationMenu.Sub orientation="vertical" className="py-4 px-2 bg-white shadow-lg border-t rounded-assets">
                       <NavigationMenu.List>
                         {item.menu.length > 0 && item.menu.map((subItem) => (

@@ -32,7 +32,7 @@ export default async function getNavigation(url: string) {
                     id
                   }
                   text
-                  newTab
+                  openNewTab
                   url
                 }
                 ... on Submenu {
@@ -40,7 +40,7 @@ export default async function getNavigation(url: string) {
                     id
                   }
                   title
-                  style
+                  layout
                 }
               }
             }
@@ -48,7 +48,7 @@ export default async function getNavigation(url: string) {
               items {
                 text
                 url
-                newTab
+                openNewTab
                 buttonVariant
               }
             }

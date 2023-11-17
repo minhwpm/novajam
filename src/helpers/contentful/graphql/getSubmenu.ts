@@ -21,7 +21,7 @@ export default async function getSubmenu(id: string) {
         ) {
           items {
             title
-            style
+            layout
             menuCollection {
               items {
                 __typename
@@ -31,7 +31,7 @@ export default async function getSubmenu(id: string) {
                   }
                   text
                   url
-                  newTab
+                  openNewTab
                 }
                 ... on LinkGroup  {
                   sys {
@@ -52,18 +52,6 @@ export default async function getSubmenu(id: string) {
                     title
                     width
                     height
-                  }
-                }
-                ... on Product {
-                  title
-                  slug
-                  mediaCollection (limit: 1) {
-                    items {
-                      url
-                      title
-                      width
-                      height
-                    }
                   }
                 }
                 ... on Page {

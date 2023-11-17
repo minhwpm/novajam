@@ -21,6 +21,7 @@ export type ButtonType = {
   id?: string
   url: string
   text: string
+  openNewTab: boolean
   buttonVariant: ButtonVariant
 }
 
@@ -34,7 +35,7 @@ export type LinkType = {
     height: number
   }
   url: string
-  newTab: boolean
+  openNewTab: boolean
   contentType: "link"
 }
 
@@ -49,8 +50,8 @@ export interface SubmenuType {
   id: string
   title: string
   menu: Array<LinkType | LinkGroupType>
-  featuredContent: Array<BlogType | ProductType | PageType>
-  style: 'dropdown' | 'mega'
+  featuredContent: Array<BlogType | PageType>
+  layout: 'dropdown' | 'mega'
   contentType: "submenu"
 }
 
@@ -142,28 +143,6 @@ export type BlogType = {
   contentType: "blog"
 }
 
-export type ProductType = {
-  id: string
-  title: string
-  slug: string
-  price: number
-  summary: string
-  content: string
-  categories: Array<string>
-  inStock: boolean
-  media: Array<{
-    title: string
-    url: string
-    width: number
-    height: number
-  }>
-  metaTitle: string
-  metaDescription: string
-  metaKeywords?: Array<string>
-  metaImage: MediaType
-  contentType: "product"
-}
-
 export type ExpertType = {
   id: string
   slug: string
@@ -251,7 +230,7 @@ export type PricingPlanType = {
   contentType: 'pricingplan'
 }
 
-export type CardType = BlogType | ProductType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType | PricingPlanType
+export type CardType = BlogType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType | PricingPlanType
 
 export type CardListType = {
   id: string
@@ -266,6 +245,16 @@ export type CardListType = {
   htmlid: string
 }
 
+export type FormFieldType = {
+  id: string
+  label: string
+  fieldType: 'text' | 'email' | 'tel' | 'number' | 'date' | 'textarea' | 'select'
+  options: Array<string>
+  required: boolean
+  placeholder: string
+  uiWidth: "half-size" | "full-size"
+}
+
 export type InquiryFormType = {
   id: string
   title: string
@@ -276,7 +265,7 @@ export type InquiryFormType = {
   fields: Array<{
     id: string
     label: string
-    type: string
+    fieldType: string
     options: Array<string>
     required: boolean
     placeholder: string

@@ -36,7 +36,7 @@ export default async function getInquiryForm(id: string) {
                   id
                 }
                 label
-                type
+                fieldType
                 options
                 required
                 placeholder
