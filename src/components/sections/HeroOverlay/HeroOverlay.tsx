@@ -36,7 +36,7 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
             {(section.heading || section.content || section.buttons.length) && (
               <div
                 className={classNames(
-                  "absolute text-white px-8 py-12 drop-shadow-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full lg:w-2/3 flex flex-col justify-center text-center"
+                  "absolute text-white px-8 py-12 drop-shadow-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center text-center bg-neutral-900/20 h-full w-full"
                 )}
               >
                 {section.label && (
