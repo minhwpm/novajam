@@ -3,7 +3,29 @@ import Image from "next/image"
 import classNames from "classnames"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ProductType } from "@/helpers/types"
+import { MediaType } from "@/helpers/types"
+
+type ProductType = {
+  id: string
+  title: string
+  slug: string
+  price: number
+  summary: string
+  content: string
+  categories: Array<string>
+  inStock: boolean
+  media: Array<{
+    title: string
+    url: string
+    width: number
+    height: number
+  }>
+  metaTitle: string
+  metaDescription: string
+  metaKeywords?: Array<string>
+  metaImage: MediaType
+  contentType: "product"
+}
 
 interface Props {
   data: ProductType

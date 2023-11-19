@@ -285,5 +285,4 @@ export type InquiryFormType = {
   htmlid: string
   formType: string
   dateFormat: string
-  displayMode: string
 }

@@ -35,7 +35,7 @@ export const ContentPiece: React.FC<{
             <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest")}>
               {label}
             </div>
-            <div className="text-lg lg:text-2xl font-semibold mt-1">
+            <div className="text-lg lg:text-2xl mt-1">
               <RichText htmlString={heading} />
             </div>
             <div className="py-3 prose lg:prose-lg">

@@ -19,7 +19,7 @@ type FormValues = {
 
 export const InquiryForm: React.FC<Props> = ({ data }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { title, heading, label, subheading, content, formType, fields, submitButton, backgroundImage, htmlid, dateFormat, displayMode } = data
+  const { title, heading, label, subheading, content, formType, fields, submitButton, backgroundImage, htmlid, dateFormat } = data
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { register, control, handleSubmit, setError, watch, formState: { errors } } = useForm<FormValues>();
 
