@@ -55,6 +55,7 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
               variant={button.buttonVariant}
               url={button.url}
               size="lg"
+              openNewTab={button.openNewTab}
             >
               {button.text}
             </Button>

@@ -46,9 +46,10 @@ const Header: React.FC<Props> = ({ data }) => {
                 buttons.length > 0 &&
                 buttons.map((button) => (
                   <Button
-                    key={button.text}
+                    key={button.id}
                     url={button.url}
                     variant={button.buttonVariant ?? "outline-white"}
+                    openNewTab={button.openNewTab}
                   >
                     {button.text}
                   </Button>
@@ -101,6 +102,7 @@ const Header: React.FC<Props> = ({ data }) => {
                 key={button.text}
                 url={button.url}
                 variant={button.buttonVariant ?? "outline"}
+                openNewTab={button.openNewTab}
               >
                 {button.text}
               </Button>

@@ -11,11 +11,11 @@ export type MediaType = {
   contentType: string
 }
 
-export type ButtonVariant = "standard" | "alternate" | "black" | "link" | "outline" | "outline-black" | "outline-white"
-
 export type AspectRatioType = "video" | "square" | "3/4" | "4/3" | "3/2" | "auto" 
 
 export type AlignmentType = "inherit" | "center" | "reverse"
+
+export type ButtonVariant = "standard" | "alternate" | "black" | "link" | "outline" | "outline-black" | "outline-white"
 
 export type ButtonType = {
   id?: string

@@ -81,6 +81,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                           key={button.id}
                           url={button.url}
                           variant={button.buttonVariant}
+                          openNewTab={button.openNewTab}
                         >
                           {button.text}
                         </Button>

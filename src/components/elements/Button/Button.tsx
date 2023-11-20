@@ -12,10 +12,11 @@ interface ButtonProps {
   size?: "base" | "lg"
   type?: "submit" | "button" | "reset" | undefined
   disabled?: boolean
+  openNewTab?: boolean
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-  const { size = "base", variant = "standard", url, children, onClick, type = "button", disabled = false } = props
+  const { size = "base", variant = "standard", url, children, onClick, type = "button", disabled = false, openNewTab = false } = props
   if (variant === "link") {
     return (
       <Link
@@ -50,10 +51,14 @@ const Button: React.FC<ButtonProps> = (props) => {
 
   if (url) {
     return (
-      <Link className={classes} href={url}>
+      <Link
+        className={classes}
+        href={url}
+        target={openNewTab ? "_blank" : "_self"}
+      >
         {children}
       </Link>
-    )
+    );
   }
   return (
     <button type={type} className={classes} onClick={onClick} disabled={disabled}>

@@ -1,10 +1,13 @@
-'use client'
-import { useRouter } from "next/navigation"
+"use client";
+import { useRouter } from "next/navigation";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Button from "../Button/Button";
 
-const Pagination: React.FC<{totalPages: number, currentPageNumber?: number}> = ({totalPages, currentPageNumber = 1}) => {
-  const router = useRouter()
+const Pagination: React.FC<{
+  totalPages: number;
+  currentPageNumber?: number;
+}> = ({ totalPages, currentPageNumber = 1 }) => {
+  const router = useRouter();
   return (
     <div className="relative w-full flex flex-col items-center gap-5 my-12">
       <div className="flex justify-center gap-5">
@@ -15,7 +18,7 @@ const Pagination: React.FC<{totalPages: number, currentPageNumber?: number}> = (
               : `/blog/page/${currentPageNumber - 1}`
           }
           variant="outline"
-          disabled={ currentPageNumber <= 1 }
+          disabled={currentPageNumber <= 1}
         >
           <AiOutlineArrowLeft size={20} />
         </Button>
@@ -48,6 +51,6 @@ const Pagination: React.FC<{totalPages: number, currentPageNumber?: number}> = (
       </div>
     </div>
   );
-}
+};
 
-export default Pagination
+export default Pagination;

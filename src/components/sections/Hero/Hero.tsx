@@ -102,6 +102,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
                         variant={button.buttonVariant}
                         size="lg"
                         url={button.url}
+                        openNewTab={button.openNewTab}
                       >
                         {button.text}
                       </Button>

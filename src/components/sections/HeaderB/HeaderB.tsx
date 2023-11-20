@@ -24,14 +24,18 @@ const Header: React.FC<HeaderProps> = ({
   const sticky = useStickyHeaderOnScrollUp()
 
   return (
-    <header className={classNames(
-      "bg-white z-[99999]",
-      { "font-bold tracking-wider border-b": variant === "standard" },
-      { "sticky w-full z-50 top-0 animate-headerSlideIn": sticky },
-    )}>
-      <div className={classNames(
-        "relative flex p-4 lg:px-32 lg:py-5 items-center justify-between border-b",
-      )}>
+    <header
+      className={classNames(
+        "bg-white z-[99999]",
+        { "font-bold tracking-wider border-b": variant === "standard" },
+        { "sticky w-full z-50 top-0 animate-headerSlideIn": sticky }
+      )}
+    >
+      <div
+        className={classNames(
+          "relative flex p-4 lg:px-32 lg:py-5 items-center justify-between border-b"
+        )}
+      >
         <div className="shrink-0">
           <Link href="/">
             <Image
@@ -43,38 +47,47 @@ const Header: React.FC<HeaderProps> = ({
             />
           </Link>
         </div>
-        { searchBox?.enabled && (
+        {searchBox?.enabled && (
           <div className="hidden lg:block w-96">
             <SearchBox placeholder={searchBox.placeholder ?? "Search..."} />
           </div>
         )}
         <div className="flex gap-5 items-center">
-          { isLoginEnabled && (
-            <Link href="/login" className="hidden lg:flex items-center gap-1 py-1 rounded hover:bg-primary-100 hover:text-primary-600 transition-all duration-300">
+          {isLoginEnabled && (
+            <Link
+              href="/login"
+              className="hidden lg:flex items-center gap-1 py-1 rounded hover:bg-primary-100 hover:text-primary-600 transition-all duration-300"
+            >
               <CircleUser /> Login
             </Link>
           )}
-          { isShoppingEnabled &&
-            <CartBtn />
-          }
+          {isShoppingEnabled && <CartBtn />}
           <NavMenuMobile menu={menu} />
         </div>
       </div>
-      { searchBox?.enabled && (
+      {searchBox?.enabled && (
         <div className="lg:hidden p-4">
           <SearchBox placeholder={searchBox.placeholder ?? "Search..."} />
         </div>
       )}
       <NavMenu menu={menu} />
       <div className="shrink-0 hidden lg:block">
-        {buttons && buttons.length > 0 && buttons.map(button => (
-          <Button key={button.text} variant={button.buttonVariant} size="lg" url={button.url}>
-            {button.text}
-          </Button>
-        ))}
+        {buttons &&
+          buttons.length > 0 &&
+          buttons.map((button) => (
+            <Button
+              key={button.text}
+              variant={button.buttonVariant}
+              size="lg"
+              url={button.url}
+              openNewTab={button.openNewTab}
+            >
+              {button.text}
+            </Button>
+          ))}
       </div>
     </header>
-  )
+  );
 }
 
 export default Header

@@ -72,6 +72,7 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
                           variant={button.buttonVariant}
                           size="lg"
                           url={button.url}
+                          openNewTab={button.openNewTab}
                         >
                           {button.text}
                         </Button>

@@ -53,6 +53,7 @@ export const ContentPiece: React.FC<{
                   key={button.id}
                   url={button.url}
                   variant={button.buttonVariant}
+                  openNewTab={button.openNewTab}
                 >
                   {button.text}
                 </Button>
