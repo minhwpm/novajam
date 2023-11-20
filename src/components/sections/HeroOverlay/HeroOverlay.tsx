@@ -44,7 +44,7 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
                   { "items-end text-end": alignment === "reverse" },
                 )}>
                   {section.label && (
-                    <div className="tracking-widest font-semibold">
+                    <div className="tracking-widest font-semibold max-w-2xl">
                       {section.label}
                     </div>
                   )}

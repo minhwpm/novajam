@@ -1,5 +1,6 @@
 import CTA from "@/components/sections/CTA/CTA";
-import HeroHorizontal from "@/components/sections/HeroHorizontal/HeroHorizontal";
+import Hero from "@/components/sections/Hero/Hero";
+import HeroOverlay from "../HeroOverlay/HeroOverlay";
 import ScrollingPT from "@/components/sections/ScrollingPT/ScrollingPT";
 import AccordionPT from "@/components/sections/AccordionPT/AccordionPT";
 import CardList from "@/components/sections/CardList/CardList";
@@ -12,18 +13,16 @@ import {
   InquiryFormType,
   PresentationType,
 } from "@/helpers/types";
-import HeroOverlay from "../HeroOverlay/HeroOverlay";
 import TabPT from "../TabPT/TabPT";
 import CarouselPT from "../CarouselPT/CarouselPT";
 import MiniCarouselPT from "../MiniCarouselPT/MiniCarouselPT";
 import { InquiryForm } from "../InquiryForm/InquiryForm";
 import VerticalTabPT from "../VerticalTabPT/VerticalTabPT";
-import Hero from "../Hero/Hero";
 
 const sectionComponents = {
   "hero": {
     "vertical": Hero,
-    "horizontal": HeroHorizontal,
+    "horizontal": Hero,
     "overlay": HeroOverlay,
   },
   "cta": CTA,
