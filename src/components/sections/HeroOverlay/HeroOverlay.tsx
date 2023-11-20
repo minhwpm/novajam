@@ -10,9 +10,10 @@ import RichText from "@/components/elements/RichText/RichText";
 import Carousel from "@/components/elements/Carousel/Carousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
+import Container from "@/components/elements/Container/Container";
 
 const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
-  const { content } = data;
+  const { content, alignment } = data;
   return (
     <section className={classNames("relative")} >
       <Carousel
@@ -34,43 +35,49 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
               {section.media.length > 1 && <MediaCarousel data={section.media} dimensionBase="height" videoAutoplay={true} />}
             </div>
             {(section.heading || section.content || section.buttons.length) && (
-              <div
-                className={classNames(
-                  "absolute text-white px-8 py-12 drop-shadow-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center text-center bg-neutral-900/20 h-full w-full"
-                )}
-              >
-                {section.label && (
-                  <div className="tracking-widest font-semibold">
-                    {section.label}
-                  </div>
-                )}
-                {section.heading && (
-                  <div className="text-super-heading leading-tight font-heading max-w-3xl mx-auto">
-                    <RichText htmlString={section.heading} />
-                  </div>
-                )}
-                {section.content && (
-                  <div className="block text-lg lg:text-2xl font-semibold mt-5">
-                    <RichText htmlString={section.content} />
-                  </div>
-                )}
-                <div
-                  className={classNames(
-                    "flex flex-row flex-wrap gap-6 mt-12 justify-center"
+              <div className={classNames(
+                "absolute text-white drop-shadow-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  bg-neutral-900/20 h-full w-full",
+              )}>
+                <Container className={classNames(
+                  "h-full flex flex-col justify-center",
+                  { "items-center text-center": alignment === "center" },
+                  { "items-end text-end": alignment === "reverse" },
+                )}>
+                  {section.label && (
+                    <div className="tracking-widest font-semibold">
+                      {section.label}
+                    </div>
                   )}
-                >
-                  {section.buttons.length > 0 &&
-                    section.buttons.map((button) => (
-                      <Button
-                        key={button.text}
-                        variant={button.buttonVariant}
-                        size="lg"
-                        url={button.url}
-                      >
-                        {button.text}
-                      </Button>
-                    ))}
-                </div>
+                  {section.heading && (
+                    <div className="text-super-heading leading-tight font-heading max-w-3xl">
+                      <RichText htmlString={section.heading} />
+                    </div>
+                  )}
+                  {section.content && (
+                    <div className="block text-lg lg:text-xl font-semibold leading-normal mt-5 max-w-2xl">
+                      <RichText htmlString={section.content} />
+                    </div>
+                  )}
+                  <div
+                    className={classNames(
+                      "flex flex-row flex-wrap gap-6 mt-12",
+                      { "justify-center": alignment === "center" },
+                      { "justify-end": alignment === "reverse" }
+                    )}
+                  >
+                    {section.buttons.length > 0 &&
+                      section.buttons.map((button) => (
+                        <Button
+                          key={button.text}
+                          variant={button.buttonVariant}
+                          size="lg"
+                          url={button.url}
+                        >
+                          {button.text}
+                        </Button>
+                      ))}
+                  </div>
+                </Container>
               </div>
             )}
           </div>
