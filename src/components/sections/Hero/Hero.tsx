@@ -42,7 +42,7 @@ const HeroB: React.FC<Props> = ({ data }) => {
       <Container className={classNames("flex mb-12")}>
         <Carousel
           autoplay={{
-            delay: 2500,
+            delay: 4500,
             disableOnInteraction: false,
           }}
           pagination={{

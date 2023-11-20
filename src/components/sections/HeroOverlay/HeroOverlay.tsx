@@ -18,7 +18,7 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
     <section className={classNames("relative")} >
       <Carousel
         autoplay={{
-          delay: 2500,
+          delay: 4500,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -27,7 +27,7 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
         }}
         loop={true}
         slides={content.map(section => (
-          <div key={section.id} className="relative w-screen h-screen">
+          <div key={section.id} className="relative w-screen h-screen lg:h-auto">
             <div className={classNames("h-full",
               { "bg-gradient-to-bl from-primary-800 via-primary-600 to-primary-500" : section.media.length === 0 }
             )}>
