@@ -27,24 +27,24 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
         }}
         loop={true}
         slides={content.map(section => (
-          <div key={section.id} className="relative w-screen h-screen lg:h-auto">
-            <div className={classNames("h-full",
-              { "bg-gradient-to-bl from-primary-800 via-primary-600 to-primary-500" : section.media.length === 0 }
-            )}>
+          <div key={section.id} className={classNames("relative w-screen min-h-max")}>
+            <div className={classNames("w-full h-full")}>
               {section.media.length === 1 && <MediaItem data={section.media[0]} dimensionBase="height" videoAutoplay={true} />}
               {section.media.length > 1 && <MediaCarousel data={section.media} dimensionBase="height" videoAutoplay={true} />}
             </div>
             {(section.heading || section.content || section.buttons.length) && (
               <div className={classNames(
-                "absolute text-white drop-shadow-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  bg-neutral-900/20 h-full w-full",
+                "w-full h-full py-10 lg:py-16 text-white drop-shadow-lg",
+                { "bg-gradient-to-b from-primary-800 via-primary-500 to-primary-300" : section.media.length === 0 },
+                { "absolute top-0 left-0 bg-neutral-900/20": section.media.length > 0 }
               )}>
                 <Container className={classNames(
-                  "h-full flex flex-col justify-center",
+                  "h-full flex flex-col justify-center bg-transparent",
                   { "items-center text-center": alignment === "center" },
                   { "items-end text-end": alignment === "reverse" },
                 )}>
                   {section.label && (
-                    <div className="tracking-widest font-semibold max-w-2xl">
+                    <div className="tracking-widest font-semibold lg:text-lg max-w-2xl">
                       {section.label}
                     </div>
                   )}
