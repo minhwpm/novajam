@@ -21,7 +21,7 @@ export default async function getHero(id: string) {
         ) {
           items {
             layout
-            alignment
+            textAlignment
             contentCollection {
               items {
                 __typename

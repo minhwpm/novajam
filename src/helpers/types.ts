@@ -181,7 +181,7 @@ export type HeroType = {
   id: string
   content: Array<ContentPieceType>
   layout: "overlay" | "vertical" | "horizontal"
-  alignment: AlignmentType
+  textAlignment: AlignmentType
   contentType: "hero"
 }
 

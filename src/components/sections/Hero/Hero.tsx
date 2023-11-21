@@ -19,7 +19,7 @@ interface Props {
 }
 
 const HeroB: React.FC<Props> = ({ data }) => {
-  const { content, layout, alignment } = data;
+  const { content, layout, textAlignment } = data;
   const [animated, setAnimated] = useState(false);
   const [ref, isVisible] = useInView({
     threshold: 0.3,
@@ -58,8 +58,8 @@ const HeroB: React.FC<Props> = ({ data }) => {
               )}
             >
               <div className={classNames("flex flex-col gap-2 lg:pr-10 py-10",
-                { "items-center text-center": alignment === "center" },
-                { "items-end text-end": alignment === "reverse" },
+                { "items-center text-center": textAlignment === "center" },
+                { "items-end text-end": textAlignment === "reverse" },
               )}>
                 <div
                   className={classNames(
@@ -91,8 +91,8 @@ const HeroB: React.FC<Props> = ({ data }) => {
                   <div
                     className={classNames(
                       "flex flex-row flex-wrap gap-6 mt-5",
-                      { "justify-center": alignment === "center" },
-                      { "justify-end": alignment === "reverse" },
+                      { "justify-center": textAlignment === "center" },
+                      { "justify-end": textAlignment === "reverse" },
                       animationClasses
                     )}
                   >

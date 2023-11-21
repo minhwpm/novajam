@@ -13,7 +13,7 @@ import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel
 import Container from "@/components/elements/Container/Container";
 
 const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
-  const { content, alignment } = data;
+  const { content, textAlignment } = data;
   return (
     <section className={classNames("relative")} >
       <Carousel
@@ -40,8 +40,8 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
               )}>
                 <Container className={classNames(
                   "h-full flex flex-col justify-center bg-transparent",
-                  { "items-center text-center": alignment === "center" },
-                  { "items-end text-end": alignment === "reverse" },
+                  { "items-center text-center": textAlignment === "center" },
+                  { "items-end text-end": textAlignment === "reverse" },
                 )}>
                   {section.label && (
                     <div className="tracking-widest font-semibold lg:text-lg max-w-2xl">
@@ -61,8 +61,8 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
                   <div
                     className={classNames(
                       "flex flex-row flex-wrap gap-6 mt-12",
-                      { "justify-center": alignment === "center" },
-                      { "justify-end": alignment === "reverse" }
+                      { "justify-center": textAlignment === "center" },
+                      { "justify-end": textAlignment === "reverse" }
                     )}
                   >
                     {section.buttons.length > 0 &&
