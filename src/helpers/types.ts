@@ -60,12 +60,6 @@ export interface NavigationType {
   logo: MediaType,
   logoRedirect?: string
   menu: Array<LinkType | SubmenuType>
-  isLoginEnabled?: boolean
-  isShoppingEnabled?: boolean
-  searchBox?: {
-    enabled: boolean
-    placeholder: string
-  } 
   buttons?: Array<ButtonType>
   uiVariant: "standard" | "minimal" | "overlay"
 }
