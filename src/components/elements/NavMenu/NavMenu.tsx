@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { LinkType, SubmenuType } from "@/helpers/types"
 import './styles.css';
 import SubMenuFeaturedContent from './SubMenuFeaturedContent';
+import { usePathname } from 'next/navigation';
 
 export interface NavMenuProps {
   menu: Array<LinkType | SubmenuType>
@@ -19,6 +20,7 @@ export function getMenuItemText(item: LinkType | SubmenuType): string {
 }
 
 const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {  
+  const pathname = usePathname()
   return (
     <NavigationMenu.Root
       className={classNames(
@@ -32,11 +34,19 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
       >
         {menu.map((item) => (
           <NavigationMenu.Item
-            className={classNames({"relative" : "menu" in item && item.layout === "dropdown"})}
+            className={classNames(
+              {"relative" : "menu" in item && item.layout === "dropdown"}
+            )}
             key={item.id}
           >
             { item.contentType === "link" && (
-              <Link className="py-2 select-none inline-block underline-hover-effect " href={item.url}>
+              <Link 
+                href={item.url}
+                className={classNames(
+                  "py-2 select-none inline-block underline-hover-effect",
+                  { "before:w-full": pathname === item.url}
+                )}
+              >
                 {item.text}
               </Link>
             )}
@@ -46,7 +56,6 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
                   className="py-2 select-none underline-hover-effect cursor-pointer data-[state=open]:before:w-full group"
                   onPointerEnter={(e) => {
                     e.preventDefault()
-                    console.log("HELLO TRIGGER")
                   }}
                 >
                   {item.title} <FontAwesomeIcon className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180" icon={faChevronDown} size="2xs" width={10} />
