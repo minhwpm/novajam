@@ -62,36 +62,38 @@ const Header: React.FC<Props> = ({ data }) => {
   if (uiVariant === "overlay") {
     return (
       <header className={classNames("relative z-[99999]")}>
-        <div className={classNames("absolute left-1/2 -translate-x-1/2 container px-4 pt-10 flex items-center text-white")}>
-          <div className="shrink-0">
-            <Link href={logoRedirect ?? "/"}>
-              <Image
-                className="w-40 h-14 object-contain"
-                src={logo.url}
-                width={160}
-                height={56}
-                alt={logo.title ?? ""}
-              />
-            </Link>
+        <div className={classNames("absolute left-1/2 -translate-x-1/2 w-screen flex justify-center bg-gradient-to-b from-neutral-600/60 to-neutral-10/40 text-white")}>
+          <div className="container px-4 pt-10 pb-2 flex items-center">
+            <div className="shrink-0">
+              <Link href={logoRedirect ?? "/"}>
+                <Image
+                  className="w-40 h-14 object-contain"
+                  src={logo.url}
+                  width={160}
+                  height={56}
+                  alt={logo.title ?? ""}
+                />
+              </Link>
+            </div>
+            <div className="flex-1 drop-shadow-lg lg:text-lg font-semibold">
+              <NavMenu menu={menu} />
+            </div>
+            <div className="shrink-0 hidden lg:block">
+              {buttons &&
+                buttons.length > 0 &&
+                buttons.map((button) => (
+                  <Button
+                    key={button.text}
+                    url={button.url}
+                    variant={button.buttonVariant ?? "outline"}
+                    openNewTab={button.openNewTab}
+                  >
+                    {button.text}
+                  </Button>
+                ))}
+            </div>
+            <NavMenuMobile menu={menu} />
           </div>
-          <div className="flex-1 drop-shadow-lg lg:text-lg font-semibold">
-            <NavMenu menu={menu} />
-          </div>
-          <div className="shrink-0 hidden lg:block">
-            {buttons &&
-              buttons.length > 0 &&
-              buttons.map((button) => (
-                <Button
-                  key={button.text}
-                  url={button.url}
-                  variant={button.buttonVariant ?? "outline"}
-                  openNewTab={button.openNewTab}
-                >
-                  {button.text}
-                </Button>
-              ))}
-          </div>
-          <NavMenuMobile menu={menu} />
         </div>
       </header>
     )
@@ -105,7 +107,7 @@ const Header: React.FC<Props> = ({ data }) => {
         { "sticky w-full z-50 top-0 border-b animate-headerSlideIn": sticky }
       )}
     >
-      <div className="container p-4 mx-auto flex items-center">
+      <div className="container px-4 py-5 mx-auto flex items-center">
         <div className="shrink-0">
           <Link href={logoRedirect ?? "/"}>
             <Image
