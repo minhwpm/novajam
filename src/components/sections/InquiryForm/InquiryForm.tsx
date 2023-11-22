@@ -60,14 +60,16 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           : {}
       }
       className={classNames(
-        { "bg-gradient-to-br from-primary-800 via-primary-700 to-primary-500": !backgroundImage }
+        // { "bg-gradient-to-br from-primary-800 via-primary-700 to-primary-500": !backgroundImage }
       )}
     >
       <Container>
         <div className="grid grid-cols-12 gap-y-10 md:gap-x-10 my-24">
-          <div className={classNames("col-span-12 lg:col-span-5 text-neutral-50 drop-shadow-lg flex flex-col items-center lg:items-start")}>
+          <div className={classNames("col-span-12 lg:col-span-5 flex flex-col items-center lg:items-start",
+            {"text-white drop-shadow-lg": backgroundImage}
+          )}>
             {label && (
-              <div className={classNames("tracking-widest text-neutral-50 font-semibold text-center lg:text-start mb-2")}>
+              <div className={classNames("tracking-widest font-semibold text-center lg:text-start mb-2")}>
                 {label}
               </div>
             )}
@@ -77,12 +79,14 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               </div>
             )}
             {subheading && (
-              <div className={classNames("text-neutral-50 prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center lg:text-start mb-5")}>
+              <div className={classNames("prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center lg:text-start mb-5")}>
                 {subheading}
               </div>
             )}
             {content && (
-              <div className={classNames("text-neutral-50 prose lg;prose-lg")}>
+              <div className={classNames("prose lg:prose-lg",
+                { "text-white drop-shadow-lg": backgroundImage}
+              )}>
                 <RichText htmlString={content} />
               </div>
             )}
@@ -90,7 +94,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           <div className="col-span-12 lg:col-span-7">
             <form
               className={classNames(
-                "max-w-xl mx-auto lg:mr-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-6 pb-12 bg-neutral-50 bg-opacity-70 rounded-assets",
+                "max-w-xl mx-auto lg:mr-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-6 pb-12 rounded-assets",
+                { "bg-neutral-50 bg-opacity-70": backgroundImage },
                 { "gap-x-0": fields.length === 1 }
               )}
               onSubmit={handleSubmit(onSubmit)}
@@ -122,7 +127,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                           }
                         })}
                         placeholder={(
-                          <div className="text-neutral-400">
+                          <div className="text-neutral-500">
                             {fieldItem.placeholder ?? fieldItem.label}
                           </div>
                         )}
@@ -134,7 +139,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                     
                     {fieldItem.fieldType === "date" && (
                       <DatePicker
-                        className="w-full border rounded-assets px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
+                        className="w-full border border-neutral-300 rounded-assets px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-500"
                         placeholder={
                           fieldItem.placeholder ??
                           fieldItem.label + (fieldItem.required ? "*" : "")
@@ -150,7 +155,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                     {fieldItem.fieldType === "textarea" && (
                       <textarea
                         key={fieldItem.id}
-                        className="block border rounded-assets w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
+                        className="block border border-neutral-300 rounded-assets w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-500"
                         id={fieldItem.label}
                         placeholder={
                           fieldItem.placeholder ??
@@ -166,7 +171,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                     {(fieldItem.fieldType !== "textarea" && fieldItem.fieldType !== "select" && fieldItem.fieldType !== "date") && (
                       <input
                         className={classNames(
-                          "block border rounded-assets w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-400"
+                          "block border border-neutral-300 rounded-assets w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-500"
                         )}
                         type={fieldItem.fieldType}
                         {...register(fieldItem.label, {

@@ -31,6 +31,7 @@ export function Select(props: Props) {
         control: (baseStyles, state) => ({
           ...baseStyles,
           padding: "8px 6px",
+          borderColor: "rgb(212 212 212)",
           borderRadius: "var(--border-radius-assets)", // @TODO set borderRadius based on css --border-radius-assets
         }),
       }}

@@ -1,3 +1,4 @@
+/* eslint-disable complexity */ // @TODO fix complexity
 'use client'
 import Image from "next/image"
 import Button from "@/components/elements/Button/Button"
@@ -7,9 +8,9 @@ import classNames from "classnames"
 import NavMenu from "@/components/elements/NavMenu/NavMenu"
 import NavMenuMobile from "@/components/elements/NavMenu/NavMenuMobile"
 import NavMenuFull from "@/components/elements/NavMenu/NavMenuFull"
-import { HeaderType } from "@/helpers/types"
+import { NavigationType } from "@/helpers/types"
 interface Props {
-  data: HeaderType
+  data: NavigationType
   // @TODO following 4 properties
   // stickyType?: 'none' | 'scroll-up' | 'scroll-down'
   // logoAlignment?: 'center' | 'left'
@@ -23,11 +24,45 @@ const Header: React.FC<Props> = ({ data }) => {
   if (uiVariant === "minimal") {
     return (
       <header className={classNames("relative z-[99999]")}>
-        <div
-          className={classNames(
-            "absolute px-4 py-5 md:px-10 w-screen flex items-center justify-between"
-          )}
-        >
+        <div className={classNames("absolute w-screen flex justify-center")}>
+          <div className="px-4 pt-10 container flex items-center justify-between">
+            <div className="shrink-0">
+              <Link href={logoRedirect ?? "/"}>
+                <Image
+                  className="w-40 h-14 object-contain"
+                  src={logo.url}
+                  width={logo.width}
+                  height={logo.height}
+                  alt={logo.title ?? ""}
+                />
+              </Link>
+            </div>
+            <div className="flex gap-5 items-center">
+              <div className="hidden md:block">
+                {buttons &&
+                  buttons.length > 0 &&
+                  buttons.map((button) => (
+                    <Button
+                      key={button.id}
+                      url={button.url}
+                      variant={button.buttonVariant ?? "outline-white"}
+                      openNewTab={button.openNewTab}
+                    >
+                      {button.text}
+                    </Button>
+                  ))}
+              </div>
+              <NavMenuFull data={data} />
+            </div>
+          </div>
+        </div>
+      </header>
+    );
+  }
+  if (uiVariant === "overlay") {
+    return (
+      <header className={classNames("relative z-[99999]")}>
+        <div className={classNames("absolute left-1/2 -translate-x-1/2 container px-4 pt-10 flex items-center text-white")}>
           <div className="shrink-0">
             <Link href={logoRedirect ?? "/"}>
               <Image
@@ -39,27 +74,27 @@ const Header: React.FC<Props> = ({ data }) => {
               />
             </Link>
           </div>
-
-          <div className="flex gap-5 items-center">
-            <div className="hidden md:block">
-              {buttons &&
-                buttons.length > 0 &&
-                buttons.map((button) => (
-                  <Button
-                    key={button.id}
-                    url={button.url}
-                    variant={button.buttonVariant ?? "outline-white"}
-                    openNewTab={button.openNewTab}
-                  >
-                    {button.text}
-                  </Button>
-                ))}
-            </div>
-            <NavMenuFull data={data} />
+          <div className="flex-1 drop-shadow-lg lg:text-lg font-semibold">
+            <NavMenu menu={menu} />
           </div>
+          <div className="shrink-0 hidden lg:block">
+            {buttons &&
+              buttons.length > 0 &&
+              buttons.map((button) => (
+                <Button
+                  key={button.text}
+                  url={button.url}
+                  variant={button.buttonVariant ?? "outline"}
+                  openNewTab={button.openNewTab}
+                >
+                  {button.text}
+                </Button>
+              ))}
+          </div>
+          <NavMenuMobile menu={menu} />
         </div>
       </header>
-    );
+    )
   }
 
   // Default uiVariant - standard

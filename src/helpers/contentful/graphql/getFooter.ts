@@ -56,5 +56,6 @@ export default async function getFooter(url: string) {
   
   const data = await res.json()
   const normalizedData = normalizeDataCollection({...data.data})
+  console.log(`FOOTER DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

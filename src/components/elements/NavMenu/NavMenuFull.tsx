@@ -4,7 +4,7 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { HeaderType } from "@/helpers/types";
+import { NavigationType } from "@/helpers/types";
 import SubMenuItem from "./SubMenuItem";
 import { useState } from "react";
 import { getMenuItemText } from "./NavMenu";
@@ -13,7 +13,7 @@ import { CiMenuFries } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
 import Button from "../Button/Button";
 
-const NavMenuFull: React.FC<{ data: HeaderType }> = ({ data }) => {
+const NavMenuFull: React.FC<{ data: NavigationType }> = ({ data }) => {
   const { menu, buttons } = data;
   const [navMenuShowed, setNavMenuShowed] = useState(false);
 
@@ -21,9 +21,9 @@ const NavMenuFull: React.FC<{ data: HeaderType }> = ({ data }) => {
     <>
       <div className="ml-auto">
         {/* Hamburger icon button*/}
+
         <CiMenuFries
-          className="text-white cursor-pointer"
-          size={40}
+          className="relative cursor-pointer bg-white rounded-full w-14 h-14 p-3 bottom-0 shadow-md hover:shadow-lg hover:bottom-1 hover:bg-primary-600 hover:text-white transition-all duration-500 ease"
           onClick={() => {
             setNavMenuShowed(true);
             document.body.style.overflowY = "hidden";
@@ -32,7 +32,7 @@ const NavMenuFull: React.FC<{ data: HeaderType }> = ({ data }) => {
       </div>
       <NavigationMenu.Root
         className={classNames(
-          "absolute top-0 left-0 z-[99999] w-screen h-screen bg-neutral-950 bg-text-neutral-500 text-white overflow-auto",
+          "absolute top-0 left-0 z-[99999] w-screen h-screen bg-neutral-950/90 bg-text-neutral-500 text-white overflow-auto",
           { hidden: !navMenuShowed }
         )}
       >

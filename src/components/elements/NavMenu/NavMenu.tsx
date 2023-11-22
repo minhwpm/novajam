@@ -70,7 +70,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
                               <div key={subItem.id} className="basis-60 shrink-0 mb-3">
                                 { subItem.contentType === "link" && <SubMenuItem key={subItem.text} href={subItem.url} title={subItem.text} />}
                                 { subItem.contentType === "linkgroup" && 
-                                  <p className="text-slate-500 uppercase text-sm tracking-wide font-medium mb-2">
+                                  <p className="text-neutral-500 uppercase text-sm tracking-wide font-medium mb-2">
                                     {subItem.title}
                                   </p>
                                 }
@@ -85,7 +85,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
                         )}
                         {item.featuredContent.length > 0 && (
                           <div className={classNames(
-                            "basis-1/3 xl:basis-1/4 shrink-0 grow flex gap-2 overflow-y-scroll overscroll-y-contain",
+                            "basis-1/3 xl:basis-1/4 shrink-0 grow flex gap-2 overflow-y-scroll overscroll-y-contain ",
                             { "justify-end": item.featuredContent.length === 1}
                           )}>
                             {item.featuredContent.map(item => (
@@ -99,7 +99,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
                     </div>
                   )}
                   {item.layout === "dropdown" && (
-                    <NavigationMenu.Sub orientation="vertical" className="py-4 px-2 bg-white shadow-lg border-t rounded-assets">
+                    <NavigationMenu.Sub orientation="vertical" className="py-4 px-2 bg-white text-neutral-800 shadow-lg border-t rounded-assets">
                       <NavigationMenu.List>
                         {item.menu.length > 0 && item.menu.map((subItem) => (
                           <NavigationMenu.Item key={subItem.id} className="relative">
@@ -109,8 +109,8 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
                               </div>
                             )}
                             { subItem.contentType === "linkgroup" && (
-                              <div className="text-slate-700">
-                                <NavigationMenu.Trigger className="w-full font-medium select-none text-left py-1.5 px-3 rounded-sm hover:bg-slate-100 transition-color duration-300 data-[state=open]:bg-slate-100 group">
+                              <div className="text-neutral-700">
+                                <NavigationMenu.Trigger className="w-full font-medium select-none text-left py-1.5 px-3 rounded-sm hover:bg-neutral-100 transition-color duration-300 data-[state=open]:bg-neutral-100 group">
                                   {subItem.title}
                                   <FontAwesomeIcon className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180" icon={faChevronRight} size="2xs" width={10} />
                                 </NavigationMenu.Trigger>

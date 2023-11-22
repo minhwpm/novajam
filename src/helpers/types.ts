@@ -55,12 +55,9 @@ export interface SubmenuType {
   contentType: "submenu"
 }
 
-export interface HeaderType {
+export interface NavigationType {
   url: string
-  logo: {
-    url: string
-    title?: string
-  },
+  logo: MediaType,
   logoRedirect?: string
   menu: Array<LinkType | SubmenuType>
   isLoginEnabled?: boolean
@@ -70,7 +67,7 @@ export interface HeaderType {
     placeholder: string
   } 
   buttons?: Array<ButtonType>
-  uiVariant: "standard" | "extended" | "minimal"
+  uiVariant: "standard" | "minimal" | "overlay"
 }
 
 export interface FooterType {

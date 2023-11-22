@@ -28,9 +28,8 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
         >
           {content.length > 0 &&
             content.map((section) => (
-              <>
+              <div key={section.id} className="flex flex-col">
                 <RadixTabs.Trigger
-                  key={section.id}
                   value={section.id}
                   className="group text-start cursor-pointer px-8 py-4 bg-neutral-100 hover:bg-neutral-200 data-[state='active']:bg-primary-500 data-[state='active']:text-white rounded-assets transition-colors duration-300 ease-in-out"
                 >
@@ -42,7 +41,6 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                   </div>
                 </RadixTabs.Trigger>
                 <RadixTabs.Content
-                  key={section.id}
                   value={section.id}
                   className={classNames(
                     "lg:hidden pt-5 transition-all ease-in-out duration-500 relative",
@@ -82,7 +80,7 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                     )}
                   </div>
                 </RadixTabs.Content>
-              </>
+              </div>
             ))}
         </RadixTabs.List>
         <div className="hidden pt-5 lg:block lg:pt-0 lg:w-3/4 lg:pl-10 shrink-0">
