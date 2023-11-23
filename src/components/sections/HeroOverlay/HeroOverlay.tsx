@@ -51,12 +51,12 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
                     </div>
                   )}
                   {section.heading && (
-                    <div className="text-super-heading leading-[1.1] font-heading max-w-3xl">
+                    <div className="text-super-heading leading-[1.1] font-heading mt-5 max-w-3xl">
                       <RichText htmlString={section.heading} />
                     </div>
                   )}
                   {section.content && (
-                    <div className="block text-lg lg:text-xl font-semibold leading-relaxed mt-5 max-w-2xl">
+                    <div className="block text-lg lg:text-xl leading-relaxed mt-10 max-w-2xl">
                       <RichText htmlString={section.content} />
                     </div>
                   )}
