@@ -1,12 +1,14 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import SubMenuItem from './SubMenuItem';
 import { useState } from 'react';
 import { getMenuItemText } from './NavMenu';
 import SubMenuFeaturedContent from './SubMenuFeaturedContent';
 import { LinkType, SubmenuType } from '@/helpers/types';
+import { CiMenuFries } from 'react-icons/ci';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu }) => {
   const [ mobileMenuShowed, setMobileMenuShowed ] = useState(false)
@@ -15,9 +17,19 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
     <>
       {/* MOBILE, TABLET */}
       <NavigationMenu.Root className={classNames(
-        "lg:hidden w-screen h-screen absolute top-full left-0 z-[99999] bg-white overflow-auto",
+        "lg:hidden w-screen h-screen pt-20 absolute top-0 left-0 z-[99999] bg-white text-neutral-900 overflow-auto",
         { "hidden": !mobileMenuShowed}
       )}>
+        { mobileMenuShowed && 
+          <AiOutlineClose
+            className="cursor-pointer absolute right-4 top-12"
+            size={30}
+            onClick={() => {
+              setMobileMenuShowed(false)
+              document.body.style.overflowY = "auto"
+            }}
+          />
+        }
         <NavigationMenu.List>
           {menu.map(item => (
             <NavigationMenu.Item key={getMenuItemText(item)}>
@@ -76,14 +88,16 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
         </NavigationMenu.List>
       </NavigationMenu.Root>
       <div className="lg:hidden ml-auto">
-        { !mobileMenuShowed && <FontAwesomeIcon className="cursor-pointer" width={26} icon={faBars} size="xl" onClick={() => {
-          setMobileMenuShowed(true)
-          document.body.style.overflowY = "hidden"
-        }}/> }
-        { mobileMenuShowed && <FontAwesomeIcon className="cursor-pointer" width={26} icon={faXmark} size="xl" onClick={() => {
-          setMobileMenuShowed(false)
-          document.body.style.overflowY = "auto"
-        }}/>}
+        { !mobileMenuShowed && 
+          <CiMenuFries
+            className="cursor-pointer"
+            size={30}
+            onClick={() => {
+              setMobileMenuShowed(true)
+              document.body.style.overflowY = "hidden"
+            }}
+          />
+        }
       </div>
     </>
   )
