@@ -18,7 +18,7 @@ interface Props {
   data: HeroType
 }
 
-const HeroB: React.FC<Props> = ({ data }) => {
+const Hero: React.FC<Props> = ({ data }) => {
   const { content, layout, textAlignment } = data;
   const [animated, setAnimated] = useState(false);
   const [ref, isVisible] = useInView({
@@ -128,4 +128,4 @@ const HeroB: React.FC<Props> = ({ data }) => {
   );
 };
 
-export default HeroB
+export default Hero

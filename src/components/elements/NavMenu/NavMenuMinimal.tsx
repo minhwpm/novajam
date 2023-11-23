@@ -1,5 +1,4 @@
-// This nav menu is for Minimal Header
-
+// This nav menu is for Minimal Navigation
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,17 +12,15 @@ import { CiMenuFries } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
 import Button from "../Button/Button";
 
-const NavMenuFull: React.FC<{ data: NavigationType }> = ({ data }) => {
+const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
   const { menu, buttons } = data;
   const [navMenuShowed, setNavMenuShowed] = useState(false);
 
   return (
     <>
       <div className="ml-auto">
-        {/* Hamburger icon button*/}
-
         <CiMenuFries
-          className="relative cursor-pointer bg-white rounded-full w-14 h-14 p-3 bottom-0 shadow-md hover:shadow-lg hover:bottom-1 hover:bg-primary-600 hover:text-white transition-all duration-500 ease"
+          className="relative cursor-pointer bg-white/80 rounded-full w-14 h-14 p-3 bottom-0 shadow-md hover:shadow-lg hover:bottom-1 hover:bg-primary-600/80 hover:text-white transition-all duration-500 ease"
           onClick={() => {
             setNavMenuShowed(true);
             document.body.style.overflowY = "hidden";
@@ -147,4 +144,4 @@ const NavMenuFull: React.FC<{ data: NavigationType }> = ({ data }) => {
   );
 };
 
-export default NavMenuFull;
+export default NavMenuMinimal;

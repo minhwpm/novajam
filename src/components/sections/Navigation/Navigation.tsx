@@ -6,7 +6,7 @@ import useStickyHeaderOnScrollUp from "@/helpers/hooks/useStickyHeaderOnScrollUp
 import classNames from "classnames";
 import NavMenu from "@/components/elements/NavMenu/NavMenu";
 import NavMenuMobile from "@/components/elements/NavMenu/NavMenuMobile";
-import NavMenuFull from "@/components/elements/NavMenu/NavMenuFull";
+import NavMenuMinimal from "@/components/elements/NavMenu/NavMenuMinimal";
 import { ButtonType, MediaType, NavigationType } from "@/helpers/types";
 
 const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
@@ -60,7 +60,7 @@ const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
               <div className="hidden md:block">
                 <Buttons buttons={buttons} />
               </div>
-              <NavMenuFull data={data} />
+              <NavMenuMinimal data={data} />
             </div>
           </div>
         </div>

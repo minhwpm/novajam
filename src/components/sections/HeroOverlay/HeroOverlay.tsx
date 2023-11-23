@@ -27,16 +27,18 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
         }}
         loop={true}
         slides={content.map(section => (
-          <div key={section.id} className={classNames("relative w-screen h-screen lg:h-auto lg:min-h-max")}>
-            <div className={classNames("h-full")}>
+          <div key={section.id} className={classNames("relative w-screen h-auto lg:min-h-max")}>
+            <div className={classNames(
+              { "absolute w-full h-full lg:w-auto lg:static": section.media.length > 0 },
+            )}>
               {section.media.length === 1 && <MediaItem data={section.media[0]} dimensionBase="height" videoAutoplay={true} />}
               {section.media.length > 1 && <MediaCarousel data={section.media} dimensionBase="height" videoAutoplay={true} />}
             </div>
             {(section.heading || section.content || section.buttons.length) && (
               <div className={classNames(
-                "w-full h-full px-4 py-10 lg:py-16 text-white drop-shadow-lg",
+                "w-full h-full px-4 pt-40 pb-10 lg:pb-16 text-white drop-shadow-lg overflow-hidden",
                 { "bg-gradient-to-b from-primary-800 via-primary-500 to-primary-300" : section.media.length === 0 },
-                { "absolute top-0 left-0 bg-neutral-900/20": section.media.length > 0 }
+                { "bg-neutral-900/20 lg:absolute lg:top-0 lg:left-0 ": section.media.length > 0 }
               )}>
                 <Container className={classNames(
                   "h-full flex flex-col justify-center bg-transparent",
