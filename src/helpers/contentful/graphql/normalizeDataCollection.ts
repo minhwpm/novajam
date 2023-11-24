@@ -1,4 +1,19 @@
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { BLOCKS, Block, Inline } from "@contentful/rich-text-types";
+
+const richTextOptions = {
+  renderNode: {
+    [BLOCKS.EMBEDDED_ASSET]: (node: Block | Inline) => {
+      if (node.data.contentType.includes('image')) {
+        return `<img src='${node.data.url}' width=${node.data.width} height=${node.data.height} alt='${node.data.title}' />`
+      }
+      if (node.data.contentType.includes('video')) {
+        return `<video src='${node.data.url}' caption=${node.data.title} controls />`
+      }
+      return ''
+    }
+  },
+};
 
 // @TODO specify type for param data
 export default function normalizeDataCollection (data: { [x: string]: any }) {
@@ -20,7 +35,7 @@ export default function normalizeDataCollection (data: { [x: string]: any }) {
       delete data.__typename
     }
     if (data[key] && typeof data[key] === "object" && "json" in data[key]) {
-      data[key] = documentToHtmlString(data[key].json)
+      data[key] = documentToHtmlString(data[key].json, richTextOptions )
       delete data[key].json
     }
   }

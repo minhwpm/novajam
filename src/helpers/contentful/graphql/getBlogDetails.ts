@@ -1,3 +1,4 @@
+import getAsset from "./getAsset"
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getBlogDetails(slug: string) {
@@ -70,9 +71,16 @@ export default async function getBlogDetails(slug: string) {
     throw new Error("Failed to fetch Blog data. Error", data.error)
   }
   // console.log(`BLOG RAW DATA: ${JSON.stringify(data, null, 4)}`)
-
+  const richtextContent = data.data.blogCollection.items[0].content.json.content
+  for(let i = 0; i < richtextContent.length; i++) {
+    if (richtextContent[i].nodeType === "embedded-asset-block") {
+      richtextContent[i].data = {
+        ... richtextContent[i].data,
+        ... await getAsset(richtextContent[i].data.target.sys.id)
+      }
+    }
+  }
   const normalizedData = normalizeDataCollection({...data.data})
-
   console.log(`BLOG DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }
