@@ -17,7 +17,7 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
           </h1>
           <div className="grid lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2">
-              <p className="text-slate-600 text-lg prose lg:prose-xl max-w-none">
+              <p className="text-slate-600 text-lg prose lg:prose-lg max-w-none">
                 {summary}
               </p>
             </div>
@@ -51,7 +51,7 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
                     {topics.map((topic, idx) => (
                       <Link
                         key={idx}
-                        className="px-4 py-2 rounded-assets relative bottom-0 hover:bottom-1 hover:text-primary-500 hover:bg-primary-100 transition-all duration-500 ease bg-primary-50 text-neutral-600 text-sm tracking-wider"
+                        className="px-4 py-2 text-sm lg:text-base rounded-assets relative bottom-0 hover:bottom-1 hover:text-primary-500 hover:bg-primary-100 transition-all duration-500 ease bg-primary-50 text-neutral-600 tracking-wider"
                         href={`/blog?topic=${topic}`}
                       >
                         {topic}
@@ -63,7 +63,7 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
             </div>
           </div>
           <div className="grid lg:grid-cols-3 gap-10 text-lg">
-            <div className="lg:col-span-2 mb-10 prose lg:prose-xl max-w-none overflow-x-hidden">
+            <div className="lg:col-span-2 mb-10 prose lg:prose-lg max-w-none overflow-x-hidden">
               <RichText htmlString={content} />
             </div>
           </div>
