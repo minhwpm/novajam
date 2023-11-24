@@ -20,6 +20,8 @@ export default async function getBlogDetails(slug: string) {
           items {
             sys {
               id
+              firstPublishedAt
+              publishedAt
             }
             title
             slug

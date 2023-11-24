@@ -4,9 +4,10 @@ import RichText from "@/components/elements/RichText/RichText"
 import { BlogType } from "@/helpers/types"
 import Image from "next/image"
 import Link from "next/link"
+import { format } from 'date-fns'
 
 const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
-  const { title, summary, content, media, topics, author } = data
+  const { title, summary, content, media, topics, author, firstPublishedAt } = data
   return (
     <div>
       <Container>
@@ -34,26 +35,23 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
               </div>
             }
             <div className="lg:col-span-1 flex flex-col gap-6">
-              <div>
-                PUBLISHED
-
-              </div>
-              {author && author.fullName && 
-                <div>
-                  AUTHOR
-                  {author.fullName}
+              <div className="flex flex-wrap gap-2 ">
+                {/* {firstPublishedAt} */}
+                <div className="text-neutral-400">
+                  Published on
                 </div>
-              }
+                <div className="text-neutral-600 font-semibold">
+                  {format(Date.parse(firstPublishedAt), 'MMM dd yyyy')}
+                </div>
+              </div>
+              
               {topics && topics?.length > 0  && 
                 <div className="flex flex-col gap-2">
-                  <p className="text-slate-600 tracking-wider text-sm">
-                    TOPICS
-                  </p>
                   <div className="flex flex-wrap gap-4">
                     {topics.map((topic, idx) => (
                       <Link
                         key={idx}
-                        className="px-4 py-2 rounded-full bg-primary-50 border-primary-100 text-slate-600 text-sm tracking-wider"
+                        className="px-4 py-2 rounded-assets relative bottom-0 hover:bottom-1 hover:text-primary-500 hover:bg-primary-100 transition-all duration-500 ease bg-primary-50 text-neutral-600 text-sm tracking-wider"
                         href={`/blog?topic=${topic}`}
                       >
                         {topic}
@@ -67,7 +65,6 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
           <div className="grid lg:grid-cols-3 gap-10 text-lg">
             <div className="lg:col-span-2 mb-10 prose lg:prose-xl max-w-none">
               <RichText htmlString={content} />
-              
             </div>
           </div>
 

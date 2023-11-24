@@ -28,6 +28,8 @@ export default function normalizeDataCollection (data: { [x: string]: any }) {
     }
     if (key === "sys") {
       data.id = data.sys.id
+      data.firstPublishedAt = data.sys.firstPublishedAt
+      data.publishedAt = data.sys.publishedAt
       delete data.sys
     }
     if (key === "__typename") {

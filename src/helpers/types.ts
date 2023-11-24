@@ -119,6 +119,8 @@ export type PageType = {
 
 export type BlogType = {
   id: string
+  firstPublishedAt: string
+  publishedAt: string
   title: string
   slug: string
   featured: boolean
