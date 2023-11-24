@@ -63,7 +63,7 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
             </div>
           </div>
           <div className="grid lg:grid-cols-3 gap-10 text-lg">
-            <div className="lg:col-span-2 mb-10 prose lg:prose-xl max-w-none">
+            <div className="lg:col-span-2 mb-10 prose lg:prose-xl max-w-none overflow-x-hidden">
               <RichText htmlString={content} />
             </div>
           </div>

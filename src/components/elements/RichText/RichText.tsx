@@ -5,12 +5,6 @@ import rehypeRaw from "rehype-raw"
 const RichText: React.FC<{htmlString: string}> = ({htmlString}) => {
   return (
     <ReactMarkdown
-      // components={{
-      //   li: ({...props}) => {
-      //     return <ListItem {...props} />
-      //   },
-      //   // @TODO: parse Image, Blockquote, Table
-      // }}
       components={{
         a: (props) => {
           return (
@@ -19,24 +13,25 @@ const RichText: React.FC<{htmlString: string}> = ({htmlString}) => {
             </Link>
           )
         },
-        
         table: ({...props}) => {
           return (
-            <table className="border">
-              {props.children}
-            </table>
+            <div className="w-full overflow-x-auto">
+              <table className="border">
+                {props.children}
+              </table>
+            </div>
           )
         },
         th: ({...props}) => {
           return (
-            <th className="bg-primary-50 leading-tight px-4">
+            <th className="bg-primary-50 border leading-tight px-4">
               {props.children}
             </th>
           )
         },
         td: ({...props}) => {
           return (
-            <td className="leading-tight px-4 py-0 lg:px-4 lg:py-0">
+            <td className="border leading-tight px-4 py-0 lg:px-4 lg:py-0">
               {props.children}
             </td>
           )

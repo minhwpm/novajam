@@ -65,7 +65,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                 { "text-end": alignment === "reverse" }
               )}
             >
-              <div className="flex flex-col-reverse lg:flex-row lg:items-center pb-8 bg-neutral-50 rounded-assets p-4 md:p-8 lg:p-12">
+              <div className="flex flex-col-reverse lg:flex-row lg:items-center pb-8 bg-white rounded-assets p-4 md:p-8 lg:p-12">
                 <div className="pt-4 pr-4 md:pt-8 md:pr-8 lg:pt-0 lg:pr-12">
                   <div className="prose lg:prose-lg">
                     <RichText htmlString={section.content} />
