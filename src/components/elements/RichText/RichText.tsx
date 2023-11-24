@@ -42,10 +42,9 @@ const RichText: React.FC<{htmlString: string}> = ({htmlString}) => {
           )
         },
         video: ({...props}) => {
-          console.log("VIDEO PROPS", props)
           return (
             <video className="" src={props.src} controls>
-              <track kind="captions" label={props.caption} />
+              <track kind="captions" label={props.title} />
             </video>
           )
         }

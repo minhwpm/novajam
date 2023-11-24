@@ -8,7 +8,7 @@ const richTextOptions = {
         return `<img src='${node.data.url}' width=${node.data.width} height=${node.data.height} alt='${node.data.title}' />`
       }
       if (node.data.contentType.includes('video')) {
-        return `<video src='${node.data.url}' caption=${node.data.title} controls />`
+        return `<video src='${node.data.url}' title=${node.data.title} controls />`
       }
       return ''
     }
