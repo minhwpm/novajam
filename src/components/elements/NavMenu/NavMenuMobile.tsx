@@ -9,6 +9,7 @@ import SubMenuFeaturedContent from './SubMenuFeaturedContent';
 import { LinkType, SubmenuType } from '@/helpers/types';
 import { CiMenuFries } from 'react-icons/ci';
 import { AiOutlineClose } from 'react-icons/ai';
+import Link from 'next/link';
 
 const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu }) => {
   const [ mobileMenuShowed, setMobileMenuShowed ] = useState(false)
@@ -34,9 +35,9 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
           {menu.map(item => (
             <NavigationMenu.Item key={getMenuItemText(item)}>
               { item.contentType === "link"  && (
-                <NavigationMenu.Link className="py-2 select-none inline-block" href={item.url}>
+                <Link className="py-2 select-none inline-block" href={item.url}>
                   {item.text}
-                </NavigationMenu.Link>
+                </Link>
               )}
               { item.contentType === "submenu" && (
                 <>

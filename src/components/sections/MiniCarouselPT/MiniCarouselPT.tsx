@@ -42,7 +42,7 @@ const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
-    <Section className="bg-neutral-50">
+    <Section className="bg-neutral-50 overflow-x-hidden">
       <div className="flex flex-col lg:flex-row gap-5 px-4 lg:py-10">
         <div className="lg:w-1/2 lg:pr-10">
           {label && (
