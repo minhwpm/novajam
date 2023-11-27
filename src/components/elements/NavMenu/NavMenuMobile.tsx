@@ -78,7 +78,16 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
                       ))}
                       </NavigationMenu.List>
                       {item.featuredContent?.length > 0 && (
-                        <SubMenuFeaturedContent data={item.featuredContent[0]} />
+                        <div className="flex overflow-y-auto overscroll-y-contain">
+                          {item.featuredContent.map(content => (
+                            <div
+                              key={content.id}
+                              className="basis-72 shrink-0 grow max-w-xs"
+                            >
+                              <SubMenuFeaturedContent data={content} />
+                            </div>
+                          ))}
+                        </div>
                       )}
                     </NavigationMenu.Sub>
                   </NavigationMenu.Content>

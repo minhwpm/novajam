@@ -75,7 +75,7 @@ const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
             "absolute left-1/2 -translate-x-1/2 w-screen flex justify-center bg-gradient-to-b from-neutral-600/60 to-neutral-10/40 text-white"
           )}
         >
-          <div className="container px-4 pt-10 pb-2 flex items-center">
+          <div className="container px-4 pt-5 lg:pt-10 pb-2 flex items-center">
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect} logo={logo} />
             </div>
