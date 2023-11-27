@@ -17,7 +17,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
     <>
       {/* MOBILE, TABLET */}
       <NavigationMenu.Root className={classNames(
-        "lg:hidden w-screen min-h-screen px-4 py-20 absolute top-0 left-0 z-[99999] bg-white text-neutral-900 overflow-auto",
+        "lg:hidden w-screen h-screen overflow-y-auto px-4 py-20 absolute top-0 left-0 z-[99999] bg-white text-neutral-900 overflow-auto",
         { "hidden": !mobileMenuShowed}
       )}>
         { mobileMenuShowed && 
@@ -40,7 +40,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
               )}
               { item.contentType === "submenu" && (
                 <>
-                  <NavigationMenu.Trigger className="py-2 px-3 select-none group">
+                  <NavigationMenu.Trigger className="py-2 select-none group">
                     {item.title} <FontAwesomeIcon className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180" icon={faChevronDown} size="2xs" width={10} />
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content
