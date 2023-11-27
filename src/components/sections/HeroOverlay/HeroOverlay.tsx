@@ -46,17 +46,17 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
                   { "items-end text-end": textAlignment === "reverse" },
                 )}>
                   {section.label && (
-                    <div className="tracking-widest font-semibold lg:text-lg max-w-2xl">
+                    <div className="tracking-widest font-semibold lg:text-lg xl:text-xl max-w-2xl">
                       {section.label}
                     </div>
                   )}
                   {section.heading && (
-                    <div className="text-super-heading leading-[1.1] font-heading mt-5 max-w-3xl">
+                    <div className="text-super-heading leading-[1.1] font-heading max-w-3xl mt-2">
                       <RichText2 data={section.heading} />
                     </div>
                   )}
                   {section.description && (
-                    <div className="block text-lg lg:text-xl leading-relaxed mt-10 max-w-2xl">
+                    <div className="prose-lg lg:prose-xl mt-10 max-w-2xl">
                       <RichText2 data={section.description} />
                     </div>
                   )}
