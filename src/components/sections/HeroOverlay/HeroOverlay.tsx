@@ -36,7 +36,7 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
             </div>
             {(section.heading || section.description || section.buttons.length) && (
               <div className={classNames(
-                "w-full h-full px-4 pt-40 pb-10 lg:pb-16 text-white drop-shadow-lg overflow-hidden",
+                "w-full h-full px-4 pt-40 pb-20 text-white drop-shadow-lg overflow-hidden",
                 { "bg-gradient-to-b from-primary-800 via-primary-500 to-primary-300" : section.media.length === 0 },
                 { "bg-neutral-900/20 lg:absolute lg:top-0 lg:left-0 ": section.media.length > 0 }
               )}>

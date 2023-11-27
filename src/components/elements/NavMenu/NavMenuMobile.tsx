@@ -17,7 +17,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
     <>
       {/* MOBILE, TABLET */}
       <NavigationMenu.Root className={classNames(
-        "lg:hidden w-screen h-screen overflow-y-auto px-4 py-20 absolute top-0 left-0 z-[99999] bg-white text-neutral-900 overflow-auto",
+        "lg:hidden absolute top-0 left-0 z-[99999] bg-white text-neutral-900 w-screen h-screen px-4 py-20 overflow-y-auto",
         { "hidden": !mobileMenuShowed}
       )}>
         { mobileMenuShowed && 
