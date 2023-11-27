@@ -20,7 +20,7 @@ const Section: React.FC<Props> = ( { id, heading, label, subheading, children, c
 
   return (
     <section 
-      id={id} 
+      id={id ?? ''} 
       className={classNames(
         "flex flex-col items-center py-18",
         className,
