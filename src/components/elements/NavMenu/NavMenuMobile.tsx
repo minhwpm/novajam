@@ -17,12 +17,12 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
     <>
       {/* MOBILE, TABLET */}
       <NavigationMenu.Root className={classNames(
-        "lg:hidden w-screen h-screen pt-20 absolute top-0 left-0 z-[99999] bg-white text-neutral-900 overflow-auto",
+        "lg:hidden w-screen min-h-screen px-4 py-20 absolute top-0 left-0 z-[99999] bg-white text-neutral-900 overflow-auto",
         { "hidden": !mobileMenuShowed}
       )}>
         { mobileMenuShowed && 
           <AiOutlineClose
-            className="cursor-pointer absolute right-4 top-12"
+            className="cursor-pointer absolute right-4 top-8"
             size={30}
             onClick={() => {
               setMobileMenuShowed(false)
@@ -34,7 +34,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
           {menu.map(item => (
             <NavigationMenu.Item key={getMenuItemText(item)}>
               { item.contentType === "link"  && (
-                <NavigationMenu.Link className="py-2 px-3 select-none inline-block" href={item.url}>
+                <NavigationMenu.Link className="py-2 select-none inline-block" href={item.url}>
                   {item.text}
                 </NavigationMenu.Link>
               )}

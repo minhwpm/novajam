@@ -21,6 +21,9 @@ export default async function Layout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, height=device-height" />
+      </head>
       <body>
         <CustomProvider>
           {children}

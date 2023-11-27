@@ -9,9 +9,9 @@ import {
 import SubMenuItem from "./SubMenuItem";
 import Link from "next/link";
 import { LinkType, SubmenuType } from "@/helpers/types";
-import "./styles.css";
 import SubMenuFeaturedContent from "./SubMenuFeaturedContent";
 import { usePathname } from "next/navigation";
+import "./styles.css";
 
 export interface NavMenuProps {
   menu: Array<LinkType | SubmenuType>;
