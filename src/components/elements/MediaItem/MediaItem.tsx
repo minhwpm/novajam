@@ -7,12 +7,14 @@ export const MediaItem: React.FC<{
   altText?: string;
   aspectRatio?: AspectRatioType;
   videoAutoplay?: boolean;
+  videoControls?: boolean;
   dimensionBase?: "width" | "height";
 }> = ({
   data,
   altText,
   aspectRatio = "auto",
   videoAutoplay = false,
+  videoControls = false,
   dimensionBase = "width",
 }) => {
   if (!data) {
@@ -65,6 +67,7 @@ export const MediaItem: React.FC<{
           autoPlay={videoAutoplay}
           loop={videoAutoplay}
           muted={videoAutoplay}
+          controls={videoControls}
         >
           <track kind="captions" label={title} />
           {/* @TODO add video poster */}

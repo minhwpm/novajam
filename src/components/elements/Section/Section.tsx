@@ -2,16 +2,15 @@
 import React from 'react';
 import classNames from "classnames"
 import Container from '../Container/Container';
-import RichText from '../RichText/RichText';
+import RichText2 from "@/components/elements/RichText/RichText2"
 import { MediaType } from '@/helpers/types';
+import { Document } from "@contentful/rich-text-types";
 
-// @TODO make this as Theme Style settings
-// type SectionVariant = "standard" | "alternate"
 interface Props {
-  id?: string
-  label?: string
-  heading?: string
-  subheading?: string
+  id?: string | null
+  label?: string | null
+  heading?: Document | null
+  subheading?: string | null
   className?: string
   background?: MediaType
   children: React.ReactNode
@@ -45,7 +44,7 @@ const Section: React.FC<Props> = ( { id, heading, label, subheading, children, c
         )}
         {heading && (
           <div className={classNames("font-heading text-heading !leading-normal text-center max-w-3xl mx-auto mb-5")}>
-            <RichText htmlString={heading} />
+            <RichText2 data={heading} />
           </div>
         )}
         {subheading && (

@@ -2,12 +2,12 @@ import Section from "@/components/elements/Section/Section";
 import classNames from "classnames";
 import Button from "@/components/elements/Button/Button";
 import { FeatureType } from "@/helpers/types";
-import RichText from "@/components/elements/RichText/RichText";
+import RichText2 from "@/components/elements/RichText/RichText2";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 
 const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
-  const { label, heading, content, buttons, layout } = data;
+  const { label, heading, description, buttons, layout } = data;
   return (
     <>
       {label && (
@@ -34,9 +34,9 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
           }
         )}
       >
-        <RichText htmlString={heading} />
+        <RichText2 data={heading} />
       </div>
-      {content && 
+      {description && 
         <div
           className={classNames("block prose lg:prose-lg", {
             "mx-auto":
@@ -44,7 +44,7 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
               layout === "Vertical (Image | Text)",
           })}
         >
-          <RichText htmlString={content} />
+          <RichText2 data={description} />
         </div>
       }
       {buttons.length > 0 && (

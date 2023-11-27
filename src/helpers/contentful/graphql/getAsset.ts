@@ -39,7 +39,7 @@ export default async function getAsset(id: string) {
     console.error(data)
     throw new Error("Failed to fetch Blog data. Error", data.error)
   }
-  console.log(`ASSET RAW DATA: ${JSON.stringify(data, null, 4)}`)
+  // console.log(`ASSET RAW DATA: ${JSON.stringify(data, null, 4)}`)
 
   const normalizedData = normalizeDataCollection({...data.data})
 

@@ -4,7 +4,7 @@ import { useInView } from "react-hook-inview";
 import Button from "@/components/elements/Button/Button"
 import Section from "@/components/elements/Section/Section";
 import { CTAType } from "@/helpers/types";
-import RichText from "@/components/elements/RichText/RichText";
+import RichText2 from "@/components/elements/RichText/RichText2";
 
 const CTA: React.FC<{data: CTAType} > = ({ data }) => {
   const { heading, subheading, buttons } = data;
@@ -31,7 +31,7 @@ const CTA: React.FC<{data: CTAType} > = ({ data }) => {
       >
         <div className="flex flex-col items-center max-w-3xl mx-auto">
           <div className="text-heading leading-normal font-heading font-semibold text-center text-neutral-100">
-            <RichText htmlString={heading} />
+            <RichText2 data={heading} />
           </div>
           {subheading && (
             <p className="text-xl text-primary-200 text-center mt-8">

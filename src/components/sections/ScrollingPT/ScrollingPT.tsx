@@ -5,7 +5,7 @@ import Section from "@/components/elements/Section/Section";
 import FeatureContentItem from "@/components/elements/FeatureContentItem/FeatureContentItem";
 import { PresentationType } from "@/helpers/types";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
-import RichText from "@/components/elements/RichText/RichText";
+import RichText2 from "@/components/elements/RichText/RichText2";
 import Button from "@/components/elements/Button/Button";
 
 const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
@@ -25,12 +25,16 @@ const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
               <div className={classNames("font-semibold text-primary-600 tracking-widest text-center lg:text-start")}>
                 {section.label}
               </div>
-              <div className="font-semibold text-2xl lg:text-3xl leading-snug mb-6">
-                <RichText htmlString={section.heading} />
-              </div>
-              <div className="prose">
-                <RichText htmlString={section.content} />
-              </div>
+              {section.heading && (
+                <div className="font-semibold text-2xl lg:text-3xl leading-snug mb-6">
+                  <RichText2 data={section.heading} />
+                </div>
+              )}
+              {section.description && (
+                <div className="prose">
+                  <RichText2 data={section.description} />
+                </div>
+              )}
               {section.buttons && section.buttons.length > 0 && (
                 <div
                   className={classNames("mt-8", {
@@ -91,7 +95,7 @@ const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
         <div className="w-2/5 flex flex-col">
           {content?.map((section, idx) => (
             <FeatureContentItem
-              key={section.heading}
+              key={section.id}
               data={section}
               idx={idx}
               setVisibleIdx={setVisibleIdx}

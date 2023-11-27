@@ -1,3 +1,5 @@
+import { Document } from "@contentful/rich-text-types";
+
 export type Params = {
   slug: Array<string>
 }
@@ -125,7 +127,7 @@ export type BlogType = {
   slug: string
   featured: boolean
   summary: string
-  content: string
+  content: Document
   topics: Array<string>
   media: MediaType | null
   author: ExpertType
@@ -157,9 +159,9 @@ export type ExpertType = {
 export type FeatureType = {
   id: string
   title: string
-  heading: string
-  label: string
-  content: string
+  heading: Document
+  label: string | null
+  description: Document | null 
   media: Array<MediaType>
   mediaAspectRatio: "auto" | "16/9" | "4/3" | "square" | "3/4" | "3/2"
   url?: string
@@ -180,16 +182,16 @@ export type HeroType = {
 
 export type CTAType = {
   id: string
-  heading: string
-  subheading: string
+  heading: Document
+  subheading: string | null
   buttons: Array<ButtonType>
 }
 
 export type PresentationType = {
   id: string
-  heading: string
-  label: string
-  subheading: string
+  heading: Document | null
+  label: string | null
+  subheading: string | null
   content: Array<ContentPieceType>
   layout: "carousel" | "mini-carousel" | "tab" | "vertical-tab" | "accordion" | "scrolling"
   alignment: AlignmentType
@@ -205,9 +207,11 @@ export type StatisticsType = {
 export type ContentPieceType = {
   id: string
   media: Array<MediaType>
-  label: string
-  heading: string
-  content: string
+  embeddedMediaUrl: string | null
+  embeddedMediaTitle: string | null
+  label: string | null
+  heading: Document | null
+  description: Document | null
   buttons: Array<ButtonType>
   contentType: 'contentpiece'
 }
@@ -227,15 +231,15 @@ export type CardType = BlogType | PageType | LinkType | ExpertType | StatisticsT
 
 export type CardListType = {
   id: string
-  heading: string
-  label: string
-  subheading: string
+  heading: Document | null
+  label: string | null
+  subheading: string | null
   content: Array<CardType>
   seeAllLink: LinkType
   layout: "carousel" | "grid" | "masonry"
   size: 1 | 2 | 3 | 4 | 5
   alignment: AlignmentType
-  htmlid: string
+  htmlid: string | null
 }
 
 export type FormFieldType = {
@@ -251,10 +255,10 @@ export type FormFieldType = {
 export type InquiryFormType = {
   id: string
   title: string
-  heading: string
-  label: string
-  subheading: string
-  content: string
+  heading: Document | null
+  label: string | null
+  subheading: string | null
+  description: Document | null
   fields: Array<{
     id: string
     label: string

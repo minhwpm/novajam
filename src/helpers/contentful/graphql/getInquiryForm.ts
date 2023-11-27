@@ -27,7 +27,7 @@ export default async function getInquiryForm(id: string) {
             }
             label
             subheading
-            content {
+            description {
               json
             }
             fieldsCollection {

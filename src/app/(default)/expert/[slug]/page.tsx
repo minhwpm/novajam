@@ -1,6 +1,6 @@
 import Container from "@/components/elements/Container/Container"
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
-import RichText from "@/components/elements/RichText/RichText"
+import RichText2 from "@/components/elements/RichText/RichText2"
 import getExpertDetails from "@/helpers/contentful/graphql/getExpertDetails"
 
 export default async function Page({ params}: {params: {slug: string}},) {
@@ -12,7 +12,7 @@ export default async function Page({ params}: {params: {slug: string}},) {
           <div className="w-full lg:w-3/4 xl:w-2/3 mx-auto">
             <ExpertPreview data={data} layout="horizontal" />
             <div className="prose lg:prose-xl">
-              <RichText htmlString={data.description} />
+              <RichText2 data={data.description} />
             </div>
           </div>
         </Container>

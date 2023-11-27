@@ -8,7 +8,7 @@ import classNames from "classnames";
 import { useState } from "react";
 import { useInView } from "react-hook-inview";
 import { HeroType } from "@/helpers/types";
-import RichText from "@/components/elements/RichText/RichText";
+import RichText2 from "@/components/elements/RichText/RichText2";
 import Container from "@/components/elements/Container/Container";
 import Carousel from "@/components/elements/Carousel/Carousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
@@ -61,30 +61,34 @@ const Hero: React.FC<Props> = ({ data }) => {
                 { "items-center text-center": textAlignment === "center" },
                 { "items-end text-end": textAlignment === "reverse" },
               )}>
-                <div
-                  className={classNames(
-                    "font-semibold text-primary-600 tracking-widest max-w-2xl",
-                    animationClasses
-                  )}
-                >
-                  {section.label}
-                </div>
-                <div
-                  className={classNames(
-                    "text-heading leading-normal font-heading max-w-3xl",
-                    animationClasses
-                  )}
-                >
-                  <RichText htmlString={section.heading} />
-                </div>
-                {section.content && (
+                {section.label && (
+                  <div
+                    className={classNames(
+                      "font-semibold text-primary-600 tracking-widest max-w-2xl",
+                      animationClasses
+                    )}
+                  >
+                    {section.label}
+                  </div>
+                )}
+                {section.heading && (
+                  <div
+                    className={classNames(
+                      "text-heading leading-normal font-heading max-w-3xl",
+                      animationClasses
+                    )}
+                  >
+                    <RichText2 data={section.heading} />
+                  </div>
+                )}
+                {section.description && (
                   <div
                     className={classNames(
                       "prose-lg lg:prose-xl mt-3 max-w-2xl",
                       animationClasses
                     )}
                   >
-                    <RichText htmlString={section.content} />
+                    <RichText2 data={section.description} />
                   </div>
                 )}
                 {section.buttons.length > 0 && (

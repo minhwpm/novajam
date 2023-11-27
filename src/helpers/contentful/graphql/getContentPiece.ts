@@ -19,23 +19,17 @@ export default async function getContentPiece(id: string) {
           } 
         ) {
           items {
-            content {
+            sys {
+              id
+            }
+            heading {
               json
-              links {
-                entries {
-                  block {
-                    sys {
-                      id
-                    }
-                    __typename
-                    ... on Expert {
-                      slug
-                      fullName
-                      role
-                    }
-                  }
-                }
-              }
+            }
+            label
+            embeddedMediaUrl
+            embeddedMediaTitle
+            description {
+              json
             }
             mediaCollection {
               items {
@@ -44,6 +38,17 @@ export default async function getContentPiece(id: string) {
                 width
                 height
                 contentType
+              }
+            }
+            buttonsCollection {
+              items {
+                sys {
+                  id
+                }
+                url
+                text
+                openNewTab
+                buttonVariant
               }
             }
           }
@@ -62,9 +67,9 @@ export default async function getContentPiece(id: string) {
   // console.log(`RAW CONTENT PIECE DATA: ${JSON.stringify(data, null, 4)}`)
   if (res.status !== 200) {
     console.error(data)
-    throw new Error("Failed to fetch Card List data. Error: ", data.error)
+    throw new Error("Failed to fetch Content Piece data. Error: ", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
-  // console.log(`CONTENT PIECE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  console.log(`CONTENT PIECE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

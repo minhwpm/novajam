@@ -22,7 +22,7 @@ export default async function getFeature(id: string) {
             heading {
               json
             }
-            content {
+            description {
               json
             }
             buttonsCollection {

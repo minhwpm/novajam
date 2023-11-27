@@ -1,4 +1,5 @@
 import getAsset from "./getAsset"
+import getContentPiece from "./getContentPiece"
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getBlogDetails(slug: string) {
@@ -12,7 +13,7 @@ export default async function getBlogDetails(slug: string) {
     // send the GraphQL query
     body: JSON.stringify({ query: `
       query($slug: String) {
-        blogCollection(
+        blogCollection (
           where: { 
             slug: $slug
           } 
@@ -73,6 +74,13 @@ export default async function getBlogDetails(slug: string) {
     throw new Error("Failed to fetch Blog data. Error", data.error)
   }
   // console.log(`BLOG RAW DATA: ${JSON.stringify(data, null, 4)}`)
+  // async function getSectionData(contentType: string, id: string) {
+    
+  //   if (contentType === "inquiryform") {
+  //     return await getInquiryForm(id)
+  //   }
+  // }
+
   const richtextContent = data.data.blogCollection.items[0].content.json.content
   for(let i = 0; i < richtextContent.length; i++) {
     if (richtextContent[i].nodeType === "embedded-asset-block") {
@@ -81,7 +89,16 @@ export default async function getBlogDetails(slug: string) {
         ... await getAsset(richtextContent[i].data.target.sys.id)
       }
     }
+    if (richtextContent[i].nodeType === "embedded-entry-block") {
+      richtextContent[i].data = {
+        ... richtextContent[i].data,
+        // ... await getEntry()
+        ... await getContentPiece(richtextContent[i].data.target.sys.id)
+      }
+    }
   }
+  // console.log(`BLOG RAW DATA: ${JSON.stringify(data, null, 4)}`)
+
   const normalizedData = normalizeDataCollection({...data.data})
   console.log(`BLOG DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]

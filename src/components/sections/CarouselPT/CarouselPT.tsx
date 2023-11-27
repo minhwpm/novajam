@@ -3,7 +3,7 @@ import Button from "@/components/elements/Button/Button"
 import Carousel from "@/components/elements/Carousel/Carousel";
 import classNames from "classnames";
 import { AspectRatioType, PresentationType } from "@/helpers/types";
-import RichText from "@/components/elements/RichText/RichText";
+import RichText2 from "@/components/elements/RichText/RichText2";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
@@ -32,7 +32,7 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
             <div key={section.id} className={classNames(
               "h-full flex flex-col-reverse lg:flex-row lg:items-center gap-x-16 gap-y-5 bg-neutral-50 px-5 pt-5 pb-10 md:px-10 md:pt-10 lg:px-16 lg:pt-12 lg:pb-12 rounded-assets"
             )}>
-              {(section.heading || section.content || section.buttons) && (
+              {(section.heading || section.description || section.buttons) && (
                 <div className={classNames(
                   "flex flex-col",
                   { "text-center": alignment === "center" },
@@ -45,12 +45,16 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                   <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest")}>
                     {section.label}
                   </div>
-                  <div className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl">
-                    <RichText htmlString={section.heading} />
-                  </div>
-                  <div className="mt-5 prose lg:prose-lg">
-                    <RichText htmlString={section.content} />
-                  </div>
+                  {section.heading && (
+                    <div className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl">
+                      <RichText2 data={section.heading} />
+                    </div>
+                  )}
+                  {section.description && (
+                    <div className="mt-5 prose lg:prose-lg">
+                      <RichText2 data={section.description} />
+                    </div>
+                  )}
                   {section.buttons && section.buttons.length > 0 && (
                     <div
                       className={classNames("mt-8", {
@@ -73,14 +77,14 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
               )}
               { section.media?.length > 0 &&  
                 <div className={classNames(
-                  { "lg:w-1/2 shrink-0 ": (section.heading || section.content) },
-                  { "w-full": (!section.heading && !section.content) },
+                  { "lg:w-1/2 shrink-0 ": (section.heading || section.description) },
+                  { "w-full": (!section.heading && !section.description) },
                 )}>
                   <MediaCarousel 
                     data={section.media} 
                     aspectRatio={classNames(
-                      { "4/3": (section.heading || section.content) },
-                      { "video": (!section.heading && !section.content) }
+                      { "4/3": (section.heading || section.description) },
+                      { "video": (!section.heading && !section.description) }
                     ) as AspectRatioType } /> 
                 </div>
               }

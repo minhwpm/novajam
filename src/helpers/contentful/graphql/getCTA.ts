@@ -48,7 +48,8 @@ export default async function getCTA(id: string) {
     console.error(data.error)
     throw new Error("Failed to fetch CTA data. Error: ", data.error)
   }
+  console.log(`CTA DATA: ${JSON.stringify(data, null, 4)}`)
   const normalizedData = normalizeDataCollection({...data.data})
-  // console.log(`CTA DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  console.log(`CTA DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

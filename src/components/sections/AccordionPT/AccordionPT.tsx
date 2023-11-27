@@ -7,7 +7,7 @@ import * as RadixAccordion from "@radix-ui/react-accordion";
 import classNames from "classnames";
 import Section from "@/components/elements/Section/Section";
 import { PresentationType } from "@/helpers/types";
-import RichText from "@/components/elements/RichText/RichText";
+import RichText2 from "@/components/elements/RichText/RichText2";
 import Button from "@/components/elements/Button/Button";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
@@ -23,7 +23,7 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
             "w-full lg:w-[800px] mx-auto flex flex-col items-start justify-center gap-6"
           )}
         >
-          {content.length > 0 &&
+          {content && content.length > 0 &&
             content.map((section) => (
               <RadixAccordion.Item
                 key={section.id}
@@ -38,9 +38,11 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                       <div className={classNames("text-sm font-semibold tracking-widest")}>
                         {section.label}
                       </div>
-                      <div className="font-semibold text-xl">
-                        <RichText htmlString={section.heading} />
-                      </div>
+                      {section.heading && (
+                        <div className="font-semibold text-xl">
+                          <RichText2 data={section.heading} />
+                        </div>
+                      )}
                     </div>
                     <AiOutlinePlus size={25} className="group-data-[state=open]:hidden shrink-0" />
                     <AiOutlineMinus size={25} className="group-data-[state=closed]:hidden shrink-0" />
@@ -52,10 +54,11 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                   { "text-center": alignment === "center" },
                   { "text-end": alignment === "reverse" }
                 )}>
-                  
-                  <div className="prose lg:prose-lg">
-                    <RichText htmlString={section.content} />
-                  </div>
+                  {section.description && (
+                    <div className="prose lg:prose-lg">
+                      <RichText2 data={section.description} />
+                    </div>
+                  )}
                   {section.buttons && section.buttons.length > 0 && (
                     <div
                       className={classNames("mt-8", {
@@ -74,7 +77,7 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                       ))}
                     </div>
                   )}
-                  {section.media.length > 0 && (
+                  {section.media && section.media.length > 0 && (
                     <div className="max-w-xl mx-auto mt-10">
                       <MediaCarousel data={section.media} />
                     </div>

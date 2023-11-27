@@ -111,24 +111,6 @@ export default async function getCardList(id: string) {
                   sys {
                     id
                   }
-                  label
-                  heading {
-                    json
-                  }
-                  content {
-                    json
-                  }
-                  buttonsCollection {
-                    items {
-                      sys {
-                        id
-                      }
-                      url
-                      text
-                      openNewTab
-                      buttonVariant
-                    }
-                  }
                 }
                 ... on PricingPlan {
                   sys {

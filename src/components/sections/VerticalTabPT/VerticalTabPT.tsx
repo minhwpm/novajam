@@ -6,7 +6,7 @@ import Section from "@/components/elements/Section/Section";
 import Button from "@/components/elements/Button/Button";
 import classNames from "classnames";
 import { PresentationType } from "@/helpers/types";
-import RichText from "@/components/elements/RichText/RichText";
+import RichText2 from "@/components/elements/RichText/RichText2";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 
@@ -36,9 +36,11 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                   <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest group-data-[state='active']:text-primary-100")}>
                     {section.label}
                   </div>
-                  <div className="block font-semibold text-xl">
-                    <RichText htmlString={section.heading} />
-                  </div>
+                  {section.heading && (
+                    <div className="block font-semibold text-xl">
+                      <RichText2 data={section.heading} />
+                    </div>
+                  )}
                 </RadixTabs.Trigger>
                 <RadixTabs.Content
                   value={section.id}
@@ -57,9 +59,11 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                     </div>
                   )}
                   <div className="mt-5 flex flex-col gap-2 justify-center pb-8 lg:pr-24">
-                    <div className="prose lg:prose-lg">
-                      <RichText htmlString={section.content} />
-                    </div>
+                    {section.description && (
+                      <div className="prose lg:prose-lg">
+                        <RichText2 data={section.description} />
+                      </div>
+                    )}
                     {section.buttons && section.buttons.length > 0 && (
                       <div
                         className={classNames("mt-8", {
@@ -104,9 +108,11 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                   </div>
                 )}
                 <div className="mt-5 flex flex-col gap-2 items-center pb-8 lg:pr-24">
-                  <div className="prose lg:prose-lg">
-                    <RichText htmlString={section.content} />
-                  </div>
+                  {section.description && (
+                    <div className="prose lg:prose-lg">
+                      <RichText2 data={section.description} />
+                    </div>
+                  )}
                   {section.buttons && section.buttons.length > 0 && (
                     <div
                       className={classNames({

@@ -1,6 +1,6 @@
 import Container from "@/components/elements/Container/Container"
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
-import RichText from "@/components/elements/RichText/RichText"
+import RichText2 from "@/components/elements/RichText/RichText2"
 import { BlogType } from "@/helpers/types"
 import Image from "next/image"
 import Link from "next/link"
@@ -35,14 +35,8 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
               </div>
             }
             <div className="lg:col-span-1 flex flex-col gap-6">
-              <div className="flex flex-wrap gap-2 ">
-                {/* {firstPublishedAt} */}
-                <div className="text-neutral-400">
-                  Published on
-                </div>
-                <div className="text-neutral-600 font-semibold">
-                  {format(Date.parse(firstPublishedAt), 'MMM dd yyyy')}
-                </div>
+              <div className="text-neutral-500 font-semibold">
+                {format(Date.parse(firstPublishedAt), 'MMMM dd, yyyy')}
               </div>
               
               {topics && topics?.length > 0  && 
@@ -64,7 +58,7 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
           </div>
           <div className="grid lg:grid-cols-3 gap-10 text-lg">
             <div className="lg:col-span-2 mb-10 prose lg:prose-lg max-w-none overflow-x-hidden">
-              <RichText htmlString={content} />
+              <RichText2 data={content} />
             </div>
           </div>
 

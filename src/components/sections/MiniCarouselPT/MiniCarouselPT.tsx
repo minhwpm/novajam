@@ -3,7 +3,7 @@ import classNames from "classnames";
 import React, { useState } from "react";
 import Section from "@/components/elements/Section/Section";
 import { PresentationType } from "@/helpers/types";
-import RichText from "@/components/elements/RichText/RichText";
+import RichText2 from "@/components/elements/RichText/RichText2";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import Button from "@/components/elements/Button/Button";
@@ -52,7 +52,7 @@ const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
           )}
           {heading && (
             <div className="font-heading text-heading leading-normal mb-3">
-              <RichText htmlString={heading} />
+              <RichText2 data={heading} />
             </div>
           )}
           {subheading && (
@@ -94,12 +94,16 @@ const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
                 <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest")}>
                   {section.label}
                 </div>
-                <div className={classNames("text-2xl font-semibold ")}>
-                  <RichText htmlString={section.heading} />
-                </div>
-                <div className="prose lg:prose-lg mt-5">
-                  <RichText htmlString={section.content} />
-                </div>
+                {section.heading && (
+                  <div className={classNames("text-2xl font-semibold ")}>
+                    <RichText2 data={section.heading} />
+                  </div>
+                )}
+                {section.description && (
+                  <div className="prose lg:prose-lg mt-5">
+                    <RichText2 data={section.description} />
+                  </div>
+                )}
                 {section.buttons && section.buttons.length > 0 && (
                   <div
                     className={classNames("mt-8", {

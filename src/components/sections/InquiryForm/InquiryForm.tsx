@@ -8,7 +8,7 @@ import { DatePicker } from "@/components/elements/DatePicker/DatePicker";
 import { InquiryFormType } from "@/helpers/types";
 import { Select } from "@/components/elements/Select/Select";
 import { getRegEx } from "@/helpers/utils";
-import RichText from "@/components/elements/RichText/RichText";
+import RichText2 from "@/components/elements/RichText/RichText2";
 
 interface Props {
   data: InquiryFormType
@@ -19,7 +19,7 @@ type FormValues = {
 
 export const InquiryForm: React.FC<Props> = ({ data }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { title, heading, label, subheading, content, formType, fields, submitButton, backgroundImage, htmlid, dateFormat } = data
+  const { title, heading, label, subheading, description, formType, fields, submitButton, backgroundImage, htmlid, dateFormat } = data
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { register, control, handleSubmit, setError, watch, formState: { errors } } = useForm<FormValues>();
 
@@ -75,7 +75,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             )}
             {heading && (
               <div className={classNames("text-heading leading-normal font-heading tracking-wide text-center lg:text-start mb-5")}>
-                <RichText htmlString={heading} />
+                <RichText2 data={heading} />
               </div>
             )}
             {subheading && (
@@ -83,11 +83,11 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                 {subheading}
               </div>
             )}
-            {content && (
+            {description && (
               <div className={classNames("prose lg:prose-lg",
                 { "text-white drop-shadow-lg": backgroundImage}
               )}>
-                <RichText htmlString={content} />
+                <RichText2 data={description} />
               </div>
             )}
           </div>

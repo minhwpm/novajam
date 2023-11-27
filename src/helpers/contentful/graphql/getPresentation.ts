@@ -34,24 +34,6 @@ export default async function getPresentation(id: string) {
                   sys {
                     id
                   }
-                  label
-                  heading {
-                    json
-                  }
-                  content {
-                    json
-                  }
-                  buttonsCollection {
-                    items {
-                      sys {
-                        id
-                      }
-                      text
-                      url
-                      openNewTab
-                      buttonVariant
-                    }
-                  }
                 }
               }
             }

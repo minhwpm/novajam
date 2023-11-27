@@ -6,7 +6,7 @@ Layout: Overlay
 import classNames from "classnames";
 import Button from "@/components/elements/Button/Button";
 import { HeroType } from "@/helpers/types";
-import RichText from "@/components/elements/RichText/RichText";
+import RichText2 from "@/components/elements/RichText/RichText2";
 import Carousel from "@/components/elements/Carousel/Carousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
@@ -34,7 +34,7 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
               {section.media.length === 1 && <MediaItem data={section.media[0]} dimensionBase="height" videoAutoplay={true} />}
               {section.media.length > 1 && <MediaCarousel data={section.media} dimensionBase="height" videoAutoplay={true} />}
             </div>
-            {(section.heading || section.content || section.buttons.length) && (
+            {(section.heading || section.description || section.buttons.length) && (
               <div className={classNames(
                 "w-full h-full px-4 pt-40 pb-10 lg:pb-16 text-white drop-shadow-lg overflow-hidden",
                 { "bg-gradient-to-b from-primary-800 via-primary-500 to-primary-300" : section.media.length === 0 },
@@ -52,12 +52,12 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
                   )}
                   {section.heading && (
                     <div className="text-super-heading leading-[1.1] font-heading mt-5 max-w-3xl">
-                      <RichText htmlString={section.heading} />
+                      <RichText2 data={section.heading} />
                     </div>
                   )}
-                  {section.content && (
+                  {section.description && (
                     <div className="block text-lg lg:text-xl leading-relaxed mt-10 max-w-2xl">
-                      <RichText htmlString={section.content} />
+                      <RichText2 data={section.description} />
                     </div>
                   )}
                   <div
