@@ -26,7 +26,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
   const pathname = usePathname();
   return (
     <NavigationMenu.Root
-      className={classNames("NavMenu hidden lg:flex pt-2 pb-3 justify-end")}
+      className={classNames("NavMenu hidden lg:flex pt-2 pb-3 justify-center")}
     >
       <NavigationMenu.List
         className={classNames(
