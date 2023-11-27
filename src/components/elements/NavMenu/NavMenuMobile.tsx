@@ -27,7 +27,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
             size={30}
             onClick={() => {
               setMobileMenuShowed(false)
-              document.body.style.overflowY = "auto"
+              document.body.style.overflow = "auto"
             }}
           />
         }
