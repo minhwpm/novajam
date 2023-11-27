@@ -9,7 +9,6 @@ import { ReactNode } from "react";
 const renderOptions = {
   renderNode: {
     [INLINES.HYPERLINK]: (node: Inline | Block, children: ReactNode) => {
-      console.log("HYPERLINK", node)
       return (
         <Link className="text-blue-500 hover:text-blue-600 underline-offset-4 transition-colors duration-300 ease" target="_blank" href={node.data.uri}>
           {children}
