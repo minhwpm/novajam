@@ -45,9 +45,11 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                 <div className={classNames("text-sm tracking-widest text-neutral-500 font-semibold")}>
                   {section.label}
                 </div>
-                <div className="block font-semibold text-xl lg:text-2xl">
-                  {/* <RichText2 data={section.heading} /> */}
-                </div>
+                {section.heading && (
+                  <div className="block font-semibold text-xl lg:text-2xl">
+                    <RichText2 data={section.heading} />
+                  </div>
+                )}
               </RadixTabs.Trigger>
             ))}
           </RadixTabs.List>
