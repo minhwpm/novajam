@@ -19,7 +19,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
       {/* MOBILE, TABLET */}
       <NavigationMenu.Root
         className={classNames(
-          "lg:hidden absolute top-0 left-0 z-[99999] bg-white text-neutral-900 w-screen h-screen px-4 py-20 overflow-y-auto",
+          "lg:hidden absolute top-0 left-0 z-[99999] bg-white text-neutral-900 w-screen h-screen px-4 pt-20 pb-36 overflow-y-auto",
           { hidden: !mobileMenuShowed }
         )}
       >
@@ -52,9 +52,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
                       width={10}
                     />
                   </NavigationMenu.Trigger>
-                  <NavigationMenu.Content
-                    disableOutsidePointerEvents={true}
-                  >
+                  <NavigationMenu.Content>
                     <NavigationMenu.Sub
                       orientation="vertical"
                       className="py-2 px-4"
@@ -81,9 +79,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
                                       width={10}
                                     />
                                   </NavigationMenu.Trigger>
-                                  <NavigationMenu.Content
-                                    disableOutsidePointerEvents={true}
-                                  >
+                                  <NavigationMenu.Content>
                                     <ul className="pl-5 flex flex-col">
                                       {subItem.links.length > 0 &&
                                         subItem.links.map((link) => (
