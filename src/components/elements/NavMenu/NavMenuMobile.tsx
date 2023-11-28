@@ -53,9 +53,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
                     />
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content
-                    onInteractOutside={(e) => {
-                      e.preventDefault();
-                    }}
+                    disableOutsidePointerEvents={true}
                   >
                     <NavigationMenu.Sub
                       orientation="vertical"
@@ -84,9 +82,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
                                     />
                                   </NavigationMenu.Trigger>
                                   <NavigationMenu.Content
-                                    onInteractOutside={(e) => {
-                                      e.preventDefault();
-                                    }}
+                                    disableOutsidePointerEvents={true}
                                   >
                                     <ul className="pl-5 flex flex-col">
                                       {subItem.links.length > 0 &&
