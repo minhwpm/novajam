@@ -8,13 +8,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import SubMenuItem from "./SubMenuItem";
 import Link from "next/link";
-import { LinkType, SubmenuType } from "@/helpers/types";
+import { LinkType, NavigationUiVariant, SubmenuType } from "@/helpers/types";
 import SubMenuFeaturedContent from "./SubMenuFeaturedContent";
 import { usePathname } from "next/navigation";
 import "./styles.css";
 
 export interface NavMenuProps {
   menu: Array<LinkType | SubmenuType>;
+  uiVariant: NavigationUiVariant
 }
 
 export function getMenuItemText(item: LinkType | SubmenuType): string {
@@ -22,11 +23,15 @@ export function getMenuItemText(item: LinkType | SubmenuType): string {
   return item.title;
 }
 
-const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
+const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
   const pathname = usePathname();
   return (
     <NavigationMenu.Root
-      className={classNames("NavMenu hidden lg:flex pt-2 pb-3 justify-center")}
+      className={classNames(
+        "NavMenu hidden lg:flex pt-2 pb-3",
+        { "justify-center": uiVariant === "standard" },
+        { "justify-end": uiVariant === "overlay" }
+      )}
     >
       <NavigationMenu.List
         className={classNames(

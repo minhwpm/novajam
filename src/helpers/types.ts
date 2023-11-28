@@ -57,13 +57,14 @@ export interface SubmenuType {
   contentType: "submenu"
 }
 
+export type NavigationUiVariant = "standard" | "minimal" | "overlay"
 export interface NavigationType {
   url: string
   logo: MediaType,
   logoRedirect?: string
   menu: Array<LinkType | SubmenuType>
   buttons?: Array<ButtonType>
-  uiVariant: "standard" | "minimal" | "overlay"
+  uiVariant: NavigationUiVariant
 }
 
 export interface FooterType {

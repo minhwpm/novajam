@@ -80,7 +80,7 @@ const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
               <Logo redirectUrl={logoRedirect} logo={logo} />
             </div>
             <div className="flex-1 drop-shadow-lg lg:text-lg font-semibold">
-              <NavMenu menu={menu} />
+              <NavMenu menu={menu} uiVariant={uiVariant} />
             </div>
             <div className="shrink-0 hidden lg:block">
               <Buttons buttons={buttons} />
