@@ -17,69 +17,96 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
   return (
     <>
       {/* MOBILE, TABLET */}
-      <NavigationMenu.Root className={classNames(
-        "lg:hidden absolute top-0 left-0 z-[99999] bg-white text-neutral-900 w-screen h-screen px-4 py-20 overflow-y-auto",
-        { "hidden": !mobileMenuShowed}
-      )}>
-        { mobileMenuShowed && 
+      <NavigationMenu.Root
+        className={classNames(
+          "lg:hidden absolute top-0 left-0 z-[99999] bg-white text-neutral-900 w-screen h-screen px-4 py-20 overflow-y-auto",
+          { hidden: !mobileMenuShowed }
+        )}
+      >
+        {mobileMenuShowed && (
           <AiOutlineClose
             className="cursor-pointer absolute right-4 top-8"
             size={30}
             onClick={() => {
-              setMobileMenuShowed(false)
-              document.body.style.overflow = "auto"
+              setMobileMenuShowed(false);
+              document.body.style.overflow = "auto";
             }}
           />
-        }
+        )}
         <NavigationMenu.List>
-          {menu.map(item => (
+          {menu.map((item) => (
             <NavigationMenu.Item key={getMenuItemText(item)}>
-              { item.contentType === "link"  && (
+              {item.contentType === "link" && (
                 <Link className="py-2 select-none inline-block" href={item.url}>
                   {item.text}
                 </Link>
               )}
-              { item.contentType === "submenu" && (
+              {item.contentType === "submenu" && (
                 <>
                   <NavigationMenu.Trigger className="py-2 select-none group">
-                    {item.title} <FontAwesomeIcon className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180" icon={faChevronDown} size="2xs" width={10} />
+                    {item.title}{" "}
+                    <FontAwesomeIcon
+                      className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
+                      icon={faChevronDown}
+                      size="2xs"
+                      width={10}
+                    />
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content
                     onInteractOutside={(e) => {
-                      e.preventDefault()
+                      e.preventDefault();
                     }}
                   >
-                    <NavigationMenu.Sub orientation="vertical" className="py-2 px-4">
+                    <NavigationMenu.Sub
+                      orientation="vertical"
+                      className="py-2 px-4"
+                    >
                       <NavigationMenu.List>
-                      {item.menu.length > 0 && item.menu.map((subItem) => (
-                        <NavigationMenu.Item key={subItem.id}>
-                          { subItem.contentType === "link" && (
-                            <div className="px-3 py-1.5">
-                              <SubMenuItem key={subItem.text} href={subItem.url} title={subItem.text} />
-                            </div>
-                          )}
-                          { subItem.contentType === "linkgroup" && (
-                            <div className="text-slate-700">
-                              <NavigationMenu.Trigger className="w-full font-medium select-none text-left py-1.5 px-3 rounded-sm hover:bg-slate-100 transition-color duration-300 data-[state=open]:bg-slate-100 group">
-                                {subItem.title}
-                                <FontAwesomeIcon className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180" icon={faChevronDown} size="2xs" width={10} />
-                              </NavigationMenu.Trigger>
-                              <NavigationMenu.Content >
-                                <ul className="px-8 py-2 flex flex-col gap-y-3">
-                                  { subItem.links.length > 0 && subItem.links.map((link) => (
-                                    <SubMenuItem key={link.text} href={link.url} title={link.text} />
-                                  ))}
-                                </ul>
-                              </NavigationMenu.Content>
-                            </div>
-                          )}
-                        </NavigationMenu.Item>
-                      
-                      ))}
+                        {item.menu.length > 0 &&
+                          item.menu.map((subItem) => (
+                            <NavigationMenu.Item key={subItem.id}>
+                              {subItem.contentType === "link" && (
+                                <SubMenuItem
+                                  key={subItem.text}
+                                  href={subItem.url}
+                                  title={subItem.text}
+                                />
+                              )}
+                              {subItem.contentType === "linkgroup" && (
+                                <div className="text-slate-700">
+                                  <NavigationMenu.Trigger className="w-full font-medium select-none text-left py-1.5 px-3 rounded-sm hover:bg-slate-100 transition-color duration-300 data-[state=open]:bg-slate-100 group">
+                                    {subItem.title}
+                                    <FontAwesomeIcon
+                                      className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
+                                      icon={faChevronDown}
+                                      size="2xs"
+                                      width={10}
+                                    />
+                                  </NavigationMenu.Trigger>
+                                  <NavigationMenu.Content
+                                    onInteractOutside={(e) => {
+                                      e.preventDefault();
+                                    }}
+                                  >
+                                    <ul className="pl-5 flex flex-col">
+                                      {subItem.links.length > 0 &&
+                                        subItem.links.map((link) => (
+                                          <SubMenuItem
+                                            key={link.text}
+                                            href={link.url}
+                                            title={link.text}
+                                          />
+                                        ))}
+                                    </ul>
+                                  </NavigationMenu.Content>
+                                </div>
+                              )}
+                            </NavigationMenu.Item>
+                          ))}
                       </NavigationMenu.List>
                       {item.featuredContent?.length > 0 && (
                         <div className="flex overflow-y-auto overscroll-y-contain">
-                          {item.featuredContent.map(content => (
+                          {item.featuredContent.map((content) => (
                             <div
                               key={content.id}
                               className="basis-72 shrink-0 grow max-w-xs"
@@ -98,19 +125,19 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
         </NavigationMenu.List>
       </NavigationMenu.Root>
       <div className="lg:hidden ml-auto">
-        { !mobileMenuShowed && 
+        {!mobileMenuShowed && (
           <CiMenuFries
             className="cursor-pointer"
             size={30}
             onClick={() => {
-              setMobileMenuShowed(true)
-              document.body.style.overflow = "hidden"
+              setMobileMenuShowed(true);
+              document.body.style.overflow = "hidden";
             }}
           />
-        }
+        )}
       </div>
     </>
-  )
+  );
 }
 
 export default NavMenuMobile
