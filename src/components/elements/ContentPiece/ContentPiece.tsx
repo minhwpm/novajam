@@ -48,7 +48,7 @@ export const ContentPiece: React.FC<{
     <div className="flex flex-col rounded-assets bg-white">
       {(media || embeddedMediaUrl) && <MediaPart data={data} alignment={alignment} /> }
       
-      {(heading || label || description || buttons) && (
+      {(heading || label || description || buttons?.length > 0) && (
         <div
           className={classNames(
             "p-5 flex-1 flex flex-col justify-between",

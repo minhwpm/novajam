@@ -1,3 +1,4 @@
+"use client";
 import Section from "@/components/elements/Section/Section";
 import BlogPreview from "@/components/elements/BlogPreview/BlogPreview";
 import classNames from "classnames";
@@ -11,10 +12,11 @@ import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview";
 import { Statistics } from "@/components/elements/Statistics/Statistics";
 import { ContentPiece } from "@/components/elements/ContentPiece/ContentPiece";
 import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 const ContentItem: React.FC<{
   data: CardType;
-  alignment: AlignmentType
+  alignment: AlignmentType;
 }> = ({ data, alignment }) => {
   switch (data.contentType) {
     case "blog":
@@ -59,7 +61,12 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
     htmlid,
   } = data;
   return (
-    <Section label={label} heading={heading} subheading={subheading} id={htmlid}>
+    <Section
+      label={label}
+      heading={heading}
+      subheading={subheading}
+      id={htmlid}
+    >
       {layout === "grid" && (
         <div
           className={classNames(
@@ -104,13 +111,17 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
         </div>
       )}
       {layout === "masonry" && (
-        <div className="w-full columns-1 md:columns-2 gap-5 lg:columns-3">
-          {content.map((item) => (
-            <div key={item.id} className="mb-5">
-              <ContentItem data={item} alignment={alignment} />
-            </div>
-          ))}
-        </div>
+        <ResponsiveMasonry
+          columnsCountBreakPoints={{ 300: 1, 768: size - 1, 1024: size }}
+        >
+          <Masonry columnsCount={3} gutter="20px">
+            {content.map((item) => (
+              <div key={item.id} className="">
+                <ContentItem data={item} alignment={alignment} />
+              </div>
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
       )}
     </Section>
   );
