@@ -1,6 +1,6 @@
-import { PricingPlanType } from "@/helpers/types"
 import Button from "../Button/Button"
-import { BsCheckLg } from "react-icons/bs"
+import { PricingPlanType } from "@/helpers/types"
+import { PiCheckBold } from "react-icons/pi"
 import classNames from "classnames"
 
 export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
@@ -36,9 +36,9 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
       <ul className={classNames("leading-loose py-4 border-t", {})}>
         {features.map((item) => (
           <li key={item} className="mb-2 inline-flex gap-2">
-            <BsCheckLg
+            <PiCheckBold 
               className="flex-shrink-0 relative top-1.5 ml-2 text-primary-600"
-              size={20}
+              size={20} 
             />
             {item}
           </li>

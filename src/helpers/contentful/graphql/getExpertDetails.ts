@@ -35,6 +35,13 @@ export default async function getExpertDetails(slug: string) {
             description {
               json
             }
+            sns {
+              linkedInUrl
+              facebookUrl
+              twitterUrl
+              youtubeUrl
+              instagramUrl
+            }
           }
         }
       }

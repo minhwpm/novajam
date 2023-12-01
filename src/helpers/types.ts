@@ -12,6 +12,13 @@ export type MediaType = {
   height: number
   contentType: string
 }
+export type SNSType = {
+  linkedInUrl: string | null
+  facebookUrl: string | null
+  twitterUrl: string | null
+  youtubeUrl: string | null
+  instagramUrl: string | null
+}
 
 export type AspectRatioType = "video" | "square" | "3/4" | "4/3" | "3/2" | "auto" 
 
@@ -75,13 +82,7 @@ export interface FooterType {
   }
   logoRedirect?: string
   copyright?: string
-  sns?: Array<{
-    url: string
-    icon: {
-      url: string
-      altText: string
-    }
-  }>
+  sns?: SNSType
   menu: Array<{
     title?:  string
     links: Array<{
@@ -154,6 +155,7 @@ export type ExpertType = {
   organization: string
   summary: string
   description?: string
+  sns: SNSType
   contentType: "expert"
 }
 

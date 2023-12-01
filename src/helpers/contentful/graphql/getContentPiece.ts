@@ -70,6 +70,6 @@ export default async function getContentPiece(id: string) {
     throw new Error("Failed to fetch Content Piece data. Error: ", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
-  console.log(`CONTENT PIECE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  // console.log(`CONTENT PIECE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

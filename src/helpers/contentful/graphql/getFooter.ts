@@ -24,6 +24,13 @@ export default async function getFooter(url: string) {
             }
             logoRedirect
             copyright
+            sns {
+              linkedInUrl
+              facebookUrl
+              twitterUrl
+              youtubeUrl
+              instagramUrl
+            }
             menuCollection (limit: 5) {
               items {
                 title

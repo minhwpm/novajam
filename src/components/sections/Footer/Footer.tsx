@@ -1,3 +1,4 @@
+import { SNS } from "@/components/elements/SNS/SNS"
 import { FooterType } from "@/helpers/types"
 import classNames from "classnames"
 import Image from "next/image"
@@ -28,18 +29,7 @@ const Footer: React.FC<Props> = ({ data }) => {
             {copyright}
           </p>
           <div className="flex gap-2 mt-5">
-            {sns && sns.length > 0 && sns.map((item, idx) => (
-              <div key={idx}>
-                <Link href={item.url}>
-                  <Image
-                    src={item.icon.url}
-                    width={30}
-                    height={30}
-                    alt={item.icon.altText}
-                  />
-                </Link>
-              </div>
-            ))}
+            {sns && <SNS data={sns} />}
           </div>
         </div>
         {menu.map((section, idx) => (
