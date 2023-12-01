@@ -29,7 +29,7 @@ const Footer: React.FC<Props> = ({ data }) => {
             {copyright}
           </p>
           <div className="flex gap-2 mt-5">
-            {sns && <SNS data={sns} />}
+            {sns && <SNS data={sns} variant="alternate" />}
           </div>
         </div>
         {menu.map((section, idx) => (
