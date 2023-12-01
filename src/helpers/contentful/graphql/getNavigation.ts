@@ -48,6 +48,9 @@ export default async function getNavigation(url: string) {
             }
             buttonsCollection {
               items {
+                sys {
+                  id
+                }
                 text
                 url
                 openNewTab
