@@ -25,27 +25,49 @@ const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
   </Link>
 );
 
-const Buttons: React.FC<{ buttons?: Array<ButtonType> }> = ({ buttons }) => {
-  if (buttons && buttons.length > 0) {
-    return (
-      <>
+const HeaderButtons: React.FC<{ buttons: Array<ButtonType> }> = ({ buttons }) => {
+  return (
+    <>
+      {buttons.map((button) => (
+        <Button
+          key={button.id}
+          url={button.url}
+          variant={button.buttonVariant ?? "outline-white"}
+          openNewTab={button.openNewTab}
+        >
+          {button.text}
+        </Button>
+      ))}
+    </>
+  )
+}
+
+const HotButtons: React.FC<{ buttons: Array<ButtonType> }> = ({ buttons }) => {
+  return (
+    <div className={classNames(
+      "fixed z-[999999]",
+      "w-full bottom-0 rounded-t-assets", //sm devices
+      "lg:rotate-90 lg:translate-y-1/2 lg:translate-x-1/2 lg:rounded-t-none lg:rounded-b-assets lg:w-auto lg:bottom-1/2 lg:right-0" //big devices
+    )}>
+      <div className="relative flex py-2 bg-white lg:py-0 lg:bg-transparent">
         {buttons.map((button) => (
-          <Button
-            key={button.id}
-            url={button.url}
-            variant={button.buttonVariant ?? "outline-white"}
-            openNewTab={button.openNewTab}
-          >
-            {button.text}
-          </Button>
+          <div key={button.id} className="flex-1 flex">
+            <Button
+              url={button.url}
+              variant={button.buttonVariant ?? "outline-white"}
+              openNewTab={button.openNewTab}
+              className="grow absolute lg:top-1/2 mx-1"
+            >
+              {button.text}
+            </Button>
+          </div>
         ))}
-      </>
-    );
-  }
-  return null;
+      </div>
+    </div>
+  );
 };
 
-const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
+const Header: React.FC<{data: NavigationType}> = ({ data }) => {
   const { logo, logoRedirect, menu, buttons, uiVariant } = data;
   const sticky = useStickyHeaderOnScrollUp();
 
@@ -58,9 +80,11 @@ const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
               <Logo redirectUrl={logoRedirect} logo={logo} />
             </div>
             <div className="flex gap-5 items-center">
-              <div className="hidden md:block">
-                <Buttons buttons={buttons} />
-              </div>
+              {buttons && buttons.length > 0 && (
+                <div className="hidden md:block">
+                  <HeaderButtons buttons={buttons} />
+                </div>
+              )}
               <NavMenuMinimal data={data} />
             </div>
           </div>
@@ -83,9 +107,11 @@ const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
             <div className="flex-1 drop-shadow-lg lg:text-lg font-semibold">
               <NavMenu menu={menu} uiVariant={uiVariant} />
             </div>
-            <div className="shrink-0 hidden lg:block">
-              <Buttons buttons={buttons} />
-            </div>
+            {buttons && buttons.length > 0 && (
+              <div className="shrink-0 hidden lg:block">
+                <HeaderButtons buttons={buttons} />
+              </div>
+            )}
             <NavMenuMobile menu={menu} />
           </div>
         </div>
@@ -108,13 +134,24 @@ const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
         <div className="flex-1">
           <NavMenu menu={menu} uiVariant="standard" />
         </div>
-        <div className="shrink-0 hidden lg:block">
-          <Buttons buttons={buttons} />
-        </div>
+        {buttons && buttons.length > 0 && (
+          <div className="shrink-0 hidden lg:block">
+            <HeaderButtons buttons={buttons} />
+          </div>
+        )}
         <NavMenuMobile menu={menu} />
       </div>
     </header>
   );
 };
+
+const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
+  return(
+    <>
+      <Header data={data} />
+      {data.hotButtons.length > 0 && <HotButtons buttons={data.hotButtons} /> }
+    </>
+  )
+}
 
 export default Navigation

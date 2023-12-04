@@ -5,6 +5,7 @@ import { ButtonVariant } from "@/helpers/types"
 import { BsArrowRight } from "react-icons/bs";
 
 interface ButtonProps {
+  className?: string
   children: React.ReactNode
   url?: string
   onClick?: () => void
@@ -16,7 +17,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-  const { size = "base", variant = "standard", url, children, onClick, type = "button", disabled = false, openNewTab = false } = props
+  const { size = "base", variant = "standard", url, children, onClick, type = "button", disabled = false, openNewTab = false, className } = props
   if (variant === "link") {
     return (
       <Link
@@ -24,7 +25,8 @@ const Button: React.FC<ButtonProps> = (props) => {
           "group inline-block text-blue-500 text-lg hover:text-blue-700 transition-colors duration-500",
           { "py-2": size === "base" },
           { "py-3 text-lg": size === "lg" },
-          { "opacity-30 pointer-events-none cursor-not-allowed": disabled }
+          { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
+          className
         )}
         href={url ?? "#"}
       >
@@ -37,7 +39,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     );
   }
   const classes = classNames(
-    "relative inline-block text-center rounded-assets bottom-0 hover:bottom-1 transition-all duration-500 ease",
+    "relative inline-flex justify-center items-center text-center rounded-assets bottom-0 hover:bottom-1 transition-all duration-500 ease",
     { "bg-primary-500 hover:bg-primary-600 text-white" : variant === "standard" },
     { "bg-secondary-500 hover:bg-secondary-600 text-white" : variant === "alternate" },
     { "bg-neutral-900 text-white hover:bg-neutral-800" : variant === "black" },
@@ -52,7 +54,7 @@ const Button: React.FC<ButtonProps> = (props) => {
   if (url) {
     return (
       <Link
-        className={classes}
+        className={classNames(classes, className)}
         href={url}
         target={openNewTab ? "_blank" : "_self"}
       >
@@ -61,7 +63,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     );
   }
   return (
-    <button type={type} className={classes} onClick={onClick} disabled={disabled}>
+    <button type={type} className={classNames(classes, className)} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   )

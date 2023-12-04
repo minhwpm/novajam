@@ -14,7 +14,7 @@ export default function Error({
   }, [error])
  
   return (
-    <div className="mx-auto p-4 flex flex-col max-w-2xl justify-center pt-52 pb-20 min-h-[50vh]">
+    <div className="mx-auto p-4 flex flex-col max-w-2xl justify-center pt-52 pb-20 min-h-screen">
       <h2 className="font-bold text-4xl lg:text-6xl mb-8">
         Page not found
       </h2>

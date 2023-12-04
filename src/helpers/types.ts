@@ -71,7 +71,8 @@ export interface NavigationType {
   logo: MediaType,
   logoRedirect?: string
   menu: Array<LinkType | SubmenuType>
-  buttons?: Array<ButtonType>
+  buttons: Array<ButtonType>
+  hotButtons: Array<ButtonType>
   uiVariant: NavigationUiVariant
 }
 
