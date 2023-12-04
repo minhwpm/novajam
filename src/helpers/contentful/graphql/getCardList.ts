@@ -127,7 +127,9 @@ export default async function getCardList(id: string) {
                   pricing
                   pricingSuffix
                   badge
-                  features
+                  description {
+                    json
+                  }
                   ctaButton {
                     url
                     text

@@ -221,7 +221,7 @@ export type PricingPlanType = {
   pricing: string
   pricingSuffix: string
   badge: string
-  features: Array<string>
+  description: Document | null
   ctaButton: ButtonType
   contentType: 'pricingplan'
 }

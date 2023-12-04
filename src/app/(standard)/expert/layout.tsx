@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/react';
 import getFooter from '@/helpers/contentful/graphql/getFooter';
 import Footer from '@/components/sections/Footer/Footer';
 import { Inter_Font } from '@/helpers/fonts';
@@ -23,7 +22,6 @@ export default async function RootLayout({
       {navigation && <Navigation data={navigation} /> }
       {children}
       {footer && <Footer data={footer} /> }
-      <Analytics />
     </div>
   )
 }

@@ -27,9 +27,9 @@ const renderOptions = {
     },
     [BLOCKS.LIST_ITEM]: (node: Inline | Block, children: ReactNode) => {
       return (
-        <li className="flex gap-4 items-start !my-0">
+        <li className="inline-flex gap-2">
           <div className="shrink-0">
-            <PiCheckBold className="text-primary-500 relative bottom-0.5" size={20} />
+            <PiCheckBold className="flex-shrink-0 relative top-1.5 ml-2 text-primary-600" size={20} />
           </div>
           {children}
         </li>

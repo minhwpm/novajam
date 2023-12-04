@@ -1,5 +1,4 @@
 /* eslint-disable complexity */ // @TODO fix eslint complexity
-import { Analytics } from "@vercel/analytics/react";
 import Navigation from "@/components/sections/Navigation/Navigation";
 import Footer from "@/components/sections/Footer/Footer";
 import classNames from "classnames";
@@ -60,7 +59,6 @@ export default async function Layout({
       {navigation && <Navigation data={navigation} />}
       {children}
       {footer && <Footer data={footer} />}
-      <Analytics />
     </div>
   );
 }

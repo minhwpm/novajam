@@ -57,6 +57,17 @@ export default async function getNavigation(url: string) {
                 buttonVariant
               }
             }
+            hotButtonsCollection {
+              items {
+                sys {
+                  id
+                }
+                text
+                url
+                openNewTab
+                buttonVariant
+              }
+            }
             uiVariant
           }
         }
