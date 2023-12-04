@@ -78,7 +78,7 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
           <div className="text-base flex flex-col gap-2 mb-4">
             {role && <div className="font-semibold text-center">{role}</div>}
             {specialization && (
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="flex flex-wrap items-center justify-center gap-2">
                 <div className="text-neutral-500 uppercase text-sm tracking-wider">
                   Specialty:
                 </div>
