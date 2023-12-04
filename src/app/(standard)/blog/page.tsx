@@ -10,8 +10,8 @@ export default async function Page() {
     const latestBlogs = await getBlogs(6, 0) as Array<BlogType>
     console.log()
     return (
-      <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
-        <section className="mt-14">
+      <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24 pt-20">
+        <section className="">
           <Container>
             <h2 className="text-2xl font-semibold text-slate-600 mb-4">
               Featured

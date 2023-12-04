@@ -151,7 +151,7 @@ export type ExpertType = {
   specialization: Array<string> | null
   organization: string | null
   summary: string | null
-  description: string | null
+  description: Document | null
   sns: SNSType | null
   contentType: "expert"
 }
