@@ -11,7 +11,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const previousImages = (await parent).openGraph?.images || []
   try {
-    const data = await getPage(`/${params.slug.join('/')}`)
+    const data = await getPage(`/${params.slug!.join('/')}`)
     return {
       title: data.metaTitle,
       description: data.metaDescription,
@@ -28,15 +28,16 @@ export async function generateMetadata(
 
 export default async function Page({ params }: { params: Params }) {
   let data
-  if (params.slug.find((item) => item === "blog")) {
-    data = await getBlogDetails(params.slug[params.slug.length - 1])
+  if (params.slug!.find((item) => item === "blog")) {
+    data = await getBlogDetails(params.slug![params.slug!.length - 1])
     return (
       <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
         <BlogDetails data={data} />
       </main>
     )
   }
-  data = await getPage(`/${params.slug.join('/')}`)
+  
+  data = await getPage(`/${params.slug!.join('/')}`)
   if (!data) {
     throw new Error("Page Not Found")
   }

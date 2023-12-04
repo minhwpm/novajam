@@ -54,7 +54,7 @@ export default async function getBlogs(limit: number, skip: number, featured?: b
   })
 
   const data = await res.json()
-  console.log(`BLOG LIST RAW DATA: ${JSON.stringify(data, null, 4)}`)
+  // console.log(`BLOG LIST RAW DATA: ${JSON.stringify(data, null, 4)}`)
 
   if (res.status !== 200) {
     console.error(data)
@@ -63,6 +63,6 @@ export default async function getBlogs(limit: number, skip: number, featured?: b
 
   const normalizedData = normalizeDataCollection({...data.data})
 
-  console.log(`BLOG LIST DATA: ${JSON.stringify(normalizedData, null, 4)}`)
+  // console.log(`BLOG LIST DATA: ${JSON.stringify(normalizedData, null, 4)}`)
   return normalizedData
 }

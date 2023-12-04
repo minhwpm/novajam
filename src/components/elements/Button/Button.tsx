@@ -44,7 +44,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     { "!border-2 border-primary-500 text-primary-500 hover:bg-primary-600 hover:text-white" : variant === "outline" },
     { "!border-2 border-black text-black hover:bg-black hover:text-white" : variant === "outline-black" },
     { "!border-2 border-white text-white hover:bg-white hover:text-neutral-800 drop-shadow-lg" : variant === "outline-white" },
-    { "px-6 py-2.5 font-semibold": size === "base" },
+    { "px-6 py-2.5 min-w-[130px] font-semibold": size === "base" },
     { "px-8 py-3.5 min-w-[200px] text-lg font-semibold": size === "lg" },
     { "opacity-30 pointer-events-none cursor-not-allowed": disabled }
   )

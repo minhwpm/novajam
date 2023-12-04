@@ -16,8 +16,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const navigation = await getNavigation("/")
-  const footer = await getFooter("/")
+  const navigation = await getNavigation("/expert" )
+  const footer = await getFooter("/expert")
   return (
     <div className={classNames(Inter_Font.className)}>
       {navigation && <Navigation data={navigation} /> }

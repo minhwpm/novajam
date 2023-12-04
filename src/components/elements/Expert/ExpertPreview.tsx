@@ -74,7 +74,7 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
         >
           {fullName}
         </Link>
-        {(role || specialization.length > 0 || summary) && (
+        {(role || specialization || summary) && (
           <div className="text-base flex flex-col gap-2 mb-4">
             {role && <div className="font-semibold text-center">{role}</div>}
             {specialization && (

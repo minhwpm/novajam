@@ -19,17 +19,16 @@ export default async function Layout({
   params: Params;
 }) {
   // console.log(params, JSON.stringify(children, null, 4))
-  const slug = [...params.slug];
   let navigation, footer, page, fontTheme, colorTheme, borderRadiusTheme, headingFontSizeTheme;
   try {
     while (
-      slug.length > 0 &&
+      params.slug!.length >= 0 &&
       (!navigation || !footer || !fontTheme || !colorTheme || !borderRadiusTheme)
     ) {
-      if (!navigation) navigation = await getNavigation(`/${slug.join("/")}`);
-      if (!footer) footer = await getFooter(`/${slug.join("/")}`);
+      if (!navigation) navigation = await getNavigation(`/${params.slug!.join("/")}`);
+      if (!footer) footer = await getFooter(`/${params.slug!.join("/")}`);
       if (!fontTheme || !colorTheme || !borderRadiusTheme) {
-        page = await getPage(`/${slug.join("/")}`);
+        page = await getPage(`/${params.slug!.join("/")}`);
         if (page) {
           // console.log("PAGE THEME", page.fontMain, page.fontHeading, page.colorPrimary, page.colorSecondary)
           fontTheme = generateFontClassnames(page.fontMain, page.fontHeading);
@@ -37,11 +36,11 @@ export default async function Layout({
             page.colorPrimary,
             page.colorSecondary
           );
-          borderRadiusTheme = `${page?.borderRadius}-border-radius-assets`;
+          borderRadiusTheme = `${page.borderRadius}-border-radius-assets`;
           headingFontSizeTheme= `${page.headingFontSize}-heading-font-size`;
         }
       }
-      slug.pop();
+      params.slug!.pop();
     }
   } catch(e) {
     console.error(e);

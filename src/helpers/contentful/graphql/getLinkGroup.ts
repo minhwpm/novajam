@@ -22,6 +22,9 @@ export default async function getLinkGroup(id: string) {
             title
             linksCollection {
               items {
+                sys {
+                  id
+                }
                 text
                 url
                 openNewTab

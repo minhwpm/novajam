@@ -20,6 +20,7 @@ const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
       width={logo.width}
       height={logo.height}
       alt={logo.title ?? ""}
+      priority
     />
   </Link>
 );

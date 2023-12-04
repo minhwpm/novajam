@@ -31,8 +31,8 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
             <div className={classNames(
               { "absolute w-full h-full lg:w-auto lg:static": section.media.length > 0 },
             )}>
-              {section.media.length === 1 && <MediaItem data={section.media[0]} dimensionBase="height" videoAutoplay={true} />}
-              {section.media.length > 1 && <MediaCarousel data={section.media} dimensionBase="height" videoAutoplay={true} />}
+              {section.media.length === 1 && <MediaItem data={section.media[0]} dimensionBase="height" videoAutoplay={true} priority={true} />}
+              {section.media.length > 1 && <MediaCarousel data={section.media} dimensionBase="height" videoAutoplay={true} priority={true} />}
             </div>
             {(section.heading || section.description || section.buttons.length) && (
               <div className={classNames(

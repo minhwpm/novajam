@@ -44,7 +44,7 @@ const renderOptions = {
   },
 };
 
-export default function RichText2({ data, style }: { data: Document, style: "blog" | "marketing" }) {
+export default function RichText2({ data, style }: { data: Document, style?: "blog" | "marketing" }) {
   return (
     <>
       {documentToReactComponents(data, renderOptions)}

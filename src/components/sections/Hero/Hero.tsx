@@ -117,10 +117,10 @@ const Hero: React.FC<Props> = ({ data }) => {
               {section.media.length > 0 && (
                 <div className={classNames("lg:w-7/12 shrink-0", animationClasses)}>
                   {section.media.length === 1 && (
-                    <MediaItem data={section.media[0]} videoAutoplay={true} />
+                    <MediaItem data={section.media[0]} videoAutoplay={true} priority={true} />
                   )}
                   {section.media.length > 1 && (
-                    <MediaCarousel data={section.media} videoAutoplay={true} />
+                    <MediaCarousel data={section.media} videoAutoplay={true} priority={true} />
                   )}
                 </div>
               )}

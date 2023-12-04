@@ -8,7 +8,8 @@ export const MediaCarousel: React.FC<{
   aspectRatio?: AspectRatioType;
   videoAutoplay?: boolean;
   dimensionBase?: "width" | "height";
-}> = ({ data, aspectRatio = "auto", videoAutoplay = false, dimensionBase = "width" }) => {
+  priority?: boolean;
+}> = ({ data, aspectRatio = "auto", videoAutoplay = false, dimensionBase = "width", priority = false }) => {
   return (
     <div className="relative">
       <Carousel
@@ -23,8 +24,8 @@ export const MediaCarousel: React.FC<{
           enabled: true,
           type: "fraction",
         }}
-        slides={data.map((item) => (
-          <MediaItem key={item.id} data={item} aspectRatio={aspectRatio} videoAutoplay={videoAutoplay} dimensionBase={dimensionBase} />
+        slides={data.map((item, index) => (
+          <MediaItem key={item.id} data={item} aspectRatio={aspectRatio} videoAutoplay={videoAutoplay} dimensionBase={dimensionBase} priority={index === 0 && priority} />
         ))}
       >
         <div className="media-carousel-btn-prev absolute right-2 bottom-4 z-10 cursor-pointer w-12 h-12 rounded-full bg-white bg-opacity-80 shadow items-center justify-center flex">

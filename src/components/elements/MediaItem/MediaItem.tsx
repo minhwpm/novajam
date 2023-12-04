@@ -9,6 +9,7 @@ export const MediaItem: React.FC<{
   videoAutoplay?: boolean;
   videoControls?: boolean;
   dimensionBase?: "width" | "height";
+  priority?: boolean
 }> = ({
   data,
   altText,
@@ -16,6 +17,7 @@ export const MediaItem: React.FC<{
   videoAutoplay = false,
   videoControls = false,
   dimensionBase = "width",
+  priority = false,
 }) => {
   if (!data) {
     return (
@@ -34,6 +36,7 @@ export const MediaItem: React.FC<{
           width={500}
           height={500}
           alt={altText ?? "No image"}
+          priority={priority}
         />
       </div>
     );
@@ -58,6 +61,7 @@ export const MediaItem: React.FC<{
           alt={altText ?? title}
           width={width}
           height={height}
+          priority={priority}
         />
       )}
       {contentType.includes("video") && (

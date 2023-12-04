@@ -1,7 +1,8 @@
 import { Document } from "@contentful/rich-text-types";
 
 export type Params = {
-  slug: Array<string>
+  string: string
+  slug?: Array<string>
 }
 
 export type MediaType = {
@@ -142,20 +143,15 @@ export type BlogType = {
 
 export type ExpertType = {
   id: string
-  slug: string
+  slug: string | null
   fullName: string
-  portrait: {
-    title: string
-    url: string
-    width: number
-    height: number
-  }
-  role: string
-  specialization: Array<string>
-  organization: string
-  summary: string
-  description?: string
-  sns: SNSType
+  portrait: MediaType | null
+  role: string | null
+  specialization: Array<string> | null
+  organization: string | null
+  summary: string | null
+  description: string | null
+  sns: SNSType | null
   contentType: "expert"
 }
 

@@ -128,7 +128,6 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
                               >
                                 {subItem.contentType === "link" && (
                                   <SubMenuItem
-                                    key={subItem.text}
                                     href={subItem.url}
                                     title={subItem.text}
                                   />
@@ -143,7 +142,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
                                     subItem.links.length > 0 &&
                                     subItem.links.map((link) => (
                                       <SubMenuItem
-                                        key={link.text}
+                                        key={link.id}
                                         href={link.url}
                                         title={link.text}
                                       />
@@ -222,7 +221,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
                                       {subItem.links.length > 0 &&
                                         subItem.links.map((link) => (
                                           <SubMenuItem
-                                            key={link.text}
+                                            key={link.id}
                                             href={link.url}
                                             title={link.text}
                                             currentPathname={pathname}

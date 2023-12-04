@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import SubMenuItem from './SubMenuItem';
 import { useState } from 'react';
-import { getMenuItemText } from './NavMenu';
 import SubMenuFeaturedContent from './SubMenuFeaturedContent';
 import { LinkType, SubmenuType } from '@/helpers/types';
 import { CiMenuFries } from 'react-icons/ci';
@@ -19,9 +18,10 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
       {/* MOBILE, TABLET */}
       <NavigationMenu.Root
         className={classNames(
-          "lg:hidden absolute top-0 left-0 z-[99999] bg-white text-neutral-900 w-screen h-screen px-4 pt-20 pb-36 overflow-y-auto",
+          "lg:hidden absolute top-0 left-0 z-[99999] bg-white text-neutral-900 font-lg w-screen h-screen px-4 pt-20 pb-36 overflow-y-auto",
           { hidden: !mobileMenuShowed }
         )}
+        orientation="vertical"
       >
         {mobileMenuShowed && (
           <AiOutlineClose
@@ -35,16 +35,23 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
         )}
         <NavigationMenu.List>
           {menu.map((item) => (
-            <NavigationMenu.Item key={getMenuItemText(item)}>
+            <NavigationMenu.Item key={item.id}>
               {item.contentType === "link" && (
-                <Link className="py-2 select-none inline-block" href={item.url}>
+                <Link
+                  className="py-2 px-3 select-none block rounded-assets hover:bg-primary-100 transition duration-500"
+                  href={item.url}
+                  onClick={() => {
+                    setMobileMenuShowed(false)
+                    document.body.style.overflow = "auto";
+                  }}
+                >
                   {item.text}
                 </Link>
               )}
               {item.contentType === "submenu" && (
                 <>
-                  <NavigationMenu.Trigger className="py-2 select-none group">
-                    {item.title}{" "}
+                  <NavigationMenu.Trigger className="py-2 px-3 select-none text-start w-full group rounded-assets hover:bg-primary-100 transition duration-500">
+                    {item.title}
                     <FontAwesomeIcon
                       className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
                       icon={faChevronDown}
@@ -52,7 +59,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
                       width={10}
                     />
                   </NavigationMenu.Trigger>
-                  <NavigationMenu.Content>
+                  <NavigationMenu.Content className='bg-neutral-50 mt-2 rounded-assets'>
                     <NavigationMenu.Sub
                       orientation="vertical"
                       className="py-2 px-4"
@@ -63,14 +70,18 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
                             <NavigationMenu.Item key={subItem.id}>
                               {subItem.contentType === "link" && (
                                 <SubMenuItem
-                                  key={subItem.text}
+                                  key={subItem.id}
                                   href={subItem.url}
                                   title={subItem.text}
+                                  onClick={() => {
+                                    setMobileMenuShowed(false)
+                                    document.body.style.overflow = "auto";
+                                  }}
                                 />
                               )}
                               {subItem.contentType === "linkgroup" && (
-                                <div className="text-slate-700">
-                                  <NavigationMenu.Trigger className="w-full font-medium select-none text-left py-1.5 px-3 rounded-sm hover:bg-slate-100 transition-color duration-300 data-[state=open]:bg-slate-100 group">
+                                <div>
+                                  <NavigationMenu.Trigger className="w-full font-medium select-none text-left py-1.5 px-3 rounded-assets hover:bg-primary-100 transition-color duration-300 data-[state=open]:bg-primary-100 group">
                                     {subItem.title}
                                     <FontAwesomeIcon
                                       className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
@@ -79,14 +90,18 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
                                       width={10}
                                     />
                                   </NavigationMenu.Trigger>
-                                  <NavigationMenu.Content>
+                                  <NavigationMenu.Content className="mt-2">
                                     <ul className="pl-5 flex flex-col">
                                       {subItem.links.length > 0 &&
                                         subItem.links.map((link) => (
                                           <SubMenuItem
-                                            key={link.text}
+                                            key={link.id}
                                             href={link.url}
                                             title={link.text}
+                                            onClick={() => {
+                                              setMobileMenuShowed(false)
+                                              document.body.style.overflow = "auto";
+                                            }}
                                           />
                                         ))}
                                     </ul>
