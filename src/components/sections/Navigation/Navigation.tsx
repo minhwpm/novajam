@@ -56,7 +56,7 @@ const HotButtons: React.FC<{ buttons: Array<ButtonType> }> = ({ buttons }) => {
               url={button.url}
               variant={button.buttonVariant ?? "outline-white"}
               openNewTab={button.openNewTab}
-              className="grow absolute lg:top-1/2 mx-1"
+              className="grow absolute lg:top-1/2 mx-1 lg:my-1"
             >
               {button.text}
             </Button>
