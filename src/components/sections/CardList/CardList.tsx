@@ -72,9 +72,9 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
           className={classNames(
             "grid gap-8",
             { "lg:grid-cols-2": size >= 2 },
-            { "lg:grid-cols-3": size === 3 },
-            { "grid-cols-2 lg:grid-cols-4": size === 4 },
-            { "grid-cols-2 md:grid-cols-3 lg:grid-cols-5": size === 5 }
+            { "grid-cols-1 md:grid-cols-2 lg:grid-cols-3": size === 3 },
+            { "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4": size === 4 },
+            { "grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5": size === 5 }
           )}
         >
           {content.map((item) => (
@@ -101,10 +101,10 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
               </div>
             ))}
           >
-            <div className="cardlist-btn-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-80 text-white items-center justify-center opacity-0 flex group-hover/cardlist:opacity-100 transition-opacity duration-500 ease-in-out">
+            <div className="cardlist-btn-prev z-10 absolute -left-7 top-1/2 -translate-y-1/2 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-80 text-white items-center justify-center flex">
               <AiOutlineArrowLeft size={30} />
             </div>
-            <div className="cardlist-btn-next absolute right-2 top-1/2 -translate-y-1/2 z-10 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-80 text-white items-center justify-center opacity-0 flex group-hover/cardlist:opacity-100 transition-opacity duration-500 ease-in-out">
+            <div className="cardlist-btn-next z-10 absolute -right-7 top-1/2 -translate-y-1/2 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-80 text-white items-center justify-center flex">
               <AiOutlineArrowRight size={30} />
             </div>
           </Carousel>

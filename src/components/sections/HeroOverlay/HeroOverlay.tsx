@@ -12,7 +12,7 @@ import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import Container from "@/components/elements/Container/Container";
 
-const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
+const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
   const { content, textAlignment } = data;
   return (
     <section className={classNames("relative")} >
@@ -31,8 +31,8 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
             <div className={classNames(
               { "absolute w-full h-full lg:w-auto lg:static": section.media.length > 0 },
             )}>
-              {section.media.length === 1 && <MediaItem data={section.media[0]} dimensionBase="height" videoAutoplay={true} priority={true} />}
-              {section.media.length > 1 && <MediaCarousel data={section.media} dimensionBase="height" videoAutoplay={true} priority={true} />}
+              {section.media.length === 1 && <MediaItem data={section.media[0]} dimensionBase="height" videoAutoplay={true} priority={true} rounded="none" />}
+              {section.media.length > 1 && <MediaCarousel data={section.media} dimensionBase="height" videoAutoplay={true} priority={true} rounded="none" />}
             </div>
             {(section.heading || section.description || section.buttons.length) && (
               <div className={classNames(
@@ -90,4 +90,4 @@ const HeroC: React.FC<{ data: HeroType }> = ({ data }) => {
   );
 };
 
-export default HeroC;
+export default HeroOverlay;

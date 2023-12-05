@@ -3,6 +3,7 @@ import { ExpertType } from "@/helpers/types";
 import Image from "next/image";
 import Link from "next/link";
 import { SNS } from "../SNS/SNS";
+import { MediaItem } from "../MediaItem/MediaItem";
 
 interface Props {
   data: ExpertType;
@@ -24,15 +25,7 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
     return (
       <div className="flex flex-wrap py-5">
         <div className="w-1/3 md:w-1/4">
-          <div className="aspect-square">
-            <Image
-              className="w-full h-full object-cover rounded-full"
-              src={portrait?.url ?? "/bluebiz_square.webp"}
-              alt={portrait?.title ?? fullName}
-              width={portrait?.width ?? 500}
-              height={portrait?.height ?? 500}
-            />
-          </div>
+          <MediaItem data={portrait} aspectRatio="square" rounded="full" />
         </div>
         <div className="w-full pt-6 md:w-3/4 md:pt-0 md:pl-10">
           <div className="font-semibold text-2xl md:text-3xl mb-5">
@@ -58,15 +51,7 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
   }
   return (
     <div className="group bg-white rounded-assets">
-      <div className="aspect-square overflow-hidden">
-        <Image
-          className="w-full h-full object-cover"
-          src={portrait?.url ?? "/bluebiz_square.webp"}
-          alt={portrait?.title ?? fullName}
-          width={portrait?.width ?? 500}
-          height={portrait?.height ?? 500}
-        />
-      </div>
+      <MediaItem data={portrait} aspectRatio="square" />
       <div className="w-full px-4 py-4 flex flex-col items-center gap-2  rounded-b-assets">
         <Link
           className="underline-hover-effect font-semibold text-xl"

@@ -10,6 +10,7 @@ export const MediaItem: React.FC<{
   videoControls?: boolean;
   dimensionBase?: "width" | "height";
   priority?: boolean
+  rounded?: "assets" | "full" | "none"
 }> = ({
   data,
   altText,
@@ -18,14 +19,17 @@ export const MediaItem: React.FC<{
   videoControls = false,
   dimensionBase = "width",
   priority = false,
+  rounded = "assets",
 }) => {
   if (!data) {
     return (
       <div
         className={classNames(
+          "overflow-hidden",
           `aspect-${aspectRatio}`,
           { "w-full": dimensionBase === "width" },
-          { "h-full": dimensionBase === "height" }
+          { "h-full": dimensionBase === "height" },
+          `rounded-${rounded}`,
         )}
       >
         <Image
@@ -46,9 +50,11 @@ export const MediaItem: React.FC<{
   return (
     <div
       className={classNames(
+        "overflow-hidden",
         { [`aspect-${aspectRatio}`]: width >= 160 },
         { "w-full": dimensionBase === "width" },
-        { "h-full": dimensionBase === "height" }
+        { "h-full": dimensionBase === "height" },
+        `rounded-${rounded}`,
       )}
     >
       {contentType.includes("image") && (
