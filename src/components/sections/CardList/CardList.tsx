@@ -6,13 +6,18 @@ import { AlignmentType, CardListType, CardType } from "@/helpers/types";
 import PagePreview from "../PagePreview/PagePreview";
 import Link from "next/link";
 import Image from "next/image";
-import Carousel from "@/components/elements/Carousel/Carousel";
-import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview";
 import { Statistics } from "@/components/elements/Statistics/Statistics";
 import { ContentPiece } from "@/components/elements/ContentPiece/ContentPiece";
 import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "./custom-swiper.css"
+
 
 const ContentItem: React.FC<{
   data: CardType;
@@ -56,10 +61,11 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
     subheading,
     content,
     layout,
-    size = 3,
+    size,
     alignment,
     htmlid,
   } = data;
+
   return (
     <Section
       label={label}
@@ -71,10 +77,10 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
         <div
           className={classNames(
             "grid gap-8",
-            { "lg:grid-cols-2": size >= 2 },
-            { "grid-cols-1 md:grid-cols-2 lg:grid-cols-3": size === 3 },
-            { "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4": size === 4 },
-            { "grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5": size === 5 }
+            { "sm:grid-cols-2": size === "XL" },
+            { "grid-cols-1 md:grid-cols-2 lg:grid-cols-3": size === "L" },
+            { "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4": size === "M" },
+            { "grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5": size === "S" }
           )}
         >
           {content.map((item) => (
@@ -83,38 +89,48 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
         </div>
       )}
       {layout === "carousel" && (
-        <div className={classNames("relative group/cardlist")}>
-          <Carousel
-            navigation={{
-              enabled: true,
-              nextEl: ".cardlist-btn-next",
-              prevEl: ".cardlist-btn-prev",
-            }}
-            pagination={{
-              enabled: true,
-              clickable: true,
-            }}
-            slidesPerView={size}
-            slides={content.map((item) => (
-              <div key={item.id} className="pb-8">
-                <ContentItem data={item} alignment={alignment} />
-              </div>
-            ))}
-          >
-            <div className="cardlist-btn-prev z-10 absolute -left-7 top-1/2 -translate-y-1/2 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-80 text-white items-center justify-center flex">
-              <AiOutlineArrowLeft size={30} />
-            </div>
-            <div className="cardlist-btn-next z-10 absolute -right-7 top-1/2 -translate-y-1/2 cursor-pointer w-14 h-14 rounded-full bg-primary-500 bg-opacity-80 text-white items-center justify-center flex">
-              <AiOutlineArrowRight size={30} />
-            </div>
-          </Carousel>
-        </div>
+        <Swiper
+          spaceBetween={25}
+          navigation={{
+            enabled: true,
+          }}
+          pagination={{
+            enabled: true,
+          }}
+          slidesPerView="auto"
+          freeMode={true}
+          modules={[Pagination, Navigation, FreeMode]}
+        >
+          {content.map((item) => (
+            <SwiperSlide key={item.id} 
+              style={{
+                width: classNames(
+                  { "460px": size === "XL"},
+                  { "360px": size === "L"},
+                  { "260px": size === "M"},
+                  { "160px": size === "S"},
+                )
+              }}
+            >
+              <ContentItem data={item} alignment={alignment} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       )}
       {layout === "masonry" && (
         <ResponsiveMasonry
-          columnsCountBreakPoints={{ 300: 1, 768: size - 1, 1024: size }}
+          columnsCountBreakPoints={{ 
+            320: 1, 
+            768: 2,
+            1024: parseInt(classNames(
+              { 5: size === "S" },
+              { 4: size === "M" },
+              { 3: size === "L" },
+              { 2: size === "XL" },
+            )),
+          }}
         >
-          <Masonry columnsCount={3} gutter="20px">
+          <Masonry columnsCount={3} gutter="25px">
             {content.map((item) => (
               <div key={item.id} className="">
                 <ContentItem data={item} alignment={alignment} />

@@ -23,7 +23,7 @@ interface CarouselProps {
   thumbsEnable?: boolean
 }
 
-const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autoplay, pagination, navigation, freeMode, slidesPerView = 1, thumbsEnable = false}) => {
+const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autoplay, pagination, navigation, freeMode, thumbsEnable = false}) => {
   const [thumbsSwiper, setThumbsSwiper ] = useState<SwiperType | null>(null);
   const [isLoaded, setLoaded] = useState(false)
   useEffect(() => setLoaded(true), [])
@@ -36,27 +36,35 @@ const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autop
         loop={loop}
         navigation={navigation}
         pagination={pagination}
-        slidesPerView={1}
-        breakpoints={{
-          320: {
-            slidesPerView: "auto",
-          },
-          768: {
-            slidesPerView:
-              slidesPerView && slidesPerView >= 3
-                ? slidesPerView - 1
-                : slidesPerView,
-          },
-          1024: {
-            slidesPerView:
-              slidesPerView && slidesPerView >= 4
-                ? slidesPerView - 1
-                : slidesPerView,
-          },
-          1280: {
-            slidesPerView: slidesPerView,
-          },
-        }}
+        slidesPerView="auto"
+        // breakpoints={{
+        //   320: {
+        //     slidesPerView: "auto",
+        //   },
+        //   768: {
+        //     slidesPerView:
+        //       slidesPerView && slidesPerView >= 3
+        //         ? slidesPerView - 1
+        //         : slidesPerView,
+        //   },
+        //   1024: {
+        //     slidesPerView:
+        //       slidesPerView && slidesPerView >= 4
+        //         ? slidesPerView - 1
+        //         : slidesPerView,
+        //   },
+        //   1280: {
+        //     slidesPerView: slidesPerView,
+        //   },
+        // }}
+        // breakpoints={{
+        //   320: {
+        //     slidesPerView: "auto"
+        //   },
+        //   768: {
+        //     slidesPerView: 2,
+        //   },
+        // }}
         autoplay={autoplay}
         effect={effect}
         fadeEffect={{

@@ -1,0 +1,13 @@
+.swiper {
+  overflow: visible !important;
+  --swiper-pagination-bottom: 0px;
+  --swiper-pagination-bullet-horizontal-gap: 3px;
+  --swiper-pagination-bullet-inactive-color: #a3a3a3;
+  --swiper-pagination-color: rgb(16, 185, 129);
+}
+
+.swiper-pagination-bullet-active {
+  transform: scale(1.5);
+  background: transparent;
+  border: 2px solid var(--swiper-pagination-color, var(--swiper-theme-color))
+}

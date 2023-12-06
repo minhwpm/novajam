@@ -33,6 +33,9 @@ export default async function getContentPiece(id: string) {
             }
             mediaCollection {
               items {
+                sys {
+                  id
+                }
                 url
                 title
                 width

@@ -24,7 +24,7 @@ const BlogPreview: React.FC<Props> = ({
         <Link href={`${pathname}/blog/${slug}`}>
           <MediaItem data={media} aspectRatio={aspectRatio} />
           <div className={classNames(
-            "w-full p-5 flex flex-col gap-y-2",
+            "w-full px-5 pt-5 pb-10 flex flex-col gap-y-2",
           )}>
             <div className="text-xs uppercase tracking-widest flex flex-wrap gap-x-5 gap-y-1">
               {topics && topics.length > 0 && topics.map((topic, idx) => (

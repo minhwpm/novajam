@@ -1,3 +1,4 @@
+"use client"
 import { AspectRatioType, MediaType } from "@/helpers/types";
 import classNames from "classnames";
 import Image from "next/image";

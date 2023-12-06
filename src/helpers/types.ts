@@ -237,7 +237,7 @@ export type CardListType = {
   content: Array<CardType>
   seeAllLink: LinkType
   layout: "carousel" | "grid" | "masonry"
-  size: 1 | 2 | 3 | 4 | 5
+  size: "S" | "M" | "L" | "XL"
   alignment: AlignmentType
   htmlid: string | null
 }
