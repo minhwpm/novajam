@@ -3,8 +3,8 @@
   --swiper-pagination-bottom: 0px;
   --swiper-pagination-bullet-horizontal-gap: 3px;
   --swiper-theme-color: rgb(var(--primary-color-500));
-  --swiper-navigation-size: 20px;
-  --swiper-navigation-sides-offset: calc( 0px - ((var(--swiper-navigation-size) + 30px) / 2))
+  --swiper-navigation-size: 22px;
+  --swiper-navigation-sides-offset: calc( 0px - ((var(--swiper-navigation-size) + 32px) / 2))
   /* --swiper-navigation-sides-offset: -25px; */
 }
 
@@ -17,11 +17,11 @@
 
 
 .swiper-button-prev, .swiper-button-next {
-  width: calc(var(--swiper-navigation-size) + 30px);
-  height: calc(var(--swiper-navigation-size) + 30px);
+  width: calc(var(--swiper-navigation-size) + 32px);
+  height: calc(var(--swiper-navigation-size) + 32px);
   background-color: rgba(255, 255, 246, 0.85);
   border-radius: 99px;
-  box-shadow: rgba(0, 27, 71, 0.25) .5px .5px 10px .5px;
+  box-shadow: rgba(0, 27, 71, 0.2) .5px .5px 10px .5px;
   @media screen and (max-width: 1023px) {
     display: none;
   }
