@@ -36,23 +36,25 @@ export default function RichText2({
             );
           },
           [BLOCKS.UL_LIST]: (node: Inline | Block, children: ReactNode) => {
-            return <ul className="list-none !pl-0">{children}</ul>;
+            if (style === "marketing") {
+              return <ul className="list-none !pl-0">{children}</ul>;
+            }
+            return <ul>{children}</ul>
           },
           [BLOCKS.LIST_ITEM]: (node: Inline | Block, children: ReactNode) => {
             if (style === "marketing") {
               return (
-                <li className="flex gap-2">
+                <li className="not-prose flex gap-4 mb-2">
                   <PiCheckBold
-                    className="not-prose flex-shrink-0 relative top-1.5 ml-2 text-primary-600"
+                    className="flex-shrink-0 relative top-1.5 ml-2 text-primary-600"
                     size={20}
                   />
-                  <div className="not-prose">{children}</div>
+                  {children}
                 </li>
               );
             }
-            //for style "blog"
             return (
-              <li className="flex gap-2">
+              <li>
                 <div className="not-prose">{children}</div>
               </li>
             )
