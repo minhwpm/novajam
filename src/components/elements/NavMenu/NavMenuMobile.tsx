@@ -5,17 +5,17 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import SubMenuItem from './SubMenuItem';
 import { useState } from 'react';
 import SubMenuFeaturedContent from './SubMenuFeaturedContent';
-import { LinkType, SubmenuType } from '@/helpers/types';
+import { ButtonType, LinkType, SubmenuType } from '@/helpers/types';
 import { CiMenuFries } from 'react-icons/ci';
 import { AiOutlineClose } from 'react-icons/ai';
 import Link from 'next/link';
+import Button from '../Button/Button';
 
-const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu }) => {
+const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: Array<ButtonType> }> = ({ menu, buttons }) => {
   const [ mobileMenuShowed, setMobileMenuShowed ] = useState(false)
 
   return (
     <>
-      {/* MOBILE, TABLET */}
       <NavigationMenu.Root
         className={classNames(
           "lg:hidden absolute top-0 left-0 z-[99999] bg-white text-neutral-900 font-lg w-screen h-screen px-4 pt-20 pb-36 overflow-y-auto",
@@ -59,7 +59,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
                       width={10}
                     />
                   </NavigationMenu.Trigger>
-                  <NavigationMenu.Content className='bg-neutral-50 mt-2 rounded-assets'>
+                  <NavigationMenu.Content className='bg-neutral-50 text-neutral-700 mt-2 rounded-assets'>
                     <NavigationMenu.Sub
                       orientation="vertical"
                       className="py-2 px-4"
@@ -130,7 +130,22 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType> }> = ({ menu
             </NavigationMenu.Item>
           ))}
         </NavigationMenu.List>
+        {buttons && buttons.length > 0 && (
+          <div className="my-10 flex flex-wrap justify-center gap-5">
+            {buttons.map((button) => (
+              <Button
+                key={button.id}
+                url={button.url}
+                variant={button.buttonVariant ?? "outline-white"}
+                openNewTab={button.openNewTab}
+              >
+                {button.text}
+              </Button>
+            ))}
+          </div>
+        )}
       </NavigationMenu.Root>
+      
       <div className="lg:hidden ml-auto">
         {!mobileMenuShowed && (
           <CiMenuFries

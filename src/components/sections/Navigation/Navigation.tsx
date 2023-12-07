@@ -112,7 +112,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
                 <HeaderButtons buttons={buttons} />
               </div>
             )}
-            <NavMenuMobile menu={menu} />
+            <NavMenuMobile menu={menu} buttons={buttons} />
           </div>
         </div>
       </header>
@@ -139,7 +139,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
             <HeaderButtons buttons={buttons} />
           </div>
         )}
-        <NavMenuMobile menu={menu} />
+        <NavMenuMobile menu={menu} buttons={buttons} />
       </div>
     </header>
   );
