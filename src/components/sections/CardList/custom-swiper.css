@@ -3,7 +3,7 @@
   --swiper-pagination-bottom: 0px;
   --swiper-pagination-bullet-horizontal-gap: 3px;
   --swiper-pagination-bullet-inactive-color: #a3a3a3;
-  --swiper-pagination-color: rgb(16, 185, 129);
+  --swiper-theme-color: rgb(var(--primary-color-500));
 }
 
 .swiper-pagination-bullet-active {
