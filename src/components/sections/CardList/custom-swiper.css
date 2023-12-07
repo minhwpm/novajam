@@ -3,11 +3,20 @@
   --swiper-pagination-bottom: 0px;
   --swiper-pagination-bullet-horizontal-gap: 3px;
   --swiper-theme-color: rgb(var(--primary-color-500));
+  --swiper-navigation-size: 20px;
 }
 
 .swiper-pagination-bullet-active {
   transform: scale(1.5);
   background: transparent;
   border: 2px solid var(--swiper-pagination-color, var(--swiper-theme-color))
+}
+
+.swiper-button-prev, .swiper-button-next {
+  width: calc(var(--swiper-navigation-size) + 30px);
+  height: calc(var(--swiper-navigation-size) + 30px);
+  background-color: rgba(255, 255, 246, 0.8);
+  border-radius: 99px;
+  box-shadow: rgba(0, 27, 71, 0.1) .5px .5px 10px .5px;
 }
 
