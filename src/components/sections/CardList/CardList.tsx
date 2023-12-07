@@ -16,7 +16,7 @@ import { FreeMode, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "./custom-swiper.css"
+import "@/app/custom-swiper.css"
 
 
 const ContentItem: React.FC<{
@@ -104,11 +104,12 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
           {content.map((item) => (
             <SwiperSlide key={item.id} 
               style={{
-                width: classNames(
+                width: "80%",
+                maxWidth: classNames(
                   { "460px": size === "XL"},
-                  { "360px": size === "L"},
-                  { "260px": size === "M"},
-                  { "160px": size === "S"},
+                  { "368px": size === "L"},
+                  { "276px": size === "M"},
+                  { "184px": size === "S"},
                 )
               }}
             >
