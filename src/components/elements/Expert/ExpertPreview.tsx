@@ -1,6 +1,5 @@
 /* eslint-disable complexity */
 import { ExpertType } from "@/helpers/types";
-import Image from "next/image";
 import Link from "next/link";
 import { SNS } from "../SNS/SNS";
 import { MediaItem } from "../MediaItem/MediaItem";

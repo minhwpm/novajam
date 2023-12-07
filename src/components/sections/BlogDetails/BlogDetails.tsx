@@ -58,7 +58,7 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
           </div>
           <div className="grid lg:grid-cols-3 gap-10 text-lg">
             <div className="lg:col-span-2 mb-10 prose lg:prose-lg max-w-none overflow-x-hidden">
-              <RichText2 data={content} />
+              <RichText2 data={content} style="blog" />
             </div>
           </div>
 

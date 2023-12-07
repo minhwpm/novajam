@@ -1,8 +1,7 @@
 .swiper {
-  overflow: visible !important;
+  overflow-x: visible;
   --swiper-pagination-bottom: 0px;
   --swiper-pagination-bullet-horizontal-gap: 3px;
-  --swiper-pagination-bullet-inactive-color: #a3a3a3;
   --swiper-theme-color: rgb(var(--primary-color-500));
 }
 
@@ -11,3 +10,4 @@
   background: transparent;
   border: 2px solid var(--swiper-pagination-color, var(--swiper-theme-color))
 }
+
