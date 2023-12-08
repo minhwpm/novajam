@@ -59,7 +59,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
                       width={10}
                     />
                   </NavigationMenu.Trigger>
-                  <NavigationMenu.Content className='bg-neutral-50 text-neutral-700 mt-2 rounded-assets'>
+                  <NavigationMenu.Content className='bg-neutral-50 mt-2 rounded-assets'>
                     <NavigationMenu.Sub
                       orientation="vertical"
                       className="py-2 px-4"
@@ -81,7 +81,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
                               )}
                               {subItem.contentType === "linkgroup" && (
                                 <div>
-                                  <NavigationMenu.Trigger className="w-full font-medium select-none text-left py-1.5 px-3 rounded-assets hover:bg-primary-100 transition-color duration-300 data-[state=open]:bg-primary-100 group">
+                                  <NavigationMenu.Trigger className="w-full select-none text-left py-1.5 px-3 rounded-assets hover:bg-primary-100 transition-color duration-300 data-[state=open]:bg-primary-100 group">
                                     {subItem.title}
                                     <FontAwesomeIcon
                                       className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
