@@ -45,6 +45,9 @@ export default async function getSubmenu(id: string) {
               items {
                 __typename
                 ... on Blog {
+                  sys {
+                    id
+                  }
                   title
                   slug
                   media {
@@ -55,6 +58,9 @@ export default async function getSubmenu(id: string) {
                   }
                 }
                 ... on Page {
+                  sys {
+                    id
+                  }
                   title
                   url
                   metaImage {

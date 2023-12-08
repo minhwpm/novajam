@@ -40,10 +40,10 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
       >
         {menu.map((item) => (
           <NavigationMenu.Item
+            key={item.id}
             className={classNames({
               relative: "menu" in item && item.layout === "dropdown",
             })}
-            key={item.id}
           >
             {item.contentType === "link" && (
               <Link
