@@ -88,7 +88,7 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
       {layout === "grid" && (
         <div
           className={classNames(
-            "grid gap-8 mt-5",
+            "grid gap-8",
             { "sm:grid-cols-2": size === "XL" },
             { "grid-cols-1 md:grid-cols-2 lg:grid-cols-3": size === "L" },
             {
@@ -108,7 +108,6 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
       )}
       {layout === "carousel" && (
         <Swiper
-          className="mt-5"
           spaceBetween={25}
           navigation={{
             enabled: true,
@@ -140,7 +139,6 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
       )}
       {layout === "masonry" && (
         <ResponsiveMasonry
-          className="mt-5"
           columnsCountBreakPoints={{
             320: 1,
             768: 2,

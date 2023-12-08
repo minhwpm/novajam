@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     return (
       <Link
         className={classNames(
-          "group inline-block text-blue-500 text-lg hover:text-blue-700 transition-colors duration-500",
+          "relative left-0 group inline-block text-blue-500 text-lg hover:text-blue-700 hover:left-1 transition-all duration-500",
           { "py-2": size === "base" },
           { "py-3 text-lg": size === "lg" },
           { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = (props) => {
       >
         {children}
         <BsArrowRight
-          className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-300 ease"
+          className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-500 ease"
           size={20}
         />
       </Link>
