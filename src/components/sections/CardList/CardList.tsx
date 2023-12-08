@@ -17,6 +17,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "@/app/custom-swiper.css"
+import Button from "@/components/elements/Button/Button";
 
 
 const ContentItem: React.FC<{
@@ -59,6 +60,7 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
     heading,
     label,
     subheading,
+    seeAllLink,
     content,
     layout,
     size,
@@ -73,14 +75,30 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
       subheading={subheading}
       id={htmlid}
     >
+      {seeAllLink && 
+        <div className="flex justify-end">
+          <Button
+          size="lg"
+          variant="link"
+          url={seeAllLink.url}>
+            {seeAllLink.text}
+          </Button>
+        </div>
+      }
       {layout === "grid" && (
         <div
           className={classNames(
-            "grid gap-8",
+            "grid gap-8 mt-5",
             { "sm:grid-cols-2": size === "XL" },
             { "grid-cols-1 md:grid-cols-2 lg:grid-cols-3": size === "L" },
-            { "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4": size === "M" },
-            { "grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5": size === "S" }
+            {
+              "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4":
+                size === "M",
+            },
+            {
+              "grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5":
+                size === "S",
+            }
           )}
         >
           {content.map((item) => (
@@ -90,6 +108,7 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
       )}
       {layout === "carousel" && (
         <Swiper
+          className="mt-5"
           spaceBetween={25}
           navigation={{
             enabled: true,
@@ -102,15 +121,16 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
           modules={[Pagination, Navigation, FreeMode]}
         >
           {content.map((item) => (
-            <SwiperSlide key={item.id} 
+            <SwiperSlide
+              key={item.id}
               style={{
                 width: "80%",
                 maxWidth: classNames(
-                  { "460px": size === "XL"},
-                  { "368px": size === "L"},
-                  { "276px": size === "M"},
-                  { "184px": size === "S"},
-                )
+                  { "460px": size === "XL" },
+                  { "368px": size === "L" },
+                  { "276px": size === "M" },
+                  { "184px": size === "S" }
+                ),
               }}
             >
               <ContentItem data={item} alignment={alignment} />
@@ -120,15 +140,18 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
       )}
       {layout === "masonry" && (
         <ResponsiveMasonry
-          columnsCountBreakPoints={{ 
-            320: 1, 
+          className="mt-5"
+          columnsCountBreakPoints={{
+            320: 1,
             768: 2,
-            1024: parseInt(classNames(
-              { 5: size === "S" },
-              { 4: size === "M" },
-              { 3: size === "L" },
-              { 2: size === "XL" },
-            )),
+            1024: parseInt(
+              classNames(
+                { 5: size === "S" },
+                { 4: size === "M" },
+                { 3: size === "L" },
+                { 2: size === "XL" }
+              )
+            ),
           }}
         >
           <Masonry columnsCount={3} gutter="25px">

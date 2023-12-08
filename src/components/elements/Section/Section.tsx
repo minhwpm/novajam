@@ -54,7 +54,7 @@ const Section: React.FC<Props> = ( { id, heading, label, subheading, children, c
         )}
       </Container>
       <Container className={classNames("rounded-assets",
-        { "mt-8": (heading || label || subheading) }
+        { "mt-3": (heading || label || subheading) }
       )}>
         {children}
       </Container>
