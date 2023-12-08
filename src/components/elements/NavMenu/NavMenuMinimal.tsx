@@ -11,7 +11,6 @@ import SubMenuFeaturedContent from "./SubMenuFeaturedContent";
 import { CiMenuFries } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
 import Button from "../Button/Button";
-import Container from "../Container/Container";
 
 const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
   const { menu, buttons } = data;
