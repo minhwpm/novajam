@@ -75,7 +75,7 @@ export const ContentPiece: React.FC<{
           </div>
           {buttons && buttons.length > 0 && (
             <div
-              className={classNames("mt-8", {
+              className={classNames("md:mt-2 lg:mt-5", {
                 "flex justify-center": alignment === "center",
               })}
             >
