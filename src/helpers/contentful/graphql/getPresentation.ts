@@ -27,6 +27,7 @@ export default async function getPresentation(id: string) {
             subheading
             layout
             alignment
+            htmlid
             contentCollection (limit: 20) {
               items {
                 __typename

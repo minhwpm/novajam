@@ -48,12 +48,15 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
               className="border-b"
             >
               {item.contentType === "link" && (
-                <NavigationMenu.Link
-                  className="py-4 px-3 w-full text-center select-none inline-block"
+                <SubMenuItem
+                  key={item.id}
                   href={item.url}
-                >
-                  {item.text}
-                </NavigationMenu.Link>
+                  title={item.text}
+                  onClick={() => {
+                    setNavMenuShowed(false);
+                    document.body.style.overflow = "auto";
+                  }}
+                />
               )}
               {item.contentType === "submenu" && (
                 <>
@@ -141,6 +144,10 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
                 size="lg"
                 url={button.url}
                 openNewTab={button.openNewTab}
+                onClick={() => {
+                  setNavMenuShowed(false)
+                  document.body.style.overflow = "auto";
+                }}
               >
                 {button.text}
               </Button>

@@ -23,7 +23,8 @@ import Button from "@/components/elements/Button/Button";
 const ContentItem: React.FC<{
   data: CardType;
   alignment: AlignmentType;
-}> = ({ data, alignment }) => {
+  index: number
+}> = ({ data, alignment, index }) => {
   switch (data.contentType) {
     case "blog":
       return <BlogPreview data={data} />;
@@ -47,7 +48,7 @@ const ContentItem: React.FC<{
     case "expert":
       return <ExpertPreview data={data} layout="vertical" />;
     case "statistics":
-      return <Statistics data={data} />;
+      return <Statistics index={index} data={data} />;
     case "contentpiece":
       return <ContentPiece data={data} alignment={alignment} />;
     case "pricingplan":
@@ -101,8 +102,8 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
             }
           )}
         >
-          {content.map((item) => (
-            <ContentItem key={item.id} data={item} alignment={alignment} />
+          {content.map((item, idx) => (
+            <ContentItem key={item.id} data={item} alignment={alignment} index={idx} />
           ))}
         </div>
       )}

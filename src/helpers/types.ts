@@ -195,6 +195,7 @@ export type PresentationType = {
   content: Array<ContentPieceType>
   layout: "carousel" | "mini-carousel" | "tab" | "vertical-tab" | "accordion" | "scrolling"
   alignment: AlignmentType
+  htmlid: string | null
 }
 
 export type StatisticsType = {

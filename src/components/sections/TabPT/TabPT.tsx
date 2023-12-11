@@ -11,7 +11,7 @@ import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
-  const { label, heading, subheading, content, alignment } = data
+  const { htmlid, label, heading, subheading, content, alignment } = data
   const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0].id : '')
   
   // Justify tab container
@@ -23,7 +23,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
     }
   }, [])
   return (
-    <Section label={label} heading={heading} subheading={subheading}>
+    <Section id={htmlid} label={label} heading={heading} subheading={subheading}>
       <RadixTabs.Root
         className="w-full"
         defaultValue={content.length > 0 ? content[0].id : ""}

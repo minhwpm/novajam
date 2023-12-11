@@ -7,6 +7,9 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    perspective: {
+      '2500': '2500px'
+    },
     extend: {
       fontFamily: {
         'heading': 'var(--font-heading)',
@@ -298,5 +301,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    require('tailwindcss-3d'),
   ],
 }

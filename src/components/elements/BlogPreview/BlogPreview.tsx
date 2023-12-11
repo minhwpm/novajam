@@ -40,13 +40,13 @@ const BlogPreview: React.FC<Props> = ({
     )
   }
   return (
-    <div>
+    <div className="rounded-assets bg-white">
       <Link href={`${pathname}/blog/${slug}`}>
         <div className="w-full grid grid-cols-12 gap-5">
           <div className="col-span-4">
             <MediaItem data={media} aspectRatio={aspectRatio} />
           </div>
-          <div className="col-span-8 flex flex-col gap-y-2">
+          <div className="col-span-8 flex flex-col gap-y-2 py-4 pr-4">
             <div className="text-xs uppercase tracking-widest flex flex-wrap gap-x-5 gap-y-1">
               {topics && topics.length > 0 && topics.map((topic, idx) => (
                 <div key={idx}>{topic}</div>

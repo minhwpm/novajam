@@ -22,7 +22,7 @@ export default async function Page() {
               </div>
               <div className="lg:col-span-5 flex flex-col gap-y-10">
                 {featuredBlogs.slice(1, 4).map(item => (
-                  <BlogPreview key={item.id} data={item} orientation="horizontal" aspectRatio="4/3" />
+                  <BlogPreview key={item.id} data={item} orientation="horizontal" aspectRatio="square" />
                 ))}
               </div>
             </div>
