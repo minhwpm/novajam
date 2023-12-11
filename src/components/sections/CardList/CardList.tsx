@@ -120,7 +120,7 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
           freeMode={true}
           modules={[Pagination, Navigation, FreeMode]}
         >
-          {content.map((item) => (
+          {content.map((item, idx) => (
             <SwiperSlide
               key={item.id}
               style={{
@@ -133,7 +133,7 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
                 ),
               }}
             >
-              <ContentItem data={item} alignment={alignment} />
+              <ContentItem data={item} alignment={alignment} index={idx} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -154,9 +154,9 @@ const CardList: React.FC<{ data: CardListType }> = ({ data }) => {
           }}
         >
           <Masonry columnsCount={3} gutter="25px">
-            {content.map((item) => (
+            {content.map((item, idx) => (
               <div key={item.id} className="">
-                <ContentItem data={item} alignment={alignment} />
+                <ContentItem data={item} alignment={alignment} index={idx} />
               </div>
             ))}
           </Masonry>
