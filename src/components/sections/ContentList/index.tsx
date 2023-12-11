@@ -1,4 +1,3 @@
-"use client"
 import Section from "@/components/elements/Section/Section";
 import classNames from "classnames";
 import { ContentListType } from "@/helpers/types";
@@ -49,11 +48,11 @@ const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
             <div 
               key={item.id} 
               className={classNames(
-                "px-3.5",
-                { "basis-1/2": size === "XL" },
-                { "basis-1/3": size === "L" },
-                { "basis-1/4": size === "M" },
-                { "basis-1/5": size === "S" }
+                "px-3.5 py-3",
+                { "lg:basis-1/2": size === "XL" },
+                { "md:basis-1/2 xl:basis-1/3": size === "L" },
+                { "sm:basis-1/2 lg:basis-1/3 xl:basis-1/4": size === "M" },
+                { "basis-1/2 sm:basis-1/3 md:basis-1/4 xl:basis-1/5": size === "S" }
               )}
             >
               <ContentItem data={item} alignment={alignment} index={idx} />
