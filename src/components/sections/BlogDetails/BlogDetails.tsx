@@ -80,7 +80,7 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
           <h2 className="text-3xl font-bold tracking-wider">
             DISCOVER MORE
           </h2>
-          {/* @TODO implement <CardList /> */}
+          {/* @TODO implement <ContentList /> */}
         </Container>
       </div>
     </div>

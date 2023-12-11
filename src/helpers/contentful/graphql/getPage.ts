@@ -1,5 +1,5 @@
 import getCTA from "./getCTA"
-import getCardList from "./getCardList"
+import getContentList from "./getContentList"
 import getFeaturedContent from "./getFeaturedContent"
 import getHero from "./getHero"
 import getInquiryForm from "./getInquiryForm"
@@ -109,7 +109,7 @@ export default async function getPage(url: string) {
       return await getFeaturedContent(id)
     }
     if (contentType === "cardlist") {
-      return await getCardList(id)
+      return await getContentList(id)
     }
     if (contentType === "inquiryform") {
       return await getInquiryForm(id)

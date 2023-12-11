@@ -47,7 +47,6 @@ export const ContentPiece: React.FC<{
   return (
     <div className="flex flex-col rounded-assets bg-white">
       {(media || embeddedMediaUrl) && <MediaPart data={data} alignment={alignment} /> }
-      
       {(heading || label || description || buttons?.length > 0) && (
         <div
           className={classNames(

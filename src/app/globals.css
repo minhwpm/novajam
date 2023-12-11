@@ -97,7 +97,7 @@ h1 u, h2 u, h3 u, h4 u {
   text-decoration: unset;
 }
 
-/* @TODO Refactor - move into module CSS for CardList ? */
+/* @TODO Refactor - move into module CSS for ContentList ? */
 .show-scrollbar::-webkit-scrollbar {
   height: 5px; /* for Horizonatal scrollbar */
   width: 5px; /* for Vertical scrollbar */

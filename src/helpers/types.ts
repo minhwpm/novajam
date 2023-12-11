@@ -109,7 +109,7 @@ export type PageType = {
   id: string
   title: string
   url: string
-  content: HeroType | CTAType | PresentationType | CardListType | FeatureType
+  content: HeroType | CTAType | PresentationType | ContentListType | FeatureType
   fontMain: string //@TODO font family options here
   fontHeading: string //@TODO font family options here
   headingFontSize: 'standard' | 'standout' | 'impactful'
@@ -228,17 +228,19 @@ export type PricingPlanType = {
   contentType: 'pricingplan'
 }
 
-export type CardType = BlogType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType | PricingPlanType
+export type Content = BlogType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType | PricingPlanType
+export type ContentSize =  "S" | "M" | "L" | "XL"
+export type ContentListLayout = "carousel" | "grid" | "masonry" | "deck"
 
-export type CardListType = {
+export type ContentListType = {
   id: string
   heading: Document | null
   label: string | null
   subheading: string | null
-  content: Array<CardType>
+  content: Array<Content>
   seeAllLink: LinkType
-  layout: "carousel" | "grid" | "masonry"
-  size: "S" | "M" | "L" | "XL"
+  layout: ContentListLayout
+  size: ContentSize
   alignment: AlignmentType
   htmlid: string | null
 }

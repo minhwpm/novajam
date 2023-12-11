@@ -3,11 +3,11 @@ import Hero from "@/components/sections/Hero/Hero";
 import HeroOverlay from "../HeroOverlay/HeroOverlay";
 import ScrollingPT from "@/components/sections/ScrollingPT/ScrollingPT";
 import AccordionPT from "@/components/sections/AccordionPT/AccordionPT";
-import CardList from "@/components/sections/CardList/CardList";
+import ContentList from "@/components/sections/ContentList";
 import Feature from "@/components/sections/Feature/Feature";
 import {
   CTAType,
-  CardListType,
+  ContentListType,
   FeatureType,
   HeroType,
   InquiryFormType,
@@ -35,18 +35,18 @@ const sectionComponents = {
     "mini-carousel": MiniCarouselPT,
   },
   "feature": Feature,
-  "cardlist": CardList,
+  "cardlist": ContentList,
   "inquiryform": InquiryForm,
 };
 
-// type ComponentType = typeof HeroB | typeof HeroC | typeof CTAB | typeof ScrollingPT | typeof AccordionPT | typeof CarouselPT | typeof TabPT | typeof Feature | typeof CardList
+// type ComponentType = typeof HeroB | typeof HeroC | typeof CTAB | typeof ScrollingPT | typeof AccordionPT | typeof CarouselPT | typeof TabPT | typeof Feature | typeof ContentList
 
 type SectionType = {
   data:
     | HeroType
     | CTAType
     | PresentationType
-    | CardListType
+    | ContentListType
     | FeatureType
     | InquiryFormType;
 };
@@ -60,7 +60,7 @@ const SectionComponent: React.FC<SectionType> = ({ data }) => {
 
 const Sections: React.FC<{
   data: Array<
-    HeroType | CTAType | PresentationType | CardListType | FeatureType
+    HeroType | CTAType | PresentationType | ContentListType | FeatureType
   >;
 }> = ({ data }) => {
   return (
