@@ -2,14 +2,13 @@
 'use client';
 import Button from "@/components/elements/Button/Button";
 import classNames from "classnames";
-import { useState } from "react";
-import { useInView } from "react-hook-inview";
 import { HeroType } from "@/helpers/types";
 import RichText2 from "@/components/elements/RichText/RichText2";
 import Container from "@/components/elements/Container/Container";
 import Carousel from "@/components/elements/Carousel/Carousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
+import { useIsLoaded } from "@/helpers/hooks/useIsLoaded";
 
 interface Props {
   data: HeroType
@@ -17,25 +16,10 @@ interface Props {
 
 const Hero: React.FC<Props> = ({ data }) => {
   const { content, layout, textAlignment } = data;
-  const [animated, setAnimated] = useState(false);
-  const [ref, isVisible] = useInView({
-    threshold: 0.3,
-    onEnter: () => {
-      // @TODO technical debt
-      setTimeout(() => {
-        setAnimated(true);
-      }, 500);
-    },
-  });
-
-  const animationClasses = classNames(
-    { invisible: !animated },
-    { visible: animated },
-    { "animate-animationA delay-1000": isVisible && !animated }
-  );
+  const isLoaded = useIsLoaded()
 
   return (
-    <section ref={ref}>
+    <section>
       <Container className={classNames("flex mb-12")}>
         <Carousel
           autoplay={{
@@ -50,19 +34,27 @@ const Hero: React.FC<Props> = ({ data }) => {
           slides={content.map((section) => (
             <div
               key={section.id}
-              className={classNames("flex flex-col items-center",
-                {"lg:flex-row max-h-screen": layout === "horizontal"}
-              )}
+              className={classNames("flex flex-col items-center", {
+                "lg:flex-row max-h-screen": layout === "horizontal",
+              })}
             >
-              <div className={classNames("flex flex-col gap-2 lg:pr-10 py-10",
-                { "items-center text-center": textAlignment === "center" },
-                { "items-end text-end": textAlignment === "reverse" },
-              )}>
+              <div
+                className={classNames(
+                  "flex flex-col gap-2 lg:pr-10 py-10",
+                  { "items-center text-center": textAlignment === "center" },
+                  { "items-end text-end": textAlignment === "reverse" }
+                )}
+              >
                 {section.label && (
                   <div
                     className={classNames(
                       "font-semibold text-primary-600 tracking-widest max-w-2xl",
-                      animationClasses
+                      "relative",
+                      { "-left-20 opacity-0": !isLoaded },
+                      {
+                        "opacity-100 left-0 transition-all duration-500 delay-200":
+                          isLoaded,
+                      }
                     )}
                   >
                     {section.label}
@@ -72,7 +64,12 @@ const Hero: React.FC<Props> = ({ data }) => {
                   <div
                     className={classNames(
                       "text-heading leading-normal font-heading max-w-3xl",
-                      animationClasses
+                      "relative",
+                      { "-left-20 opacity-0": !isLoaded },
+                      {
+                        "opacity-100 left-0 transition-all duration-500 delay-300":
+                          isLoaded,
+                      }
                     )}
                   >
                     <RichText2 data={section.heading} />
@@ -82,7 +79,12 @@ const Hero: React.FC<Props> = ({ data }) => {
                   <div
                     className={classNames(
                       "prose-lg lg:prose-xl mt-3 max-w-2xl",
-                      animationClasses
+                      "relative",
+                      { "-left-20 opacity-0": !isLoaded },
+                      {
+                        "opacity-100 left-0 transition-all duration-500 delay-200":
+                          isLoaded,
+                      }
                     )}
                   >
                     <RichText2 data={section.description} />
@@ -94,7 +96,12 @@ const Hero: React.FC<Props> = ({ data }) => {
                       "flex flex-row flex-wrap gap-6 mt-5",
                       { "justify-center": textAlignment === "center" },
                       { "justify-end": textAlignment === "reverse" },
-                      animationClasses
+                      "relative",
+                      { "-left-20 opacity-0": !isLoaded },
+                      {
+                        "opacity-100 left-0 transition-all duration-500 delay-500":
+                          isLoaded,
+                      }
                     )}
                   >
                     {section.buttons.map((button) => (
@@ -112,12 +119,34 @@ const Hero: React.FC<Props> = ({ data }) => {
                 )}
               </div>
               {section.media.length > 0 && (
-                <div className={classNames("lg:w-7/12 shrink-0", animationClasses)}>
+                <div
+                  className={classNames(
+                    "lg:w-7/12 shrink-0",
+                    "relative",
+                    { "-left-20 opacity-0": !isLoaded },
+                    {
+                      "opacity-100 left-0 transition-all duration-500 delay-500":
+                        isLoaded,
+                    }
+                  )}
+                >
                   {section.media.length === 1 && (
-                    <MediaItem data={section.media[0]} videoAutoplay={true} priority={true} />
+                    <MediaItem
+                      data={section.media[0]}
+                      videoAutoplay={true}
+                      priority={true}
+                    />
                   )}
                   {section.media.length > 1 && (
-                    <MediaCarousel data={section.media} videoAutoplay={true} priority={true} />
+                    <MediaCarousel
+                      data={section.media}
+                      videoAutoplay={true}
+                      priority={true}
+                      autoplay={{
+                        delay: 5000,
+                        disableOnInteraction: false,
+                      }}
+                    />
                   )}
                 </div>
               )}

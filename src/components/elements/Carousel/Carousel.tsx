@@ -37,34 +37,6 @@ const Carousel: React.FC<CarouselProps>= ({slides, children, effect, loop, autop
         navigation={navigation}
         pagination={pagination}
         slidesPerView="auto"
-        // breakpoints={{
-        //   320: {
-        //     slidesPerView: "auto",
-        //   },
-        //   768: {
-        //     slidesPerView:
-        //       slidesPerView && slidesPerView >= 3
-        //         ? slidesPerView - 1
-        //         : slidesPerView,
-        //   },
-        //   1024: {
-        //     slidesPerView:
-        //       slidesPerView && slidesPerView >= 4
-        //         ? slidesPerView - 1
-        //         : slidesPerView,
-        //   },
-        //   1280: {
-        //     slidesPerView: slidesPerView,
-        //   },
-        // }}
-        // breakpoints={{
-        //   320: {
-        //     slidesPerView: "auto"
-        //   },
-        //   768: {
-        //     slidesPerView: 2,
-        //   },
-        // }}
         autoplay={autoplay}
         effect={effect}
         fadeEffect={{

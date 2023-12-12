@@ -8,14 +8,11 @@ import Carousel from "@/components/elements/Carousel/Carousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import Container from "@/components/elements/Container/Container";
-import { useEffect, useState } from "react";
+import { useIsLoaded } from "@/helpers/hooks/useIsLoaded";
 
 const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
   const { content, textAlignment } = data;
-  const [isLoaded, setIsLoaded] = useState(false);
-  useEffect(() => {
-    setIsLoaded(true)
-  }, [])
+  const isLoaded = useIsLoaded()
 
   return (
     <section className={classNames("relative")} >
@@ -52,7 +49,7 @@ const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
                     <div className={classNames(
                       "relative",
                       { "-left-20 opacity-0": !isLoaded },
-                      { "!left-0 transition-all duration-500 delay-200": isLoaded },
+                      { "opacity-100 left-0 transition-all duration-500 delay-200": isLoaded },
                       "tracking-widest font-semibold lg:text-lg xl:text-xl max-w-2xl"
                     )}>
                       {section.label}

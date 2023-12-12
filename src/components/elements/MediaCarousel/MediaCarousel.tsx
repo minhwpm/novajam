@@ -2,6 +2,7 @@ import { AspectRatioType, MediaType } from "@/helpers/types";
 import Carousel from "../Carousel/Carousel";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
+import { AutoplayOptions } from "swiper/types/modules/autoplay";
 
 export const MediaCarousel: React.FC<{
   data: Array<MediaType>;
@@ -10,6 +11,7 @@ export const MediaCarousel: React.FC<{
   dimensionBase?: "width" | "height";
   priority?: boolean;
   rounded?: "assets" | "full" | "none";
+  autoplay?: AutoplayOptions
 }> = ({
   data,
   aspectRatio = "auto",
@@ -17,6 +19,7 @@ export const MediaCarousel: React.FC<{
   dimensionBase = "width",
   priority = false,
   rounded = "assets",
+  autoplay,
 }) => {
   return (
     <div className="relative">
@@ -32,6 +35,7 @@ export const MediaCarousel: React.FC<{
           enabled: true,
           type: "fraction",
         }}
+        autoplay={autoplay}
         slides={data.map((item, index) => (
           <MediaItem
             key={item.id}
