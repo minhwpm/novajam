@@ -49,10 +49,10 @@ const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
               key={item.id} 
               className={classNames(
                 "px-3.5 py-3",
-                { "lg:basis-1/2": size === "XL" },
-                { "md:basis-1/2 xl:basis-1/3": size === "L" },
-                { "sm:basis-1/2 lg:basis-1/3 xl:basis-1/4": size === "M" },
-                { "basis-1/2 sm:basis-1/3 md:basis-1/4 xl:basis-1/5": size === "S" }
+                { "lg:w-1/2": size === "XL" },
+                { "md:w-1/2 xl:w-1/3": size === "L" },
+                { "sm:w-1/2 lg:w-1/3 xl:w-1/4": size === "M" },
+                { "w-1/2 sm:w-1/3 md:w-1/4 xl:w-1/5": size === "S" }
               )}
             >
               <ContentItem data={item} alignment={alignment} index={idx} />
