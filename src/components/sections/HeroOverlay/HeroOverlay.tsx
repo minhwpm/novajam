@@ -1,8 +1,5 @@
-/* 
-Created by minhwpm (minhhien134@gmail.com) 
-Layout: Overlay
-*/
-
+/* Created by minhwpm (minhhien134@gmail.com) */
+"use client"
 import classNames from "classnames";
 import Button from "@/components/elements/Button/Button";
 import { HeroType } from "@/helpers/types";
@@ -11,9 +8,16 @@ import Carousel from "@/components/elements/Carousel/Carousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import Container from "@/components/elements/Container/Container";
+import { useEffect, useState } from "react";
 
 const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
   const { content, textAlignment } = data;
+  const [animated, setAnimated] = useState(false);
+  
+  useEffect(() => {
+    setAnimated(true)
+  }, [])
+
   return (
     <section className={classNames("relative")} >
       <Carousel
@@ -46,23 +50,41 @@ const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
                   { "items-end text-end": textAlignment === "reverse" },
                 )}>
                   {section.label && (
-                    <div className="tracking-widest font-semibold lg:text-lg xl:text-xl max-w-2xl">
+                    <div className={classNames(
+                      "relative",
+                      { "-left-20 opacity-0": !animated },
+                      { "!left-0 transition-all duration-500 delay-200": animated },
+                      "tracking-widest font-semibold lg:text-lg xl:text-xl max-w-2xl"
+                    )}>
                       {section.label}
                     </div>
                   )}
                   {section.heading && (
-                    <div className="text-super-heading leading-[1.1] font-heading max-w-3xl mt-2">
+                    <div className={classNames(
+                      "relative",
+                      { "-left-20 opacity-0": !animated },
+                      { "opacity-100 left-0 transition-all ease-out duration-500 delay-300": animated },
+                      "text-super-heading leading-[1.1] font-heading max-w-3xl mt-2"
+                    )}>
                       <RichText2 data={section.heading} />
                     </div>
                   )}
                   {section.description && (
-                    <div className="prose-lg lg:prose-xl mt-10 max-w-2xl">
+                    <div className={classNames(
+                      "relative",
+                      { "-left-20 opacity-0": !animated },
+                      { "opacity-100 left-0 transition-all ease-out duration-500 delay-200": animated },
+                      "prose-lg lg:prose-xl mt-10 max-w-2xl"
+                    )}>
                       <RichText2 data={section.description} />
                     </div>
                   )}
                   <div
                     className={classNames(
                       "flex flex-row flex-wrap gap-6 mt-12",
+                      "relative",
+                      { "-left-20 opacity-0": !animated },
+                      { "opacity-100 left-0 transition-all ease-out duration-500 delay-500": animated },
                       { "justify-center": textAlignment === "center" },
                       { "justify-end": textAlignment === "reverse" }
                     )}

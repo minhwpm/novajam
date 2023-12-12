@@ -1,7 +1,4 @@
-/* 
-Created by minhwpm (minhhien134@gmail.com)
-Layout: Row (Text | Media) Hero section
- */
+/*  Created by minhwpm (minhhien134@gmail.com) */
 'use client';
 import Button from "@/components/elements/Button/Button";
 import classNames from "classnames";
