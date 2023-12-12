@@ -48,8 +48,7 @@ const Hero: React.FC<Props> = ({ data }) => {
                 {section.label && (
                   <div
                     className={classNames(
-                      "font-semibold text-primary-600 tracking-widest max-w-2xl",
-                      "relative",
+                      "relative font-semibold text-primary-600 tracking-widest max-w-2xl",
                       { "-left-20 opacity-0": !isLoaded },
                       {
                         "opacity-100 left-0 transition-all duration-500 delay-200":
@@ -63,8 +62,7 @@ const Hero: React.FC<Props> = ({ data }) => {
                 {section.heading && (
                   <div
                     className={classNames(
-                      "text-heading leading-normal font-heading max-w-3xl",
-                      "relative",
+                      "relative text-heading leading-normal font-heading max-w-3xl",
                       { "-left-20 opacity-0": !isLoaded },
                       {
                         "opacity-100 left-0 transition-all duration-500 delay-300":
@@ -78,8 +76,7 @@ const Hero: React.FC<Props> = ({ data }) => {
                 {section.description && (
                   <div
                     className={classNames(
-                      "prose-lg lg:prose-xl mt-3 max-w-2xl",
-                      "relative",
+                      "relative prose-lg lg:prose-xl mt-3 max-w-2xl",
                       { "-left-20 opacity-0": !isLoaded },
                       {
                         "opacity-100 left-0 transition-all duration-500 delay-200":
@@ -93,10 +90,9 @@ const Hero: React.FC<Props> = ({ data }) => {
                 {section.buttons.length > 0 && (
                   <div
                     className={classNames(
-                      "flex flex-row flex-wrap gap-6 mt-5",
+                      "relative flex flex-row flex-wrap gap-6 mt-5",
                       { "justify-center": textAlignment === "center" },
                       { "justify-end": textAlignment === "reverse" },
-                      "relative",
                       { "-left-20 opacity-0": !isLoaded },
                       {
                         "opacity-100 left-0 transition-all duration-500 delay-500":
@@ -121,8 +117,7 @@ const Hero: React.FC<Props> = ({ data }) => {
               {section.media.length > 0 && (
                 <div
                   className={classNames(
-                    "lg:w-7/12 shrink-0",
-                    "relative",
+                    "relative lg:w-7/12 shrink-0",
                     { "-left-20 opacity-0": !isLoaded },
                     {
                       "opacity-100 left-0 transition-all duration-500 delay-500":
