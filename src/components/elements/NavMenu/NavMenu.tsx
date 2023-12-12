@@ -82,7 +82,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
                     e.preventDefault();
                   }}
                 >
-                  {item.title}{" "}
+                  {item.title}
                   <FontAwesomeIcon
                     className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
                     icon={faChevronDown}
@@ -91,11 +91,11 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
                   />
                 </NavigationMenu.Trigger>
                 <NavigationMenu.Content
-                  data-state="open"
+                  // data-state="open" //@TODO 
                   className={classNames(
                     "list-none",
                     {
-                      "absolute top-full left-0 w-full bg-white shadow-lg":
+                      "absolute top-full left-0 w-full bg-white shadow-radiant":
                         item.layout === "mega",
                     }, //Mega menu style
                     {
@@ -103,9 +103,6 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
                         item.layout === "dropdown",
                     } //Dropdown menu style
                   )}
-                  onFocusOutside={() => {
-                    console.log("HELLO CONTENT");
-                  }}
                 >
                   {item.layout === "mega" && (
                     <div
@@ -178,7 +175,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
                   {item.layout === "dropdown" && (
                     <NavigationMenu.Sub
                       orientation="vertical"
-                      className="py-4 px-2 bg-white text-neutral-800 shadow-lg border-t rounded-assets"
+                      className="py-4 px-2 bg-white text-neutral-800 shadow-radiant rounded-assets"
                     >
                       <NavigationMenu.List>
                         {item.menu.length > 0 &&
@@ -216,8 +213,8 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
                                       width={10}
                                     />
                                   </NavigationMenu.Trigger>
-                                  <NavigationMenu.Content className="absolute left-full top-0 pl-4">
-                                    <ul className="py-4 px-2 bg-white rounded-assets shadow-lg w-64 flex flex-col">
+                                  <NavigationMenu.Content className="absolute left-full -top-4 pl-4">
+                                    <ul className="py-4 px-2 bg-white rounded-assets shadow-radiant w-64 flex flex-col">
                                       {subItem.links.length > 0 &&
                                         subItem.links.map((link) => (
                                           <SubMenuItem
