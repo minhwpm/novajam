@@ -12,10 +12,9 @@ import { useEffect, useState } from "react";
 
 const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
   const { content, textAlignment } = data;
-  const [animated, setAnimated] = useState(false);
-  
+  const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    setAnimated(true)
+    setIsLoaded(true)
   }, [])
 
   return (
@@ -52,8 +51,8 @@ const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
                   {section.label && (
                     <div className={classNames(
                       "relative",
-                      { "-left-20 opacity-0": !animated },
-                      { "!left-0 transition-all duration-500 delay-200": animated },
+                      { "-left-20 opacity-0": !isLoaded },
+                      { "!left-0 transition-all duration-500 delay-200": isLoaded },
                       "tracking-widest font-semibold lg:text-lg xl:text-xl max-w-2xl"
                     )}>
                       {section.label}
@@ -62,8 +61,8 @@ const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
                   {section.heading && (
                     <div className={classNames(
                       "relative",
-                      { "-left-20 opacity-0": !animated },
-                      { "opacity-100 left-0 transition-all ease-out duration-500 delay-300": animated },
+                      { "-left-20 opacity-0": !isLoaded },
+                      { "opacity-100 left-0 transition-all ease-out duration-500 delay-300": isLoaded },
                       "text-super-heading leading-[1.1] font-heading max-w-3xl mt-2"
                     )}>
                       <RichText2 data={section.heading} />
@@ -72,8 +71,8 @@ const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
                   {section.description && (
                     <div className={classNames(
                       "relative",
-                      { "-left-20 opacity-0": !animated },
-                      { "opacity-100 left-0 transition-all ease-out duration-500 delay-200": animated },
+                      { "-left-20 opacity-0": !isLoaded },
+                      { "opacity-100 left-0 transition-all ease-out duration-500 delay-200": isLoaded },
                       "prose-lg lg:prose-xl mt-10 max-w-2xl"
                     )}>
                       <RichText2 data={section.description} />
@@ -83,8 +82,8 @@ const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
                     className={classNames(
                       "flex flex-row flex-wrap gap-6 mt-12",
                       "relative",
-                      { "-left-20 opacity-0": !animated },
-                      { "opacity-100 left-0 transition-all ease-out duration-500 delay-500": animated },
+                      { "-left-20 opacity-0": !isLoaded },
+                      { "opacity-100 left-0 transition-all ease-out duration-500 delay-500": isLoaded },
                       { "justify-center": textAlignment === "center" },
                       { "justify-end": textAlignment === "reverse" }
                     )}
