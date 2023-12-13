@@ -18,7 +18,7 @@ export const CarouselList: React.FC<{
   return (
     <div className="">
       <Swiper
-        className={classNames(styles["swiper"])}
+        className={classNames(styles["swiper overscroll-x-contain"])}
         spaceBetween={25}
         navigation={{
           enabled: true,
