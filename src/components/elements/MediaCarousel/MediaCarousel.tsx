@@ -40,57 +40,20 @@ export const MediaCarousel: React.FC<{
   slidesPerView,
   autoplay,
 }) => {
-  // return (
-  //   <div className="relative">
-  //     <Carousel
-  //       effect="fade"
-  //       loop={true}
-  //       navigation={{
-  //         enabled: true,
-  //         nextEl: ".media-carousel-btn-next",
-  //         prevEl: ".media-carousel-btn-prev",
-  //       }}
-  //       pagination={{
-  //         enabled: true,
-  //         type: "fraction",
-  //       }}
-  //       autoplay={autoplay}
-  //       slides={data.map((item, index) => (
-  //         <MediaItem
-  //           key={item.id}
-  //           data={item}
-  //           aspectRatio={aspectRatio}
-  //           videoAutoplay={videoAutoplay}
-  //           dimensionBase={dimensionBase}
-  //           priority={index === 0 && priority}
-  //           rounded={rounded}
-  //         />
-  //       ))}
-  //     >
-  //       <div className="media-carousel-btn-prev absolute right-2 bottom-4 z-10 cursor-pointer w-12 h-12 rounded-full bg-white bg-opacity-80 shadow items-center justify-center flex">
-  //         <AiOutlineArrowLeft size={25} />
-  //       </div>
-  //       <div className="media-carousel-btn-next absolute right-2 bottom-20 z-10 cursor-pointer w-12 h-12 rounded-full bg-white bg-opacity-80 shadow items-center justify-center flex">
-  //         <AiOutlineArrowRight size={25} />
-  //       </div>
-  //     </Carousel>
-  //   </div>
-  // );
-
   return (
     <Swiper
       className={classNames("w-full")}
       spaceBetween={30}
       loop={loop}
-      navigation={navigation ?? true}
-      pagination={pagination ?? true}
+      navigation={navigation}
+      pagination={pagination}
       slidesPerView={slidesPerView ?? "auto"}
-      autoplay={autoplay ?? false}
+      autoplay={autoplay}
       effect={effect ?? "fade"}
       fadeEffect={{
         crossFade: true,
       }}
-      freeMode={freeMode ?? false}
+      freeMode={freeMode}
       modules={[
         Autoplay,
         EffectFade,

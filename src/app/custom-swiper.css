@@ -1,16 +1,28 @@
 .swiper-pagination-bullet-active {
+  --swiper-pagination-color: rgb(var(--primary-color-500));
   transform: scale(1.5);
   background: transparent;
   border: 2px solid var(--swiper-pagination-color, var(--swiper-theme-color))
 }
 
 .swiper-button-prev, .swiper-button-next {
-  width: calc(var(--swiper-navigation-size) + 32px);
-  height: calc(var(--swiper-navigation-size) + 32px);
+  --swiper-navigation-color: rgb(var(--primary-color-500));
+  --swiper-navigation-size: 17px;
+  @media (min-width: 640px) {
+    --swiper-navigation-size: 19px;
+  }
+  @media (min-width: 768px) {
+    --swiper-navigation-size: 21px;
+  }
+  @media (min-width: 1024px) {
+    --swiper-navigation-size: 23px;
+  }
+  @media (min-width: 1280px) {
+    --swiper-navigation-size: 25px;
+  }
+  width: calc(var(--swiper-navigation-size) + 2rem);
+  height: calc(var(--swiper-navigation-size) + 2rem);
   background-color: rgba(255, 255, 246, 0.85);
   border-radius: 99px;
   box-shadow: rgba(0, 27, 71, 0.2) .5px .5px 10px .5px;
-  @media screen and (max-width: 1023px) {
-    display: none;
-  }
 }

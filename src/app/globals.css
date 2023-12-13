@@ -48,9 +48,6 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  width: 100vw;
-  overflow-x: hidden;
-  
   /* background: linear-gradient(
       to bottom,
       transparent,

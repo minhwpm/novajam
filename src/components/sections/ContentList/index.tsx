@@ -25,6 +25,7 @@ const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
       heading={heading}
       subheading={subheading}
       id={htmlid}
+      framed={ layout !== "carousel" }
     >
       {seeAllLink && 
         <div className="flex justify-end">

@@ -86,8 +86,11 @@ const MediaPart: React.FC<{ data: FeatureType, rounded?: "assets" | "none" }> = 
       autoplay={{
         delay: 5000,
       }}
+      pagination={{
+        enabled: true,
+      }}
       navigation={{
-        enabled: false,
+        enabled: true,
       }}
     />
   );

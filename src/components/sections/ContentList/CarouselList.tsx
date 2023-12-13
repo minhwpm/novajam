@@ -7,8 +7,8 @@ import { ContentItem } from "./ContentItem";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import styles from "./carousel-list-styles.module.css"
 import "@/app/custom-swiper.css"
+import styles from "./carousel-list-styles.module.css"
 
 export const CarouselList: React.FC<{
   content: Content[];
@@ -16,36 +16,35 @@ export const CarouselList: React.FC<{
   alignment: AlignmentType;
 }> = ({ content, size, alignment }) => {
   return (
-    <div className="">
-      <Swiper
-        className={classNames(styles["swiper overscroll-x-contain"])}
-        spaceBetween={25}
-        navigation={{
-          enabled: true,
-        }}
-        pagination={{
-          enabled: true,
-        }}
-        slidesPerView="auto"
-        modules={[Pagination, Navigation]}
-      >
-        {content.map((item, idx) => (
-          <SwiperSlide
-            key={item.id}
-            style={{
-              width: "80%",
-              maxWidth: classNames(
-                { "460px": size === "XL" },
-                { "368px": size === "L" },
-                { "276px": size === "M" },
-                { "184px": size === "S" }
-              ),
-            }}
-          >
-            <ContentItem data={item} alignment={alignment} index={idx} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+    <Swiper
+      className={classNames("w-screen", styles["swiper"])}
+      spaceBetween={25}
+      pagination={{
+        enabled: true,
+        clickable: true,
+      }}
+      navigation={{
+        enabled: true,
+      }}
+      slidesPerView={"auto"}
+      modules={[Pagination, Navigation]}
+    >
+      {content.map((item, idx) => (
+        <SwiperSlide
+          key={item.id}
+          style={{
+            width: "80vw",
+            maxWidth: classNames(
+              { "460px": size === "XL" },
+              { "368px": size === "L" },
+              { "276px": size === "M" },
+              { "184px": size === "S" }
+            ),
+          }}
+        >
+          <ContentItem data={item} alignment={alignment} index={idx} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
