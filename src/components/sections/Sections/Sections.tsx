@@ -3,7 +3,7 @@ import Hero from "@/components/sections/Hero/Hero";
 import HeroOverlay from "../HeroOverlay/HeroOverlay";
 import ScrollingPT from "@/components/sections/ScrollingPT/ScrollingPT";
 import AccordionPT from "@/components/sections/AccordionPT/AccordionPT";
-import ContentList from "@/components/sections/ContentList";
+import ContentList from "@/components/sections/ContentList/ContentList";
 import Feature from "@/components/sections/Feature/Feature";
 import {
   CTAType,
