@@ -20,7 +20,7 @@ export default async function Layout({
   params: Params
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body>
         <CustomProvider>
           {children}
@@ -28,5 +28,5 @@ export default async function Layout({
         </CustomProvider>
       </body>
     </html>
-  )
+  );
 }

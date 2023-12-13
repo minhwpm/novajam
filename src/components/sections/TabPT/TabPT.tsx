@@ -9,6 +9,7 @@ import { PresentationType } from '@/helpers/types';
 import RichText2 from "@/components/elements/RichText/RichText2"
 import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
 
 const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
   const { htmlid, label, heading, subheading, content, alignment } = data
@@ -108,16 +109,21 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                   )}
                 </div>
                 {section.media.length > 0 && (
-                  <div className="lg:w-1/2 shrink-0 ">
-                    <MediaCarousel
-                      data={section.media}
-                      autoplay={{
-                        delay: 5000,
-                      }}
-                      navigation={{
-                        enabled: false,
-                      }}
-                    />
+                  <div className="lg:w-1/2 shrink-0">
+                    {section.media.length === 1 && (
+                      <MediaItem data={section.media[0]} />
+                    )}
+                    {section.media.length > 1 && (
+                      <MediaCarousel
+                        data={section.media}
+                        autoplay={{
+                          delay: 5000,
+                        }}
+                        navigation={{
+                          enabled: false,
+                        }}
+                      />
+                    )}
                   </div>
                 )}
               </div>
