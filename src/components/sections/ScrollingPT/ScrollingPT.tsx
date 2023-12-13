@@ -9,7 +9,7 @@ import RichText2 from "@/components/elements/RichText/RichText2";
 import Button from "@/components/elements/Button/Button";
 
 const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, heading, subheading, content, alignment } = data
+  const { label, heading, subheading, content, alignment } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
@@ -18,11 +18,18 @@ const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
       <div className="xl:hidden">
         {content?.map((section) => (
           <div key={section.id} className="mb-20">
-            <div className={classNames("mb-10",
-              { "text-center": alignment === "center" },
-              { "text-end": alignment === "reverse" }
-            )}>
-              <div className={classNames("font-semibold text-primary-600 tracking-widest text-center lg:text-start")}>
+            <div
+              className={classNames(
+                "mb-10",
+                { "text-center": alignment === "center" },
+                { "text-end": alignment === "reverse" }
+              )}
+            >
+              <div
+                className={classNames(
+                  "font-semibold text-primary-600 tracking-widest text-center lg:text-start"
+                )}
+              >
                 {section.label}
               </div>
               {section.heading && (
@@ -41,7 +48,7 @@ const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                     "flex justify-center": alignment === "center",
                   })}
                 >
-                  {section.buttons.map(button => (
+                  {section.buttons.map((button) => (
                     <Button
                       key={button.id}
                       url={button.url}
@@ -55,9 +62,17 @@ const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
               )}
             </div>
             <div className="md:w-3/5 mx-auto">
-              {section.media?.length > 0 && 
-                <MediaCarousel data={section.media} />
-              }
+              {section.media?.length > 0 && (
+                <MediaCarousel
+                  data={section.media}
+                  autoplay={{
+                    delay: 5000,
+                  }}
+                  navigation={{
+                    enabled: false,
+                  }}
+                />
+              )}
             </div>
           </div>
         ))}
@@ -83,9 +98,17 @@ const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                     }
                   )}
                 >
-                  {section.media?.length > 0 && 
-                    <MediaCarousel data={section.media} />
-                  }
+                  {section.media?.length > 0 && (
+                    <MediaCarousel
+                      data={section.media}
+                      autoplay={{
+                        delay: 5000,
+                      }}
+                      navigation={{
+                        enabled: false,
+                      }}
+                    />
+                  )}
                 </div>
               ))}
             </div>

@@ -33,7 +33,11 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                   value={section.id}
                   className="group text-start cursor-pointer px-8 py-4 bg-neutral-100 hover:bg-neutral-200 data-[state='active']:bg-primary-500 data-[state='active']:text-white rounded-assets transition-colors duration-300 ease-in-out"
                 >
-                  <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest group-data-[state='active']:text-primary-100")}>
+                  <div
+                    className={classNames(
+                      "text-sm font-semibold text-neutral-500 tracking-widest group-data-[state='active']:text-primary-100"
+                    )}
+                  >
                     {section.label}
                   </div>
                   {section.heading && (
@@ -54,8 +58,20 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                 >
                   {section.media.length > 0 && (
                     <div className="w-full">
-                      {section.media.length === 1 && <MediaItem data={section.media[0]} />}
-                      {section.media.length > 1 && <MediaCarousel data={section.media} />}
+                      {section.media.length === 1 && (
+                        <MediaItem data={section.media[0]} />
+                      )}
+                      {section.media.length > 1 && (
+                        <MediaCarousel
+                          data={section.media}
+                          autoplay={{
+                            delay: 5000,
+                          }}
+                          navigation={{
+                            enabled: false,
+                          }}
+                        />
+                      )}
                     </div>
                   )}
                   <div className="mt-5 flex flex-col gap-2 justify-center pb-8 lg:pr-24">
@@ -103,8 +119,20 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
               <div className="flex flex-col">
                 {section.media.length > 0 && (
                   <div className="shirnk-0">
-                    {section.media.length === 1 && <MediaItem data={section.media[0]} />}
-                    {section.media.length > 1 && <MediaCarousel data={section.media} />}
+                    {section.media.length === 1 && (
+                      <MediaItem data={section.media[0]} />
+                    )}
+                    {section.media.length > 1 && (
+                      <MediaCarousel
+                        data={section.media}
+                        autoplay={{
+                          delay: 5000,
+                        }}
+                        navigation={{
+                          enabled: false,
+                        }}
+                      />
+                    )}
                   </div>
                 )}
                 <div className="mt-5 flex flex-col gap-2 items-center pb-8 lg:pr-24">

@@ -85,7 +85,14 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                     aspectRatio={classNames(
                       { "4/3": (section.heading || section.description) },
                       { "video": (!section.heading && !section.description) }
-                    ) as AspectRatioType } /> 
+                    ) as AspectRatioType } 
+                    autoplay={{
+                      delay: 5000,
+                    }}
+                    navigation={{
+                      enabled: false,
+                    }}
+                  /> 
                 </div>
               }
             </div>

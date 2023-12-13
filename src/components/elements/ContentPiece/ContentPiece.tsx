@@ -22,7 +22,7 @@ const MediaPart: React.FC<{
         <iframe
           src={embeddedMediaUrl}
           width="100%"
-          title={embeddedMediaTitle ?? ''}
+          title={embeddedMediaTitle ?? ""}
           className="aspect-video"
           allowFullScreen={true}
         />
@@ -31,7 +31,15 @@ const MediaPart: React.FC<{
         <MediaItem data={media[0]} />
       )}
       {!embeddedMediaUrl && media && media.length > 1 && (
-        <MediaCarousel data={media} />
+        <MediaCarousel
+          data={media}
+          autoplay={{
+            delay: 5000,
+          }}
+          navigation={{
+            enabled: false,
+          }}
+        />
       )}
     </div>
   );

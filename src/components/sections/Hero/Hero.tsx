@@ -1,5 +1,5 @@
 /*  Created by minhwpm (minhhien134@gmail.com) */
-'use client';
+"use client";
 import Button from "@/components/elements/Button/Button";
 import classNames from "classnames";
 import { HeroType } from "@/helpers/types";
@@ -139,7 +139,9 @@ const Hero: React.FC<Props> = ({ data }) => {
                       priority={true}
                       autoplay={{
                         delay: 5000,
-                        disableOnInteraction: false,
+                      }}
+                      navigation={{
+                        enabled: false,
                       }}
                     />
                   )}

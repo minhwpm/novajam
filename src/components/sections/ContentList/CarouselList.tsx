@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import classNames from "classnames";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Pagination } from "swiper/modules";

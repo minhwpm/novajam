@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { useEffect, useState } from "react";
 import classNames from "classnames";
 import type { Swiper as SwiperType } from 'swiper'

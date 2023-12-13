@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import classNames from "classnames"
 import Link from "next/link"
 import { BlogType } from "@/helpers/types"

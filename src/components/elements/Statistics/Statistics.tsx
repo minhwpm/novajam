@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import classNames from "classnames";
 import { useInView } from "react-hook-inview";
 import { StatisticsType } from "@/helpers/types"

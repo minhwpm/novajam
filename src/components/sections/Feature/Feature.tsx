@@ -83,6 +83,12 @@ const MediaPart: React.FC<{ data: FeatureType, rounded?: "assets" | "none" }> = 
       data={media}
       aspectRatio={mediaAspectRatio === "16/9" ? "video" : mediaAspectRatio}
       rounded={rounded}
+      autoplay={{
+        delay: 5000,
+      }}
+      navigation={{
+        enabled: false,
+      }}
     />
   );
 };

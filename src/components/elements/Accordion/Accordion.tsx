@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import * as RadixAccordion from '@radix-ui/react-accordion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
