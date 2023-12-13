@@ -35,7 +35,7 @@ const Hero: React.FC<Props> = ({ data }) => {
             <div
               key={section.id}
               className={classNames("flex flex-col items-center", {
-                "lg:flex-row max-h-screen": layout === "horizontal",
+                "lg:flex-row lg:max-h-screen": layout === "horizontal",
               })}
             >
               <div
@@ -117,7 +117,7 @@ const Hero: React.FC<Props> = ({ data }) => {
               {section.media.length > 0 && (
                 <div
                   className={classNames(
-                    "relative lg:w-7/12 shrink-0",
+                    "relative w-full lg:w-7/12",
                     { "-left-20 opacity-0": !isLoaded },
                     {
                       "opacity-100 left-0 transition-all duration-500 delay-500":
