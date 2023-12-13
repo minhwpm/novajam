@@ -19,7 +19,6 @@ const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
       <Carousel
         autoplay={{
           delay: 5000,
-          disableOnInteraction: false,
         }}
         pagination={{
           enabled: true,
