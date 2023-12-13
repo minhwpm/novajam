@@ -1,0 +1,9 @@
+
+.swiper {
+  overflow-x: visible;
+  --swiper-pagination-bottom: 0px;
+  --swiper-pagination-bullet-horizontal-gap: 3px;
+  --swiper-theme-color: rgb(var(--primary-color-500));
+  --swiper-navigation-size: 22px;
+  --swiper-navigation-sides-offset: calc( 0px - ((var(--swiper-navigation-size) + 32px) / 2))
+}

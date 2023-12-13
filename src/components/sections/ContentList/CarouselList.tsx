@@ -7,6 +7,7 @@ import { ContentItem } from "./ContentItem";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import styles from "./carousel-list-styles.module.css"
 import "@/app/custom-swiper.css"
 
 export const CarouselList: React.FC<{
@@ -16,6 +17,7 @@ export const CarouselList: React.FC<{
 }> = ({ content, size, alignment }) => {
   return (
     <Swiper
+      className={classNames(styles["swiper"])}
       spaceBetween={25}
       navigation={{
         enabled: true,
