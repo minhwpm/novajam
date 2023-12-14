@@ -101,12 +101,12 @@ module.exports = {
             visibility: 'visible',
           }
         },
-        slideUp: {
+        slidingDown: {
           '0%': {
-            'top': '0'
+            'top': '50px'
           },
           '100%': {
-            'top': '-75%'
+            'top': '100%'
           }
         },
         slidingText: {
@@ -285,7 +285,7 @@ module.exports = {
       animation: {
         pop: 'pop 0.3s ease-out forwards 1',
         fadeIn: 'fadeIn 0.5s ease-in forwards 1',
-        slideUp: 'slideUp 0.3s ease-in forwards 1',
+        slidingDown: 'slidingDown 0.3s ease-out forwards 1',
         slidingText: 'slidingText 10s linear infinite normal none running',
         expandingWidth: 'expandingWidth 0.5s ease-in-out forwards 1',
         shrinkingWidth: 'shrinkingWidth 0.5s ease-in-out forwards 1',

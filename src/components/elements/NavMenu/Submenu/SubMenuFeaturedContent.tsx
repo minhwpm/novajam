@@ -19,7 +19,7 @@ function standardizeData(data: (BlogType | PageType)) {
   }
 }
 
-const SubMenuFeaturedContent: React.FC<{data: BlogType | PageType}> = ({ data }) => {
+export const SubMenuFeaturedContent: React.FC<{data: BlogType | PageType}> = ({ data }) => {
   const result = standardizeData(data)
   return (
     <>
@@ -46,5 +46,3 @@ const SubMenuFeaturedContent: React.FC<{data: BlogType | PageType}> = ({ data })
     </>
   )
 }
-
-export default SubMenuFeaturedContent

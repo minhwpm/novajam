@@ -2,9 +2,9 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import SubMenuItem from './SubMenuItem';
+import SubMenuItem from './Submenu/SubMenuLinkItem';
 import { useState } from 'react';
-import SubMenuFeaturedContent from './SubMenuFeaturedContent';
+import SubMenuFeaturedContent from './Submenu/SubMenuFeaturedContent';
 import { ButtonType, LinkType, SubmenuType } from '@/helpers/types';
 import { CiMenuFries } from 'react-icons/ci';
 import { AiOutlineClose } from 'react-icons/ai';

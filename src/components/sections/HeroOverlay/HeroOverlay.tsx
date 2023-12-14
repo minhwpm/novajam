@@ -24,6 +24,9 @@ const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
           enabled: true,
           clickable: true,
         }}
+        navigation={{
+          enabled: true,
+        }}
         loop={true}
         slides={content.map((section) => (
           <div
