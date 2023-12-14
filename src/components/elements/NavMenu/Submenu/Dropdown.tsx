@@ -30,7 +30,7 @@ export const Dropdown: React.FC<{data: SubmenuType}> = ({ data }) => {
                 </Link>
               )}
               {subItem.contentType === "linkgroup" && (
-                <div className="text-neutral-700">
+                <>
                   <NavigationMenu.Trigger
                     className={classNames(
                       "w-full font-medium select-none text-left py-1.5 px-3 rounded-sm hover:bg-primary-50 transition-color duration-300 data-[state=open]:bg-primary-50 group"
@@ -44,7 +44,7 @@ export const Dropdown: React.FC<{data: SubmenuType}> = ({ data }) => {
                       width={10}
                     />
                   </NavigationMenu.Trigger>
-                  <NavigationMenu.Content className="absolute left-full -top-4 pl-4">
+                  <NavigationMenu.Content className="absolute left-full -top-4 pl-4 data-[state=open]:animate-slidingLinkgroup">
                     <ul className="py-4 px-2 bg-white rounded-assets shadow-radiant w-64 flex flex-col">
                       {subItem.links.length > 0 &&
                         subItem.links.map((link) => (
@@ -58,7 +58,7 @@ export const Dropdown: React.FC<{data: SubmenuType}> = ({ data }) => {
                         ))}
                     </ul>
                   </NavigationMenu.Content>
-                </div>
+                </>
               )}
             </NavigationMenu.Item>
           ))}

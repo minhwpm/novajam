@@ -101,12 +101,24 @@ module.exports = {
             visibility: 'visible',
           }
         },
-        slidingDown: {
+        slidingSubmenu: {
           '0%': {
-            'top': '50px'
+            'top': '50px',
+            opacity: 0,
           },
           '100%': {
-            'top': '100%'
+            'top': '100%',
+            opacity: 1,
+          }
+        },
+        slidingLinkgroup: {
+          '0%': {
+            'top': '0px',
+            opacity: 0,
+          },
+          '100%': {
+            'top': '-1rem',
+            opacity: 1,
           }
         },
         slidingText: {
@@ -285,7 +297,8 @@ module.exports = {
       animation: {
         pop: 'pop 0.3s ease-out forwards 1',
         fadeIn: 'fadeIn 0.5s ease-in forwards 1',
-        slidingDown: 'slidingDown 0.3s ease-out forwards 1',
+        slidingSubmenu: 'slidingSubmenu 0.3s ease-out forwards 1',
+        slidingLinkgroup: 'slidingLinkgroup 0.3s ease-out forwards 1',
         slidingText: 'slidingText 10s linear infinite normal none running',
         expandingWidth: 'expandingWidth 0.5s ease-in-out forwards 1',
         shrinkingWidth: 'shrinkingWidth 0.5s ease-in-out forwards 1',

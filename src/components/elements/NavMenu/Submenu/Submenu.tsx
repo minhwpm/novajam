@@ -47,13 +47,12 @@ export const Submenu: React.FC<{data: SubmenuType}> = ({ data }) => {
       <NavigationMenu.Content
         // forceMount={true}
         className={classNames(
-          "text-neutral-800",
           {
-            "absolute top-full left-0 w-full bg-white shadow-lg data-[state=open]:animate-slidingDown":
+            "absolute top-full left-0 w-full bg-white shadow-lg data-[state=open]:animate-slidingSubmenu":
               data.layout === "mega",
           },
           {
-            "absolute top-full left-0 w-64 mt-5 py-4 px-2 bg-white shadow-radiant rounded-assets data-[state=open]:animate-slidingDown":
+            "absolute top-full left-0 w-64 mt-5 py-4 px-2 bg-white shadow-radiant rounded-assets data-[state=open]:animate-slidingSubmenu":
               data.layout === "dropdown",
           } 
         )}

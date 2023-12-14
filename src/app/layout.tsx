@@ -21,7 +21,7 @@ export default async function Layout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body>
+      <body className="text-neutral-800">
         <CustomProvider>
           {children}
           <Analytics />
