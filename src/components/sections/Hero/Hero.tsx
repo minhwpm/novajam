@@ -21,6 +21,7 @@ const Hero: React.FC<Props> = ({ data }) => {
   return (
     <section>
       <Container className={classNames("flex mb-12")}>
+        {/* @TODO refactor */}
         <Carousel
           autoplay={{
             delay: 5000,
@@ -39,7 +40,7 @@ const Hero: React.FC<Props> = ({ data }) => {
             >
               <div
                 className={classNames(
-                  "flex flex-col gap-2 lg:pr-10 py-10",
+                  "flex flex-col gap-2 lg:pr-10 py-16",
                   { "items-center text-center": textAlignment === "center" },
                   { "items-end text-end": textAlignment === "reverse" }
                 )}
@@ -139,8 +140,10 @@ const Hero: React.FC<Props> = ({ data }) => {
                       autoplay={{
                         delay: 5000,
                       }}
-                      navigation={{
-                        enabled: false,
+                      loop={true}
+                      pagination={{
+                        enabled: true,
+                        clickable: true,
                       }}
                     />
                   )}

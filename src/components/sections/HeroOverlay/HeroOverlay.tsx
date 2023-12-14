@@ -16,6 +16,7 @@ const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
 
   return (
     <section className={classNames("relative")}>
+      {/* @TODO refactor */}
       <Carousel
         autoplay={{
           delay: 5000,
