@@ -5,7 +5,7 @@ import { SubMenuFeaturedContent } from "./SubMenuFeaturedContent"
 
 export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
   return (
-    <div className="container mx-auto px-4 pb-10 flex gap-12 pt-5 border-t">
+    <div className="container mx-auto px-4 pt-5 pb-10 flex gap-12 border-t">
       {data.menu.length > 0 && (
         <div className={classNames("grow flex flex-wrap gap-8 py-5")}>
           {data.menu.map((subItem) => (

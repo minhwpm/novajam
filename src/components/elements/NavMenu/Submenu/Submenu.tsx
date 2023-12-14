@@ -47,7 +47,7 @@ export const Submenu: React.FC<{data: SubmenuType}> = ({ data }) => {
       <NavigationMenu.Content
         // forceMount={true}
         className={classNames(
-          "text-neutral-800",
+          "text-neutral-800 text-base",
           {
             "absolute left-1/2 -translate-x-1/2 top-full mt-4 w-screen bg-white shadow-lg data-[state=open]:animate-slidingSubmenu":
               data.layout === "mega",
