@@ -8,7 +8,7 @@ import { Submenu } from "./Submenu/Submenu";
 
 export interface NavMenuProps {
   menu: Array<LinkType | SubmenuType>;
-  uiVariant: NavigationUiVariant
+  uiVariant?: NavigationUiVariant
 }
 
 export function getMenuItemText(item: LinkType | SubmenuType): string {
@@ -16,14 +16,12 @@ export function getMenuItemText(item: LinkType | SubmenuType): string {
   return item.title;
 }
 
-const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
+const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
   const pathname = usePathname();
   return (
     <NavigationMenu.Root
       className={classNames(
-        "NavMenu hidden lg:flex pt-2 pb-3",
-        { "justify-center": uiVariant === "standard" },
-        { "justify-end": uiVariant === "overlay" }
+        "hidden lg:flex justify-center pt-2 pb-3",
       )}
     >
       <NavigationMenu.List
