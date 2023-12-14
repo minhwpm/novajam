@@ -4,10 +4,10 @@ import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { NavigationType } from "@/helpers/types";
-import SubMenuItem from "./Submenu/SubMenuLinkItem";
+import { SubMenuLinkItem } from "./Submenu/SubMenuLinkItem";
 import { useState } from "react";
 import { getMenuItemText } from "./NavMenu";
-import SubMenuFeaturedContent from "./Submenu/SubMenuFeaturedContent";
+import { SubMenuFeaturedContent } from "./Submenu/SubMenuFeaturedContent";
 import { CiMenuFries } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
 import Button from "../Button/Button";
@@ -48,7 +48,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
               className="border-b"
             >
               {item.contentType === "link" && (
-                <SubMenuItem
+                <SubMenuLinkItem
                   key={item.id}
                   href={item.url}
                   title={item.text}
@@ -80,7 +80,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
                             <NavigationMenu.Item key={subItem.id}>
                               {subItem.contentType === "link" && (
                                 <div className="px-3 py-2 ">
-                                  <SubMenuItem
+                                  <SubMenuLinkItem
                                     key={subItem.text}
                                     href={subItem.url}
                                     title={subItem.text}
@@ -102,7 +102,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
                                     <ul className="px-8 py-2 flex flex-col gap-y-3">
                                       {subItem.links.length > 0 &&
                                         subItem.links.map((link) => (
-                                          <SubMenuItem
+                                          <SubMenuLinkItem
                                             key={link.text}
                                             href={link.url}
                                             title={link.text}

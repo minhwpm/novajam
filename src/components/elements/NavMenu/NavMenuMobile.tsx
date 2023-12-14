@@ -2,9 +2,9 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import SubMenuItem from './Submenu/SubMenuLinkItem';
+import { SubMenuLinkItem } from './Submenu/SubMenuLinkItem';
 import { useState } from 'react';
-import SubMenuFeaturedContent from './Submenu/SubMenuFeaturedContent';
+import { SubMenuFeaturedContent } from './Submenu/SubMenuFeaturedContent';
 import { ButtonType, LinkType, SubmenuType } from '@/helpers/types';
 import { CiMenuFries } from 'react-icons/ci';
 import { AiOutlineClose } from 'react-icons/ai';
@@ -69,7 +69,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
                           item.menu.map((subItem) => (
                             <NavigationMenu.Item key={subItem.id}>
                               {subItem.contentType === "link" && (
-                                <SubMenuItem
+                                <SubMenuLinkItem
                                   key={subItem.id}
                                   href={subItem.url}
                                   title={subItem.text}
@@ -94,7 +94,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
                                     <ul className="pl-5 flex flex-col">
                                       {subItem.links.length > 0 &&
                                         subItem.links.map((link) => (
-                                          <SubMenuItem
+                                          <SubMenuLinkItem
                                             key={link.id}
                                             href={link.url}
                                             title={link.text}
