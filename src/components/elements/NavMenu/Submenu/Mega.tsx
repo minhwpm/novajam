@@ -34,7 +34,7 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
       {data.featuredContent.length > 0 && (
         <div
           className={classNames(
-            "basis-1/3 xl:basis-1/4 shrink-0 grow flex gap-2 overflow-y-scroll overscroll-y-contain ",
+            "basis-1/3 xl:basis-1/4 shrink-0 grow flex gap-4 overflow-y-scroll overscroll-y-contain ",
             {
               "justify-end": data.featuredContent.length === 1,
             }

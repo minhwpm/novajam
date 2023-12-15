@@ -1,14 +1,14 @@
 import { SubmenuType } from "@/helpers/types";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import classNames from "classnames";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { SubMenuLinkItem } from "./SubMenuLinkItem";
 import { SubMenuFeaturedContent } from "./SubMenuFeaturedContent";
+import { usePathname } from "next/navigation";
 
-export const Dropdown: React.FC<{data: SubmenuType}> = ({ data }) => {
+export const Dropdown: React.FC<{data: SubmenuType}> = 
+({ data }) => {
   const pathname = usePathname();
   return (
     <NavigationMenu.Sub orientation="vertical">
@@ -17,23 +17,20 @@ export const Dropdown: React.FC<{data: SubmenuType}> = ({ data }) => {
           data.menu.map((subItem) => (
             <NavigationMenu.Item key={subItem.id} className="relative">
               {subItem.contentType === "link" && (
-                <Link
+                <SubMenuLinkItem
                   href={subItem.url}
-                  className={classNames(
-                    "block w-full font-medium px-3 py-1.5 rounded-sm hover:bg-primary-50 transition-color duration-300",
-                    {
-                      "bg-primary-100": subItem.url === pathname,
-                    }
-                  )}
-                >
-                  {subItem.text}
-                </Link>
+                  title={subItem.text}
+                />
               )}
               {subItem.contentType === "linkgroup" && (
                 <>
                   <NavigationMenu.Trigger
                     className={classNames(
-                      "w-full font-medium select-none text-left py-1.5 px-3 rounded-sm hover:bg-primary-50 transition-color duration-300 data-[state=open]:bg-primary-50 group"
+                      "w-full font-medium select-none text-left py-1.5 px-3 rounded-sm hover:bg-primary-50 transition-color duration-300 data-[state=open]:bg-primary-50 group",
+                      {
+                        "bg-primary-100":
+                          subItem.links.find((link) => link.url === pathname)
+                      }
                     )}
                   >
                     {subItem.title}
@@ -52,7 +49,6 @@ export const Dropdown: React.FC<{data: SubmenuType}> = ({ data }) => {
                             <SubMenuLinkItem
                               href={link.url}
                               title={link.text}
-                              currentPathname={pathname}
                             />
                           </li>
                         ))}

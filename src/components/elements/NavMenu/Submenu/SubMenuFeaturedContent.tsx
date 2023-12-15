@@ -1,6 +1,8 @@
 import { BlogType, PageType } from "@/helpers/types"
+import classNames from "classnames"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 function standardizeData(data: (BlogType | PageType)) {
   switch(data.contentType) {
@@ -21,12 +23,16 @@ function standardizeData(data: (BlogType | PageType)) {
 
 export const SubMenuFeaturedContent: React.FC<{data: BlogType | PageType}> = ({ data }) => {
   const result = standardizeData(data)
+  const pathname = usePathname();
+
   return (
     <>
       {/* @TODO resolve link href here*/}
       <Link
         href={result.url ?? ""}
-        className="group flex flex-col items-center p-5 rounded-sm hover:bg-primary-50 transition-colors duration-500"
+        className={classNames("group flex flex-col items-center rounded-assets transition-colors duration-500",
+          { "bg-primary-100": result.url === pathname}
+        )}
       >
         {result.thumbnailImage && (
           <div  className="w-full overflow-hidden rounded-assets">
@@ -39,7 +45,9 @@ export const SubMenuFeaturedContent: React.FC<{data: BlogType | PageType}> = ({ 
             />
           </div>
         )}
-        <h3 className="mt-3 font-medium text-slate-700 group-hover:text-primary-600 transition-colors duration-500">
+        <h3 className={classNames("mt-3 font-medium group-hover:text-primary-600 transition-colors duration-500 px-5 pb-5",
+          { "text-primary-600": result.url === pathname}
+        )}>
           {result.title}
         </h3>
       </Link>

@@ -1,6 +1,6 @@
 "use client"
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import classNames from "classnames";
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { SubmenuType } from "@/helpers/types";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
