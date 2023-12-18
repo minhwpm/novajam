@@ -44,7 +44,7 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
           <NavigationMenu.List className="px-2">
             {data.menu.length > 0 &&
               data.menu.map((subItem) => (
-                <NavigationMenu.Item key={subItem.id} className="py-1">
+                <NavigationMenu.Item key={subItem.id} className={classNames("py-1 mb-2")}>
                   {subItem.contentType === "link" && (
                     <LinkItem
                       key={subItem.text}
@@ -69,15 +69,16 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
                         />
                       </NavigationMenu.Trigger>
                       <NavigationMenu.Content>
-                        <ul className="max-w-fit pl-4 py-3 flex flex-col gap-y-2">
+                        <ul className=" pl-4 py-3 flex flex-col gap-y-2">
                           {subItem.links.length > 0 &&
                             subItem.links.map((link) => (
-                              <LinkItem
-                                className="before:bg-primary-500"
-                                key={link.text}
-                                href={link.url}
-                                title={link.text}
-                              />
+                              <li key={link.text}>
+                                <LinkItem
+                                  className="before:bg-primary-500"
+                                  href={link.url}
+                                  title={link.text}
+                                />
+                              </li>
                             ))}
                         </ul>
                       </NavigationMenu.Content>

@@ -20,7 +20,7 @@ export const LinkItem = ({
     <Link
       href={href}
       className={classNames(
-        "font-medium py-2 select-none inline-block before:bg-primary-500 underline-hover-effect",
+        "inline-block font-medium py-2 select-none before:bg-primary-500 underline-hover-effect",
         { "before:w-full": href === pathname },
         className,
       )}
