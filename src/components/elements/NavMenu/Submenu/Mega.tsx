@@ -1,7 +1,7 @@
 import { SubmenuType } from "@/helpers/types"
 import classNames from "classnames"
-import { SubMenuLinkItem } from "./SubMenuLinkItem"
-import { SubMenuFeaturedContent } from "./SubMenuFeaturedContent"
+import { NavFeaturedContent } from "@/components/elements/NavFeaturedContent/NavFeaturedContent";
+import { NavLinkItem } from "./SubMenuLinkItem";
 
 export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
   return (
@@ -11,7 +11,7 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
           {data.menu.map((subItem) => (
             <div key={subItem.id} className="basis-60 shrink-0 mb-3">
               {subItem.contentType === "link" && (
-                <SubMenuLinkItem href={subItem.url} title={subItem.text} />
+                <NavLinkItem href={subItem.url} title={subItem.text} />
               )}
               {subItem.contentType === "linkgroup" && (
                 <p className="text-neutral-500 uppercase text-sm tracking-wide font-medium mb-2">
@@ -23,7 +23,7 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
                   subItem.links.length > 0 &&
                   subItem.links.map((link) => (
                     <li key={link.id}>
-                      <SubMenuLinkItem href={link.url} title={link.text} />
+                      <NavLinkItem href={link.url} title={link.text} />
                     </li>
                   ))}
               </ul>
@@ -42,7 +42,7 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
         >
           {data.featuredContent.map((data) => (
             <div key={data.id} className="basis-72 shrink-0 grow max-w-xs">
-              <SubMenuFeaturedContent data={data} />
+              <NavFeaturedContent data={data} />
             </div>
           ))}
         </div>

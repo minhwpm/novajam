@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu"
 import { SubmenuType } from "@/helpers/types";
-import { LinkItem } from "../LinkItem/LinkItem";
-import { SubMenuFeaturedContent } from "../../NavMenu/Submenu/SubMenuFeaturedContent";
+import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
 import { usePathname } from "next/navigation";
 import { FaChevronDown } from "react-icons/fa";
+import { NavFeaturedContent } from "@/components/elements/NavFeaturedContent/NavFeaturedContent";
 
 export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
   const pathname = usePathname();
@@ -40,7 +40,8 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
               data.menu.map((subItem) => (
                 <NavigationMenu.Item key={subItem.id} className={classNames("py-1 mb-2")}>
                   {subItem.contentType === "link" && (
-                    <LinkItem
+                    <NavLinkItem
+                      variant="underlined"
                       key={subItem.text}
                       href={subItem.url}
                       title={subItem.text}
@@ -58,14 +59,15 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
                         <FaChevronDown size={12} className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"/>
                       </NavigationMenu.Trigger>
                       <NavigationMenu.Content>
-                        <ul className=" pl-4 py-3 flex flex-col gap-y-2">
+                        <ul className="pl-4 py-3 flex flex-col gap-y-2">
                           {subItem.links.length > 0 &&
                             subItem.links.map((link) => (
                               <li key={link.text}>
-                                <LinkItem
+                                <NavLinkItem
                                   className="before:bg-primary-500"
                                   href={link.url}
                                   title={link.text}
+                                  variant="underlined"
                                 />
                               </li>
                             ))}
@@ -83,7 +85,7 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
                   key={content.id}
                   className="w-4/5 md:basis-72 shrink-0 grow max-w-xs"
                 >
-                  <SubMenuFeaturedContent data={content} />
+                  <NavFeaturedContent data={content} />
                 </div>
               ))}
             </div>

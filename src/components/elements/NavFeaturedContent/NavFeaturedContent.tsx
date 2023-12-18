@@ -21,7 +21,7 @@ function standardizeData(data: (BlogType | PageType)) {
   }
 }
 
-export const SubMenuFeaturedContent: React.FC<{data: BlogType | PageType}> = ({ data }) => {
+export const NavFeaturedContent: React.FC<{data: BlogType | PageType}> = ({ data }) => {
   const result = standardizeData(data)
   const pathname = usePathname();
 

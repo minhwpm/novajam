@@ -1,10 +1,8 @@
-"use client";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import classNames from "classnames";
-import Link from "next/link";
 import { LinkType, NavigationUiVariant, SubmenuType } from "@/helpers/types";
-import { usePathname } from "next/navigation";
 import { Submenu } from "./Submenu/Submenu";
+import { NavLinkItem } from "../NavLinkItem/NavLinkItem";
 
 export interface NavMenuProps {
   menu: Array<LinkType | SubmenuType>;
@@ -17,11 +15,10 @@ export function getMenuItemText(item: LinkType | SubmenuType): string {
 }
 
 const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
-  const pathname = usePathname();
   return (
     <NavigationMenu.Root
       className={classNames(
-        "hidden lg:flex justify-center pt-2 pb-3",
+        "hidden lg:flex justify-center pt-2 pb-3 font-medium",
       )}
     >
       <NavigationMenu.List
@@ -37,22 +34,21 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
             })}
           >
             {item.contentType === "link" && (
-              <Link
+              <NavLinkItem
+                className="font-bold"
                 href={item.url}
-                className={classNames(
-                  "py-2 select-none inline-block underline-hover-effect",
-                  { "before:w-full": pathname === item.url }
-                )}
+                variant="underlined"
               >
                 {item.text}
-              </Link>
+              </NavLinkItem>
             )}
             {item.contentType === "submenu" && (
               <Submenu data={item} />
             )}
           </NavigationMenu.Item>
         ))}
-        <NavigationMenu.Indicator className="NavigationMenuIndicator">
+        <NavigationMenu.Indicator className="NavigationMenuIndicator"> 
+        {/* @TODO NavigationMenuIndicator ?? */}
           <div className="Arrow" />
         </NavigationMenu.Indicator>
       </NavigationMenu.List>

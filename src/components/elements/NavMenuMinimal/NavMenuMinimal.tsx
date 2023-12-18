@@ -2,7 +2,7 @@
 import classNames from "classnames";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { NavigationType } from "@/helpers/types";
-import { LinkItem } from "./LinkItem/LinkItem";
+import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
 import { useState } from "react";
 import { getMenuItemText } from "../NavMenu/NavMenu";
 import { CiMenuFries } from "react-icons/ci";
@@ -44,10 +44,11 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
                 className="py-2 border-b border-neutral-800"
               >
                 {item.contentType === "link" && (
-                  <LinkItem
+                  <NavLinkItem
                     className="before:bg-primary-500"
                     href={item.url}
                     title={item.text}
+                    variant="underlined"
                     onClick={() => {
                       setNavMenuShowed(false);
                       document.body.style.overflow = "auto";

@@ -13,7 +13,7 @@ export const Submenu: React.FC<{data: SubmenuType}> = ({ data }) => {
     <>
       <NavigationMenu.Trigger
         className={classNames(
-          "py-2 select-none underline-hover-effect cursor-pointer data-[state=open]:before:w-full group",
+          "font-bold py-2 select-none underline-hover-effect cursor-pointer before:bg-primary-500 data-[state=open]:before:w-full group",
           {
             "before:w-full":
               data.featuredContent.find(
@@ -39,7 +39,6 @@ export const Submenu: React.FC<{data: SubmenuType}> = ({ data }) => {
         <FaChevronDown size={10} className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"/>
       </NavigationMenu.Trigger>
       <NavigationMenu.Content
-        // forceMount={true}
         className={classNames(
           "text-neutral-800 text-base",
           {

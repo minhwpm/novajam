@@ -5,7 +5,7 @@ import Link from "next/link";
 import useStickyHeaderOnScrollUp from "@/helpers/hooks/useStickyHeaderOnScrollUp";
 import classNames from "classnames";
 import NavMenu from "@/components/elements/NavMenu/NavMenu";
-import NavMenuMobile from "@/components/elements/NavMenu/NavMenuMobile";
+import NavMenuMobile from "@/components/elements/NavMenuMobile/NavMenuMobile";
 import NavMenuMinimal from "@/components/elements/NavMenuMinimal/NavMenuMinimal";
 import { ButtonType, MediaType, NavigationType } from "@/helpers/types";
 
@@ -73,7 +73,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
 
   if (uiVariant === "minimal") {
     return (
-      <header className={classNames("relative z-[99999]")}>
+      <header className={classNames("relative z-[99999] tracking-wider")}>
         <div className={classNames("absolute w-screen flex justify-center")}>
           <div className="px-4 pt-10 container flex items-center justify-between">
             <div className="shrink-0">
@@ -94,7 +94,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
   }
   if (uiVariant === "overlay") {
     return (
-      <header className={classNames("relative z-[99999]")}>
+      <header className={classNames("relative z-[99999] tracking-wider")}>
         <div
           className={classNames(
             "absolute left-1/2 -translate-x-1/2 w-full flex justify-center bg-gradient-to-b from-neutral-600/60 to-neutral-10/40 text-white"
@@ -104,7 +104,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect} logo={logo} />
             </div>
-            <div className="flex-1 drop-shadow-lg lg:text-lg font-semibold">
+            <div className="flex-1 drop-shadow-lg lg:text-lg">
               <NavMenu menu={menu} uiVariant={uiVariant} />
             </div>
             {buttons && buttons.length > 0 && (
@@ -123,7 +123,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
   return (
     <header
       className={classNames(
-        "relative bg-white z-[99999] font-bold tracking-wider",
+        "relative bg-white z-[99999] tracking-wider",
         { "sticky w-full z-50 top-0 border-b animate-headerSlideIn": sticky }
       )}
     >
