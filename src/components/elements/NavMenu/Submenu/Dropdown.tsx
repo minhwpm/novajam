@@ -1,8 +1,7 @@
 import { SubmenuType } from "@/helpers/types";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import classNames from "classnames";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { FaChevronRight } from "react-icons/fa";
 import { SubMenuLinkItem } from "./SubMenuLinkItem";
 import { SubMenuFeaturedContent } from "./SubMenuFeaturedContent";
 import { usePathname } from "next/navigation";
@@ -34,12 +33,7 @@ export const Dropdown: React.FC<{data: SubmenuType}> =
                     )}
                   >
                     {subItem.title}
-                    <FontAwesomeIcon
-                      className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
-                      icon={faChevronRight}
-                      size="2xs"
-                      width={10}
-                    />
+                    <FaChevronRight size={10} className="nline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"/>
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className="absolute left-full -top-4 pl-4 data-[state=open]:animate-slidingLinkgroup">
                     <ul className="py-4 px-2 bg-white rounded-assets shadow-radiant w-64 flex flex-col">

@@ -3,10 +3,9 @@ import classNames from "classnames";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { SubmenuType } from "@/helpers/types";
 import { usePathname } from "next/navigation";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { Dropdown } from "./Dropdown";
 import { Mega } from "./Mega";
+import { FaChevronDown } from "react-icons/fa";
 
 export const Submenu: React.FC<{data: SubmenuType}> = ({ data }) => {
   const pathname = usePathname();
@@ -37,12 +36,7 @@ export const Submenu: React.FC<{data: SubmenuType}> = ({ data }) => {
         }}
       >
         {data.title}
-        <FontAwesomeIcon
-          className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
-          icon={faChevronDown}
-          size="2xs"
-          width={10}
-        />
+        <FaChevronDown size={10} className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"/>
       </NavigationMenu.Trigger>
       <NavigationMenu.Content
         // forceMount={true}

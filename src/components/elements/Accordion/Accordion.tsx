@@ -1,8 +1,7 @@
 "use client"
 
 import * as RadixAccordion from '@radix-ui/react-accordion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FaChevronDown } from "react-icons/fa";
 import "./styles.css"
 
 const dummyData = [
@@ -34,9 +33,9 @@ const Accordion = ({ data = dummyData}) => {
     <RadixAccordion.Root className="w-full lg:w-2/3" type="multiple">
       {data.map((item, idx) => (
         <RadixAccordion.Item key={item.title} value={`item-${idx}`} className="mb-6 text-lg overflow-hidden">
-          <RadixAccordion.Trigger className="AccordionTrigger w-full flex justify-between text-primary-600 font-medium py-4">
+          <RadixAccordion.Trigger className="group w-full flex justify-between text-primary-600 font-medium py-4">
             {item.title}
-            <FontAwesomeIcon className="AccordionChevron" icon={faChevronDown} width={18} size="lg" />
+            <FaChevronDown size={18} className="transition-transform duration-300 group-data-[state=open]:rotate-180"/>
           </RadixAccordion.Trigger>
           <RadixAccordion.Content className="AccordionContent">
             {item.content}

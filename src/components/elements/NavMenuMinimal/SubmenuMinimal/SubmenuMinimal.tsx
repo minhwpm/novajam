@@ -1,11 +1,10 @@
 import classNames from "classnames";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu"
 import { SubmenuType } from "@/helpers/types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { LinkItem } from "../LinkItem/LinkItem";
 import { SubMenuFeaturedContent } from "../../NavMenu/Submenu/SubMenuFeaturedContent";
 import { usePathname } from "next/navigation";
+import { FaChevronDown } from "react-icons/fa";
 
 export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
   const pathname = usePathname();
@@ -31,15 +30,10 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
           )}
         >
           {data.title}
-          <FontAwesomeIcon
-            className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
-            icon={faChevronDown}
-            size="2xs"
-            width={10}
-          />
+          <FaChevronDown size={12} className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"/>
         </div>
       </NavigationMenu.Trigger>
-      <NavigationMenu.Content className="w-full pt-4 pb-10 px-10 my-4 bg-neutral-700/30 rounded-assets">
+      <NavigationMenu.Content className="w-full pt-4 pb-10 px-4 lg:px-10 my-4 bg-neutral-700/30 rounded-assets">
         <NavigationMenu.Sub orientation="vertical">
           <NavigationMenu.List className="px-2">
             {data.menu.length > 0 &&
@@ -61,12 +55,7 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
                         }
                       )}>
                         {subItem.title}
-                        <FontAwesomeIcon
-                          className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
-                          icon={faChevronDown}
-                          size="2xs"
-                          width={10}
-                        />
+                        <FaChevronDown size={12} className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"/>
                       </NavigationMenu.Trigger>
                       <NavigationMenu.Content>
                         <ul className=" pl-4 py-3 flex flex-col gap-y-2">
@@ -92,7 +81,7 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
               {data.featuredContent.map((content) => (
                 <div
                   key={content.id}
-                  className="basis-72 shrink-0 grow max-w-xs"
+                  className="w-4/5 md:basis-72 shrink-0 grow max-w-xs"
                 >
                   <SubMenuFeaturedContent data={content} />
                 </div>

@@ -1,13 +1,12 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { SubMenuLinkItem } from './Submenu/SubMenuLinkItem';
 import { useState } from 'react';
 import { SubMenuFeaturedContent } from './Submenu/SubMenuFeaturedContent';
 import { ButtonType, LinkType, SubmenuType } from '@/helpers/types';
 import { CiMenuFries } from 'react-icons/ci';
 import { AiOutlineClose } from 'react-icons/ai';
+import { FaChevronDown } from "react-icons/fa";
 import Link from 'next/link';
 import Button from '../Button/Button';
 
@@ -52,12 +51,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
                 <>
                   <NavigationMenu.Trigger className="py-2 px-3 select-none text-start w-full group rounded-assets hover:bg-primary-100 transition duration-500">
                     {item.title}
-                    <FontAwesomeIcon
-                      className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
-                      icon={faChevronDown}
-                      size="2xs"
-                      width={10}
-                    />
+                    <FaChevronDown size={10} className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"/>
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className='bg-neutral-50 mt-2 rounded-assets'>
                     <NavigationMenu.Sub
@@ -83,12 +77,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
                                 <div>
                                   <NavigationMenu.Trigger className="w-full select-none text-left py-1.5 px-3 rounded-assets hover:bg-primary-100 transition-color duration-300 data-[state=open]:bg-primary-100 group">
                                     {subItem.title}
-                                    <FontAwesomeIcon
-                                      className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
-                                      icon={faChevronDown}
-                                      size="2xs"
-                                      width={10}
-                                    />
+                                    <FaChevronDown size={10} className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"/>
                                   </NavigationMenu.Trigger>
                                   <NavigationMenu.Content className="mt-2">
                                     <ul className="pl-5 flex flex-col">
