@@ -110,3 +110,7 @@ h1 u, h2 u, h3 u, h4 u {
 .show-scrollbar::-webkit-scrollbar-thumb:hover {
   cursor: grabbing;
 }
+
+.NavMenu > div {
+  position: initial !important;
+}

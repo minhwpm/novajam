@@ -18,7 +18,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
   return (
     <NavigationMenu.Root
       className={classNames(
-        "hidden lg:flex justify-center pt-2 pb-3 font-medium",
+        "NavMenu hidden lg:flex justify-end pt-2 pb-3 font-medium",
       )}
     >
       <NavigationMenu.List

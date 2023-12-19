@@ -94,10 +94,10 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
   }
   if (uiVariant === "overlay") {
     return (
-      <header className={classNames("relative z-[99999] tracking-wider")}>
+      <header className={classNames("relative z-[99999] w-screen tracking-wider")}>
         <div
           className={classNames(
-            "absolute left-1/2 -translate-x-1/2 w-full flex justify-center bg-gradient-to-b from-neutral-600/60 to-neutral-10/40 text-white"
+            "absolute top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-600/60 to-neutral-10/40 text-white"
           )}
         >
           <div className="container px-4 pt-5 lg:pt-10 pb-2 flex items-center">

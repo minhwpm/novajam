@@ -42,7 +42,7 @@ export const Submenu: React.FC<{data: SubmenuType}> = ({ data }) => {
         className={classNames(
           "text-neutral-800 text-base",
           {
-            "absolute left-1/2 -translate-x-1/2 top-full mt-4 w-screen bg-white shadow-lg data-[state=open]:animate-slidingSubmenu":
+            "absolute top-full left-0 w-full bg-white shadow-lg rounded-assets data-[state=open]:animate-slidingSubmenu":
               data.layout === "mega",
           },
           {
