@@ -19,6 +19,10 @@
     padding: 0 calc((100vw + 2rem - 1280px)/2);
     --swiper-navigation-sides-offset: calc((100vw + 2rem - 1280px)/2 + 10px);
   }
+  @media (min-width: 1536px) {
+    padding: 0 calc((100vw + 2rem - 1536px)/2);
+    --swiper-navigation-sides-offset: calc((100vw + 2rem - 1536px)/2 + 10px);
+  }
 
   --swiper-pagination-bottom: 0px;
   --swiper-pagination-bullet-horizontal-gap: 3px;
