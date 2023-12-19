@@ -10,6 +10,7 @@ import RichText2 from "@/components/elements/RichText/RichText2"
 import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
+import styles from "./styles.module.css"
 
 const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
   const { htmlid, label, heading, subheading, content, alignment } = data
@@ -25,6 +26,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
   }, [])
   return (
     <Section
+      framed={false}
       id={htmlid}
       label={label}
       heading={heading}
@@ -43,7 +45,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
           )}
         >
           <RadixTabs.List
-            className="group/list rounded-assets p-2 inline-flex gap-x-5 gap-y-2"
+            className={classNames("TabList group/list rounded-assets p-2 inline-flex gap-x-4 gap-y-2", styles.TabList)}
             aria-label={heading ? documentToHtmlString(heading) : undefined}
           >
             {content.length > 0 &&
@@ -51,7 +53,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                 <RadixTabs.Trigger
                   key={section.id}
                   value={section.id}
-                  className="shrink-0 px-6 py-2 flex flex-col justify-center items-center cursor-pointer rounded-assets  bg-neutral-100 hover:bg-primary-50 hover:text-primary-500 data-[state='active']:bg-primary-500 data-[state='active']:text-white transition-all duration-300 ease-in-out"
+                  className="shrink-0 px-6 py-2 flex flex-col justify-center items-center cursor-pointer rounded-assets  bg-neutral-100 hover:bg-neutral-200 data-[state='active']:bg-primary-500 data-[state='active']:text-white transition-all duration-500"
                 >
                   <div
                     className={classNames(
@@ -69,21 +71,21 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
               ))}
           </RadixTabs.List>
         </div>
-        <div className="mt-2 lg:mt-3">
+        <div className="mt-6 container px-4 mx-auto ">
           {content.map((section) => (
             <RadixTabs.Content
               key={section.id}
               value={section.id}
               className={classNames(
-                "text-lg transition-all ease-in-out duration-500 relative",
+                "text-lg transition-all ease-in-out duration-500 relative ",
                 { "opacity-100 right-0 z-10": activeItem === section.id },
                 { "opacity-0 -right-24 z-0": activeItem !== section.id },
                 { "text-center": alignment === "center" },
                 { "text-end": alignment === "reverse" }
               )}
             >
-              <div className="flex flex-col-reverse lg:flex-row lg:items-center pb-8 bg-white rounded-assets p-4 md:p-8 lg:p-12">
-                <div className="pt-4 pr-4 md:pt-8 md:pr-8 lg:pt-0 lg:pr-12">
+              <div className="flex flex-col-reverse lg:flex-row lg:items-center bg-white rounded-assets p-4 lg:p-8 -mx-4 lg:-mx-8">
+                <div className="py-4 lg:pr-10">
                   {section.description && (
                     <div className="prose lg:prose-lg">
                       <RichText2 data={section.description} />

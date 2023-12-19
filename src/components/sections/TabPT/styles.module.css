@@ -1,0 +1,30 @@
+
+.TabList {
+  padding: 0 1rem;
+
+  @media (min-width: 640px) {
+    padding: 0 calc((100vw + 2rem - 640px)/2);
+    --swiper-navigation-sides-offset: calc((100vw + 2rem - 640px)/2);
+  }
+  @media (min-width: 768px) {
+    padding: 0 calc((100vw + 2rem - 768px)/2);
+    --swiper-navigation-sides-offset: calc((100vw + 2rem - 768px)/2);
+  }
+  @media (min-width: 1024px) {
+    padding: 0 calc((100vw + 2rem - 1024px)/2);
+    --swiper-navigation-sides-offset: calc((100vw + 2rem - 1024px)/2 + 10px);
+  }
+  @media (min-width: 1280px) {
+    padding: 0 calc((100vw + 2rem - 1280px)/2);
+    --swiper-navigation-sides-offset: calc((100vw + 2rem - 1280px)/2 + 10px);
+  }
+  @media (min-width: 1536px) {
+    padding: 0 calc((100vw + 2rem - 1536px)/2);
+    --swiper-navigation-sides-offset: calc((100vw + 2rem - 1536px)/2 + 10px);
+  }
+
+  --swiper-pagination-bottom: 0px;
+  --swiper-pagination-bullet-horizontal-gap: 3px;
+  --swiper-theme-color: rgb(var(--primary-color-500));
+
+}
