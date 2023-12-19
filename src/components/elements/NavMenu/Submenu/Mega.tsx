@@ -1,7 +1,7 @@
 import { SubmenuType } from "@/helpers/types"
 import classNames from "classnames"
 import { NavFeaturedContent } from "@/components/elements/NavFeaturedContent/NavFeaturedContent";
-import { NavLinkItem } from "./SubMenuLinkItem";
+import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
 
 export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
   return (
