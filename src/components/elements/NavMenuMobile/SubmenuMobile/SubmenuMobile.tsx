@@ -10,7 +10,7 @@ import classNames from "classnames";
 export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  Dispatch<SetStateAction<boolean>>}> = ({data, setMobileMenuShowed}) => {
   const pathname = usePathname();
   return (
-    <>
+    <NavigationMenu.Item className="py-2 border-b last:border-none border-neutral-100">
       <NavigationMenu.Trigger
         className={classNames(
           "py-2 px-3 select-none font-semibold text-start w-full group rounded-assets hover:bg-primary-100 transition duration-500",
@@ -105,6 +105,6 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
           )}
         </NavigationMenu.Sub>
       </NavigationMenu.Content>
-    </>
+    </NavigationMenu.Item>
   );
 }

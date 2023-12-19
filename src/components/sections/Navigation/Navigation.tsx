@@ -100,7 +100,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
             "absolute top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-600/60 to-neutral-10/40 text-white"
           )}
         >
-          <div className="container px-4 pt-5 lg:pt-10 pb-2 flex items-center">
+          <div className="container p-4 lg:pt-10 flex items-center">
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect} logo={logo} />
             </div>
@@ -132,7 +132,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
           <Logo redirectUrl={logoRedirect} logo={logo} />
         </div>
         <div className="flex-1">
-          <NavMenu menu={menu} uiVariant="standard" />
+          <NavMenu menu={menu} uiVariant={uiVariant} />
         </div>
         {buttons && buttons.length > 0 && (
           <div className="shrink-0 hidden lg:block">

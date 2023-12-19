@@ -23,9 +23,7 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
                   {subItem.contentType === "linkgroup" &&
                     subItem.links.length > 0 &&
                     subItem.links.map((link) => (
-                      <li key={link.id}>
-                        <NavLinkItem href={link.url} title={link.text} />
-                      </li>
+                      <NavLinkItem key={link.id} href={link.url} title={link.text} />
                     ))}
                 </ul>
               </div>

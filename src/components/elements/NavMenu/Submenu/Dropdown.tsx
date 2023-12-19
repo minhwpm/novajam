@@ -10,11 +10,11 @@ export const Dropdown: React.FC<{data: SubmenuType}> =
 ({ data }) => {
   const pathname = usePathname();
   return (
-    <NavigationMenu.Sub orientation="vertical">
+    <NavigationMenu.Root aria-label="Sub" orientation="vertical">
       <NavigationMenu.List>
         {data.menu.length > 0 &&
           data.menu.map((subItem) => (
-            <NavigationMenu.Item key={subItem.id} className="relative py-1">
+            <NavigationMenu.Item key={subItem.id} value={subItem.id} className="relative py-1">
               {subItem.contentType === "link" && (
                 <NavLinkItem
                   href={subItem.url}
@@ -39,12 +39,11 @@ export const Dropdown: React.FC<{data: SubmenuType}> =
                     <ul className="py-4 px-2 bg-white rounded-assets shadow-radiant w-64 flex flex-col">
                       {subItem.links.length > 0 &&
                         subItem.links.map((link) => (
-                          <li key={link.id}>
-                            <NavLinkItem
-                              href={link.url}
-                              title={link.text}
-                            />
-                          </li>
+                          <NavLinkItem
+                            key={link.id}
+                            href={link.url}
+                            title={link.text}
+                          />
                         ))}
                     </ul>
                   </NavigationMenu.Content>
@@ -62,6 +61,6 @@ export const Dropdown: React.FC<{data: SubmenuType}> =
           ))}
         </div>
       )}
-    </NavigationMenu.Sub>
+    </NavigationMenu.Root>
   );
 }

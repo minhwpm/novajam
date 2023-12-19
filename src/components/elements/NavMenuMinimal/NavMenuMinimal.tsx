@@ -39,13 +39,11 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
           />
           <NavigationMenu.List className="flex flex-col items-center text-xl py-20">
             {menu.map((item) => (
-              <NavigationMenu.Item
-                key={getMenuItemText(item)}
-                className="py-2 border-b border-neutral-800"
-              >
+              <>
                 {item.contentType === "link" && (
                   <NavLinkItem
-                    className="before:bg-primary-500"
+                    key={getMenuItemText(item)}
+                    className="before:bg-primary-500 py-2 border-b last:border-none border-neutral-800"
                     href={item.url}
                     title={item.text}
                     variant="underlined"
@@ -58,7 +56,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
                 {item.contentType === "submenu" && (
                   <SubmenuMinimal data={item} />
                 )}
-              </NavigationMenu.Item>
+              </>
             ))}
           </NavigationMenu.List>
           <div className="flex flex-col p-4 items-center">

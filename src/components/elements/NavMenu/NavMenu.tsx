@@ -14,11 +14,11 @@ export function getMenuItemText(item: LinkType | SubmenuType): string {
   return item.title;
 }
 
-const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
+const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
   return (
     <NavigationMenu.Root
       className={classNames(
-        "NavMenu hidden lg:flex justify-end pt-2 pb-3 font-medium",
+        "NavMenu hidden lg:flex justify-end pt-2 pb-4 font-medium"
       )}
     >
       <NavigationMenu.List
@@ -27,28 +27,22 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu }) => {
         )}
       >
         {menu.map((item) => (
-          <NavigationMenu.Item
-            key={item.id}
-            className={classNames({
-              relative: "menu" in item && item.layout === "dropdown",
-            })}
-          >
+          <>
             {item.contentType === "link" && (
               <NavLinkItem
-                className="font-bold"
+                key={item.id}
+                className={classNames("font-bold")}
                 href={item.url}
                 variant="underlined"
               >
                 {item.text}
               </NavLinkItem>
             )}
-            {item.contentType === "submenu" && (
-              <Submenu data={item} />
-            )}
-          </NavigationMenu.Item>
+            {item.contentType === "submenu" && <Submenu key={item.id} data={item} uiVariant={uiVariant} />}
+          </>
         ))}
-        <NavigationMenu.Indicator className="NavigationMenuIndicator"> 
-        {/* @TODO NavigationMenuIndicator ?? */}
+        <NavigationMenu.Indicator className="NavigationMenuIndicator">
+          {/* @TODO NavigationMenuIndicator ?? */}
           <div className="Arrow" />
         </NavigationMenu.Indicator>
       </NavigationMenu.List>

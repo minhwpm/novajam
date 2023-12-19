@@ -9,7 +9,7 @@ import { NavFeaturedContent } from "@/components/elements/NavFeaturedContent/Nav
 export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
   const pathname = usePathname();
   return (
-    <>
+    <NavigationMenu.Item className="py-2 border-b last:border-none border-neutral-800">
       <NavigationMenu.Trigger className="group w-full">
         <div
           className={classNames(
@@ -38,17 +38,18 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
           <NavigationMenu.List className="px-2">
             {data.menu.length > 0 &&
               data.menu.map((subItem) => (
-                <NavigationMenu.Item key={subItem.id} className={classNames("py-1 mb-2")}>
+                <>
                   {subItem.contentType === "link" && (
                     <NavLinkItem
+                      key={subItem.id} 
+                      className={classNames("py-1 mb-2")}
                       variant="underlined"
-                      key={subItem.text}
                       href={subItem.url}
                       title={subItem.text}
                     />
                   )}
                   {subItem.contentType === "linkgroup" && (
-                    <>
+                    <NavigationMenu.Item key={subItem.id}>
                       <NavigationMenu.Trigger className={classNames("font-medium select-none text-left py-2 rounded-assets before:bg-primary-500 underline-hover-effect data-[state=open]:before:w-full group",
                         {
                           "before:w-full":
@@ -62,20 +63,19 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
                         <ul className="pl-4 py-3 flex flex-col gap-y-2">
                           {subItem.links.length > 0 &&
                             subItem.links.map((link) => (
-                              <li key={link.text}>
-                                <NavLinkItem
-                                  className="before:bg-primary-500"
-                                  href={link.url}
-                                  title={link.text}
-                                  variant="underlined"
-                                />
-                              </li>
+                              <NavLinkItem
+                                key={link.id}
+                                className="before:bg-primary-500"
+                                href={link.url}
+                                title={link.text}
+                                variant="underlined"
+                              />
                             ))}
                         </ul>
                       </NavigationMenu.Content>
-                    </>
+                    </NavigationMenu.Item>
                   )}
-                </NavigationMenu.Item>
+                </>
               ))}
           </NavigationMenu.List>
           {data.featuredContent?.length > 0 && (
@@ -92,6 +92,6 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
           )}
         </NavigationMenu.Sub>
       </NavigationMenu.Content>
-    </>
+    </NavigationMenu.Item>
   );
 }
