@@ -23,12 +23,13 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
           document.body.style.overflow = "hidden";
         }}
       />
-      <div className={classNames("absolute top-0 left-0 z-[99999] w-screen h-screen  bg-neutral-950/90 bg-text-neutral-500 text-white overflow-auto",
-        { hidden: !navMenuShowed }
-      )}>
-      <NavigationMenu.Root
-        className={classNames("container mx-auto px-4")}
+      <div
+        className={classNames(
+          "absolute top-0 left-0 z-[99999] w-screen h-screen  bg-neutral-950/90 bg-text-neutral-500 text-white overflow-auto",
+          { hidden: !navMenuShowed }
+        )}
       >
+        <NavigationMenu.Root className={classNames("container mx-auto px-4")}>
           <AiOutlineClose
             className="cursor-pointer ml-auto mt-10 w-14 h-14 p-3 rounded-full bg-transparent hover:bg-neutral-200 hover:text-neutral-900 transition-all duration-300 ease-in-out"
             size={30}
@@ -70,7 +71,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
                   url={button.url}
                   openNewTab={button.openNewTab}
                   onClick={() => {
-                    setNavMenuShowed(false)
+                    setNavMenuShowed(false);
                     document.body.style.overflow = "auto";
                   }}
                 >
@@ -78,7 +79,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
                 </Button>
               ))}
           </div>
-      </NavigationMenu.Root>
+        </NavigationMenu.Root>
       </div>
     </>
   );

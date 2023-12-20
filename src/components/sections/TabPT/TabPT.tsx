@@ -45,7 +45,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
           )}
         >
           <RadixTabs.List
-            className={classNames("TabList group/list rounded-assets p-2 inline-flex gap-x-4 gap-y-2", styles.TabList)}
+            className={classNames("TabList group/list rounded-assets p-2 inline-flex gap-x-4 gap-y-2 overflow-x-auto overscroll-contain", styles.TabList)}
             aria-label={heading ? documentToHtmlString(heading) : undefined}
           >
             {content.length > 0 &&
@@ -53,7 +53,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                 <RadixTabs.Trigger
                   key={section.id}
                   value={section.id}
-                  className="shrink-0 px-6 py-2 flex flex-col justify-center items-center cursor-pointer rounded-assets  bg-neutral-100 hover:bg-neutral-200 data-[state='active']:bg-primary-500 data-[state='active']:text-white transition-all duration-500"
+                  className="shrink-0 px-8 py-2.5 flex flex-col justify-center items-center cursor-pointer rounded-assets  bg-neutral-100 hover:bg-neutral-200 data-[state='active']:bg-primary-500 data-[state='active']:text-white transition-all duration-500"
                 >
                   <div
                     className={classNames(
@@ -63,7 +63,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                     {section.label}
                   </div>
                   {section.heading && (
-                    <div className="block font-semibold text-xl lg:text-2xl">
+                    <div className="block font-semibold text-lg lg:text-xl">
                       <RichText2 data={section.heading} />
                     </div>
                   )}
