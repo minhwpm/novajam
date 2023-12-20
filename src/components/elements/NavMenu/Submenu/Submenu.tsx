@@ -10,14 +10,10 @@ import { FaChevronDown } from "react-icons/fa";
 export const Submenu: React.FC<{ data: SubmenuType, uiVariant?: NavigationUiVariant }> = ({ data, uiVariant }) => {
   const pathname = usePathname();
   return (
-    <NavigationMenu.Item 
-      className={classNames(
-        { relative: "menu" in data && data.layout === "dropdown" }
-      )}
-    >
-      <NavigationMenu.Trigger
-        className={classNames(
-          "font-bold py-2 select-none underline-hover-effect cursor-pointer before:bg-primary-500 data-[state=open]:before:w-full group",
+    <>
+      <NavigationMenu.Trigger className="group pb-8">
+        <span className={classNames(
+          "font-bold py-2 select-none underline-hover-effect cursor-pointer before:bg-primary-500 group-data-[state=open]:before:w-full",
           {
             "before:w-full":
               data.featuredContent.find(
@@ -34,10 +30,10 @@ export const Submenu: React.FC<{ data: SubmenuType, uiVariant?: NavigationUiVari
                     ))
               ),
           }
-        )}
-      >
-        {data.title}
-        <FaChevronDown size={10} className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"/>
+        )}>
+          {data.title}
+          <FaChevronDown size={10} className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"/>
+        </span>
       </NavigationMenu.Trigger>
       <NavigationMenu.Content
         className={classNames(
@@ -47,11 +43,11 @@ export const Submenu: React.FC<{ data: SubmenuType, uiVariant?: NavigationUiVari
               data.layout === "mega" && uiVariant === "standard",
           },
           {
-            "absolute top-full left-0 w-full bg-white shadow-radiant rounded-assets data-[state=open]:animate-slidingSubmenu":
+            "absolute top-full left-0 w-full -mt-4 bg-white shadow-radiant rounded-assets data-[state=open]:animate-slidingSubmenu":
               data.layout === "mega" && uiVariant === "overlay",
           },
           {
-            "absolute top-full left-0 w-64 mt-4 py-4 px-2 bg-white shadow-radiant rounded-assets data-[state=open]:animate-slidingSubmenu":
+            "absolute top-full left-0 w-64 -mt-4 py-2 px-2 bg-white shadow-radiant rounded-assets data-[state=open]:animate-slidingSubmenu":
               data.layout === "dropdown",
           } 
         )}
@@ -63,6 +59,6 @@ export const Submenu: React.FC<{ data: SubmenuType, uiVariant?: NavigationUiVari
           <Dropdown data={data} />
         )}
       </NavigationMenu.Content>
-    </NavigationMenu.Item>
+    </>
   )
 }

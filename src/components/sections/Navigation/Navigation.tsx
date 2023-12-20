@@ -97,14 +97,14 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
       <header className={classNames("relative z-[99999] w-screen tracking-wider")}>
         <div
           className={classNames(
-            "absolute top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-600/60 to-neutral-10/40 text-white"
+            "absolute top-0 left-0 right-0 pt-4 flex justify-center bg-gradient-to-b from-neutral-800/60 to-neutral-10/80 text-white"
           )}
         >
-          <div className="container p-4 lg:pt-10 flex items-center">
+          <div className="container p-4 lg:py-0 flex items-center">
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect} logo={logo} />
             </div>
-            <div className="flex-1 drop-shadow-lg lg:text-lg">
+            <div className="flex-1 pt-8 drop-shadow-lg lg:text-lg">
               <NavMenu menu={menu} uiVariant={uiVariant} />
             </div>
             {buttons && buttons.length > 0 && (
@@ -127,11 +127,11 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
         { "sticky w-full z-50 top-0 border-b animate-headerSlideIn": sticky }
       )}
     >
-      <div className="container px-4 py-5 mx-auto flex items-center">
+      <div className="container p-4 lg:py-0 mx-auto flex items-center">
         <div className="shrink-0">
           <Logo redirectUrl={logoRedirect} logo={logo} />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 pt-8">
           <NavMenu menu={menu} uiVariant={uiVariant} />
         </div>
         {buttons && buttons.length > 0 && (

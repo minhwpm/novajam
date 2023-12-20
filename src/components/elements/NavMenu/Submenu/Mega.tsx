@@ -6,13 +6,13 @@ import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
 export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
   return (
     <div className="container px-4 mx-auto">
-      <div className="pt-6 pb-8 flex flex-wrap gap-8 border-t">
+      <div className="py-10 flex flex-wrap gap-8 border-t">
         {data.menu.length > 0 && (
           <div className={classNames("shrink flex flex-wrap gap-6")}>
             {data.menu.map((subItem) => (
               <div key={subItem.id} className="basis-52 shrink-0">
                 {subItem.contentType === "link" && (
-                  <NavLinkItem href={subItem.url} title={subItem.text} />
+                  <NavLinkItem href={subItem.url}>{subItem.text}</NavLinkItem>
                 )}
                 {subItem.contentType === "linkgroup" && (
                   <p className="text-neutral-500 uppercase text-sm tracking-wide font-medium mb-2">
@@ -23,7 +23,9 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
                   {subItem.contentType === "linkgroup" &&
                     subItem.links.length > 0 &&
                     subItem.links.map((link) => (
-                      <NavLinkItem key={link.id} href={link.url} title={link.text} />
+                      <li key={link.id}>
+                        <NavLinkItem href={link.url}>{link.text}</NavLinkItem>
+                      </li>
                     ))}
                 </ul>
               </div>

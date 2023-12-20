@@ -18,16 +18,21 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
   return (
     <NavigationMenu.Root
       className={classNames(
-        "NavMenu hidden lg:flex justify-end pt-2 pb-4 font-medium"
+        "NavMenu hidden lg:flex justify-end font-medium"
       )}
     >
       <NavigationMenu.List
         className={classNames(
-          "flex justify-center px-5 list-none m-0 gap-x-10"
+          "flex justify-center items-start px-5 list-none m-0 gap-x-10"
         )}
       >
         {menu.map((item) => (
-          <>
+          <NavigationMenu.Item
+            key={item.id}
+            className={classNames(
+              { relative: "menu" in item && item.layout === "dropdown" }
+            )}
+          >
             {item.contentType === "link" && (
               <NavLinkItem
                 key={item.id}
@@ -39,7 +44,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
               </NavLinkItem>
             )}
             {item.contentType === "submenu" && <Submenu key={item.id} data={item} uiVariant={uiVariant} />}
-          </>
+          </NavigationMenu.Item>
         ))}
         <NavigationMenu.Indicator className="NavigationMenuIndicator">
           {/* @TODO NavigationMenuIndicator ?? */}

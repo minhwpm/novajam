@@ -4,7 +4,6 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { NavigationType } from "@/helpers/types";
 import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
 import { useState } from "react";
-import { getMenuItemText } from "../NavMenu/NavMenu";
 import { CiMenuFries } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
 import Button from "../Button/Button";
@@ -40,24 +39,24 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
           />
           <NavigationMenu.List className="flex flex-col items-center text-xl py-20">
             {menu.map((item) => (
-              <>
+              <NavigationMenu.Item key={item.id} className="py-2 border-b last:border-none border-neutral-800">
                 {item.contentType === "link" && (
                   <NavLinkItem
-                    key={getMenuItemText(item)}
-                    className="before:bg-primary-500 py-2 border-b last:border-none border-neutral-800"
+                    className="before:bg-primary-500"
                     href={item.url}
-                    title={item.text}
                     variant="underlined"
                     onClick={() => {
                       setNavMenuShowed(false);
                       document.body.style.overflow = "auto";
                     }}
-                  />
+                  >
+                    title={item.text}
+                  </NavLinkItem>
                 )}
                 {item.contentType === "submenu" && (
                   <SubmenuMinimal data={item} />
                 )}
-              </>
+              </NavigationMenu.Item>
             ))}
           </NavigationMenu.List>
           <div className="flex flex-col p-4 items-center">
