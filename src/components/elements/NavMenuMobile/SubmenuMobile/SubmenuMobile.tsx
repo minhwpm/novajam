@@ -1,11 +1,11 @@
+import { Dispatch, SetStateAction } from "react";
+import classNames from "classnames";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu"
 import { usePathname } from "next/navigation";
 import { FaChevronDown } from "react-icons/fa";
 import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
 import { NavFeaturedContent } from "@/components/elements/NavFeaturedContent/NavFeaturedContent";
 import { SubmenuType } from "@/helpers/types";
-import { Dispatch, SetStateAction } from "react";
-import classNames from "classnames";
 
 export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  Dispatch<SetStateAction<boolean>>}> = ({data, setMobileMenuShowed}) => {
   const pathname = usePathname();

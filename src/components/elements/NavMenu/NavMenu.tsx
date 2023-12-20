@@ -34,14 +34,16 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
             )}
           >
             {item.contentType === "link" && (
-              <NavLinkItem
-                key={item.id}
-                className={classNames("font-bold")}
-                href={item.url}
-                variant="underlined"
-              >
-                {item.text}
-              </NavLinkItem>
+              <div className="pb-8">
+                <NavLinkItem
+                  key={item.id}
+                  className={classNames("font-bold")}
+                  href={item.url}
+                  variant="underlined"
+                >
+                  {item.text}
+                </NavLinkItem>
+              </div>
             )}
             {item.contentType === "submenu" && <Submenu key={item.id} data={item} uiVariant={uiVariant} />}
           </NavigationMenu.Item>

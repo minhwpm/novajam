@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import classNames from "classnames";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu"
 import { SubmenuType } from "@/helpers/types";
@@ -6,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { FaChevronDown } from "react-icons/fa";
 import { NavFeaturedContent } from "@/components/elements/NavFeaturedContent/NavFeaturedContent";
 
-export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
+export const SubmenuMinimal: React.FC<{data: SubmenuType, setNavMenuShowed: Dispatch<SetStateAction<boolean>>}> = ({ data, setNavMenuShowed }) => {
   const pathname = usePathname();
   return (
     <>
@@ -54,6 +55,10 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
                     <NavLinkItem
                       variant="underlined"
                       href={subItem.url}
+                      onClick={() => {
+                        setNavMenuShowed(false);
+                        document.body.style.overflow = "auto";
+                      }}
                     >
                       {subItem.text}
                     </NavLinkItem>
@@ -88,6 +93,10 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType}> = ({ data }) => {
                                 className="before:bg-primary-500"
                                 href={link.url}
                                 variant="underlined"
+                                onClick={() => {
+                                  setNavMenuShowed(false);
+                                  document.body.style.overflow = "auto";
+                                }}
                               >
                                 {link.text}
                               </NavLinkItem>

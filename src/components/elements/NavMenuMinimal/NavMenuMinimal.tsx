@@ -54,7 +54,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
                   </NavLinkItem>
                 )}
                 {item.contentType === "submenu" && (
-                  <SubmenuMinimal data={item} />
+                  <SubmenuMinimal data={item} setNavMenuShowed={setNavMenuShowed} />
                 )}
               </NavigationMenu.Item>
             ))}
