@@ -50,7 +50,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
                       document.body.style.overflow = "auto";
                     }}
                   >
-                    title={item.text}
+                    {item.text}
                   </NavLinkItem>
                 )}
                 {item.contentType === "submenu" && (
