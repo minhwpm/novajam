@@ -103,7 +103,7 @@ module.exports = {
         },
         slidingSubmenu: {
           '0%': {
-            'top': '120%',
+            'top': 'calc(100% - 1rem)',
             opacity: 0,
           },
           '100%': {
