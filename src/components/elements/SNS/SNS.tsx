@@ -1,11 +1,9 @@
+import classNames from "classnames";
 import { SNSType } from "@/helpers/types"
-import Link from "next/link";
 import { RiFacebookFill } from "react-icons/ri";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import classNames from "classnames";
+import { FaInstagram, FaYoutube, FaLinkedinIn } from "react-icons/fa";
+import Link from "next/link";
 
 export const SNS: React.FC<{ data: SNSType, variant?: 'standard' | 'alternate'}> = ({ data, variant }) => {
   const { linkedInUrl, facebookUrl, twitterUrl, youtubeUrl, instagramUrl } = data

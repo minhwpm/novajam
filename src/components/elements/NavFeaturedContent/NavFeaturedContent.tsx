@@ -27,9 +27,8 @@ export const NavFeaturedContent: React.FC<{data: BlogType | PageType}> = ({ data
 
   return (
     <>
-      {/* @TODO resolve link href here*/}
       <Link
-        href={result.url ?? ""}
+        href={result.url ?? "#"}
         className={classNames("group flex flex-col items-center rounded-assets transition-colors duration-500",
           { "bg-primary-100": result.url === pathname}
         )}

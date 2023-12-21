@@ -185,6 +185,7 @@ export type CTAType = {
   heading: Document
   subheading: string | null
   buttons: Array<ButtonType>
+  contentType: "cta"
 }
 
 export type PresentationType = {
@@ -196,6 +197,7 @@ export type PresentationType = {
   layout: "carousel" | "mini-carousel" | "tab" | "vertical-tab" | "accordion" | "scrolling"
   alignment: AlignmentType
   htmlid: string | null
+  contentType: "presentation"
 }
 
 export type StatisticsType = {
@@ -243,6 +245,7 @@ export type ContentListType = {
   size: ContentSize
   alignment: AlignmentType
   htmlid: string | null
+  contentType: "cardlist"
 }
 
 export type FormFieldType = {
@@ -262,15 +265,7 @@ export type InquiryFormType = {
   label: string | null
   subheading: string | null
   description: Document | null
-  fields: Array<{
-    id: string
-    label: string
-    fieldType: string
-    options: Array<string>
-    required: boolean
-    placeholder: string
-    uiWidth: "half-size" | "full-size"
-  }>
+  fields: Array<FormFieldType>
   submitButton: {
     text: string
     url: string
@@ -285,4 +280,5 @@ export type InquiryFormType = {
   htmlid: string
   formType: string
   dateFormat: string
+  contentType: "inquiryform"
 }

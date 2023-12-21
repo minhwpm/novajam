@@ -7,7 +7,6 @@ const client = createClient({
 
 export async function POST(req: NextRequest) {
   const reqBody = await req.json()
-  // console.log("REQ", reqBody)
   for (const key in reqBody) {
     reqBody[key] = {
       'en-US': reqBody[key] //@TODO locale

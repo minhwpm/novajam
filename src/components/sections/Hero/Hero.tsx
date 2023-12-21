@@ -10,11 +10,7 @@ import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { useIsLoaded } from "@/helpers/hooks/useIsLoaded";
 
-interface Props {
-  data: HeroType
-}
-
-const Hero: React.FC<Props> = ({ data }) => {
+const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
   const { content, layout, textAlignment } = data;
   const isLoaded = useIsLoaded()
 

@@ -49,7 +49,7 @@ export const Submenu: React.FC<{ data: SubmenuType, uiVariant?: NavigationUiVari
           {
             "absolute top-full left-0 w-64 -mt-4 py-2 px-2 bg-white shadow-radiant rounded-assets data-[state=open]:animate-slidingSubmenu":
               data.layout === "dropdown",
-          } 
+          }
         )}
       >
         {data.layout === "mega" && (

@@ -16,16 +16,13 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
       subheading={subheading}
     >
       <div className="relative">
+        {/* @TODO refactor */}
         <Carousel
           effect="fade"
           navigation={{
             enabled: true,
             nextEl: '.carouselPT-btn-next',
             prevEl: '.carouselPT-btn-prev'
-          }}
-          pagination={{
-            enabled: true,
-            clickable: true,
           }}
           loop={true}
           slides={content.map((section) => (
@@ -91,6 +88,9 @@ const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                     }}
                     navigation={{
                       enabled: false,
+                    }}
+                    pagination={{
+                      enabled: true
                     }}
                   /> 
                 </div>

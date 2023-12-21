@@ -81,7 +81,6 @@ export const MediaItem: React.FC<{
           controls={videoControls}
         >
           <track kind="captions" label={title} />
-          {/* @TODO add video poster */}
         </video>
       )}
     </div>

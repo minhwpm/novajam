@@ -48,10 +48,6 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
             {item.contentType === "submenu" && <Submenu key={item.id} data={item} uiVariant={uiVariant} />}
           </NavigationMenu.Item>
         ))}
-        <NavigationMenu.Indicator className="NavigationMenuIndicator">
-          {/* @TODO NavigationMenuIndicator ?? */}
-          <div className="Arrow" />
-        </NavigationMenu.Indicator>
       </NavigationMenu.List>
     </NavigationMenu.Root>
   );

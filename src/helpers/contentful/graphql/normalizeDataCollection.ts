@@ -1,4 +1,3 @@
-// @TODO specify type for param data
 export default function normalizeDataCollection (data: { [x: string]: any }) {
   for (const key in data) {
     if (key.includes("Collection")) {

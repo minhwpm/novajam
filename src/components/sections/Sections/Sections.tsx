@@ -19,54 +19,59 @@ import MiniCarouselPT from "../MiniCarouselPT/MiniCarouselPT";
 import { InquiryForm } from "../InquiryForm/InquiryForm";
 import VerticalTabPT from "../VerticalTabPT/VerticalTabPT";
 
-const sectionComponents = {
-  "hero": {
-    "vertical": Hero,
-    "horizontal": Hero,
-    "overlay": HeroOverlay,
-  },
-  "cta": CTA,
-  "presentation": {
-    "scrolling": ScrollingPT,
-    "accordion": AccordionPT,
-    "tab": TabPT,
-    "vertical-tab": VerticalTabPT,
-    "carousel": CarouselPT,
-    "mini-carousel": MiniCarouselPT,
-  },
-  "feature": Feature,
-  "cardlist": ContentList,
-  "inquiryform": InquiryForm,
-};
+type ComponentType = HeroType | CTAType | PresentationType | ContentListType | FeatureType | InquiryFormType
 
-// type ComponentType = typeof HeroB | typeof HeroC | typeof CTAB | typeof ScrollingPT | typeof AccordionPT | typeof CarouselPT | typeof TabPT | typeof Feature | typeof ContentList
+function PresentationMapping({ data }: { data: PresentationType }) {
+  switch (data.layout) {
+    case "scrolling":
+      return <ScrollingPT data={data} />;
+    case "accordion":
+      return <AccordionPT data={data} />;
+    case "tab":
+      return <TabPT data={data} />;
+    case "vertical-tab":
+      return <VerticalTabPT data={data} />;
+    case "carousel":
+      return <CarouselPT data={data} />;
+    case "mini-carousel":
+      return <MiniCarouselPT data={data} />;
+    default:
+      return null;
+  }
+}
 
-type SectionType = {
-  data:
-    | HeroType
-    | CTAType
-    | PresentationType
-    | ContentListType
-    | FeatureType
-    | InquiryFormType;
-};
-const SectionComponent: React.FC<SectionType> = ({ data }) => {
-  // @TODO
-  // @ts-ignore
-  const Component = typeof sectionComponents[data.contentType] === "object" ? sectionComponents[data.contentType][data.layout] : sectionComponents[data.contentType];
-  if (!Component) return null;
-  return <Component data={data} />;
-};
+function SectionComponentMapping ({ data }: { data: ComponentType }) {
+  switch (data.contentType) {
+    case "hero":
+      if (data.layout === "vertical" || data.layout === "horizontal") {
+        return <Hero data={data} />
+      }
+      if (data.layout === "overlay") {
+        return <HeroOverlay data={data} />
+      }
+      return null
+    case "cta":
+      return <CTA data={data} />
+    case "presentation":
+      return <PresentationMapping data={data} />
+    case "feature":
+      return <Feature data={data} />
+    case "cardlist":
+      return <ContentList data={data} />
+    case "inquiryform":
+      return <InquiryForm data={data} />
+    default:
+      return null
+  }
+}
 
 const Sections: React.FC<{
-  data: Array<
-    HeroType | CTAType | PresentationType | ContentListType | FeatureType
-  >;
+  data: Array<ComponentType>;
 }> = ({ data }) => {
   return (
     <main className="flex flex-col pb-32">
       {data.map((section) => (
-        <SectionComponent key={section.id} data={section} />
+        <SectionComponentMapping key={section.id} data={section} />
       ))}
     </main>
   );
