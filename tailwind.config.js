@@ -103,7 +103,7 @@ module.exports = {
         },
         slidingSubmenu: {
           '0%': {
-            'top': '50px',
+            'top': '120%',
             opacity: 0,
           },
           '100%': {
@@ -113,11 +113,11 @@ module.exports = {
         },
         slidingLinkgroup: {
           '0%': {
-            'top': '0px',
+            'top': 0,
             opacity: 0,
           },
           '100%': {
-            'top': '-1rem',
+            'top': "-1rem",
             opacity: 1,
           }
         },
