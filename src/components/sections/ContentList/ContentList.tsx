@@ -27,40 +27,42 @@ const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
       id={htmlid}
       framed={ layout !== "carousel" }
     >
-      {seeAllLink && 
-        <div className="flex justify-end">
-          <Button
-          size="lg"
-          variant="link"
-          url={seeAllLink.url}>
-            {seeAllLink.text}
-          </Button>
-        </div>
-      }
-      {layout === "carousel" && (
-        <CarouselList content={content} size={size} alignment={alignment} />
-      )}
-      {layout === "masonry" && (
-        <MasonryList content={content} size={size} alignment={alignment} />
-      )}
-      {layout === "deck" && (
-        <div className="flex flex-wrap justify-center -mx-3.5">
-          {content.map((item, idx) => (
-            <div 
-              key={item.id} 
-              className={classNames(
-                "px-3.5 py-3 shrink-0",
-                { "w-full lg:w-1/2": size === "XL" },
-                { "w-full md:w-1/2 xl:w-1/3": size === "L" },
-                { "w-full sm:w-1/2 lg:w-1/3 xl:w-1/4": size === "M" },
-                { "w-1/2 sm:w-1/3 md:w-1/4 xl:w-1/5": size === "S" }
-              )}
-            >
-              <ContentItem data={item} alignment={alignment} index={idx} />
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="mt-4">
+        {seeAllLink && 
+          <div className="w-full flex justify-center -mt-4">
+            <Button
+            size="lg"
+            variant="link"
+            url={seeAllLink.url}>
+              {seeAllLink.text}
+            </Button>
+          </div>
+        }
+        {layout === "carousel" && (
+          <CarouselList content={content} size={size} alignment={alignment} />
+        )}
+        {layout === "masonry" && (
+          <MasonryList content={content} size={size} alignment={alignment} />
+        )}
+        {layout === "deck" && (
+          <div className="flex flex-wrap justify-center -mx-3.5 mt-5">
+            {content.map((item, idx) => (
+              <div 
+                key={item.id} 
+                className={classNames(
+                  "px-3.5 py-3 w-full",
+                  { "lg:basis-1/2": size === "XL" },
+                  { "md:basis-1/2 xl:basis-1/3": size === "L" },
+                  { "sm:basis-1/2 lg:basis-1/3 xl:basis-1/4": size === "M" },
+                  { "basis-1/2 sm:basis-1/3 md:basis-1/4 xl:basis-1/5": size === "S" }
+                )}
+              >
+                <ContentItem data={item} alignment={alignment} index={idx} />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </Section>
   );
 };

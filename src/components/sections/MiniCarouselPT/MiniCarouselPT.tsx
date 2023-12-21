@@ -51,7 +51,7 @@ const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
             </p>
           )}
           {heading && (
-            <div className="font-heading text-heading leading-normal mb-3">
+            <div className="font-heading text-heading leading-tight mb-3">
               <RichText2 data={heading} />
             </div>
           )}

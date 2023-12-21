@@ -1,8 +1,6 @@
 
-.swiper {
-  /* overflow-x: visible; */
+.carousel-list.swiper {
   padding: 0 1rem;
-
   @media (min-width: 640px) {
     padding: 0 calc((100vw + 2rem - 640px)/2);
     --swiper-navigation-sides-offset: calc((100vw + 2rem - 640px)/2);
@@ -28,4 +26,9 @@
   --swiper-pagination-bullet-horizontal-gap: 3px;
   --swiper-theme-color: rgb(var(--primary-color-500));
 
+}
+
+.carousel-list .swiper-button-prev.swiper-button-disabled,
+.carousel-list .swiper-button-next.swiper-button-disabled {
+  opacity: 0
 }

@@ -12,7 +12,7 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
     <div>
       <Container>
         <article className="w-full my-10 flex flex-col gap-y-10">
-          <h1 className="text-heading font-heading font-bold text-5xl mt-10 leading-snug max-w-5xl">
+          <h1 className="text-heading font-heading leading-tight font-bold text-5xl mt-10 max-w-5xl">
             {title}
           </h1>
           <div className="grid lg:grid-cols-3 gap-10">

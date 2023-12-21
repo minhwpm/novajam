@@ -45,7 +45,7 @@ const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
           )}
         >
           <RadixTabs.List
-            className={classNames("TabList group/list rounded-assets p-2 inline-flex gap-x-4 gap-y-2 overflow-x-auto overscroll-contain", styles.TabList)}
+            className={classNames("group/list p-2 inline-flex gap-x-4 gap-y-2 overflow-x-auto overscroll-contain", styles.TabList)}
             aria-label={heading ? documentToHtmlString(heading) : undefined}
           >
             {content.length > 0 &&

@@ -74,7 +74,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               </div>
             )}
             {heading && (
-              <div className={classNames("text-heading leading-normal font-heading tracking-wide text-center lg:text-start mb-5")}>
+              <div className={classNames("text-heading leading-tight font-heading tracking-wide text-center lg:text-start mb-5")}>
                 <RichText2 data={heading} />
               </div>
             )}

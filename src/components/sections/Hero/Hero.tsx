@@ -62,7 +62,7 @@ const Hero: React.FC<Props> = ({ data }) => {
                 {section.heading && (
                   <div
                     className={classNames(
-                      "relative text-heading leading-normal font-heading max-w-3xl",
+                      "relative text-heading leading-tight font-heading max-w-3xl",
                       { "-left-20 opacity-0": !isLoaded },
                       {
                         "opacity-100 left-0 transition-all duration-500 delay-300":

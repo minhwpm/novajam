@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "@/app/custom-swiper.css"
-import styles from "./carousel-list-styles.module.css"
+import "./carousel-list-styles.css"
 
 export const CarouselList: React.FC<{
   content: Content[];
@@ -17,12 +17,8 @@ export const CarouselList: React.FC<{
 }> = ({ content, size, alignment }) => {
   return (
     <Swiper
-      className={classNames("w-screen", styles["swiper"])}
+      className={classNames("carousel-list w-screen")}
       spaceBetween={25}
-      pagination={{
-        enabled: true,
-        clickable: true,
-      }}
       navigation={{
         enabled: true,
       }}
@@ -35,10 +31,10 @@ export const CarouselList: React.FC<{
           style={{
             width: "80vw",
             maxWidth: classNames(
-              { "460px": size === "XL" },
-              { "368px": size === "L" },
-              { "276px": size === "M" },
-              { "184px": size === "S" }
+              { "480px": size === "XL" },
+              { "384px": size === "L" },
+              { "288px": size === "M" },
+              { "192px": size === "S" }
             ),
           }}
         >

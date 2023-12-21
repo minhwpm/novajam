@@ -26,7 +26,7 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
       )}
       <div
         className={classNames(
-          "text-heading leading-normal font-heading max-w-3xl mb-5",
+          "text-heading leading-tight font-heading max-w-3xl mb-5",
           {
             "text-center mx-auto":
               layout === "Vertical (Text | Image)" ||
