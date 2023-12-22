@@ -1,4 +1,4 @@
-import BlogDetails from "@/components/sections/BlogDetails/BlogDetails"
+import { BlogDetails } from "@/components/sections/BlogDetails/BlogDetails"
 import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails"
 
 export default async function Page({ params }: {params: { slug: string } },) {
