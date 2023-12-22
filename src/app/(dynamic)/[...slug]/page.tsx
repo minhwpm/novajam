@@ -1,9 +1,9 @@
-import getPage from "@/helpers/contentful/graphql/getPage"
-import Sections from "@/components/sections/Sections/Sections"
-import { Params } from "@/helpers/types"
 import { Metadata, ResolvingMetadata } from 'next'
+import { Sections } from "@/components/sections/Sections/Sections"
+import { Params } from "@/helpers/types"
+import { BlogDetails } from "@/components/sections/BlogDetails/BlogDetails"
+import getPage from "@/helpers/contentful/graphql/getPage"
 import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails"
-import BlogDetails from "@/components/sections/BlogDetails/BlogDetails"
 
 export async function generateMetadata(
   { params } : {params: Params},

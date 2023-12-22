@@ -1,14 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import classNames from "classnames";
-import Section from "@/components/elements/Section/Section";
+import { Section } from "@/components/elements/Section/Section";
 import FeatureContentItem from "@/components/elements/FeatureContentItem/FeatureContentItem";
 import { PresentationType } from "@/helpers/types";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
-import RichText2 from "@/components/elements/RichText/RichText2";
-import Button from "@/components/elements/Button/Button";
+import { RichText2 } from "@/components/elements/RichText/RichText2";
+import { Button } from "@/components/elements/Button/Button";
 
-const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
+export const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
   const { label, heading, subheading, content, alignment } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
@@ -128,7 +128,5 @@ const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
         </div>
       </div>
     </Section>
-  );
-};
-
-export default ScrollingPT;
+  )
+}

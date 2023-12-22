@@ -1,7 +1,7 @@
-import Button from "../Button/Button"
+import { Button } from "../Button/Button"
 import { PricingPlanType } from "@/helpers/types"
 import classNames from "classnames"
-import RichText2 from "../RichText/RichText2"
+import { RichText2 } from "../RichText/RichText2"
 
 export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
   const { title, pricing, pricingSuffix, badge, description, ctaButton } = data

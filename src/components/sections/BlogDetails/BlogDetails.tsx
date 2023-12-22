@@ -1,12 +1,12 @@
 import Container from "@/components/elements/Container/Container"
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
-import RichText2 from "@/components/elements/RichText/RichText2"
+import { RichText2 } from "@/components/elements/RichText/RichText2"
 import { BlogType } from "@/helpers/types"
 import Image from "next/image"
 import Link from "next/link"
 import { format } from 'date-fns'
 
-const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
+export const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
   const { title, summary, content, media, topics, author, firstPublishedAt } = data
   return (
     <div>
@@ -86,5 +86,3 @@ const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
     </div>
   )
 }
-
-export default BlogDetails

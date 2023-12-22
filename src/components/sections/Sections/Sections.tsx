@@ -1,10 +1,15 @@
-import CTA from "@/components/sections/CTA/CTA";
-import Hero from "@/components/sections/Hero/Hero";
-import HeroOverlay from "../HeroOverlay/HeroOverlay";
-import ScrollingPT from "@/components/sections/ScrollingPT/ScrollingPT";
-import AccordionPT from "@/components/sections/AccordionPT/AccordionPT";
-import ContentList from "@/components/sections/ContentList/ContentList";
-import Feature from "@/components/sections/Feature/Feature";
+import { CTA } from "@/components/sections/CTA/CTA";
+import { Hero } from "@/components/sections/Hero/Hero";
+import { HeroOverlay } from "@/components/sections/HeroOverlay/HeroOverlay";
+import { ScrollingPT } from "@/components/sections/ScrollingPT/ScrollingPT";
+import { AccordionPT } from "@/components/sections/AccordionPT/AccordionPT";
+import { ContentList } from "@/components/sections/ContentList/ContentList";
+import { Feature } from "@/components/sections/Feature/Feature";
+import { TabPT } from "@/components/sections/TabPT/TabPT";
+import { CarouselPT } from "@/components/sections/CarouselPT/CarouselPT";
+import { MiniCarouselPT } from "@/components/sections/MiniCarouselPT/MiniCarouselPT";
+import { InquiryForm } from "@/components/sections/InquiryForm/InquiryForm";
+import { VerticalTabPT } from "@/components/sections/VerticalTabPT/VerticalTabPT";
 import {
   CTAType,
   ContentListType,
@@ -13,11 +18,6 @@ import {
   InquiryFormType,
   PresentationType,
 } from "@/helpers/types";
-import TabPT from "../TabPT/TabPT";
-import CarouselPT from "../CarouselPT/CarouselPT";
-import MiniCarouselPT from "../MiniCarouselPT/MiniCarouselPT";
-import { InquiryForm } from "../InquiryForm/InquiryForm";
-import VerticalTabPT from "../VerticalTabPT/VerticalTabPT";
 
 type ComponentType = HeroType | CTAType | PresentationType | ContentListType | FeatureType | InquiryFormType
 
@@ -65,7 +65,7 @@ function SectionComponentMapping ({ data }: { data: ComponentType }) {
   }
 }
 
-const Sections: React.FC<{
+export const Sections: React.FC<{
   data: Array<ComponentType>;
 }> = ({ data }) => {
   return (
@@ -74,7 +74,5 @@ const Sections: React.FC<{
         <SectionComponentMapping key={section.id} data={section} />
       ))}
     </main>
-  );
-};
-
-export default Sections;
+  )
+}

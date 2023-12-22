@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import Button from "../Button/Button";
+import { Button } from "../Button/Button";
 
 const Pagination: React.FC<{
   totalPages: number;

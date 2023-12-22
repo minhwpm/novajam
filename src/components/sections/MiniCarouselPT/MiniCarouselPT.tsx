@@ -1,12 +1,12 @@
 "use client";
 import classNames from "classnames";
 import React, { useState } from "react";
-import Section from "@/components/elements/Section/Section";
+import { Section } from "@/components/elements/Section/Section";
 import { PresentationType } from "@/helpers/types";
-import RichText2 from "@/components/elements/RichText/RichText2";
+import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
-import Button from "@/components/elements/Button/Button";
+import { Button } from "@/components/elements/Button/Button";
 
 interface ArrowGroupProps {
   visibleIdx: number;
@@ -37,7 +37,7 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length }: ArrowGroupProps) => {
   );
 };
 
-const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
+export const MiniCarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
   const { label, heading, subheading, content, alignment } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
@@ -136,6 +136,4 @@ const MiniCarousel: React.FC<{ data: PresentationType }> = ({ data }) => {
       </div>
     </Section>
   );
-};
-
-export default MiniCarousel;
+}

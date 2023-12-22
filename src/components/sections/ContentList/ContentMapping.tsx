@@ -8,7 +8,7 @@ import { ContentPiece } from "@/components/elements/ContentPiece/ContentPiece";
 import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan";
 import { AlignmentType, Content } from "@/helpers/types";
 
-export const ContentItem: React.FC<{
+export const ContentMapping: React.FC<{
   data: Content;
   alignment: AlignmentType;
   index: number

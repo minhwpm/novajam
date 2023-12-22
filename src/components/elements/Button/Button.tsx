@@ -16,7 +16,7 @@ interface ButtonProps {
   openNewTab?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = (props) => {
+export const Button: React.FC<ButtonProps> = (props) => {
   const {
     size = "base",
     variant = "standard",
@@ -100,7 +100,5 @@ const Button: React.FC<ButtonProps> = (props) => {
         children
       )}
     </button>
-  );
-};
-
-export default Button;
+  )
+}

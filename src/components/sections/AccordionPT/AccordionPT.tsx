@@ -5,14 +5,14 @@
 import React from "react";
 import * as RadixAccordion from "@radix-ui/react-accordion";
 import classNames from "classnames";
-import Section from "@/components/elements/Section/Section";
+import { Section } from "@/components/elements/Section/Section";
 import { PresentationType } from "@/helpers/types";
-import RichText2 from "@/components/elements/RichText/RichText2";
-import Button from "@/components/elements/Button/Button";
+import { RichText2 } from "@/components/elements/RichText/RichText2";
+import { Button } from "@/components/elements/Button/Button";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 
-const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
+export const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
   const { label, heading, subheading, content, alignment } = data;
   return (
     <Section label={label} heading={heading} subheading={subheading}>
@@ -110,7 +110,5 @@ const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
         </RadixAccordion.Root>
       </div>
     </Section>
-  );
-};
-
-export default AccordionPT;
+  )
+}

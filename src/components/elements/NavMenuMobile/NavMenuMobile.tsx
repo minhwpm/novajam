@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { ButtonType, LinkType, SubmenuType } from '@/helpers/types';
 import { CiMenuFries } from 'react-icons/ci';
 import { AiOutlineClose } from 'react-icons/ai';
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 import { SubmenuMobile } from './SubmenuMobile/SubmenuMobile';
 import { NavLinkItem } from '../NavLinkItem/NavLinkItem';
 

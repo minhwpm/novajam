@@ -1,12 +1,12 @@
 "use client"
 import classNames from "classnames";
 import { useInView } from "react-hook-inview";
-import Button from "@/components/elements/Button/Button"
-import Section from "@/components/elements/Section/Section";
+import { Button } from "@/components/elements/Button/Button"
+import { Section } from "@/components/elements/Section/Section";
 import { CTAType } from "@/helpers/types";
-import RichText2 from "@/components/elements/RichText/RichText2";
+import { RichText2 } from "@/components/elements/RichText/RichText2";
 
-const CTA: React.FC<{data: CTAType} > = ({ data }) => {
+export const CTA: React.FC<{data: CTAType} > = ({ data }) => {
   const { heading, subheading, buttons } = data;
   // @TODO expanding width on scrolling
   // const [w, setW] = useState(70)
@@ -56,5 +56,3 @@ const CTA: React.FC<{data: CTAType} > = ({ data }) => {
     </Section>
   );
 }
-
-export default CTA

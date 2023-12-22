@@ -2,15 +2,15 @@
 
 import React from "react";
 import * as RadixTabs from "@radix-ui/react-tabs";
-import Section from "@/components/elements/Section/Section";
-import Button from "@/components/elements/Button/Button";
+import { Section } from "@/components/elements/Section/Section";
+import { Button } from "@/components/elements/Button/Button";
 import classNames from "classnames";
 import { PresentationType } from "@/helpers/types";
-import RichText2 from "@/components/elements/RichText/RichText2";
+import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 
-const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
+export const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
   const { label, heading, subheading, content, alignment } = data;
   const [activeItem, setActiveItem] = React.useState(
     content.length > 0 ? content[0].id : ""
@@ -167,6 +167,4 @@ const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
       </RadixTabs.Root>
     </Section>
   );
-};
-
-export default VerticalTabPT;
+}

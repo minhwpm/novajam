@@ -2,7 +2,7 @@
 import classNames from "classnames";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { AlignmentType, Content, ContentSize } from "@/helpers/types";
-import { ContentItem } from "./ContentItem";
+import { ContentMapping } from "./ContentMapping";
 
 export const MasonryList: React.FC<{
   content: Content[];
@@ -47,11 +47,10 @@ export const MasonryList: React.FC<{
         ),
       }}
     >
-      {/* <Masonry columnsCount={3} gutter="25px"> */}
-      <Masonry gutter="25px">
+      <Masonry gutter="24px">
         {content.map((item, idx) => (
           <div key={item.id} className="">
-            <ContentItem data={item} alignment={alignment} index={idx} />
+            <ContentMapping data={item} alignment={alignment} index={idx} />
           </div>
         ))}
       </Masonry>

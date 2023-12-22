@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Button from "@/components/elements/Button/Button";
+import { Button } from "@/components/elements/Button/Button";
 import Link from "next/link";
 import useStickyHeaderOnScrollUp from "@/helpers/hooks/useStickyHeaderOnScrollUp";
 import classNames from "classnames";

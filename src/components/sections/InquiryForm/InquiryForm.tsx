@@ -1,10 +1,10 @@
 "use client"
 import classNames from "classnames";
 import  { useForm }  from "react-hook-form";
-import Button from "@/components/elements/Button/Button";
+import { Button } from "@/components/elements/Button/Button";
 import Container from "@/components/elements/Container/Container";
 import { InquiryFormType } from "@/helpers/types";
-import RichText2 from "@/components/elements/RichText/RichText2";
+import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { InputField } from "./InputField";
 import { TextAreaField } from "./TextAreaField";
 import { SelectField } from "./SelectField";

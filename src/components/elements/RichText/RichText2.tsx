@@ -13,7 +13,7 @@ import { ContentPiece } from "../ContentPiece/ContentPiece";
 import Link from "next/link";
 import { PiCheckBold } from "react-icons/pi";
 
-export default function RichText2({
+export function RichText2({
   data,
   style = "marketing",
 }: {

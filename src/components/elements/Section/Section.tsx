@@ -2,7 +2,7 @@
 import React from 'react';
 import classNames from "classnames"
 import Container from '../Container/Container';
-import RichText2 from "@/components/elements/RichText/RichText2"
+import { RichText2 } from "@/components/elements/RichText/RichText2"
 import { MediaType } from '@/helpers/types';
 import { Document } from "@contentful/rich-text-types";
 
@@ -17,7 +17,7 @@ interface Props {
   framed?: boolean
 }
 
-const Section: React.FC<Props> = ( { id, heading, label, subheading, children, className, background, framed = true } ) => {
+export const Section: React.FC<Props> = ( { id, heading, label, subheading, children, className, background, framed = true } ) => {
 
   return (
     <section
@@ -79,5 +79,3 @@ export const Label = ({ children }: {children: React.ReactNode}) => {
     {children}
   </p>
 }
-
-export default Section

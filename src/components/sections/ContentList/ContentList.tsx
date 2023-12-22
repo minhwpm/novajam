@@ -1,12 +1,12 @@
-import Section from "@/components/elements/Section/Section";
+import { Section } from "@/components/elements/Section/Section";
 import classNames from "classnames";
 import { ContentListType } from "@/helpers/types";
-import Button from "@/components/elements/Button/Button";
-import { ContentItem } from "./ContentItem";
+import { Button } from "@/components/elements/Button/Button";
+import { ContentMapping } from "./ContentMapping";
 import { CarouselList } from "./CarouselList";
 import { MasonryList } from "./MasonryList";
 
-const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
+export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
   const {
     heading,
     label,
@@ -45,26 +45,24 @@ const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
           <MasonryList content={content} size={size} alignment={alignment} />
         )}
         {layout === "deck" && (
-          <div className="flex flex-wrap justify-center -mx-3.5 mt-5">
+          <div className="flex flex-wrap justify-center -mx-3 mt-5">
             {content.map((item, idx) => (
               <div 
                 key={item.id} 
                 className={classNames(
-                  "px-3.5 py-3 w-full",
+                  "px-3 py-3 w-full",
                   { "lg:basis-1/2": size === "XL" },
                   { "md:basis-1/2 xl:basis-1/3": size === "L" },
                   { "sm:basis-1/2 lg:basis-1/3 xl:basis-1/4": size === "M" },
                   { "basis-1/2 sm:basis-1/3 md:basis-1/4 xl:basis-1/5": size === "S" }
                 )}
               >
-                <ContentItem data={item} alignment={alignment} index={idx} />
+                <ContentMapping data={item} alignment={alignment} index={idx} />
               </div>
             ))}
           </div>
         )}
       </div>
     </Section>
-  );
-};
-
-export default ContentList;
+  )
+}

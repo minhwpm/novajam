@@ -6,7 +6,7 @@ import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
 import { useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
-import Button from "../Button/Button";
+import { Button } from "../Button/Button";
 import { SubmenuMinimal } from "./SubmenuMinimal/SubmenuMinimal";
 
 const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {

@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { AlignmentType, Content, ContentSize } from "@/helpers/types";
-import { ContentItem } from "./ContentItem";
+import { ContentMapping } from "./ContentMapping";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -18,7 +18,7 @@ export const CarouselList: React.FC<{
   return (
     <Swiper
       className={classNames("carousel-list w-screen")}
-      spaceBetween={25}
+      spaceBetween={24}
       navigation={{
         enabled: true,
       }}
@@ -38,7 +38,7 @@ export const CarouselList: React.FC<{
             ),
           }}
         >
-          <ContentItem data={item} alignment={alignment} index={idx} />
+          <ContentMapping data={item} alignment={alignment} index={idx} />
         </SwiperSlide>
       ))}
     </Swiper>

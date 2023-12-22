@@ -1,16 +1,16 @@
 /* Created by minhwpm (minhhien134@gmail.com) */
 "use client";
 import classNames from "classnames";
-import Button from "@/components/elements/Button/Button";
+import { Button } from "@/components/elements/Button/Button";
 import { HeroType } from "@/helpers/types";
-import RichText2 from "@/components/elements/RichText/RichText2";
+import { RichText2 } from "@/components/elements/RichText/RichText2";
 import Carousel from "@/components/elements/Carousel/Carousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import Container from "@/components/elements/Container/Container";
 import { useIsLoaded } from "@/helpers/hooks/useIsLoaded";
 
-const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
+export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
   const { content, textAlignment } = data;
   const isLoaded = useIsLoaded();
 
@@ -166,7 +166,5 @@ const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
         ))}
       />
     </section>
-  );
-};
-
-export default HeroOverlay;
+  )
+}

@@ -1,8 +1,8 @@
-import Section from "@/components/elements/Section/Section";
+import { Section } from "@/components/elements/Section/Section";
 import classNames from "classnames";
-import Button from "@/components/elements/Button/Button";
+import { Button } from "@/components/elements/Button/Button";
 import { FeatureType } from "@/helpers/types";
-import RichText2 from "@/components/elements/RichText/RichText2";
+import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 
@@ -66,6 +66,7 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
   );
 };
 
+// @TODO refactor - reuse @/components/elements/MediaPart
 const MediaPart: React.FC<{ data: FeatureType, rounded?: "assets" | "none" }> = ({ data, rounded = "assets" }) => {
   const { media, mediaAspectRatio } = data;
   if (media.length === 1) {
@@ -96,7 +97,7 @@ const MediaPart: React.FC<{ data: FeatureType, rounded?: "assets" | "none" }> = 
   );
 };
 
-const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
+export const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
   const { media, layout, uiVariant, backgroundImage } = data;
   if (uiVariant === "extended") {
     return (

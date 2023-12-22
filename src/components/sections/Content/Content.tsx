@@ -1,6 +1,6 @@
 import Image from "next/image"
 import classNames from "classnames"
-import Section from "@/components/elements/Section/Section"
+import { Section } from "@/components/elements/Section/Section"
 
 interface Props {
   data: {

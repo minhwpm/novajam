@@ -1,6 +1,6 @@
 import { AlignmentType, ButtonType } from "@/helpers/types"
 import classNames from "classnames"
-import Button from "../Button/Button"
+import { Button } from "../Button/Button"
 
 export const ButtonGroup: React.FC<{data: Array<ButtonType>, alignment?: AlignmentType}> = ({ data, alignment }) => {
   return (

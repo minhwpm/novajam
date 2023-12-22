@@ -1,56 +1,16 @@
 import { AlignmentType, ContentPieceType } from "@/helpers/types";
 import classNames from "classnames";
-import RichText2 from "@/components/elements/RichText/RichText2"
-import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
-import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
+import { RichText2 } from "@/components/elements/RichText/RichText2"
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
-
-const MediaPart: React.FC<{
-  data: ContentPieceType;
-  alignment?: AlignmentType
-}> = ({ data, alignment }) => {
-  const { media, embeddedMediaUrl, embeddedMediaTitle } = data;
-  return (
-    <div
-      className={classNames(
-        "flex",
-        { "justify-center": alignment === "center" },
-        { "justify-end": alignment === "reverse" }
-      )}
-    >
-      {embeddedMediaUrl && (
-        <iframe
-          src={embeddedMediaUrl}
-          width="100%"
-          title={embeddedMediaTitle ?? ""}
-          className="aspect-video"
-          allowFullScreen={true}
-        />
-      )}
-      {!embeddedMediaUrl && media && media.length === 1 && (
-        <MediaItem data={media[0]} />
-      )}
-      {!embeddedMediaUrl && media && media.length > 1 && (
-        <MediaCarousel
-          data={media}
-          autoplay={{
-            delay: 5000,
-          }}
-          navigation={{
-            enabled: false,
-          }}
-        />
-      )}
-    </div>
-  );
-};
+import { MediaPart } from "../MediaPart/MediaPart";
 
 const TextPart: React.FC<{
   data: ContentPieceType;
-}> = ({ data }) => {
-  const { heading, label, description } = data;
+  alignment?: AlignmentType
+}> = ({ data, alignment }) => {
+  const { heading, label, description, buttons } = data;
   return (
-    <div>
+    <>
       {label && (
         <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest")}>
           {label}
@@ -66,7 +26,10 @@ const TextPart: React.FC<{
           <RichText2 data={description} />
         </div>
       )}
-    </div>
+      {buttons && buttons.length > 0 && (
+        <ButtonGroup data={buttons} alignment={alignment} />
+      )}
+    </>
   )
 }
 
@@ -83,15 +46,12 @@ export const ContentPiece: React.FC<{
       {(heading || label || description || buttons?.length > 0) && (
         <div
           className={classNames(
-            "p-5 flex-1 flex flex-col justify-between",
+            "px-6 py-8 flex-1 flex flex-col gap-y-4 justify-between",
             { "text-center": alignment === "center" },
             { "text-end": alignment === "reverse" }
           )}
         >
-          <TextPart data={data} />
-          {buttons && buttons.length > 0 && (
-            <ButtonGroup data={buttons} alignment={alignment} />
-          )}
+          <TextPart data={data} alignment={alignment} />
         </div>
       )}
     </div>
