@@ -3,13 +3,13 @@
 
 "use client";
 import React from "react";
-import * as RadixAccordion from "@radix-ui/react-accordion";
 import classNames from "classnames";
+import * as RadixAccordion from "@radix-ui/react-accordion";
 import { Section } from "@/components/elements/Section/Section";
 import { PresentationType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { Button } from "@/components/elements/Button/Button";
-import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
+import { MediaPart } from "@/components/elements/MediaPart/MediaPart";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 
 export const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
@@ -91,17 +91,9 @@ export const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                       ))}
                     </div>
                   )}
-                  {section.media && section.media.length > 0 && (
+                  {(section.media.length > 0 || section.embeddedMediaUrl) && (
                     <div className="max-w-xl mx-auto mt-10">
-                      <MediaCarousel
-                        data={section.media}
-                        autoplay={{
-                          delay: 5000,
-                        }}
-                        navigation={{
-                          enabled: false,
-                        }}
-                      />
+                      <MediaPart data={section} alignment={alignment} />
                     </div>
                   )}
                 </RadixAccordion.Content>

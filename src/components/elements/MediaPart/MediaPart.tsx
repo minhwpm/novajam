@@ -32,9 +32,12 @@ export const MediaPart: React.FC<{
         <MediaCarousel
           data={media}
           autoplay={{
-            delay: 5000,
+            delay: 3500,
           }}
           pagination={{
+            enabled: true
+          }}
+          navigation={{
             enabled: true
           }}
         />

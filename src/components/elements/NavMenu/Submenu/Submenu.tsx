@@ -39,7 +39,7 @@ export const Submenu: React.FC<{ data: SubmenuType, uiVariant?: NavigationUiVari
         className={classNames(
           "text-neutral-800 text-base",
           {
-            "absolute top-full left-0 w-full bg-white shadow-lg data-[state=open]:animate-slidingSubmenu":
+            "absolute top-full left-0 w-full bg-white border-t shadow-lg data-[state=open]:animate-slidingSubmenu":
               data.layout === "mega" && uiVariant === "standard",
           },
           {

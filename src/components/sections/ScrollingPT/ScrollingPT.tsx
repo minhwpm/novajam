@@ -7,6 +7,7 @@ import { PresentationType } from "@/helpers/types";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { Button } from "@/components/elements/Button/Button";
+import { MediaPart } from "@/components/elements/MediaPart/MediaPart";
 
 export const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
   const { label, heading, subheading, content, alignment } = data;
@@ -98,16 +99,8 @@ export const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                     }
                   )}
                 >
-                  {section.media?.length > 0 && (
-                    <MediaCarousel
-                      data={section.media}
-                      autoplay={{
-                        delay: 5000,
-                      }}
-                      navigation={{
-                        enabled: false,
-                      }}
-                    />
+                  {(section.media.length > 0 || section.embeddedMediaUrl) && (
+                    <MediaPart data={section} alignment={alignment} />
                   )}
                 </div>
               ))}

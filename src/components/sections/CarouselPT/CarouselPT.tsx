@@ -78,7 +78,7 @@ export const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                 <TextPart data={item} alignment={alignment} />
               </div>
             )}
-            { item.media?.length > 0 &&  
+            { (item.media.length > 0 || item.embeddedMediaUrl)&&  
               <div className={classNames(
                 { "lg:w-1/2 shrink-0 ": (item.heading || item.description) },
                 { "w-full": (!item.heading && !item.description) },

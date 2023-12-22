@@ -7,6 +7,7 @@ import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { Button } from "@/components/elements/Button/Button";
+import { MediaPart } from "@/components/elements/MediaPart/MediaPart";
 
 interface ArrowGroupProps {
   visibleIdx: number;
@@ -80,9 +81,9 @@ export const MiniCarouselPT: React.FC<{ data: PresentationType }> = ({ data }) =
                 { "opacity-0 -right-24": visibleIdx != idx }
               )}
             >
-              {section.media.length > 0 && (
+              {(section.media.length > 0 || section.embeddedMediaUrl) && (
                 // @TODO <MediaCarousel /> breaks layout here
-                <MediaItem data={section.media[0]} aspectRatio="3/2" />
+                <MediaPart data={section} alignment={alignment} />
               )}
               <div
                 className={classNames(

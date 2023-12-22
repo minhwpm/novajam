@@ -9,6 +9,7 @@ import { PresentationType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
+import { MediaPart } from "@/components/elements/MediaPart/MediaPart";
 
 export const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
   const { label, heading, subheading, content, alignment } = data;
@@ -117,22 +118,9 @@ export const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) =>
               )}
             >
               <div className="flex flex-col">
-                {section.media.length > 0 && (
-                  <div className="shirnk-0">
-                    {section.media.length === 1 && (
-                      <MediaItem data={section.media[0]} />
-                    )}
-                    {section.media.length > 1 && (
-                      <MediaCarousel
-                        data={section.media}
-                        autoplay={{
-                          delay: 5000,
-                        }}
-                        navigation={{
-                          enabled: false,
-                        }}
-                      />
-                    )}
+                {(section.media.length > 0 || section.embeddedMediaUrl) && (
+                  <div className="shrink-0">
+                    <MediaPart data={section} alignment={alignment} />
                   </div>
                 )}
                 <div className="mt-5 flex flex-col gap-2 items-center pb-8 lg:pr-24">

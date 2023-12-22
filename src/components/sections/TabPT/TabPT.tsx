@@ -1,15 +1,13 @@
 "use client"
-
 import React, { useEffect, useRef, useState } from 'react';
+import classNames from "classnames";
 import * as RadixTabs from '@radix-ui/react-tabs';
 import { Section } from '@/components/elements/Section/Section';
 import { Button } from '@/components/elements/Button/Button';
-import classNames from "classnames";
 import { PresentationType } from '@/helpers/types';
 import { RichText2 } from "@/components/elements/RichText/RichText2"
-import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
+import { MediaPart } from '@/components/elements/MediaPart/MediaPart';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
 import styles from "./styles.module.css"
 
 export const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
@@ -110,22 +108,9 @@ export const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                     </div>
                   )}
                 </div>
-                {section.media.length > 0 && (
+                {(section.media.length > 0 || section.embeddedMediaUrl) && (
                   <div className="lg:w-1/2 shrink-0">
-                    {section.media.length === 1 && (
-                      <MediaItem data={section.media[0]} />
-                    )}
-                    {section.media.length > 1 && (
-                      <MediaCarousel
-                        data={section.media}
-                        autoplay={{
-                          delay: 5000,
-                        }}
-                        navigation={{
-                          enabled: false,
-                        }}
-                      />
-                    )}
+                    <MediaPart data={section} alignment={alignment} />
                   </div>
                 )}
               </div>

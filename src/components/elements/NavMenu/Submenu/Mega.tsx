@@ -6,7 +6,7 @@ import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
 export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
   return (
     <div className="container px-4 mx-auto">
-      <div className="py-10 flex flex-wrap gap-8 border-t">
+      <div className="py-10 flex flex-wrap gap-8">
         {data.menu.length > 0 && (
           <div className={classNames("shrink flex flex-wrap gap-6")}>
             {data.menu.map((subItem) => (
