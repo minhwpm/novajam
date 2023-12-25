@@ -8,17 +8,13 @@ import { RichText2 } from "@/components/elements/RichText/RichText2";
 
 export const CTA: React.FC<{data: CTAType} > = ({ data }) => {
   const { heading, subheading, buttons } = data;
-  // @TODO expanding width on scrolling
-  // const [w, setW] = useState(70)
 
   const [ref, isVisible] = useInView({
     threshold: 0.5,
     onEnter: (entry, observer) => {
       console.log(entry, observer);
     },
-    // onLeave: () => setStart(false),
   });
-  // console.log("isVisible", isVisible)
   return (
     <Section>
       <div

@@ -1,4 +1,5 @@
-/* eslint-disable complexity */ // @TODO fix eslint complexity
+// @TODO fix eslint complexity
+/* eslint-disable complexity */ 
 import Navigation from "@/components/sections/Navigation/Navigation";
 import Footer from "@/components/sections/Footer/Footer";
 import classNames from "classnames";
