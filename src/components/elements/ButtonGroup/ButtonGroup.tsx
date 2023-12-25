@@ -5,7 +5,7 @@ import { Button } from "../Button/Button"
 export const ButtonGroup: React.FC<{data: Array<ButtonType>, alignment?: AlignmentType}> = ({ data, alignment }) => {
   return (
     <div
-      className={classNames("md:mt-2 lg:mt-5", {
+      className={classNames({
         "flex justify-center": alignment === "center",
       })}
     >

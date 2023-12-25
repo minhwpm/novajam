@@ -36,7 +36,9 @@ const TextPart: React.FC<{
         </div>
       )}
       {buttons && buttons.length > 0 && (
-        <ButtonGroup data={buttons} alignment={alignment} />
+        <div className="mt-4">
+          <ButtonGroup data={buttons} alignment={alignment} />
+        </div>
       )}
     </>
   )
