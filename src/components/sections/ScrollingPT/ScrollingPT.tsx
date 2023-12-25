@@ -4,7 +4,6 @@ import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
 import FeatureContentItem from "@/components/elements/FeatureContentItem/FeatureContentItem";
 import { PresentationType } from "@/helpers/types";
-import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
@@ -64,15 +63,7 @@ export const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
             </div>
             <div className="md:w-3/5 mx-auto">
               {section.media?.length > 0 && (
-                <MediaCarousel
-                  data={section.media}
-                  autoplay={{
-                    delay: 5000,
-                  }}
-                  navigation={{
-                    enabled: false,
-                  }}
-                />
+                <FlexibleContentMediaPart data={section} alignment={alignment} />
               )}
             </div>
           </div>

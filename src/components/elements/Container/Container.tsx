@@ -6,7 +6,7 @@ interface Props {
   className?: string
 }
 
-export default function Container ({children, className}: Props) {
+export function Container ({children, className}: Props) {
   return (
     <div className={classNames("container mx-auto px-4", className)}>
       {children}

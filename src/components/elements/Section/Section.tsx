@@ -1,7 +1,7 @@
 // Denotes a section of page content.
 import React from 'react';
 import classNames from "classnames"
-import Container from '../Container/Container';
+import { Container }from '../Container/Container';
 import { RichText2 } from "@/components/elements/RichText/RichText2"
 import { MediaType } from '@/helpers/types';
 import { Document } from "@contentful/rich-text-types";

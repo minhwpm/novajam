@@ -1,5 +1,5 @@
 import BlogPreview from "@/components/elements/BlogPreview/BlogPreview"
-import Container from "@/components/elements/Container/Container"
+import { Container }from "@/components/elements/Container/Container"
 import getBlogs from "@/helpers/contentful/graphql/getBlogs"
 import { BlogType } from "@/helpers/types"
 import Pagination from "@/components/elements/Pagination/Pagination"

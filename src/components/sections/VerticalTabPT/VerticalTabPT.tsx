@@ -7,8 +7,6 @@ import { Button } from "@/components/elements/Button/Button";
 import classNames from "classnames";
 import { PresentationType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
-import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
-import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 
 export const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
@@ -59,20 +57,7 @@ export const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) =>
                 >
                   {section.media.length > 0 && (
                     <div className="w-full">
-                      {section.media.length === 1 && (
-                        <MediaItem data={section.media[0]} />
-                      )}
-                      {section.media.length > 1 && (
-                        <MediaCarousel
-                          data={section.media}
-                          autoplay={{
-                            delay: 5000,
-                          }}
-                          navigation={{
-                            enabled: false,
-                          }}
-                        />
-                      )}
+                      <FlexibleContentMediaPart data={section} alignment={alignment} />
                     </div>
                   )}
                   <div className="mt-5 flex flex-col gap-2 justify-center pb-8 lg:pr-24">

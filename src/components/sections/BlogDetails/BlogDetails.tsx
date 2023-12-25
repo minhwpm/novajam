@@ -1,4 +1,4 @@
-import Container from "@/components/elements/Container/Container"
+import { Container }from "@/components/elements/Container/Container"
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
 import { RichText2 } from "@/components/elements/RichText/RichText2"
 import { BlogType } from "@/helpers/types"

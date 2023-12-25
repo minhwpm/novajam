@@ -1,4 +1,4 @@
-import Container from "@/components/elements/Container/Container"
+import { Container }from "@/components/elements/Container/Container"
 import { ExpertDetails } from "@/components/sections/ExpertDetails/ExpertDetails"
 import getExpertDetails from "@/helpers/contentful/graphql/getExpertDetails"
 
