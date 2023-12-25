@@ -10,7 +10,7 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
         {data.menu.length > 0 && (
           <div className={classNames("shrink flex flex-wrap gap-6")}>
             {data.menu.map((subItem) => (
-              <div key={subItem.id} className="basis-52 shrink-0">
+              <div key={subItem.id} className="basis-52">
                 {subItem.contentType === "link" && (
                   <NavLinkItem href={subItem.url}>{subItem.text}</NavLinkItem>
                 )}

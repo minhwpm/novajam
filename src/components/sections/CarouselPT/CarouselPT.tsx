@@ -4,7 +4,7 @@ import { Section } from "@/components/elements/Section/Section";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { AlignmentType, ContentPieceType, PresentationType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
-import { MediaPart } from "@/components/elements/MediaPart/MediaPart";
+import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -85,7 +85,7 @@ export const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
                 { "lg:w-1/2 shrink-0 ": (item.heading || item.description) },
                 { "w-full": (!item.heading && !item.description) },
               )}>
-                <MediaPart data={item} alignment={alignment} />
+                <FlexibleContentMediaPart data={item} alignment={alignment} />
               </div>
             }
             </div>

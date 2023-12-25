@@ -66,8 +66,8 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
   );
 };
 
-// @TODO refactor - reuse @/components/elements/MediaPart
-const MediaPart: React.FC<{ data: FeatureType, rounded?: "assets" | "none" }> = ({ data, rounded = "assets" }) => {
+// @TODO refactor - reuse @/components/elements/FlexibleContentMediaPart
+const FlexibleContentMediaPart: React.FC<{ data: FeatureType, rounded?: "assets" | "none" }> = ({ data, rounded = "assets" }) => {
   const { media, mediaAspectRatio } = data;
   if (media.length === 1) {
     return (
@@ -126,7 +126,7 @@ export const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
             { "lg:w-6/12": layout === "Horizontal (Image | Text)" }
           )}
         >
-          {media.length > 0 && <MediaPart data={data} rounded="none" />}
+          {media.length > 0 && <FlexibleContentMediaPart data={data} rounded="none" />}
         </div>
         <div
           className={classNames(
@@ -165,7 +165,7 @@ export const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
               layout === "Horizontal (Image | Text)",
           })}
         >
-          {media.length > 0 && <MediaPart data={data} />}
+          {media.length > 0 && <FlexibleContentMediaPart data={data} />}
         </div>
         <div
           className={classNames(

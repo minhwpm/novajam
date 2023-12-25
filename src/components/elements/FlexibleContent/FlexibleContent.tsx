@@ -2,7 +2,7 @@ import { AlignmentType, ContentPieceType } from "@/helpers/types";
 import classNames from "classnames";
 import { RichText2 } from "@/components/elements/RichText/RichText2"
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
-import { MediaPart } from "../MediaPart/MediaPart";
+import { FlexibleContentMediaPart } from "../FlexibleContentMediaPart/FlexibleContentMediaPart";
 
 const TextPart: React.FC<{
   data: ContentPieceType;
@@ -33,7 +33,7 @@ const TextPart: React.FC<{
   )
 }
 
-export const ContentPiece: React.FC<{
+export const FlexibleContent: React.FC<{
   data: ContentPieceType;
   alignment?: AlignmentType
 }> = ({
@@ -42,7 +42,7 @@ export const ContentPiece: React.FC<{
   const { heading, label, description, media, embeddedMediaUrl, buttons } = data;
   return (
     <div className="flex flex-col rounded-assets bg-white">
-      {(media || embeddedMediaUrl) && <MediaPart data={data} alignment={alignment} /> }
+      {(media || embeddedMediaUrl) && <FlexibleContentMediaPart data={data} alignment={alignment} /> }
       {(heading || label || description || buttons?.length > 0) && (
         <div
           className={classNames(

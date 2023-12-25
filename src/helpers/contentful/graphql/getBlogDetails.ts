@@ -1,5 +1,5 @@
 import getAsset from "./getAsset"
-import getContentPiece from "./getContentPiece"
+import getFlexibleContent from "./getFlexibleContent"
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getBlogDetails(slug: string) {
@@ -93,7 +93,7 @@ export default async function getBlogDetails(slug: string) {
       richtextContent[i].data = {
         ... richtextContent[i].data,
         // ... await getEntry()
-        ... await getContentPiece(richtextContent[i].data.target.sys.id)
+        ... await getFlexibleContent(richtextContent[i].data.target.sys.id)
       }
     }
   }

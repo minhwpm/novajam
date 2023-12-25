@@ -6,7 +6,7 @@ import { Section } from '@/components/elements/Section/Section';
 import { Button } from '@/components/elements/Button/Button';
 import { PresentationType } from '@/helpers/types';
 import { RichText2 } from "@/components/elements/RichText/RichText2"
-import { MediaPart } from '@/components/elements/MediaPart/MediaPart';
+import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import styles from "./styles.module.css"
 
@@ -110,7 +110,7 @@ export const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
                 </div>
                 {(section.media.length > 0 || section.embeddedMediaUrl) && (
                   <div className="lg:w-1/2 shrink-0">
-                    <MediaPart data={section} alignment={alignment} />
+                    <FlexibleContentMediaPart data={section} alignment={alignment} />
                   </div>
                 )}
               </div>

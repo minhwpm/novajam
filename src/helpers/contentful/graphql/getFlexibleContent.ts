@@ -1,6 +1,6 @@
 import normalizeDataCollection from "./normalizeDataCollection"
 
-export default async function getContentPiece(id: string) {
+export default async function getFlexibleContent(id: string) {
   const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {

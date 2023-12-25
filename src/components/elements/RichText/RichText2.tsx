@@ -9,7 +9,7 @@ import {
 } from "@contentful/rich-text-types";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { ContentPieceType, MediaType } from "@/helpers/types";
-import { ContentPiece } from "../ContentPiece/ContentPiece";
+import { FlexibleContent } from "../FlexibleContent/FlexibleContent";
 import Link from "next/link";
 import { PiCheckBold } from "react-icons/pi";
 
@@ -65,7 +65,7 @@ export function RichText2({
             );
           },
           [BLOCKS.EMBEDDED_ENTRY]: (node: Inline | Block) => {
-            return <ContentPiece data={node.data as ContentPieceType} />;
+            return <FlexibleContent data={node.data as ContentPieceType} />;
           },
         },
       })}

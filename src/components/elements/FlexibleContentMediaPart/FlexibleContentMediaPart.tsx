@@ -3,10 +3,11 @@ import classNames from "classnames";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 
-export const MediaPart: React.FC<{
+export const FlexibleContentMediaPart: React.FC<{
   data: ContentPieceType;
-  alignment?: AlignmentType
-}> = ({ data, alignment }) => {
+  alignment?: AlignmentType;
+  loop?: boolean;
+}> = ({ data, alignment, loop = true }) => {
   const { media, embeddedMediaUrl, embeddedMediaTitle } = data;
   return (
     <div
@@ -37,9 +38,7 @@ export const MediaPart: React.FC<{
           pagination={{
             enabled: true
           }}
-          navigation={{
-            enabled: true
-          }}
+          loop={loop}
         />
       )}
     </div>

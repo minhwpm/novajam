@@ -1,4 +1,4 @@
-import getContentPiece from "./getContentPiece"
+import getFlexibleContent from "./getFlexibleContent"
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getContentList(id: string) {
@@ -158,7 +158,7 @@ export default async function getContentList(id: string) {
   const normalizedData = normalizeDataCollection({...data.data})
   async function getSectionData(contentType: string, id: string) {
     if (contentType === "contentpiece") {
-      return await getContentPiece(id)
+      return await getFlexibleContent(id)
     }
   }
   for(let i = 0; i < normalizedData[0]?.content.length; i++) {

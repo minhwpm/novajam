@@ -4,7 +4,7 @@ import BlogPreview from "@/components/elements/BlogPreview/BlogPreview";
 import PagePreview from "../PagePreview/PagePreview";
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview";
 import { Statistics } from "@/components/elements/Statistics/Statistics";
-import { ContentPiece } from "@/components/elements/ContentPiece/ContentPiece";
+import { FlexibleContent } from "@/components/elements/FlexibleContent/FlexibleContent";
 import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan";
 import { AlignmentType, Content } from "@/helpers/types";
 
@@ -38,7 +38,7 @@ export const ContentMapping: React.FC<{
     case "statistics":
       return <Statistics index={index} data={data} />;
     case "contentpiece":
-      return <ContentPiece data={data} alignment={alignment} />;
+      return <FlexibleContent data={data} alignment={alignment} />;
     case "pricingplan":
       return <PricingPlan data={data} />;
   }
