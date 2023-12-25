@@ -5,7 +5,6 @@ import { Section } from "@/components/elements/Section/Section";
 import { PresentationType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
-import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { Button } from "@/components/elements/Button/Button";
 import { MediaPart } from "@/components/elements/MediaPart/MediaPart";
 
