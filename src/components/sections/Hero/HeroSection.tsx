@@ -7,10 +7,9 @@ import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 
 export const HeroSection: React.FC<{
   data: ContentPieceType;
-  onLoaded: boolean;
   textAlignment: AlignmentType;
   layout: HeroLayoutType;
-}> = ({ data, onLoaded, textAlignment, layout }) => {
+}> = ({ data, textAlignment, layout }) => {
   return (
     <div
       key={data.id}
@@ -28,12 +27,7 @@ export const HeroSection: React.FC<{
         {data.label && (
           <div
             className={classNames(
-              "relative font-semibold text-primary-600 tracking-widest max-w-2xl",
-              { "-left-20 opacity-0": !onLoaded },
-              {
-                "opacity-100 left-0 transition-all duration-500 delay-100":
-                  onLoaded,
-              }
+              "font-semibold text-primary-600 tracking-widest max-w-2xl animate-slidingHeroContent",
             )}
           >
             {data.label}
@@ -42,12 +36,7 @@ export const HeroSection: React.FC<{
         {data.heading && (
           <div
             className={classNames(
-              "relative text-heading leading-tight font-heading max-w-3xl",
-              { "-left-20 opacity-0": !onLoaded },
-              {
-                "opacity-100 left-0 transition-all duration-500 delay-200":
-                  onLoaded,
-              }
+              "text-heading leading-tight font-heading max-w-3xl animate-slidingHeroContent",
             )}
           >
             <RichText2 data={data.heading} />
@@ -56,12 +45,7 @@ export const HeroSection: React.FC<{
         {data.description && (
           <div
             className={classNames(
-              "relative prose-lg lg:prose-xl mt-3 max-w-2xl",
-              { "-left-20 opacity-0": !onLoaded },
-              {
-                "opacity-100 left-0 transition-all duration-500 delay-150":
-                  onLoaded,
-              }
+              "prose-lg lg:prose-xl mt-3 max-w-2xl animate-slidingHeroContent",
             )}
           >
             <RichText2 data={data.description} />
@@ -70,12 +54,7 @@ export const HeroSection: React.FC<{
         {data.buttons.length > 0 && (
           <div
             className={classNames(
-              "relative mt-5",
-              { "-left-20 opacity-0": !onLoaded },
-              {
-                "opacity-100 left-0 transition-all duration-500 delay-300":
-                  onLoaded,
-              }
+              "mt-5 animate-slidingHeroContent",
             )}
           >
             {data.buttons.length > 0 && (
@@ -91,12 +70,7 @@ export const HeroSection: React.FC<{
       {(data.media.length > 0 || data.embeddedMediaUrl) && (
         <div
           className={classNames(
-            "relative w-full lg:basis-3/5 min-w-[0.55]",
-            { "-left-20 opacity-0": !onLoaded },
-            {
-              "opacity-100 left-0 transition-all duration-500 delay-500":
-                onLoaded,
-            }
+            "w-full lg:basis-3/5 min-w-[0.55] animate-slidingHeroContent",
           )}
         >
           <HeroMediaPart data={data} />

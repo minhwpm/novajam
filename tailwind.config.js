@@ -115,6 +115,16 @@ module.exports = {
             opacity: 1,
           }
         },
+        slidingHeroContent: {
+          '0%': {
+            transform: "translateX(-5rem)",
+            opacity: 0
+          },
+          '100%': {
+            transform: "translateX(0)",
+            opacity: 1
+          }
+        },
         slidingText: {
           '0%': {
             opacity: 0,
@@ -293,6 +303,7 @@ module.exports = {
         fadeIn: 'fadeIn 0.5s ease-in forwards 1',
         slidingSubmenu: 'slidingSubmenu 0.3s ease-out forwards 1',
         slidingLinkgroup: 'slidingLinkgroup 0.3s ease-out forwards 1',
+        slidingHeroContent: 'slidingHeroContent 1s ease forwards',
         slidingText: 'slidingText 10s linear infinite normal none running',
         expandingWidth: 'expandingWidth 0.5s ease-in-out forwards 1',
         shrinkingWidth: 'shrinkingWidth 0.5s ease-in-out forwards 1',
@@ -309,5 +320,6 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('tailwindcss-3d'),
+    require("tailwindcss-animation-delay"),
   ],
 }

@@ -10,9 +10,8 @@ import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 
 export const HeroOSection: React.FC<{
   data: ContentPieceType;
-  onLoaded: boolean;
   textAlignment: AlignmentType;
-}> = ({ data, onLoaded, textAlignment }) => {
+}> = ({ data, textAlignment }) => {
   return (
     <div
       key={data.id}
@@ -51,12 +50,7 @@ export const HeroOSection: React.FC<{
             {data.label && (
               <div
                 className={classNames(
-                  "relative",
-                  { "-left-20 opacity-0": !onLoaded },
-                  {
-                    "opacity-100 left-0 transition-all duration-500 delay-100":
-                      onLoaded,
-                  },
+                  "animate-slidingHeroContent animation-delay-200",
                   "tracking-widest font-semibold lg:text-lg xl:text-xl max-w-2xl"
                 )}
               >
@@ -66,12 +60,7 @@ export const HeroOSection: React.FC<{
             {data.heading && (
               <div
                 className={classNames(
-                  "relative",
-                  { "-left-20 opacity-0": !onLoaded },
-                  {
-                    "opacity-100 left-0 transition-all ease-out duration-500 delay-200":
-                      onLoaded,
-                  },
+                  "relative animate-slidingHeroContent",
                   "text-super-heading leading-[1.1] font-heading max-w-3xl mt-2"
                 )}
               >
@@ -81,12 +70,7 @@ export const HeroOSection: React.FC<{
             {data.description && (
               <div
                 className={classNames(
-                  "relative",
-                  { "-left-20 opacity-0": !onLoaded },
-                  {
-                    "opacity-100 left-0 transition-all ease-out duration-500 delay-150":
-                      onLoaded,
-                  },
+                  "animate-slidingHeroContent",
                   "prose-lg lg:prose-xl mt-10 max-w-2xl"
                 )}
               >
@@ -95,12 +79,7 @@ export const HeroOSection: React.FC<{
             )}
             <div
               className={classNames(
-                "relative mt-12",
-                { "-left-20 opacity-0": !onLoaded },
-                {
-                  "opacity-100 left-0 transition-all ease-out duration-500 delay-300":
-                    onLoaded,
-                },
+                "mt-12 animate-slidingHeroContent",
               )}
             >
               {data.buttons.length > 0 && (

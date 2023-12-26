@@ -1,6 +1,5 @@
 "use client";
 import classNames from "classnames";
-import { useOnLoaded } from "@/helpers/hooks/useOnLoaded";
 import { HeroOSection } from "./HeroOSection";
 import { HeroType } from "@/helpers/types";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,8 +12,6 @@ import "@/app/custom-swiper.css";
 
 export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
   const { content, textAlignment } = data;
-  // @TODO refactor onLoaded ?
-  const onLoaded = useOnLoaded();
 
   if (content.length === 0) {
     return null
@@ -24,7 +21,6 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
       {content.length === 1 && (
         <HeroOSection
           data={content[0]}
-          onLoaded={onLoaded}
           textAlignment={textAlignment}
         />
       )}
@@ -49,7 +45,6 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
             <SwiperSlide key={section.id}>
               <HeroOSection
                 data={section}
-                onLoaded={onLoaded}
                 textAlignment={textAlignment}
               />
             </SwiperSlide>
