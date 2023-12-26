@@ -3,8 +3,6 @@ import classNames from "classnames";
 import { Button } from "@/components/elements/Button/Button";
 import { ContentPieceType, FeatureLayoutType, FeatureType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
-import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
-import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 
 const TextPart: React.FC<{ data: ContentPieceType, layout: FeatureLayoutType }> = ({ data, layout }) => {
@@ -69,45 +67,15 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeatureLayoutType }> 
   );
 };
 
-// @TODO refactor - reuse @/components/elements/FlexibleContentMediaPart
-// const FlexibleContentMediaPart: React.FC<{ data: FeatureType, rounded?: "assets" | "none" }> = ({ data, rounded = "assets" }) => {
-//   const { media, mediaAspectRatio } = data;
-//   if (media.length === 1) {
-//     return (
-//       <MediaItem
-//         data={media[0]}
-//         aspectRatio={mediaAspectRatio === "16/9" ? "video" : mediaAspectRatio}
-//         rounded={rounded}
-//       />
-//     );
-//   }
-//   // media.length > 1
-//   return (
-//     <MediaCarousel
-//       data={media}
-//       aspectRatio={mediaAspectRatio === "16/9" ? "video" : mediaAspectRatio}
-//       rounded={rounded}
-//       autoplay={{
-//         delay: 5000,
-//       }}
-//       pagination={{
-//         enabled: true,
-//       }}
-//       navigation={{
-//         enabled: true,
-//       }}
-//     />
-//   );
-// };
-
 export const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
-  const { layout, uiVariant, backgroundImage, content } = data;
+  const { htmlid, layout, uiVariant, backgroundImage, content, mediaAspectRatio } = data;
   if (!content) {
     return null
   }
   if (uiVariant === "extended") {
     return (
       <section
+        id={htmlid}
         style={
           backgroundImage
             ? {
@@ -132,7 +100,7 @@ export const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
             { "lg:w-6/12": layout === "Horizontal (Image | Text)" }
           )}
         >
-          <FlexibleContentMediaPart data={content} rounded="none"/>
+          <FlexibleContentMediaPart data={content} rounded="none" aspectRatio={mediaAspectRatio} />
         </div>
         <div
           className={classNames(
@@ -171,7 +139,7 @@ export const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
               layout === "Horizontal (Image | Text)",
           })}
         >
-          <FlexibleContentMediaPart data={content} />
+          <FlexibleContentMediaPart data={content} aspectRatio={mediaAspectRatio} />
         </div>
         <div
           className={classNames(

@@ -26,6 +26,7 @@ export default async function getFeature(id: string) {
               }
               __typename
             }
+            htmlid
             mediaAspectRatio
             layout
             uiVariant
@@ -49,10 +50,7 @@ export default async function getFeature(id: string) {
   if (res.status !== 200) {
     throw new Error("Failed to fetch Feature data. Error: ", data)
   }
-  console.log("RAW FEATURE", JSON.stringify(data, null, 4))
   const normalizedData = normalizeDataCollection({...data.data})
-  console.log("NORMALIZED FEATURE", JSON.stringify(normalizedData, null, 4))
-
   if (normalizedData[0].content) {
     normalizedData[0].content = {
       ... await getFlexibleContent(normalizedData[0].content.id)

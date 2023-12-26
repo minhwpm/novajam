@@ -169,6 +169,7 @@ export type FeatureType = {
   url?: string
   buttons: Array<ButtonType>
   content: ContentPieceType
+  htmlid: string
   layout: FeatureLayoutType
   uiVariant: "standard" | "extended"
   backgroundImage: MediaType
