@@ -1,13 +1,14 @@
 import { Section } from "@/components/elements/Section/Section";
 import classNames from "classnames";
 import { Button } from "@/components/elements/Button/Button";
-import { FeatureType } from "@/helpers/types";
+import { ContentPieceType, FeatureLayoutType, FeatureType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
+import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 
-const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
-  const { label, heading, description, buttons, layout } = data;
+const TextPart: React.FC<{ data: ContentPieceType, layout: FeatureLayoutType }> = ({ data, layout }) => {
+  const { label, heading, description, buttons  } = data;
   return (
     <>
       {label && (
@@ -24,19 +25,21 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
           {label}
         </div>
       )}
-      <div
-        className={classNames(
-          "text-heading leading-tight font-heading max-w-3xl mb-5",
-          {
-            "text-center mx-auto":
-              layout === "Vertical (Text | Image)" ||
-              layout === "Vertical (Image | Text)",
-          }
-        )}
-      >
-        <RichText2 data={heading} />
-      </div>
-      {description && 
+      {heading && (
+        <div
+          className={classNames(
+            "text-heading leading-tight font-heading max-w-3xl mb-5",
+            {
+              "text-center mx-auto":
+                layout === "Vertical (Text | Image)" ||
+                layout === "Vertical (Image | Text)",
+            }
+          )}
+        >
+          <RichText2 data={heading} />
+        </div>
+      )}
+      {description &&
         <div
           className={classNames("block prose lg:prose-lg", {
             "mx-auto":
@@ -47,7 +50,7 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
           <RichText2 data={description} />
         </div>
       }
-      {buttons.length > 0 && (
+      {buttons && buttons.length > 0 && (
         <div className="mt-10 flex items-center gap-5">
           {buttons.map((button) => (
             <Button
@@ -67,38 +70,41 @@ const TextPart: React.FC<{ data: FeatureType }> = ({ data }) => {
 };
 
 // @TODO refactor - reuse @/components/elements/FlexibleContentMediaPart
-const FlexibleContentMediaPart: React.FC<{ data: FeatureType, rounded?: "assets" | "none" }> = ({ data, rounded = "assets" }) => {
-  const { media, mediaAspectRatio } = data;
-  if (media.length === 1) {
-    return (
-      <MediaItem
-        data={media[0]}
-        aspectRatio={mediaAspectRatio === "16/9" ? "video" : mediaAspectRatio}
-        rounded={rounded}
-      />
-    );
-  }
-  // media.length > 1
-  return (
-    <MediaCarousel
-      data={media}
-      aspectRatio={mediaAspectRatio === "16/9" ? "video" : mediaAspectRatio}
-      rounded={rounded}
-      autoplay={{
-        delay: 5000,
-      }}
-      pagination={{
-        enabled: true,
-      }}
-      navigation={{
-        enabled: true,
-      }}
-    />
-  );
-};
+// const FlexibleContentMediaPart: React.FC<{ data: FeatureType, rounded?: "assets" | "none" }> = ({ data, rounded = "assets" }) => {
+//   const { media, mediaAspectRatio } = data;
+//   if (media.length === 1) {
+//     return (
+//       <MediaItem
+//         data={media[0]}
+//         aspectRatio={mediaAspectRatio === "16/9" ? "video" : mediaAspectRatio}
+//         rounded={rounded}
+//       />
+//     );
+//   }
+//   // media.length > 1
+//   return (
+//     <MediaCarousel
+//       data={media}
+//       aspectRatio={mediaAspectRatio === "16/9" ? "video" : mediaAspectRatio}
+//       rounded={rounded}
+//       autoplay={{
+//         delay: 5000,
+//       }}
+//       pagination={{
+//         enabled: true,
+//       }}
+//       navigation={{
+//         enabled: true,
+//       }}
+//     />
+//   );
+// };
 
 export const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
-  const { media, layout, uiVariant, backgroundImage } = data;
+  const { layout, uiVariant, backgroundImage, content } = data;
+  if (!content) {
+    return null
+  }
   if (uiVariant === "extended") {
     return (
       <section
@@ -126,11 +132,11 @@ export const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
             { "lg:w-6/12": layout === "Horizontal (Image | Text)" }
           )}
         >
-          {media.length > 0 && <FlexibleContentMediaPart data={data} rounded="none" />}
+          <FlexibleContentMediaPart data={content} rounded="none"/>
         </div>
         <div
           className={classNames(
-            "w-full pt-4 md:pt-8 lg:pt-16 pb-16 flex flex-col items-center",
+            "w-full pt-4 md:pt-8 lg:pt-16 pb-16 flex flex-col",
             {
               "lg:w-1/2 px-4 md:px-10 lg:pl-20 lg:pr-16":
                 layout === "Horizontal (Text | Image)",
@@ -141,7 +147,7 @@ export const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
             }
           )}
         >
-          <TextPart data={data} />
+          <TextPart data={content} layout={layout}/>
         </div>
       </section>
     );
@@ -165,7 +171,7 @@ export const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
               layout === "Horizontal (Image | Text)",
           })}
         >
-          {media.length > 0 && <FlexibleContentMediaPart data={data} />}
+          <FlexibleContentMediaPart data={content} />
         </div>
         <div
           className={classNames(
@@ -180,7 +186,7 @@ export const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
             }
           )}
         >
-          <TextPart data={data} />
+          <TextPart data={content} layout={layout}/>
         </div>
       </div>
     </Section>

@@ -1,3 +1,4 @@
+// @TODO
 /* eslint-disable complexity */
 "use client";
 import classNames from "classnames";
@@ -19,12 +20,17 @@ const HeroMediaPart: React.FC<{ data: ContentPieceType }> = ({ data }) => {
   return (
     <>
       {data.embeddedMediaUrl && (
-        <iframe
-          src={data.embeddedMediaUrl}
-          width="100%"
-          title={data.embeddedMediaTitle ?? ""}
-          className="aspect-video"
-        />
+        <div
+          className={classNames(
+            "overflow-hidden h-full lg:aspect-video",
+          )}
+        >
+          <iframe
+            src={data.embeddedMediaUrl}
+            title={data.embeddedMediaTitle ?? ""}
+            className="w-full h-full object-cover"
+          />
+        </div>
       )}
       {data.media.length === 1 && (
         <MediaItem

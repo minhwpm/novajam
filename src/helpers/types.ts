@@ -21,8 +21,6 @@ export type SNSType = {
   instagramUrl: string | null
 }
 
-export type AspectRatioType = "video" | "square" | "3/4" | "4/3" | "3/2" | "auto" 
-
 export type AlignmentType = "inherit" | "center" | "reverse"
 
 export type ButtonVariant = "standard" | "alternate" | "black" | "link" | "outline" | "outline-black" | "outline-white"
@@ -156,6 +154,10 @@ export type ExpertType = {
   contentType: "expert"
 }
 
+export type MediaAspectRatioType = "auto" | "square" | "16/9" | "4/3" | "3/4" | "3/2"
+
+export type FeatureLayoutType = "Horizontal (Image | Text)" | "Horizontal (Text | Image)" | "Vertical (Image | Text)" | "Vertical (Text | Image)"
+
 export type FeatureType = {
   id: string
   title: string
@@ -163,10 +165,11 @@ export type FeatureType = {
   label: string | null
   description: Document | null 
   media: Array<MediaType>
-  mediaAspectRatio: "auto" | "16/9" | "4/3" | "square" | "3/4" | "3/2"
+  mediaAspectRatio: MediaAspectRatioType
   url?: string
   buttons: Array<ButtonType>
-  layout: "Horizontal (Image | Text)" | "Horizontal (Text | Image)" | "Vertical (Image | Text)" | "Vertical (Text | Image)"
+  content: ContentPieceType
+  layout: FeatureLayoutType
   uiVariant: "standard" | "extended"
   backgroundImage: MediaType
   contentType: "feature"

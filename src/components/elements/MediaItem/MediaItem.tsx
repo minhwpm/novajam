@@ -1,12 +1,12 @@
 "use client"
-import { AspectRatioType, MediaType } from "@/helpers/types";
+import { MediaAspectRatioType, MediaType } from "@/helpers/types";
 import classNames from "classnames";
 import Image from "next/image";
 
 export const MediaItem: React.FC<{
   data: MediaType | null;
   altText?: string;
-  aspectRatio?: AspectRatioType;
+  aspectRatio?: MediaAspectRatioType;
   videoAutoplay?: boolean;
   videoControls?: boolean;
   dimensionBase?: "width" | "height";

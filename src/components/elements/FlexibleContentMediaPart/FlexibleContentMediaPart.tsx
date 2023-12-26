@@ -1,4 +1,4 @@
-import { AlignmentType, ContentPieceType } from "@/helpers/types";
+import { AlignmentType, ContentPieceType, MediaAspectRatioType } from "@/helpers/types";
 import classNames from "classnames";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
@@ -6,8 +6,9 @@ import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel
 export const FlexibleContentMediaPart: React.FC<{
   data: ContentPieceType;
   alignment?: AlignmentType;
-  loop?: boolean;
-}> = ({ data, alignment, loop = true }) => {
+  aspectRatio?: MediaAspectRatioType,
+  rounded?: "assets" | "full" | "none"
+}> = ({ data, alignment, aspectRatio = "4/3", rounded = "assets"}) => {
   const { media, embeddedMediaUrl, embeddedMediaTitle } = data;
   return (
     <div
@@ -18,16 +19,24 @@ export const FlexibleContentMediaPart: React.FC<{
       )}
     >
       {embeddedMediaUrl && (
-        <iframe
-          src={embeddedMediaUrl}
-          width="100%"
-          title={embeddedMediaTitle ?? ""}
-          className="aspect-video"
-          allowFullScreen={true}
-        />
+        <div
+          className={classNames(
+            "w-full overflow-hidden",
+            `aspect-${aspectRatio}`,
+            `rounded-${rounded}`,
+          )}
+        >
+          <iframe
+            src={embeddedMediaUrl}
+            width="100%"
+            title={embeddedMediaTitle ?? ""}
+            className="w-full h-full object-cover"
+            allowFullScreen={true}
+          />
+        </div>
       )}
       {!embeddedMediaUrl && media && media.length === 1 && (
-        <MediaItem data={media[0]} />
+        <MediaItem data={media[0]} aspectRatio={aspectRatio} rounded={rounded} />
       )}
       {!embeddedMediaUrl && media && media.length > 1 && (
         <MediaCarousel
@@ -38,7 +47,8 @@ export const FlexibleContentMediaPart: React.FC<{
           pagination={{
             enabled: true
           }}
-          loop={loop}
+          aspectRatio={aspectRatio}
+          rounded={rounded}
         />
       )}
     </div>

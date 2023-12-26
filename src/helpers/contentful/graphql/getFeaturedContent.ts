@@ -1,3 +1,4 @@
+import getFlexibleContent from "./getFlexibleContent"
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getFeature(id: string) {
@@ -19,30 +20,11 @@ export default async function getFeature(id: string) {
           } 
         ) {
           items {
-            heading {
-              json
-            }
-            description {
-              json
-            }
-            buttonsCollection {
-              items {
-                sys {
-                  id
-                }
-                text
-                url
-                buttonVariant
+            content {
+              sys {
+                id
               }
-            }
-            mediaCollection {
-              items {
-                url
-                title
-                width
-                height
-                contentType
-              }
+              __typename
             }
             mediaAspectRatio
             layout
@@ -65,9 +47,17 @@ export default async function getFeature(id: string) {
 
   const data = await res.json()
   if (res.status !== 200) {
-    console.error(data)
     throw new Error("Failed to fetch Feature data. Error: ", data)
   }
+  console.log("RAW FEATURE", JSON.stringify(data, null, 4))
   const normalizedData = normalizeDataCollection({...data.data})
+  console.log("NORMALIZED FEATURE", JSON.stringify(normalizedData, null, 4))
+
+  if (normalizedData[0].content) {
+    normalizedData[0].content = {
+      ... await getFlexibleContent(normalizedData[0].content.id)
+    }
+  }
+  // console.log(`FEATURE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

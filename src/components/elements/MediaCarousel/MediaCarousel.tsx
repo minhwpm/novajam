@@ -1,6 +1,6 @@
 "use client"
 import classNames from "classnames";
-import { AspectRatioType, MediaType } from "@/helpers/types";
+import { MediaAspectRatioType, MediaType } from "@/helpers/types";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, EffectCoverflow, FreeMode, Navigation, Pagination } from "swiper/modules";
@@ -13,7 +13,7 @@ import "@/app/custom-swiper.css"
 
 export const MediaCarousel: React.FC<{
   data: Array<MediaType>;
-  aspectRatio?: AspectRatioType;
+  aspectRatio?: MediaAspectRatioType;
   videoAutoplay?: boolean;
   dimensionBase?: "width" | "height";
   priority?: boolean;
