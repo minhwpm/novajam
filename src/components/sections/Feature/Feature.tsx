@@ -1,5 +1,5 @@
-import { Section } from "@/components/elements/Section/Section";
 import classNames from "classnames";
+import { Section } from "@/components/elements/Section/Section";
 import { Button } from "@/components/elements/Button/Button";
 import { ContentPieceType, FeatureLayoutType, FeatureType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
