@@ -172,10 +172,12 @@ export type FeatureType = {
   contentType: "feature"
 }
 
+export type HeroLayoutType = "overlay" | "vertical" | "horizontal"
+
 export type HeroType = {
   id: string
   content: Array<ContentPieceType>
-  layout: "overlay" | "vertical" | "horizontal"
+  layout: HeroLayoutType
   textAlignment: AlignmentType
   contentType: "hero"
 }

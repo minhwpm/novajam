@@ -26,7 +26,7 @@ export const Dropdown: React.FC<{data: SubmenuType}> =
                 <>
                   <NavigationMenu.Trigger
                     className={classNames(
-                      "w-full select-none text-left py-1.5 px-3 rounded-sm hover:bg-primary-50 transition-color duration-300 data-[state=open]:bg-primary-50 group",
+                      "w-full select-none text-left py-2 px-3 rounded-assets hover:bg-primary-50 transition-color duration-300 data-[state=open]:bg-primary-50 group",
                       {
                         "bg-primary-100": subItem.links.find(
                           (link) => link.url === pathname
@@ -41,7 +41,7 @@ export const Dropdown: React.FC<{data: SubmenuType}> =
                     />
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className="absolute left-full pt-4 pl-4 data-[state=open]:animate-slidingLinkgroup">
-                    <ul className="py-2 px-2 bg-white rounded-assets shadow-radiant w-64 flex flex-col">
+                    <ul className="py-2 px-2 bg-white rounded-md shadow-radiant w-64 flex flex-col">
                       {subItem.links.length > 0 &&
                         subItem.links.map((link) => (
                           <li key={link.id} className="py-1">
