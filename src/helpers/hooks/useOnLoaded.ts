@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 export const useOnLoaded = () => {
   const [onLoaded, setOnLoaded] = useState(false);
-  useEffect(() => {
+  useLayoutEffect(() => {
     setOnLoaded(true)
   }, [])
 

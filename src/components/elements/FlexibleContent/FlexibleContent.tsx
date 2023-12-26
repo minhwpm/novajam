@@ -42,7 +42,7 @@ export const FlexibleContent: React.FC<{
   const { heading, label, description, media, embeddedMediaUrl, buttons } = data;
   return (
     <div className="flex flex-col rounded-assets bg-white">
-      {(media || embeddedMediaUrl) && <FlexibleContentMediaPart data={data} alignment={alignment} /> }
+      {(media || embeddedMediaUrl) && <FlexibleContentMediaPart data={data} alignment={alignment} aspectRatio="auto" /> }
       {(heading || label || description || buttons?.length > 0) && (
         <div
           className={classNames(

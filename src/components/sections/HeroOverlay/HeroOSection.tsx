@@ -54,7 +54,7 @@ export const HeroOSection: React.FC<{
                   "relative",
                   { "-left-20 opacity-0": !onLoaded },
                   {
-                    "opacity-100 left-0 transition-all duration-500 delay-200":
+                    "opacity-100 left-0 transition-all duration-500 delay-100":
                       onLoaded,
                   },
                   "tracking-widest font-semibold lg:text-lg xl:text-xl max-w-2xl"
@@ -69,7 +69,7 @@ export const HeroOSection: React.FC<{
                   "relative",
                   { "-left-20 opacity-0": !onLoaded },
                   {
-                    "opacity-100 left-0 transition-all ease-out duration-500 delay-300":
+                    "opacity-100 left-0 transition-all ease-out duration-500 delay-200":
                       onLoaded,
                   },
                   "text-super-heading leading-[1.1] font-heading max-w-3xl mt-2"
@@ -84,7 +84,7 @@ export const HeroOSection: React.FC<{
                   "relative",
                   { "-left-20 opacity-0": !onLoaded },
                   {
-                    "opacity-100 left-0 transition-all ease-out duration-500 delay-200":
+                    "opacity-100 left-0 transition-all ease-out duration-500 delay-150":
                       onLoaded,
                   },
                   "prose-lg lg:prose-xl mt-10 max-w-2xl"
@@ -98,7 +98,7 @@ export const HeroOSection: React.FC<{
                 "relative mt-12",
                 { "-left-20 opacity-0": !onLoaded },
                 {
-                  "opacity-100 left-0 transition-all ease-out duration-500 delay-500":
+                  "opacity-100 left-0 transition-all ease-out duration-500 delay-300":
                     onLoaded,
                 },
               )}
