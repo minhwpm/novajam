@@ -2,8 +2,9 @@ import '@/app/globals.css'
 import { Analytics } from '@vercel/analytics/react';
 import { Params } from "@/helpers/types"
 import { CustomProvider } from '@/redux/CustomProvider';
+import { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Bluebiz',
   description: 'Multipurpose NextJS Theme',
   openGraph: {

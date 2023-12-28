@@ -1,6 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next'
 import { Sections } from "@/components/sections/Sections/Sections"
-import { Params } from "@/helpers/types"
+import { PageType, Params } from "@/helpers/types"
 import { BlogDetails } from "@/components/sections/BlogDetails/BlogDetails"
 import getPage from "@/helpers/contentful/graphql/getPage"
 import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails"
@@ -11,13 +11,13 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const previousImages = (await parent).openGraph?.images || []
   try {
-    const data = await getPage(`/${params.slug!.join('/')}`)
+    const data: PageType = await getPage(`/${params.slug!.join('/')}`)
     return {
       title: data.metaTitle,
       description: data.metaDescription,
-      keywords: data.metaKeywords ?? data.tags ,
+      keywords: data.metaKeywords,
       openGraph: {
-        images: [data.metaImage ? data.metaImage : {}, ...previousImages]
+        images: [data.metaImage ?? "" , ...previousImages]
       }
     }
   } catch (e) {

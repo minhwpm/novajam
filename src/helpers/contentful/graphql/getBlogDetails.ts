@@ -98,8 +98,7 @@ export default async function getBlogDetails(slug: string) {
     }
   }
   // console.log(`BLOG RAW DATA: ${JSON.stringify(data, null, 4)}`)
-
   const normalizedData = normalizeDataCollection({...data.data})
-  console.log(`BLOG DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  // console.log(`BLOG DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

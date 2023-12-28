@@ -114,10 +114,10 @@ export type PageType = {
   colorPrimary: string
   colorSecondary: string
   borderRadius: string
-  metaTitle: string
-  metaDescription: string
-  metaKeywords?: Array<string>
-  metaImage: MediaType
+  metaTitle: string | null
+  metaDescription: string | null
+  metaKeywords: Array<string> | null
+  metaImage: MediaType | null
   contentType: "page"
 }
 
