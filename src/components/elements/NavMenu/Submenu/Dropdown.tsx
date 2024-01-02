@@ -17,7 +17,7 @@ export const Dropdown: React.FC<{data: SubmenuType}> =
             <NavigationMenu.Item
               key={subItem.id}
               value={subItem.id}
-              className="relative py-1 border-b border-neutral-100 first:pt-0 last:border-none"
+              className="relative py-1 border-b border-neutral-100 first:pt-0 last:pb-0 last:border-none"
             >
               {subItem.contentType === "link" && (
                 <NavLinkItem href={subItem.url}>{subItem.text}</NavLinkItem>
@@ -40,11 +40,11 @@ export const Dropdown: React.FC<{data: SubmenuType}> =
                       className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
                     />
                   </NavigationMenu.Trigger>
-                  <NavigationMenu.Content className="absolute left-full pt-1 pl-4 data-[state=open]:animate-slidingLinkgroup">
+                  <NavigationMenu.Content className="absolute left-full pt-4 pl-4 data-[state=open]:animate-slidingLinkgroup">
                     <ul className="p-3 bg-white rounded-md shadow-radiant w-64 flex flex-col">
                       {subItem.links.length > 0 &&
                         subItem.links.map((link) => (
-                          <li key={link.id} className="py-1">
+                          <li key={link.id} className="py-1 border-b border-neutral-100 first:pt-0 last:pb-0 last:border-none">
                             <NavLinkItem href={link.url}>
                               {link.text}
                             </NavLinkItem>

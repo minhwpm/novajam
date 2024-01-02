@@ -92,7 +92,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
               <NavMenu menu={menu} uiVariant={uiVariant} />
             </div>
             {buttons && buttons.length > 0 && (
-              <div className="shrink-0 hidden lg:block">
+              <div className="ml-8 shrink-0 hidden lg:block">
                 <ButtonGroup data={buttons} size="lg" />
               </div>
             )}
@@ -119,7 +119,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
           <NavMenu menu={menu} uiVariant={uiVariant} />
         </div>
         {buttons && buttons.length > 0 && (
-          <div className="shrink-0 hidden lg:block">
+          <div className="ml-8 shrink-0 hidden lg:block">
             <ButtonGroup data={buttons} />
           </div>
         )}
