@@ -9,12 +9,14 @@ export const NavLinkItem = ({
   className,
   onClick,
   variant = 'highlighted',
+  openNewTab = false,
 }: {
   href: string;
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
   variant?: "underlined" | "highlighted"
+  openNewTab?: boolean
 }) => {
   const pathname = usePathname();
   const classes = classNames(
@@ -30,6 +32,7 @@ export const NavLinkItem = ({
         href={href}
         onClick={onClick}
         className={classes}
+        target={openNewTab ? "_blank" : "_self" }
       >
         {children}
       </Link>

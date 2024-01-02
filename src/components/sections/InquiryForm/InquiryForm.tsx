@@ -63,7 +63,7 @@ export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
             {"text-white drop-shadow-lg": backgroundImage}
           )}>
             {label && (
-              <div className={classNames("tracking-widest font-semibold text-center lg:text-start mb-2")}>
+              <div className={classNames("tracking-widest font-semibold text-center lg:text-start mb-2 text-secondary-500")}>
                 {label}
               </div>
             )}

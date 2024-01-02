@@ -47,7 +47,7 @@ export const Submenu: React.FC<{ data: SubmenuType, uiVariant?: NavigationUiVari
               data.layout === "mega" && uiVariant === "overlay",
           },
           {
-            "absolute top-full left-0 w-64 -mt-4 py-2 px-2 bg-white shadow-radiant rounded-md data-[state=open]:animate-slidingSubmenu":
+            "absolute top-full left-0 w-64 -mt-4 p-3 bg-white shadow-radiant rounded-md data-[state=open]:animate-slidingSubmenu":
               data.layout === "dropdown",
           }
         )}

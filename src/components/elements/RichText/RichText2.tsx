@@ -46,7 +46,7 @@ export function RichText2({
               return (
                 <li className="not-prose flex gap-4 mb-2">
                   <PiCheckBold
-                    className="flex-shrink-0 relative top-1.5 ml-2 text-primary-600"
+                    className="flex-shrink-0 relative top-1.5 ml-2 text-primary-500"
                     size={20}
                   />
                   {children}

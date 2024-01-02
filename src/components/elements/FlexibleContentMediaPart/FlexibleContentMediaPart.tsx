@@ -22,7 +22,7 @@ export const FlexibleContentMediaPart: React.FC<{
         <div
           className={classNames(
             "w-full overflow-hidden",
-            `aspect-${aspectRatio}`,
+            `aspect-${aspectRatio === "auto" ? "3/2" : aspectRatio}`,
             `rounded-${rounded}`,
           )}
         >

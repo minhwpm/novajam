@@ -8,6 +8,7 @@ import NavMenu from "@/components/elements/NavMenu/NavMenu";
 import NavMenuMobile from "@/components/elements/NavMenuMobile/NavMenuMobile";
 import NavMenuMinimal from "@/components/elements/NavMenuMinimal/NavMenuMinimal";
 import { ButtonType, MediaType, NavigationType } from "@/helpers/types";
+import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 
 const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
   redirectUrl,
@@ -24,23 +25,6 @@ const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
     />
   </Link>
 );
-
-const HeaderButtons: React.FC<{ buttons: Array<ButtonType> }> = ({ buttons }) => {
-  return (
-    <>
-      {buttons.map((button) => (
-        <Button
-          key={button.id}
-          url={button.url}
-          variant={button.buttonVariant ?? "outline-white"}
-          openNewTab={button.openNewTab}
-        >
-          {button.text}
-        </Button>
-      ))}
-    </>
-  )
-}
 
 const HotButtons: React.FC<{ buttons: Array<ButtonType> }> = ({ buttons }) => {
   return (
@@ -82,7 +66,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
             <div className="flex gap-5 items-center">
               {buttons && buttons.length > 0 && (
                 <div className="hidden md:block">
-                  <HeaderButtons buttons={buttons} />
+                  <ButtonGroup data={buttons} size="lg" />
                 </div>
               )}
               <NavMenuMinimal data={data} />
@@ -109,7 +93,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
             </div>
             {buttons && buttons.length > 0 && (
               <div className="shrink-0 hidden lg:block">
-                <HeaderButtons buttons={buttons} />
+                <ButtonGroup data={buttons} size="lg" />
               </div>
             )}
             <NavMenuMobile menu={menu} buttons={buttons} />
@@ -136,7 +120,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
         </div>
         {buttons && buttons.length > 0 && (
           <div className="shrink-0 hidden lg:block">
-            <HeaderButtons buttons={buttons} />
+            <ButtonGroup data={buttons} />
           </div>
         )}
         <NavMenuMobile menu={menu} buttons={buttons} />

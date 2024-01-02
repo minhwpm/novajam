@@ -51,7 +51,7 @@ export const HeroOSection: React.FC<{
               <div
                 className={classNames(
                   "animate-slidingHeroContent animation-delay-200",
-                  "tracking-widest font-semibold lg:text-lg xl:text-xl max-w-2xl"
+                  "tracking-widest font-semibold lg:text-lg xl:text-xl max-w-xl"
                 )}
               >
                 {data.label}
@@ -61,7 +61,7 @@ export const HeroOSection: React.FC<{
               <div
                 className={classNames(
                   "relative animate-slidingHeroContent",
-                  "text-super-heading leading-[1.1] font-heading max-w-3xl mt-2"
+                  "text-super-heading leading-tight font-heading max-w-2xl mt-2"
                 )}
               >
                 <RichText2 data={data.heading} />
@@ -71,7 +71,7 @@ export const HeroOSection: React.FC<{
               <div
                 className={classNames(
                   "animate-slidingHeroContent",
-                  "prose-lg lg:prose-xl mt-10 max-w-2xl"
+                  "prose-lg lg:prose-xl mt-10 max-w-xl"
                 )}
               >
                 <RichText2 data={data.description} />
