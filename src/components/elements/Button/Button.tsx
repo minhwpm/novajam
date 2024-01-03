@@ -85,12 +85,12 @@ export const Button: React.FC<ButtonProps> = (props) => {
   return (
     <button
       type={type}
-      className={classNames(classes, className)}
       onClick={onClick}
       disabled={disabled}
     >
       {url ? (
         <Link
+          className={classNames(classes, className)}
           href={url}
           target={openNewTab ? "_blank" : "_self"}
         >

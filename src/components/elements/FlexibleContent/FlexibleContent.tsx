@@ -12,17 +12,17 @@ const TextPart: React.FC<{
   return (
     <>
       {label && (
-        <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest")}>
+        <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest mb-2")}>
           {label}
         </div>
       )}
       {heading && (
-        <div className="text-lg lg:text-2xl mt-1">
+        <div className="text-lg lg:text-2xl">
           <RichText2 data={heading} />
         </div>
       )}
       {description && (
-        <div className="py-3 prose lg:prose-lg">
+        <div className="py-4 prose lg:prose-lg">
           <RichText2 data={description} />
         </div>
       )}
@@ -46,7 +46,7 @@ export const FlexibleContent: React.FC<{
       {(heading || label || description || buttons?.length > 0) && (
         <div
           className={classNames(
-            "px-6 py-8 flex-1 flex flex-col gap-y-4 justify-between",
+            "px-6 py-8 flex-1 flex flex-col justify-between",
             { "text-center": alignment === "center" },
             { "text-end": alignment === "reverse" }
           )}
