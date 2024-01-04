@@ -1,13 +1,13 @@
 "use client"
 import classNames from "classnames"
 import Link from "next/link"
-import { BlogType } from "@/helpers/types"
+import { BlogType, MediaAspectRatioType } from "@/helpers/types"
 import { usePathname } from "next/navigation"
 import { MediaItem } from "../MediaItem/MediaItem"
 
 interface Props {
   data: BlogType
-  aspectRatio?: "video" | "square" | "3/4" | "4/3" | "3/2"
+  aspectRatio?: MediaAspectRatioType
   orientation?: "vertical" | "horizontal"
 }
 

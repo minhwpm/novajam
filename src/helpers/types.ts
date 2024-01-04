@@ -107,7 +107,7 @@ export type PageType = {
   id: string
   title: string
   url: string
-  content: HeroType | CTAType | PresentationType | ContentListType | FeatureType
+  content: HeroType | CTAType | PresentationType | ContentListType | FeaturedContentType
   fontMain: string //@TODO font family options here
   fontHeading: string //@TODO font family options here
   headingFontSize: 'standard' | 'standout' | 'impactful'
