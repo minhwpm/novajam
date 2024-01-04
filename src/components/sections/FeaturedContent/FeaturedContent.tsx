@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
 import { Button } from "@/components/elements/Button/Button";
-import { ContentPieceType, FeaturedContentLayoutType, FeaturedContentType } from "@/helpers/types";
+import { ContentPieceType, FeaturedContentType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 
