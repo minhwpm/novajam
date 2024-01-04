@@ -43,7 +43,7 @@ export const Section: React.FC<Props> = ( { id, heading, label, subheading, chil
         {heading && (
           <div
             className={classNames(
-              "font-heading text-heading !leading-tight text-center max-w-3xl mx-auto mb-6"
+              "font-heading text-heading !leading-normal text-center max-w-3xl mx-auto mb-6"
             )}
           >
             <RichText2 data={heading} />
