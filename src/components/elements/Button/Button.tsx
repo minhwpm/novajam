@@ -44,7 +44,6 @@ export const Button: React.FC<ButtonProps> = (props) => {
             className
           )}
           href={url ?? "#"}
-          onClick={onClick}
         >
           {children}
           <BsArrowRight
@@ -88,17 +87,13 @@ export const Button: React.FC<ButtonProps> = (props) => {
       onClick={onClick}
       disabled={disabled}
     >
-      {url ? (
-        <Link
-          className={classNames(classes, className)}
-          href={url}
-          target={openNewTab ? "_blank" : "_self"}
-        >
-          {children}
-        </Link>
-      ) : (
-        children
-      )}
+      <Link
+        className={classNames(classes, className)}
+        href={url ?? "#"}
+        target={openNewTab ? "_blank" : "_self"}
+      >
+        {children}
+      </Link>
     </button>
   )
 }

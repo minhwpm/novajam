@@ -48,7 +48,7 @@ export default async function getFeature(id: string) {
 
   const data = await res.json()
   if (res.status !== 200) {
-    throw new Error("Failed to fetch Feature data. Error: ", data)
+    throw new Error("Failed to fetch Featured Content data. Error: ", data)
   }
   const normalizedData = normalizeDataCollection({...data.data})
   if (normalizedData[0].content) {
@@ -56,6 +56,6 @@ export default async function getFeature(id: string) {
       ... await getFlexibleContent(normalizedData[0].content.id)
     }
   }
-  // console.log(`FEATURE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  console.log(`FEATURED CONTENT DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

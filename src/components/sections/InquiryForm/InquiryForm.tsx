@@ -128,7 +128,6 @@ export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
                   </div>
                 ))}
               <div className={classNames("col-span-2 flex flex-col")}>
-                
                 {submitButton ? (
                   <Button
                     variant={submitButton.buttonVariant ?? "black"}
