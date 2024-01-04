@@ -50,7 +50,10 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
           <NavigationMenu.List>
             {data.menu.length > 0 &&
               data.menu.map((subItem) => (
-                <NavigationMenu.Item key={subItem.id} className="py-1 border-b last:border-none border-neutral-100">
+                <NavigationMenu.Item
+                  key={subItem.id}
+                  className="py-1 border-b last:border-none border-neutral-100"
+                >
                   {subItem.contentType === "link" && (
                     <NavLinkItem
                       href={subItem.url}
@@ -58,8 +61,8 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
                         setMobileMenuShowed(false);
                         document.body.style.overflow = "auto";
                       }}
-                    > 
-                    {subItem.text}
+                    >
+                      {subItem.text}
                     </NavLinkItem>
                   )}
                   {subItem.contentType === "linkgroup" && (
@@ -116,7 +119,13 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
                   key={content.id}
                   className="w-4/5 md:basis-72 shrink-0 grow max-w-xs"
                 >
-                  <NavFeaturedContent data={content} />
+                  <NavFeaturedContent
+                    data={content}
+                    onClick={() => {
+                      setMobileMenuShowed(false);
+                      document.body.style.overflow = "auto";
+                    }}
+                  />
                 </div>
               ))}
             </div>

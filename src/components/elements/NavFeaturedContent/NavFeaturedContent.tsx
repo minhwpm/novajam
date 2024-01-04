@@ -21,7 +21,10 @@ function standardizeData(data: (BlogType | PageType)) {
   }
 }
 
-export const NavFeaturedContent: React.FC<{data: BlogType | PageType}> = ({ data }) => {
+export const NavFeaturedContent: React.FC<{
+  data: BlogType | PageType
+  onClick?: () => void
+}> = ({ data, onClick }) => {
   const result = standardizeData(data)
   const pathname = usePathname();
 
@@ -32,6 +35,7 @@ export const NavFeaturedContent: React.FC<{data: BlogType | PageType}> = ({ data
         className={classNames("group flex flex-col items-center rounded-assets transition-colors duration-500",
           { "bg-primary-100": result.url === pathname}
         )}
+        onClick={onClick}
       >
         {result.thumbnailImage && (
           <div  className="w-full overflow-hidden rounded-assets">
