@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
 import { Button } from "@/components/elements/Button/Button";
-import { ContentPieceType, FeatureLayoutType, FeatureType } from "@/helpers/types";
+import { ContentPieceType, FeaturedContentLayoutType, FeaturedContentType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 
@@ -67,9 +67,9 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeatureLayoutType }> 
   );
 };
 
-export const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
+export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data }) => {
   const { htmlid, layout, uiVariant, backgroundImage, content, mediaAspectRatio } = data;
-  if (!content) {
+  if (content === null) {
     return null
   }
   if (uiVariant === "extended") {
@@ -161,4 +161,4 @@ export const Feature: React.FC<{ data: FeatureType }> = ({ data }) => {
   );
 };
 
-export default Feature;
+export default FeaturedContent;

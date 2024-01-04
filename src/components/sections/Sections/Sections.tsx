@@ -4,7 +4,7 @@ import { HeroOverlay } from "@/components/sections/HeroOverlay/HeroOverlay";
 import { ScrollingPT } from "@/components/sections/ScrollingPT/ScrollingPT";
 import { AccordionPT } from "@/components/sections/AccordionPT/AccordionPT";
 import { ContentList } from "@/components/sections/ContentList/ContentList";
-import { Feature } from "@/components/sections/Feature/Feature";
+import { FeaturedContent } from "@/components/sections/FeaturedContent/FeaturedContent";
 import { TabPT } from "@/components/sections/TabPT/TabPT";
 import { CarouselPT } from "@/components/sections/CarouselPT/CarouselPT";
 import { MiniCarouselPT } from "@/components/sections/MiniCarouselPT/MiniCarouselPT";
@@ -13,13 +13,13 @@ import { VerticalTabPT } from "@/components/sections/VerticalTabPT/VerticalTabPT
 import {
   CTAType,
   ContentListType,
-  FeatureType,
+  FeaturedContentType,
   HeroType,
   InquiryFormType,
   PresentationType,
 } from "@/helpers/types";
 
-type ComponentType = HeroType | CTAType | PresentationType | ContentListType | FeatureType | InquiryFormType
+type ComponentType = HeroType | CTAType | PresentationType | ContentListType | FeaturedContentType | InquiryFormType
 
 function PresentationMapping({ data }: { data: PresentationType }) {
   switch (data.layout) {
@@ -55,7 +55,7 @@ function SectionComponentMapping ({ data }: { data: ComponentType }) {
     case "presentation":
       return <PresentationMapping data={data} />
     case "feature":
-      return <Feature data={data} />
+      return <FeaturedContent data={data} />
     case "cardlist":
       return <ContentList data={data} />
     case "inquiryform":

@@ -53,9 +53,9 @@ export default async function getFeature(id: string) {
   const normalizedData = normalizeDataCollection({...data.data})
   if (normalizedData[0].content) {
     normalizedData[0].content = {
-      ... await getFlexibleContent(normalizedData[0].content.id)
+      ... await getFlexibleContent(normalizedData[0].content.sys.id)
     }
   }
-  console.log(`FEATURED CONTENT DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  // console.log(`FEATURED CONTENT DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

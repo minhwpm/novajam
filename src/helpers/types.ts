@@ -156,9 +156,9 @@ export type ExpertType = {
 
 export type MediaAspectRatioType = "auto" | "square" | "16/9" | "4/3" | "3/4" | "3/2"
 
-export type FeatureLayoutType = "Horizontal (Image | Text)" | "Horizontal (Text | Image)" | "Vertical (Image | Text)" | "Vertical (Text | Image)"
+export type FeaturedContentLayoutType = "Horizontal (Image | Text)" | "Horizontal (Text | Image)" | "Vertical (Image | Text)" | "Vertical (Text | Image)"
 
-export type FeatureType = {
+export type FeaturedContentType = {
   id: string
   title: string
   heading: Document
@@ -170,7 +170,7 @@ export type FeatureType = {
   buttons: Array<ButtonType>
   content: ContentPieceType
   htmlid: string
-  layout: FeatureLayoutType
+  layout: FeaturedContentLayoutType
   uiVariant: "standard" | "extended"
   backgroundImage: MediaType
   contentType: "feature"
