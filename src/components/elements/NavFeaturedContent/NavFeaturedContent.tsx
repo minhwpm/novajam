@@ -32,7 +32,7 @@ export const NavFeaturedContent: React.FC<{
     <>
       <Link
         href={result.url ?? "#"}
-        className={classNames("group flex flex-col items-center rounded-assets transition-colors duration-500",
+        className={classNames("group bg-white flex flex-col items-center rounded-assets transition-colors duration-500",
           { "bg-primary-100": result.url === pathname}
         )}
         onClick={onClick}
