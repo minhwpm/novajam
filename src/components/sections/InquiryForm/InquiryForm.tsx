@@ -123,7 +123,7 @@ export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
                       <TextAreaField data={fieldItem} register={register} />
                     )}
 
-                    {(fieldItem.fieldType !== "textarea" && fieldItem.fieldType !== "select" && fieldItem.fieldType !== "date") && (
+                    {(fieldItem.fieldType !== "textarea" && fieldItem.fieldType !== "select" && fieldItem.fieldType !== "date" && fieldItem.fieldType !== "datetime") && (
                       <InputField data={fieldItem} register={register} />
                     )}
                     
