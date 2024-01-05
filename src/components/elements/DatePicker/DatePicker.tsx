@@ -1,39 +1,40 @@
-import classNames from "classnames";
 import { useController, UseControllerProps } from "react-hook-form";
 import ReactDatePicker from "react-datepicker"
+import { FormFieldType } from "@/helpers/types";
+import { UseFormRegister } from "react-hook-form/dist/types/form";
+import { FormValues } from "@/components/sections/InquiryForm/InquiryForm";
 import "react-datepicker/dist/react-datepicker.css";
-// import { ReactDatePickerProps } from "@types/react-datepicker"
 
 interface Props extends UseControllerProps {
-  className?: string 
-  placeholder?: string
-  required?: boolean
+  data: FormFieldType;
+  register: UseFormRegister<FormValues>;
+  showTimeSelect?: boolean
 }
 
-export function DatePicker(props: Props) {
-  const { control, name, placeholder, className, required } = props
+export function DatePicker({ data, register, control, showTimeSelect }: Props) {
+  const { label, required } = data
   const {
     field,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    fieldState: { invalid, isTouched, isDirty },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    formState: { touchedFields, dirtyFields }
   } = useController({
-    name,
+    name: label,
     control,
     rules: {required: required}
   })
 
   return (
     <ReactDatePicker
-      className={classNames(className)}
-      placeholderText={placeholder ?? "Select a date"}
+      className="w-full border border-neutral-300 rounded-assets px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-500"
+      placeholderText={label + (required ? "*" : "")}
+      {...register(label, {
+        required: required,
+      })}
+      required={required}
       selected={field.value}
       onChange={(date) => {
-        field.onChange(date)
-        console.log("HELLO", date)
+        field.onChange(date);
       }}
-      dateFormat="d MMM, yyyy"
+      showTimeSelect={showTimeSelect}
+      dateFormat={showTimeSelect ? "d MMMM, yyyy - h:mma" : "d MMMM, yyyy"}
     />
   );
 }

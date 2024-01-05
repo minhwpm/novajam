@@ -8,7 +8,7 @@ import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { InputField } from "./InputField";
 import { TextAreaField } from "./TextAreaField";
 import { SelectField } from "./SelectField";
-import { DatePickerField } from "./DatePickerField";
+import { DatePicker } from "@/components/elements/DatePicker/DatePicker";
 
 export type FormValues = {
   [x: string]: string;
@@ -114,9 +114,11 @@ export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
                       <SelectField data={fieldItem} control={control} register={register} />
                     )}
                     {fieldItem.fieldType === "date" && (
-                      <DatePickerField data={fieldItem} control={control} register={register} />
+                      <DatePicker name={fieldItem.label} data={fieldItem} control={control} register={register} />
                     )}
-
+                    {fieldItem.fieldType === "datetime" && (
+                      <DatePicker name={fieldItem.label} data={fieldItem} control={control} register={register} showTimeSelect={true} />
+                    )}
                     {fieldItem.fieldType === "textarea" && (
                       <TextAreaField data={fieldItem} register={register} />
                     )}

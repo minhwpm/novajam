@@ -39,7 +39,7 @@ export default async function getInquiryForm(id: string) {
                 fieldType
                 options
                 required
-                placeholder
+                helpText
                 uiWidth
               }
             }

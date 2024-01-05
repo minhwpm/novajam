@@ -20,7 +20,7 @@ export const SelectField: React.FC<{
       })}
       placeholder={(
         <div className="text-neutral-500">
-          {data.placeholder ?? data.label}
+          {data.label + (data.required ? "*" : "")}
         </div>
       )}
       {...register(data.label, {
