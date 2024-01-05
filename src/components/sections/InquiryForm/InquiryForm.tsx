@@ -15,14 +15,13 @@ export type FormValues = {
 }
 
 export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
-  // @TODO
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { title, heading, label, subheading, description, formType, fields, submitButton, backgroundImage, htmlid } = data;
+  // @TODO
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { register, control, handleSubmit, setError, watch, formState: { errors } } = useForm<FormValues>();
 
   async function onSubmit(formValues: FormValues) {
-    console.log("FORM VALUES:", formValues)
+    console.log("FORM VALUES:", formValues, errors)
     try {
       const res = await fetch(`/api/inquiry-form-submission/`, {
         headers: {
@@ -42,7 +41,6 @@ export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
       console.error(err);
     }
   }
-  // console.log("FORM STATE", errors)
   return (
     <section
       id={htmlid}
@@ -112,7 +110,7 @@ export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
                       )}
                     </div>
                     { fieldItem.helpText && (
-                      <div className="text-neutral-600 pl-2 pb-1">
+                      <div className="text-neutral-800 pl-2 pb-2">
                         {fieldItem.helpText}
                       </div>
                     )}
