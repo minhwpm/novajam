@@ -15,8 +15,9 @@ export type FormValues = {
 }
 
 export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
+  // @TODO
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { title, heading, label, subheading, description, formType, fields, submitButton, backgroundImage, htmlid } = data
+  const { title, heading, label, subheading, description, formType, fields, submitButton, backgroundImage, htmlid } = data;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { register, control, handleSubmit, setError, watch, formState: { errors } } = useForm<FormValues>();
 
@@ -110,6 +111,11 @@ export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
                         <p>Wrong format. Please try again. </p> 
                       )}
                     </div>
+                    { fieldItem.helpText && (
+                      <div className="text-neutral-600 pl-2 pb-1">
+                        {fieldItem.helpText}
+                      </div>
+                    )}
                     {fieldItem.fieldType === "select" && (
                       <SelectField data={fieldItem} control={control} register={register} />
                     )}
@@ -122,7 +128,6 @@ export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
                     {fieldItem.fieldType === "textarea" && (
                       <TextAreaField data={fieldItem} register={register} />
                     )}
-
                     {(fieldItem.fieldType !== "textarea" && fieldItem.fieldType !== "select" && fieldItem.fieldType !== "date" && fieldItem.fieldType !== "datetime") && (
                       <InputField data={fieldItem} register={register} />
                     )}
