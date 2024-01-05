@@ -56,7 +56,6 @@ export default async function getInquiryForm(id: string) {
             }
             htmlid
             formType
-            dateFormat
           }
         }
       }

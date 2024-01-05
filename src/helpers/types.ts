@@ -285,6 +285,5 @@ export type InquiryFormType = {
   }
   htmlid: string
   formType: string
-  dateFormat: string
   contentType: "inquiryform"
 }
