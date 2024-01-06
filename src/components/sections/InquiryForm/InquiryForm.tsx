@@ -1,6 +1,6 @@
 "use client"
 import classNames from "classnames";
-import  { useForm }  from "react-hook-form";
+import  { FieldErrors, useForm }  from "react-hook-form";
 import { Button } from "@/components/elements/Button/Button";
 import { Container }from "@/components/elements/Container/Container";
 import { InquiryFormType } from "@/helpers/types";
@@ -19,28 +19,34 @@ export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
   // @TODO
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { register, control, handleSubmit, setError, watch, formState: { errors } } = useForm<FormValues>();
+  console.log("FORM STATE", errors)
 
-  async function onSubmit(formValues: FormValues) {
-    console.log("FORM VALUES:", formValues, errors)
-    try {
-      const res = await fetch(`/api/inquiry-form-submission/`, {
-        headers: {
-          "Content-Type": "application/json",
+async function onSubmitValid(formValues: FormValues) {
+  console.log("FORM VALUES:", formValues)
+  try {
+    const res = await fetch(`/api/inquiry-form-submission/`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({
+        title: title,
+        formType: formType,
+        submittedContent: {
+          ...formValues,
         },
-        method: "POST",
-        body: JSON.stringify({
-          title: title,
-          formType: formType,
-          submittedContent: {
-            ...formValues,
-          },
-        }),
-      });
-      console.log(res);
-    } catch (err) {
-      console.error(err);
-    }
+      }),
+    });
+    console.log(res);
+  } catch (err) {
+    console.error(err);
   }
+}
+
+function onSubmitInvalid(errors: FieldErrors<FormValues>) {
+  console.log("FORM ERRORS:", errors)
+}
+
   return (
     <section
       id={htmlid}
@@ -91,9 +97,11 @@ export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
                 { "bg-neutral-50 bg-opacity-70": backgroundImage },
                 { "gap-x-0": fields.length === 1 }
               )}
-              onSubmit={handleSubmit(onSubmit)}
+              onSubmit={handleSubmit(onSubmitValid, onSubmitInvalid)}
             >
               {fields.length > 0 &&
+                // @TODO 
+                // eslint-disable-next-line complexity
                 fields.map((fieldItem) => (
                   <div
                     key={fieldItem.id} 
@@ -129,7 +137,6 @@ export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
                     {(fieldItem.fieldType !== "textarea" && fieldItem.fieldType !== "select" && fieldItem.fieldType !== "date" && fieldItem.fieldType !== "datetime") && (
                       <InputField data={fieldItem} register={register} />
                     )}
-                    
                   </div>
                 ))}
               <div className={classNames("col-span-2 flex flex-col")}>
