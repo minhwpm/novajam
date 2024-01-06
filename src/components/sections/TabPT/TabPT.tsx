@@ -4,14 +4,14 @@ import classNames from "classnames";
 import * as RadixTabs from '@radix-ui/react-tabs';
 import { Section } from '@/components/elements/Section/Section';
 import { Button } from '@/components/elements/Button/Button';
-import { PresentationType } from '@/helpers/types';
+import { ContentPTType } from '@/helpers/types';
 import { RichText2 } from "@/components/elements/RichText/RichText2"
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import styles from "./styles.module.css"
 
-export const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
-  const { htmlid, label, heading, subheading, content, alignment } = data
+export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
+  const { htmlid, label, heading, summary, content, alignment } = data
   const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0].id : '')
   
   // Justify tab container
@@ -28,7 +28,7 @@ export const TabPT: React.FC<{ data: PresentationType }> = ({data}) => {
       id={htmlid}
       label={label}
       heading={heading}
-      subheading={subheading}
+      summary={summary}
     >
       <RadixTabs.Root
         className="w-full"

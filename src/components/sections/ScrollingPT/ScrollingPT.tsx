@@ -3,17 +3,17 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
 import FeatureContentItem from "@/components/elements/FeatureContentItem/FeatureContentItem";
-import { PresentationType } from "@/helpers/types";
+import { ContentPTType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 
-export const ScrollingPT: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, heading, subheading, content, alignment } = data;
+export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
+  const { label, heading, summary, content, alignment } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
-    <Section label={label} heading={heading} subheading={subheading}>
+    <Section label={label} heading={heading} summary={summary}>
       {/* FOR MOBILE, TABLETS */}
       <div className="xl:hidden">
         {content?.map((section) => (

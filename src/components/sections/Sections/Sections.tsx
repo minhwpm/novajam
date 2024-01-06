@@ -16,12 +16,12 @@ import {
   FeaturedContentType,
   HeroType,
   InquiryFormType,
-  PresentationType,
+  ContentPTType,
 } from "@/helpers/types";
 
-type ComponentType = HeroType | CTAType | PresentationType | ContentListType | FeaturedContentType | InquiryFormType
+type ComponentType = HeroType | CTAType | ContentPTType | ContentListType | FeaturedContentType | InquiryFormType
 
-function PresentationMapping({ data }: { data: PresentationType }) {
+function PresentationMapping({ data }: { data: ContentPTType }) {
   switch (data.layout) {
     case "scrolling":
       return <ScrollingPT data={data} />;

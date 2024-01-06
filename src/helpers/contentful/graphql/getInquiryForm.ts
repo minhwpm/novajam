@@ -26,7 +26,7 @@ export default async function getInquiryForm(id: string) {
               json
             }
             label
-            subheading
+            summary
             description {
               json
             }

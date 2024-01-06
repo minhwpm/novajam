@@ -15,7 +15,7 @@ export type FormValues = {
 }
 
 export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
-  const { title, heading, label, subheading, description, formType, fields, submitButton, backgroundImage, htmlid } = data;
+  const { title, heading, label, summary, description, formType, fields, submitButton, backgroundImage, htmlid } = data;
   // @TODO
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { register, control, handleSubmit, setError, watch, formState: { errors } } = useForm<FormValues>();
@@ -77,9 +77,9 @@ function onSubmitInvalid(errors: FieldErrors<FormValues>) {
                 <RichText2 data={heading} />
               </div>
             )}
-            {subheading && (
+            {summary && (
               <div className={classNames("prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center lg:text-start mb-5")}>
-                {subheading}
+                {summary}
               </div>
             )}
             {description && (

@@ -10,15 +10,14 @@ interface Props {
   id?: string | null
   label?: string | null
   heading?: Document | null
-  subheading?: string | null
+  summary?: Document | null
   className?: string
   background?: MediaType
   children: React.ReactNode
   framed?: boolean
 }
 
-export const Section: React.FC<Props> = ( { id, heading, label, subheading, children, className, background, framed = true } ) => {
-
+export const Section: React.FC<Props> = ( { id, heading, label, summary, children, className, background, framed = true } ) => {
   return (
     <section
       id={id ?? ""}
@@ -49,20 +48,20 @@ export const Section: React.FC<Props> = ( { id, heading, label, subheading, chil
             <RichText2 data={heading} />
           </div>
         )}
-        {subheading && (
-          <p
+        {summary && (
+          <div
             className={classNames(
               "prose-lg lg:prose-xl text-center max-w-xl lg:max-w-3xl mx-auto mb-6"
             )}
           >
-            {subheading}
-          </p>
+            <RichText2 data={summary} />
+          </div>
         )}
       </Container>
       {framed ? (
         <Container
           className={classNames("rounded-assets", {
-            "mt-3": heading || label || subheading,
+            "mt-3": heading || label || summary,
           })}
         >
           {children}
@@ -72,10 +71,4 @@ export const Section: React.FC<Props> = ( { id, heading, label, subheading, chil
       )}
     </section>
   );
-}
-
-export const Label = ({ children }: {children: React.ReactNode}) => {
-  <p className="uppercase tracking-widest mb-3">
-    {children}
-  </p>
 }

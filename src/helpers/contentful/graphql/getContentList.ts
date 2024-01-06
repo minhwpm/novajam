@@ -24,7 +24,9 @@ export default async function getContentList(id: string) {
               json
             }
             label
-            subheading
+            summary {
+              json
+            }
             seeAllLink {
               url
               text

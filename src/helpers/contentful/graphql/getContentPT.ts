@@ -1,7 +1,7 @@
 import getFlexibleContent from "./getFlexibleContent"
 import normalizeDataCollection from "./normalizeDataCollection"
 
-export default async function getPresentation(id: string) {
+export default async function getContentPT(id: string) {
   const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {
@@ -24,7 +24,9 @@ export default async function getPresentation(id: string) {
               json
             }
             label
-            subheading
+            summary {
+              json
+            }
             layout
             alignment
             htmlid
@@ -51,7 +53,7 @@ export default async function getPresentation(id: string) {
   const data = await res.json()
   if (res.status !== 200) {
     console.error(data)
-    throw new Error("Failed to fetch Presentation data. Error: ", data.error)
+    throw new Error("Failed to fetch ContentPT data. Error: ", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
   async function getSectionData(contentType: string, id: string) {
@@ -65,7 +67,7 @@ export default async function getPresentation(id: string) {
       ... await getSectionData(normalizedData[0].content[i].contentType, normalizedData[0].content[i].id)
     }
   }
-  // console.log(`PRESENTATION DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  // console.log(`ContentPT DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 
 }

@@ -2,7 +2,7 @@
 import classNames from "classnames";
 import React, { useState } from "react";
 import { Section } from "@/components/elements/Section/Section";
-import { PresentationType } from "@/helpers/types";
+import { ContentPTType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { Button } from "@/components/elements/Button/Button";
@@ -37,8 +37,8 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length }: ArrowGroupProps) => {
   );
 };
 
-export const MiniCarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, heading, subheading, content, alignment } = data;
+export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
+  const { label, heading, summary, content, alignment } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
@@ -55,10 +55,10 @@ export const MiniCarouselPT: React.FC<{ data: PresentationType }> = ({ data }) =
               <RichText2 data={heading} />
             </div>
           )}
-          {subheading && (
-            <p className="prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl">
-              {subheading}
-            </p>
+          {summary && (
+            <div className="prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl">
+              <RichText2 data={summary} />
+            </div>
           )}
           <div className="mt-8 hidden lg:flex gap-10">
             <ArrowGroup

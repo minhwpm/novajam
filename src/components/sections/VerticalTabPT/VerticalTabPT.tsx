@@ -5,17 +5,17 @@ import * as RadixTabs from "@radix-ui/react-tabs";
 import { Section } from "@/components/elements/Section/Section";
 import { Button } from "@/components/elements/Button/Button";
 import classNames from "classnames";
-import { PresentationType } from "@/helpers/types";
+import { ContentPTType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 
-export const VerticalTabPT: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, heading, subheading, content, alignment } = data;
+export const VerticalTabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
+  const { label, heading, summary, content, alignment } = data;
   const [activeItem, setActiveItem] = React.useState(
     content.length > 0 ? content[0].id : ""
   );
   return (
-    <Section label={label} heading={heading} subheading={subheading}>
+    <Section label={label} heading={heading} summary={summary}>
       <RadixTabs.Root
         className="w-full lg:flex"
         defaultValue={content.length > 0 ? content[0].id : ""}

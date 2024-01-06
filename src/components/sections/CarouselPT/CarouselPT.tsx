@@ -2,7 +2,7 @@
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
-import { AlignmentType, ContentPieceType, PresentationType } from "@/helpers/types";
+import { AlignmentType, ContentPieceType, ContentPTType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
@@ -44,13 +44,13 @@ const TextPart: React.FC<{
   )
 }
 
-export const CarouselPT: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, heading, subheading, content, alignment } = data
+export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
+  const { label, heading, summary, content, alignment } = data
   return (
     <Section
       label={label}
       heading={heading}
-      subheading={subheading}
+      summary={summary}
     >
       <Swiper
         slidesPerView={1}

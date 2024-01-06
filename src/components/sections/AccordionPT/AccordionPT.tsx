@@ -6,16 +6,16 @@ import React from "react";
 import classNames from "classnames";
 import * as RadixAccordion from "@radix-ui/react-accordion";
 import { Section } from "@/components/elements/Section/Section";
-import { PresentationType } from "@/helpers/types";
+import { ContentPTType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 
-export const AccordionPT: React.FC<{ data: PresentationType }> = ({ data }) => {
-  const { label, heading, subheading, content, alignment } = data;
+export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
+  const { label, heading, summary, content, alignment } = data;
   return (
-    <Section label={label} heading={heading} subheading={subheading}>
+    <Section label={label} heading={heading} summary={summary}>
       <div className="w-full flex flex-col gap-10">
         <RadixAccordion.Root
           type="multiple"

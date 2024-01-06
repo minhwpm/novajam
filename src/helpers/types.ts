@@ -107,7 +107,7 @@ export type PageType = {
   id: string
   title: string
   url: string
-  content: HeroType | CTAType | PresentationType | ContentListType | FeaturedContentType
+  content: HeroType | CTAType | ContentPTType | ContentListType | FeaturedContentType
   fontMain: string //@TODO font family options here
   fontHeading: string //@TODO font family options here
   headingFontSize: 'standard' | 'standout' | 'impactful'
@@ -189,16 +189,16 @@ export type HeroType = {
 export type CTAType = {
   id: string
   heading: Document
-  subheading: string | null
+  content: string | null
   buttons: Array<ButtonType>
   contentType: "cta"
 }
 
-export type PresentationType = {
+export type ContentPTType = {
   id: string
-  heading: Document | null
   label: string | null
-  subheading: string | null
+  heading: Document | null
+  summary: Document | null
   content: Array<ContentPieceType>
   layout: "carousel" | "mini-carousel" | "tab" | "vertical-tab" | "accordion" | "scrolling"
   alignment: AlignmentType
@@ -244,7 +244,7 @@ export type ContentListType = {
   id: string
   heading: Document | null
   label: string | null
-  subheading: string | null
+  summary: Document | null
   content: Array<Content>
   seeAllLink: LinkType
   layout: ContentListLayout
@@ -269,7 +269,7 @@ export type InquiryFormType = {
   title: string
   heading: Document | null
   label: string | null
-  subheading: string | null
+  summary: string | null
   description: Document | null
   fields: Array<FormFieldType>
   submitButton: {

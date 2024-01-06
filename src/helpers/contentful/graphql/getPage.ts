@@ -3,7 +3,7 @@ import getContentList from "./getContentList"
 import getFeaturedContent from "./getFeaturedContent"
 import getHero from "./getHero"
 import getInquiryForm from "./getInquiryForm"
-import getPresentation from "./getPresentation"
+import getContentPT from "./getContentPT"
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getPage(url: string) {
@@ -103,7 +103,7 @@ export default async function getPage(url: string) {
       return await getCTA(id)
     }
     if (contentType === "presentation") {
-      return await getPresentation(id)
+      return await getContentPT(id)
     }
     if (contentType === "feature") {
       return await getFeaturedContent(id)

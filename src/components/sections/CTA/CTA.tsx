@@ -7,7 +7,7 @@ import { CTAType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 
 export const CTA: React.FC<{data: CTAType} > = ({ data }) => {
-  const { heading, subheading, buttons } = data;
+  const { heading, content, buttons } = data;
 
   const [ref, isVisible] = useInView({
     threshold: 0.5,
@@ -29,9 +29,9 @@ export const CTA: React.FC<{data: CTAType} > = ({ data }) => {
           <div className="text-heading leading-snug font-heading font-semibold text-center text-neutral-100">
             <RichText2 data={heading} />
           </div>
-          {subheading && (
+          {content && (
             <p className="text-xl text-primary-200 text-center mt-8">
-              {subheading}
+              {content}
             </p>
           )}
           <div className="mt-12">

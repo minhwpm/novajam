@@ -10,7 +10,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
   const {
     heading,
     label,
-    subheading,
+    summary,
     seeAllLink,
     content,
     layout,
@@ -23,7 +23,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     <Section
       label={label}
       heading={heading}
-      subheading={subheading}
+      summary={summary}
       id={htmlid}
       framed={ layout !== "carousel" }
     >
