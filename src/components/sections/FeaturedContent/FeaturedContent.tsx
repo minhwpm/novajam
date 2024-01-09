@@ -85,7 +85,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
     return (
       <section
         id={htmlid}
-        className={classNames("")}
+        className={classNames("py-12 lg:py-18")}
       >
         <div
           className={classNames(

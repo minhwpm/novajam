@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Button } from "../Button/Button";
 
-const Pagination: React.FC<{
+export const Pagination: React.FC<{
   totalPages: number;
   currentPageNumber?: number;
 }> = ({ totalPages, currentPageNumber = 1 }) => {
@@ -52,5 +52,3 @@ const Pagination: React.FC<{
     </div>
   );
 };
-
-export default Pagination;

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import BlogPreview from "@/components/elements/BlogPreview/BlogPreview";
+import { BlogPreview } from "@/components/elements/BlogPreview/BlogPreview";
 import PagePreview from "../PagePreview/PagePreview";
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview";
 import { Statistics } from "@/components/elements/Statistics/Statistics";

@@ -11,7 +11,7 @@ interface Props {
   orientation?: "vertical" | "horizontal"
 }
 
-const BlogPreview: React.FC<Props> = ({
+export const BlogPreview: React.FC<Props> = ({
   data,
   aspectRatio = "3/2",
   orientation = "vertical"
@@ -61,5 +61,3 @@ const BlogPreview: React.FC<Props> = ({
     </div>
   )
 }
-
-export default BlogPreview
