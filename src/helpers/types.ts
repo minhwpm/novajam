@@ -21,6 +21,8 @@ export type SNSType = {
   instagramUrl: string | null
 }
 
+export type BackgroundColorType = "neutral" | "red" | "orange" | "amber" | "yellow" | "lime" | "green" | "emerald" | "teal" | "cyan" | "sky" | "blue" | "indigo" | "violet" | "purple" | "fuchsia" | "pink" | "rose"  
+
 export type AlignmentType = "inherit" | "center" | "reverse"
 
 export type ButtonVariant = "standard" | "alternate" | "black" | "link" | "outline" | "outline-black" | "outline-white"
@@ -172,7 +174,7 @@ export type FeaturedContentType = {
   htmlid: string
   layout: FeaturedContentLayoutType
   uiVariant: "standard" | "extended"
-  backgroundImage: MediaType
+  backgroundColor: BackgroundColorType
   contentType: "feature"
 }
 
@@ -203,6 +205,7 @@ export type ContentPTType = {
   layout: "carousel" | "mini-carousel" | "tab" | "vertical-tab" | "accordion" | "scrolling"
   alignment: AlignmentType
   htmlid: string | null
+  backgroundColor: BackgroundColorType
   contentType: "presentation"
 }
 
@@ -251,6 +254,7 @@ export type ContentListType = {
   size: ContentSize
   alignment: AlignmentType
   htmlid: string | null
+  backgroundColor: BackgroundColorType
   contentType: "cardlist"
 }
 

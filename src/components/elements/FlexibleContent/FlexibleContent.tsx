@@ -46,7 +46,7 @@ export const FlexibleContent: React.FC<{
       {(heading || label || description || buttons?.length > 0) && (
         <div
           className={classNames(
-            "px-6 py-8 flex-1 flex flex-col justify-between",
+            "px-4 pt-4 pb-6 lg:px-6 lg:pt-6 lg:pb-8 flex-1 flex flex-col justify-between",
             { "text-center": alignment === "center" },
             { "text-end": alignment === "reverse" }
           )}

@@ -30,12 +30,7 @@ export default async function getFeature(id: string) {
             mediaAspectRatio
             layout
             uiVariant
-            backgroundImage {
-              url
-              title
-              width
-              height
-            }
+            backgroundColor
           }
         }
       }

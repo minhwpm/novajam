@@ -5,7 +5,7 @@ import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { AlignmentType, ContentPieceType, ContentPTType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
-import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -74,8 +74,8 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 { "text-end": alignment === "reverse" }
               )}>
                 <div className="flex items-center justify-center gap-8 py-6 lg:hidden">
-                  <AiOutlineArrowLeft className="carouselPT-btn-prev cursor-pointer" size={40} />
-                  <AiOutlineArrowRight className="carouselPT-btn-next cursor-pointer" size={40} />
+                  <IoIosArrowBack className="carouselPT-btn-prev cursor-pointer" size={40} />
+                  <IoIosArrowForward className="carouselPT-btn-next cursor-pointer" size={40} />
                 </div>
                 <TextPart data={item} alignment={alignment} />
               </div>
@@ -91,11 +91,11 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             </div>
           </SwiperSlide>
         ))}
-        <div className="carouselPT-btn-prev cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-neutral-200 transition-colors duration-300 ease-in-out">
-          <AiOutlineArrowLeft size={35} />
+        <div className="carouselPT-btn-prev cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-neutral-200 transition-colors duration-500 ease">
+          <IoIosArrowBack size={35} />
         </div>
-        <div className="carouselPT-btn-next cursor-pointer absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-neutral-200 transition-colors duration-300 ease-in-out">
-          <AiOutlineArrowRight size={35} />
+        <div className="carouselPT-btn-next cursor-pointer absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-neutral-200 transition-colors duration-500 ease">
+          <IoIosArrowForward size={35} />
         </div>
       </Swiper>
     </Section>

@@ -30,6 +30,7 @@ export default async function getContentPT(id: string) {
             layout
             alignment
             htmlid
+            backgroundColor
             contentCollection (limit: 20) {
               items {
                 __typename

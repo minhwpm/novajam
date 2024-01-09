@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Section } from "@/components/elements/Section/Section";
 import { ContentPTType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 
@@ -17,17 +17,15 @@ interface ArrowGroupProps {
 const ArrowGroup = ({ visibleIdx, setVisibleIdx, length }: ArrowGroupProps) => {
   return (
     <>
-      <AiOutlineArrowLeft
-        className="cursor-pointer"
-        size={40}
+      <IoIosArrowBack
+        className="cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 p-2 hover:bg-neutral-200 transition-colors duration-500 ease"
         onClick={() => {
           if (visibleIdx > 0) setVisibleIdx(visibleIdx - 1);
           else setVisibleIdx(length - 1);
         }}
       />
-      <AiOutlineArrowRight
-        className="cursor-pointer"
-        size={40}
+      <IoIosArrowForward
+        className="cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 p-2 hover:bg-neutral-200 transition-colors duration-500 ease"
         onClick={() => {
           if (visibleIdx < length - 1) setVisibleIdx(visibleIdx + 1);
           else setVisibleIdx(0);
@@ -42,7 +40,7 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
-    <Section className="bg-neutral-50 overflow-x-hidden">
+    <Section className="overflow-x-hidden">
       <div className="flex flex-col lg:flex-row gap-5 px-4 lg:py-10">
         <div className="lg:w-1/2 lg:pr-10">
           {label && (
@@ -60,7 +58,7 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               <RichText2 data={summary} />
             </div>
           )}
-          <div className="mt-8 hidden lg:flex gap-10">
+          <div className="mt-8 hidden lg:flex gap-4">
             <ArrowGroup
               visibleIdx={visibleIdx}
               setVisibleIdx={setVisibleIdx}
@@ -126,7 +124,7 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             </div>
           ))}
         </div>
-        <div className="flex lg:hidden gap-12 mt-2 justify-center">
+        <div className="flex lg:hidden gap-4 mt-2 justify-center">
           <ArrowGroup
             visibleIdx={visibleIdx}
             setVisibleIdx={setVisibleIdx}

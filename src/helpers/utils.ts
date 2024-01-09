@@ -27,4 +27,3 @@ export function getRegEx(fieldType: string) {
 export function generateColorClassnames(colorPrimary: string | null, colorSecondary: string | null) {
   return [ `${colorPrimary}-primary-color`, `${colorSecondary}-secondary-color` ]
 }
-

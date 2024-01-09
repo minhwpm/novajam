@@ -36,6 +36,7 @@ export default async function getContentList(id: string) {
             layout
             size
             alignment
+            backgroundColor
             contentCollection (limit: 20) {
               items {
                 __typename

@@ -4,6 +4,7 @@ import { Button } from "@/components/elements/Button/Button";
 import { ContentPieceType, FeaturedContentType, FeaturedContentLayoutType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
+import styles from "./styles.module.css"
 
 const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayoutType }> = ({ data, layout }) => {
   const { label, heading, description, buttons  } = data;
@@ -49,7 +50,7 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
         </div>
       }
       {buttons && buttons.length > 0 && (
-        <div className="mt-10 flex items-center gap-5">
+        <div className="mt-10 flex items-center justify-center gap-5">
           {buttons.map((button) => (
             <Button
               key={button.id}
@@ -68,54 +69,57 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
 };
 
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data }) => {
-  const { htmlid, layout, uiVariant, backgroundImage, content, mediaAspectRatio } = data;
+  const { htmlid, layout, uiVariant, content, mediaAspectRatio } = data;
   if (content === null) {
     return null
   }
   if (uiVariant === "extended") {
+    let paddingStyles = ""
+    if (layout === "Horizontal (Image | Text)") {
+      paddingStyles = styles["pr-for-image-text"]
+    }
+    if (layout === "Horizontal (Text | Image)") {
+      paddingStyles = styles["pl-for-text-image"]
+    }
+
     return (
       <section
         id={htmlid}
-        style={
-          backgroundImage
-            ? {
-                backgroundImage: `url(${backgroundImage.url})`,
-                backgroundPosition: "center",
-                backgroundSize: "cover",
-                backgroundBlendMode: "overlay",
-              }
-            : {}
-        }
-        className={classNames(
-          "relative flex flex-wrap",
-          { "flex-row-reverse": layout === "Horizontal (Text | Image)" },
-          { "flex-col": layout === "Vertical (Image | Text)" },
-          { "flex-col-reverse": layout === "Vertical (Text | Image)" }
-        )}
+        className={classNames("")}
       >
         <div
           className={classNames(
-            "w-full",
-            { "lg:w-6/12": layout === "Horizontal (Text | Image)" },
-            { "lg:w-6/12": layout === "Horizontal (Image | Text)" }
+            "relative flex flex-wrap",
+            { "flex-row-reverse": layout === "Horizontal (Text | Image)" },
+            { "flex-col": layout === "Vertical (Image | Text)" },
+            { "flex-col-reverse": layout === "Vertical (Text | Image)" }
           )}
         >
-          <FlexibleContentMediaPart data={content} rounded="none" aspectRatio={mediaAspectRatio} />
-        </div>
-        <div
-          className={classNames(
-            "w-full pt-4 md:pt-8 lg:pt-16 pb-16 flex flex-col",
-            {
-              "lg:w-1/2 px-4 md:px-10 lg:pl-20 lg:pr-16":
-                layout === "Horizontal (Text | Image)",
-            },
-            {
-              "lg:w-1/2 px-4 md:px-10 lg:pr-20 lg:pl-16":
-                layout === "Horizontal (Image | Text)",
-            }
-          )}
-        >
-          <TextPart data={content} layout={layout}/>
+          <div
+            className={classNames(
+              "w-full",
+              { "lg:w-6/12": layout === "Horizontal (Text | Image)" },
+              { "lg:w-6/12": layout === "Horizontal (Image | Text)" }
+            )}
+          >
+            <FlexibleContentMediaPart data={content} rounded="none" aspectRatio={mediaAspectRatio} />
+          </div>
+          <div
+            className={classNames(
+              "w-full pt-4 md:pt-8 lg:pt-16 pb-16 flex flex-col",
+              {
+                "lg:w-1/2 px-4 md:px-10 lg:pr-16 xl:pr-24":
+                  layout === "Horizontal (Text | Image)",
+              },
+              {
+                "lg:w-1/2 px-4 md:px-10 lg:pl-16 xl:pl-24":
+                  layout === "Horizontal (Image | Text)",
+              },
+              paddingStyles
+            )}
+          >
+            <TextPart data={content} layout={layout}/>
+          </div>
         </div>
       </section>
     );
@@ -123,7 +127,10 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
 
   return (
     //default uiVariant = "standard"
-    <Section background={backgroundImage}>
+    <Section
+      id={htmlid}
+      className={classNames("")}
+    >
       <div
         className={classNames(
           "w-full flex flex-wrap",
@@ -139,7 +146,10 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
               layout === "Horizontal (Image | Text)",
           })}
         >
-          <FlexibleContentMediaPart data={content} aspectRatio={mediaAspectRatio} />
+          <FlexibleContentMediaPart
+            data={content}
+            aspectRatio={mediaAspectRatio}
+          />
         </div>
         <div
           className={classNames(
@@ -154,7 +164,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
             }
           )}
         >
-          <TextPart data={content} layout={layout}/>
+          <TextPart data={content} layout={layout} />
         </div>
       </div>
     </Section>
