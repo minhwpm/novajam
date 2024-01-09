@@ -20,6 +20,7 @@ export default async function Page() {
     )
   } catch (e) {
     console.error(e)
+    // @TODO catch error
     return (
       <main>
         404 Error Page
