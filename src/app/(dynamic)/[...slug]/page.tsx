@@ -2,13 +2,13 @@ import { Metadata, ResolvingMetadata } from 'next'
 import { Sections } from "@/components/sections/Sections/Sections"
 import { BlogType, PageType, Params } from "@/helpers/types"
 import { BlogDetails } from "@/components/sections/BlogDetails/BlogDetails"
-import getPage from "@/helpers/contentful/graphql/getPage"
-import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails"
-import getBlogs from '@/helpers/contentful/graphql/getBlogs'
 import { FeaturedBlogs } from '@/components/sections/FeaturedBlogs/FeaturedBlogs'
 import { LatestBlogs } from '@/components/sections/LatestBlogs/LatestBlogs'
 import { Container } from '@/components/elements/Container/Container'
 import { Pagination } from '@/components/elements/Pagination/Pagination'
+import getPage from "@/helpers/contentful/graphql/getPage"
+import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails"
+import getBlogs from '@/helpers/contentful/graphql/getBlogs'
 
 export async function generateMetadata(
   { params } : {params: Params},
@@ -41,6 +41,7 @@ export default async function Page({ params }: { params: Params }) {
         <FeaturedBlogs data={featuredBlogs} />
         <LatestBlogs data={latestBlogs} />
         <Container>
+          {/* @TODO totalPages */}
           <Pagination totalPages={4} />
         </Container>
       </main>
@@ -69,8 +70,5 @@ export default async function Page({ params }: { params: Params }) {
   }
 
   const data = await getPage(`/${params.slug!.join('/')}`)
-  if (!data) {
-    throw new Error("Page Not Found")
-  }
   return <Sections data={data.content} />
 }
