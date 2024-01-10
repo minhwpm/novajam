@@ -17,7 +17,7 @@ const TextPart: React.FC<{
         </div>
       )}
       {heading && (
-        <div className="text-lg lg:text-2xl">
+        <div className={classNames("text-lg lg:text-2xl", {"mb-4": !description})}>
           <RichText2 data={heading} />
         </div>
       )}
