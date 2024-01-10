@@ -33,9 +33,9 @@ const HotButtons: React.FC<{ buttons: Array<ButtonType> }> = ({ buttons }) => {
       "w-full bottom-0 rounded-t-assets", //sm devices
       "lg:rotate-90 lg:translate-y-1/2 lg:translate-x-1/2 lg:rounded-t-none lg:rounded-b-assets lg:w-auto lg:bottom-1/2 lg:right-0" //big devices
     )}>
-      <div className="relative flex py-2 bg-white lg:py-0 lg:bg-transparent">
+      <div className="relative flex justify-center py-2 bg-white lg:py-0 lg:bg-transparent">
         {buttons.map((button) => (
-          <div key={button.id} className="flex-1 flex">
+          <div key={button.id} className="flex-1 flex justify-center">
             <Button
               url={button.url}
               variant={button.buttonVariant ?? "outline-white"}
