@@ -130,7 +130,7 @@ const HeroMediaPart: React.FC<{ data: ContentPieceType }> = ({ data }) => {
           priority={true}
           rounded="none"
           autoplay={{
-            delay: 5000,
+            delay: 3500,
           }}
           pagination={{
             enabled: true,

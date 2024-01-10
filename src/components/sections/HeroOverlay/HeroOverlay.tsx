@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { HeroOSection } from "./HeroOSection";
 import { HeroType } from "@/helpers/types";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -29,7 +29,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
         <Swiper
           slidesPerView={1}
           autoplay={{
-            delay: 3500,
+            delay: 5000,
           }}
           pagination={{
             enabled: true,
@@ -39,7 +39,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
             enabled: true,
           }}
           loop={true}
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, Autoplay]}
         >
           {content.map((section) => (
             <SwiperSlide key={section.id}>
