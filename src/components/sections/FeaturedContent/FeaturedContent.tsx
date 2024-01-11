@@ -5,6 +5,7 @@ import { ContentPieceType, FeaturedContentType, FeaturedContentLayoutType } from
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import styles from "./styles.module.css"
+import "@/app/css/bg-color.css";
 
 const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayoutType }> = ({ data, layout }) => {
   const { label, heading, description, buttons  } = data;
@@ -69,7 +70,7 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
 };
 
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data }) => {
-  const { htmlid, layout, uiVariant, content, mediaAspectRatio } = data;
+  const { htmlid, layout, uiVariant, content, mediaAspectRatio, backgroundColor } = data;
   if (content === null) {
     return null
   }
@@ -85,7 +86,10 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
     return (
       <section
         id={htmlid}
-        className={classNames("py-12 lg:py-18")}
+        className={classNames(
+          "py-12 lg:py-18",
+          `${backgroundColor}-section-bg-color`
+        )}
       >
         <div
           className={classNames(
@@ -129,18 +133,18 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
     //default uiVariant = "standard"
     <Section
       id={htmlid}
-      className={classNames("")}
+      className={classNames(`${backgroundColor}-section-bg-color`)}
     >
       <div
         className={classNames(
           "w-full flex flex-wrap",
-          { "flex-col": layout === "Vertical (Image | Text)" },
-          { "flex-col-reverse": layout === "Vertical (Text | Image)" },
+          { "flex-col gap-y-6": layout === "Vertical (Image | Text)" },
+          { "flex-col-reverse gap-y-6": layout === "Vertical (Text | Image)" },
           { "flex-row-reverse": layout === "Horizontal (Text | Image)" }
         )}
       >
         <div
-          className={classNames("max-w-5xl mx-auto", {
+          className={classNames("w-full max-w-5xl mx-auto", {
             "w-full lg:w-6/12":
               layout === "Horizontal (Text | Image)" ||
               layout === "Horizontal (Image | Text)",

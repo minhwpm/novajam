@@ -8,10 +8,11 @@ import { ContentPTType } from '@/helpers/types';
 import { RichText2 } from "@/components/elements/RichText/RichText2"
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import "@/app/css/bg-color.css";
 import styles from "./styles.module.css"
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
-  const { htmlid, label, heading, summary, content, alignment } = data
+  const { htmlid, label, heading, summary, content, alignment, backgroundColor } = data
   const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0].id : '')
   
   // Justify tab container
@@ -24,11 +25,12 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
   }, [])
   return (
     <Section
-      framed={false}
       id={htmlid}
+      className={classNames(`${backgroundColor}-section-bg-color`)}
       label={label}
       heading={heading}
       summary={summary}
+      framed={false}
     >
       <RadixTabs.Root
         className="w-full"

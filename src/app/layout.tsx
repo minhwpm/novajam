@@ -1,8 +1,8 @@
-import '@/app/globals.css'
 import { Analytics } from '@vercel/analytics/react';
 import { Params } from "@/helpers/types"
 import { CustomProvider } from '@/redux/CustomProvider';
 import { Metadata } from 'next';
+import '@/app/css/globals.css'
 
 export const metadata: Metadata = {
   title: 'Bluebiz',

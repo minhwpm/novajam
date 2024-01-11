@@ -11,7 +11,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "@/app/custom-swiper.css"
+import "@/app/css/custom-swiper.css"
 
 const TextPart: React.FC<{
   data: ContentPieceType;

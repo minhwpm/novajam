@@ -7,6 +7,7 @@ import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
+import "@/app/css/bg-color.css";
 
 interface ArrowGroupProps {
   visibleIdx: number;
@@ -36,11 +37,14 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length }: ArrowGroupProps) => {
 };
 
 export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { label, heading, summary, content, alignment } = data;
+  const { label, heading, summary, content, alignment, htmlid, backgroundColor } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
-    <Section className="overflow-x-hidden">
+    <Section
+      id={htmlid}
+      className={classNames("overflow-x-hidden", `${backgroundColor}-section-bg-color`)}
+    >
       <div className="flex flex-col lg:flex-row gap-5 px-4 lg:py-10">
         <div className="lg:w-1/2 lg:pr-10">
           {label && (

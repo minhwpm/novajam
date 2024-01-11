@@ -5,6 +5,7 @@ import { Button } from "@/components/elements/Button/Button";
 import { ContentMapping } from "./ContentMapping";
 import { CarouselList } from "./CarouselList";
 import { MasonryList } from "./MasonryList";
+import "@/app/css/bg-color.css";
 
 export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
   const {
@@ -17,14 +18,16 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     size,
     alignment,
     htmlid,
+    backgroundColor
   } = data;
 
   return (
     <Section
+      id={htmlid}
+      className={classNames(`${backgroundColor}-section-bg-color`)}
       label={label}
       heading={heading}
       summary={summary}
-      id={htmlid}
       framed={ layout !== "carousel" }
     >
       <div className="mt-4">

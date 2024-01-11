@@ -52,9 +52,8 @@ export default async function Layout({
         fontTheme,
         styles[borderRadiusTheme ?? ""],
         styles[headingFontSizeTheme ?? ""],
-        // @TODO refactor
-        styles[colorTheme ? colorTheme[0] : ""],
-        styles[colorTheme ? colorTheme[1] : ""]
+        styles[colorTheme?.primaryColor ?? ""],
+        styles[colorTheme?.secondaryColor ?? ""]
       )}
     >
       {navigation && <Navigation data={navigation} />}

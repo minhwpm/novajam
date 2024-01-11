@@ -11,11 +11,18 @@ import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
+import "@/app/css/bg-color.css";
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { label, heading, summary, content, alignment } = data;
+  const { label, heading, summary, content, alignment, htmlid, backgroundColor } = data;
   return (
-    <Section label={label} heading={heading} summary={summary}>
+    <Section
+      id={htmlid}
+      className={classNames(`${backgroundColor}-section-bg-color`)}
+      label={label}
+      heading={heading}
+      summary={summary}
+    >
       <div className="w-full flex flex-col gap-10">
         <RadixAccordion.Root
           type="multiple"
@@ -93,7 +100,10 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   )}
                   {(section.media.length > 0 || section.embeddedMediaUrl) && (
                     <div className="max-w-xl mx-auto mt-10">
-                      <FlexibleContentMediaPart data={section} alignment={alignment} />
+                      <FlexibleContentMediaPart
+                        data={section}
+                        alignment={alignment}
+                      />
                     </div>
                   )}
                 </RadixAccordion.Content>
@@ -102,5 +112,5 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
         </RadixAccordion.Root>
       </div>
     </Section>
-  )
+  );
 }

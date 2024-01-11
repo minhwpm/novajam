@@ -8,7 +8,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "@/app/custom-swiper.css"
+import "@/app/css/custom-swiper.css"
 
 export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
   const { content, layout, textAlignment } = data;

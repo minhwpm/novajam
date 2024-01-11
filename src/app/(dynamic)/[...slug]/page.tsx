@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: Params }) {
     const featuredBlogs = await getBlogs(4, 0, true) as Array<BlogType>
     const latestBlogs = await getBlogs(6, 0) as Array<BlogType>
     return (
-      <main className="flex flex-col min-h-screen pb-24 pt-20">
+      <main className="flex flex-col min-h-screen pb-24">
         <FeaturedBlogs data={featuredBlogs} />
         <LatestBlogs data={latestBlogs} />
         <Container>
@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: Params }) {
     const pageNumber = parseInt(params.slug![params.slug!.length - 1])
     const latestBlogs = await getBlogs(6, (pageNumber-1) * 6) as Array<BlogType>
     return (
-      <main className="flex flex-col min-h-screen pb-24 pt-20">
+      <main className="flex flex-col min-h-screen pb-24">
         <LatestBlogs data={latestBlogs} />
         <Container>
           {/* @TODO totalPages */}

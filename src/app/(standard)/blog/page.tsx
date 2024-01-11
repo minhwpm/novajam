@@ -10,7 +10,7 @@ export default async function Page() {
     const featuredBlogs = await getBlogs(4, 0, true) as Array<BlogType>
     const latestBlogs = await getBlogs(6, 0) as Array<BlogType>
     return (
-      <main className="flex flex-col min-h-screen pb-24 pt-20">
+      <main className="flex flex-col min-h-screen pb-24">
         <FeaturedBlogs data={featuredBlogs} />
         <LatestBlogs data={latestBlogs} />
         <Container>

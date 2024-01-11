@@ -1,0 +1,54 @@
+.neutral-section-bg-color {
+  @apply bg-neutral-50;
+}
+.red-section-bg-color {
+  @apply bg-red-50;
+}
+.orange-section-bg-color {
+  @apply bg-orange-50;
+}
+.amber-section-bg-color {
+  @apply bg-amber-50;
+}
+.yellow-section-bg-color {
+  @apply bg-yellow-50;
+}
+.lime-section-bg-color {
+  @apply bg-lime-50;
+}
+.green-section-bg-color {
+  @apply bg-green-50;
+}
+.emerald-section-bg-color {
+  @apply bg-emerald-50;
+}
+.teal-section-bg-color {
+  @apply bg-teal-50;
+}
+.cyan-section-bg-color {
+  @apply bg-cyan-50;
+}
+.sky-section-bg-color {
+  @apply bg-sky-50;
+}
+.blue-section-bg-color {
+  @apply bg-blue-50;
+}
+.indigo-section-bg-color {
+  @apply bg-indigo-50;
+}
+.violet-section-bg-color {
+  @apply bg-violet-50;
+}
+.purple-section-bg-color {
+  @apply bg-purple-50;
+}
+.fuchsia-section-bg-color {
+  @apply bg-fuchsia-50;
+}
+.pink-section-bg-color {
+  @apply bg-pink-50;
+}
+.rose-section-bg-color {
+  @apply bg-rose-50;
+}

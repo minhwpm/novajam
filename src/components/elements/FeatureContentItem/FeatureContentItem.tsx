@@ -10,7 +10,7 @@ interface Props {
   alignment: AlignmentType
 }
 
-const FeatureContentItem = ({ data, idx, setVisibleIdx, alignment }: Props) => {
+export const FeatureContentItem = ({ data, idx, setVisibleIdx, alignment }: Props) => {
   const { heading, description } = data
   const [ref, isVisible] = useInView(
     {
@@ -42,5 +42,3 @@ const FeatureContentItem = ({ data, idx, setVisibleIdx, alignment }: Props) => {
     </div>
   );
 }
-
-export default FeatureContentItem

@@ -2,18 +2,25 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
-import FeatureContentItem from "@/components/elements/FeatureContentItem/FeatureContentItem";
+import { FeatureContentItem } from "@/components/elements/FeatureContentItem/FeatureContentItem";
 import { ContentPTType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
+import "@/app/css/bg-color.css";
 
 export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { label, heading, summary, content, alignment } = data;
+  const { label, heading, summary, content, alignment, htmlid, backgroundColor } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
-    <Section label={label} heading={heading} summary={summary}>
+    <Section
+      id={htmlid}
+      className={classNames(`${backgroundColor}-section-bg-color`)}
+      label={label}
+      heading={heading}
+      summary={summary}
+    >
       {/* FOR MOBILE, TABLETS */}
       <div className="xl:hidden">
         {content?.map((section) => (
@@ -63,7 +70,10 @@ export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             </div>
             <div className="md:w-3/5 mx-auto">
               {section.media?.length > 0 && (
-                <FlexibleContentMediaPart data={section} alignment={alignment} />
+                <FlexibleContentMediaPart
+                  data={section}
+                  alignment={alignment}
+                />
               )}
             </div>
           </div>
@@ -91,7 +101,10 @@ export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   )}
                 >
                   {(section.media.length > 0 || section.embeddedMediaUrl) && (
-                    <FlexibleContentMediaPart data={section} alignment={alignment} />
+                    <FlexibleContentMediaPart
+                      data={section}
+                      alignment={alignment}
+                    />
                   )}
                 </div>
               ))}
@@ -112,5 +125,5 @@ export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
         </div>
       </div>
     </Section>
-  )
+  );
 }

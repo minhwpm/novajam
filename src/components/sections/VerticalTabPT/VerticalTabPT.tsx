@@ -8,14 +8,21 @@ import classNames from "classnames";
 import { ContentPTType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
+import "@/app/css/bg-color.css";
 
 export const VerticalTabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { label, heading, summary, content, alignment } = data;
+  const { label, heading, summary, content, alignment, htmlid, backgroundColor } = data;
   const [activeItem, setActiveItem] = React.useState(
     content.length > 0 ? content[0].id : ""
   );
   return (
-    <Section label={label} heading={heading} summary={summary}>
+    <Section
+      id={htmlid}
+      className={classNames(`${backgroundColor}-section-bg-color`)}
+      label={label}
+      heading={heading}
+      summary={summary}
+    >
       <RadixTabs.Root
         className="w-full lg:flex"
         defaultValue={content.length > 0 ? content[0].id : ""}
@@ -57,7 +64,10 @@ export const VerticalTabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 >
                   {section.media.length > 0 && (
                     <div className="w-full">
-                      <FlexibleContentMediaPart data={section} alignment={alignment} />
+                      <FlexibleContentMediaPart
+                        data={section}
+                        alignment={alignment}
+                      />
                     </div>
                   )}
                   <div className="mt-5 flex flex-col gap-2 justify-center pb-8 lg:pr-24">
@@ -105,7 +115,10 @@ export const VerticalTabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               <div className="flex flex-col">
                 {(section.media.length > 0 || section.embeddedMediaUrl) && (
                   <div className="shrink-0">
-                    <FlexibleContentMediaPart data={section} alignment={alignment} />
+                    <FlexibleContentMediaPart
+                      data={section}
+                      alignment={alignment}
+                    />
                   </div>
                 )}
                 <div className="mt-5 flex flex-col gap-2 items-center pb-8 lg:pr-24">
