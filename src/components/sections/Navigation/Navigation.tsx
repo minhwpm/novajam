@@ -66,7 +66,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
             <div className="flex gap-5 items-center">
               {buttons && buttons.length > 0 && (
                 <div className="hidden md:block">
-                  <ButtonGroup data={buttons} size="lg" />
+                  <ButtonGroup data={buttons} />
                 </div>
               )}
               <NavMenuMinimal data={data} />
@@ -93,7 +93,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
             </div>
             {buttons && buttons.length > 0 && (
               <div className="ml-8 shrink-0 hidden lg:block">
-                <ButtonGroup data={buttons} size="lg" />
+                <ButtonGroup data={buttons} />
               </div>
             )}
             <NavMenuMobile menu={menu} buttons={buttons} />
