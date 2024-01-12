@@ -77,7 +77,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
         variant === "outline-white",
     },
     { "px-4 py-1.5 min-w-[120px] text-base lg:px-6 lg:py-2.5 lg:min-w-[130px] lg:text-lg font-semibold": size === "base" },
-    { "px-6 py-2.5 min-w-[160px] lg:px-8 lg:py-3.5 lg:min-w-[200px] lg:text-lg font-semibold": size === "lg" },
+    { "px-6 py-2.5 min-w-[160px] lg:px-8 lg:py-3 lg:min-w-[200px] lg:text-lg font-semibold": size === "lg" },
     { "opacity-30 pointer-events-none cursor-not-allowed": disabled }
   );
 

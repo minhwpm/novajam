@@ -57,7 +57,6 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
               key={button.id}
               variant={button.buttonVariant}
               url={button.url}
-              size="lg"
               openNewTab={button.openNewTab}
             >
               {button.text}
