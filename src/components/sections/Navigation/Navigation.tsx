@@ -7,7 +7,7 @@ import classNames from "classnames";
 import NavMenu from "@/components/elements/NavMenu/NavMenu";
 import NavMenuMobile from "@/components/elements/NavMenuMobile/NavMenuMobile";
 import NavMenuMinimal from "@/components/elements/NavMenuMinimal/NavMenuMinimal";
-import { ButtonType, MediaType, NavigationType } from "@/helpers/types";
+import { MediaType, NavigationType } from "@/helpers/types";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 
 const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
@@ -25,31 +25,6 @@ const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
     />
   </Link>
 );
-
-const HotButtons: React.FC<{ buttons: Array<ButtonType> }> = ({ buttons }) => {
-  return (
-    <div className={classNames(
-      "fixed z-[999999]",
-      "w-full bottom-0 rounded-t-assets", //sm devices
-      "lg:rotate-90 lg:translate-y-1/2 lg:translate-x-1/2 lg:rounded-t-none lg:rounded-b-assets lg:w-auto lg:bottom-1/2 lg:right-0" //big devices
-    )}>
-      <div className="relative flex justify-center py-2 bg-white bg-opacity-80 shadow-radiant lg:py-0 lg:bg-transparent">
-        {buttons.map((button) => (
-          <div key={button.id} className="flex-1 flex justify-center">
-            <Button
-              url={button.url}
-              variant={button.buttonVariant ?? "outline-white"}
-              openNewTab={button.openNewTab}
-              className="grow absolute lg:top-1/2 mx-1 lg:my-1"
-            >
-              {button.text}
-            </Button>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const Header: React.FC<{data: NavigationType}> = ({ data }) => {
   const { logo, logoRedirect, menu, buttons, uiVariant } = data;
@@ -133,7 +108,29 @@ const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
   return(
     <>
       <Header data={data} />
-      {data.hotButtons.length > 0 && <HotButtons buttons={data.hotButtons} /> }
+      {data.hotButtons.length > 0 && (
+        <div className={classNames(
+          "fixed z-[999999]",
+          "w-full bottom-0 rounded-t-assets", //sm devices
+          "lg:rotate-90 lg:translate-y-1/2 lg:translate-x-1/2 lg:rounded-t-none lg:rounded-b-assets lg:w-auto lg:bottom-1/2 lg:right-0" //big devices
+        )}>
+          <div className="relative flex justify-center py-2 bg-white bg-opacity-80 shadow-radiant lg:py-0 lg:bg-transparent">
+            {data.hotButtons.map((button) => (
+              <div key={button.id} className="flex-1 flex justify-center">
+                <Button
+                  url={button.url}
+                  variant={button.buttonVariant ?? "outline-white"}
+                  openNewTab={button.openNewTab}
+                  className="grow absolute lg:top-1/2 mx-1 lg:my-1"
+                  size="lg"
+                >
+                  {button.text}
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </>
   )
 }
