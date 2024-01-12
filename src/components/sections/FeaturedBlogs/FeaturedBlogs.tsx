@@ -1,11 +1,11 @@
 import { BlogPreview } from "@/components/elements/BlogPreview/BlogPreview"
-import { Section } from "@/components/elements/Section/Section"
+import { Container } from "@/components/elements/Container/Container"
 import { BlogType } from "@/helpers/types"
 
 export const FeaturedBlogs: React.FC<{data: Array<BlogType>}> = ({data}) => {
   return (
-    <Section>
-      <div className="grid lg:grid-cols-12 gap-10">
+    <section className="py-10">
+      <Container className="grid lg:grid-cols-12 gap-10">
         <div className="lg:col-span-7">
           <BlogPreview data={data[0]} />
         </div>
@@ -14,7 +14,7 @@ export const FeaturedBlogs: React.FC<{data: Array<BlogType>}> = ({data}) => {
             <BlogPreview key={item.id} data={item} orientation="horizontal" aspectRatio="square" />
           ))}
         </div>
-      </div>
-    </Section>
+      </Container>
+    </section>
   )
 }

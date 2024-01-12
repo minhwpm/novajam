@@ -1,7 +1,7 @@
 import { Metadata, ResolvingMetadata } from 'next'
 import { Sections } from "@/components/sections/Sections/Sections"
 import { BlogType, PageType, Params } from "@/helpers/types"
-import { BlogDetails } from "@/components/sections/BlogDetails/BlogDetails"
+import { BlogPost } from "@/components/sections/BlogPost/BlogPost"
 import { FeaturedBlogs } from '@/components/sections/FeaturedBlogs/FeaturedBlogs'
 import { LatestBlogs } from '@/components/sections/LatestBlogs/LatestBlogs'
 import { Container } from '@/components/elements/Container/Container'
@@ -64,7 +64,7 @@ export default async function Page({ params }: { params: Params }) {
     const data = await getBlogDetails(params.slug![params.slug!.length - 1])
     return (
       <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
-        <BlogDetails data={data} />
+        <BlogPost data={data} />
       </main>
     )
   }

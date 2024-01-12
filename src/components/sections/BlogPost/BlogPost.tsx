@@ -6,7 +6,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { format } from 'date-fns'
 
-export const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
+export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
   const { title, summary, content, media, topics, author, firstPublishedAt } = data
   return (
     <div>
@@ -61,7 +61,7 @@ export const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
               <RichText2 data={content} style="blog" />
             </div>
             { author && 
-              <div className="lg:w-2/3 text-lg mb-10">
+              <div className="lg:w-2/3 text-lg">
                 <p className="text-slate-600 tracking-wider text-sm md:text-base">
                   ABOUT THE AUTHOR
                 </p>
@@ -71,14 +71,6 @@ export const BlogDetails: React.FC<{data: BlogType}> = ({ data }) => {
           </div>
         </article>
       </Container>
-      <div className="bg-primary-50 py-14">
-        <Container>
-          <h2 className="text-3xl font-bold tracking-wider">
-            DISCOVER MORE
-          </h2>
-          {/* @TODO implement <ContentList /> */}
-        </Container>
-      </div>
     </div>
   )
 }

@@ -174,7 +174,7 @@ export type FeaturedContentType = {
   htmlid: string
   layout: FeaturedContentLayoutType
   uiVariant: "standard" | "extended"
-  backgroundColor: BackgroundColorType
+  backgroundColor: BackgroundColorType | null
   contentType: "feature"
 }
 
@@ -205,7 +205,7 @@ export type ContentPTType = {
   layout: "carousel" | "mini-carousel" | "tab" | "vertical-tab" | "accordion" | "scrolling"
   alignment: AlignmentType
   htmlid: string | null
-  backgroundColor: BackgroundColorType
+  backgroundColor: BackgroundColorType | null
   contentType: "presentation"
 }
 
@@ -249,12 +249,12 @@ export type ContentListType = {
   label: string | null
   summary: Document | null
   content: Array<Content>
-  seeAllLink: LinkType
+  seeAllLink: LinkType | null
   layout: ContentListLayout
   size: ContentSize
   alignment: AlignmentType
   htmlid: string | null
-  backgroundColor: BackgroundColorType
+  backgroundColor: BackgroundColorType | null
   contentType: "cardlist"
 }
 
