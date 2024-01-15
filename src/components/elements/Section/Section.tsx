@@ -51,7 +51,7 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
         {summary && (
           <div
             className={classNames(
-              "prose-lg lg:prose-xl text-center max-w-xl lg:max-w-3xl mx-auto mb-4"
+              "prose-lg 2xl:prose-xl text-neutral-500 text-center max-w-xl lg:max-w-3xl mx-auto mb-4"
             )}
           >
             <RichText2 data={summary} />
