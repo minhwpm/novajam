@@ -8,17 +8,17 @@ import { MediaItem } from "../MediaItem/MediaItem"
 interface Props {
   data: BlogType
   aspectRatio?: MediaAspectRatioType
-  orientation?: "vertical" | "horizontal"
+  layout?: "vertical" | "horizontal"
 }
 
 export const BlogPreview: React.FC<Props> = ({
   data,
   aspectRatio = "3/2",
-  orientation = "vertical"
+  layout = "vertical"
 }) => {
   const { title, slug, media, topics } = data
   const pathname = usePathname()
-  if (orientation === "vertical") {
+  if (layout === "vertical") {
     return (
       <div className="rounded-assets bg-white">
         <Link href={`${pathname}/blog/${slug}`}>

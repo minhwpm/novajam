@@ -241,7 +241,7 @@ export type PricingPlanType = {
 
 export type Content = BlogType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType | PricingPlanType
 export type ContentSize =  "S" | "M" | "L" | "XL"
-export type ContentListLayout = "carousel" | "grid" | "masonry" | "deck"
+export type ContentListLayout = "carousel" | "spotlight" | "masonry" | "deck"
 
 export type ContentListType = {
   id: string

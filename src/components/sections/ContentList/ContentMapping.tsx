@@ -11,11 +11,13 @@ import { AlignmentType, Content } from "@/helpers/types";
 export const ContentMapping: React.FC<{
   data: Content;
   alignment: AlignmentType;
+  layout?: "horizontal" | "vertical"
   index: number
-}> = ({ data, alignment, index }) => {
+}> = ({ data, alignment, layout = "vertical", index }) => {
+  //@TODO do alignment for Blog, Page ...
   switch (data.contentType) {
     case "blog":
-      return <BlogPreview data={data} />;
+      return <BlogPreview data={data} layout={layout} aspectRatio={layout === "horizontal" ? "square" : undefined} />;
     case "page":
       return <PagePreview data={data} />;
     case "link":
@@ -34,7 +36,7 @@ export const ContentMapping: React.FC<{
         </Link>
       );
     case "expert":
-      return <ExpertPreview data={data} layout="vertical" />;
+      return <ExpertPreview data={data} layout={layout} />;
     case "statistics":
       return <Statistics index={index} data={data} />;
     case "contentpiece":

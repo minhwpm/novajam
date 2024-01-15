@@ -62,9 +62,15 @@ export default async function Page({ params }: { params: Params }) {
   }
   if (params.slug!.find((item, idx) => item === "blog" && idx + 2 === params.slug!.length)) {
     const data = await getBlogDetails(params.slug![params.slug!.length - 1])
+    const latestBlogs = await getBlogs(3, 0) as Array<BlogType>
     return (
       <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24">
         <BlogPost data={data} />
+        <div className="bg-primary-50 py-4 lg:py-10">
+          <Container>
+            <LatestBlogs title="DISCOVER MORE" data={latestBlogs} />
+          </Container>
+        </div>
       </main>
     )
   }
