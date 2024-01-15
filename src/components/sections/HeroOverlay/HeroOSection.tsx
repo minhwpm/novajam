@@ -47,14 +47,14 @@ export const HeroOSection: React.FC<{
               { "items-end text-end": textAlignment === "reverse" }
             )}
           >
-            {data.label && (
+            {data.eyebrow && (
               <div
                 className={classNames(
                   "animate-slidingHeroContent animation-delay-200",
                   "tracking-widest font-semibold lg:text-lg xl:text-xl max-w-xl"
                 )}
               >
-                {data.label}
+                {data.eyebrow}
               </div>
             )}
             {data.heading && (

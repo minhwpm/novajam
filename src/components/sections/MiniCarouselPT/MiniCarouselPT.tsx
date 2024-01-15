@@ -37,7 +37,7 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length }: ArrowGroupProps) => {
 };
 
 export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { label, heading, summary, content, alignment, htmlid, backgroundColor } = data;
+  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
@@ -47,9 +47,9 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
     >
       <div className="flex flex-col lg:flex-row gap-5 px-4 lg:py-10">
         <div className="lg:w-1/2 lg:pr-10">
-          {label && (
+          {eyebrow && (
             <p className="uppercase tracking-widest text-secondary-500 font-semibold mb-2">
-              {label}
+              {eyebrow}
             </p>
           )}
           {heading && (
@@ -94,7 +94,7 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 )}
               >
                 <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest")}>
-                  {section.label}
+                  {section.eyebrow}
                 </div>
                 {section.heading && (
                   <div className={classNames("text-2xl font-semibold ")}>

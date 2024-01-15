@@ -8,12 +8,12 @@ const TextPart: React.FC<{
   data: ContentPieceType;
   alignment?: AlignmentType
 }> = ({ data, alignment }) => {
-  const { heading, label, description, buttons } = data;
+  const { heading, eyebrow, description, buttons } = data;
   return (
     <>
-      {label && (
+      {eyebrow && (
         <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest mb-2")}>
-          {label}
+          {eyebrow}
         </div>
       )}
       {heading && (
@@ -39,11 +39,11 @@ export const FlexibleContent: React.FC<{
 }> = ({
   data, alignment = 'center'
 }) => {
-  const { heading, label, description, media, embeddedMediaUrl, buttons } = data;
+  const { heading, eyebrow, description, media, embeddedMediaUrl, buttons } = data;
   return (
     <div className="flex flex-col rounded-assets bg-white">
       {(media || embeddedMediaUrl) && <FlexibleContentMediaPart data={data} alignment={alignment} aspectRatio="auto" /> }
-      {(heading || label || description || buttons?.length > 0) && (
+      {(heading || eyebrow || description || buttons?.length > 0) && (
         <div
           className={classNames(
             "px-4 pt-4 pb-6 lg:px-6 lg:pt-6 lg:pb-8 flex-1 flex flex-col justify-between",

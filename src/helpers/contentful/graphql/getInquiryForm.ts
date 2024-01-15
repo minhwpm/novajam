@@ -25,7 +25,7 @@ export default async function getInquiryForm(id: string) {
             heading {
               json
             }
-            label
+            eyebrow
             summary
             description {
               json

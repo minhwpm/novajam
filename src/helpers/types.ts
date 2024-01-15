@@ -271,8 +271,8 @@ export type FormFieldType = {
 export type InquiryFormType = {
   id: string
   title: string
+  eyebrow: string | null
   heading: Document | null
-  label: string | null
   summary: string | null
   description: Document | null
   fields: Array<FormFieldType>

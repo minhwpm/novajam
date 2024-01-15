@@ -8,10 +8,10 @@ import styles from "./styles.module.css"
 import "@/app/css/bg-color.css";
 
 const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayoutType }> = ({ data, layout }) => {
-  const { label, heading, description, buttons  } = data;
+  const { eyebrow, heading, description, buttons  } = data;
   return (
     <>
-      {label && (
+      {eyebrow && (
         <div
           className={classNames(
             "tracking-widest mb-2 text-secondary-500 font-semibold",
@@ -22,7 +22,7 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
             }
           )}
         >
-          {label}
+          {eyebrow}
         </div>
       )}
       {heading && (

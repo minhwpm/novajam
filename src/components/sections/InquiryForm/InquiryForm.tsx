@@ -15,7 +15,7 @@ export type FormValues = {
 }
 
 export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
-  const { title, heading, label, summary, description, formType, fields, submitButton, backgroundImage, htmlid } = data;
+  const { title, heading, eyebrow, summary, description, formType, fields, submitButton, backgroundImage, htmlid } = data;
   // @TODO
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { register, control, handleSubmit, setError, watch, formState: { errors } } = useForm<FormValues>();
@@ -70,9 +70,9 @@ function onSubmitInvalid(errors: FieldErrors<FormValues>) {
           <div className={classNames("col-span-12 lg:col-span-5 flex flex-col items-center lg:items-start",
             {"text-white drop-shadow-lg": backgroundImage}
           )}>
-            {label && (
+            {eyebrow && (
               <div className={classNames("tracking-widest font-semibold text-center lg:text-start mb-2 text-secondary-500")}>
-                {label}
+                {eyebrow}
               </div>
             )}
             {heading && (

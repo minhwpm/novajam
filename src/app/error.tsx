@@ -35,7 +35,7 @@ export default function Error({
         <span className="text-neutral-500 px-6">
           OR
         </span>
-        <Button url="/" variant="link">
+        <Button url="/" variant="arrow">
           Go to Home page
         </Button>
       </div>
