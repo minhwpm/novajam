@@ -23,7 +23,7 @@ export default async function getContentPT(id: string) {
             heading {
               json
             }
-            label
+            eyebrow
             summary {
               json
             }

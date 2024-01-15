@@ -8,7 +8,7 @@ import { Document } from "@contentful/rich-text-types";
 
 interface Props {
   id?: string | null
-  label?: string | null
+  eyebrow?: string | null
   heading?: Document | null
   summary?: Document | null
   className?: string
@@ -17,7 +17,7 @@ interface Props {
   framed?: boolean
 }
 
-export const Section: React.FC<Props> = ( { id, heading, label, summary, children, className, background, framed = true } ) => {
+export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, children, className, background, framed = true } ) => {
   return (
     <section
       id={id ?? ""}
@@ -34,9 +34,9 @@ export const Section: React.FC<Props> = ( { id, heading, label, summary, childre
       }
     >
       <Container>
-        {label && (
+        {eyebrow && (
           <div className="tracking-widest text-secondary-500 font-semibold text-center mx-auto mb-2">
-            {label}
+            {eyebrow}
           </div>
         )}
         {heading && (
@@ -61,7 +61,7 @@ export const Section: React.FC<Props> = ( { id, heading, label, summary, childre
       {framed ? (
         <Container
           className={classNames("rounded-assets", {
-            "mt-3": heading || label || summary,
+            "mt-3": heading || eyebrow || summary,
           })}
         >
           {children}

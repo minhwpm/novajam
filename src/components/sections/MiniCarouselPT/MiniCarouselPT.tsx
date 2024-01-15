@@ -102,7 +102,7 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   </div>
                 )}
                 {section.description && (
-                  <div className="prose lg:prose-lg mt-5">
+                  <div className="prose 2xl:prose-lg mt-5">
                     <RichText2 data={section.description} />
                   </div>
                 )}

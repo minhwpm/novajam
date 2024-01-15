@@ -10,14 +10,14 @@ import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentM
 import "@/app/css/bg-color.css";
 
 export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { label, heading, summary, content, alignment, htmlid, backgroundColor } = data;
+  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
     <Section
       id={htmlid}
       className={classNames(`${backgroundColor}-section-bg-color`)}
-      label={label}
+      eyebrow={eyebrow}
       heading={heading}
       summary={summary}
     >
@@ -37,7 +37,7 @@ export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   "font-semibold text-primary-600 tracking-widest text-center lg:text-start"
                 )}
               >
-                {section.label}
+                {section.eyebrow}
               </div>
               {section.heading && (
                 <div className="font-semibold text-2xl lg:text-3xl leading-snug mb-6">

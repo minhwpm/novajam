@@ -1,17 +1,18 @@
 "use client";
 
 import React from "react";
+import classNames from "classnames";
 import * as RadixTabs from "@radix-ui/react-tabs";
 import { Section } from "@/components/elements/Section/Section";
 import { Button } from "@/components/elements/Button/Button";
-import classNames from "classnames";
 import { ContentPTType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import "@/app/css/bg-color.css";
 
 export const VerticalTabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { label, heading, summary, content, alignment, htmlid, backgroundColor } = data;
+  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor } = data;
   const [activeItem, setActiveItem] = React.useState(
     content.length > 0 ? content[0].id : ""
   );
@@ -19,7 +20,7 @@ export const VerticalTabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
     <Section
       id={htmlid}
       className={classNames(`${backgroundColor}-section-bg-color`)}
-      label={label}
+      eyebrow={eyebrow}
       heading={heading}
       summary={summary}
     >
@@ -30,7 +31,7 @@ export const VerticalTabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       >
         <RadixTabs.List
           className="flex flex-col gap-y-3 lg:w-1/4 shrink-0"
-          aria-label=""
+            aria-label={heading ? documentToHtmlString(heading) : undefined}
         >
           {content.length > 0 &&
             content.map((section) => (
@@ -44,7 +45,7 @@ export const VerticalTabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       "text-sm font-semibold text-neutral-500 tracking-widest group-data-[state='active']:text-primary-100"
                     )}
                   >
-                    {section.label}
+                    {section.eyebrow}
                   </div>
                   {section.heading && (
                     <div className="block font-semibold text-xl">
@@ -72,7 +73,7 @@ export const VerticalTabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   )}
                   <div className="mt-5 flex flex-col gap-2 justify-center pb-8 lg:pr-24">
                     {section.description && (
-                      <div className="prose lg:prose-lg">
+                      <div className="prose 2xl:prose-lg">
                         <RichText2 data={section.description} />
                       </div>
                     )}
@@ -123,7 +124,7 @@ export const VerticalTabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 )}
                 <div className="mt-5 flex flex-col gap-2 items-center pb-8 lg:pr-24">
                   {section.description && (
-                    <div className="prose lg:prose-lg">
+                    <div className="prose 2xl:prose-lg">
                       <RichText2 data={section.description} />
                     </div>
                   )}

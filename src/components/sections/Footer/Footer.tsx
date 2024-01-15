@@ -25,7 +25,7 @@ const Footer: React.FC<Props> = ({ data }) => {
               />
             </Link>
           }
-          <p className="text-slate-500">
+          <p className="text-neutral-500">
             {copyright}
           </p>
           <div className="flex gap-2 mt-5">
@@ -39,7 +39,7 @@ const Footer: React.FC<Props> = ({ data }) => {
           )}>
             <p className="font-semibold mb-1">{section.title}</p>
             {section.links.map(link => (
-              <p key={link.text} className="text-slate-700">
+              <p key={link.text} className="text-neutral-700">
                 <Link href={link.url}>
                   {link.text}
                 </Link>

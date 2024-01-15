@@ -18,7 +18,6 @@ export const CarouselList: React.FC<{
   return (
     <Swiper
       className={classNames("carousel-list w-screen")}
-      // spaceBetween={30}
       slidesPerView={"auto"}
       autoplay={{
         delay: 5000

@@ -10,7 +10,7 @@ import "@/app/css/bg-color.css";
 export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
   const {
     heading,
-    label,
+    eyebrow,
     summary,
     seeAllLink,
     content,
@@ -25,17 +25,17 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     <Section
       id={htmlid}
       className={classNames(`${backgroundColor}-section-bg-color`)}
-      label={label}
+      eyebrow={eyebrow}
       heading={heading}
       summary={summary}
       framed={ layout !== "carousel" }
     >
-      <div className="mt-4">
+      <div className="mt-8">
         {seeAllLink && 
-          <div className="w-full flex justify-center -mt-4">
+          <div className="w-full flex justify-center -mt-12 mb-4">
             <Button
             size="lg"
-            variant="link"
+            variant="arrow"
             url={seeAllLink.url}>
               {seeAllLink.text}
             </Button>
@@ -48,6 +48,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
           <MasonryList content={content} size={size} alignment={alignment} />
         )}
         {layout === "deck" && (
+          // @TODO refactor - in new file
           <div className="flex flex-wrap justify-center -mx-3 mt-5">
             {content.map((item, idx) => (
               <div 
@@ -66,6 +67,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
           </div>
         )}
         {layout === "spotlight" && (
+          // @TODO refactor - in new file
           <div className="grid lg:grid-cols-12 gap-10">
             <div className={classNames(
               { "lg:col-span-7 xl:col-span-8 2xl:col-span-9": size === "XL"},

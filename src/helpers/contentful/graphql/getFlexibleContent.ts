@@ -25,7 +25,7 @@ export default async function getFlexibleContent(id: string) {
             heading {
               json
             }
-            label
+            eyebrow
             embeddedMediaUrl
             embeddedMediaTitle
             description {

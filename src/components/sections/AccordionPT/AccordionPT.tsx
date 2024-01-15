@@ -14,12 +14,12 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import "@/app/css/bg-color.css";
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { label, heading, summary, content, alignment, htmlid, backgroundColor } = data;
+  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor } = data;
   return (
     <Section
       id={htmlid}
       className={classNames(`${backgroundColor}-section-bg-color`)}
-      label={label}
+      eyebrow={eyebrow}
       heading={heading}
       summary={summary}
     >
@@ -48,7 +48,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                           "text-sm font-semibold tracking-widest"
                         )}
                       >
-                        {section.label}
+                        {section.eyebrow}
                       </div>
                       {section.heading && (
                         <div className="font-semibold text-xl">
@@ -76,7 +76,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   )}
                 >
                   {section.description && (
-                    <div className="prose lg:prose-lg">
+                    <div className="prose 2xl:prose-lg">
                       <RichText2 data={section.description} />
                     </div>
                   )}

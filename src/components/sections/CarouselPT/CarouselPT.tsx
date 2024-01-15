@@ -17,12 +17,12 @@ const TextPart: React.FC<{
   data: ContentPieceType;
   alignment?: AlignmentType
 }> = ({ data, alignment }) => {
-  const { heading, label, description, buttons } = data;
+  const { heading, eyebrow, description, buttons } = data;
   return (
     <>
-      {label && (
+      {eyebrow && (
         <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest")}>
-          {label}
+          {eyebrow}
         </div>
       )}
       {heading && (
@@ -31,7 +31,7 @@ const TextPart: React.FC<{
         </div>
       )}
       {description && (
-        <div className="mt-5 prose lg:prose-lg">
+        <div className="mt-5 prose 2xl:prose-lg">
           <RichText2 data={description} />
         </div>
       )}
@@ -45,10 +45,10 @@ const TextPart: React.FC<{
 }
 
 export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { label, heading, summary, content, alignment } = data
+  const { eyebrow, heading, summary, content, alignment } = data
   return (
     <Section
-      label={label}
+      eyebrow={eyebrow}
       heading={heading}
       summary={summary}
     >
@@ -65,7 +65,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
         {content.map((item) => (
           <SwiperSlide key={item.id}>
             <div className={classNames(
-              "h-full flex flex-col-reverse lg:flex-row lg:items-center gap-x-16 gap-y-5 bg-white px-5 pt-5 pb-10 md:px-10 md:pt-10 lg:px-16 lg:pt-12 lg:pb-12 rounded-assets"
+              "h-full flex flex-col-reverse lg:flex-row lg:items-center gap-x-16 gap-y-5 px-5 pt-5 pb-10 md:px-10 md:pt-10 lg:px-16 lg:pt-12 lg:pb-12 rounded-assets"
             )}>
             {(item.heading || item.description || item.buttons) && (
               <div className={classNames(

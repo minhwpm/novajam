@@ -35,7 +35,7 @@ export const FeatureContentItem = ({ data, idx, setVisibleIdx, alignment }: Prop
         </div>
       )}
       {description && (
-        <div className="prose lg:prose-lg">
+        <div className="prose 2xl:prose-lg">
           <RichText2 data={description} />
         </div>
       )}

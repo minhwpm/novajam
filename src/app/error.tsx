@@ -20,7 +20,7 @@ export default function Error({
       <h2 className="font-bold text-4xl lg:text-6xl mb-8">
         Page not found
       </h2>
-      <div className="text-neutral-900 prose lg:prose-lg">
+      <div className="text-neutral-900 prose 2xl:prose-lg">
         <p>We’re sorry, the page you were looking for couldn’t be found. The link you followed may either be broken or no longer exist.</p>
         <p>Please try again, or go back to Home page by clicking the buttons below:</p>
       </div>

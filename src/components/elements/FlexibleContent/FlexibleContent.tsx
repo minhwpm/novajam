@@ -1,5 +1,5 @@
-import { AlignmentType, ContentPieceType } from "@/helpers/types";
 import classNames from "classnames";
+import { AlignmentType, ContentPieceType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2"
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
 import { FlexibleContentMediaPart } from "../FlexibleContentMediaPart/FlexibleContentMediaPart";
@@ -22,7 +22,7 @@ const TextPart: React.FC<{
         </div>
       )}
       {description && (
-        <div className="py-4 prose lg:prose-lg">
+        <div className={classNames("py-4 prose 2xl:prose-lg", {"mb-2": buttons.length > 0})}>
           <RichText2 data={description} />
         </div>
       )}

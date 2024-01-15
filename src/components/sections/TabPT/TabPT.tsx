@@ -12,7 +12,7 @@ import "@/app/css/bg-color.css";
 import styles from "./styles.module.css"
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
-  const { htmlid, label, heading, summary, content, alignment, backgroundColor } = data
+  const { htmlid, eyebrow, heading, summary, content, alignment, backgroundColor } = data
   const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0].id : '')
   
   // Justify tab container
@@ -27,7 +27,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
     <Section
       id={htmlid}
       className={classNames(`${backgroundColor}-section-bg-color`)}
-      label={label}
+      eyebrow={eyebrow}
       heading={heading}
       summary={summary}
       framed={false}
@@ -53,14 +53,14 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                 <RadixTabs.Trigger
                   key={section.id}
                   value={section.id}
-                  className="shrink-0 px-8 py-2.5 flex flex-col justify-center items-center cursor-pointer rounded-assets  bg-neutral-100 hover:bg-neutral-200 data-[state='active']:bg-primary-500 data-[state='active']:text-white transition-all duration-500"
+                  className="shrink-0 px-8 py-2.5 flex flex-col justify-center items-center cursor-pointer rounded-assets text-neutral-500 bg-neutral-100 hover:text-neutral-600 hover:bg-primary-100 data-[state='active']:bg-primary-500 data-[state='active']:text-white transition-all duration-500"
                 >
                   <div
                     className={classNames(
                       "text-sm tracking-widest text-neutral-500 font-semibold"
                     )}
                   >
-                    {section.label}
+                    {section.eyebrow}
                   </div>
                   {section.heading && (
                     <div className="block font-semibold text-lg lg:text-xl">
@@ -84,10 +84,10 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                 { "text-end": alignment === "reverse" }
               )}
             >
-              <div className="flex flex-col-reverse lg:flex-row lg:items-center bg-white rounded-assets p-4 lg:p-8 -mx-4 lg:-mx-8">
+              <div className="flex flex-col-reverse lg:flex-row lg:items-center rounded-assets p-4 lg:p-8 -mx-4 lg:-mx-8">
                 <div className="py-4 lg:pr-10">
                   {section.description && (
-                    <div className="prose lg:prose-lg">
+                    <div className="prose 2xl:prose-lg">
                       <RichText2 data={section.description} />
                     </div>
                   )}

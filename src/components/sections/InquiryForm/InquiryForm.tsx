@@ -86,7 +86,7 @@ function onSubmitInvalid(errors: FieldErrors<FormValues>) {
               </div>
             )}
             {description && (
-              <div className={classNames("prose lg:prose-lg",
+              <div className={classNames("prose 2xl:prose-lg",
                 { "text-white drop-shadow-lg": backgroundImage}
               )}>
                 <RichText2 data={description} />

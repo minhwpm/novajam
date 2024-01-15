@@ -23,7 +23,7 @@ export default async function getContentList(id: string) {
             heading {
               json
             }
-            label
+            eyebrow
             summary {
               json
             }

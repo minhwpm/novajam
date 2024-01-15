@@ -25,7 +25,7 @@ export type BackgroundColorType = "neutral" | "red" | "orange" | "amber" | "yell
 
 export type AlignmentType = "inherit" | "center" | "reverse"
 
-export type ButtonVariant = "standard" | "alternate" | "black" | "link" | "outline" | "outline-black" | "outline-white"
+export type ButtonVariant = "standard" | "alternate" | "black" | "arrow" | "outline" | "outline-black" | "outline-white"
 
 export type ButtonType = {
   id?: string
@@ -198,7 +198,7 @@ export type CTAType = {
 
 export type ContentPTType = {
   id: string
-  label: string | null
+  eyebrow: string | null
   heading: Document | null
   summary: Document | null
   content: Array<ContentPieceType>
@@ -218,13 +218,13 @@ export type StatisticsType = {
 
 export type ContentPieceType = {
   id: string
-  media: Array<MediaType>
-  embeddedMediaUrl: string | null
-  embeddedMediaTitle: string | null
-  label: string | null
+  eyebrow: string | null
   heading: Document | null
   description: Document | null
   buttons: Array<ButtonType>
+  media: Array<MediaType>
+  embeddedMediaUrl: string | null
+  embeddedMediaTitle: string | null
   contentType: 'contentpiece'
 }
 
@@ -246,7 +246,7 @@ export type ContentListLayout = "carousel" | "spotlight" | "masonry" | "deck"
 export type ContentListType = {
   id: string
   heading: Document | null
-  label: string | null
+  eyebrow: string | null
   summary: Document | null
   content: Array<Content>
   seeAllLink: LinkType | null

@@ -28,7 +28,7 @@ export default async function getHero(id: string) {
                 sys {
                   id
                 }
-                label
+                eyebrow
                 heading {
                   json
                 }

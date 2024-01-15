@@ -17,7 +17,7 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
           </h1>
           <div className="flex justify-center">
             <div className="lg:w-2/3">
-              <p className="text-slate-600 text-lg prose lg:prose-lg max-w-none">
+              <p className="text-neutral-600 prose xl:prose-lg max-w-none">
                 {summary}
               </p>
             </div>
@@ -57,12 +57,12 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
             }
           </div>
           <div className="flex flex-col items-center gap-10 text-lg">
-            <div className="lg:w-2/3 mb-10 prose lg:prose-lg max-w-none overflow-x-hidden">
+            <div className="lg:w-2/3 mb-10 prose xl:prose-lg max-w-none overflow-x-hidden">
               <RichText2 data={content} style="blog" />
             </div>
             { author && 
               <div className="lg:w-2/3 text-lg">
-                <p className="text-slate-600 tracking-wider text-sm md:text-base">
+                <p className="text-neutral-600 tracking-wider text-sm md:text-base">
                   ABOUT THE AUTHOR
                 </p>
                 <ExpertPreview data={author} layout="horizontal" />

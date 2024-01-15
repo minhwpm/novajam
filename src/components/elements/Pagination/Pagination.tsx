@@ -45,7 +45,7 @@ export const Pagination: React.FC<{
       <div className="xl:absolute right-0 bottom-0">
         Page
         <select
-          className="border-slate-400 border w-14 inline-block p-2 mx-2 rounded-assets text-center"
+          className="border-neutral-400 border w-14 inline-block p-2 mx-2 rounded-assets text-center"
           name="page"
           defaultValue={currentPageNumber}
           onChange={(e) => {

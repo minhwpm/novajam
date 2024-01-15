@@ -34,14 +34,14 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
           </div>
           <div className="font-semibold">{role}</div>
           <div className="flex flex-wrap items-center gap-2">
-            <div className="text-slate-500 uppercase text-sm tracking-wider">
+            <div className="text-neutral-500 uppercase text-sm tracking-wider">
               Specialty:
             </div>
             {specialization}
           </div>
           <div>{organization}</div>
           {summary && (
-            <div className="my-5 prose lg:prose-lg max-w-none">{summary}</div>
+            <div className="my-5 prose 2xl:prose-lg max-w-none">{summary}</div>
           )}
           {sns && <SNS data={sns} />}
         </div>

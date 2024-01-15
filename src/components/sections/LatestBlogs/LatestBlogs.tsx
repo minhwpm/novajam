@@ -6,7 +6,7 @@ export const LatestBlogs: React.FC<{title?: string, data: Array<BlogType>}> = ({
   return (
     <section className="py-10">
       <Container>
-        <h2 className="text-3xl font-heading font-semibold text-neutral-500 tracking-wide mb-8">
+        <h2 className="text-3xl font-heading font-semibold text-neutral-600 tracking-wide mb-8">
           {title ?? "Latest articles" }
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 xl:gap-12">
