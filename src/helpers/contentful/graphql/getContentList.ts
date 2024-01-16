@@ -107,6 +107,7 @@ export default async function getContentList(id: string) {
                     title
                     width
                     height
+                    contentType
                   }
                   url
                   openNewTab
@@ -141,6 +142,23 @@ export default async function getContentList(id: string) {
                     buttonVariant
                   }
                 }
+                ... on Testimonial {
+                  sys {
+                    id
+                  }
+                  content {
+                    json
+                  }
+                  portrait {
+                    url
+                    title
+                    width
+                    height
+                    contentType
+                  }
+                  name
+                  role
+                }
               }
             }
           }
@@ -170,6 +188,6 @@ export default async function getContentList(id: string) {
       ... await getSectionData(normalizedData[0].content[i].contentType, normalizedData[0].content[i].id)
     }
   }
-  // console.log(`CARD LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  console.log(`CONTENT LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

@@ -2,7 +2,7 @@ import { PageType } from "@/helpers/types"
 import Image from "next/image"
 import Link from "next/link"
 
-const PagePreview = ({data}: {data: PageType}) => {
+export const PagePreview = ({data}: {data: PageType}) => {
   const { title, url, metaTitle, metaImage } = data
   return (
     <div>
@@ -23,5 +23,3 @@ const PagePreview = ({data}: {data: PageType}) => {
     </div>
   )
 }
-
-export default PagePreview

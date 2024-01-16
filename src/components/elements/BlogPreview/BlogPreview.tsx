@@ -31,7 +31,7 @@ export const BlogPreview: React.FC<Props> = ({
                 <div key={idx}>{topic}</div>
               ))}
             </div>
-            <h4 className="text-lg lg:text-xl font-semibold mt-1">
+            <h4 className="text-lg font-semibold mt-1">
               {title}
             </h4>
           </div>

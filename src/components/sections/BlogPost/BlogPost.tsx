@@ -15,15 +15,13 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
           <h1 className="text-heading font-heading leading-tight font-bold text-5xl mt-10 max-w-5xl text-center mx-auto">
             {title}
           </h1>
-          <div className="flex justify-center">
-            <div className="lg:w-2/3">
-              <p className="text-neutral-600 prose xl:prose-lg max-w-none">
+          <div className="flex flex-col lg:items-center gap-8">
+            <div className="lg:w-3/4 xl:w-2/3">
+              <p className="text-neutral-600 prose xl:prose-lg font-semibold max-w-none">
                 {summary}
               </p>
             </div>
-          </div>
-          <div className="flex flex-col items-center gap-10">
-            <div className="lg:w-2/3">
+            <div className="lg:w-3/4 xl:w-2/3">
               <div className="text-neutral-500 font-semibold mb-4">
                 {format(Date.parse(firstPublishedAt), 'MMMM dd, yyyy')}
               </div>
@@ -45,7 +43,7 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
               }
             </div>
             {media && 
-              <div className="lg:w-2/3 aspect-16/9">
+              <div className="lg:w-3/4 xl:w-2/3 aspect-16/9">
                 <Image  
                   className="w-full h-full object-cover"
                   src={media.url}
@@ -57,11 +55,11 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
             }
           </div>
           <div className="flex flex-col items-center gap-10 text-lg">
-            <div className="lg:w-2/3 mb-10 prose xl:prose-lg max-w-none overflow-x-hidden">
+            <div className="lg:w-3/4 xl:w-2/3 mb-10 prose xl:prose-lg max-w-none overflow-x-hidden">
               <RichText2 data={content} style="blog" />
             </div>
             { author && 
-              <div className="lg:w-2/3 text-lg">
+              <div className="lg:w-3/4 xl:w-2/3 text-lg">
                 <p className="text-neutral-600 tracking-wider text-sm md:text-base">
                   ABOUT THE AUTHOR
                 </p>

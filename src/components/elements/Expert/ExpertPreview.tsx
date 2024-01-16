@@ -53,7 +53,7 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
       <MediaItem data={portrait} aspectRatio="square" />
       <div className="w-full px-4 py-4 flex flex-col items-center gap-2  rounded-b-assets">
         <Link
-          className="underline-hover-effect font-semibold text-xl"
+          className="underline-hover-effect font-semibold text-lg"
           href={`/expert/${slug}`}
         >
           {fullName}

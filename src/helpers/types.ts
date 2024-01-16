@@ -216,6 +216,15 @@ export type StatisticsType = {
   contentType: 'statistics'
 }
 
+export type TestimonialType = {
+  id: string
+  content: Document 
+  portrait: MediaType | null
+  name: string | null
+  role: string | null
+  contentType: 'testimonial'
+}
+
 export type ContentPieceType = {
   id: string
   eyebrow: string | null
@@ -239,7 +248,7 @@ export type PricingPlanType = {
   contentType: 'pricingplan'
 }
 
-export type Content = BlogType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType | PricingPlanType
+export type Content = BlogType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType | PricingPlanType | TestimonialType
 export type ContentSize =  "S" | "M" | "L" | "XL"
 export type ContentListLayout = "carousel" | "spotlight" | "masonry" | "deck"
 

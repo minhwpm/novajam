@@ -1,12 +1,14 @@
+/* eslint-disable complexity */
 import Link from "next/link";
 import Image from "next/image";
 import { BlogPreview } from "@/components/elements/BlogPreview/BlogPreview";
-import PagePreview from "../PagePreview/PagePreview";
+import { PagePreview } from "@/components/elements/PagePreview/PagePreview";
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview";
 import { Statistics } from "@/components/elements/Statistics/Statistics";
 import { FlexibleContent } from "@/components/elements/FlexibleContent/FlexibleContent";
 import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan";
 import { AlignmentType, Content } from "@/helpers/types";
+import { Testimonial } from "@/components/elements/Testimonial/Testimonial";
 
 export const ContentMapping: React.FC<{
   data: Content;
@@ -43,5 +45,7 @@ export const ContentMapping: React.FC<{
       return <FlexibleContent data={data} alignment={alignment} />;
     case "pricingplan":
       return <PricingPlan data={data} />;
+    case "testimonial":
+      return <Testimonial data={data} alignment={alignment} />;
   }
 };
