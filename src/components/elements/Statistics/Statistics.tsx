@@ -14,7 +14,7 @@ export const Statistics: React.FC<{ data: StatisticsType, index: number }> = ({ 
     <div 
       ref={ref}
       className={classNames(
-        "flex flex-col items-center gap-3 pt-6 py-10 px-4 bg-white rounded-assets",
+        "flex flex-col items-center gap-3 p-4 rounded-assets",
         { "perspective-2500 backface-hidden -rotate-y-90": !isIntersecting },
         { "perspective-none backface-hidden rotate-y-0 transition-transform ease duration-1000 " : isIntersecting },
       )}
@@ -22,10 +22,10 @@ export const Statistics: React.FC<{ data: StatisticsType, index: number }> = ({ 
         transitionDelay: `${(index + 1) * 0.2}s`
       }}  
     >
-      <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-600 text-center tracking-tighter">
+      <div className="text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-primary-600 text-center tracking-tighter">
         {number}
       </div>
-      <div className="font-semibold tracking-wide text-center text-neutral-600 max-w-[150px]">
+      <div className="font-heading font-semibold tracking-wide text-center md:text-lg xl:text-xl text-neutral-600 max-w-[150px]">
         {text}
       </div>
     </div>

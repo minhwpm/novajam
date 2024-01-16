@@ -21,7 +21,7 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
   return (
     <section
       id={id ?? ""}
-      className={classNames("flex flex-col items-center py-12 lg:py-18", className)}
+      className={classNames("flex flex-col items-center py-12 lg:py-14 xl:py-16 2xl:py-18", className)}
       style={
         background
           ? {
