@@ -25,7 +25,7 @@ export const Statistics: React.FC<{ data: StatisticsType, index: number }> = ({ 
       <div className="text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-primary-600 text-center tracking-tighter">
         {number}
       </div>
-      <div className="font-heading font-semibold tracking-wide text-center md:text-lg xl:text-xl text-neutral-600 max-w-[150px]">
+      <div className="font-heading font-semibold tracking-wide text-center md:text-lg xl:text-xl max-w-[150px]">
         {text}
       </div>
     </div>
