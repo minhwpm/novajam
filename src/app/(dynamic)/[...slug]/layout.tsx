@@ -2,7 +2,7 @@
 /* eslint-disable complexity */ 
 import classNames from "classnames";
 import { Navigation } from "@/components/sections/Navigation/Navigation";
-import Footer from "@/components/sections/Footer/Footer";
+import { Footer } from "@/components/sections/Footer/Footer";
 import { Params } from "@/helpers/types";
 import { generateColorClassnames } from "@/helpers/utils";
 import { generateFontClassnames } from "@/helpers/fonts";
