@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import "@/app/css/custom-swiper.css"
 
 export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
-  const { content, layout, textAlignment } = data;
+  const { content, layout, alignment } = data;
 
   if (content.length === 0) {
     return null
@@ -22,7 +22,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
         {content.length === 1 && (
           <HeroSection
             data={content[0]}
-            textAlignment={textAlignment}
+            alignment={alignment}
             layout={layout}
           />
         )}
@@ -47,7 +47,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
               <SwiperSlide key={section.id}>
                 <HeroSection
                   data={section}
-                  textAlignment={textAlignment}
+                  alignment={alignment}
                   layout={layout}
                 />
               </SwiperSlide>

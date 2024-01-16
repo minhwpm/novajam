@@ -6,7 +6,7 @@ export default async function Page({ params}: {params: {slug: string}},) {
   try {
     const data = await getExpertDetails(params.slug)
     return (
-      <main className="flex flex-col gap-28 md:gap-40 min-h-screen pb-24 pt-20">
+      <main className="flex flex-col gap-10 lg:gap-12 2xl:gap-16 min-h-screen pb-24 pt-20">
         <Container>
           <ExpertDetails data={data} />
         </Container>

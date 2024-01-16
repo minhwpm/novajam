@@ -184,7 +184,7 @@ export type HeroType = {
   id: string
   content: Array<ContentPieceType>
   layout: HeroLayoutType
-  textAlignment: AlignmentType
+  alignment: AlignmentType
   contentType: "hero"
 }
 

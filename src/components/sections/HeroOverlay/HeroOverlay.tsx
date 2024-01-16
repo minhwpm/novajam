@@ -11,7 +11,7 @@ import "@/app/css/custom-swiper.css";
 
 
 export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
-  const { content, textAlignment } = data;
+  const { content, alignment } = data;
 
   if (content.length === 0) {
     return null
@@ -21,7 +21,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
       {content.length === 1 && (
         <HeroOSection
           data={content[0]}
-          textAlignment={textAlignment}
+          alignment={alignment}
         />
       )}
 
@@ -45,7 +45,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
             <SwiperSlide key={section.id}>
               <HeroOSection
                 data={section}
-                textAlignment={textAlignment}
+                alignment={alignment}
               />
             </SwiperSlide>
           ))}

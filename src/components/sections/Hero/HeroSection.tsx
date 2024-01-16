@@ -7,9 +7,9 @@ import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 
 export const HeroSection: React.FC<{
   data: ContentPieceType;
-  textAlignment: AlignmentType;
+  alignment: AlignmentType;
   layout: HeroLayoutType;
-}> = ({ data, textAlignment, layout }) => {
+}> = ({ data, alignment, layout }) => {
   return (
     <div
       key={data.id}
@@ -20,8 +20,8 @@ export const HeroSection: React.FC<{
       <div
         className={classNames(
           "flex flex-col gap-2 py-16",
-          { "items-center text-center": textAlignment === "center" },
-          { "items-end text-end": textAlignment === "reverse" }
+          { "items-center text-center": alignment === "center" },
+          { "items-end text-end": alignment === "reverse" }
         )}
       >
         {data.eyebrow && (
@@ -60,7 +60,7 @@ export const HeroSection: React.FC<{
             {data.buttons.length > 0 && (
               <ButtonGroup
                 data={data.buttons}
-                alignment={textAlignment}
+                alignment={alignment}
                 size="lg"
               />
             )}
