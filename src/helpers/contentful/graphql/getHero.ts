@@ -22,6 +22,13 @@ export default async function getHero(id: string) {
           items {
             layout
             alignment
+            backgroundImage {
+              url
+              title
+              width
+              height
+              contentType
+            }
             contentCollection {
               items {
                 __typename

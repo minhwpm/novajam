@@ -65,7 +65,7 @@ function SectionComponentMapping ({ data }: { data: ComponentType }) {
   }
 }
 
-export const Sections: React.FC<{
+export const SectionMapping: React.FC<{
   data: Array<ComponentType>;
 }> = ({ data }) => {
   return (

@@ -11,7 +11,7 @@ export type MediaType = {
   title: string
   width: number
   height: number
-  contentType: string
+  contentType: string //@TODO specify "image" "video" here
 }
 export type SNSType = {
   linkedInUrl: string | null
@@ -175,6 +175,7 @@ export type FeaturedContentType = {
   layout: FeaturedContentLayoutType
   uiVariant: "standard" | "extended"
   backgroundColor: BackgroundColorType | null
+  backgroundImage: MediaType | null
   contentType: "feature"
 }
 
@@ -185,6 +186,7 @@ export type HeroType = {
   content: Array<ContentPieceType>
   layout: HeroLayoutType
   alignment: AlignmentType
+  backgroundImage: MediaType | null
   contentType: "hero"
 }
 
@@ -206,6 +208,7 @@ export type ContentPTType = {
   alignment: AlignmentType
   htmlid: string | null
   backgroundColor: BackgroundColorType | null
+  backgroundImage: MediaType | null
   contentType: "presentation"
 }
 
@@ -264,6 +267,7 @@ export type ContentListType = {
   alignment: AlignmentType
   htmlid: string | null
   backgroundColor: BackgroundColorType | null
+  backgroundImage: MediaType | null
   contentType: "cardlist"
 }
 

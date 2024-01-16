@@ -12,7 +12,7 @@ import "@/app/css/bg-color.css";
 import styles from "./styles.module.css"
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
-  const { htmlid, eyebrow, heading, summary, content, alignment, backgroundColor } = data
+  const { htmlid, eyebrow, heading, summary, content, alignment, backgroundColor, backgroundImage } = data
   const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0].id : '')
   
   // Justify tab container
@@ -31,6 +31,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
       heading={heading}
       summary={summary}
       framed={false}
+      backgroundImage={backgroundImage}
     >
       <RadixTabs.Root
         className="w-full"

@@ -69,7 +69,7 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
 };
 
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data }) => {
-  const { htmlid, layout, uiVariant, content, mediaAspectRatio, backgroundColor } = data;
+  const { htmlid, layout, uiVariant, content, mediaAspectRatio, backgroundColor, backgroundImage } = data;
   if (content === null) {
     return null
   }
@@ -89,6 +89,16 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
           "py-12 lg:py-18",
           `${backgroundColor}-section-bg-color`
         )}
+        style={
+          backgroundImage
+            ? {
+                backgroundImage: `url(${backgroundImage.url})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundBlendMode: "overlay",
+              }
+            : {}
+        }
       >
         <div
           className={classNames(

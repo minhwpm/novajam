@@ -10,7 +10,7 @@ import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentM
 import "@/app/css/bg-color.css";
 
 export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor } = data;
+  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor, backgroundImage } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
@@ -20,6 +20,7 @@ export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
+      backgroundImage={backgroundImage}
     >
       {/* FOR MOBILE, TABLETS */}
       <div className="xl:hidden">

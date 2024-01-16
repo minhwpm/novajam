@@ -1,5 +1,5 @@
 import { Metadata, ResolvingMetadata } from 'next'
-import { Sections } from "@/components/sections/Sections/Sections"
+import { SectionMapping } from "@/components/sections/SectionMapping/SectionMapping"
 import { BlogType, PageType, Params } from "@/helpers/types"
 import { BlogPost } from "@/components/sections/BlogPost/BlogPost"
 import { FeaturedBlogs } from '@/components/sections/FeaturedBlogs/FeaturedBlogs'
@@ -76,5 +76,5 @@ export default async function Page({ params }: { params: Params }) {
   }
 
   const data = await getPage(`/${params.slug!.join('/')}`)
-  return <Sections data={data.content} />
+  return <SectionMapping data={data.content} />
 }

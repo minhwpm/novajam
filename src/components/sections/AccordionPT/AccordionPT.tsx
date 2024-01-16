@@ -14,7 +14,7 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import "@/app/css/bg-color.css";
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor } = data;
+  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor, backgroundImage } = data;
   return (
     <Section
       id={htmlid}
@@ -22,6 +22,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
+      backgroundImage={backgroundImage}
     >
       <div className="w-full flex flex-col gap-10">
         <RadixAccordion.Root

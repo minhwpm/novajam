@@ -12,20 +12,20 @@ interface Props {
   heading?: Document | null
   summary?: Document | null
   className?: string
-  background?: MediaType
+  backgroundImage?: MediaType | null
   children: React.ReactNode
   framed?: boolean
 }
 
-export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, children, className, background, framed = true } ) => {
+export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, children, className, backgroundImage, framed = true } ) => {
   return (
     <section
       id={id ?? ""}
       className={classNames("flex flex-col items-center py-12 lg:py-14 xl:py-16 2xl:py-18", className)}
       style={
-        background
+        backgroundImage
           ? {
-              backgroundImage: `url(${background.url})`,
+              backgroundImage: `url(${backgroundImage.url})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundBlendMode: "overlay",

@@ -18,7 +18,8 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     size,
     alignment,
     htmlid,
-    backgroundColor
+    backgroundColor,
+    backgroundImage,
   } = data;
 
   return (
@@ -29,6 +30,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
       heading={heading}
       summary={summary}
       framed={ layout !== "carousel" }
+      backgroundImage={backgroundImage}
     >
       <div className="mt-8">
         {seeAllLink && 
@@ -54,7 +56,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
               <div 
                 key={item.id} 
                 className={classNames(
-                  "px-3 py-3 w-full",
+                  "p-2 md:p-3 xl:p-4 2xl:p-5 w-full",
                   { "lg:basis-1/2": size === "XL" },
                   { "md:basis-1/2 xl:basis-1/3": size === "L" },
                   { "sm:basis-1/2 lg:basis-1/3 xl:basis-1/4": size === "M" },

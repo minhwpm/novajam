@@ -11,13 +11,24 @@ import "swiper/css/pagination";
 import "@/app/css/custom-swiper.css"
 
 export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
-  const { content, layout, alignment } = data;
+  const { content, layout, alignment, backgroundImage } = data;
 
   if (content.length === 0) {
     return null
   }
   return (
-    <section>
+    <section
+      style={
+        backgroundImage
+          ? {
+              backgroundImage: `url(${backgroundImage?.url})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundBlendMode: "overlay",
+            }
+          : {}
+      }
+    >
       <Container className={classNames("mb-12")}>
         {content.length === 1 && (
           <HeroSection

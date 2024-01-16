@@ -56,7 +56,6 @@ function onSubmitInvalid(errors: FieldErrors<FormValues>) {
       style={
         backgroundImage
           ? {
-              backgroundColor: "rgba(0, 0, 0, 0.3)",
               backgroundImage: `url(${backgroundImage.url})`,
               backgroundPosition: "center",
               backgroundSize: "cover",

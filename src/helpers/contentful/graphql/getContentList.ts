@@ -37,6 +37,13 @@ export default async function getContentList(id: string) {
             size
             alignment
             backgroundColor
+            backgroundImage {
+              url
+              title
+              width
+              height
+              contentType
+            }
             contentCollection (limit: 20) {
               items {
                 __typename

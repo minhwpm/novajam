@@ -31,6 +31,13 @@ export default async function getFeature(id: string) {
             layout
             uiVariant
             backgroundColor
+            backgroundImage {
+              url
+              title
+              width
+              height
+              contentType
+            }
           }
         }
       }

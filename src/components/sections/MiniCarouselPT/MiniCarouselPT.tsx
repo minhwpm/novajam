@@ -37,13 +37,14 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length }: ArrowGroupProps) => {
 };
 
 export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor } = data;
+  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor, backgroundImage } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
     <Section
       id={htmlid}
       className={classNames("overflow-x-hidden", `${backgroundColor}-section-bg-color`)}
+      backgroundImage={backgroundImage}
     >
       <div className="flex flex-col lg:flex-row gap-5 px-4 lg:py-10">
         <div className="lg:w-1/2 lg:pr-10">

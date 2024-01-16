@@ -45,12 +45,14 @@ const TextPart: React.FC<{
 }
 
 export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, alignment } = data
+  const { eyebrow, heading, summary, content, alignment, backgroundColor, backgroundImage } = data
   return (
     <Section
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
+      className={classNames(`${backgroundColor}-section-bg-color`)}
+      backgroundImage={backgroundImage}
     >
       <Swiper
         slidesPerView={1}

@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { Sections } from "@/components/sections/Sections/Sections"
+import { SectionMapping } from "@/components/sections/SectionMapping/SectionMapping"
 import { PageType } from "@/helpers/types"
 import getPage from "@/helpers/contentful/graphql/getPage"
 
@@ -25,5 +25,5 @@ export default async function Home() {
   if (!data) {
     throw new Error("Page Not Found")
   }
-  return <Sections data={data.content} />
+  return <SectionMapping data={data.content} />
 }

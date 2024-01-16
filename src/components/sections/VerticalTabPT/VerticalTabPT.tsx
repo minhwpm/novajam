@@ -12,7 +12,7 @@ import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import "@/app/css/bg-color.css";
 
 export const VerticalTabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor } = data;
+  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor, backgroundImage } = data;
   const [activeItem, setActiveItem] = React.useState(
     content.length > 0 ? content[0].id : ""
   );
@@ -23,6 +23,7 @@ export const VerticalTabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
+      backgroundImage={backgroundImage}
     >
       <RadixTabs.Root
         className="w-full lg:flex"
