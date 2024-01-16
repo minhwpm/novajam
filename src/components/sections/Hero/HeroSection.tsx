@@ -45,7 +45,7 @@ export const HeroSection: React.FC<{
         {data.description && (
           <div
             className={classNames(
-              "prose-lg lg:prose-xl mt-3 max-w-2xl animate-slidingHeroContent",
+              "prose xl:prose-lg 2xl:prose-xl text-neutral-700 mt-3 max-w-2xl animate-slidingHeroContent",
             )}
           >
             <RichText2 data={data.description} />

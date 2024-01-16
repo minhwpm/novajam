@@ -1,16 +1,17 @@
 // @TODO fix eslint complexity
 /* eslint-disable complexity */ 
-import Navigation from "@/components/sections/Navigation/Navigation";
-import Footer from "@/components/sections/Footer/Footer";
 import classNames from "classnames";
-import getFooter from "@/helpers/contentful/graphql/getFooter";
-import getPage from "@/helpers/contentful/graphql/getPage";
+import { Navigation } from "@/components/sections/Navigation/Navigation";
+import Footer from "@/components/sections/Footer/Footer";
 import { Params } from "@/helpers/types";
 import { generateColorClassnames } from "@/helpers/utils";
-import styles from "./styles.module.css";
 import { generateFontClassnames } from "@/helpers/fonts";
+import getPage from "@/helpers/contentful/graphql/getPage";
 import getNavigation from "@/helpers/contentful/graphql/getNavigation";
+import getFooter from "@/helpers/contentful/graphql/getFooter";
+import styles from "./styles.module.css";
 
+// @TODO metadata
 export default async function Layout({
   children,
   params,
@@ -30,7 +31,6 @@ export default async function Layout({
       if (!fontTheme || !colorTheme || !borderRadiusTheme) {
         page = await getPage(`/${params.slug!.join("/")}`);
         if (page) {
-          // console.log("PAGE THEME", page.fontMain, page.fontHeading, page.colorPrimary, page.colorSecondary)
           fontTheme = generateFontClassnames(page.fontMain, page.fontHeading);
           colorTheme = generateColorClassnames(
             page.colorPrimary,

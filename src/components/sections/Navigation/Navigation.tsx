@@ -104,7 +104,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
   );
 };
 
-const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
+export const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
   return(
     <>
       <Header data={data} />
@@ -134,5 +134,3 @@ const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
     </>
   )
 }
-
-export default Navigation

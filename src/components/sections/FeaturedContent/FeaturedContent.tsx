@@ -41,7 +41,7 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
       )}
       {description &&
         <div
-          className={classNames("block prose 2xl:prose-lg", {
+          className={classNames("block prose 2xl:prose-lg text-neutral-700", {
             "mx-auto":
               layout === "Vertical (Text | Image)" ||
               layout === "Vertical (Image | Text)",

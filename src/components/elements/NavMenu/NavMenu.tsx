@@ -37,7 +37,6 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
               <div className="pb-8">
                 <NavLinkItem
                   key={item.id}
-                  className={classNames("font-bold")}
                   href={item.url}
                   variant="underlined"
                   openNewTab={item.openNewTab}

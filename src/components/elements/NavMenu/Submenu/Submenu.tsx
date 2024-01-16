@@ -13,7 +13,7 @@ export const Submenu: React.FC<{ data: SubmenuType, uiVariant?: NavigationUiVari
     <>
       <NavigationMenu.Trigger className="group pb-8">
         <span className={classNames(
-          "font-bold py-2 select-none underline-hover-effect cursor-pointer before:bg-primary-500 group-data-[state=open]:before:w-full",
+          "py-2 select-none underline-hover-effect cursor-pointer before:bg-primary-500 group-data-[state=open]:before:w-full",
           {
             "before:w-full":
               data.featuredContent.find(

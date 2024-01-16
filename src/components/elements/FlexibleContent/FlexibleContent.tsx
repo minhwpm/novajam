@@ -22,7 +22,7 @@ const TextPart: React.FC<{
         </div>
       )}
       {description && (
-        <div className={classNames("py-4 prose 2xl:prose-lg", {"mb-2": buttons.length > 0})}>
+        <div className={classNames("py-4 prose 2xl:prose-lg text-neutral-700", {"mb-2": buttons.length > 0})}>
           <RichText2 data={description} />
         </div>
       )}

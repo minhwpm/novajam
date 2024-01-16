@@ -57,7 +57,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
   const classes = classNames(
     "!border-2 relative inline-flex justify-center items-center text-center rounded-assets bottom-0 hover:bottom-1 transition-all duration-500 ease",
     {
-      "border-primary-500 bg-primary-500 hover:bg-primary-400 hover:border-primary-400 text-white": variant === "standard",
+      "border-primary-500 bg-primary-500 hover:bg-primary-600 hover:border-primary-600 text-white": variant === "standard",
     },
     {
       "border-secondary-500 bg-secondary-500 hover:bg-secondary-400 hover:border-secondary-400 text-white":

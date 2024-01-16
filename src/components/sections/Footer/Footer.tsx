@@ -8,7 +8,7 @@ interface Props {
   data: FooterType
 }
 
-const Footer: React.FC<Props> = ({ data }) => {
+export const Footer: React.FC<Props> = ({ data }) => {
   const { logo, logoRedirect, copyright, sns, menu } = data
   return (
     <footer className="pt-6 pb-20">
@@ -51,5 +51,3 @@ const Footer: React.FC<Props> = ({ data }) => {
     </footer>
   )
 }
-
-export default Footer
