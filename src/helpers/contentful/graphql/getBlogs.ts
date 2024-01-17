@@ -1,6 +1,6 @@
 import normalizeDataCollection from "./normalizeDataCollection"
 
-export default async function getBlogs(limit: number, skip: number, featured?: boolean) {
+export default async function getBlogs(limit?: number, skip?: number, featured?: boolean, topic?: string[]) {
   const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {
@@ -10,12 +10,13 @@ export default async function getBlogs(limit: number, skip: number, featured?: b
     },
     // send the GraphQL query
     body: JSON.stringify({ query: `
-      query($limit: Int, $skip: Int, $featured: Boolean) {
+      query($limit: Int, $skip: Int, $featured: Boolean, $topic: [String]) {
         blogCollection(
           limit: $limit,
           skip: $skip,
           where: { 
             featured: $featured
+            topics_contains_some: $topic
           }
         ) {
           total
@@ -48,7 +49,8 @@ export default async function getBlogs(limit: number, skip: number, featured?: b
       variables: {
         limit,
         skip,
-        featured
+        featured,
+        topic
       },
     }),
   })
@@ -60,7 +62,6 @@ export default async function getBlogs(limit: number, skip: number, featured?: b
     console.error(data)
     throw new Error("Failed to fetch Blog List data. Error", data.error)
   }
-
   const normalizedData = normalizeDataCollection({...data.data})
 
   // console.log(`BLOG LIST DATA: ${JSON.stringify(normalizedData, null, 4)}`)

@@ -1,27 +1,32 @@
 import { Container }from "@/components/elements/Container/Container"
-import getBlogs from "@/helpers/contentful/graphql/getBlogs"
-import { BlogType } from "@/helpers/types"
 import { Pagination }from "@/components/elements/Pagination/Pagination"
 import { LatestBlogs } from "@/components/sections/LatestBlogs/LatestBlogs"
+import { BlogType, BLOG_PAGE_SIZE } from "@/helpers/types"
+import getBlogs from "@/helpers/contentful/graphql/getBlogs"
 
-export default async function Page({ params } : { params: { number: string } } ) {
+type Props = { 
+  params: { number: string }
+  searchParams: { topic: string | string[] | undefined }
+}
+
+export default async function Page({ params, searchParams } : Props ) {
+  const { topic } = searchParams
   const number = parseInt(params.number)
-  try {
-    const latestBlogs = await getBlogs(6, (number-1) * 6) as Array<BlogType>
-    return (
-      <main className="flex flex-col min-h-screen pb-24">
-        <LatestBlogs data={latestBlogs} />
+  const latestBlogs = (await getBlogs(
+    BLOG_PAGE_SIZE,
+    (number - 1) * BLOG_PAGE_SIZE,
+    false,
+    topic as string[]
+  )) as Array<BlogType>;
+  
+  return (
+    <main className="flex flex-col min-h-screen pb-24">
+      {latestBlogs.length > 0 && <LatestBlogs data={latestBlogs} /> }
+      {(latestBlogs.length >= BLOG_PAGE_SIZE) && (
         <Container>
-          <Pagination totalPages={4} currentPageNumber={number} />
+          <Pagination currentPageNumber={number} />
         </Container>
-      </main>
-    )
-  } catch (e) {
-    console.error(e)
-    return (
-      <main>
-        404 Error Page
-      </main>
-    )
-  }
+      )}
+    </main>
+  )
 }

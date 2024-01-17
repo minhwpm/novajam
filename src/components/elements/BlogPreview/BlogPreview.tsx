@@ -26,12 +26,18 @@ export const BlogPreview: React.FC<Props> = ({
           <div className={classNames(
             "w-full px-5 pt-5 pb-10 flex flex-col gap-y-2",
           )}>
-            <div className="text-xs uppercase tracking-widest flex flex-wrap gap-x-5 gap-y-1">
+            <div className="text-xs text-primary-600 uppercase tracking-widest flex flex-wrap gap-x-5 gap-y-1">
               {topics && topics.length > 0 && topics.map((topic, idx) => (
-                <div key={idx}>{topic}</div>
+                <Link
+                  key={idx}
+                  className="underline-hover-effect"
+                  href={`${pathname}/blog?topic=${topic}`}
+                >
+                  {topic}
+                </Link>
               ))}
             </div>
-            <h4 className="text-lg font-semibold mt-1">
+            <h4 className="text-lg font-semibold mt-1 hover:text-blue-600 transition-colors duration-500">
               {title}
             </h4>
           </div>
@@ -47,12 +53,18 @@ export const BlogPreview: React.FC<Props> = ({
             <MediaItem data={media} aspectRatio={aspectRatio} />
           </div>
           <div className="col-span-8 flex flex-col gap-y-2 py-4 pr-4">
-            <div className="text-xs uppercase tracking-widest flex flex-wrap gap-x-5 gap-y-1">
+            <div className="text-xs text-primary-600 uppercase tracking-widest flex flex-wrap gap-x-5 gap-y-1">
               {topics && topics.length > 0 && topics.map((topic, idx) => (
-                <div key={idx}>{topic}</div>
+                <Link
+                  key={idx}
+                  className="underline-hover-effect"
+                  href={`${pathname}/blog?topic=${topic}`}
+                >
+                  {topic}
+                </Link>
               ))}
             </div>
-            <h4 className="lg:text-lg font-semibold mt-1">
+            <h4 className="lg:text-lg font-semibold mt-1 hover:text-blue-600 transition-colors duration-500">
               {title}
             </h4>
           </div>

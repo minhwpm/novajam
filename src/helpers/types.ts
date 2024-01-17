@@ -1,10 +1,5 @@
 import { Document } from "@contentful/rich-text-types";
 
-export type Params = {
-  string: string
-  slug?: Array<string>
-}
-
 export type MediaType = {
   id: string
   url: string
@@ -141,6 +136,7 @@ export type BlogType = {
   metaImage: MediaType
   contentType: "blog"
 }
+export const BLOG_PAGE_SIZE = 9
 
 export type ExpertType = {
   id: string
