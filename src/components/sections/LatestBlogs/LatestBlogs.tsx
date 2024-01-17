@@ -7,7 +7,7 @@ export const LatestBlogs: React.FC<{title?: string, data: Array<BlogType>}> = ({
     <section className="py-12 lg:py-16 bg-primary-50">
       <Container>
         <h2 className="text-3xl font-heading font-semibold text-neutral-600 tracking-wide mb-8">
-          {title ?? "Latest articles" }
+          {title ?? "LATEST ARTICLES" }
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10">
           {data.map(item => (
