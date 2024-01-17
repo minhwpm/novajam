@@ -8,7 +8,7 @@ import getBlogs from "@/helpers/contentful/graphql/getBlogs"
 export default async function Page() {
   try {
     const featuredBlogs = await getBlogs(4, 0, true) as Array<BlogType>
-    const latestBlogs = await getBlogs(6, 0) as Array<BlogType>
+    const latestBlogs = await getBlogs(6, 0, false) as Array<BlogType>
     return (
       <main className="flex flex-col min-h-screen pb-24">
         <FeaturedBlogs data={featuredBlogs} />
