@@ -37,7 +37,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
       >
         <Link
           className={classNames(
-            "relative left-0 group inline-block text-primary-500 text-lg hover:text-primary-600 hover:left-1 transition-all duration-500",
+            "relative left-0 group inline-block text-primary-600 text-lg hover:text-primary-700 hover:left-1 transition-all duration-500",
             { "py-2": size === "base" },
             { "py-3 text-lg": size === "lg" },
             { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
@@ -57,10 +57,10 @@ export const Button: React.FC<ButtonProps> = (props) => {
   const classes = classNames(
     "!border-2 relative inline-flex justify-center items-center text-center rounded-assets bottom-0 hover:bottom-1 transition-all duration-500 ease",
     {
-      "border-primary-500 bg-primary-500 hover:bg-primary-600 hover:border-primary-600 text-white": variant === "standard",
+      "border-primary-600 bg-primary-600 hover:bg-primary-700 hover:border-primary-700 text-white": variant === "standard",
     },
     {
-      "border-secondary-500 bg-secondary-500 hover:bg-secondary-400 hover:border-secondary-400 text-white":
+      "border-secondary-400 bg-secondary-400 hover:bg-secondary-500 hover:border-secondary-500 text-neutral-800":
         variant === "alternate",
     },
     { "border-neutral-900 bg-neutral-900 text-white hover:bg-primary-500 hover:border-primary-500": variant === "black" },

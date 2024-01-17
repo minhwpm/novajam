@@ -86,7 +86,7 @@ body {
 
 /* @TODO: Heading highlighted words - Refactor needed */
 h1 u, h2 u, h3 u, h4 u {
-  @apply text-primary-500;
+  @apply text-primary-600;
   text-decoration: unset;
 }
 
