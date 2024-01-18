@@ -10,13 +10,8 @@ import getPage from "@/helpers/contentful/graphql/getPage";
 import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails";
 import getBlogs from "@/helpers/contentful/graphql/getBlogs";
 
-type Params = {
-  string: string;
-  slug?: Array<string>;
-};
-
 export async function generateMetadata(
-  { params }: { params: Params },
+  { params }: { params: { slug: Array<string> } },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const previousImages = (await parent).openGraph?.images || [];
@@ -36,7 +31,7 @@ export async function generateMetadata(
   }
 }
 
-export default async function Page({ params }: { params: Params }) {
+export default async function Page({ params }: { params: { slug: Array<string> } }) {
   if (params.slug![params.slug!.length - 1] === "blog") {
     const featuredBlogs = (await getBlogs(4, 0, true)) as Array<BlogType>;
     const latestBlogs = (await getBlogs(BLOG_PAGE_SIZE, 0)) as Array<BlogType>;

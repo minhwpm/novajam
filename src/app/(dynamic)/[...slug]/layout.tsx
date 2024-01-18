@@ -3,7 +3,6 @@
 import classNames from "classnames";
 import { Navigation } from "@/components/sections/Navigation/Navigation";
 import { Footer } from "@/components/sections/Footer/Footer";
-import { Params } from "@/helpers/types";
 import { generateColorClassnames } from "@/helpers/utils";
 import { generateFontClassnames } from "@/helpers/fonts";
 import getPage from "@/helpers/contentful/graphql/getPage";
@@ -16,8 +15,8 @@ export default async function Layout({
   children,
   params,
 }: {
-  children: React.ReactNode;
-  params: Params;
+  children: React.ReactNode
+  params: { slug: Array<string> }
 }) {
   // console.log(params, JSON.stringify(children, null, 4))
   let navigation, footer, page, fontTheme, colorTheme, borderRadiusTheme, headingFontSizeTheme;
