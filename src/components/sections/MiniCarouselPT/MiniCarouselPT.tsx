@@ -84,7 +84,6 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               )}
             >
               {(section.media.length > 0 || section.embeddedMediaUrl) && (
-                // @TODO <MediaCarousel /> breaks layout here
                 <FlexibleContentMediaPart data={section} alignment={alignment} />
               )}
               <div

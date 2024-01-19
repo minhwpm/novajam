@@ -37,7 +37,7 @@ export const BlogPreview: React.FC<Props> = ({
                 </Link>
               ))}
             </div>
-            <h4 className="text-lg font-semibold mt-1 hover:text-blue-600 transition-colors duration-500">
+            <h4 className="text-lg font-semibold mt-1 hover:text-primary-600 transition-colors duration-500">
               {title}
             </h4>
           </div>
@@ -64,7 +64,7 @@ export const BlogPreview: React.FC<Props> = ({
                 </Link>
               ))}
             </div>
-            <h4 className="lg:text-lg font-semibold mt-1 hover:text-blue-600 transition-colors duration-500">
+            <h4 className="lg:text-lg font-semibold mt-1 hover:text-primary-600 transition-colors duration-500">
               {title}
             </h4>
           </div>
