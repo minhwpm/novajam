@@ -102,6 +102,7 @@ export default async function getContentList(id: string) {
                     title
                     width
                     height
+                    contentType
                   }
                 }
                 ... on Link {

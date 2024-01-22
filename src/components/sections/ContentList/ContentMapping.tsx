@@ -16,14 +16,15 @@ export const ContentMapping: React.FC<{
   layout?: "horizontal" | "vertical"
   index: number
 }> = ({ data, alignment, layout = "vertical", index }) => {
-  //@TODO do alignment for Blog, Page ...
+  //@TODO do alignment for Page, Blog, Expert, Statistics, PricingPlan  ...
   switch (data.contentType) {
     case "blog":
       return <BlogPreview data={data} layout={layout} aspectRatio={layout === "horizontal" ? "square" : undefined} />;
     case "page":
-      return <PagePreview data={data} />;
+      return <PagePreview data={data} layout={layout} />;
     case "link":
       return (
+        // @TODO refactor - in new file ImageLink
         <Link href={data.url}>
           {data.image ? (
             <Image
@@ -42,7 +43,7 @@ export const ContentMapping: React.FC<{
     case "statistics":
       return <Statistics index={index} data={data} />;
     case "contentpiece":
-      return <FlexibleContent data={data} alignment={alignment} />;
+      return <FlexibleContent data={data} alignment={alignment} layout={layout} />;
     case "pricingplan":
       return <PricingPlan data={data} />;
     case "testimonial":

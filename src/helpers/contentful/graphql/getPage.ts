@@ -33,6 +33,7 @@ export default async function getPage(url: string) {
               title
               width
               height
+              contentType
             }
             fontMain
             fontHeading
@@ -121,6 +122,6 @@ export default async function getPage(url: string) {
       ... await getSectionData(normalizedData[0].content[i].contentType, normalizedData[0].content[i].id)
     }
   }
-  // console.log(`PAGE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  console.log(`PAGE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

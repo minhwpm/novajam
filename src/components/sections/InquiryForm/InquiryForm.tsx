@@ -102,8 +102,6 @@ function onSubmitInvalid(errors: FieldErrors<FormValues>) {
               onSubmit={handleSubmit(onSubmitValid, onSubmitInvalid)}
             >
               {fields.length > 0 &&
-                // @TODO 
-                // eslint-disable-next-line complexity
                 fields.map((fieldItem) => (
                   <div
                     key={fieldItem.id} 

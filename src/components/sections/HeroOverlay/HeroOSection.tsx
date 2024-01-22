@@ -1,5 +1,3 @@
-// @TODO
-/* eslint-disable complexity */
 import classNames from "classnames";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";

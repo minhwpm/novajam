@@ -1,6 +1,6 @@
 "use client";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { Button } from "../Button/Button";
 
 export const Pagination: React.FC<{
@@ -41,7 +41,7 @@ export const Pagination: React.FC<{
             router.push(pathname.join("/") + (topic ? ("?topic=" + topic) : "") )
           }}
         >
-          Next page
+          <AiOutlineArrowRight size={20} />
         </Button>
       </div>
     </div>

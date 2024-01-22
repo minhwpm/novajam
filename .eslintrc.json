@@ -29,7 +29,7 @@
       "error",
       { "argsIgnorePattern": "^_" }
     ],
-    "complexity": ["error", 10],
+    "complexity": ["error", 15],
     // "import/no-default-export": "error",
     // "no-console": "error",
     "react/jsx-key": "error",

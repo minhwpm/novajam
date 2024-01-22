@@ -1,22 +1,36 @@
-import { PageType } from "@/helpers/types"
-import Image from "next/image"
 import Link from "next/link"
+import { PageType } from "@/helpers/types"
+import { MediaItem } from "../MediaItem/MediaItem"
 
-export const PagePreview = ({data}: {data: PageType}) => {
+export const PagePreview: React.FC<{
+  data: PageType
+  layout?: "vertical" | "horizontal"
+}> = ({
+  data,
+  layout = "vertical"
+}) => {
   const { title, url, metaTitle, metaImage } = data
-  return (
-    <div>
-      <Link href={url} className="group flex flex-col">
-        <div className="aspect-4/3 overflow-hidden rounded-assets">
-          <Image 
-            className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ease-in-out"
-            src={metaImage?.url ?? "/bluebiz_square.webp"}
-            alt={metaImage?.title ?? ""}
-            width={metaImage?.width ?? 500}
-            height={metaImage?.height ?? 400}
-          />
+  if (layout === "horizontal") {
+    return (
+      <div className="rounded-assets bg-white flex gap-5">
+        <div className="basis-1/3 flex-1">
+          <MediaItem data={metaImage} aspectRatio="square" />
         </div>
-        <h4 className="mt-3 text-xl font-semibold text-center pb-5">
+        <div className="basis-2/3 flex-1 py-4 pr-4 lg:py-6 lg:pr-6">
+          <h4 className="text-xl font-semibold">
+            <Link href={url} className="group flex gap-5">
+              {metaTitle ?? title}
+            </Link>
+          </h4>
+        </div>
+      </div>
+    )
+  }
+  return (
+    <div className="rounded-assets flex flex-col bg-white">
+      <Link href={url} >
+        <MediaItem data={metaImage} aspectRatio="4/3" />
+        <h4 className="mt-4 text-xl font-semibold text-center pb-4 lg:pb-6">
           {metaTitle ?? title}
         </h4>
       </Link>

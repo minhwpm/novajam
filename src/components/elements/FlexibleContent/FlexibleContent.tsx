@@ -17,7 +17,7 @@ const TextPart: React.FC<{
         </div>
       )}
       {heading && (
-        <div className={classNames("text-lg lg:text-2xl", {"mb-4": !description})}>
+        <div className={classNames("text-lg lg:text-2xl", {"mb-4": description})}>
           <RichText2 data={heading} />
         </div>
       )}
@@ -36,17 +36,40 @@ const TextPart: React.FC<{
 export const FlexibleContent: React.FC<{
   data: ContentPieceType;
   alignment?: AlignmentType
+  layout?: "vertical" | "horizontal"
 }> = ({
-  data, alignment = 'center'
+  data, 
+  alignment = 'center',
+  layout = "vertical",
 }) => {
   const { heading, eyebrow, description, media, embeddedMediaUrl, buttons } = data;
+  if (layout === "horizontal") {
+    return (
+      <div className="flex gap-5 rounded-assets bg-white">
+        <div className="basis-1/3 flex-1">
+          {(media || embeddedMediaUrl) && <FlexibleContentMediaPart data={data} alignment={alignment} aspectRatio="auto" /> }
+        </div>
+        {(heading || eyebrow || description || buttons?.length > 0) && (
+          <div
+            className={classNames(
+              "basis-2/3 flex-1 px-4 pt-4 pb-6 lg:px-6 lg:pt-6 lg:pb-8 flex-1 flex flex-col justify-between",
+              { "text-center": alignment === "center" },
+              { "text-end": alignment === "reverse" }
+            )}
+          >
+            <TextPart data={data} alignment={alignment} />
+          </div>
+        )}
+      </div>
+    )
+  }
   return (
     <div className="flex flex-col rounded-assets bg-white">
       {(media || embeddedMediaUrl) && <FlexibleContentMediaPart data={data} alignment={alignment} aspectRatio="auto" /> }
       {(heading || eyebrow || description || buttons?.length > 0) && (
         <div
           className={classNames(
-            "px-4 pt-4 pb-6 lg:px-6 lg:pt-6 lg:pb-8 flex-1 flex flex-col justify-between",
+            "p-4 lg:p-6 flex-1 flex flex-col justify-between",
             { "text-center": alignment === "center" },
             { "text-end": alignment === "reverse" }
           )}

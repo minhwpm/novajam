@@ -32,9 +32,9 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
       framed={ layout !== "carousel" }
       backgroundImage={backgroundImage}
     >
-      <div className="mt-8">
+      <div className="mt-4">
         {seeAllLink && 
-          <div className="w-full flex justify-center -mt-12 mb-4">
+          <div className="w-full flex justify-center -mt-8 mb-4">
             <Button
             size="lg"
             variant="arrow"
