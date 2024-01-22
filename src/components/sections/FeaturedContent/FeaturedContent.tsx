@@ -14,7 +14,7 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
       {eyebrow && (
         <div
           className={classNames(
-            "tracking-widest mb-2 text-secondary-500 font-semibold",
+            "tracking-widest mb-2 text-primary-600 font-semibold",
             {
               "text-center":
                 layout === "Vertical (Text | Image)" ||
