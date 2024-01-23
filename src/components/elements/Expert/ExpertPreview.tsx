@@ -50,10 +50,12 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
   }
   return (
     <div className="group bg-white rounded-assets">
-      <MediaItem data={portrait} aspectRatio="square" />
+      <Link href={`/expert/${slug}`}>
+        <MediaItem data={portrait} aspectRatio="square" />
+      </Link>
       <div className="w-full px-4 py-4 flex flex-col items-center gap-2  rounded-b-assets">
         <Link
-          className="underline-hover-effect font-semibold text-lg"
+          className="underline-hover-effect font-semibold text-lg hover:text-primary-600"
           href={`/expert/${slug}`}
         >
           {fullName}

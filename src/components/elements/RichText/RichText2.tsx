@@ -27,7 +27,7 @@ export function RichText2({
           [INLINES.HYPERLINK]: (node: Inline | Block, children: ReactNode) => {
             return (
               <Link
-                className="text-blue-500 hover:text-blue-600 underline-offset-4 transition-colors duration-300 ease"
+                className="text-blue-600 hover:text-blue-700 underline-offset-4 transition-colors duration-300 ease"
                 target="_blank"
                 href={node.data.uri}
               >
