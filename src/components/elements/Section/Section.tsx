@@ -35,7 +35,7 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
     >
       <Container>
         {eyebrow && (
-          <div className="tracking-widest text-primary-600 font-semibold text-center mx-auto mb-2">
+          <div className="tracking-widest text-primary-600 font-semibold text-center mx-auto">
             {eyebrow}
           </div>
         )}
