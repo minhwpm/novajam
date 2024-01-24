@@ -14,11 +14,13 @@ export const PagePreview: React.FC<{
     return (
       <div className="rounded-assets bg-white flex gap-5">
         <div className="basis-1/3 flex-1">
-          <MediaItem data={metaImage} aspectRatio="square" />
+          <Link href={url}>
+            <MediaItem data={metaImage} aspectRatio="square" />
+          </Link>
         </div>
         <div className="basis-2/3 flex-1 py-4 pr-4 lg:py-6 lg:pr-6">
-          <h4 className="text-xl font-semibold">
-            <Link href={url} className="group flex gap-5">
+          <h4 className="text-xl font-heading file:font-semibold">
+            <Link href={url}>
               {metaTitle ?? title}
             </Link>
           </h4>
@@ -30,7 +32,7 @@ export const PagePreview: React.FC<{
     <div className="rounded-assets flex flex-col bg-white">
       <Link href={url} >
         <MediaItem data={metaImage} aspectRatio="4/3" />
-        <h4 className="mt-4 text-xl font-semibold text-center pb-4 lg:pb-6">
+        <h4 className="mt-4 text-xl font-heading font-semibold text-center pb-4 lg:pb-6">
           {metaTitle ?? title}
         </h4>
       </Link>

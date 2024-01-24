@@ -27,16 +27,11 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
           <MediaItem data={portrait} aspectRatio="square" rounded="full" />
         </div>
         <div className="w-full pt-6 md:w-3/4 md:pt-0 md:pl-10">
-          <div className="font-semibold text-2xl md:text-3xl mb-5">
-            <Link className="underline-hover-effect" href={`/expert/${slug}`}>
-              {fullName}
-            </Link>
-          </div>
-          <div className="font-semibold">{role}</div>
+          <Link className="font-heading underline-hover-effect font-semibold text-2xl md:text-3xl mb-5" href={`/expert/${slug}`}>
+            {fullName}
+          </Link>
+          <div className="font-semibold text-neutral-600 italic">{role}</div>
           <div className="flex flex-wrap items-center gap-2">
-            <div className="text-neutral-500 uppercase text-sm tracking-wider">
-              Specialty:
-            </div>
             {specialization}
           </div>
           <div>{organization}</div>
@@ -55,24 +50,21 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
       </Link>
       <div className="w-full px-4 py-4 flex flex-col items-center gap-2  rounded-b-assets">
         <Link
-          className="underline-hover-effect font-semibold text-lg hover:text-primary-600"
+          className="font-heading font-semibold text-lg underline-hover-effect hover:text-primary-600"
           href={`/expert/${slug}`}
         >
           {fullName}
         </Link>
         {(role || specialization || summary) && (
-          <div className="text-base flex flex-col gap-2 mb-4">
-            {role && <div className="font-semibold text-center">{role}</div>}
+          <>
+            {role && <div className="font-semibold italic text-neutral-600">{role}</div>}
             {specialization && (
               <div className="flex flex-wrap items-center justify-center gap-2">
-                <div className="text-neutral-500 uppercase text-sm tracking-wider">
-                  Specialty:
-                </div>
-                <div className="text-neutral-600 ">{specialization} </div>
+                {specialization}
               </div>
             )}
             {summary && <div className="prose line-clamp-3 text-center">{summary}</div>}
-          </div>
+          </>
         )}
         {sns && <SNS data={sns} />}
       </div>
