@@ -42,7 +42,7 @@ export const Libre_Franklin_Font = Libre_Franklin({
 export const Roboto_Font = Roboto({
   subsets: ["latin"],
   display: "swap",
-  weight: ["100", "300", "500", "700", "900"],
+  weight: ["100", "300", "400", "500", "700", "900"],
 })
 
 export const Raleway_Font = Raleway({
