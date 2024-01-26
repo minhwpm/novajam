@@ -11,10 +11,10 @@ import "./carousel-list-styles.css"
 import "@/app/css/custom-swiper.css"
 
 export const CarouselList: React.FC<{
-  content: Content[];
+  list: Content[];
   size: ContentSize;
   alignment: AlignmentType;
-}> = ({ content, size, alignment }) => {
+}> = ({ list, size, alignment }) => {
   return (
     <Swiper
       className={classNames("carousel-list w-screen")}
@@ -28,7 +28,7 @@ export const CarouselList: React.FC<{
       }}
       modules={[Pagination, Autoplay]}
     >
-      {content.map((item, idx) => (
+      {list.map((item, idx) => (
         <SwiperSlide
           key={item.id}
           style={{

@@ -139,7 +139,7 @@ function onSubmitInvalid(errors: FieldErrors<FormValues>) {
                     )}
                   </div>
                 ))}
-              <div className={classNames("col-span-2 flex flex-col")}>
+              <div className={classNames("col-span-2 flex flex-col mt-6")}>
                 {submitButton ? (
                   <Button
                     variant={submitButton.buttonVariant ?? "black"}

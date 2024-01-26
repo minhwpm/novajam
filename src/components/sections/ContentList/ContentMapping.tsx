@@ -22,9 +22,18 @@ export const ContentMapping: React.FC<{
       return <BlogPreview data={data} layout={layout} aspectRatio={layout === "horizontal" ? "square" : undefined} />;
     case "page":
       return <PagePreview data={data} layout={layout} />;
+    case "expert":
+      return <ExpertPreview data={data} layout={layout} />;
+    case "statistics":
+      return <Statistics index={index} data={data} />;
+    case "contentpiece":
+      return <FlexibleContent data={data} alignment={alignment} layout={layout} />;
+    case "pricingplan":
+      return <PricingPlan data={data} />;
+    case "testimonial":
+      return <Testimonial data={data} alignment={alignment} />;
     case "link":
       return (
-        // @TODO refactor - in new file ImageLink
         <Link href={data.url}>
           {data.image ? (
             <Image
@@ -38,15 +47,5 @@ export const ContentMapping: React.FC<{
           )}
         </Link>
       );
-    case "expert":
-      return <ExpertPreview data={data} layout={layout} />;
-    case "statistics":
-      return <Statistics index={index} data={data} />;
-    case "contentpiece":
-      return <FlexibleContent data={data} alignment={alignment} layout={layout} />;
-    case "pricingplan":
-      return <PricingPlan data={data} />;
-    case "testimonial":
-      return <Testimonial data={data} alignment={alignment} />;
   }
 };

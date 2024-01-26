@@ -5,10 +5,10 @@ import { AlignmentType, Content, ContentSize } from "@/helpers/types";
 import { ContentMapping } from "./ContentMapping";
 
 export const MasonryList: React.FC<{
-  content: Content[];
+  list: Content[];
   size: ContentSize;
   alignment: AlignmentType;
-}> = ({ content, size, alignment }) => {
+}> = ({ list, size, alignment }) => {
   return (
     <ResponsiveMasonry
       columnsCountBreakPoints={{
@@ -48,10 +48,8 @@ export const MasonryList: React.FC<{
       }}
     >
       <Masonry gutter="24px">
-        {content.map((item, idx) => (
-          <div key={item.id} className="">
-            <ContentMapping data={item} alignment={alignment} index={idx} />
-          </div>
+        {list.map((item, idx) => (
+          <ContentMapping key={item.id} data={item} alignment={alignment} index={idx} />
         ))}
       </Masonry>
     </ResponsiveMasonry>

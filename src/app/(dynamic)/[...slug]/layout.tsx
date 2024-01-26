@@ -1,4 +1,3 @@
-// @TODO fix eslint complexity
 /* eslint-disable complexity */ 
 import classNames from "classnames";
 import { Navigation } from "@/components/sections/Navigation/Navigation";

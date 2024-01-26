@@ -17,7 +17,7 @@ const TextPart: React.FC<{
         </div>
       )}
       {heading && (
-        <div className={classNames("font-heading text-lg lg:text-2xl", {"mb-4": description})}>
+        <div className={classNames("font-heading text-lg lg:text-2xl", {"mb-4": description || buttons.length > 0})}>
           <RichText2 data={heading} />
         </div>
       )}
@@ -45,7 +45,7 @@ export const FlexibleContent: React.FC<{
   const { heading, eyebrow, description, media, embeddedMediaUrl, buttons } = data;
   if (layout === "horizontal") {
     return (
-      <div className="flex gap-5 rounded-assets bg-white">
+      <div className="flex gap-5 rounded-assets bg-white bg-opacity-80">
         <div className="basis-1/3 flex-1">
           {(media || embeddedMediaUrl) && <FlexibleContentMediaPart data={data} alignment={alignment} aspectRatio="auto" /> }
         </div>
@@ -64,7 +64,7 @@ export const FlexibleContent: React.FC<{
     )
   }
   return (
-    <div className="flex flex-col rounded-assets bg-white">
+    <div className="flex flex-col rounded-assets bg-white bg-opacity-80">
       {(media || embeddedMediaUrl) && <FlexibleContentMediaPart data={data} alignment={alignment} aspectRatio="auto" /> }
       {(heading || eyebrow || description || buttons?.length > 0) && (
         <div
