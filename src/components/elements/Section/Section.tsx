@@ -21,7 +21,7 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
   return (
     <section
       id={id ?? ""}
-      className={classNames("flex flex-col items-center py-12 lg:py-14 xl:py-16 2xl:py-18", className)}
+      className={classNames("flex flex-col items-center py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20", className)}
       style={
         backgroundImage
           ? {
@@ -35,7 +35,7 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
     >
       <Container>
         {eyebrow && (
-          <div className="tracking-widest text-primary-600 font-semibold text-center mx-auto">
+          <div className="tracking-widest text-primary-600 font-semibold text-center mx-auto mb-2">
             {eyebrow}
           </div>
         )}

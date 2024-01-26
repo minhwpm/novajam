@@ -70,7 +70,7 @@ function onSubmitInvalid(errors: FieldErrors<FormValues>) {
             {"text-white drop-shadow-lg": backgroundImage}
           )}>
             {eyebrow && (
-              <div className={classNames("tracking-widest font-semibold text-center lg:text-start mb-2 text-primary-600")}>
+              <div className={classNames("tracking-widest text-primary-600 font-semibold text-center lg:text-start mb-2")}>
                 {eyebrow}
               </div>
             )}
