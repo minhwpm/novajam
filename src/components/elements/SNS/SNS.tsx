@@ -8,7 +8,7 @@ import Link from "next/link";
 export const SNS: React.FC<{ data: SNSType, variant?: 'standard' | 'alternate'}> = ({ data, variant }) => {
   const { linkedInUrl, facebookUrl, twitterUrl, youtubeUrl, instagramUrl } = data
   return (
-    <div className="flex gap-5 items-center">
+    <div className="flex gap-5 items-center py-3">
       {linkedInUrl && 
         <Link href={linkedInUrl} className={classNames(
           { "group w-10 h-10 rounded-full flex justify-center items-center bg-neutral-100 hover:bg-neutral-200 transition-colors duration-500 ease": variant === "alternate" }
