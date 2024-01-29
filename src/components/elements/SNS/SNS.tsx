@@ -13,35 +13,35 @@ export const SNS: React.FC<{ data: SNSType, variant?: 'standard' | 'alternate'}>
         <Link href={linkedInUrl} className={classNames(
           { "group w-10 h-10 rounded-full flex justify-center items-center bg-neutral-100 hover:bg-neutral-200 transition-colors duration-500 ease": variant === "alternate" }
         )}>
-          <FaLinkedinIn className={classNames("text-primary-500 group-hover:text-primary-400 transition-colors duration-500 ease")} />
+          <FaLinkedinIn className={classNames("text-primary-600 group-hover:text-primary-500 transition-colors duration-500 ease")} />
         </Link>
       }
       {facebookUrl && 
         <Link href={facebookUrl} className={classNames(
           { "group w-10 h-10 rounded-full flex justify-center items-center bg-neutral-100 hover:bg-neutral-200": variant === "alternate" }
         )}>
-          <RiFacebookFill className={classNames("text-primary-500 group-hover:text-primary-400 transition-colors duration-500 ease")} />
+          <RiFacebookFill className={classNames("text-primary-600 group-hover:text-primary-500 transition-colors duration-500 ease")} />
         </Link>
       }
       {twitterUrl && 
         <Link href={twitterUrl} className={classNames(
           { "group w-10 h-10 rounded-full flex justify-center items-center bg-neutral-100 hover:bg-neutral-200": variant === "alternate" }
         )}>
-          <FaXTwitter className={classNames("text-primary-500 group-hover:text-primary-400 transition-colors duration-500 ease")} />
+          <FaXTwitter className={classNames("text-primary-600 group-hover:text-primary-500 transition-colors duration-500 ease")} />
         </Link>
       }
       {youtubeUrl && 
         <Link href={youtubeUrl} className={classNames(
           { "group w-10 h-10 rounded-full flex justify-center items-center bg-neutral-100 hover:bg-neutral-200": variant === "alternate" }
         )}>
-          <FaYoutube className={classNames("text-primary-500 group-hover:text-primary-400 transition-colors duration-500 ease")} />
+          <FaYoutube className={classNames("text-primary-600 group-hover:text-primary-500 transition-colors duration-500 ease")} />
         </Link>
       }
       {instagramUrl && 
         <Link href={instagramUrl} className={classNames(
           { "group w-10 h-10 rounded-full flex justify-center items-center bg-neutral-100 hover:bg-neutral-200": variant === "alternate" }
         )}>
-          <FaInstagram className={classNames("text-primary-500 group-hover:text-primary-400 transition-colors duration-500 ease")} />
+          <FaInstagram className={classNames("text-primary-600 group-hover:text-primary-500 transition-colors duration-500 ease")} />
         </Link>
       }
     </div>

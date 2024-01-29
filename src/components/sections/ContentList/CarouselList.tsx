@@ -19,13 +19,14 @@ export const CarouselList: React.FC<{
     <Swiper
       className={classNames("carousel-list w-screen")}
       slidesPerView={"auto"}
-      // autoplay={{
-      //   delay: 5000
-      // }}
+      autoplay={{
+        delay: 5000
+      }}
       pagination={{
         enabled: true,
         clickable: true
       }}
+      loop={true}
       modules={[Pagination, Autoplay]}
     >
       {list.map((item, idx) => (

@@ -11,7 +11,7 @@ export const Testimonial: React.FC<{
 }) => {
   const { content, portrait, name, role } = data;
   return (
-    <div className={classNames("px-4 pt-4 pb-6 lg:px-6 lg:pt-6 lg:pb-8 flex flex-col rounded-assets bg-white",
+    <div className={classNames("px-4 pt-4 pb-6 lg:px-6 lg:pt-6 lg:pb-8 flex flex-col rounded-assets bg-white shadow",
       {"items-center" : alignment === "center"},
       {"items-end" : alignment === "reverse"},
     )}>
