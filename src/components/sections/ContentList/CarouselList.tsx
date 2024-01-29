@@ -26,7 +26,6 @@ export const CarouselList: React.FC<{
         enabled: true,
         clickable: true
       }}
-      loop={true}
       modules={[Pagination, Autoplay]}
     >
       {list.map((item, idx) => (
