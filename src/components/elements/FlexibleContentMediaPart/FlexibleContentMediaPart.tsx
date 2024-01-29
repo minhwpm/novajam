@@ -36,7 +36,7 @@ export const FlexibleContentMediaPart: React.FC<{
         </div>
       )}
       {!embeddedMediaUrl && media && media.length === 1 && (
-        <MediaItem data={media[0]} aspectRatio={aspectRatio} rounded={rounded} />
+        <MediaItem data={media[0]} aspectRatio={aspectRatio} rounded={rounded} videoControls={true} />
       )}
       {!embeddedMediaUrl && media && media.length > 1 && (
         <MediaCarousel

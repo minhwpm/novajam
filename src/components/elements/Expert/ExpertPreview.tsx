@@ -31,9 +31,15 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
             {fullName}
           </Link>
           <div className="font-semibold text-neutral-600 italic">{role}</div>
-          <div className="flex flex-wrap items-center gap-2">
-            {specialization}
-          </div>
+          {specialization && 
+            <div className="flex flex-wrap items-center gap-2">
+              {specialization.map((item, index) => (
+                <span key={index}>
+                  {item}
+                </span>
+              ))}
+            </div>
+          }
           <div>{organization}</div>
           {summary && (
             <div className="my-5 prose 2xl:prose-lg max-w-none">{summary}</div>
@@ -60,7 +66,11 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
             {role && <div className="font-semibold italic text-neutral-600">{role}</div>}
             {specialization && (
               <div className="flex flex-wrap items-center justify-center gap-2">
-                {specialization}
+                {specialization.map((item, index) => (
+                  <span key={index}>
+                    {item}
+                  </span>
+                ))}
               </div>
             )}
             {summary && <div className="prose line-clamp-3 text-center">{summary}</div>}

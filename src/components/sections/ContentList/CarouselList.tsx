@@ -34,13 +34,13 @@ export const CarouselList: React.FC<{
           style={{
             width: "80vw",
             maxWidth: classNames(
-              { "480px": size === "XL" },
-              { "384px": size === "L" },
-              { "288px": size === "M" },
-              { "192px": size === "S" }
+              { "500px": size === "XL" },
+              { "405px": size === "L" },
+              { "304px": size === "M" },
+              { "243px": size === "S" }
             ),
           }}
-          className="px-2 md:px-3 lg:px-4 xl:px-5"
+          className="px-2 lg:px-3.5 2xl:p-4"
         >
           <ContentMapping data={item} alignment={alignment} index={idx} />
         </SwiperSlide>
