@@ -61,7 +61,7 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
       {framed ? (
         <Container
           className={classNames("rounded-assets", {
-            "mt-3": heading || eyebrow || summary,
+            "mt-8": heading || eyebrow || summary,
           })}
         >
           {children}

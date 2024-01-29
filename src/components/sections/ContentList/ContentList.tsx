@@ -33,7 +33,9 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
       framed={ layout !== "carousel" }
       backgroundImage={backgroundImage}
     >
-      <div className="mt-4">
+      <div className={classNames(
+        { "mt-8": layout === "carousel" && (heading || eyebrow || summary) } 
+      )}>
         {seeAllLink && 
           <div className="w-full flex justify-center -mt-8 mb-4">
             <Button
