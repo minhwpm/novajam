@@ -16,7 +16,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
   return (
     <>
       <RiMenu3Fill
-        className="text-primary-500 ml-auto relative cursor-pointer rounded-full w-14 h-14 p-3 bottom-0 hover:bottom-1 hover:bg-primary-500/90 hover:text-white transition-all duration-500 ease"
+        className="text-white ml-auto relative cursor-pointer rounded-full w-14 h-14 p-3 bottom-0 hover:bottom-1 hover:bg-primary-500/90 hover:text-white transition-all duration-500 ease"
         onClick={() => {
           setNavMenuShowed(true);
           document.body.style.overflow = "hidden";
