@@ -10,11 +10,11 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
       className={classNames(
         "flex flex-col gap-6 items-center rounded-assets",
         { "bg-white md:mt-16 shadow-radiant": !badge },
-        { "bg-primary-100 mt-6 md:mt-0 shadow-xl": badge }
+        { "bg-gradient-to-tl from-primary-50 via-primary-100 to-primary-200 mt-6 md:mt-0 shadow-xl": badge }
       )}
     >
       {badge && (
-        <div className="relative bottom-5 rounded-assets text-center bg-primary-600 text-white px-6 py-2 font-bold rounded-t-assets tracking-wider">
+        <div className="relative bottom-5 rounded-assets text-center bg-gradient-to-bl from-primary-800 via-primary-700 to-primary-500 text-white px-6 py-2 font-bold rounded-t-assets tracking-wider">
           {badge}
         </div>
       )}
