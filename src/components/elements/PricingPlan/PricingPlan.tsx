@@ -8,23 +8,28 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
   return (
     <div
       className={classNames(
-        "flex flex-col gap-4 items-center rounded-assets shadow-radiant",
-        { "bg-white mt-16": !badge },
-        { "bg-primary-50 mt-0 border-2 border-primary-100": badge }
+        "flex flex-col gap-6 items-center rounded-assets",
+        { "bg-white md:mt-16 shadow-radiant": !badge },
+        { "bg-primary-100 mt-6 md:mt-0 shadow-xl": badge }
       )}
     >
       {badge && (
-        <div className="w-full text-center bg-secondary-500 border-2 border-secondary-500 text-white px-3 py-2 font-bold rounded-t-assets tracking-wider">
+        <div className="relative bottom-5 rounded-assets text-center bg-primary-600 text-white px-6 py-2 font-bold rounded-t-assets tracking-wider">
           {badge}
         </div>
       )}
-      <h4 className={classNames("text-2xl text-neutral-700 font-bold",
-        { "mt-12": !badge },
-        { "mt-8": badge },
-      )}>{title}</h4>
+      <h4
+        className={classNames("text-2xl text-primary-600 font-bold", {
+          "mt-12": !badge,
+        })}
+      >
+        {title}
+      </h4>
       <div className="flex flex-col items-center">
-        <div className="text-3xl font-bold">{pricing}</div>
-        <div className="text-neutral-400 text-sm tracking-wide">{pricingSuffix}</div>
+        <div className="text-3xl text-neutral-700 font-bold">{pricing}</div>
+        <div className="text-neutral-500 text-sm tracking-wide">
+          {pricingSuffix}
+        </div>
       </div>
       <div>
         <Button
@@ -35,9 +40,11 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
           {ctaButton.text}
         </Button>
       </div>
-      <div className={classNames("leading-loose pt-6 pb-10 px-6 border-t", {})}>
-        {description && <RichText2 data={description} /> }
-      </div>
+      {description && (
+        <div className={classNames("leading-loose pt-6 pb-10 px-6 border-t")}>
+          <RichText2 data={description} />
+        </div>
+      )}
     </div>
   );
 }
