@@ -12,7 +12,7 @@ export const PagePreview: React.FC<{
   const { title, url, metaTitle, metaImage } = data
   if (layout === "horizontal") {
     return (
-      <div className="rounded-assets bg-white flex gap-5">
+      <div className="rounded-assets bg-white bg-opacity-80 flex gap-5">
         <div className="basis-1/3 flex-1">
           <Link href={url}>
             <MediaItem data={metaImage} aspectRatio="square" />
@@ -29,7 +29,7 @@ export const PagePreview: React.FC<{
     )
   }
   return (
-    <div className="rounded-assets flex flex-col bg-white">
+    <div className="rounded-assets flex flex-col bg-white bg-opacity-80">
       <Link href={url} >
         <MediaItem data={metaImage} aspectRatio="4/3" />
         <h4 className="mt-4 text-xl font-heading font-semibold text-center pb-4 lg:pb-6">

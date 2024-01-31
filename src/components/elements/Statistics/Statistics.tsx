@@ -22,7 +22,7 @@ export const Statistics: React.FC<{ data: StatisticsType, index: number }> = ({ 
         transitionDelay: `${(index + 1) * 0.2}s`
       }}  
     >
-      <div className="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-primary-600 text-center">
+      <div className="font-heading text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-primary-600 text-center">
         {number}
       </div>
       <div className="font-heading font-semibold tracking-wide text-center md:text-lg xl:text-xl max-w-[150px]">
