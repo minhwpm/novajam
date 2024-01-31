@@ -12,17 +12,17 @@ const TextPart: React.FC<{
   return (
     <>
       {eyebrow && (
-        <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest mb-2")}>
+        <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest mb-1")}>
           {eyebrow}
         </div>
       )}
       {heading && (
-        <div className={classNames("font-heading text-lg lg:text-2xl", {"mb-4": description || buttons.length > 0})}>
+        <div className={classNames("font-heading text-lg lg:text-2xl", {"mb-2 lg:mb-4": description || buttons.length > 0})}>
           <RichText2 data={heading} />
         </div>
       )}
       {description && (
-        <div className={classNames("py-4 prose 2xl:prose-lg text-neutral-700", {"mb-2": buttons.length > 0})}>
+        <div className={classNames("prose 2xl:prose-lg text-neutral-700", {"mb-4 lg:mb-6": buttons.length > 0})}>
           <RichText2 data={description} />
         </div>
       )}
@@ -52,7 +52,7 @@ export const FlexibleContent: React.FC<{
         {(heading || eyebrow || description || buttons?.length > 0) && (
           <div
             className={classNames(
-              "basis-2/3 flex-1 px-4 pt-4 pb-6 lg:px-6 lg:pt-6 lg:pb-8 flex-1 flex flex-col justify-between",
+              "basis-2/3 flex-1 px-4 pt-4 pb-6 lg:px-6 lg:pt-6 lg:pb-8 flex flex-col justify-between",
               { "text-center": alignment === "center" },
               { "text-end": alignment === "reverse" }
             )}
@@ -69,7 +69,7 @@ export const FlexibleContent: React.FC<{
       {(heading || eyebrow || description || buttons?.length > 0) && (
         <div
           className={classNames(
-            "p-4 lg:p-6 flex-1 flex flex-col justify-between",
+            "px-2 lg:px-4 pt-4 pb-8 flex-1 flex flex-col justify-between",
             { "text-center": alignment === "center" },
             { "text-end": alignment === "reverse" }
           )}

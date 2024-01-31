@@ -19,14 +19,14 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length }: ArrowGroupProps) => {
   return (
     <>
       <IoIosArrowBack
-        className="cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 p-2 hover:bg-neutral-200 transition-colors duration-500 ease"
+        className="cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 p-2 hover:bg-primary-200 bg-opacity-80 transition-colors duration-500 ease"
         onClick={() => {
           if (visibleIdx > 0) setVisibleIdx(visibleIdx - 1);
           else setVisibleIdx(length - 1);
         }}
       />
       <IoIosArrowForward
-        className="cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 p-2 hover:bg-neutral-200 transition-colors duration-500 ease"
+        className="cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 p-2 hover:bg-primary-200 bg-opacity-80 transition-colors duration-500 ease"
         onClick={() => {
           if (visibleIdx < length - 1) setVisibleIdx(visibleIdx + 1);
           else setVisibleIdx(0);
@@ -46,10 +46,10 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       className={classNames("overflow-x-hidden", `${backgroundColor}-section-bg-color`)}
       backgroundImage={backgroundImage}
     >
-      <div className="flex flex-col lg:flex-row gap-5 px-4 lg:py-10">
+      <div className="flex flex-col lg:flex-row gap-5 lg:py-10">
         <div className="lg:w-1/2 lg:pr-10">
           {eyebrow && (
-            <p className="uppercase tracking-widest text-secondary-600 font-semibold mb-2">
+            <p className="uppercase tracking-widest text-primary-600 font-semibold mb-2">
               {eyebrow}
             </p>
           )}
@@ -76,7 +76,7 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             <div
               key={section.id}
               className={classNames(
-                "col-start-1 row-start-1 flex flex-col gap-6 p-8 lg:p-12 shadow-xl bg-white rounded-assets transition-all ease-in-out duration-500 relative",
+                "col-start-1 row-start-1 flex flex-col gap-6 p-8 lg:p-12 shadow-lg bg-white bg-opacity-80 rounded-assets transition-all ease-in-out duration-500 relative",
                 { "items-center": alignment === "center" },
                 { "items-end": alignment === "reverse" },
                 { "opacity-100 right-0": visibleIdx == idx },
