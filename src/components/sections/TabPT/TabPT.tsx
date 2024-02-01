@@ -54,11 +54,11 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                 <RadixTabs.Trigger
                   key={section.id}
                   value={section.id}
-                  className="shrink-0 px-8 py-2.5 flex flex-col justify-center items-center cursor-pointer rounded-assets text-neutral-600 bg-primary-100 hover:text-neutral-700 hover:bg-primary-200 data-[state='active']:bg-primary-600 data-[state='active']:text-white transition-all duration-500"
+                  className="group/trigger shrink-0 px-8 py-2.5 flex flex-col justify-center items-center cursor-pointer rounded-assets bg-primary-100 hover:text-neutral-700 hover:bg-primary-200 data-[state='active']:bg-primary-600 data-[state='active']:text-white transition-all duration-500"
                 >
                   <div
                     className={classNames(
-                      "text-sm tracking-widest text-neutral-500 font-semibold"
+                      "text-sm tracking-widest text-neutral-500 font-semibold group-data-[state='active']/trigger:text-neutral-100"
                     )}
                   >
                     {section.eyebrow}

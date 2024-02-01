@@ -86,7 +86,6 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
       <section
         id={htmlid}
         className={classNames(
-          "py-12 lg:py-18",
           `${backgroundColor}-section-bg-color`
         )}
         style={
