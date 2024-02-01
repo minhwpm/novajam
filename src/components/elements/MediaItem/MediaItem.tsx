@@ -53,9 +53,17 @@ export const MediaItem: React.FC<{
       className={classNames(
         "overflow-hidden",
         { [`aspect-${aspectRatio}`]: width >= 200 },
-        { "w-full": dimensionBase === "width" && width >= 200 },
-        { "h-full": dimensionBase === "height" && width >= 200 },
-        `rounded-${rounded}`,
+        {
+          "w-full":
+            dimensionBase === "width" &&
+            (contentType.includes("video") || width >= 200),
+        },
+        {
+          "h-full":
+            dimensionBase === "height" &&
+            (contentType.includes("video") || width >= 200),
+        },
+        `rounded-${rounded}`
       )}
     >
       {contentType.includes("image") && (

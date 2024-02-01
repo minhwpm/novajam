@@ -69,7 +69,7 @@ export const HeroOSection: React.FC<{
               <div
                 className={classNames(
                   "animate-slidingHeroContent",
-                  "prose md:prose-lg lg:prose-xl text-white mt-10 max-w-xl"
+                  "prose md:prose-lg lg:prose-xl text-white mt-6 lg:mt-10 max-w-xl"
                 )}
               >
                 <RichText2 data={data.description} />
@@ -77,7 +77,7 @@ export const HeroOSection: React.FC<{
             )}
             <div
               className={classNames(
-                "mt-12 animate-slidingHeroContent",
+                "mt-8 lg:mt-12 animate-slidingHeroContent",
               )}
             >
               {data.buttons.length > 0 && (
