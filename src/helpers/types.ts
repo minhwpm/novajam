@@ -189,7 +189,7 @@ export type HeroType = {
 export type CTAType = {
   id: string
   heading: Document
-  content: string | null
+  content: Document | null
   buttons: Array<ButtonType>
   contentType: "cta"
 }

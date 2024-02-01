@@ -93,10 +93,10 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             </div>
           </SwiperSlide>
         ))}
-        <div className="carouselPT-btn-prev cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-neutral-200 transition-colors duration-500 ease">
+        <div className="carouselPT-btn-prev cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-primary-100 bg-opacity-80 transition-colors duration-500 ease">
           <IoIosArrowBack size={35} />
         </div>
-        <div className="carouselPT-btn-next cursor-pointer absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-neutral-200 transition-colors duration-500 ease">
+        <div className="carouselPT-btn-next cursor-pointer absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-primary-100 bg-opacity-80 transition-colors duration-500 ease">
           <IoIosArrowForward size={35} />
         </div>
       </Swiper>

@@ -25,7 +25,7 @@ export const HeroOSection: React.FC<{
       {(data.heading || data.description || data.buttons.length) && (
         <div
           className={classNames(
-            "w-full h-full px-4 pt-40 pb-20 text-white drop-shadow-lg overflow-hidden",
+            "w-full h-full px-4 pt-48 pb-20 text-white drop-shadow-lg overflow-hidden",
             {
               "bg-gradient-to-b from-primary-800 via-primary-500 to-primary-300":
                 data.media.length === 0 && !data.embeddedMediaUrl,
@@ -75,19 +75,19 @@ export const HeroOSection: React.FC<{
                 <RichText2 data={data.description} />
               </div>
             )}
-            <div
-              className={classNames(
-                "mt-8 lg:mt-12 animate-slidingHeroContent",
-              )}
-            >
-              {data.buttons.length > 0 && (
+            {data.buttons.length > 0 && (
+              <div
+                className={classNames(
+                  "mt-8 lg:mt-12 animate-slidingHeroContent",
+                )}
+              >
                 <ButtonGroup
                   data={data.buttons}
                   alignment={alignment}
                   size="lg"
                 />
-              )}
-            </div>
+              </div>
+            )}
           </Container>
         </div>
       )}

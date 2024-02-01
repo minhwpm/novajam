@@ -22,7 +22,9 @@ export default async function getCTA(id: string) {
             heading {
               json
             }
-            content
+            content {
+              json
+            }
             buttonsCollection {
               items {
                 sys {

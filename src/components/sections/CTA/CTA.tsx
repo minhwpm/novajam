@@ -30,9 +30,9 @@ export const CTA: React.FC<{data: CTAType} > = ({ data }) => {
             <RichText2 data={heading} />
           </div>
           {content && (
-            <p className="text-xl text-primary-200 text-center mt-8">
-              {content}
-            </p>
+            <div className="text-xl text-neutral-200 text-center mt-8">
+              <RichText2 data={content} />
+            </div>
           )}
           <div className="mt-12">
             {buttons?.map((button) => (
