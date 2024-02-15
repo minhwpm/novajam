@@ -7,7 +7,7 @@ import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -61,8 +61,11 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
           nextEl: ".carouselPT-btn-next",
           prevEl: ".carouselPT-btn-prev"
         }}
+        autoplay={{
+          delay: 5000
+        }}
         loop={true}
-        modules={[Navigation]}
+        modules={[Navigation, Autoplay]}
       >
         {content.map((item) => (
           <SwiperSlide key={item.id}>
