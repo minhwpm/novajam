@@ -11,7 +11,7 @@ import { MediaItem } from "../MediaItem/MediaItem";
 import { ContentPieceType, MediaType } from "@/helpers/types";
 import { FlexibleContent } from "../FlexibleContent/FlexibleContent";
 import Link from "next/link";
-import { PiCheckBold } from "react-icons/pi";
+import { FaCheck } from "react-icons/fa";
 
 export function RichText2({
   data,
@@ -45,8 +45,8 @@ export function RichText2({
             if (style === "marketing") {
               return (
                 <li className="not-prose flex gap-4 mb-2">
-                  <PiCheckBold
-                    className="flex-shrink-0 relative top-1.5 ml-2 text-primary-500"
+                  <FaCheck
+                    className="flex-shrink-0 relative top-1 ml-2 text-primary-300"
                     size={20}
                   />
                   {children}
