@@ -30,7 +30,7 @@ export const CTA: React.FC<{data: CTAType} > = ({ data }) => {
             <RichText2 data={heading} />
           </div>
           {content && (
-            <div className="text-xl text-neutral-200 text-center mt-8">
+            <div className="prose-lg text-neutral-200 text-center mt-8">
               <RichText2 data={content} />
             </div>
           )}
