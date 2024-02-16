@@ -1,0 +1,23 @@
+.pl-for-text-image {
+  @media (min-width: 1024px) {
+    padding-left: calc((100vw + 2rem - 1024px)/2);
+  }
+  @media (min-width: 1280px) {
+    padding-left: calc((100vw + 2rem - 1280px)/2);
+  }
+  @media (min-width: 1536px) {
+    padding-left: calc((100vw + 2rem - 1536px)/2);
+  }
+}
+
+.pr-for-image-text {
+  @media (min-width: 1024px) {
+    padding-right: calc((100vw + 2rem - 1024px)/2);
+  }
+  @media (min-width: 1280px) {
+    padding-right: calc((100vw + 2rem - 1280px)/2);
+  }
+  @media (min-width: 1536px) {
+    padding-right: calc((100vw + 2rem - 1536px)/2);
+  }
+}

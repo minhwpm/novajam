@@ -29,7 +29,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
           : {}
       }
     >
-      <Container className={classNames("mt-20 mb-12")}>
+      {/* <Container className={classNames("mt-20 mb-12")}> */}
         {content.length === 1 && (
           <HeroSection
             data={content[0]}
@@ -65,7 +65,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
             ))}
           </Swiper>
         )}
-      </Container>
+      {/* </Container> */}
     </section>
   )
 }

@@ -4,6 +4,7 @@ import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
+import "@/app/css/padding.css"
 
 export const HeroSection: React.FC<{
   data: ContentPieceType;
@@ -13,13 +14,14 @@ export const HeroSection: React.FC<{
   return (
     <div
       key={data.id}
-      className={classNames("flex flex-col items-center", {
-        "lg:flex-row lg:gap-x-12": layout === "horizontal",
-      })}
+      className={classNames("flex flex-col items-center",
+        { "container mx-auto px-4 mt-12 mb-8": layout === "vertical" },
+        { "lg:flex-row lg:gap-x-12 pl-for-text-image": layout === "horizontal"},
+      )}
     >
       <div
         className={classNames(
-          "flex flex-col gap-2 py-16",
+          "flex flex-col gap-2 py-16 lg:py-20 xl:py-24",
           { "items-center text-center": alignment === "center" },
           { "items-end text-end": alignment === "reverse" }
         )}

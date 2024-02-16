@@ -4,8 +4,8 @@ import { Button } from "@/components/elements/Button/Button";
 import { ContentPieceType, FeaturedContentType, FeaturedContentLayoutType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
-import styles from "./styles.module.css"
 import "@/app/css/bg-color.css";
+import "@/app/css/padding.css";
 
 const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayoutType }> = ({ data, layout }) => {
   const { eyebrow, heading, description, buttons  } = data;
@@ -74,19 +74,11 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
     return null
   }
   if (uiVariant === "extended") {
-    let paddingStyles = ""
-    if (layout === "Horizontal (Image | Text)") {
-      paddingStyles = styles["pr-for-image-text"]
-    }
-    if (layout === "Horizontal (Text | Image)") {
-      paddingStyles = styles["pl-for-text-image"]
-    }
-
     return (
       <section
         id={htmlid}
         className={classNames(
-          `${backgroundColor}-section-bg-color`
+          `${backgroundColor}-section-bg-color`,
         )}
         style={
           backgroundImage
@@ -120,14 +112,13 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
             className={classNames(
               "w-full pt-4 md:pt-8 lg:pt-16 pb-16 flex flex-col",
               {
-                "lg:w-1/2 px-4 md:px-10 lg:pr-16 xl:pr-24":
+                "lg:w-1/2 px-4 md:px-10 lg:pr-16 xl:pr-24 pl-for-text-image":
                   layout === "Horizontal (Text | Image)",
               },
               {
-                "lg:w-1/2 px-4 md:px-10 lg:pl-16 xl:pl-24":
+                "lg:w-1/2 px-4 md:px-10 lg:pl-16 xl:pl-24 pr-for-image-text":
                   layout === "Horizontal (Image | Text)",
               },
-              paddingStyles
             )}
           >
             <TextPart data={content} layout={layout}/>
