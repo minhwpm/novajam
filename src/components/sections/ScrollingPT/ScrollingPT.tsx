@@ -33,13 +33,15 @@ export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 { "text-end": alignment === "reverse" }
               )}
             >
-              <div
-                className={classNames(
-                  "font-semibold text-primary-600 tracking-widest text-center lg:text-start"
-                )}
-              >
-                {section.eyebrow}
-              </div>
+              {section.eyebrow && (
+                <div
+                  className={classNames(
+                    "font-semibold text-neutral-500 tracking-widest"
+                  )}
+                >
+                  {section.eyebrow}
+                </div>
+              )}
               {section.heading && (
                 <div className="font-semibold text-2xl lg:text-3xl leading-snug mb-6">
                   <RichText2 data={section.heading} />

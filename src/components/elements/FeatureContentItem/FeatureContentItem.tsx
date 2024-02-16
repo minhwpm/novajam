@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const FeatureContentItem = ({ data, idx, setVisibleIdx, alignment }: Props) => {
-  const { heading, description } = data
+  const { eyebrow, heading, description } = data
   const [ref, isVisible] = useInView(
     {
       threshold: 0.9,
@@ -29,13 +29,26 @@ export const FeatureContentItem = ({ data, idx, setVisibleIdx, alignment }: Prop
         { "text-end": alignment === "reverse" }
       )}
     >
+      {eyebrow && (
+        <div
+          className={classNames(
+            "font-semibold text-neutral-500 tracking-widest"
+          )}
+        >
+          {eyebrow}
+        </div>
+      )}
       {heading && (
-        <div className="text-2xl lg:text-3xl font-semibold mb-8">
+        <div
+          className={classNames("text-2xl lg:text-3xl font-semibold", {
+            "mt-2": eyebrow,
+          })}
+        >
           <RichText2 data={heading} />
         </div>
       )}
       {description && (
-        <div className="prose 2xl:prose-lg">
+        <div className="prose 2xl:prose-lg mt-6">
           <RichText2 data={description} />
         </div>
       )}

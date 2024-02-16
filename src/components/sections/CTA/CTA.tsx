@@ -1,10 +1,10 @@
 "use client"
 import classNames from "classnames";
 import { useInView } from "react-hook-inview";
-import { Button } from "@/components/elements/Button/Button"
 import { Section } from "@/components/elements/Section/Section";
 import { CTAType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
+import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 
 export const CTA: React.FC<{data: CTAType} > = ({ data }) => {
   const { heading, content, buttons } = data;
@@ -20,7 +20,7 @@ export const CTA: React.FC<{data: CTAType} > = ({ data }) => {
       <div
         ref={ref}
         className={classNames(
-          "bg-gradient-to-bl from-primary-800 via-primary-700 to-primary-500 mx-auto px-5 py-16 lg:py-20 xl:py-32 lg:w-[70%] lg:will-change-[width] rounded-assets",
+          "bg-gradient-to-bl from-primary-800 via-primary-700 to-primary-500 mx-auto px-5 py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 lg:w-[70%] lg:will-change-[width] rounded-assets",
           { "lg:animate-expandingWidth": isVisible },
           { "lg:animate-shrinkingWidth": !isVisible }
         )}
@@ -34,19 +34,14 @@ export const CTA: React.FC<{data: CTAType} > = ({ data }) => {
               <RichText2 data={content} />
             </div>
           )}
-          <div className="mt-12">
-            {buttons?.map((button) => (
-              <Button
-                key={button.id}
-                variant={button.buttonVariant ?? "alternate"}
+          {buttons.length > 0 && (
+            <div className="mt-12">
+              <ButtonGroup
+                data={data.buttons}
                 size="lg"
-                url={button.url}
-                openNewTab={button.openNewTab}
-              >
-                {button.text}
-              </Button>
-            ))}
-          </div>
+              />
+            </div>
+          )}
         </div>
       </div>
     </Section>

@@ -36,7 +36,7 @@ export const HeroSection: React.FC<{
         {data.heading && (
           <div
             className={classNames(
-              "text-heading leading-tight font-heading max-w-3xl animate-slidingHeroContent",
+              "text-hero-heading leading-tight font-heading max-w-3xl animate-slidingHeroContent",
             )}
           >
             <RichText2 data={data.heading} />
