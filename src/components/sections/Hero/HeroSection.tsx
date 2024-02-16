@@ -16,12 +16,13 @@ export const HeroSection: React.FC<{
       key={data.id}
       className={classNames("flex flex-col items-center",
         { "container mx-auto px-4 mt-12 mb-8": layout === "vertical" },
-        { "lg:flex-row lg:gap-x-12 pl-for-text-image": layout === "horizontal"},
+        { "lg:flex-row lg:gap-x-12 ": layout === "horizontal" },
       )}
     >
       <div
         className={classNames(
           "flex flex-col gap-2 py-16 lg:py-20 xl:py-24",
+          { "px-4 pl-for-text-image": layout === "horizontal" },
           { "items-center text-center": alignment === "center" },
           { "items-end text-end": alignment === "reverse" }
         )}
