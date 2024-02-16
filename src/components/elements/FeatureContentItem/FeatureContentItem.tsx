@@ -22,7 +22,7 @@ export const FeatureContentItem = ({ data, idx, setVisibleIdx, alignment }: Prop
     <div
       ref={ref}
       className={classNames(
-        "py-[20vh] px-10 transition-opacity duration-300",
+        "py-[20vh] px-10 transition-opacity duration-300 flex flex-col",
         { "is-visible opacity-100": isVisible },
         { "is-invisible opacity-10": !isVisible },
         { "text-center": alignment === "center" },
@@ -32,7 +32,7 @@ export const FeatureContentItem = ({ data, idx, setVisibleIdx, alignment }: Prop
       {eyebrow && (
         <div
           className={classNames(
-            "font-semibold text-neutral-500 tracking-widest"
+            "tracking-widest px-4 py-1 text-sm font-semibold text-primary-600 bg-primary-100 rounded-assets self-start"
           )}
         >
           {eyebrow}

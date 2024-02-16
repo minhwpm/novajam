@@ -28,7 +28,7 @@ export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
           <div key={section.id} className="mb-20">
             <div
               className={classNames(
-                "mb-10",
+                "flex flex-col mb-10",
                 { "text-center": alignment === "center" },
                 { "text-end": alignment === "reverse" }
               )}
@@ -36,19 +36,24 @@ export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               {section.eyebrow && (
                 <div
                   className={classNames(
-                    "font-semibold text-neutral-500 tracking-widest"
+                    "tracking-widest px-4 py-1 text-sm font-semibold text-primary-600 bg-primary-100 rounded-assets self-start"
                   )}
                 >
                   {section.eyebrow}
                 </div>
               )}
               {section.heading && (
-                <div className="font-semibold text-2xl lg:text-3xl leading-snug mb-6">
+                <div
+                  className={classNames(
+                    "font-semibold text-2xl lg:text-3xl leading-snug",
+                    { "mt-2": section.eyebrow }
+                  )}
+                >
                   <RichText2 data={section.heading} />
                 </div>
               )}
               {section.description && (
-                <div className="prose">
+                <div className="prose mt-6">
                   <RichText2 data={section.description} />
                 </div>
               )}
