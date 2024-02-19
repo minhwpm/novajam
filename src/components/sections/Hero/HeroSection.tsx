@@ -73,7 +73,7 @@ export const HeroSection: React.FC<{
       {(data.media.length > 0 || data.embeddedMediaUrl) && (
         <div
           className={classNames(
-            "w-full lg:basis-3/5 min-w-[0.55] animate-slidingHeroContent",
+            "w-full lg:basis-3/5 min-w-[50%] animate-slidingHeroContent",
           )}
         >
           <HeroMediaPart data={data} />
