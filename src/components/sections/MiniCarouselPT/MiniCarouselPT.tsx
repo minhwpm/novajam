@@ -19,14 +19,14 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length }: ArrowGroupProps) => {
   return (
     <>
       <IoIosArrowBack
-        className="cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 p-2 hover:bg-primary-200 bg-opacity-80 transition-colors duration-500 ease"
+        className="cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 p-2 bg-primary-100 hover:bg-primary-200 bg-opacity-80 transition-colors duration-500 ease"
         onClick={() => {
           if (visibleIdx > 0) setVisibleIdx(visibleIdx - 1);
           else setVisibleIdx(length - 1);
         }}
       />
       <IoIosArrowForward
-        className="cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 p-2 hover:bg-primary-200 bg-opacity-80 transition-colors duration-500 ease"
+        className="cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 p-2 bg-primary-100 hover:bg-primary-200 bg-opacity-80 transition-colors duration-500 ease"
         onClick={() => {
           if (visibleIdx < length - 1) setVisibleIdx(visibleIdx + 1);
           else setVisibleIdx(0);
@@ -54,7 +54,7 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             </p>
           )}
           {heading && (
-            <div className="font-heading text-heading leading-tight mb-3">
+            <div className="font-heading text-heading !leading-normal mb-3">
               <RichText2 data={heading} />
             </div>
           )}
