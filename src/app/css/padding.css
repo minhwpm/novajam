@@ -1,23 +1,24 @@
-.pr-for-image-text {
-  @media (min-width: 1024px) {
+@media (min-width: 1024px) {
+  .pr-for-image-text {
     padding-right: calc((100vw + 2rem - 1024px)/2);
   }
-  @media (min-width: 1280px) {
-    padding-right: calc((100vw + 2rem - 1280px)/2);
-  }
-  @media (min-width: 1536px) {
-    padding-right: calc((100vw + 2rem - 1536px)/2);
-  }
-}
-
-.pl-for-text-image {
-  @media (min-width: 1024px) {
+  .pl-for-text-image {
     padding-left: calc((100vw + 2rem - 1024px)/2);
   }
-  @media (min-width: 1280px) {
+}
+@media (min-width: 1280px) {
+  .pr-for-image-text {
+    padding-right: calc((100vw + 2rem - 1280px)/2);
+  }
+  .pl-for-text-image {
     padding-left: calc((100vw + 2rem - 1280px)/2);
   }
-  @media (min-width: 1536px) {
+}
+@media (min-width: 1536px) {
+  .pr-for-image-text {
+    padding-right: calc((100vw + 2rem - 1536px)/2);
+  }
+  .pl-for-text-image {
     padding-left: calc((100vw + 2rem - 1536px)/2);
   }
 }
