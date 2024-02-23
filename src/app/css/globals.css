@@ -85,13 +85,11 @@ body {
   width: 100%;
 }
 
-/* @TODO: Heading highlighted words - Refactor needed */
 h1 u, h2 u, h3 u, h4 u {
   @apply text-primary-600;
   text-decoration: unset;
 }
 
-/* @TODO Refactor - move into module CSS for ContentList ? */
 .show-scrollbar::-webkit-scrollbar {
   height: 5px; /* for Horizonatal scrollbar */
   width: 5px; /* for Vertical scrollbar */
