@@ -9,7 +9,7 @@ import { RichText2 } from "@/components/elements/RichText/RichText2"
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import "@/app/css/bg-color.css";
-import styles from "./styles.module.css"
+import "./styles.css"
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
   const { htmlid, eyebrow, heading, summary, content, alignment, backgroundColor, backgroundImage } = data
@@ -46,7 +46,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
           )}
         >
           <RadixTabs.List
-            className={classNames("group/list p-2 inline-flex gap-x-4 gap-y-2 overflow-x-auto overscroll-contain", styles.TabList)}
+            className={classNames("group/list tab-list p-2 inline-flex gap-x-4 gap-y-2 overflow-x-auto overscroll-contain")}
             aria-label={heading ? documentToHtmlString(heading) : undefined}
           >
             {content.length > 0 &&

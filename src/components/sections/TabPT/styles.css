@@ -1,5 +1,4 @@
-/* @TODO change to normal css file instead of css module ? */
-.TabList {
+.tab-list {
   padding: 0 1rem;
 
   @media (min-width: 640px) {
@@ -26,5 +25,4 @@
   --swiper-pagination-bottom: 0px;
   --swiper-pagination-bullet-horizontal-gap: 3px;
   --swiper-theme-color: rgb(var(--primary-color-500));
-
 }
