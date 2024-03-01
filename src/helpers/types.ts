@@ -289,7 +289,9 @@ export type InquiryFormType = {
     text: string
     url: string
     buttonVariant: ButtonVariant
-  }
+  } | null
+  successMessage: string
+  errorMessage: string
   backgroundImage: {
     url: string
     title: string

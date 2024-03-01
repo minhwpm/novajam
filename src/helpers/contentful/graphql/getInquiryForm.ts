@@ -48,6 +48,8 @@ export default async function getInquiryForm(id: string) {
               url
               buttonVariant
             }
+            successMessage
+            errorMessage
             backgroundImage {
               url
               title

@@ -30,27 +30,39 @@ export const Button: React.FC<ButtonProps> = (props) => {
   } = props;
   if (variant === "arrow") {
     return (
-      <button
-        type={type}
-        onClick={onClick}
-        disabled={disabled}
-      >
-        <Link
-          className={classNames(
+      <button type={type} onClick={onClick} disabled={disabled}>
+        {url ? (
+          <Link
+            className={classNames(
+              "relative left-0 group inline-block text-primary-600 hover:text-primary-700 hover:left-1 transition-all duration-500",
+              { "py-2": size === "base" },
+              { "py-3 lg:text-lg": size === "lg" },
+              { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
+              className
+            )}
+            href={url}
+          >
+            {children}
+            <BsArrowRight
+              className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-500 ease"
+              size={20}
+            />
+          </Link>
+        ) : (
+          <span className={classNames(
             "relative left-0 group inline-block text-primary-600 hover:text-primary-700 hover:left-1 transition-all duration-500",
             { "py-2": size === "base" },
             { "py-3 lg:text-lg": size === "lg" },
             { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
             className
-          )}
-          href={url ?? "#"}
-        >
-          {children}
-          <BsArrowRight
-            className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-500 ease"
-            size={20}
-          />
-        </Link>
+          )}>
+            {children}
+            <BsArrowRight
+              className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-500 ease"
+              size={20}
+            />
+          </span>
+        )}
       </button>
     );
   }
@@ -82,18 +94,18 @@ export const Button: React.FC<ButtonProps> = (props) => {
   );
 
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      disabled={disabled}
-    >
-      <Link
-        className={classNames(classes, className)}
-        href={url ?? "#"}
-        target={openNewTab ? "_blank" : "_self"}
-      >
-        {children}
-      </Link>
+    <button type={type} onClick={onClick} disabled={disabled}>
+      {url ? (
+        <Link
+          className={classNames(classes, className)}
+          href={url}
+          target={openNewTab ? "_blank" : "_self"}
+        >
+          {children}
+        </Link>
+      ) : (
+        <span className={classNames(classes, className)}>{children}</span>
+      )}
     </button>
-  )
+  );
 }

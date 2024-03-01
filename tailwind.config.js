@@ -297,7 +297,7 @@ module.exports = {
           'to': {
             height: "var(--radix-accordion-content-height)"
           }
-        }
+        },
       },
 
       animation: {
