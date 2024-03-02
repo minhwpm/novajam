@@ -183,7 +183,6 @@ async function onSubmitValid(formValues: FormValues) {
                     </div>
                   ))}
                 <div className={classNames("col-span-2 flex flex-col mt-6")}>
-                  <>SUBMIT STATE: {submitState}</>
                   <Button
                     variant={submitButton?.buttonVariant ?? "black"}
                     size="lg"
