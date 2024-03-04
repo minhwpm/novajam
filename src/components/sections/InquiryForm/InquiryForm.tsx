@@ -21,9 +21,7 @@ export type FormValues = {
 
 export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
   const { title, heading, eyebrow, summary, description, formType, fields, submitButton, successMessage, errorMessage, backgroundImage, htmlid } = data;
-  // @TODO
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { register, control, handleSubmit, setError, watch, reset, formState: { errors } } = useForm<FormValues>();
+  const { register, control, handleSubmit, reset, formState: { errors } } = useForm<FormValues>();
   const [submitState, setSubmitState] = useState<"undefined" | "in-progress" | "succeeded" | "complete" | "failed">("undefined")
   console.log("FORM STATE", errors)
 

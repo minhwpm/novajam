@@ -6,7 +6,7 @@ export type MediaType = {
   title: string
   width: number
   height: number
-  contentType: string //@TODO specify "image" "video" here
+  contentType: string
 }
 export type SNSType = {
   linkedInUrl: string | null
@@ -105,8 +105,8 @@ export type PageType = {
   title: string
   url: string
   content: HeroType | CTAType | ContentPTType | ContentListType | FeaturedContentType
-  fontMain: string //@TODO font family options here
-  fontHeading: string //@TODO font family options here
+  fontMain: string
+  fontHeading: string
   headingFontSize: 'standard' | 'standout' | 'impactful'
   colorPrimary: string
   colorSecondary: string
