@@ -196,7 +196,6 @@ async function onSubmitValid(formValues: FormValues) {
           </div>
         </Container>
       </section>
-      
       {submitState === "in-progress" && (
         <Toast.Provider swipeDirection="right" duration={100000}>
           <Toast.Root className="p-8 data-[state=open]:animate-fadeIn">
