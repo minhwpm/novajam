@@ -30,7 +30,7 @@ export const HeroSection: React.FC<{
         {data.eyebrow && (
           <div
             className={classNames(
-              "font-semibold text-primary-600 tracking-widest max-w-2xl animate-slidingHeroContent",
+              "font-semibold text-primary-600 tracking-widest max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-800",
             )}
           >
             {data.eyebrow}
@@ -48,7 +48,7 @@ export const HeroSection: React.FC<{
         {data.description && (
           <div
             className={classNames(
-              "prose xl:prose-lg 2xl:prose-xl text-neutral-700 mt-3 max-w-2xl animate-slidingHeroContent",
+              "prose xl:prose-lg 2xl:prose-xl text-neutral-700 mt-3 max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-300",
             )}
           >
             <RichText2 data={data.description} />
@@ -57,7 +57,7 @@ export const HeroSection: React.FC<{
         {data.buttons.length > 0 && (
           <div
             className={classNames(
-              "mt-5 animate-slidingHeroContent",
+              "mt-5 opacity-0 animate-slidingHeroContent animation-delay-1200",
             )}
           >
             {data.buttons.length > 0 && (

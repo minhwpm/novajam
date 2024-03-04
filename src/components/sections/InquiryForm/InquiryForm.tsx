@@ -11,7 +11,7 @@ import { TextAreaField } from "./TextAreaField";
 import { SelectField } from "./SelectField";
 import { DatePickerField } from "@/components/elements/DatePickerField/DatePickerField";
 import * as Toast from '@radix-ui/react-toast';
-import { AiOutlineClose, AiOutlineLoading } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineLoading3Quarters } from "react-icons/ai";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { RiErrorWarningLine } from "react-icons/ri";
 
@@ -23,10 +23,12 @@ export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
   const { title, heading, eyebrow, summary, description, formType, fields, submitButton, successMessage, errorMessage, backgroundImage, htmlid } = data;
   const { register, control, handleSubmit, reset, formState: { errors } } = useForm<FormValues>();
   const [submitState, setSubmitState] = useState<"undefined" | "in-progress" | "succeeded" | "complete" | "failed">("undefined")
+  
   console.log("FORM STATE", errors)
 
 async function onSubmitValid(formValues: FormValues) {
   console.log("FORM VALUES:", formValues)
+  
   setSubmitState("in-progress")
   try {
     const res = await fetch(`/api/inquiry-form-submission/`, {
@@ -197,7 +199,7 @@ async function onSubmitValid(formValues: FormValues) {
       {submitState === "in-progress" && (
         <Toast.Provider swipeDirection="right" duration={100000}>
           <Toast.Root className="p-8 data-[state=open]:animate-fadeIn">
-            <AiOutlineLoading className="animate-spin" size={50} />
+            <AiOutlineLoading3Quarters className="animate-spin text-primary-500" size={50} />
           </Toast.Root>
           <Toast.Viewport className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col p-6 m-0 w-24 max-w-full z-50" />
         </Toast.Provider>

@@ -48,7 +48,7 @@ export const HeroOSection: React.FC<{
             {data.eyebrow && (
               <div
                 className={classNames(
-                  "animate-slidingHeroContent animation-delay-200",
+                  "opacity-0 animate-slidingHeroContent animation-delay-800",
                   "tracking-widest font-semibold lg:text-lg xl:text-xl max-w-xl"
                 )}
               >
@@ -68,7 +68,7 @@ export const HeroOSection: React.FC<{
             {data.description && (
               <div
                 className={classNames(
-                  "animate-slidingHeroContent",
+                  "opacity-0 animate-slidingHeroContent animation-delay-300",
                   "prose md:prose-lg lg:prose-xl text-white mt-6 lg:mt-10 max-w-xl"
                 )}
               >
@@ -78,7 +78,7 @@ export const HeroOSection: React.FC<{
             {data.buttons.length > 0 && (
               <div
                 className={classNames(
-                  "mt-8 lg:mt-12 animate-slidingHeroContent",
+                  "mt-8 lg:mt-12 opacity-0 animate-slidingHeroContent animation-delay-1200",
                 )}
               >
                 <ButtonGroup
