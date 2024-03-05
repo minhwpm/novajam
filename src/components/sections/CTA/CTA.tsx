@@ -39,6 +39,7 @@ export const CTA: React.FC<{data: CTAType} > = ({ data }) => {
               <ButtonGroup
                 data={data.buttons}
                 size="lg"
+                alignment="center"
               />
             </div>
           )}

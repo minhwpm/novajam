@@ -46,7 +46,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
           )}
         >
           <RadixTabs.List
-            className={classNames("group/list tab-list p-2 inline-flex gap-x-4 gap-y-2 overflow-x-auto overscroll-contain")}
+            className={classNames("group/list tab-list p-2 inline-flex gap-x-2 gap-y-2 overflow-x-auto overscroll-contain")}
             aria-label={heading ? documentToHtmlString(heading) : undefined}
           >
             {content.length > 0 &&
@@ -54,17 +54,17 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                 <RadixTabs.Trigger
                   key={section.id}
                   value={section.id}
-                  className="group/trigger shrink-0 px-8 py-2.5 flex flex-col justify-center items-center cursor-pointer rounded-assets bg-primary-100 hover:text-neutral-700 hover:bg-primary-200 data-[state='active']:bg-primary-600 data-[state='active']:text-white transition-all duration-500"
+                  className="group/trigger shrink-0 px-8 py-2.5 flex flex-col justify-center items-center cursor-pointer rounded-assets bg-neutral-100 hover:bg-primary-100 data-[state='active']:bg-primary-600 transition-colors duration-500 ease"
                 >
                   <div
                     className={classNames(
-                      "text-sm tracking-widest text-neutral-500 font-semibold group-data-[state='active']/trigger:text-neutral-100"
+                      "text-sm tracking-widest font-semibold text-neutral-500 group-hover/trigger:text-primary-500 group-data-[state='active']/trigger:text-primary-100 transition-colors duration-500 ease"
                     )}
                   >
                     {section.eyebrow}
                   </div>
                   {section.heading && (
-                    <div className="block font-semibold text-lg lg:text-xl">
+                    <div className="block font-semibold text-lg lg:text-xl text-neutral-700 group-hover/trigger:text-primary-700 group-data-[state='active']/trigger:text-white transition-colors duration-500 ease">
                       <RichText2 data={section.heading} />
                     </div>
                   )}

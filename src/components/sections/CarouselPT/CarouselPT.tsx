@@ -96,6 +96,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             </div>
           </SwiperSlide>
         ))}
+        {/* @TODO modify arrows in mobile */}
         <div className="carouselPT-btn-prev cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-primary-100 bg-opacity-80 transition-colors duration-500 ease">
           <IoIosArrowBack size={35} />
         </div>

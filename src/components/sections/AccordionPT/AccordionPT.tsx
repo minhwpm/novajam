@@ -67,6 +67,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     />
                   </div>
                 </RadixAccordion.Trigger>
+                {/* @TODO modify shrinking animation */}
                 <RadixAccordion.Content
                   className={classNames(
                     "overflow-hidden px-4 lg:px-10 pt-5 pb-10",
