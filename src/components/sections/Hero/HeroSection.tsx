@@ -30,7 +30,7 @@ export const HeroSection: React.FC<{
         {data.eyebrow && (
           <div
             className={classNames(
-              "font-semibold text-primary-600 tracking-widest max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-800",
+              "font-semibold text-primary-600 tracking-widest max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-600",
             )}
           >
             {data.eyebrow}
@@ -57,7 +57,7 @@ export const HeroSection: React.FC<{
         {data.buttons.length > 0 && (
           <div
             className={classNames(
-              "mt-5 opacity-0 animate-slidingHeroContent animation-delay-1200",
+              "mt-5 opacity-0 animate-slidingHeroContent animation-delay-1000",
             )}
           >
             {data.buttons.length > 0 && (
