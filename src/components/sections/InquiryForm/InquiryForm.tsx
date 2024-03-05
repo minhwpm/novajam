@@ -198,7 +198,7 @@ async function onSubmitValid(formValues: FormValues) {
       </section>
       {submitState === "in-progress" && (
         <Toast.Provider swipeDirection="right" duration={100000}>
-          <Toast.Root className="p-8 data-[state=open]:animate-fadeIn">
+          <Toast.Root className="data-[state=open]:animate-fadeIn">
             <AiOutlineLoading3Quarters className="animate-spin text-primary-500" size={50} />
           </Toast.Root>
           <Toast.Viewport className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col p-6 m-0 w-24 max-w-full z-50" />
@@ -226,7 +226,7 @@ async function onSubmitValid(formValues: FormValues) {
               {successMessage}
             </Toast.Title>
           </Toast.Root>
-          <Toast.Viewport className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col m-0 w-96 max-w-full z-[999999999]" />
+          <Toast.Viewport className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col m-0 p-4 md:p-6 w-96 max-w-full z-[999999999]" />
         </Toast.Provider>
       )}
       {submitState === "failed" && (
@@ -240,7 +240,7 @@ async function onSubmitValid(formValues: FormValues) {
               {errorMessage}
             </Toast.Title>
           </Toast.Root>
-          <Toast.Viewport className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col m-0 w-96 max-w-full z-[999999999]" />
+          <Toast.Viewport className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col m-0 p-4 md:p-6 w-96 max-w-full z-[999999999]" />
         </Toast.Provider>
       )}
     </>
