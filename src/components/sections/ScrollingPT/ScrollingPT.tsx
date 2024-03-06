@@ -2,25 +2,90 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
-import { FeatureContentItem } from "@/components/elements/FeatureContentItem/FeatureContentItem";
-import { ContentPTType } from "@/helpers/types";
+import { AlignmentType, ContentPTType, ContentPieceType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
+import { useInView } from "react-hook-inview";
 import "@/app/css/bg-color.css";
 
+const TextContent = ({
+  data,
+  idx,
+  setVisibleIdx,
+  alignment,
+  darkMode
+}: {
+  data: ContentPieceType;
+  idx: number;
+  setVisibleIdx: (idx: number) => void;
+  alignment: AlignmentType;
+  darkMode: boolean
+}) => {
+  const { eyebrow, heading, description } = data;
+  const [ref, isVisible] = useInView({
+    threshold: 0.9,
+    onEnter: () => setVisibleIdx(idx),
+  });
+  return (
+    <div
+      ref={ref}
+      className={classNames(
+        "py-[20vh] px-10 transition-opacity duration-300 flex flex-col",
+        { "is-visible opacity-100": isVisible },
+        { "is-invisible opacity-10": !isVisible },
+        { "text-center": alignment === "center" },
+        { "text-end": alignment === "reverse" }
+      )}
+    >
+      {eyebrow && (
+        <div
+          className={classNames(
+            "tracking-widest px-4 py-1 text-sm font-semibold text-primary-600 bg-primary-100 rounded-assets self-start"
+          )}
+        >
+          {eyebrow}
+        </div>
+      )}
+      {heading && (
+        <div
+          className={classNames(
+            "text-2xl lg:text-3xl font-semibold",
+            {
+              "mt-2": eyebrow,
+            },
+            { "text-neutral-50": darkMode }
+          )}
+        >
+          <RichText2 data={heading} />
+        </div>
+      )}
+      {description && (
+        <div
+          className={classNames("prose 2xl:prose-lg mt-6", {
+            "prose-invert": darkMode,
+          })}
+        >
+          <RichText2 data={description} />
+        </div>
+      )}
+    </div>
+  );
+};
+
 export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor, backgroundImage } = data;
+  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
     <Section
       id={htmlid}
-      className={classNames(`${backgroundColor}-section-bg-color`)}
+      className={classNames(`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`)}
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
       backgroundImage={backgroundImage}
+      darkMode={darkMode}
     >
       {/* FOR MOBILE, TABLETS */}
       <div className="xl:hidden">
@@ -46,14 +111,17 @@ export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 <div
                   className={classNames(
                     "font-semibold text-2xl lg:text-3xl leading-snug",
-                    { "mt-2": section.eyebrow }
+                    { "mt-2": section.eyebrow },
+                    { "text-neutral-50": darkMode },
                   )}
                 >
                   <RichText2 data={section.heading} />
                 </div>
               )}
               {section.description && (
-                <div className="prose mt-6">
+                <div className={classNames("prose mt-6",
+                  { "prose-invert": darkMode}
+                )}>
                   <RichText2 data={section.description} />
                 </div>
               )}
@@ -122,12 +190,13 @@ export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
 
         <div className="w-2/5 flex flex-col">
           {content?.map((section, idx) => (
-            <FeatureContentItem
+            <TextContent
               key={section.id}
               data={section}
               idx={idx}
               setVisibleIdx={setVisibleIdx}
               alignment={alignment}
+              darkMode={darkMode}
             />
           ))}
         </div>

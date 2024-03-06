@@ -41,7 +41,7 @@ export const Dropdown: React.FC<{data: SubmenuType}> =
                     />
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className="absolute left-full pt-4 pl-4 data-[state=open]:animate-slidingLinkgroup">
-                    <ul className="p-3 bg-white rounded-md shadow-radiant w-64 flex flex-col">
+                    <ul className="p-3 bg-neutral-50 rounded-md shadow-radiant w-64 flex flex-col">
                       {subItem.links.length > 0 &&
                         subItem.links.map((link) => (
                           <li key={link.id} className="py-1 border-b border-neutral-100 first:pt-0 last:pb-0 last:border-none">

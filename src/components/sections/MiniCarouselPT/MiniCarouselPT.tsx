@@ -13,20 +13,25 @@ interface ArrowGroupProps {
   visibleIdx: number;
   setVisibleIdx: (idx: number) => void;
   length: number;
+  darkMode: boolean;
 }
 
-const ArrowGroup = ({ visibleIdx, setVisibleIdx, length }: ArrowGroupProps) => {
+const ArrowGroup = ({ visibleIdx, setVisibleIdx, length, darkMode }: ArrowGroupProps) => {
   return (
     <>
       <IoIosArrowBack
-        className="cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 p-2 bg-neutral-200 hover:bg-primary-600 hover:text-neutral-100 bg-opacity-80 transition-colors duration-500 ease"
+        className={classNames("cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 p-2 bg-neutral-200 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
+          {"text-neutral-50": darkMode }
+        )}
         onClick={() => {
           if (visibleIdx > 0) setVisibleIdx(visibleIdx - 1);
           else setVisibleIdx(length - 1);
         }}
       />
       <IoIosArrowForward
-        className="cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 p-2 bg-neutral-200 hover:bg-primary-600 hover:text-neutral-100 bg-opacity-80 transition-colors duration-500 ease"
+        className={classNames("cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 p-2 bg-neutral-200 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
+          {"text-neutral-50": darkMode }
+        )}
         onClick={() => {
           if (visibleIdx < length - 1) setVisibleIdx(visibleIdx + 1);
           else setVisibleIdx(0);
@@ -37,13 +42,13 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length }: ArrowGroupProps) => {
 };
 
 export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor, backgroundImage } = data;
+  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
     <Section
       id={htmlid}
-      className={classNames("overflow-x-hidden", `${backgroundColor}-section-bg-color`)}
+      className={classNames("overflow-x-hidden", `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`)}
       backgroundImage={backgroundImage}
     >
       <div className="flex flex-col lg:flex-row gap-5 lg:py-10">
@@ -54,12 +59,16 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             </p>
           )}
           {heading && (
-            <div className="font-heading text-heading !leading-normal tracking-tight mb-3">
+            <div className={classNames("font-heading text-heading !leading-normal tracking-tight mb-3",
+              { "text-neutral-50": darkMode },
+            )}>
               <RichText2 data={heading} />
             </div>
           )}
           {summary && (
-            <div className="prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl">
+            <div className={classNames("prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl",
+              { "prose-invert": darkMode}
+            )}>
               <RichText2 data={summary} />
             </div>
           )}
@@ -68,6 +77,7 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               visibleIdx={visibleIdx}
               setVisibleIdx={setVisibleIdx}
               length={content.length}
+              darkMode={darkMode}
             />
           </div>
         </div>
@@ -76,7 +86,7 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             <div
               key={section.id}
               className={classNames(
-                "col-start-1 row-start-1 flex flex-col gap-6 p-8 lg:p-12 shadow-lg bg-white bg-opacity-80 rounded-assets transition-all ease-in-out duration-500 relative",
+                "col-start-1 row-start-1 flex flex-col gap-6 p-8 lg:p-12 shadow-lg bg-neutral-50 rounded-assets transition-all ease-in-out duration-500 relative",
                 { "items-center": alignment === "center" },
                 { "items-end": alignment === "reverse" },
                 { "opacity-100 right-0": visibleIdx == idx },
@@ -133,6 +143,7 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             visibleIdx={visibleIdx}
             setVisibleIdx={setVisibleIdx}
             length={content.length}
+            darkMode={darkMode}
           />
         </div>
       </div>

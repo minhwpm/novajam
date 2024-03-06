@@ -39,15 +39,15 @@ export const Submenu: React.FC<{ data: SubmenuType, uiVariant?: NavigationUiVari
         className={classNames(
           "text-neutral-800 text-base",
           {
-            "absolute top-full left-0 w-full bg-white border-t shadow-lg data-[state=open]:animate-slidingSubmenu":
+            "absolute top-full left-0 w-full bg-neutral-50 border-t shadow-lg data-[state=open]:animate-slidingSubmenu":
               data.layout === "mega" && uiVariant === "standard",
           },
           {
-            "absolute top-full left-0 w-full -mt-4 bg-white shadow-radiant rounded-md data-[state=open]:animate-slidingSubmenu":
+            "absolute top-full left-0 w-full -mt-4 bg-neutral-50 shadow-radiant rounded-md data-[state=open]:animate-slidingSubmenu":
               data.layout === "mega" && uiVariant === "overlay",
           },
           {
-            "absolute top-full left-0 w-64 -mt-4 p-3 bg-white shadow-radiant rounded-md data-[state=open]:animate-slidingSubmenu":
+            "absolute top-full left-0 w-64 -mt-4 p-3 bg-neutral-50 shadow-radiant rounded-md data-[state=open]:animate-slidingSubmenu":
               data.layout === "dropdown",
           }
         )}

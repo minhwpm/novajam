@@ -119,7 +119,7 @@ async function onSubmitValid(formValues: FormValues) {
             <div className="col-span-12 lg:col-span-7">
               <form
                 className={classNames(
-                  "bg-white first-letter:max-w-xl mx-auto lg:mr-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-6 pb-12 rounded-assets",
+                  "bg-neutral-50 first-letter:max-w-xl mx-auto lg:mr-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-6 pb-12 rounded-assets",
                   { "bg-opacity-90": backgroundImage },
                   { "gap-x-0": fields.length === 1 }
                 )}

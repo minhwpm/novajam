@@ -23,6 +23,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       heading={heading}
       summary={summary}
       backgroundImage={backgroundImage}
+      darkMode={darkMode}
     >
       <div className="w-full flex flex-col gap-10">
         <RadixAccordion.Root
@@ -38,7 +39,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 key={section.id}
                 value={section.id}
                 className={classNames(
-                  "group w-full rounded-assets bg-white border data-[state=closed]:hover:bg-primary-50 data-[state=closed]:hover:border-primary-600 text-primary-600 transition-colors duration-300 ease-in-out"
+                  "group w-full rounded-assets bg-neutral-50 border data-[state=closed]:hover:bg-primary-50 hover:border-primary-600 text-primary-600 transition-colors duration-300 ease-in-out"
                 )}
               >
                 <RadixAccordion.Trigger asChild>
@@ -52,7 +53,8 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                         {section.eyebrow}
                       </div>
                       {section.heading && (
-                        <div className="font-semibold text-xl">
+                        <div className={classNames("font-semibold text-xl",
+                        )}>
                           <RichText2 data={section.heading} />
                         </div>
                       )}
