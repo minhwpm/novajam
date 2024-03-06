@@ -48,7 +48,10 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   return (
     <Section
       id={htmlid}
-      className={classNames("overflow-x-hidden", `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`)}
+      className={classNames(
+        "overflow-x-hidden",
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
+      )}
       backgroundImage={backgroundImage}
     >
       <div className="flex flex-col lg:flex-row gap-5 lg:py-10">
@@ -59,16 +62,22 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             </p>
           )}
           {heading && (
-            <div className={classNames("font-heading text-heading !leading-normal tracking-tight mb-3",
-              { "text-neutral-50": darkMode },
-            )}>
+            <div
+              className={classNames(
+                "font-heading text-heading !leading-normal tracking-tight mb-3",
+                { "text-neutral-50": darkMode }
+              )}
+            >
               <RichText2 data={heading} />
             </div>
           )}
           {summary && (
-            <div className={classNames("prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl",
-              { "prose-invert": darkMode}
-            )}>
+            <div
+              className={classNames(
+                "prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl",
+                { "prose-invert": darkMode }
+              )}
+            >
               <RichText2 data={summary} />
             </div>
           )}
@@ -90,11 +99,15 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 { "items-center": alignment === "center" },
                 { "items-end": alignment === "reverse" },
                 { "opacity-100 right-0": visibleIdx == idx },
-                { "opacity-0 -right-24": visibleIdx != idx }
+                { "opacity-0 -right-24": visibleIdx != idx },
+                { "bg-opacity-5": darkMode }
               )}
             >
               {(section.media.length > 0 || section.embeddedMediaUrl) && (
-                <FlexibleContentMediaPart data={section} alignment={alignment} />
+                <FlexibleContentMediaPart
+                  data={section}
+                  alignment={alignment}
+                />
               )}
               <div
                 className={classNames(
@@ -103,16 +116,28 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   { "text-end": alignment === "reverse" }
                 )}
               >
-                <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest")}>
+                <div
+                  className={classNames(
+                    "text-sm font-semibold text-primary-500 tracking-widest"
+                  )}
+                >
                   {section.eyebrow}
                 </div>
                 {section.heading && (
-                  <div className={classNames("text-2xl font-semibold ")}>
+                  <div
+                    className={classNames("text-2xl font-semibold", {
+                      "text-neutral-50": darkMode,
+                    })}
+                  >
                     <RichText2 data={section.heading} />
                   </div>
                 )}
                 {section.description && (
-                  <div className="prose 2xl:prose-lg mt-5">
+                  <div
+                    className={classNames("prose 2xl:prose-lg mt-5", {
+                      "prose-invert": darkMode,
+                    })}
+                  >
                     <RichText2 data={section.description} />
                   </div>
                 )}
@@ -122,7 +147,7 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       "flex justify-center": alignment === "center",
                     })}
                   >
-                    {section.buttons.map(button => (
+                    {section.buttons.map((button) => (
                       <Button
                         key={button.id}
                         url={button.url}
