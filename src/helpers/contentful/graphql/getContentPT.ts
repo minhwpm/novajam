@@ -38,6 +38,7 @@ export default async function getContentPT(id: string) {
               height
               contentType
             }
+            darkMode
             contentCollection (limit: 20) {
               items {
                 __typename

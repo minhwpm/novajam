@@ -1,20 +1,22 @@
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
-import { Button } from "@/components/elements/Button/Button";
 import { ContentPieceType, FeaturedContentType, FeaturedContentLayoutType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
+import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import "@/app/css/bg-color.css";
 import "@/app/css/padding.css";
 
-const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayoutType }> = ({ data, layout }) => {
+const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayoutType, darkMode: boolean }> = ({ data, layout, darkMode }) => {
   const { eyebrow, heading, description, buttons  } = data;
   return (
     <>
       {eyebrow && (
         <div
           className={classNames(
-            "tracking-widest mb-2 text-primary-600 font-semibold",
+            "tracking-widest mb-2 font-semibold",
+            { "text-primary-600": !darkMode },
+            { "text-primary-500": darkMode },
             {
               "text-center":
                 layout === "Vertical (Text | Image)" ||
@@ -28,7 +30,8 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
       {heading && (
         <div
           className={classNames(
-            "text-heading leading-normal font-heading max-w-3xl mb-5",
+            "text-heading leading-normal font-heading tracking-tight max-w-3xl mb-5",
+            { "text-neutral-50": darkMode },
             {
               "text-center mx-auto":
                 layout === "Vertical (Text | Image)" ||
@@ -39,37 +42,39 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
           <RichText2 data={heading} />
         </div>
       )}
-      {description &&
+      {description && (
         <div
-          className={classNames("block prose 2xl:prose-lg text-neutral-700", {
-            "mx-auto":
-              layout === "Vertical (Text | Image)" ||
-              layout === "Vertical (Image | Text)",
-          })}
+          className={classNames(
+            "block prose 2xl:prose-lg ",
+            { "prose-invert": darkMode } ,
+            {
+              "mx-auto":
+                layout === "Vertical (Text | Image)" ||
+                layout === "Vertical (Image | Text)",
+            },
+            { "mb-5": buttons && buttons.length > 0 }
+          )}
         >
           <RichText2 data={description} />
         </div>
-      }
+      )}
       {buttons && buttons.length > 0 && (
-        <div className="mt-10 flex items-center justify-center gap-5">
-          {buttons.map((button) => (
-            <Button
-              key={button.id}
-              variant={button.buttonVariant}
-              url={button.url}
-              openNewTab={button.openNewTab}
-            >
-              {button.text}
-            </Button>
-          ))}
-        </div>
+        <ButtonGroup
+          data={buttons}
+          alignment={
+            layout === "Vertical (Text | Image)" ||
+            layout === "Vertical (Image | Text)"
+              ? "center"
+              : undefined
+          }
+        />
       )}
     </>
   );
 };
 
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data }) => {
-  const { htmlid, layout, uiVariant, content, mediaAspectRatio, backgroundColor, backgroundImage } = data;
+  const { htmlid, layout, uiVariant, content, mediaAspectRatio, backgroundColor, backgroundImage, darkMode } = data;
   if (content === null) {
     return null
   }
@@ -78,7 +83,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
       <section
         id={htmlid}
         className={classNames(
-          `${backgroundColor}-section-bg-color`,
+          `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
         )}
         style={
           backgroundImage
@@ -121,7 +126,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
               },
             )}
           >
-            <TextPart data={content} layout={layout}/>
+            <TextPart data={content} layout={layout} darkMode={darkMode} />
           </div>
         </div>
       </section>
@@ -132,7 +137,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
     //default uiVariant = "standard"
     <Section
       id={htmlid}
-      className={classNames(`${backgroundColor}-section-bg-color`)}
+      className={classNames(`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`)}
     >
       <div
         className={classNames(
@@ -167,7 +172,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
             }
           )}
         >
-          <TextPart data={content} layout={layout} />
+          <TextPart data={content} layout={layout} darkMode={darkMode} />
         </div>
       </div>
     </Section>

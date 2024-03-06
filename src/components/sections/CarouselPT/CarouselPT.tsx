@@ -15,23 +15,34 @@ import "@/app/css/custom-swiper.css"
 
 const TextPart: React.FC<{
   data: ContentPieceType;
-  alignment?: AlignmentType
-}> = ({ data, alignment }) => {
+  alignment?: AlignmentType;
+  darkMode: boolean;
+}> = ({ data, alignment, darkMode }) => {
   const { heading, eyebrow, description, buttons } = data;
   return (
     <>
       {eyebrow && (
-        <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest")}>
+        <div
+          className={classNames(
+            "text-sm font-semibold tracking-widest",
+            { "text-neutral-500": !darkMode },
+            { "text-neutral-200": darkMode },
+          )}
+        >
           {eyebrow}
         </div>
       )}
       {heading && (
-        <div className="text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl">
+        <div className={classNames("text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl",
+          { "text-neutral-50": darkMode },
+        )}>
           <RichText2 data={heading} />
         </div>
       )}
       {description && (
-        <div className="mt-5 prose 2xl:prose-lg">
+        <div className={classNames("mt-5 prose 2xl:prose-lg",
+          { "text-neutral-100": darkMode },
+        )}>
           <RichText2 data={description} />
         </div>
       )}
@@ -41,18 +52,21 @@ const TextPart: React.FC<{
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
 export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, alignment, backgroundColor, backgroundImage } = data
+  const { eyebrow, heading, summary, content, alignment, backgroundColor, backgroundImage, darkMode } = data
   return (
     <Section
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
-      className={classNames(`${backgroundColor}-section-bg-color`)}
+      className={classNames(
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
+      )}
       backgroundImage={backgroundImage}
+      darkMode={darkMode}
     >
       <Swiper
         slidesPerView={1}
@@ -78,11 +92,12 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 { "text-center": alignment === "center" },
                 { "text-end": alignment === "reverse" }
               )}>
+                {/* @TODO modify arrows in mobile */}
                 <div className="flex items-center justify-center gap-8 py-6 lg:hidden">
                   <IoIosArrowBack className="carouselPT-btn-prev cursor-pointer" size={40} />
                   <IoIosArrowForward className="carouselPT-btn-next cursor-pointer" size={40} />
                 </div>
-                <TextPart data={item} alignment={alignment} />
+                <TextPart data={item} alignment={alignment} darkMode={darkMode} />
               </div>
             )}
             { (item.media.length > 0 || item.embeddedMediaUrl)&&  
@@ -96,11 +111,14 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             </div>
           </SwiperSlide>
         ))}
-        {/* @TODO modify arrows in mobile */}
-        <div className="carouselPT-btn-prev cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-primary-100 bg-opacity-80 transition-colors duration-500 ease">
+        <div className={classNames("carouselPT-btn-prev cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-primary-100 bg-opacity-80 transition-colors duration-500 ease",
+          {"text-neutral-100 hover:text-primary-600": darkMode}
+        )}>
           <IoIosArrowBack size={35} />
         </div>
-        <div className="carouselPT-btn-next cursor-pointer absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-primary-100 bg-opacity-80 transition-colors duration-500 ease">
+        <div className={classNames("carouselPT-btn-next cursor-pointer absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden lg:flex justify-center items-center rounded-assets w-14 h-14 hover:bg-primary-100 bg-opacity-80 transition-colors duration-500 ease",
+          {"text-neutral-100 hover:text-primary-600": darkMode}
+        )}>
           <IoIosArrowForward size={35} />
         </div>
       </Swiper>

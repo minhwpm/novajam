@@ -172,6 +172,7 @@ export type FeaturedContentType = {
   uiVariant: "standard" | "extended"
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
+  darkMode: boolean
   contentType: "feature"
 }
 
@@ -205,6 +206,7 @@ export type ContentPTType = {
   htmlid: string | null
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
+  darkMode: boolean
   contentType: "presentation"
 }
 
@@ -264,6 +266,7 @@ export type ContentListType = {
   htmlid: string | null
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
+  darkMode: boolean
   contentType: "cardlist"
 }
 

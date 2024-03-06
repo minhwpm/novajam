@@ -12,7 +12,7 @@ import "@/app/css/bg-color.css";
 import "./styles.css"
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
-  const { htmlid, eyebrow, heading, summary, content, alignment, backgroundColor, backgroundImage } = data
+  const { htmlid, eyebrow, heading, summary, content, alignment, backgroundColor, backgroundImage, darkMode } = data
   const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0].id : '')
   
   // Justify tab container
@@ -26,12 +26,15 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
   return (
     <Section
       id={htmlid}
-      className={classNames(`${backgroundColor}-section-bg-color`)}
+      className={classNames(
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
+      )}
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
       framed={false}
       backgroundImage={backgroundImage}
+      darkMode={darkMode}
     >
       <RadixTabs.Root
         className="w-full"
@@ -46,7 +49,9 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
           )}
         >
           <RadixTabs.List
-            className={classNames("group/list tab-list p-2 inline-flex gap-x-2 gap-y-2 overflow-x-auto overscroll-contain")}
+            className={classNames(
+              "group/list tab-list p-2 inline-flex gap-x-2 gap-y-2 overflow-x-auto overscroll-contain"
+            )}
             aria-label={heading ? documentToHtmlString(heading) : undefined}
           >
             {content.length > 0 &&
@@ -54,17 +59,27 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                 <RadixTabs.Trigger
                   key={section.id}
                   value={section.id}
-                  className="group/trigger shrink-0 px-8 py-2.5 flex flex-col justify-center items-center cursor-pointer rounded-assets bg-neutral-100 hover:bg-primary-100 data-[state='active']:bg-primary-600 transition-colors duration-500 ease"
+                  className={classNames(
+                    "group/trigger shrink-0 px-8 py-2.5 flex flex-col justify-center items-center cursor-pointer rounded-assets bg-neutral-200 bg-opacity-20 hover:bg-primary-100 data-[state='active']:bg-primary-600 transition-colors duration-500 ease "
+                  )}
                 >
                   <div
                     className={classNames(
-                      "text-sm tracking-widest font-semibold text-neutral-500 group-hover/trigger:text-primary-500 group-data-[state='active']/trigger:text-primary-100 transition-colors duration-500 ease"
+                      "text-sm tracking-widest font-semibold  group-hover/trigger:text-primary-500 group-data-[state='active']/trigger:text-primary-100 transition-colors duration-500 ease",
+                      { "text-neutral-500": !darkMode },
+                      { "text-neutral-100": darkMode}
                     )}
                   >
                     {section.eyebrow}
                   </div>
                   {section.heading && (
-                    <div className="block font-semibold text-lg lg:text-xl text-neutral-700 group-hover/trigger:text-primary-700 group-data-[state='active']/trigger:text-white transition-colors duration-500 ease">
+                    <div
+                      className={classNames(
+                        "block font-semibold text-lg lg:text-xl group-hover/trigger:text-primary-700 group-data-[state='active']/trigger:text-white transition-colors duration-500 ease",
+                        { "text-neutral-700": !darkMode },
+                      { "text-neutral-50": darkMode}
+                      )}
+                    >
                       <RichText2 data={section.heading} />
                     </div>
                   )}
@@ -88,7 +103,11 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
               <div className="flex flex-col-reverse lg:flex-row lg:items-center rounded-assets p-4 lg:p-8 -mx-4 lg:-mx-8">
                 <div className="py-4 lg:pr-10">
                   {section.description && (
-                    <div className="prose 2xl:prose-lg">
+                    <div
+                      className={classNames("prose 2xl:prose-lg", {
+                        "prose-invert": darkMode,
+                      })}
+                    >
                       <RichText2 data={section.description} />
                     </div>
                   )}
@@ -113,7 +132,10 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                 </div>
                 {(section.media.length > 0 || section.embeddedMediaUrl) && (
                   <div className="lg:w-1/2 shrink-0">
-                    <FlexibleContentMediaPart data={section} alignment={alignment} />
+                    <FlexibleContentMediaPart
+                      data={section}
+                      alignment={alignment}
+                    />
                   </div>
                 )}
               </div>
@@ -122,5 +144,5 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
         </div>
       </RadixTabs.Root>
     </Section>
-  )
+  );
 }

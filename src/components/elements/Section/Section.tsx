@@ -15,9 +15,10 @@ interface Props {
   backgroundImage?: MediaType | null
   children: React.ReactNode
   framed?: boolean
+  darkMode?: boolean
 }
 
-export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, children, className, backgroundImage, framed = true } ) => {
+export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, children, className, backgroundImage, framed = true, darkMode } ) => {
   return (
     <section
       id={id ?? ""}
@@ -35,14 +36,18 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
     >
       <Container>
         {eyebrow && (
-          <div className="tracking-widest text-primary-600 font-semibold text-center mx-auto mb-2">
+          <div className={classNames("tracking-widest font-semibold text-center mx-auto mb-2",
+            {"text-primary-600": !darkMode},
+            {"text-primary-500": darkMode},
+          )}>
             {eyebrow}
           </div>
         )}
         {heading && (
           <div
             className={classNames(
-              "font-heading text-heading !leading-normal text-center max-w-4xl mx-auto mb-4"
+              "font-heading text-heading !leading-normal tracking-tight text-center max-w-4xl mx-auto mb-4",
+              {"text-neutral-50": darkMode},
             )}
           >
             <RichText2 data={heading} />
@@ -51,7 +56,8 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
         {summary && (
           <div
             className={classNames(
-              "prose-lg 2xl:prose-xl text-neutral-600 text-center max-w-xl lg:max-w-3xl mx-auto mb-4"
+              "prose prose-lg 2xl:prose-xl text-center max-w-xl lg:max-w-3xl mx-auto mb-4",
+              {"prose-invert": darkMode}
             )}
           >
             <RichText2 data={summary} />

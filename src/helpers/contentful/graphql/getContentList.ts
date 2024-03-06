@@ -44,6 +44,7 @@ export default async function getContentList(id: string) {
               height
               contentType
             }
+            darkMode
             contentCollection (limit: 20) {
               items {
                 __typename

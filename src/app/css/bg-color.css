@@ -1,54 +1,108 @@
 .neutral-section-bg-color {
   @apply bg-neutral-50;
 }
+.neutral-dark-section-bg-color {
+  @apply bg-neutral-900;
+}
 .red-section-bg-color {
   @apply bg-red-50;
+}
+.red-dark-section-bg-color {
+  @apply bg-red-700;
 }
 .orange-section-bg-color {
   @apply bg-orange-50;
 }
+.orange-dark-section-bg-color {
+  @apply bg-orange-700;
+}
 .amber-section-bg-color {
   @apply bg-amber-50;
+}
+.amber-dark-section-bg-color {
+  @apply bg-amber-700;
 }
 .yellow-section-bg-color {
   @apply bg-yellow-50;
 }
+.yellow-dark-section-bg-color {
+  @apply bg-yellow-700;
+}
 .lime-section-bg-color {
   @apply bg-lime-50;
+}
+.lime-dark-section-bg-color {
+  @apply bg-lime-700;
 }
 .green-section-bg-color {
   @apply bg-green-50;
 }
+.green-dark-section-bg-color {
+  @apply bg-green-700;
+}
 .emerald-section-bg-color {
   @apply bg-emerald-50;
+}
+.emerald-dark-section-bg-color {
+  @apply bg-emerald-700;
 }
 .teal-section-bg-color {
   @apply bg-teal-50;
 }
+.teal-dark-section-bg-color {
+  @apply bg-teal-700;
+}
 .cyan-section-bg-color {
   @apply bg-cyan-50;
+}
+.cyan-dark-section-bg-color {
+  @apply bg-cyan-700;
 }
 .sky-section-bg-color {
   @apply bg-sky-50;
 }
+.sky-dark-section-bg-color {
+  @apply bg-sky-700;
+}
 .blue-section-bg-color {
   @apply bg-blue-50;
+}
+.blue-dark-section-bg-color {
+  @apply bg-blue-700;
 }
 .indigo-section-bg-color {
   @apply bg-indigo-50;
 }
+.indigo-dark-section-bg-color {
+  @apply bg-indigo-700;
+}
 .violet-section-bg-color {
   @apply bg-violet-50;
+}
+.violet-dark-section-bg-color {
+  @apply bg-violet-700;
 }
 .purple-section-bg-color {
   @apply bg-purple-50;
 }
+.purple-dark-section-bg-color {
+  @apply bg-purple-700;
+}
 .fuchsia-section-bg-color {
   @apply bg-fuchsia-50;
+}
+.fuchsia-dark-section-bg-color {
+  @apply bg-fuchsia-700;
 }
 .pink-section-bg-color {
   @apply bg-pink-50;
 }
+.pink-dark-section-bg-color {
+  @apply bg-pink-700;
+}
 .rose-section-bg-color {
   @apply bg-rose-50;
+}
+.rose-dark-section-bg-color {
+  @apply bg-rose-700;
 }

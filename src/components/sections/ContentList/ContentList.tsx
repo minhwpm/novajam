@@ -21,17 +21,21 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     htmlid,
     backgroundColor,
     backgroundImage,
+    darkMode
   } = data;
 
   return (
     <Section
       id={htmlid}
-      className={classNames(`${backgroundColor}-section-bg-color`)}
+      className={classNames(
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
+      )}
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
       framed={ layout !== "carousel" }
       backgroundImage={backgroundImage}
+      darkMode={darkMode}
     >
       <div className={classNames(
         { "mt-8": layout === "carousel" && (heading || eyebrow || summary) } 

@@ -14,11 +14,11 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import "@/app/css/bg-color.css";
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor, backgroundImage } = data;
+  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   return (
     <Section
       id={htmlid}
-      className={classNames(`${backgroundColor}-section-bg-color`)}
+      className={classNames(`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`)}
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
