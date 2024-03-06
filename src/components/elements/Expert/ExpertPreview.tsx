@@ -50,7 +50,7 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
     );
   }
   return (
-    <div className="group bg-neutral-50 rounded-assets">
+    <div className="group bg-white rounded-assets">
       <Link href={`/expert/${slug}`}>
         <MediaItem data={portrait} aspectRatio="square" />
       </Link>

@@ -46,7 +46,7 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
         {heading && (
           <div
             className={classNames(
-              "font-heading text-heading !leading-normal tracking-tight text-center max-w-4xl mx-auto mb-4",
+              "font-heading text-heading !leading-normal tracking-tight text-center max-w-6xl mx-auto mb-4",
               {"text-neutral-50": darkMode},
             )}
           >

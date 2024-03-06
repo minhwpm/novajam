@@ -18,7 +18,7 @@ export const BlogPreview: React.FC<{
   const pathname = usePathname()
   if (layout === "horizontal") {
     return (
-      <div className="rounded-assets bg-neutral-50 flex gap-5">
+      <div className="rounded-assets bg-white flex gap-5">
         <div className="basis-1/3 flex-1">
           <Link href={`${pathname}/blog/${slug}`}>
             <MediaItem data={media} aspectRatio={aspectRatio} />
@@ -46,7 +46,7 @@ export const BlogPreview: React.FC<{
     )
   }
   return (
-    <div className="rounded-assets bg-neutral-50">
+    <div className="rounded-assets bg-white">
       <Link href={`${pathname}/blog/${slug}`}>
         <MediaItem data={media} aspectRatio={aspectRatio} />
       </Link>

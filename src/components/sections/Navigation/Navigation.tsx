@@ -82,7 +82,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
   return (
     <header
       className={classNames(
-        "relative bg-neutral-50 z-[99999] tracking-wider",
+        "relative bg-white z-[99999] tracking-wider",
         { "sticky w-full z-50 top-0 border-b animate-headerSlideIn": sticky }
       )}
     >
@@ -114,7 +114,7 @@ export const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
           "w-full bottom-0 rounded-t-assets", //sm devices
           "lg:rotate-90 lg:translate-y-1/2 lg:translate-x-1/2 lg:rounded-t-none lg:rounded-b-assets lg:w-auto lg:bottom-1/2 lg:right-0" //big devices
         )}>
-          <div className="relative flex justify-center py-2 bg-neutral-50 bg-opacity-80 shadow-radiant lg:py-0 lg:bg-transparent">
+          <div className="relative flex justify-center py-2 bg-white bg-opacity-80 shadow-radiant lg:py-0 lg:bg-transparent">
             {data.hotButtons.map((button) => (
               <div key={button.id} className="flex-1 flex justify-center">
                 <Button

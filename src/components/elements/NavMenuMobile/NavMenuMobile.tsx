@@ -16,7 +16,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
     <>
       <NavigationMenu.Root
         className={classNames(
-          "lg:hidden absolute top-0 left-0 z-[99999] bg-neutral-50 text-neutral-900 font-lg w-screen h-screen px-4 pt-20 pb-36 overflow-y-auto",
+          "lg:hidden absolute top-0 left-0 z-[99999] bg-white text-neutral-900 font-lg w-screen h-screen px-4 pt-20 pb-36 overflow-y-auto",
           { hidden: !mobileMenuShowed }
         )}
         orientation="vertical"

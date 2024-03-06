@@ -45,7 +45,7 @@ export const FlexibleContent: React.FC<{
   const { heading, eyebrow, description, media, embeddedMediaUrl, buttons } = data;
   if (layout === "horizontal") {
     return (
-      <div className="flex gap-5 rounded-assets bg-neutral-50">
+      <div className="flex gap-5 rounded-assets bg-white">
         <div className="basis-1/3 flex-1">
           {(media || embeddedMediaUrl) && <FlexibleContentMediaPart data={data} alignment={alignment} aspectRatio="auto" /> }
         </div>
@@ -64,7 +64,7 @@ export const FlexibleContent: React.FC<{
     )
   }
   return (
-    <div className="flex flex-col rounded-assets bg-neutral-50">
+    <div className="flex flex-col rounded-assets bg-white">
       {(media || embeddedMediaUrl) && <FlexibleContentMediaPart data={data} alignment={alignment} aspectRatio="auto" /> }
       {(heading || eyebrow || description || buttons?.length > 0) && (
         <div

@@ -39,7 +39,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 key={section.id}
                 value={section.id}
                 className={classNames(
-                  "group w-full rounded-assets bg-neutral-50 border data-[state=closed]:hover:bg-primary-50 hover:border-primary-600 text-primary-600 transition-colors duration-300 ease-in-out"
+                  "group w-full rounded-assets bg-white border data-[state=closed]:hover:bg-primary-50 hover:border-primary-600 text-primary-600 transition-colors duration-300 ease-in-out"
                 )}
               >
                 <RadixAccordion.Trigger asChild>

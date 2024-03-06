@@ -39,7 +39,7 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
         />
       </NavigationMenu.Trigger>
       <NavigationMenu.Content
-        className="bg-neutral-50 font-medium mt-2 rounded-assets"
+        className="bg-white font-medium mt-2 rounded-assets"
         onPointerLeave={(e) => e.preventDefault()}
       >
         <NavigationMenu.Root

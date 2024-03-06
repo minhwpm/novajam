@@ -1,5 +1,5 @@
 .neutral-section-bg-color {
-  @apply bg-neutral-50;
+  @apply bg-white;
 }
 .neutral-dark-section-bg-color {
   @apply bg-neutral-900;

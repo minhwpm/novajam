@@ -30,7 +30,7 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
       {heading && (
         <div
           className={classNames(
-            "text-heading leading-normal font-heading tracking-tight max-w-3xl mb-5",
+            "text-heading leading-normal font-heading tracking-tight max-w-6xl mb-5",
             { "text-neutral-50": darkMode },
             {
               "text-center mx-auto":
