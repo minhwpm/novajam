@@ -30,7 +30,7 @@ export const HeroSection: React.FC<{
         {data.eyebrow && (
           <div
             className={classNames(
-              "font-semibold text-primary-600 tracking-widest max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-600",
+              "font-semibold text-primary-600 tracking-widest max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-500",
             )}
           >
             {data.eyebrow}
@@ -48,7 +48,7 @@ export const HeroSection: React.FC<{
         {data.description && (
           <div
             className={classNames(
-              "prose xl:prose-lg 2xl:prose-xl text-neutral-700 mt-3 max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-300",
+              "prose xl:prose-lg 2xl:prose-xl text-neutral-700 mt-3 max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-200",
             )}
           >
             <RichText2 data={data.description} />
@@ -57,7 +57,7 @@ export const HeroSection: React.FC<{
         {data.buttons.length > 0 && (
           <div
             className={classNames(
-              "mt-5 opacity-0 animate-slidingHeroContent animation-delay-1000",
+              "mt-5 opacity-0 animate-slidingHeroContent animation-delay-400",
             )}
           >
             {data.buttons.length > 0 && (
@@ -73,7 +73,7 @@ export const HeroSection: React.FC<{
       {(data.media.length > 0 || data.embeddedMediaUrl) && (
         <div
           className={classNames(
-            "w-full lg:basis-3/5 min-w-[50%] animate-slidingHeroContent",
+            "w-full lg:basis-3/5 min-w-[50%] opacity-0 animate-slidingHeroContent animation-delay-300",
           )}
         >
           <HeroMediaPart data={data} />
