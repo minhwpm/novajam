@@ -13,6 +13,7 @@ import {
   Lato,
   Merriweather,
   Inria_Serif,
+  PT_Serif,
 } from "next/font/google";
 
 export const Poppins_Font = Poppins({
@@ -98,6 +99,13 @@ export const Merriweather_Font = Merriweather({
   subsets: ["latin"],
   display: "swap",
   weight: ["300", "400", "700"],
+  variable: "--font-heading",
+})
+
+export const PT_Serif_Font = PT_Serif({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "700"],
   variable: "--font-heading",
 })
 

@@ -75,7 +75,7 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             <div
               className={classNames(
                 "prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl",
-                { "prose-invert": darkMode }
+                { "text-neutral-50": darkMode }
               )}
             >
               <RichText2 data={summary} />
@@ -135,7 +135,7 @@ export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 {section.description && (
                   <div
                     className={classNames("prose 2xl:prose-lg mt-5", {
-                      "prose-invert": darkMode,
+                      "text-neutral-50": darkMode,
                     })}
                   >
                     <RichText2 data={section.description} />

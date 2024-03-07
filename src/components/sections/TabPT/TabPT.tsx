@@ -105,7 +105,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                   {section.description && (
                     <div
                       className={classNames("prose 2xl:prose-lg", {
-                        "prose-invert": darkMode,
+                        "text-neutral-50": darkMode,
                       })}
                     >
                       <RichText2 data={section.description} />

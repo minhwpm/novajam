@@ -46,7 +46,7 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
         <div
           className={classNames(
             "block prose 2xl:prose-lg ",
-            { "prose-invert": darkMode } ,
+            { "text-neutral-50": darkMode } ,
             {
               "mx-auto":
                 layout === "Vertical (Text | Image)" ||

@@ -22,7 +22,10 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
   return (
     <section
       id={id ?? ""}
-      className={classNames("flex flex-col items-center py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20", className)}
+      className={classNames(
+        "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20",
+        className
+      )}
       style={
         backgroundImage
           ? {
@@ -34,20 +37,23 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
           : {}
       }
     >
-      <Container>
+      <Container className="flex flex-col items-center">
         {eyebrow && (
-          <div className={classNames("tracking-widest font-semibold text-center mx-auto mb-2",
-            {"text-primary-600": !darkMode},
-            {"text-primary-500": darkMode},
-          )}>
+          <div
+            className={classNames(
+              "tracking-widest font-semibold text-center mx-auto mb-2",
+              { "text-primary-600": !darkMode },
+              { "text-primary-500": darkMode },
+            )}
+          >
             {eyebrow}
           </div>
         )}
         {heading && (
           <div
             className={classNames(
-              "font-heading text-heading !leading-normal tracking-tight text-center max-w-6xl mx-auto mb-4",
-              {"text-neutral-50": darkMode},
+              "font-heading text-heading !leading-normal tracking-tight text-center max-w-6xl mb-4",
+              { "text-neutral-50": darkMode }
             )}
           >
             <RichText2 data={heading} />
@@ -56,8 +62,8 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
         {summary && (
           <div
             className={classNames(
-              "prose prose-lg 2xl:prose-xl text-center max-w-xl lg:max-w-3xl mx-auto mb-4",
-              {"prose-invert": darkMode}
+              "prose prose-lg 2xl:prose-xl text-center max-w-xl lg:max-w-3xl  mb-4",
+              { "text-neutral-50": darkMode }
             )}
           >
             <RichText2 data={summary} />

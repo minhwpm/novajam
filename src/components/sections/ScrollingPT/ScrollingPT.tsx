@@ -63,7 +63,7 @@ const TextContent = ({
       {description && (
         <div
           className={classNames("prose 2xl:prose-lg mt-6", {
-            "prose-invert": darkMode,
+            "text-neutral-50": darkMode,
           })}
         >
           <RichText2 data={description} />
@@ -101,7 +101,7 @@ export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               {section.eyebrow && (
                 <div
                   className={classNames(
-                    "tracking-widest px-4 py-1 text-sm font-semibold text-primary-600 bg-primary-100 rounded-assets self-start"
+                    "tracking-widest px-2 py-1 text-sm font-semibold text-primary-600 bg-primary-100 bg-opacity-10 rounded-assets"
                   )}
                 >
                   {section.eyebrow}
@@ -120,7 +120,7 @@ export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               )}
               {section.description && (
                 <div className={classNames("prose mt-6",
-                  { "prose-invert": darkMode}
+                  { "text-neutral-50": darkMode}
                 )}>
                   <RichText2 data={section.description} />
                 </div>
