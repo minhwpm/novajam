@@ -18,7 +18,9 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   return (
     <Section
       id={htmlid}
-      className={classNames(`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`)}
+      className={classNames(
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
+      )}
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
@@ -53,8 +55,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                         {section.eyebrow}
                       </div>
                       {section.heading && (
-                        <div className={classNames("font-semibold text-xl",
-                        )}>
+                        <div className={classNames("font-semibold text-xl")}>
                           <RichText2 data={section.heading} />
                         </div>
                       )}
@@ -72,44 +73,46 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 {/* @TODO modify shrinking animation */}
                 <RadixAccordion.Content
                   className={classNames(
-                    "overflow-hidden px-4 lg:px-10 pt-5 pb-10",
+                    "overflow-hidden px-4 lg:px-10",
                     "data-[state=closed]:animate-accordionSlideUp",
                     "data-[state=open]:border-t data-[state=open]:animate-accordionSlideDown",
                     { "text-center": alignment === "center" },
                     { "text-end": alignment === "reverse" }
                   )}
                 >
-                  {section.description && (
-                    <div className="prose 2xl:prose-lg">
-                      <RichText2 data={section.description} />
-                    </div>
-                  )}
-                  {section.buttons && section.buttons.length > 0 && (
-                    <div
-                      className={classNames("mt-8", {
-                        "flex justify-center": alignment === "center",
-                      })}
-                    >
-                      {section.buttons.map((button) => (
-                        <Button
-                          key={button.id}
-                          url={button.url}
-                          variant={button.buttonVariant}
-                          openNewTab={button.openNewTab}
-                        >
-                          {button.text}
-                        </Button>
-                      ))}
-                    </div>
-                  )}
-                  {(section.media.length > 0 || section.embeddedMediaUrl) && (
-                    <div className="max-w-xl mx-auto mt-10">
-                      <FlexibleContentMediaPart
-                        data={section}
-                        alignment={alignment}
-                      />
-                    </div>
-                  )}
+                  <div className="pt-4 pb-8">
+                    {section.description && (
+                      <div className={classNames("prose 2xl:prose-lg max-w-none")}>
+                        <RichText2 data={section.description} />
+                      </div>
+                    )}
+                    {section.buttons && section.buttons.length > 0 && (
+                      <div
+                        className={classNames("mt-8", {
+                          "flex justify-center": alignment === "center",
+                        })}
+                      >
+                        {section.buttons.map((button) => (
+                          <Button
+                            key={button.id}
+                            url={button.url}
+                            variant={button.buttonVariant}
+                            openNewTab={button.openNewTab}
+                          >
+                            {button.text}
+                          </Button>
+                        ))}
+                      </div>
+                    )}
+                    {(section.media.length > 0 || section.embeddedMediaUrl) && (
+                      <div className="max-w-xl mx-auto mt-10">
+                        <FlexibleContentMediaPart
+                          data={section}
+                          alignment={alignment}
+                        />
+                      </div>
+                    )}
+                  </div>
                 </RadixAccordion.Content>
               </RadixAccordion.Item>
             ))}
