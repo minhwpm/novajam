@@ -23,7 +23,14 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
     <section
       id={id ?? ""}
       className={classNames(
-        "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20",
+        {
+          "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20":
+            eyebrow || heading || summary,
+        },
+        {
+          "py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10":
+            !eyebrow && !heading && !summary,
+        },
         className
       )}
       style={
@@ -43,7 +50,7 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
             className={classNames(
               "tracking-widest font-semibold text-center mx-auto mb-2",
               { "text-primary-600": !darkMode },
-              { "text-primary-500": darkMode },
+              { "text-primary-500": darkMode }
             )}
           >
             {eyebrow}
