@@ -8,7 +8,6 @@ import { Container } from "@/components/elements/Container/Container";
 import "@/app/css/bg-color.css";
 import "@/app/css/padding.css";
 
-// @TODO implement Media Aspect Ratio for video
 const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayoutType, darkMode: boolean }> = ({ data, layout, darkMode }) => {
   const { eyebrow, heading, description, buttons  } = data;
   return (
