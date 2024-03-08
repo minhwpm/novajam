@@ -6,6 +6,7 @@ import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { Container } from "@/components/elements/Container/Container";
 
+// @TODO - implement background image, background color
 export const CTA: React.FC<{data: CTAType} > = ({ data }) => {
   const { heading, content, buttons } = data;
 
@@ -27,7 +28,7 @@ export const CTA: React.FC<{data: CTAType} > = ({ data }) => {
           )}
         >
           <div className="flex flex-col items-center max-w-3xl mx-auto">
-            <div className="text-heading leading-snug font-heading font-semibold text-center text-neutral-100">
+            <div className="text-heading leading-snug font-heading text-center text-neutral-100">
               <RichText2 data={heading} />
             </div>
             {content && (

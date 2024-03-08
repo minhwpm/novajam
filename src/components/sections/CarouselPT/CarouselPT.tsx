@@ -14,6 +14,7 @@ import "swiper/css/pagination";
 import "@/app/css/custom-swiper.css"
 import "@/app/css/padding.css"
 
+// @TODO - modify spacing between heading/summary with carousel
 export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { eyebrow, heading, summary, content, alignment, backgroundColor, backgroundImage, darkMode } = data
   return (
@@ -51,11 +52,6 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 { "text-center": alignment === "center" },
                 { "text-end": alignment === "reverse" }
               )}>
-                {/* @TODO modify arrows in mobile */}
-                {/* <div className="flex items-center justify-center gap-8 py-6 lg:hidden">
-                  <IoIosArrowBack className="carouselPT-btn-prev cursor-pointer" size={40} />
-                  <IoIosArrowForward className="carouselPT-btn-next cursor-pointer" size={40} />
-                </div> */}
                 <TextPart data={item} alignment={alignment} darkMode={darkMode} />
               </div>
             )}

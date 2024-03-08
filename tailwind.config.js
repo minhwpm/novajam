@@ -15,9 +15,9 @@ module.exports = {
         'heading': 'var(--font-heading)',
       },
       fontSize: {
-        '4.5xl': [
-          '2.75rem', {
-            lineHeight: '3.25rem'
+        'smd': [
+          '0.9375rem', {
+            lineHeight: '1.375rem'
           }
         ],
         'heading': 'var(--heading-font-size)',

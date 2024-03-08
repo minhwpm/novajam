@@ -10,24 +10,39 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
       className={classNames(
         "flex flex-col gap-6 items-center rounded-assets",
         { "bg-white md:mt-16 shadow-radiant": !badge },
-        { "bg-gradient-to-tl from-primary-50 via-primary-100 to-primary-200 mt-6 md:mt-0 shadow-xl": badge }
+        {
+          "bg-gradient-to-tl from-primary-600 to-primary-700 mt-6 md:mt-0 shadow-xl text-neutral-50":
+            badge,
+        }
       )}
     >
       {badge && (
-        <div className="relative bottom-5 rounded-assets text-center bg-gradient-to-bl from-primary-800 via-primary-700 to-primary-500 text-white px-6 py-2 font-bold rounded-t-assets tracking-wider">
+        <div className="relative bottom-5 rounded-assets text-center bg-gradient-to-bl from-primary-200 via-primary-100 to-primary-50 text-primary-600 px-6 py-2 font-bold rounded-t-assets tracking-wider">
           {badge}
         </div>
       )}
       <h4
-        className={classNames("text-2xl text-primary-600 font-bold", {
-          "mt-12": !badge,
+        className={classNames("text-2xl font-bold", {
+          "text-primary-600 mt-12": !badge,
         })}
       >
         {title}
       </h4>
       <div className="flex flex-col items-center">
-        <div className="text-3xl text-neutral-700 font-bold">{pricing}</div>
-        <div className="text-neutral-500 text-sm tracking-wide">
+        <div
+          className={classNames("text-3xl font-bold", {
+            "text-neutral-700": !badge,
+          })}
+        >
+          {pricing}
+        </div>
+        <div
+          className={classNames(
+            "text-sm tracking-wide",
+            { "text-neutral-500": !badge },
+            { "text-neutral-200": badge }
+          )}
+        >
           {pricingSuffix}
         </div>
       </div>

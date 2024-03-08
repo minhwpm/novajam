@@ -34,7 +34,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
         {url ? (
           <Link
             className={classNames(
-              "relative left-0 group inline-block text-primary-600 hover:text-primary-700 hover:left-1 transition-all duration-500",
+              "relative left-0 group inline-block text-primary-600 hover:left-1 transition-all duration-500",
               { "py-2": size === "base" },
               { "py-3 lg:text-lg": size === "lg" },
               { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
@@ -50,7 +50,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
           </Link>
         ) : (
           <span className={classNames(
-            "relative left-0 group inline-block text-primary-600 hover:text-primary-700 hover:left-1 transition-all duration-500",
+            "relative left-0 group inline-block text-primary-600 hover:left-1 transition-all duration-500",
             { "py-2": size === "base" },
             { "py-3 lg:text-lg": size === "lg" },
             { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
@@ -88,8 +88,8 @@ export const Button: React.FC<ButtonProps> = (props) => {
       "border-white text-white hover:bg-white hover:text-neutral-800 drop-shadow-lg":
         variant === "outline-white",
     },
-    { "px-4 py-1.5 min-w-[120px] text-base lg:px-6 lg:py-2.5 lg:min-w-[130px] 2xl:text-lg font-semibold": size === "base" },
-    { "px-6 py-2.5 min-w-[160px] lg:px-8 lg:py-3 lg:min-w-[200px] lg:text-lg font-semibold": size === "lg" },
+    { "px-3 py-1.5 min-w-[100px] text-smd lg:px-4 lg:py-2 lg:min-w-[120px] 2xl:text-base": size === "base" },
+    { "px-5 py-2.5 min-w-[130px] lg:px-6 lg:py-3 lg:min-w-[160px] font-semibold 2xl:text-lg": size === "lg" },
     { "opacity-30 pointer-events-none cursor-not-allowed": disabled }
   );
 
