@@ -122,14 +122,14 @@ const Video = ({
         <track kind="captions" label={title} />
       </video>
       {!videoStarted && videoControls && (
-        <div className="p-5 absolute bottom-0 right-0 w-full h-full flex justify-center items-center transition-opacity duration-300 ease-linear group-hover:opacity-100">
+        <div className="p-5 absolute bottom-0 right-0 w-full h-full bg-neutral-900 bg-opacity-30 flex justify-center items-center transition-opacity duration-300 ease-linear group-hover:opacity-100">
           <button
             onClick={() => {
               videoRef.current?.play()
               setVideoStarted(true)
             }}
           >
-            <FaPlay className="text-primary-600 w-16 h-16 transition-all duration-200 ease-linear hover:scale-110 hover:text-primary-500" />
+            <FaPlay className="text-neutral-50 w-16 h-16 transition-all duration-200 ease-linear hover:scale-110 hover:text-primary-600" />
           </button>
         </div>
       )}

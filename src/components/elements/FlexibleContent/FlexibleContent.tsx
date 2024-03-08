@@ -1,28 +1,52 @@
 import classNames from "classnames";
+import { useContext } from "react";
 import { AlignmentType, ContentPieceType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText2"
+import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
 import { FlexibleContentMediaPart } from "../FlexibleContentMediaPart/FlexibleContentMediaPart";
+import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 
 const TextPart: React.FC<{
   data: ContentPieceType;
-  alignment?: AlignmentType
+  alignment?: AlignmentType;
 }> = ({ data, alignment }) => {
+  const darkMode = useContext(DarkModeContext);
   const { heading, eyebrow, description, buttons } = data;
   return (
     <>
       {eyebrow && (
-        <div className={classNames("text-sm font-semibold text-neutral-500 tracking-widest mb-1")}>
+        <div
+          className={classNames(
+            "text-sm font-semibold tracking-widest mb-1",
+            { "text-neutral-500": !darkMode },
+            { "text-neutral-100": darkMode }
+          )}
+        >
           {eyebrow}
         </div>
       )}
       {heading && (
-        <div className={classNames("font-heading text-lg lg:text-2xl", {"mb-2 lg:mb-4": description || buttons.length > 0})}>
+        <div
+          className={classNames(
+            "font-heading text-lg lg:text-2xl",
+            { "mb-2 lg:mb-4": description || buttons.length > 0 },
+            { "text-neutral-50": darkMode }
+          )}
+        >
           <RichText2 data={heading} />
         </div>
       )}
       {description && (
-        <div className={classNames("prose 2xl:prose-lg text-neutral-700", {"mb-4 lg:mb-6": buttons.length > 0})}>
+        <div
+          className={classNames(
+            "prose 2xl:prose-lg",
+            {
+              "mb-4 lg:mb-6": buttons.length > 0,
+            },
+            { "text-neutral-700": !darkMode },
+            { "text-neutral-100": darkMode }
+          )}
+        >
           <RichText2 data={description} />
         </div>
       )}
@@ -32,24 +56,29 @@ const TextPart: React.FC<{
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
 export const FlexibleContent: React.FC<{
   data: ContentPieceType;
-  alignment?: AlignmentType
-  layout?: "vertical" | "horizontal"
-}> = ({
-  data, 
-  alignment = 'center',
-  layout = "vertical",
-}) => {
-  const { heading, eyebrow, description, media, embeddedMediaUrl, buttons } = data;
+  alignment?: AlignmentType;
+  layout?: "vertical" | "horizontal";
+}> = ({ data, alignment = "center", layout = "vertical" }) => {
+  const darkMode = useContext(DarkModeContext);
+  console.log("DARK", darkMode);
+  const { heading, eyebrow, description, media, embeddedMediaUrl, buttons } =
+    data;
   if (layout === "horizontal") {
     return (
       <div className="h-full flex gap-5 rounded-assets bg-white">
         <div className="basis-1/3 flex-1">
-          {(media || embeddedMediaUrl) && <FlexibleContentMediaPart data={data} alignment={alignment} aspectRatio="auto" /> }
+          {(media || embeddedMediaUrl) && (
+            <FlexibleContentMediaPart
+              data={data}
+              alignment={alignment}
+              aspectRatio="auto"
+            />
+          )}
         </div>
         {(heading || eyebrow || description || buttons?.length > 0) && (
           <div
@@ -63,11 +92,23 @@ export const FlexibleContent: React.FC<{
           </div>
         )}
       </div>
-    )
+    );
   }
   return (
-    <div className="h-full flex flex-col rounded-assets bg-white">
-      {(media || embeddedMediaUrl) && <FlexibleContentMediaPart data={data} alignment={alignment} aspectRatio="auto" /> }
+    <div
+      className={classNames(
+        "h-full flex flex-col rounded-assets bg-white",
+        { "bg-white": !darkMode },
+        { "bg-opacity-5": darkMode }
+      )}
+    >
+      {(media || embeddedMediaUrl) && (
+        <FlexibleContentMediaPart
+          data={data}
+          alignment={alignment}
+          aspectRatio="auto"
+        />
+      )}
       {(heading || eyebrow || description || buttons?.length > 0) && (
         <div
           className={classNames(
