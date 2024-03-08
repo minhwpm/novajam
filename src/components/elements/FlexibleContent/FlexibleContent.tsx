@@ -2,8 +2,8 @@ import classNames from "classnames";
 import { useContext } from "react";
 import { AlignmentType, ContentPieceType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
-import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
-import { FlexibleContentMediaPart } from "../FlexibleContentMediaPart/FlexibleContentMediaPart";
+import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
+import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 
 const TextPart: React.FC<{
@@ -65,12 +65,13 @@ export const FlexibleContent: React.FC<{
   layout?: "vertical" | "horizontal";
 }> = ({ data, alignment = "center", layout = "vertical" }) => {
   const darkMode = useContext(DarkModeContext);
-  console.log("DARK", darkMode);
   const { heading, eyebrow, description, media, embeddedMediaUrl, buttons } =
     data;
   if (layout === "horizontal") {
     return (
-      <div className="h-full flex gap-5 rounded-assets bg-white">
+      <div className={classNames("h-full flex gap-5 rounded-assets bg-white",
+        { "bg-opacity-5": darkMode }
+      )}>
         <div className="basis-1/3 flex-1">
           {(media || embeddedMediaUrl) && (
             <FlexibleContentMediaPart
@@ -98,7 +99,6 @@ export const FlexibleContent: React.FC<{
     <div
       className={classNames(
         "h-full flex flex-col rounded-assets bg-white",
-        { "bg-white": !darkMode },
         { "bg-opacity-5": darkMode }
       )}
     >
