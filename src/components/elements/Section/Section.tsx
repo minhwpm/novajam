@@ -25,11 +25,11 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
       className={classNames(
         {
           "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20":
-            eyebrow || heading || summary,
+            heading,
         },
         {
           "py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10":
-            !eyebrow && !heading && !summary,
+            !heading,
         },
         className
       )}

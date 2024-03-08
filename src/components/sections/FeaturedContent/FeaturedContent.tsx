@@ -4,9 +4,11 @@ import { ContentPieceType, FeaturedContentType, FeaturedContentLayoutType } from
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
+import { Container } from "@/components/elements/Container/Container";
 import "@/app/css/bg-color.css";
 import "@/app/css/padding.css";
 
+// @TODO implement Media Aspect Ratio for video
 const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayoutType, darkMode: boolean }> = ({ data, layout, darkMode }) => {
   const { eyebrow, heading, description, buttons  } = data;
   return (
@@ -115,7 +117,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
           </div>
           <div
             className={classNames(
-              "w-full pt-4 md:pt-8 lg:pt-16 pb-16 flex flex-col",
+              "self-center w-full pt-4 md:pt-8 lg:pt-16 pb-16 flex flex-col",
               {
                 "lg:w-1/2 px-4 md:px-10 lg:pr-16 xl:pr-24 pl-for-text-image":
                   layout === "Horizontal (Text | Image)",
@@ -135,47 +137,51 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
 
   return (
     //default uiVariant = "standard"
-    <Section
+    <section
       id={htmlid}
-      className={classNames(`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`)}
+      className={classNames(
+        "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20",
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`)}
     >
-      <div
-        className={classNames(
-          "w-full flex flex-wrap",
-          { "flex-col gap-y-6": layout === "Vertical (Image | Text)" },
-          { "flex-col-reverse gap-y-6": layout === "Vertical (Text | Image)" },
-          { "flex-row-reverse": layout === "Horizontal (Text | Image)" }
-        )}
-      >
-        <div
-          className={classNames("w-full max-w-5xl mx-auto", {
-            "w-full lg:w-6/12":
-              layout === "Horizontal (Text | Image)" ||
-              layout === "Horizontal (Image | Text)",
-          })}
-        >
-          <FlexibleContentMediaPart
-            data={content}
-            aspectRatio={mediaAspectRatio}
-          />
-        </div>
+      <Container>
         <div
           className={classNames(
-            "flex flex-col mx-auto",
-            {
-              "lg:w-1/2 md:pr-8 lg:pr-16":
-                layout === "Horizontal (Text | Image)",
-            },
-            {
-              "lg:w-1/2 md:pl-8 lg:pl-16":
-                layout === "Horizontal (Image | Text)",
-            }
+            "w-full flex flex-wrap",
+            { "flex-col gap-y-6": layout === "Vertical (Image | Text)" },
+            { "flex-col-reverse gap-y-6": layout === "Vertical (Text | Image)" },
+            { "flex-row-reverse": layout === "Horizontal (Text | Image)" }
           )}
         >
-          <TextPart data={content} layout={layout} darkMode={darkMode} />
+          <div
+            className={classNames("w-full max-w-5xl mx-auto", {
+              "w-full lg:w-6/12":
+                layout === "Horizontal (Text | Image)" ||
+                layout === "Horizontal (Image | Text)",
+            })}
+          >
+            <FlexibleContentMediaPart
+              data={content}
+              aspectRatio={mediaAspectRatio}
+            />
+          </div>
+          <div
+            className={classNames(
+              "self-center flex flex-col mx-auto",
+              {
+                "lg:w-1/2 md:pr-8 lg:pr-16":
+                  layout === "Horizontal (Text | Image)",
+              },
+              {
+                "lg:w-1/2 md:pl-8 lg:pl-16":
+                  layout === "Horizontal (Image | Text)",
+              }
+            )}
+          >
+            <TextPart data={content} layout={layout} darkMode={darkMode} />
+          </div>
         </div>
-      </div>
-    </Section>
+      </Container>
+    </section>
   );
 };
 

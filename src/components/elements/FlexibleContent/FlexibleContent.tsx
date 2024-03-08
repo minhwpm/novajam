@@ -27,7 +27,9 @@ const TextPart: React.FC<{
         </div>
       )}
       {buttons && buttons.length > 0 && (
-        <ButtonGroup data={buttons} alignment={alignment} />
+        <div className="mt-auto">
+          <ButtonGroup data={buttons} alignment={alignment} />
+        </div>
       )}
     </>
   )
@@ -45,14 +47,14 @@ export const FlexibleContent: React.FC<{
   const { heading, eyebrow, description, media, embeddedMediaUrl, buttons } = data;
   if (layout === "horizontal") {
     return (
-      <div className="flex gap-5 rounded-assets bg-white">
+      <div className="h-full flex gap-5 rounded-assets bg-white">
         <div className="basis-1/3 flex-1">
           {(media || embeddedMediaUrl) && <FlexibleContentMediaPart data={data} alignment={alignment} aspectRatio="auto" /> }
         </div>
         {(heading || eyebrow || description || buttons?.length > 0) && (
           <div
             className={classNames(
-              "basis-2/3 flex-1 px-4 pt-4 pb-6 lg:px-6 lg:pt-6 lg:pb-8 flex flex-col justify-between",
+              "basis-2/3 flex-1 px-4 pt-4 pb-6 lg:px-6 lg:pt-6 lg:pb-8 flex flex-col",
               { "text-center": alignment === "center" },
               { "text-end": alignment === "reverse" }
             )}
@@ -64,12 +66,12 @@ export const FlexibleContent: React.FC<{
     )
   }
   return (
-    <div className="flex flex-col rounded-assets bg-white">
+    <div className="h-full flex flex-col rounded-assets bg-white">
       {(media || embeddedMediaUrl) && <FlexibleContentMediaPart data={data} alignment={alignment} aspectRatio="auto" /> }
       {(heading || eyebrow || description || buttons?.length > 0) && (
         <div
           className={classNames(
-            "px-2 lg:px-4 pt-4 pb-8 flex-1 flex flex-col justify-between",
+            "px-2 lg:px-4 pt-4 pb-8 flex-1 flex flex-col",
             { "text-center": alignment === "center" },
             { "text-end": alignment === "reverse" }
           )}

@@ -51,7 +51,7 @@ export const Roboto_Font = Roboto({
 export const Raleway_Font = Raleway({
   subsets: ["latin"],
   display: "swap",
-  weight: ["100", "200", "300", "500", "600", "700", "800", "900"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-heading",
 })
 
