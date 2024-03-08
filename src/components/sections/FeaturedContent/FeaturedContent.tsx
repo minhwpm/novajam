@@ -164,7 +164,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
           </div>
           <div
             className={classNames(
-              "self-center flex flex-col mx-auto",
+              "py-6 self-center flex flex-col mx-auto",
               {
                 "lg:w-1/2 md:pr-8 lg:pr-16":
                   layout === "Horizontal (Text | Image)",
