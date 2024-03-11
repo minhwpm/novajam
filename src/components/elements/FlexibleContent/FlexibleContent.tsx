@@ -51,9 +51,7 @@ const TextPart: React.FC<{
         </div>
       )}
       {buttons && buttons.length > 0 && (
-        <div className="mt-auto">
-          <ButtonGroup data={buttons} alignment={alignment} />
-        </div>
+        <ButtonGroup data={buttons} alignment={alignment} />
       )}
     </>
   );
@@ -69,7 +67,7 @@ export const FlexibleContent: React.FC<{
     data;
   if (layout === "horizontal") {
     return (
-      <div className={classNames("h-full flex gap-5 rounded-assets bg-white",
+      <div className={classNames("flex gap-5 rounded-assets bg-white",
         { "bg-opacity-5": darkMode }
       )}>
         <div className="basis-1/3 flex-1">
@@ -98,7 +96,7 @@ export const FlexibleContent: React.FC<{
   return (
     <div
       className={classNames(
-        "h-full flex flex-col rounded-assets bg-white",
+        "flex flex-col rounded-assets bg-white",
         { "bg-opacity-5": darkMode }
       )}
     >
@@ -112,7 +110,7 @@ export const FlexibleContent: React.FC<{
       {(heading || eyebrow || description || buttons?.length > 0) && (
         <div
           className={classNames(
-            "px-2 lg:px-4 pt-4 pb-8 flex-1 flex flex-col",
+            "px-4 pt-4 pb-8 flex-1 flex flex-col",
             { "text-center": alignment === "center" },
             { "text-end": alignment === "reverse" }
           )}
