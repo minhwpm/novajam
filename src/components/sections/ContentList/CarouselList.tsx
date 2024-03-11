@@ -15,6 +15,7 @@ export const CarouselList: React.FC<{
   size: ContentSize;
   alignment: AlignmentType;
 }> = ({ list, size, alignment }) => {
+  // @TODO implement 2 arrows (which are next to each others and positioned at bottom right of carousel)
   return (
     <Swiper
       className={classNames("carousel-list w-screen")}
