@@ -119,7 +119,7 @@ module.exports = {
         },
         slidingHeroContent: {
           '0%': {
-            transform: "translateX(-5rem)",
+            transform: "translateX(-2.5rem)",
             opacity: 0
           },
           '100%': {
