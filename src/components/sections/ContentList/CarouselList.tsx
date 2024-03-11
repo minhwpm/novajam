@@ -31,16 +31,12 @@ export const CarouselList: React.FC<{
       {list.map((item, idx) => (
         <SwiperSlide
           key={item.id}
-          style={{
-            width: "80vw",
-            maxWidth: classNames(
-              { "500px": size === "XL" },
-              { "405px": size === "L" },
-              { "304px": size === "M" },
-              { "243px": size === "S" }
-            ),
-          }}
-          className="px-2 lg:px-3.5 2xl:p-4"
+          className={classNames("px-2 lg:px-3.5 2xl:p-4 !w-11/12",
+            {"lg:max-w-[50%]": size === "XL"},
+            {"md:max-w-[50%] lg:max-w-[33.33%]": size === "L"},
+            {"sm:max-w-[50%] md:max-w-[33.5%] lg:max-w-[25%]": size === "M"},
+            {"max-w-[50%] sm:max-w-[33.3%] md:max-w-[25%] lg:max-w-[20%]": size === "S"},
+          )}
         >
           <ContentMapping data={item} alignment={alignment} index={idx} />
         </SwiperSlide>
