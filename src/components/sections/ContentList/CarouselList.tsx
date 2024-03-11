@@ -33,7 +33,7 @@ export const CarouselList: React.FC<{
       }}
       modules={[Navigation, Autoplay]}
     >
-      <div className="mt-4 w-full flex justify-end gap-4 px-2 lg:px-3">
+      <div className="mt-4 w-full flex justify-center gap-4 px-2 lg:px-3">
         <div
           className={classNames(
             "carouselList-btn-prev cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 bg-neutral-200 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",

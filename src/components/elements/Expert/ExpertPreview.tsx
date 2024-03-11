@@ -26,7 +26,7 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
   const darkMode = useContext(DarkModeContext);
   if (layout === "horizontal") {
     return (
-      <div className={classNames("flex flex-wrap py-5 bg-white")}>
+      <div className={classNames("flex flex-wrap py-4 bg-white")}>
         <div className="w-1/3 md:w-1/4">
           <MediaItem data={portrait} aspectRatio="square" rounded="full" />
         </div>
@@ -47,7 +47,7 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
           )}
           <div>{organization}</div>
           {summary && (
-            <div className="my-5 prose 2xl:prose-lg max-w-none">{summary}</div>
+            <div className="my-4 prose 2xl:prose-lg max-w-none">{summary}</div>
           )}
           {sns && <SNS data={sns} />}
         </div>
@@ -63,7 +63,7 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
       <Link href={`/expert/${slug}`}>
         <MediaItem data={portrait} aspectRatio="square" />
       </Link>
-      <div className="w-full px-4 lg:px-6 pt-4 pb-8 flex flex-col items-center gap-1 rounded-b-assets">
+      <div className="w-full px-4 pt-4 pb-6 flex flex-col items-center gap-1 rounded-b-assets">
         <Link
           className={classNames(
             "font-heading font-semibold text-lg",
