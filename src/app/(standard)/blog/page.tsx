@@ -8,6 +8,7 @@ import getBlogs from "@/helpers/contentful/graphql/getBlogs";
 type Props = {
   searchParams: { topic: string | string[] | undefined };
 };
+// @TODO add loading 
 
 export default async function Page({ searchParams }: Props) {
   const { topic } = searchParams;

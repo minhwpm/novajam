@@ -12,6 +12,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./carousel-list-styles.css"
 import "@/app/css/custom-swiper.css"
+import "@/app/css/padding.css"
 
 export const CarouselList: React.FC<{
   list: Content[];
@@ -21,7 +22,7 @@ export const CarouselList: React.FC<{
   const darkMode = useContext(DarkModeContext);
   return (
     <Swiper
-      className={classNames("carousel-list w-screen")}
+      className={classNames("carousel-list w-screen !pt-18 relative")}
       slidesPerView={"auto"}
       autoplay={{
         delay: 5000,
@@ -33,7 +34,7 @@ export const CarouselList: React.FC<{
       }}
       modules={[Navigation, Autoplay]}
     >
-      <div className="mt-4 w-full flex justify-center gap-4 px-2 lg:px-3">
+      <div className="absolute top-0 right-0 z-10 w-full flex justify-end gap-4 pr-for-image-text">
         <div
           className={classNames(
             "carouselList-btn-prev cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 bg-neutral-200 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",

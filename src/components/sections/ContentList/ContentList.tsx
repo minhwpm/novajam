@@ -42,32 +42,28 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         backgroundImage={backgroundImage}
         darkMode={darkMode}
       >
-        <div className={classNames(
-          { "mt-8": layout === "carousel" && (heading || eyebrow || summary) } 
-        )}>
-          {seeAllLink && 
-            <div className="w-full flex justify-center -mt-8 mb-4">
-              <Button
-              size="lg"
-              variant="arrow"
-              url={seeAllLink.url}>
-                {seeAllLink.text}
-              </Button>
-            </div>
-          }
-          {layout === "carousel" && (
-            <CarouselList list={content} size={size} alignment={alignment} />
-          )}
-          {layout === "masonry" && (
-            <MasonryList list={content} size={size} alignment={alignment} />
-          )}
-          {layout === "deck" && (
-            <DeckList list={content} size={size} alignment={alignment} />
-          )}
-          {layout === "spotlight" && (
-            <SpotlightList list={content} size={size} alignment={alignment} />
-          )}
-        </div>
+        {seeAllLink && 
+          <div className="w-full flex justify-center -mt-8 mb-4">
+            <Button
+            size="lg"
+            variant="arrow"
+            url={seeAllLink.url}>
+              {seeAllLink.text}
+            </Button>
+          </div>
+        }
+        {layout === "carousel" && (
+          <CarouselList list={content} size={size} alignment={alignment} />
+        )}
+        {layout === "masonry" && (
+          <MasonryList list={content} size={size} alignment={alignment} />
+        )}
+        {layout === "deck" && (
+          <DeckList list={content} size={size} alignment={alignment} />
+        )}
+        {layout === "spotlight" && (
+          <SpotlightList list={content} size={size} alignment={alignment} />
+        )}
       </Section>
     </DarkModeContext.Provider>
   )

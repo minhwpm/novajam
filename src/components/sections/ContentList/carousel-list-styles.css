@@ -1,4 +1,5 @@
 
+/* @TODO refactor (combine with padding.css file) */
 .carousel-list.swiper {
   padding: 0 0.5rem;
   @media (min-width: 640px) {

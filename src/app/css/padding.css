@@ -1,3 +1,25 @@
+.pr-for-image-text {
+  padding-right: 1rem;
+}
+.pl-for-image-text {
+  padding-left: 1rem;
+}
+@media (min-width: 640px) {
+  .pr-for-image-text {
+    padding-right: calc((100vw + 2rem - 640px)/2);
+  }
+  .pl-for-text-image {
+    padding-left: calc((100vw + 2rem - 640px)/2);
+  }
+}
+@media (min-width: 768px) {
+  .pr-for-image-text {
+    padding-right: calc((100vw + 2rem - 768px)/2);
+  }
+  .pl-for-text-image {
+    padding-left: calc((100vw + 2rem - 768px)/2);
+  }
+}
 @media (min-width: 1024px) {
   .pr-for-image-text {
     padding-right: calc((100vw + 2rem - 1024px)/2);

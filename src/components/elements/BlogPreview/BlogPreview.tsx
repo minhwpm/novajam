@@ -14,56 +14,47 @@ export const BlogPreview: React.FC<{
   const pathname = usePathname();
   if (layout === "horizontal") {
     return (
-      <div className="rounded-assets bg-white flex gap-4">
-        <div className="basis-1/3 flex-1">
-          <Link href={`${pathname}/blog/${slug}`}>
-            <MediaItem data={media} aspectRatio={aspectRatio} />
-          </Link>
-        </div>
-        <div className="basis-2/3 flex-1 flex flex-col py-2 pr-4">
-          {topics && topics.length > 0 && (
-            <div className="text-xs text-primary-600 uppercase tracking-widest flex flex-wrap gap-x-5 gap-y-1 mb-2">
-              {topics.map((topic, idx) => (
-                <Link
-                  key={idx}
-                  className="underline-hover-effect"
-                  href={`${pathname}/blog?topic=${topic}`}
-                >
-                  {topic}
-                </Link>
-              ))}
+      <div className="rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease">
+        <Link href={`${pathname}/blog/${slug}`}>
+          <div className="flex gap-4">
+            <div className="basis-1/3 flex-1">
+              <MediaItem data={media} aspectRatio={aspectRatio} />
             </div>
-          )}
-          <h4 className="font-heading lg:text-lg font-semibold hover:text-primary-600 transition-colors duration-500">
-            <Link href={`${pathname}/blog/${slug}`}>{title}</Link>
-          </h4>
-        </div>
+            <div className="basis-2/3 flex-1 flex flex-col py-2 pr-4">
+              {topics && topics.length > 0 && (
+                <div className="text-xs text-primary-600 uppercase tracking-widest flex flex-wrap gap-x-5 gap-y-1 mb-2">
+                  {topics.map((topic, idx) => (
+                    <span key={idx}>{topic}</span>
+                  ))}
+                </div>
+              )}
+              <h4 className="font-heading lg:text-lg font-semibold hover:text-primary-600 transition-colors duration-500">
+                {title}
+              </h4>
+            </div>
+          </div>
+        </Link>
       </div>
+
     );
   }
   return (
-    <div className="rounded-assets bg-white">
+    <div className="rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease">
       <Link href={`${pathname}/blog/${slug}`}>
         <MediaItem data={media} aspectRatio={aspectRatio} />
+        <div className={classNames("w-full px-4 pb-8 pt-4 flex flex-col")}>
+          {topics && topics.length > 0 && (
+            <div className="text-xs text-primary-600 uppercase tracking-widest flex flex-wrap gap-x-5 gap-y-1 mb-2">
+              {topics.map((topic, idx) => (
+                <span key={idx}>{topic}</span>
+              ))}
+            </div>
+          )}
+          <h4 className="font-heading text-lg font-semibold hover:text-primary-600 transition-colors duration-500">
+            {title}
+          </h4>
+        </div>
       </Link>
-      <div className={classNames("w-full px-4 pb-8 pt-4 flex flex-col")}>
-        {topics && topics.length > 0 && (
-          <div className="text-xs text-primary-600 uppercase tracking-widest flex flex-wrap gap-x-5 gap-y-1 mb-2">
-            {topics.map((topic, idx) => (
-              <Link
-                key={idx}
-                className="underline-hover-effect"
-                href={`${pathname}/blog?topic=${topic}`}
-              >
-                {topic}
-              </Link>
-            ))}
-          </div>
-        )}
-        <h4 className="font-heading text-lg font-semibold hover:text-primary-600 transition-colors duration-500">
-          <Link href={`${pathname}/blog/${slug}`}>{title}</Link>
-        </h4>
-      </div>
     </div>
   );
 };
