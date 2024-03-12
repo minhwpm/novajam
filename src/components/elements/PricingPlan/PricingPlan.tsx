@@ -1,9 +1,13 @@
+import { useContext } from "react"
+import classNames from "classnames"
 import { Button } from "../Button/Button"
 import { PricingPlanType } from "@/helpers/types"
-import classNames from "classnames"
 import { RichText2 } from "../RichText/RichText2"
+import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
+
 
 export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
+  const darkMode = useContext(DarkModeContext);
   const { title, pricing, pricingSuffix, badge, description, ctaButton } = data
   return (
     <div
@@ -13,7 +17,8 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
         {
           "bg-gradient-to-tl from-primary-600 to-primary-700 mt-6 md:mt-0 shadow-xl text-neutral-50":
             badge,
-        }
+        },
+        { "bg-opacity-5": darkMode && !badge }
       )}
     >
       {badge && (
@@ -22,24 +27,30 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
         </div>
       )}
       <h4
-        className={classNames("text-2xl font-bold", {
-          "text-primary-600 mt-12": !badge,
-        })}
+        className={classNames(
+          "text-2xl font-bold",
+          {
+            "text-primary-600 mt-12": !badge,
+          },
+        )}
       >
         {title}
       </h4>
       <div className="flex flex-col items-center">
         <div
-          className={classNames("text-3xl font-bold", {
-            "text-neutral-700": !badge,
-          })}
+          className={classNames(
+            "text-3xl font-bold",
+            { "text-neutral-50": darkMode && !badge },
+            { "text-neutral-700": !darkMode && !badge }
+          )}
         >
           {pricing}
         </div>
         <div
           className={classNames(
             "text-sm tracking-wide",
-            { "text-neutral-500": !badge },
+            { "text-neutral-300": darkMode && !badge },
+            { "text-neutral-500": !darkMode && !badge },
             { "text-neutral-200": badge }
           )}
         >
@@ -56,7 +67,11 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
         </Button>
       </div>
       {description && (
-        <div className={classNames("leading-loose pt-6 pb-10 px-6 border-t")}>
+        <div
+          className={classNames("leading-loose pt-6 pb-10 px-6 border-t", {
+            "text-neutral-200": darkMode,
+          })}
+        >
           <RichText2 data={description} />
         </div>
       )}
