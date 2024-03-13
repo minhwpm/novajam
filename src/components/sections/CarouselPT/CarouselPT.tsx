@@ -66,12 +66,12 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             </SwiperSlide>
           ))}
           <div className="mt-4 lg:mt-0 w-full flex justify-center gap-4">
-            <div className={classNames("carouselPT-btn-prev cursor-pointer lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-14 h-14 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
+            <div className={classNames("carouselPT-btn-prev cursor-pointer lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
               {"text-neutral-50": darkMode}
             )}>
               <IoIosArrowBack size={35} />
             </div>
-            <div className={classNames("carouselPT-btn-next cursor-pointer lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-14 h-14 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
+            <div className={classNames("carouselPT-btn-next cursor-pointer lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
               {"text-neutral-50": darkMode}
             )}>
               <IoIosArrowForward size={35} />
