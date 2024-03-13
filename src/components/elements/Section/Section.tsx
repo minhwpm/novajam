@@ -70,7 +70,7 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
           <div
             className={classNames(
               "prose prose-lg 2xl:prose-xl text-center max-w-xl lg:max-w-3xl  mb-4",
-              { "text-neutral-50": darkMode }
+              { "text-neutral-100": darkMode }
             )}
           >
             <RichText2 data={summary} />

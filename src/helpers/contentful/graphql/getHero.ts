@@ -29,6 +29,7 @@ export default async function getHero(id: string) {
               height
               contentType
             }
+            darkMode
             contentCollection {
               items {
                 __typename

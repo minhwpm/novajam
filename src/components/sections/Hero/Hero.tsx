@@ -14,7 +14,7 @@ import "swiper/css/pagination";
 import "@/app/css/custom-swiper.css"
 
 export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
-  const { content, layout, alignment, backgroundImage } = data;
+  const { content, layout, alignment, backgroundImage, darkMode } = data;
 
   if (content.length === 0) {
     return null
@@ -37,6 +37,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
           data={content[0]}
           alignment={alignment}
           layout={layout}
+          darkMode={darkMode}
         />
       )}
 
@@ -62,6 +63,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
                 data={section}
                 alignment={alignment}
                 layout={layout}
+                darkMode={darkMode}
               />
             </SwiperSlide>
           ))}
@@ -75,7 +77,8 @@ export const HeroSection: React.FC<{
   data: ContentPieceType;
   alignment: AlignmentType;
   layout: HeroLayoutType;
-}> = ({ data, alignment, layout }) => {
+  darkMode: boolean;
+}> = ({ data, alignment, layout, darkMode }) => {
   return (
     <div
       key={data.id}
@@ -95,7 +98,9 @@ export const HeroSection: React.FC<{
         {data.eyebrow && (
           <div
             className={classNames(
-              "font-semibold text-primary-600 tracking-widest max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-500",
+              "font-semibold tracking-widest max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-500",
+              { "text-primary-600": !darkMode },
+              { "text-primary-500": darkMode }
             )}
           >
             {data.eyebrow}
@@ -105,6 +110,7 @@ export const HeroSection: React.FC<{
           <div
             className={classNames(
               "text-hero-heading leading-tight tracking-tight font-heading max-w-3xl animate-slidingHeroContent",
+              { "text-neutral-50": darkMode }
             )}
           >
             <RichText2 data={data.heading} />
@@ -113,7 +119,9 @@ export const HeroSection: React.FC<{
         {data.description && (
           <div
             className={classNames(
-              "prose xl:prose-lg 2xl:prose-xl text-neutral-700 mt-3 max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-200",
+              "prose xl:prose-lg 2xl:prose-xl  mt-3 max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-200",
+              { "text-neutral-700": !darkMode },
+              { "text-neutral-100": darkMode }
             )}
           >
             <RichText2 data={data.description} />

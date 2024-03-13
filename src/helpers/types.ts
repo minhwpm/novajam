@@ -184,6 +184,7 @@ export type HeroType = {
   layout: HeroLayoutType
   alignment: AlignmentType
   backgroundImage: MediaType | null
+  darkMode: boolean
   contentType: "hero"
 }
 
