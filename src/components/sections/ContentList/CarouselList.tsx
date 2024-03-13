@@ -1,7 +1,7 @@
 "use client"
 import classNames from "classnames";
 import { useContext, useState } from "react";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { AlignmentType, Content, ContentSize } from "@/helpers/types";
 import { ContentMapping } from "./ContentMapping";
