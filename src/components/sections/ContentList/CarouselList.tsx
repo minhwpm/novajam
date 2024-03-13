@@ -44,7 +44,7 @@ export const CarouselList: React.FC<{
         })
       }}
     >
-      <div className="absolute top-0 right-0 z-10 w-full flex justify-end gap-4 pr-for-image-text">
+      <div className="absolute top-0 right-0 z-10 w-full flex justify-end gap-4 custom-padding-right">
       <div
         className={classNames(
           "carouselList-btn-prev cursor-pointer flex justify-center items-center rounded-assets w-14 h-14 bg-neutral-200 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",

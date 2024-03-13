@@ -117,11 +117,11 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
             className={classNames(
               "self-center w-full pt-4 md:pt-8 lg:pt-16 pb-16 flex flex-col",
               {
-                "lg:w-1/2 px-4 md:px-10 lg:pr-16 xl:pr-24 pl-for-text-image":
+                "lg:w-1/2 px-4 md:px-10 lg:pr-16 xl:pr-24 custom-padding-left":
                   layout === "Horizontal (Text | Image)",
               },
               {
-                "lg:w-1/2 px-4 md:px-10 lg:pl-16 xl:pl-24 pr-for-image-text":
+                "lg:w-1/2 px-4 md:px-10 lg:pl-16 xl:pl-24 custom-padding-right":
                   layout === "Horizontal (Image | Text)",
               },
             )}
