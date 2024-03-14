@@ -34,41 +34,47 @@ export const CarouselList: React.FC<{
       navigation={{
         enabled: true,
         nextEl: ".carouselList-btn-next",
-        prevEl: ".carouselList-btn-prev"
+        prevEl: ".carouselList-btn-prev",
       }}
       modules={[Navigation, Autoplay]}
       onSlideChange={(swiper) => {
         setState({
           isBeginning: swiper.isBeginning,
-          isEnd: swiper.isEnd
-        })
+          isEnd: swiper.isEnd,
+        });
       }}
     >
       <div className="absolute top-0 right-0 z-10 w-full flex justify-end gap-4 custom-padding-right">
-      <div
-        className={classNames(
-          "carouselList-btn-prev cursor-pointer flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
-          { "opacity-30 pointer-events-none cursor-not-allowed": carouselState.isBeginning },
-          { "text-neutral-50": darkMode }
-        )}
-      >
-        <IoIosArrowBack size={35} />
-      </div>
-      <div
-        className={classNames(
-          "carouselList-btn-next cursor-pointer flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
-          { "opacity-30 pointer-events-none cursor-not-allowed": carouselState.isEnd },
-          { "text-neutral-50": darkMode }
-        )}
-      >
-        <IoIosArrowForward size={35} />
-      </div>
+        <div
+          className={classNames(
+            "carouselList-btn-prev cursor-pointer flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
+            {
+              "opacity-30 pointer-events-none cursor-not-allowed":
+                carouselState.isBeginning,
+            },
+            { "text-neutral-50": darkMode }
+          )}
+        >
+          <IoIosArrowBack size={35} />
+        </div>
+        <div
+          className={classNames(
+            "carouselList-btn-next cursor-pointer flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
+            {
+              "opacity-30 pointer-events-none cursor-not-allowed":
+                carouselState.isEnd,
+            },
+            { "text-neutral-50": darkMode }
+          )}
+        >
+          <IoIosArrowForward size={35} />
+        </div>
       </div>
       {list.map((item, idx) => (
         <SwiperSlide
           key={item.id}
           className={classNames(
-            "px-2 lg:px-3.5 2xl:p-4 !w-11/12",
+            "px-2 lg:px-3.5 2xl:px-4 !w-11/12",
             { "lg:max-w-[50%]": size === "XL" },
             { "md:max-w-[50%] lg:max-w-[33.33%]": size === "L" },
             { "sm:max-w-[50%] md:max-w-[33.5%] lg:max-w-[25%]": size === "M" },
