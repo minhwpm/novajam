@@ -124,7 +124,6 @@ const Video = ({
         muted={videoAutoplay}
         ref={videoRef}
         controls={videoStarted && videoControls}
-        preload="auto"
         playsInline={true}
       >
         <track kind="captions" label={title} />
