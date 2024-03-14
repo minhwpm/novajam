@@ -118,6 +118,7 @@ const Video = ({
         muted={videoAutoplay}
         ref={videoRef}
         controls={videoStarted && videoControls}
+        preload="metadata"
       >
         <track kind="captions" label={title} />
       </video>
