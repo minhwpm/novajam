@@ -41,7 +41,8 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 key={section.id}
                 value={section.id}
                 className={classNames(
-                  "group w-full rounded-assets bg-white border data-[state=closed]:hover:bg-primary-50 hover:border-primary-600 text-primary-600 transition-colors duration-300 ease-in-out"
+                  "group w-full rounded-assets bg-white border data-[state=closed]:hover:bg-primary-500 data-[state=closed]:hover:text-neutral-100 hover:border-primary-600 transition-colors duration-300 ease-in-out",
+                  { "bg-opacity-5 text-neutral-50": darkMode}
                 )}
               >
                 <RadixAccordion.Trigger asChild>
@@ -49,13 +50,17 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     <div className="flex-1 flex flex-col items-center">
                       <div
                         className={classNames(
-                          "text-sm font-semibold tracking-widest"
+                          "text-sm font-semibold tracking-widest",
+                          { "text-neutral-500": !darkMode },
+                          { "text-neutral-200": darkMode },
                         )}
                       >
                         {section.eyebrow}
                       </div>
                       {section.heading && (
-                        <div className={classNames("font-semibold text-xl")}>
+                        <div className={classNames("font-semibold text-xl",
+                          { "text-neutral-50": darkMode },
+                        )}>
                           <RichText2 data={section.heading} />
                         </div>
                       )}
@@ -74,14 +79,16 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   className={classNames(
                     "overflow-hidden px-4 lg:px-10",
                     "data-[state=closed]:animate-accordionSlideUp",
-                    "data-[state=open]:border-t data-[state=open]:animate-accordionSlideDown",
+                    "data-[state=open]:animate-accordionSlideDown",
                     { "text-center": alignment === "center" },
                     { "text-end": alignment === "reverse" }
                   )}
                 >
                   <div className="pt-4 pb-8">
                     {section.description && (
-                      <div className={classNames("prose 2xl:prose-lg max-w-none")}>
+                      <div className={classNames("prose 2xl:prose-lg max-w-none",
+                        { "text-neutral-100": darkMode },
+                      )}>
                         <RichText2 data={section.description} />
                       </div>
                     )}
