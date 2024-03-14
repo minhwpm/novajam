@@ -119,7 +119,7 @@ const Video = ({
         ref={videoRef}
         controls={videoStarted && videoControls}
         playsInline={true}
-        preload="auto"
+        // preload="auto"
       >
         <track kind="captions" label={title} />
       </video>
