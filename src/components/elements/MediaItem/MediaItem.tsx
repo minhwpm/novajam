@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useRef, useState } from "react";
 import { MediaAspectRatioType, MediaType } from "@/helpers/types";
 import classNames from "classnames";
@@ -12,8 +12,8 @@ export const MediaItem: React.FC<{
   videoAutoplay?: boolean;
   videoControls?: boolean;
   dimensionBase?: "width" | "height";
-  priority?: boolean
-  rounded?: "assets" | "full" | "none"
+  priority?: boolean;
+  rounded?: "assets" | "full" | "none";
 }> = ({
   data,
   altText,
@@ -32,13 +32,11 @@ export const MediaItem: React.FC<{
           `aspect-${aspectRatio}`,
           { "w-full": dimensionBase === "width" },
           { "h-full": dimensionBase === "height" },
-          `rounded-${rounded}`,
+          `rounded-${rounded}`
         )}
       >
         <Image
-          className={classNames(
-            "object-cover w-full h-full",
-          )}
+          className={classNames("object-cover w-full h-full")}
           src="/bluebiz_square.webp"
           width={500}
           height={500}
@@ -89,7 +87,13 @@ export const MediaItem: React.FC<{
         />
       )}
       {contentType.includes("video") && (
-        <Video url={url} title={title} videoAutoplay={videoAutoplay} videoControls={videoControls} />
+        <Video
+          url={url}
+          title={title}
+          videoAutoplay={videoAutoplay}
+          videoControls={videoControls}
+          type={contentType}
+        />
       )}
     </div>
   );
@@ -100,14 +104,16 @@ const Video = ({
   title,
   videoAutoplay,
   videoControls,
+  type,
 }: {
-  url: string
-  title: string
-  videoAutoplay: boolean
-  videoControls: boolean
+  url: string;
+  title: string;
+  videoAutoplay: boolean;
+  videoControls: boolean;
+  type: string;
 }) => {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [videoStarted, setVideoStarted] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoStarted, setVideoStarted] = useState(false);
   return (
     <>
       <video
@@ -119,16 +125,16 @@ const Video = ({
         ref={videoRef}
         controls={videoStarted && videoControls}
         playsInline={true}
-        // preload="auto"
       >
         <track kind="captions" label={title} />
+        {!videoAutoplay && <source src={`${url}#t=0.001`} type={type} />}
       </video>
       {!videoStarted && videoControls && (
         <div className="p-5 absolute bottom-0 right-0 w-full h-full bg-neutral-900 bg-opacity-30 flex justify-center items-center transition-opacity duration-300 ease-linear group-hover:opacity-100">
           <button
             onClick={() => {
-              videoRef.current?.play()
-              setVideoStarted(true)
+              videoRef.current?.play();
+              setVideoStarted(true);
             }}
           >
             <FaPlay className="text-neutral-50 w-16 h-16 transition-all duration-200 ease-linear hover:scale-110 hover:text-primary-600" />
