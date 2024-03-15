@@ -32,7 +32,7 @@ export const Section: React.FC<Props> = ({
   darkMode,
 }) => {
   const [ref, isIntersecting] = useInView({
-    threshold: 0.3,
+    threshold: [0, 0.5, 1],
     unobserveOnEnter: true,
   });
   return (
