@@ -154,6 +154,16 @@ module.exports = {
             opacity: 0,
           },
         },
+        slidingUpSection: {
+          '0%': {
+            opacity: 0,
+            bottom: '-40px'
+          },
+          '100%': {
+            opacity: 1,
+            bottom: 0
+          }
+        },
         expandingWidth: {
           '0%': {
             width: '70%'
@@ -301,11 +311,13 @@ module.exports = {
       },
 
       animation: {
+        // @TODO check/refactor animation
         pop: 'pop 0.3s ease-out forwards 1',
         fadeIn: 'fadeIn 0.5s ease-in forwards 1',
         slidingSubmenu: 'slidingSubmenu 0.3s ease-out forwards 1',
         slidingLinkgroup: 'slidingLinkgroup 0.3s ease-out forwards 1',
         slidingHeroContent: 'slidingHeroContent 1s ease forwards',
+        slidingUpSection: 'slidingUpSection 0.5s ease-in-out forwards',
         slidingText: 'slidingText 10s linear infinite normal none running',
         expandingWidth: 'expandingWidth 0.5s ease-in-out forwards 1',
         shrinkingWidth: 'shrinkingWidth 0.5s ease-in-out forwards 1',

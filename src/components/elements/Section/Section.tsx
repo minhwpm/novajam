@@ -1,35 +1,50 @@
 // Denotes a section of page content.
-import React from 'react';
-import classNames from "classnames"
-import { Container }from '../Container/Container';
-import { RichText2 } from "@/components/elements/RichText/RichText2"
-import { MediaType } from '@/helpers/types';
+"use client";
+import React from "react";
+import classNames from "classnames";
+import { Container } from "../Container/Container";
+import { RichText2 } from "@/components/elements/RichText/RichText2";
+import { MediaType } from "@/helpers/types";
 import { Document } from "@contentful/rich-text-types";
+import { useInView } from "react-hook-inview";
 
 interface Props {
-  id?: string | null
-  eyebrow?: string | null
-  heading?: Document | null
-  summary?: Document | null
-  className?: string
-  backgroundImage?: MediaType | null
-  children: React.ReactNode
-  framed?: boolean
-  darkMode?: boolean
+  id?: string | null;
+  eyebrow?: string | null;
+  heading?: Document | null;
+  summary?: Document | null;
+  className?: string;
+  backgroundImage?: MediaType | null;
+  children: React.ReactNode;
+  framed?: boolean;
+  darkMode?: boolean;
 }
 
-export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, children, className, backgroundImage, framed = true, darkMode } ) => {
+export const Section: React.FC<Props> = ({
+  id,
+  heading,
+  eyebrow,
+  summary,
+  children,
+  className,
+  backgroundImage,
+  framed = true,
+  darkMode,
+}) => {
+  const [ref, isIntersecting] = useInView({
+    threshold: 0.3,
+    unobserveOnEnter: true,
+  });
   return (
     <section
+      ref={ref}
       id={id ?? ""}
       className={classNames(
         {
-          "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20":
-            heading,
+          "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20": heading,
         },
         {
-          "py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10":
-            !heading,
+          "py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10": !heading,
         },
         className
       )}
@@ -44,7 +59,14 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
           : {}
       }
     >
-      <Container className="flex flex-col items-center">
+      <Container
+        className={classNames(
+          "relative flex flex-col items-center -bottom-10 opacity-0",
+          {
+            "animate-slidingUpSection": isIntersecting,
+          }
+        )}
+      >
         {eyebrow && (
           <div
             className={classNames(
@@ -79,15 +101,27 @@ export const Section: React.FC<Props> = ( { id, heading, eyebrow, summary, child
       </Container>
       {framed ? (
         <Container
-          className={classNames("rounded-assets", {
-            "mt-8": heading || eyebrow || summary,
-          })}
+          className={classNames(
+            "relative -bottom-10 opacity-0",
+            {
+              "mt-8": heading || eyebrow || summary,
+            },
+            {
+              "animate-slidingUpSection animation-delay-300": isIntersecting,
+            }
+          )}
         >
           {children}
         </Container>
       ) : (
-        <>{children}</>
+        <div
+          className={classNames("relative -bottom-10 opacity-0", {
+            "animate-slidingUpSection animation-delay-300": isIntersecting,
+          })}
+        >
+          {children}
+        </div>
       )}
     </section>
   );
-}
+};

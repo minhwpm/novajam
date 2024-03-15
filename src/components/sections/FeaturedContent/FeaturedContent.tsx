@@ -1,9 +1,11 @@
+"use client"
 import classNames from "classnames";
 import { ContentPieceType, FeaturedContentType, FeaturedContentLayoutType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { Container } from "@/components/elements/Container/Container";
+import { useInView } from "react-hook-inview";
 import "@/app/css/bg-color.css";
 import "@/app/css/padding.css";
 
@@ -75,6 +77,10 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
 
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data }) => {
   const { htmlid, layout, uiVariant, content, mediaAspectRatio, backgroundColor, backgroundImage, darkMode } = data;
+  const [ref, isIntersecting] = useInView({
+    threshold: 0.3,
+    unobserveOnEnter: true
+  });
   if (content === null) {
     return null
   }
@@ -82,6 +88,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
     return (
       <section
         id={htmlid}
+        ref={ref}
         className={classNames(
           `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
         )}
@@ -106,16 +113,22 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
         >
           <div
             className={classNames(
-              "w-full",
+              "relative w-full -bottom-10 opacity-0",
+              { "animate-slidingUpSection": isIntersecting },
               { "lg:w-6/12": layout === "Horizontal (Text | Image)" },
               { "lg:w-6/12": layout === "Horizontal (Image | Text)" }
             )}
           >
-            <FlexibleContentMediaPart data={content} rounded="none" aspectRatio={mediaAspectRatio} />
+            <FlexibleContentMediaPart
+              data={content}
+              rounded="none"
+              aspectRatio={mediaAspectRatio}
+            />
           </div>
           <div
             className={classNames(
-              "self-center w-full pt-4 md:pt-8 lg:pt-16 pb-16 flex flex-col",
+              "relative -bottom-10 opacity-0 self-center w-full pt-4 md:pt-8 lg:pt-16 pb-16 flex flex-col",
+              { "animate-slidingUpSection animation-delay-500": isIntersecting },
               {
                 "lg:w-1/2 px-4 md:px-10 lg:pr-16 xl:pr-24 custom-padding-left":
                   layout === "Horizontal (Text | Image)",
@@ -123,7 +136,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
               {
                 "lg:w-1/2 px-4 md:px-10 lg:pl-16 xl:pl-24 custom-padding-right":
                   layout === "Horizontal (Image | Text)",
-              },
+              }
             )}
           >
             {/* @TODO fix padding in mobile view  */}
@@ -138,6 +151,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
     //default uiVariant = "standard"
     <section
       id={htmlid}
+      ref={ref}
       className={classNames(
         "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20",
         `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`)}
