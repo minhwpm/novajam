@@ -114,7 +114,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
           <div
             className={classNames(
               "relative w-full -bottom-10 opacity-0",
-              { "animate-slidingUpSection": isIntersecting },
+              { "animate-slidingUpSection animation-delay-150": isIntersecting },
               { "lg:w-6/12": layout === "Horizontal (Text | Image)" },
               { "lg:w-6/12": layout === "Horizontal (Image | Text)" }
             )}

@@ -63,7 +63,7 @@ export const Section: React.FC<Props> = ({
         className={classNames(
           "relative flex flex-col items-center -bottom-10 opacity-0",
           {
-            "animate-slidingUpSection": isIntersecting,
+            "animate-slidingUpSection animation-delay-300": isIntersecting,
           }
         )}
       >
@@ -107,7 +107,7 @@ export const Section: React.FC<Props> = ({
               "mt-8": heading || eyebrow || summary,
             },
             {
-              "animate-slidingUpSection animation-delay-300": isIntersecting,
+              "animate-slidingUpSection animation-delay-500": isIntersecting,
             }
           )}
         >
@@ -116,7 +116,7 @@ export const Section: React.FC<Props> = ({
       ) : (
         <div
           className={classNames("relative -bottom-10 opacity-0", {
-            "animate-slidingUpSection animation-delay-300": isIntersecting,
+            "animate-slidingUpSection animation-delay-500": isIntersecting,
           })}
         >
           {children}
