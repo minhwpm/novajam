@@ -63,6 +63,7 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
       {buttons && buttons.length > 0 && (
         <ButtonGroup
           data={buttons}
+          size="lg"
           alignment={
             layout === "Vertical (Text | Image)" ||
             layout === "Vertical (Image | Text)"
