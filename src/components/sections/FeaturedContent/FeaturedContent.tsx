@@ -78,7 +78,7 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data }) => {
   const { htmlid, layout, uiVariant, content, mediaAspectRatio, backgroundColor, backgroundImage, darkMode } = data;
   const [ref, isIntersecting] = useInView({
-    threshold: [0, 0.5, 1],
+    threshold: [0.1, 0.5, 1],
     unobserveOnEnter: true
   });
   if (content === null) {
