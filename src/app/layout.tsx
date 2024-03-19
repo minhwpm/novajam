@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { CustomProvider } from "@/redux/CustomProvider";
 import { Metadata } from "next";
 import "@/app/css/globals.css";
@@ -26,6 +27,7 @@ export default async function Layout({
         <CustomProvider>
           {children}
           <Analytics />
+          <SpeedInsights />
         </CustomProvider>
       </body>
     </html>
