@@ -139,7 +139,6 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
               }
             )}
           >
-            {/* @TODO fix padding in mobile view  */}
             <TextPart data={content} layout={layout} darkMode={darkMode} />
           </div>
         </div>
@@ -148,7 +147,6 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
   }
 
   return (
-    //default uiVariant = "standard"
     <section
       id={htmlid}
       ref={ref}
@@ -190,7 +188,6 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
               }
             )}
           >
-            {/* @TODO fix padding in mobile view  */}
             <TextPart data={content} layout={layout} darkMode={darkMode} />
           </div>
         </div>
