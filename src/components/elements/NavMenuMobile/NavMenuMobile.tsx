@@ -64,6 +64,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
                   setMobileMenuShowed(false)
                   document.body.style.overflow = "auto";
                 }}
+                size="lg"
               >
                 {button.text}
               </Button>
