@@ -77,7 +77,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     },
     { "border-neutral-900 bg-neutral-900 text-white hover:bg-primary-500 hover:border-primary-500": variant === "black" },
     {
-      "border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white":
+      "border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white":
         variant === "outline",
     },
     {
