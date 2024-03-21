@@ -9,6 +9,7 @@ type Props = {
   searchParams: { topic: string | string[] | undefined };
 };
 // @TODO add loading 
+// @TODO metadata
 
 export default async function Page({ searchParams }: Props) {
   const { topic } = searchParams;

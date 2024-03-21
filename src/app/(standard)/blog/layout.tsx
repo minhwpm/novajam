@@ -8,12 +8,6 @@ import { generateColorClassnames } from '@/helpers/utils';
 import styles from "@/app/(dynamic)/[...slug]/styles.module.css";
 import classNames from 'classnames';
 
-// @TODO metadata
-export const metadata = {
-  title: 'BLUEBIZ',
-  description: 'Multipurpose Modular ReactJS - NextJS Theme',
-}
-
 export default async function RootLayout({
   children,
 }: {

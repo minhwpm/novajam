@@ -1,3 +1,4 @@
+// @TODO
 /* eslint-disable complexity */ 
 import classNames from "classnames";
 import { Navigation } from "@/components/sections/Navigation/Navigation";
@@ -9,7 +10,6 @@ import getNavigation from "@/helpers/contentful/graphql/getNavigation";
 import getFooter from "@/helpers/contentful/graphql/getFooter";
 import styles from "./styles.module.css";
 
-// @TODO metadata
 export default async function Layout({
   children,
   params,

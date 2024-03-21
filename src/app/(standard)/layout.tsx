@@ -8,12 +8,6 @@ import { generateFontClassnames } from '@/helpers/fonts';
 import { generateColorClassnames } from '@/helpers/utils';
 import styles from "@/app/(dynamic)/[...slug]/styles.module.css";
 
-// @TODO metadata
-export const metadata = {
-  title: 'BLUEBIZ',
-  description: 'Multipurpose Modular ReactJS - NextJS Theme',
-}
-
 export default async function RootLayout({
   children,
 }: {

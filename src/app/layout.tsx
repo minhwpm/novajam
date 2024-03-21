@@ -4,9 +4,10 @@ import { CustomProvider } from "@/redux/CustomProvider";
 import { Metadata } from "next";
 import "@/app/css/globals.css";
 
+//@TODO redundant?
 export const metadata: Metadata = {
-  title: "Bluebiz",
-  description: "Multipurpose NextJS Theme",
+  title: "NovaJAM",
+  description: "All-in-One JAMstack Web Solution",
   openGraph: {
     images: [
       {
