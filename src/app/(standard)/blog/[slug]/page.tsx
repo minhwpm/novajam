@@ -5,6 +5,9 @@ import { BlogType } from "@/helpers/types"
 import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails"
 import getBlogs from "@/helpers/contentful/graphql/getBlogs"
 
+// @TODO add loading 
+// @TODO metadata
+
 export default async function Page({ params }: {params: { slug: string } },) {
   try {
     const data = await getBlogDetails(params.slug)
