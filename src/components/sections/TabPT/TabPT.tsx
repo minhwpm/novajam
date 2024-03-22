@@ -37,7 +37,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
       darkMode={darkMode}
     >
       <RadixTabs.Root
-        className="w-full"
+        className="w-full mt-6"
         defaultValue={content.length > 0 ? content[0].id : ""}
         onValueChange={(value) => setActiveItem(value)}
       >
@@ -49,45 +49,51 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
           )}
         >
           <RadixTabs.List
-            className={classNames(
-              "group/list tab-list p-2 inline-flex gap-x-2 gap-y-2 overflow-x-auto overscroll-contain"
-            )}
+            className={classNames("group/list tab-list flex")}
             aria-label={heading ? documentToHtmlString(heading) : undefined}
           >
-            {content.length > 0 &&
-              content.map((section) => (
-                <RadixTabs.Trigger
-                  key={section.id}
-                  value={section.id}
-                  className={classNames(
-                    "group/trigger shrink-0 px-8 py-2.5 flex flex-col justify-center items-center cursor-pointer rounded-assets bg-neutral-200 bg-opacity-20 hover:bg-primary-100 data-[state='active']:bg-primary-600 transition-colors duration-500 ease "
-                  )}
-                >
-                  <div
+            <div
+              className={classNames(
+                "bg-neutral-200 lg:bg-opacity-0 flex gap-x-0 gap-y-2 lg:gap-x-2 overflow-x-auto overscroll-contain rounded-assets",
+                { "bg-opacity-50": !darkMode },
+                { "bg-opacity-20": darkMode }
+              )}
+            >
+              {content.length > 0 &&
+                content.map((section) => (
+                  <RadixTabs.Trigger
+                    key={section.id}
+                    value={section.id}
                     className={classNames(
-                      "text-sm tracking-widest font-semibold  group-hover/trigger:text-primary-500 group-data-[state='active']/trigger:text-primary-100 transition-colors duration-500 ease",
-                      { "text-neutral-500": !darkMode },
-                      { "text-neutral-100": darkMode}
+                      "group/trigger shrink-0 px-6 py-2 hover:bg-neutral-200 flex flex-col justify-center items-center cursor-pointer rounded-assets hover:bg-opacity-90 data-[state='active']:bg-primary-600 transition-colors duration-500 ease "
                     )}
                   >
-                    {section.eyebrow}
-                  </div>
-                  {section.heading && (
                     <div
                       className={classNames(
-                        "block font-semibold text-lg lg:text-xl group-hover/trigger:text-primary-700 group-data-[state='active']/trigger:text-white transition-colors duration-500 ease",
-                        { "text-neutral-700": !darkMode },
-                      { "text-neutral-50": darkMode}
+                        "text-sm tracking-widest font-semibold group-hover/trigger:text-neutral-800 group-data-[state='active']/trigger:text-primary-100 transition-colors duration-500 ease",
+                        { "text-neutral-500": !darkMode },
+                        { "text-neutral-100": darkMode }
                       )}
                     >
-                      <RichText2 data={section.heading} />
+                      {section.eyebrow}
                     </div>
-                  )}
-                </RadixTabs.Trigger>
-              ))}
+                    {section.heading && (
+                      <div
+                        className={classNames(
+                          "block font-semibold lg:text-lg group-hover/trigger:text-neutral-800 group-data-[state='active']/trigger:text-white transition-colors duration-500 ease",
+                          { "text-neutral-700": !darkMode },
+                          { "text-neutral-50": darkMode }
+                        )}
+                      >
+                        <RichText2 data={section.heading} />
+                      </div>
+                    )}
+                  </RadixTabs.Trigger>
+                ))}
+            </div>
           </RadixTabs.List>
         </div>
-        <div className="mt-6 container px-4 mx-auto ">
+        <div className="mt-2 container px-4 mx-auto ">
           {content.map((section) => (
             <RadixTabs.Content
               key={section.id}
