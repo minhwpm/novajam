@@ -43,6 +43,7 @@ export default async function getInquiryForm(id: string) {
                 uiWidth
               }
             }
+            dateFormat
             submitButton {
               text
               url

@@ -9,9 +9,16 @@ interface Props extends UseControllerProps {
   data: FormFieldType;
   register: UseFormRegister<FormValues>;
   showTimeSelect?: boolean
+  dateFormat: "DD/MM/YYYY" | "MM/DD/YYYY" | "YYYY/MM/DD"
 }
 
-export function DatePickerField({ data, control, showTimeSelect }: Props) {
+const dateFormatMatching = {
+  "DD/MM/YYYY": "dd/MM/yyyy",
+  "MM/DD/YYYY": "MM/dd/yyyy",
+  "YYYY/MM/DD": "yyyy/MM/dd",
+}
+
+export function DatePickerField({ data, control, showTimeSelect, dateFormat = "DD/MM/YYYY" }: Props) {
   const { label, required } = data
   const {
     field,
@@ -30,7 +37,7 @@ export function DatePickerField({ data, control, showTimeSelect }: Props) {
         field.onChange(date);
       }}
       showTimeSelect={showTimeSelect}
-      dateFormat={showTimeSelect ? "d MMMM, yyyy - h:mma" : "d MMMM, yyyy"}
+      dateFormat={showTimeSelect ? `${dateFormatMatching[dateFormat]} - h:mma` : dateFormatMatching[dateFormat]}
     />
   );
 }

@@ -289,6 +289,7 @@ export type InquiryFormType = {
   summary: string | null
   description: Document | null
   fields: Array<FormFieldType>
+  dateFormat: "DD/MM/YYYY" | "MM/DD/YYYY" | "YYYY/MM/DD"
   submitButton: {
     text: string
     url: string

@@ -20,7 +20,7 @@ export type FormValues = {
 }
 
 export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
-  const { title, heading, eyebrow, summary, description, formType, fields, submitButton, successMessage, errorMessage, backgroundImage, htmlid } = data;
+  const { title, heading, eyebrow, summary, description, formType, fields, dateFormat, submitButton, successMessage, errorMessage, backgroundImage, htmlid } = data;
   const { register, control, handleSubmit, reset, formState: { errors } } = useForm<FormValues>();
   const [submitState, setSubmitState] = useState<"undefined" | "in-progress" | "succeeded" | "complete" | "failed">("undefined")
   
@@ -160,6 +160,7 @@ async function onSubmitValid(formValues: FormValues) {
                           data={fieldItem}
                           control={control}
                           register={register}
+                          dateFormat={dateFormat}
                         />
                       )}
                       {fieldItem.fieldType === "datetime" && (
@@ -169,6 +170,7 @@ async function onSubmitValid(formValues: FormValues) {
                           control={control}
                           register={register}
                           showTimeSelect={true}
+                          dateFormat={dateFormat}
                         />
                       )}
                       {fieldItem.fieldType === "textarea" && (
