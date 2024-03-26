@@ -119,7 +119,7 @@ export default async function getPage(url: string) {
   for(let i = 0; i < normalizedData[0]?.content.length; i++) {
     normalizedData[0].content[i] = {
       ... normalizedData[0].content[i],
-      ... await getSectionData(normalizedData[0].content[i].contentType, normalizedData[0].content[i].id)
+      ... await getSectionData(normalizedData[0].content[i]?.contentType, normalizedData[0].content[i]?.id)
     }
   }
   // console.log(`PAGE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
