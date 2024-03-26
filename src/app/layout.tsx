@@ -1,5 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+// @TODO remove Redux
 import { CustomProvider } from "@/redux/CustomProvider";
 import { Metadata } from "next";
 import "@/app/css/globals.css";
