@@ -22,6 +22,7 @@ export default async function getInquiryForm(id: string) {
             sys {
               id
             }
+            title
             heading {
               json
             }
