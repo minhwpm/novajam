@@ -14,6 +14,7 @@ export const SelectField: React.FC<{
     control,
     rules: { required: data.required },
   });
+  // @TODO fix hydration error, warnings
   return (
     <ReactSelect
       className="rounded-assets w-full"

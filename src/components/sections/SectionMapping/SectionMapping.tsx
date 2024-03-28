@@ -70,7 +70,7 @@ export const SectionMapping: React.FC<{
 }> = ({ data }) => {
   return (
     <main className="flex flex-col pb-32">
-      {data.map((section) => (
+      {data?.map((section) => (
         <SectionComponentMapping key={section.id} data={section} />
       ))}
     </main>

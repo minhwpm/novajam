@@ -1,7 +1,6 @@
 "use client"
-import { useState } from "react";
 import classNames from "classnames";
-import  { useForm }  from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Button } from "@/components/elements/Button/Button";
 import { Container }from "@/components/elements/Container/Container";
 import { InquiryFormType } from "@/helpers/types";
@@ -19,19 +18,18 @@ export type FormValues = {
   [x: string]: string;
 }
 
-export const InquiryForm: React.FC<{data: InquiryFormType}> = ({ data }) => {
+type Props = {
+  data: InquiryFormType,
+}
+export const InquiryForm: React.FC<Props> = ({ data }) => {
   const { title, heading, eyebrow, summary, description, formType, fields, dateFormat, submitButton, successMessage, errorMessage, backgroundImage, htmlid } = data;
-  const { register, control, handleSubmit, reset, formState: { errors } } = useForm<FormValues>();
-  const [submitState, setSubmitState] = useState<"undefined" | "in-progress" | "succeeded" | "complete" | "failed">("undefined")
+  const { register, control, handleSubmit, reset, formState: { errors, isSubmitting, isSubmitted, isSubmitSuccessful } } = useForm<FormValues>();
   
-  console.log("FORM STATE", errors)
+  console.log("FORM ERRORS", errors)
 
 async function onSubmitValid(formValues: FormValues) {
-  console.log("FORM VALUES:", formValues)
-  
-  setSubmitState("in-progress")
   try {
-    const res = await fetch(`/api/inquiry-form-submission/`, {
+    await fetch(`/api/inquiry-form-submission/`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -44,15 +42,8 @@ async function onSubmitValid(formValues: FormValues) {
         },
       }),
     });
-    console.log(res);
-    if (res.ok) {
-      setSubmitState("succeeded")
-    } else {
-      setSubmitState("failed")
-    }
   } catch (err) {
     console.error(err)
-    setSubmitState("failed")
   }
 }
 
@@ -124,6 +115,8 @@ async function onSubmitValid(formValues: FormValues) {
                   { "gap-x-0": fields.length === 1 }
                 )}
                 onSubmit={handleSubmit(onSubmitValid)}
+                // onSubmit={handleSubmit(() => console.log("Submitting"))}
+                // onSubmit={handleSubmit(createIFSubmission)}
               >
                 {fields.length > 0 &&
                   fields.map((fieldItem) => (
@@ -198,7 +191,7 @@ async function onSubmitValid(formValues: FormValues) {
           </div>
         </Container>
       </section>
-      {submitState === "in-progress" && (
+      {isSubmitting && (
         <Toast.Provider swipeDirection="right" duration={100000}>
           <Toast.Root className="data-[state=open]:animate-fadeIn">
             <AiOutlineLoading3Quarters className="animate-spin text-primary-500" size={50} />
@@ -206,14 +199,13 @@ async function onSubmitValid(formValues: FormValues) {
           <Toast.Viewport className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col p-6 m-0 w-24 max-w-full z-50" />
         </Toast.Provider>
       )}
-      {submitState === "succeeded" && (
+      {isSubmitted && isSubmitSuccessful && (
         <Toast.Provider swipeDirection="right" duration={10000}>
           <Toast.Root
             className="relative bg-primary-50 rounded-assets border border-primary-300 shadow-lg p-8 data-[state=open]:animate-fadeIn"
             onOpenChange={(open: boolean) => {
               if (!open) {
                 reset();
-                setSubmitState("undefined");
               }
             }}
           >
@@ -231,7 +223,7 @@ async function onSubmitValid(formValues: FormValues) {
           <Toast.Viewport className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col m-0 p-4 md:p-6 w-96 max-w-full z-[999999999]" />
         </Toast.Provider>
       )}
-      {submitState === "failed" && (
+      {isSubmitted && !isSubmitSuccessful && (
         <Toast.Provider swipeDirection="right" duration={10000}>
           <Toast.Root className="relative bg-primary-50 rounded-assets border border-primary-300 shadow-lg p-8 data-[state=open]:animate-fadeIn">
             <Toast.Close className="absolute top-2 right-2">

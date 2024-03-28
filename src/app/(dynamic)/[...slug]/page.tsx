@@ -83,5 +83,5 @@ export default async function Page({ params }: { params: { slug: Array<string> }
   }
 
   const data = await getPage(`/${params.slug!.join("/")}`);
-  return <SectionMapping data={data.content} />;
+  return <SectionMapping data={data?.content} />;
 }

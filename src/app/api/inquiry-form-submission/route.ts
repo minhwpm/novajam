@@ -20,8 +20,7 @@ export async function POST(req: NextRequest) {
         fields: { ...reqBody }
       });
     })
-    .then((response) => {
-      console.log("RES", response)
+    .then(() => {
       return new Response(null, {
         status: 200,
       })
