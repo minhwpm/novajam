@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker"
 import { FormFieldType } from "@/helpers/types";
 import { UseFormRegister } from "react-hook-form/dist/types/form";
 import { FormValues } from "@/components/sections/InquiryForm/InquiryForm";
+import { CiCalendar } from "react-icons/ci";
 import "react-datepicker/dist/react-datepicker.css";
 
 interface Props extends UseControllerProps {
@@ -28,6 +29,7 @@ export function DatePickerField({ data, control, showTimeSelect, dateFormat = "D
     rules: {required: required}
   })
 
+  // @TODO format Datetime value sent to CMS
   return (
     <DatePicker
       className="w-full border border-neutral-300 rounded-assets px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-500"
@@ -36,8 +38,10 @@ export function DatePickerField({ data, control, showTimeSelect, dateFormat = "D
       onChange={(date) => {
         field.onChange(date);
       }}
-      showTimeSelect={showTimeSelect}
+      showTwoColumnMonthYearPicker
+      showTimeInput={showTimeSelect}
       dateFormat={showTimeSelect ? `${dateFormatMatching[dateFormat]} - h:mma` : dateFormatMatching[dateFormat]}
+      isClearable
     />
   );
 }

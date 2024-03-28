@@ -1,6 +1,4 @@
 "use server";
-
-// IFSubmission stands for InquiryFormSubmission
 import { createClient } from "contentful-management";
 
 type FormValues = {
@@ -12,10 +10,9 @@ export async function createIFSubmission(formValues: FormValues) {
   const data = {}
   for (const key in formValues) {
     data[key] = {
-      "en-US": formValues[key], //@TODO get locale from CMS
+      "en-US": formValues[key]
     };
   }
-  // @TODO format Datetime value sent to CMS
   const client = createClient({
     accessToken: process.env.CONTENTFUL_MANAGEMENT_PERSONAL_ACCESS_TOKEN ?? "",
   });

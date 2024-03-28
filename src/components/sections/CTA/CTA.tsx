@@ -12,9 +12,6 @@ export const CTA: React.FC<{data: CTAType} > = ({ data }) => {
 
   const [ref, isVisible] = useInView({
     threshold: 0.5,
-    onEnter: (entry, observer) => {
-      console.log(entry, observer);
-    },
   });
   return (
     <section className="py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20">
