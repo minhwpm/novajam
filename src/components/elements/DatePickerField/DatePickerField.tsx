@@ -40,11 +40,11 @@ export function DatePickerField({ data, control, showTimeSelect, dateFormat = "D
         console.log(date, field.value)
         field.onChange(date);
       }}
+      onFocus={e => e.target.blur()} //to prevent edit by typing
       showTwoColumnMonthYearPicker
       showTimeInput={showTimeSelect}
       dateFormat={showTimeSelect ? `${dateFormatMatching[dateFormat]} - h:mma` : dateFormatMatching[dateFormat]}
       isClearable
-      onFocus={e => e.target.blur()}
     />
   );
 }
