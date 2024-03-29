@@ -20,7 +20,7 @@ export const SelectField: React.FC<{
     setIsClient(true)
   }, [])
   
-  return isClient && (
+  return isClient ? (
     <ReactSelect
       className="rounded-assets w-full"
       options={data.options.map(option => {
@@ -49,6 +49,6 @@ export const SelectField: React.FC<{
         field.onChange(value)
       }}
     />
-  )
+  ) : null
 
 }
