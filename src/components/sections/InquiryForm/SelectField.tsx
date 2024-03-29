@@ -1,15 +1,14 @@
 import ReactSelect from "react-select";
 import { useController } from "react-hook-form";
 import { FormFieldType } from "@/helpers/types";
-import { Control, UseFormRegister } from "react-hook-form/dist/types/form";
+import { Control } from "react-hook-form/dist/types/form";
 import { FormValues } from "./InquiryForm";
 import { useEffect, useState } from "react";
 
 export const SelectField: React.FC<{
   data: FormFieldType;
-  control: Control<FormValues, any>;
-  register: UseFormRegister<FormValues>;
-}> = ({ data, control, register }) => {
+  control: Control<FormValues>;
+}> = ({ data, control }) => {
   const { field } = useController({
     name: data.label,
     control,
@@ -23,6 +22,7 @@ export const SelectField: React.FC<{
   return isClient ? (
     <ReactSelect
       className="rounded-assets w-full"
+      name={data.label}
       options={data.options.map(option => {
         return {
           label: option,
@@ -42,9 +42,6 @@ export const SelectField: React.FC<{
           {data.label + (data.required ? "*" : "")}
         </div>
       )}
-      {...register(data.label, {
-        required: data.required,
-      })}
       onChange={(value) => {
         field.onChange(value)
       }}

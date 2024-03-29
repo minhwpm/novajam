@@ -15,7 +15,7 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { RiErrorWarningLine } from "react-icons/ri";
 
 export type FormValues = {
-  [x: string]: string;
+  [x: string]: string | Date | undefined | null;
 }
 
 type Props = {
@@ -145,27 +145,23 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                         <SelectField
                           data={fieldItem}
                           control={control}
-                          register={register}
                         />
                       )}
                       {fieldItem.fieldType === "date" && (
                         <DatePickerField
-                          name={fieldItem.label}
                           data={fieldItem}
                           control={control}
-                          register={register}
-                          dateFormat={dateFormat}
-                        />
+                          dateFormat={dateFormat}                         />
                       )}
                       {fieldItem.fieldType === "datetime" && (
-                        <DatePickerField
-                          name={fieldItem.label}
-                          data={fieldItem}
-                          control={control}
-                          register={register}
-                          showTimeSelect={true}
-                          dateFormat={dateFormat}
-                        />
+                        <>
+                          <DatePickerField
+                            data={fieldItem}
+                            control={control}
+                            showTimeSelect={true}
+                            dateFormat={dateFormat}
+                          />
+                        </>
                       )}
                       {fieldItem.fieldType === "textarea" && (
                         <TextAreaField data={fieldItem} register={register} />
