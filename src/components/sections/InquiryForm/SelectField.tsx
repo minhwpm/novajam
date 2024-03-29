@@ -3,6 +3,7 @@ import { useController } from "react-hook-form";
 import { FormFieldType } from "@/helpers/types";
 import { Control, UseFormRegister } from "react-hook-form/dist/types/form";
 import { FormValues } from "./InquiryForm";
+import { useEffect, useState } from "react";
 
 export const SelectField: React.FC<{
   data: FormFieldType;
@@ -14,8 +15,12 @@ export const SelectField: React.FC<{
     control,
     rules: { required: data.required },
   });
-  // @TODO fix hydration error, warnings
-  return (
+  const [isClient, setIsClient] = useState(false)
+  useEffect(() => { // fix hydration warnings and errors
+    setIsClient(true)
+  }, [])
+  
+  return isClient && (
     <ReactSelect
       className="rounded-assets w-full"
       options={data.options.map(option => {
@@ -45,4 +50,5 @@ export const SelectField: React.FC<{
       }}
     />
   )
+
 }
