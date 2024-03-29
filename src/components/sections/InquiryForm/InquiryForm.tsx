@@ -23,29 +23,30 @@ type Props = {
 }
 export const InquiryForm: React.FC<Props> = ({ data }) => {
   const { title, heading, eyebrow, summary, description, formType, fields, dateFormat, submitButton, successMessage, errorMessage, backgroundImage, htmlid } = data;
-  const { register, control, handleSubmit, reset, formState: { errors, isSubmitting, isSubmitted, isSubmitSuccessful } } = useForm<FormValues>();
+  const { register, control, handleSubmit, reset, getValues, formState: { errors, isSubmitting, isSubmitted, isSubmitSuccessful } } = useForm<FormValues>();
   
   console.log("FORM ERRORS", errors)
+  console.log("FORM VALUES", getValues())
 
-async function onSubmitValid(formValues: FormValues) {
-  try {
-    await fetch(`/api/inquiry-form-submission/`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify({
-        title: title,
-        formType: formType,
-        submittedContent: {
-          ...formValues,
+  async function onSubmitValid(formValues: FormValues) {
+    try {
+      await fetch(`/api/inquiry-form-submission/`, {
+        headers: {
+          "Content-Type": "application/json",
         },
-      }),
-    });
-  } catch (err) {
-    console.error(err)
+        method: "POST",
+        body: JSON.stringify({
+          title: title,
+          formType: formType,
+          submittedContent: {
+            ...formValues,
+          },
+        }),
+      });
+    } catch (err) {
+      console.error(err)
+    }
   }
-}
 
   return (
     <>

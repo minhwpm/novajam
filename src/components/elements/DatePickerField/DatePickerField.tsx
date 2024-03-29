@@ -5,6 +5,7 @@ import { UseFormRegister } from "react-hook-form/dist/types/form";
 import { FormValues } from "@/components/sections/InquiryForm/InquiryForm";
 import { CiCalendar } from "react-icons/ci";
 import "react-datepicker/dist/react-datepicker.css";
+import { Button } from "../Button/Button";
 
 interface Props extends UseControllerProps {
   data: FormFieldType;
@@ -36,12 +37,14 @@ export function DatePickerField({ data, control, showTimeSelect, dateFormat = "D
       placeholderText={label + (required ? "*" : "")}
       selected={field.value}
       onChange={(date) => {
+        console.log(date, field.value)
         field.onChange(date);
       }}
       showTwoColumnMonthYearPicker
       showTimeInput={showTimeSelect}
       dateFormat={showTimeSelect ? `${dateFormatMatching[dateFormat]} - h:mma` : dateFormatMatching[dateFormat]}
       isClearable
+      onFocus={e => e.target.blur()}
     />
   );
 }
