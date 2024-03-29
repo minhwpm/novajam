@@ -22,7 +22,6 @@ export function DatePickerField({ data, control, showTimeSelect, dateFormat = "D
     control,
     rules: { required: data.required },
   });
-  // @TODO format Datetime value sent to CMS
   return (
     <DatePicker
       className="w-full border border-neutral-300 rounded-assets px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-500"

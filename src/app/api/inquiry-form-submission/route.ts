@@ -30,9 +30,3 @@ export async function POST(req: NextRequest) {
       return error
     });
 }
-
-// export async function GET(req: NextRequest) {
-//   return new Response('Hello, Next.js!', {
-//     status: 200,
-//   })
-// }

@@ -23,12 +23,20 @@ type Props = {
 }
 export const InquiryForm: React.FC<Props> = ({ data }) => {
   const { title, heading, eyebrow, summary, description, formType, fields, dateFormat, submitButton, successMessage, errorMessage, backgroundImage, htmlid } = data;
-  const { register, control, handleSubmit, reset, getValues, formState: { errors, isSubmitting, isSubmitted, isSubmitSuccessful } } = useForm<FormValues>();
+  const { register, control, handleSubmit, reset, formState: { errors, isSubmitting, isSubmitted, isSubmitSuccessful } } = useForm<FormValues>();
   
-  console.log("FORM ERRORS", errors)
-  console.log("FORM VALUES", getValues())
-
   async function onSubmitValid(formValues: FormValues) {
+    for (const key in formValues) {
+      if (formValues[key] instanceof Date) {
+        formValues[key] =  formValues[key].toLocaleString(undefined, {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+        })
+      }
+    }
     try {
       await fetch(`/api/inquiry-form-submission/`, {
         headers: {
