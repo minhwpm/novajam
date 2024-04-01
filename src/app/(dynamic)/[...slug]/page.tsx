@@ -22,6 +22,8 @@ export async function generateMetadata(
       description: data.metaDescription,
       keywords: data.metaKeywords,
       openGraph: {
+        title: data.metaTitle ?? "",
+        description: data.metaDescription ?? "",
         images: [data.metaImage ?? "", ...previousImages],
       },
     };

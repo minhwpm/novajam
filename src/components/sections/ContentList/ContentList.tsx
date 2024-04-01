@@ -42,6 +42,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         backgroundImage={backgroundImage}
         darkMode={darkMode}
       >
+        {/* @TODO rename seeAllLink -> additionalLink */}
         {seeAllLink && 
           <div className="w-full flex justify-center -mt-8 mb-4">
             <Button

@@ -125,7 +125,7 @@ export type BlogType = {
   title: string
   slug: string
   featured: boolean
-  summary: string
+  summary: string | null
   content: Document
   topics: Array<string>
   media: MediaType | null

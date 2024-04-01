@@ -1,3 +1,4 @@
+import { Metadata, ResolvingMetadata } from "next";
 import { Container } from "@/components/elements/Container/Container";
 import { Pagination } from "@/components/elements/Pagination/Pagination";
 import { FeaturedBlogs } from "@/components/sections/FeaturedBlogs/FeaturedBlogs";
@@ -5,24 +6,22 @@ import { LatestBlogs } from "@/components/sections/LatestBlogs/LatestBlogs";
 import { BlogType, BLOG_PAGE_SIZE } from "@/helpers/types";
 import getBlogs from "@/helpers/contentful/graphql/getBlogs";
 
-// @TODO add loading 
-export async function generateMetadata(): Promise<Metadata> {
-  try {
-    const data: PageType = await getPage("/")
+export async function generateMetadata(
+    parent: ResolvingMetadata
+  ): Promise<Metadata> {
+    const previousMetadata = (await parent)
+    console.log("Previous metadata", previousMetadata);
     return {
-      title: data.metaTitle,
-      description: data.metaDescription,
-      keywords: data.metaKeywords,
+      title: `Blog ${previousMetadata.title ? `| ${previousMetadata.title}` : ""}`,
+      description: previousMetadata.description ?? "",
+      keywords: previousMetadata.keywords ?? "",
       openGraph: {
-        images: [data.metaImage ?? "" ]
-      }
-    }
-  } catch (e) {
-    console.error(e)
-    return {}
+        title: `Blog ${previousMetadata.title ? `| ${previousMetadata.title}` : ""}`,
+        description: previousMetadata.description ?? "",
+        images: [...(previousMetadata.openGraph?.images || [])],
+      },
+    };
   }
-}
-
 type PageProps = {
   searchParams: { topic: string | string[] | undefined };
 };
