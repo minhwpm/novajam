@@ -6,25 +6,32 @@ import { LatestBlogs } from "@/components/sections/LatestBlogs/LatestBlogs";
 import { BlogType, BLOG_PAGE_SIZE } from "@/helpers/types";
 import getBlogs from "@/helpers/contentful/graphql/getBlogs";
 
+type PageProps = {
+  searchParams: { topic: string | string[] | undefined };
+};
+
 export async function generateMetadata(
+    _pageProps: PageProps,
     parent: ResolvingMetadata
   ): Promise<Metadata> {
     const previousMetadata = (await parent)
     console.log("Previous metadata", previousMetadata);
     return {
-      title: `Blog ${previousMetadata.title ? `| ${previousMetadata.title}` : ""}`,
+      title: `Blog ${
+        previousMetadata.title ? `| ${previousMetadata.title}` : ""
+      }`,
       description: previousMetadata.description ?? "",
       keywords: previousMetadata.keywords ?? "",
       openGraph: {
-        title: `Blog ${previousMetadata.title ? `| ${previousMetadata.title}` : ""}`,
+        title: `Blog ${
+          previousMetadata.title ? `| ${previousMetadata.title}` : ""
+        }`,
         description: previousMetadata.description ?? "",
         images: [...(previousMetadata.openGraph?.images || [])],
       },
     };
   }
-type PageProps = {
-  searchParams: { topic: string | string[] | undefined };
-};
+
 
 export default async function Page({ searchParams }: PageProps) {
   const { topic } = searchParams;
