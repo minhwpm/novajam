@@ -1,7 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-// @TODO remove Redux
-import { CustomProvider } from "@/redux/CustomProvider";
 import { Metadata } from "next";
 import "@/app/css/globals.css";
 
@@ -26,11 +24,9 @@ export default async function Layout({
   return (
     <html lang="en" className="scroll-smooth">
       <body>
-        <CustomProvider>
-          {children}
-          <Analytics />
-          <SpeedInsights />
-        </CustomProvider>
+        {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
