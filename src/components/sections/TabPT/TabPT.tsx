@@ -93,6 +93,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
             </div>
           </RadixTabs.List>
         </div>
+        {/* @TODO fix animation doesn't work properly */}
         <div className="mt-2 container px-4 mx-auto ">
           {content.map((section) => (
             <RadixTabs.Content
