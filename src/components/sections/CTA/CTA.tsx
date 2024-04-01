@@ -6,7 +6,6 @@ import { RichText2 } from "@/components/elements/RichText/RichText2";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { Container } from "@/components/elements/Container/Container";
 
-// @TODO - implement background image, background color
 export const CTA: React.FC<{data: CTAType} > = ({ data }) => {
   const { heading, content, buttons } = data;
 
