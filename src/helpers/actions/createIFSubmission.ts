@@ -2,15 +2,14 @@
 import { createClient } from "contentful-management";
 
 type FormValues = {
-  [x: string]: string;
+  [x: string]: string | FormValues;
 };
 
-export async function createIFSubmission(formValues: FormValues) {
-  console.log("FORM VALUES:", formValues);
-  const data = {}
-  for (const key in formValues) {
+export async function createIFSubmission(data: FormValues) {
+  console.log("FORM VALUES:", data);
+  for (const key in data) {
     data[key] = {
-      "en-US": formValues[key]
+      "en-US": data[key]
     };
   }
   const client = createClient({

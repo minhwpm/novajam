@@ -28,7 +28,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
   async function onSubmitValid(formValues: FormValues) {
     for (const key in formValues) {
       if (formValues[key] instanceof Date) {
-        formValues[key] =  formValues[key].toLocaleString(undefined, {
+        formValues[key] =  formValues[key]?.toLocaleString(undefined, {
           year: "numeric",
           month: "long",
           day: "numeric",
