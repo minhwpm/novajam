@@ -15,6 +15,7 @@ export const BlogPreview: React.FC<{
   if (layout === "horizontal") {
     return (
       <div className="rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease">
+        {/* @TODO remove if there is more than 1 "blog" */}
         <Link href={`${pathname}/blog/${slug}`}>
           <div className="flex gap-4">
             <div className="basis-1/3 flex-1">

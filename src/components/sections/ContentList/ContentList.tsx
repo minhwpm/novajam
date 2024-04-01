@@ -7,7 +7,6 @@ import { Button } from "@/components/elements/Button/Button";
 import { CarouselList } from "./CarouselList";
 import { MasonryList } from "./MasonryList";
 import { DeckList } from "./DeckList";
-import { SpotlightList } from "./SpotlightList";
 import "@/app/css/bg-color.css";
 
 // @TODO refactor this and other files related to darkMode
@@ -60,9 +59,6 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         )}
         {layout === "deck" && (
           <DeckList list={content} size={size} alignment={alignment} />
-        )}
-        {layout === "spotlight" && (
-          <SpotlightList list={content} size={size} alignment={alignment} />
         )}
       </Section>
     </DarkModeContext.Provider>
