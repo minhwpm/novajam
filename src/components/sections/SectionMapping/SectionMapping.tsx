@@ -9,7 +9,6 @@ import { TabPT } from "@/components/sections/TabPT/TabPT";
 import { CarouselPT } from "@/components/sections/CarouselPT/CarouselPT";
 import { MiniCarouselPT } from "@/components/sections/MiniCarouselPT/MiniCarouselPT";
 import { InquiryForm } from "@/components/sections/InquiryForm/InquiryForm";
-import { VerticalTabPT } from "@/components/sections/VerticalTabPT/VerticalTabPT";
 import {
   CTAType,
   ContentListType,
@@ -29,8 +28,6 @@ function PresentationMapping({ data }: { data: ContentPTType }) {
       return <AccordionPT data={data} />;
     case "tab":
       return <TabPT data={data} />;
-    case "vertical-tab":
-      return <VerticalTabPT data={data} />;
     case "carousel":
       return <CarouselPT data={data} />;
     case "mini-carousel":
