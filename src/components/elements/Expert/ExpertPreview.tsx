@@ -1,4 +1,3 @@
-/* eslint-disable complexity */
 import { ExpertType } from "@/helpers/types";
 import Link from "next/link";
 import { SNS } from "@/components/elements/SNS/SNS";

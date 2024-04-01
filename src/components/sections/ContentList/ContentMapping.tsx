@@ -1,4 +1,3 @@
-/* eslint-disable complexity */
 import Link from "next/link";
 import Image from "next/image";
 import { BlogPreview } from "@/components/elements/BlogPreview/BlogPreview";
