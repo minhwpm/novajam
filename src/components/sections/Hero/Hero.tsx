@@ -100,7 +100,7 @@ export const HeroSection: React.FC<{
             className={classNames(
               "font-semibold tracking-widest max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-500",
               { "text-primary-600": !darkMode },
-              { "text-primary-500": darkMode }
+              { "text-neutral-100": darkMode }
             )}
           >
             {data.eyebrow}
