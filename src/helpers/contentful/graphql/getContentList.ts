@@ -27,7 +27,7 @@ export default async function getContentList(id: string) {
             summary {
               json
             }
-            seeAllLink {
+            exploreMore {
               url
               text
               openNewTab

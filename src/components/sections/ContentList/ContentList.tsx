@@ -18,7 +18,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     heading,
     eyebrow,
     summary,
-    seeAllLink,
+    exploreMore,
     content,
     layout,
     size,
@@ -42,14 +42,13 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         backgroundImage={backgroundImage}
         darkMode={darkMode}
       >
-        {/* @TODO rename seeAllLink -> additionalLink */}
-        {seeAllLink && 
+        {exploreMore && 
           <div className="w-full flex justify-center -mt-8 mb-4">
             <Button
             size="lg"
             variant="arrow"
-            url={seeAllLink.url}>
-              {seeAllLink.text}
+            url={exploreMore.url}>
+              {exploreMore.text}
             </Button>
           </div>
         }

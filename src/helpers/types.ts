@@ -260,7 +260,7 @@ export type ContentListType = {
   eyebrow: string | null
   summary: Document | null
   content: Array<Content>
-  seeAllLink: LinkType | null
+  exploreMore: LinkType | null
   layout: ContentListLayout
   size: ContentSize
   alignment: AlignmentType
