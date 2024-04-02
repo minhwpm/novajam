@@ -18,7 +18,7 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
           className={classNames(
             "tracking-widest mb-2 font-semibold",
             { "text-primary-600": !darkMode },
-            { "text-primary-500": darkMode },
+            { "text-neutral-100": darkMode },
             {
               "text-center":
                 layout === "Vertical (Text | Image)" ||

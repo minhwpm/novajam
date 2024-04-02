@@ -26,7 +26,10 @@ export const Statistics: React.FC<{ data: StatisticsType, index: number }> = ({ 
         transitionDelay: `${(index + 1) * 0.2}s`
       }}  
     >
-      <div className="font-heading text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-primary-600 text-center">
+      <div className={classNames("font-heading text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-center",
+        {"text-primary-600": !darkMode},
+        {"text-neutral-200": darkMode},
+      )}>
         {number}
       </div>
       <div className={classNames("font-heading font-semibold tracking-wide text-center md:text-lg xl:text-xl max-w-[150px]",

@@ -72,7 +72,7 @@ export const Section: React.FC<Props> = ({
             className={classNames(
               "tracking-widest font-semibold text-center mx-auto mb-2",
               { "text-primary-600": !darkMode },
-              { "text-primary-500": darkMode }
+              { "text-neutral-100": darkMode }
             )}
           >
             {eyebrow}

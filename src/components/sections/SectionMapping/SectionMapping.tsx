@@ -30,7 +30,7 @@ function PresentationMapping({ data }: { data: ContentPTType }) {
       return <TabPT data={data} />;
     case "carousel":
       return <CarouselPT data={data} />;
-    case "mini-carousel":
+    case "sleek carousel":
       return <MiniCarouselPT data={data} />;
     default:
       return null;
