@@ -73,7 +73,7 @@ const TextContent = ({
   );
 };
 
-export const ScrollingPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
+export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 

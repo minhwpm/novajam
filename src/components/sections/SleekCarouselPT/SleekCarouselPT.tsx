@@ -41,7 +41,7 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length, darkMode }: ArrowGroupP
   );
 };
 
-export const MiniCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
+export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 

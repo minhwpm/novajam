@@ -202,7 +202,7 @@ export type ContentPTType = {
   heading: Document | null
   summary: Document | null
   content: Array<ContentPieceType>
-  layout: "carousel" | "sleek carousel" | "tab" | "accordion" | "scrolling"
+  layout: "carousel" | "sleek carousel" | "tab" | "accordion" | "scroll"
   alignment: AlignmentType
   htmlid: string | null
   backgroundColor: BackgroundColorType | null

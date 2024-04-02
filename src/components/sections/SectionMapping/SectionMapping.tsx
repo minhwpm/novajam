@@ -1,13 +1,13 @@
 import { CTA } from "@/components/sections/CTA/CTA";
 import { Hero } from "@/components/sections/Hero/Hero";
 import { HeroOverlay } from "@/components/sections/HeroOverlay/HeroOverlay";
-import { ScrollingPT } from "@/components/sections/ScrollingPT/ScrollingPT";
+import { ScrollPT } from "@/components/sections/ScrollPT/ScrollPT";
 import { AccordionPT } from "@/components/sections/AccordionPT/AccordionPT";
 import { ContentList } from "@/components/sections/ContentList/ContentList";
 import { FeaturedContent } from "@/components/sections/FeaturedContent/FeaturedContent";
 import { TabPT } from "@/components/sections/TabPT/TabPT";
 import { CarouselPT } from "@/components/sections/CarouselPT/CarouselPT";
-import { MiniCarouselPT } from "@/components/sections/MiniCarouselPT/MiniCarouselPT";
+import { SleekCarouselPT } from "@/components/sections/SleekCarouselPT/SleekCarouselPT";
 import { InquiryForm } from "@/components/sections/InquiryForm/InquiryForm";
 import {
   CTAType,
@@ -22,8 +22,8 @@ type ComponentType = HeroType | CTAType | ContentPTType | ContentListType | Feat
 
 function PresentationMapping({ data }: { data: ContentPTType }) {
   switch (data.layout) {
-    case "scrolling":
-      return <ScrollingPT data={data} />;
+    case "scroll":
+      return <ScrollPT data={data} />;
     case "accordion":
       return <AccordionPT data={data} />;
     case "tab":
@@ -31,7 +31,7 @@ function PresentationMapping({ data }: { data: ContentPTType }) {
     case "carousel":
       return <CarouselPT data={data} />;
     case "sleek carousel":
-      return <MiniCarouselPT data={data} />;
+      return <SleekCarouselPT data={data} />;
     default:
       return null;
   }
