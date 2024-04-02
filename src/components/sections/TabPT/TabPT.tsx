@@ -5,7 +5,7 @@ import * as RadixTabs from '@radix-ui/react-tabs';
 import { Section } from '@/components/elements/Section/Section';
 import { Button } from '@/components/elements/Button/Button';
 import { ContentPTType } from '@/helpers/types';
-import { RichText2 } from "@/components/elements/RichText/RichText2"
+import { RichText2 } from "@/components/elements/RichText/RichText"
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import "@/app/css/bg-color.css";

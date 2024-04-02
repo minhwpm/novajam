@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { useContext } from "react";
 import { AlignmentType, ContentPieceType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText2";
+import { RichText2 } from "@/components/elements/RichText/RichText";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";

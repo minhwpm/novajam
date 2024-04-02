@@ -2,7 +2,7 @@
 import classNames from "classnames";
 import { useInView } from "react-hook-inview";
 import { CTAType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText2";
+import { RichText2 } from "@/components/elements/RichText/RichText";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { Container } from "@/components/elements/Container/Container";
 

@@ -2,7 +2,7 @@
 import classNames from "classnames";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import { RichText2 } from "@/components/elements/RichText/RichText2";
+import { RichText2 } from "@/components/elements/RichText/RichText";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";

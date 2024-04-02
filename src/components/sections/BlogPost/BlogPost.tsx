@@ -1,7 +1,7 @@
 "use client"
 import { Container }from "@/components/elements/Container/Container"
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
-import { RichText2 } from "@/components/elements/RichText/RichText2"
+import { RichText2 } from "@/components/elements/RichText/RichText"
 import { BlogType } from "@/helpers/types"
 import Image from "next/image"
 import Link from "next/link"

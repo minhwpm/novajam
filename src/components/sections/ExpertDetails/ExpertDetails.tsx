@@ -1,5 +1,5 @@
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
-import { RichText2 } from "@/components/elements/RichText/RichText2"
+import { RichText2 } from "@/components/elements/RichText/RichText"
 import { ExpertType } from "@/helpers/types"
 
 export const ExpertDetails: React.FC<{data: ExpertType}> = ({ data }) => {

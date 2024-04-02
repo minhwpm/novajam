@@ -3,7 +3,7 @@ import classNames from "classnames";
 import React, { useState } from "react";
 import { Section } from "@/components/elements/Section/Section";
 import { ContentPTType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText2";
+import { RichText2 } from "@/components/elements/RichText/RichText";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";

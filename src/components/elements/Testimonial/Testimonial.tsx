@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { AlignmentType,  TestimonialType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText2"
+import { RichText2 } from "@/components/elements/RichText/RichText"
 import { MediaItem } from "../MediaItem/MediaItem";
 
 export const Testimonial: React.FC<{

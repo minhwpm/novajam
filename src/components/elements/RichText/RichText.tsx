@@ -45,6 +45,7 @@ export function RichText2({
             if (style === "marketing") {
               return (
                 <li className="not-prose flex gap-4 mb-2">
+                  {/* @TODO fix aligment center bug */}
                   <FaCheck
                     className="flex-shrink-0 relative top-1 ml-2 text-primary-300"
                     size={20}

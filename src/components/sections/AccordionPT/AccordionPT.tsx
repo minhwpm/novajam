@@ -7,7 +7,7 @@ import classNames from "classnames";
 import * as RadixAccordion from "@radix-ui/react-accordion";
 import { Section } from "@/components/elements/Section/Section";
 import { ContentPTType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText2";
+import { RichText2 } from "@/components/elements/RichText/RichText";
 import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"

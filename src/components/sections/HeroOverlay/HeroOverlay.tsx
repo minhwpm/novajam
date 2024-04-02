@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
-import { RichText2 } from "@/components/elements/RichText/RichText2";
+import { RichText2 } from "@/components/elements/RichText/RichText";
 import { Container } from "@/components/elements/Container/Container";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { HeroType, AlignmentType, ContentPieceType } from "@/helpers/types";

@@ -1,6 +1,6 @@
 import { useInView } from "react-hook-inview";
 import classNames from "classnames";
-import { RichText2 } from "@/components/elements/RichText/RichText2"
+import { RichText2 } from "@/components/elements/RichText/RichText"
 import { AlignmentType, ContentPieceType } from "@/helpers/types";
 
 interface Props {

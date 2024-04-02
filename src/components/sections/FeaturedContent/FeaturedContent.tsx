@@ -1,7 +1,7 @@
 "use client"
 import classNames from "classnames";
 import { ContentPieceType, FeaturedContentType, FeaturedContentLayoutType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText2";
+import { RichText2 } from "@/components/elements/RichText/RichText";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { Container } from "@/components/elements/Container/Container";

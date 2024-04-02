@@ -3,7 +3,7 @@
 import React from "react";
 import classNames from "classnames";
 import { Container } from "../Container/Container";
-import { RichText2 } from "@/components/elements/RichText/RichText2";
+import { RichText2 } from "@/components/elements/RichText/RichText";
 import { MediaType } from "@/helpers/types";
 import { Document } from "@contentful/rich-text-types";
 import { useInView } from "react-hook-inview";

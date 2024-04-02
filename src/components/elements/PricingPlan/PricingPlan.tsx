@@ -1,14 +1,16 @@
-import { useContext } from "react"
-import classNames from "classnames"
-import { Button } from "../Button/Button"
-import { PricingPlanType } from "@/helpers/types"
-import { RichText2 } from "../RichText/RichText2"
+import { useContext } from "react";
+import classNames from "classnames";
+import { Button } from "../Button/Button";
+import { AlignmentType, PricingPlanType } from "@/helpers/types";
+import { RichText2 } from "../RichText/RichText";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 
-
-export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
+export const PricingPlan: React.FC<{
+  data: PricingPlanType;
+  alignment?: AlignmentType;
+}> = ({ data, alignment }) => {
   const darkMode = useContext(DarkModeContext);
-  const { title, pricing, pricingSuffix, badge, description, ctaButton } = data
+  const { title, pricing, pricingSuffix, badge, description, ctaButton } = data;
   return (
     <div
       className={classNames(
@@ -27,12 +29,9 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
         </div>
       )}
       <h4
-        className={classNames(
-          "text-2xl font-bold",
-          {
-            "text-primary-600 mt-12": !badge,
-          },
-        )}
+        className={classNames("text-2xl font-bold", {
+          "text-primary-600 mt-12": !badge,
+        })}
       >
         {title}
       </h4>
@@ -68,13 +67,16 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
       </div>
       {description && (
         <div
-          className={classNames("leading-loose pt-6 pb-10 px-6 border-t", {
-            "text-neutral-200": darkMode,
-          })}
+          className={classNames(
+            "leading-loose pt-6 pb-10 px-6 border-t",
+            { "text-neutral-200": darkMode },
+            { "text-center": alignment === "center" },
+            { "text-end": alignment === "end" }
+          )}
         >
           <RichText2 data={description} />
         </div>
       )}
     </div>
   );
-}
+};

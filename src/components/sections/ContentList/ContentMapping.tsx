@@ -15,20 +15,20 @@ export const ContentMapping: React.FC<{
   layout?: "horizontal" | "vertical"
   index: number
 }> = ({ data, alignment, layout = "vertical", index }) => {
-  //@TODO do alignment for Page, Blog, Expert, Statistics, PricingPlan  ...
+  //@TODO do alignment for Expert ...
   switch (data.contentType) {
     case "blog":
-      return <BlogPreview data={data} layout={layout} aspectRatio={layout === "horizontal" ? "square" : undefined} />;
+      return <BlogPreview data={data} layout={layout} aspectRatio={layout === "horizontal" ? "square" : undefined} alignment={alignment} />;
     case "page":
-      return <PagePreview data={data} layout={layout} />;
+      return <PagePreview data={data} layout={layout} alignment={alignment} />;
     case "expert":
       return <ExpertPreview data={data} layout={layout} />;
     case "statistics":
-      return <Statistics index={index} data={data} />;
+      return <Statistics index={index} data={data} alignment={alignment} />;
     case "contentpiece":
       return <FlexibleContent data={data} alignment={alignment} layout={layout} />;
     case "pricingplan":
-      return <PricingPlan data={data} />;
+      return <PricingPlan data={data} alignment={alignment} />;
     case "testimonial":
       return <Testimonial data={data} alignment={alignment} />;
     case "link":
