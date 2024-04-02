@@ -92,7 +92,7 @@ export const HeroSection: React.FC<{
           "flex flex-col gap-2 py-16 lg:py-20 xl:py-24",
           { "px-4 custom-padding-left": layout === "horizontal" },
           { "items-center text-center": alignment === "center" },
-          { "items-end text-end": alignment === "reverse" }
+          { "items-end text-end": alignment === "end" }
         )}
       >
         {data.eyebrow && (

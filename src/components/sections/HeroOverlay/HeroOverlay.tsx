@@ -94,7 +94,7 @@ export const HeroOverlaySection: React.FC<{
               {
                 "items-center text-center": alignment === "center",
               },
-              { "items-end text-end": alignment === "reverse" }
+              { "items-end text-end": alignment === "end" }
             )}
           >
             {data.eyebrow && (

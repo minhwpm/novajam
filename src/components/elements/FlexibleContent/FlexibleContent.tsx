@@ -84,7 +84,7 @@ export const FlexibleContent: React.FC<{
             className={classNames(
               "basis-2/3 flex-1 px-4 pt-4 pb-6 lg:px-6 lg:pt-6 lg:pb-8 flex flex-col",
               { "text-center": alignment === "center" },
-              { "text-end": alignment === "reverse" }
+              { "text-end": alignment === "end" }
             )}
           >
             <TextPart data={data} alignment={alignment} />
@@ -113,7 +113,7 @@ export const FlexibleContent: React.FC<{
           className={classNames(
             "px-4 pt-4 pb-8 flex-1 flex flex-col",
             { "text-center": alignment === "center" },
-            { "text-end": alignment === "reverse" }
+            { "text-end": alignment === "end" }
           )}
         >
           <TextPart data={data} alignment={alignment} />

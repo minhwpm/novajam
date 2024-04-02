@@ -26,7 +26,7 @@ export const FeatureContentItem = ({ data, idx, setVisibleIdx, alignment }: Prop
         { "is-visible opacity-100": isVisible },
         { "is-invisible opacity-10": !isVisible },
         { "text-center": alignment === "center" },
-        { "text-end": alignment === "reverse" }
+        { "text-end": alignment === "end" }
       )}
     >
       {eyebrow && (

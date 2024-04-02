@@ -13,8 +13,6 @@ import "./styles.css"
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
   const { htmlid, eyebrow, heading, summary, content, alignment, backgroundColor, backgroundImage, darkMode } = data
-  const [ activeItem, setActiveItem ] = React.useState(content.length > 0 ? content[0].id : '')
-  
   // Justify tab container
   const [justify, setJustify] = useState("center")
   const wrapperRef = useRef(null) as unknown as React.MutableRefObject<HTMLDivElement>
@@ -39,7 +37,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
       <RadixTabs.Root
         className="w-full mt-6"
         defaultValue={content.length > 0 ? content[0].id : ""}
-        onValueChange={(value) => setActiveItem(value)}
+        // onValueChange={(value) => setActiveItem(value)}
       >
         <div
           ref={wrapperRef}
@@ -93,18 +91,15 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
             </div>
           </RadixTabs.List>
         </div>
-        {/* @TODO fix animation doesn't work properly */}
-        <div className="mt-2 container px-4 mx-auto ">
+        <div className="mt-2 container px-4 mx-auto grid">
           {content.map((section) => (
             <RadixTabs.Content
               key={section.id}
               value={section.id}
               className={classNames(
-                "text-lg transition-all ease-in-out duration-500 relative ",
-                { "opacity-100 right-0 z-10": activeItem === section.id },
-                { "opacity-0 -right-24 z-0": activeItem !== section.id },
+                "col-start-1 row-start-1 relative data-[state='active']:animate-slidingLeft",
                 { "text-center": alignment === "center" },
-                { "text-end": alignment === "reverse" }
+                { "text-end": alignment === "end" }
               )}
             >
               <div className="flex flex-col-reverse lg:flex-row lg:items-center rounded-assets p-4 lg:p-8 -mx-4 lg:-mx-8">

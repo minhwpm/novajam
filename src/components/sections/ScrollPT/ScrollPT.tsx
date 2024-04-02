@@ -35,7 +35,7 @@ const TextContent = ({
         { "is-visible opacity-100": isVisible },
         { "is-invisible opacity-10": !isVisible },
         { "text-center": alignment === "center" },
-        { "text-end": alignment === "reverse" }
+        { "text-end": alignment === "end" }
       )}
     >
       {eyebrow && (
@@ -95,7 +95,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               className={classNames(
                 "flex flex-col mb-10",
                 { "text-center": alignment === "center" },
-                { "text-end": alignment === "reverse" }
+                { "text-end": alignment === "end" }
               )}
             >
               {section.eyebrow && (

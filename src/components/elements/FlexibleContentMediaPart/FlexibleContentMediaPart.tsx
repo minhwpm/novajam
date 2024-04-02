@@ -15,7 +15,7 @@ export const FlexibleContentMediaPart: React.FC<{
       className={classNames(
         "flex",
         { "justify-center": alignment === "center" },
-        { "justify-end": alignment === "reverse" }
+        { "justify-end": alignment === "end" }
       )}
     >
       {embeddedMediaUrl && (

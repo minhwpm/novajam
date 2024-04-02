@@ -49,7 +49,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 <div className={classNames(
                   "flex flex-col",
                   { "text-center": alignment === "center" },
-                  { "text-end": alignment === "reverse" }
+                  { "text-end": alignment === "end" }
                 )}>
                   <TextPart data={item} alignment={alignment} darkMode={darkMode} />
                 </div>

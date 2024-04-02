@@ -18,7 +18,7 @@ export type SNSType = {
 
 export type BackgroundColorType = "neutral" | "red" | "orange" | "amber" | "yellow" | "lime" | "green" | "emerald" | "teal" | "cyan" | "sky" | "blue" | "indigo" | "violet" | "purple" | "fuchsia" | "pink" | "rose"  
 
-export type AlignmentType = "inherit" | "center" | "reverse"
+export type AlignmentType = "auto" | "center" | "end"
 
 export type ButtonVariant = "standard" | "alternate" | "black" | "arrow" | "outline" | "outline-black" | "outline-white"
 

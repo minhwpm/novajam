@@ -97,9 +97,9 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
               className={classNames(
                 "col-start-1 row-start-1 flex flex-col gap-6 p-8 lg:p-12 shadow-lg bg-white rounded-assets transition-all ease-in-out duration-500 relative",
                 { "items-center": alignment === "center" },
-                { "items-end": alignment === "reverse" },
-                { "opacity-100 right-0": visibleIdx == idx },
-                { "opacity-0 -right-24": visibleIdx != idx },
+                { "items-end": alignment === "end" },
+                { "opacity-100 right-0": visibleIdx === idx },
+                { "opacity-0 -right-24": visibleIdx !== idx },
                 { "bg-opacity-5": darkMode }
               )}
             >
@@ -113,7 +113,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                 className={classNames(
                   "grow flex flex-col justify-center",
                   { "text-center": alignment === "center" },
-                  { "text-end": alignment === "reverse" }
+                  { "text-end": alignment === "end" }
                 )}
               >
                 <div

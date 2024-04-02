@@ -97,6 +97,16 @@ module.exports = {
             visibility: 'visible',
           }
         },
+        slidingLeft: {
+          '0%': {
+            opacity: 0,
+            right: "-6rem",
+          },
+          '100%': {
+            opacity: 1,
+            right: 0,
+          },
+        },
         slidingSubmenu: {
           '0%': {
             'top': 'calc(100% - 1rem)',
@@ -314,6 +324,7 @@ module.exports = {
         // @TODO check/refactor animation
         pop: 'pop 0.3s ease-out forwards 1',
         fadeIn: 'fadeIn 0.5s ease-in forwards 1',
+        slidingLeft: 'slidingLeft 0.5s ease-in-out forwards 1',
         slidingSubmenu: 'slidingSubmenu 0.3s ease-out forwards 1',
         slidingLinkgroup: 'slidingLinkgroup 0.3s ease-out forwards 1',
         slidingHeroContent: 'slidingHeroContent 1s ease forwards',

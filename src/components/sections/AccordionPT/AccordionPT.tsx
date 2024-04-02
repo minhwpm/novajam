@@ -81,7 +81,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     "data-[state=closed]:animate-accordionSlideUp",
                     "data-[state=open]:animate-accordionSlideDown",
                     { "text-center": alignment === "center" },
-                    { "text-end": alignment === "reverse" }
+                    { "text-end": alignment === "end" }
                   )}
                 >
                   <div className="pt-4 pb-8">
