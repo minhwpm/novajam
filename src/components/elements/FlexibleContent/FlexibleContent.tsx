@@ -67,9 +67,12 @@ export const FlexibleContent: React.FC<{
     data;
   if (layout === "horizontal") {
     return (
-      <div className={classNames("flex gap-5 rounded-assets bg-white",
-        { "bg-opacity-5": darkMode }
-      )}>
+      <div
+        className={classNames(
+          "flex gap-5 rounded-assets ",
+          { "bg-white": !darkMode }
+        )}
+      >
         <div className="basis-1/3 flex-1">
           {(media || embeddedMediaUrl) && (
             <FlexibleContentMediaPart
@@ -96,8 +99,8 @@ export const FlexibleContent: React.FC<{
   return (
     <div
       className={classNames(
-        "flex flex-col rounded-assets bg-white",
-        { "bg-opacity-5": darkMode }
+        "flex flex-col rounded-assets",
+        { "bg-white": !darkMode }
       )}
     >
       {(media || embeddedMediaUrl) && (

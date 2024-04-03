@@ -21,6 +21,7 @@ export type FormValues = {
 type Props = {
   data: InquiryFormType,
 }
+// @TODO implement darkMode for InquiryForm
 export const InquiryForm: React.FC<Props> = ({ data }) => {
   const { title, heading, eyebrow, summary, description, formType, fields, dateFormat, submitButton, successMessage, errorMessage, backgroundImage, htmlid } = data;
   const { register, control, handleSubmit, reset, formState: { errors, isSubmitting, isSubmitted, isSubmitSuccessful } } = useForm<FormValues>();
