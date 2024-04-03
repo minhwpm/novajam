@@ -23,7 +23,7 @@ export const PagePreview: React.FC<{
         <div className="basis-2/3 flex-1 py-4 pr-4 lg:py-6 lg:pr-6">
           <h4
             className={classNames(
-              "text-xl font-heading file:font-semibold",
+              "text-lg lg:text-xl font-heading file:font-semibold",
               { "text-neutral-50": darkMode },
               { "text-center": alignment === "center" },
               { "text-end": alignment === "end" }

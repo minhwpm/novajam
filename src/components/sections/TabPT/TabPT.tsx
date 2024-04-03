@@ -13,7 +13,6 @@ import "./styles.css"
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
   const { htmlid, eyebrow, heading, summary, content, alignment, backgroundColor, backgroundImage, darkMode } = data
-  // Justify tab container
   const [justify, setJustify] = useState("center")
   const wrapperRef = useRef(null) as unknown as React.MutableRefObject<HTMLDivElement>
   useEffect(() => {
@@ -37,7 +36,6 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
       <RadixTabs.Root
         className="w-full mt-6"
         defaultValue={content.length > 0 ? content[0].id : ""}
-        // onValueChange={(value) => setActiveItem(value)}
       >
         <div
           ref={wrapperRef}
@@ -97,7 +95,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
               key={section.id}
               value={section.id}
               className={classNames(
-                "col-start-1 row-start-1 relative data-[state='active']:animate-slidingLeft",
+                "col-start-1 row-start-1 relative data-[state='active']:animate-fadeInSlideLeft",
                 { "text-center": alignment === "center" },
                 { "text-end": alignment === "end" }
               )}

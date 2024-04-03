@@ -28,7 +28,7 @@ const TextPart: React.FC<{
       {heading && (
         <div
           className={classNames(
-            "font-heading text-lg lg:text-2xl",
+            "font-heading text-lg lg:text-xl",
             { "mb-2 lg:mb-4": description || buttons.length > 0 },
             { "text-neutral-50": darkMode }
           )}

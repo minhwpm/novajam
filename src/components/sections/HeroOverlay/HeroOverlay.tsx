@@ -111,7 +111,7 @@ export const HeroOverlaySection: React.FC<{
               <div
                 className={classNames(
                   "relative animate-slidingHeroContent",
-                  "text-super-heading leading-tight font-heading max-w-2xl mt-2"
+                  "text-super-heading leading-none font-heading max-w-2xl mt-2"
                 )}
               >
                 <RichText2 data={data.heading} />

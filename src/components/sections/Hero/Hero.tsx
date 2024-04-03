@@ -109,7 +109,7 @@ export const HeroSection: React.FC<{
         {data.heading && (
           <div
             className={classNames(
-              "text-hero-heading leading-tight tracking-tight font-heading max-w-3xl animate-slidingHeroContent",
+              "text-hero-heading leading-none tracking-tight font-heading max-w-3xl animate-slidingHeroContent",
               { "text-neutral-50": darkMode }
             )}
           >
@@ -121,7 +121,7 @@ export const HeroSection: React.FC<{
             className={classNames(
               "prose xl:prose-lg 2xl:prose-xl  mt-3 max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-200",
               { "text-neutral-700": !darkMode },
-              { "text-neutral-100": darkMode }
+              { "text-neutral-200": darkMode }
             )}
           >
             <RichText2 data={data.description} />
