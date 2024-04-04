@@ -47,9 +47,9 @@ export const CarouselList: React.FC<{
       <div className="absolute top-0 right-0 z-10 w-full flex justify-end gap-4 custom-padding-right">
         <div
           className={classNames(
-            "carouselList-btn-prev cursor-pointer flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
+            "carouselList-btn-prev cursor-pointer flex justify-center items-center rounded-full w-12 h-12 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
             {
-              "opacity-30 pointer-events-none cursor-not-allowed":
+              "opacity-10 pointer-events-none cursor-not-allowed":
                 carouselState.isBeginning,
             },
             { "text-neutral-50": darkMode }
@@ -59,9 +59,9 @@ export const CarouselList: React.FC<{
         </div>
         <div
           className={classNames(
-            "carouselList-btn-next cursor-pointer flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
+            "carouselList-btn-next cursor-pointer flex justify-center items-center rounded-full w-12 h-12 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
             {
-              "opacity-30 pointer-events-none cursor-not-allowed":
+              "opacity-10 pointer-events-none cursor-not-allowed":
                 carouselState.isEnd,
             },
             { "text-neutral-50": darkMode }

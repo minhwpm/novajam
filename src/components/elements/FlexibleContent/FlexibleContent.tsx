@@ -18,7 +18,7 @@ const TextPart: React.FC<{
         <div
           className={classNames(
             "text-sm font-semibold tracking-widest mb-1",
-            { "text-neutral-500": !darkMode },
+            { "text-neutral-400": !darkMode },
             { "text-neutral-100": darkMode }
           )}
         >
@@ -114,7 +114,7 @@ export const FlexibleContent: React.FC<{
       {(heading || eyebrow || description || buttons?.length > 0) && (
         <div
           className={classNames(
-            "px-4 pt-4 pb-8 flex-1 flex flex-col",
+            "px-4 md:px-6 pt-4 pb-8 flex-1 flex flex-col",
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }
           )}

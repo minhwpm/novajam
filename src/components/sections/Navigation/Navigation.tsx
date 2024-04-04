@@ -10,6 +10,7 @@ import NavMenuMinimal from "@/components/elements/NavMenuMinimal/NavMenuMinimal"
 import { MediaType, NavigationType } from "@/helpers/types";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 
+// @TODO implement darkMode for Navigation
 const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
   redirectUrl,
   logo,

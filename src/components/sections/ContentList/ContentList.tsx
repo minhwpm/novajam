@@ -37,20 +37,22 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         eyebrow={eyebrow}
         heading={heading}
         summary={summary}
-        framed={ layout !== "carousel" }
+        framed={layout !== "carousel"}
         backgroundImage={backgroundImage}
         darkMode={darkMode}
       >
-        {exploreMore && 
+        {exploreMore && (
           <div className="w-full flex justify-center -mt-8 mb-4">
             <Button
-            size="lg"
-            variant="arrow"
-            url={exploreMore.url}>
+              size="lg"
+              withArrow={true}
+              variant="ghost"
+              url={exploreMore.url}
+            >
               {exploreMore.text}
             </Button>
           </div>
-        }
+        )}
         {layout === "carousel" && (
           <CarouselList list={content} size={size} alignment={alignment} />
         )}
@@ -62,5 +64,5 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         )}
       </Section>
     </DarkModeContext.Provider>
-  )
+  );
 }

@@ -52,7 +52,6 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
     <div
       className={classNames("group rounded-assets", {
         "bg-white" : !darkMode
-        // "bg-opacity-5": darkMode,
       })}
     >
       <MediaItem data={portrait} aspectRatio="square" />
@@ -61,10 +60,10 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
           className={classNames(
             "font-heading font-semibold text-lg",
             {
-              "text-neutral-800 underline-hover-effect hover:text-primary-600 ":
+              "text-neutral-800":
                 !darkMode,
             },
-            { "text-neutral-50 hover:text-primary-500": darkMode }
+            { "text-neutral-50": darkMode }
           )}
         >
           {fullName}
@@ -74,9 +73,9 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
             {role && (
               <div
                 className={classNames(
-                  "font-semibold italic",
-                  { "text-neutral-700": !darkMode },
-                  { "text-neutral-50": darkMode }
+                  "font-semibold",
+                  { "text-neutral-500": !darkMode },
+                  { "text-neutral-200": darkMode }
                 )}
               >
                 {role}
@@ -86,7 +85,8 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
               <div
                 className={classNames(
                   "flex flex-wrap items-center justify-center gap-2",
-                  { "text-primary-50": darkMode }
+                  { "text-neutral-500": !darkMode },
+                  { "text-neutral-200": darkMode }
                 )}
               >
                 {specialization.map((item, index) => (
@@ -97,7 +97,7 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
             {summary && (
               <div
                 className={classNames("prose line-clamp-3 text-center", {
-                  "text-primary-100": darkMode,
+                  "text-neutral-200": darkMode,
                 })}
               >
                 {summary}
