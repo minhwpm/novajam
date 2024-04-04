@@ -49,6 +49,7 @@ export default async function getInquiryForm(id: string) {
               text
               url
               buttonVariant
+              withArrow
             }
             successMessage
             errorMessage

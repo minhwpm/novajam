@@ -52,6 +52,7 @@ export default async function getFlexibleContent(id: string) {
                 text
                 openNewTab
                 buttonVariant
+                withArrow
               }
             }
           }

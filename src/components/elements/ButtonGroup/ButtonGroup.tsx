@@ -14,6 +14,7 @@ export const ButtonGroup: React.FC<{data: Array<ButtonType>, alignment?: Alignme
         <Button
           key={button.id}
           url={button.url}
+          withArrow={button.withArrow}
           variant={button.buttonVariant}
           size={size ?? "base"}
           openNewTab={button.openNewTab}

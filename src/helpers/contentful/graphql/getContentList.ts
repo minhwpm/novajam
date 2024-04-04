@@ -69,7 +69,6 @@ export default async function getContentList(id: string) {
                     id
                   }
                   fullName
-                  slug
                   role
                   organization
                   specialization
@@ -149,6 +148,7 @@ export default async function getContentList(id: string) {
                     text
                     openNewTab
                     buttonVariant
+                    withArrow
                   }
                 }
                 ... on Testimonial {

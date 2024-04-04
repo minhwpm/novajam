@@ -20,7 +20,7 @@ export type BackgroundColorType = "neutral" | "red" | "orange" | "amber" | "yell
 
 export type AlignmentType = "auto" | "center" | "end"
 
-export type ButtonVariant = "standard" | "alternate" | "black" | "arrow" | "outline" | "outline-black" | "outline-white"
+export type ButtonVariant = "primary" | "secondary" | "black" | "ghost" | "outline" | "outline-black" | "outline-white"
 
 export type ButtonType = {
   id?: string
@@ -28,6 +28,7 @@ export type ButtonType = {
   text: string
   openNewTab: boolean
   buttonVariant: ButtonVariant
+  withArrow: boolean
 }
 
 export type LinkType = {

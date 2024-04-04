@@ -1,5 +1,4 @@
 import { ExpertType } from "@/helpers/types";
-import Link from "next/link";
 import { SNS } from "@/components/elements/SNS/SNS";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
@@ -13,7 +12,6 @@ interface Props {
 
 export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
   const {
-    slug,
     fullName,
     portrait,
     role,
@@ -30,12 +28,9 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
           <MediaItem data={portrait} aspectRatio="square" rounded="full" />
         </div>
         <div className="w-full pt-6 md:w-3/4 md:pt-0 md:pl-10">
-          <Link
-            className="font-heading underline-hover-effect font-semibold text-2xl md:text-3xl mb-5"
-            href={`/expert/${slug}`}
-          >
+          <div className="font-heading underline-hover-effect font-semibold text-2xl md:text-3xl mb-5">
             {fullName}
-          </Link>
+          </div>
           <div className="font-semibold text-neutral-600 italic">{role}</div>
           {specialization && (
             <div className="flex flex-wrap items-center gap-2">
@@ -55,15 +50,14 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
   }
   return (
     <div
-      className={classNames("group bg-white rounded-assets", {
-        "bg-opacity-5": darkMode,
+      className={classNames("group rounded-assets", {
+        "bg-white" : !darkMode
+        // "bg-opacity-5": darkMode,
       })}
     >
-      <Link href={`/expert/${slug}`}>
-        <MediaItem data={portrait} aspectRatio="square" />
-      </Link>
+      <MediaItem data={portrait} aspectRatio="square" />
       <div className="w-full px-4 pt-4 pb-6 flex flex-col items-center gap-1 rounded-b-assets">
-        <Link
+        <div
           className={classNames(
             "font-heading font-semibold text-lg",
             {
@@ -72,10 +66,9 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
             },
             { "text-neutral-50 hover:text-primary-500": darkMode }
           )}
-          href={`/expert/${slug}`}
         >
           {fullName}
-        </Link>
+        </div>
         {(role || specialization || summary) && (
           <>
             {role && (

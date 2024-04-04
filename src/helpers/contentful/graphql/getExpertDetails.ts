@@ -20,7 +20,6 @@ export default async function getExpertDetails(slug: string) {
             sys {
               id
             }
-            slug
             fullName
             portrait {
               url

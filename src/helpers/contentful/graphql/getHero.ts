@@ -49,6 +49,7 @@ export default async function getHero(id: string) {
                     url
                     openNewTab
                     buttonVariant
+                    withArrow
                   }
                 }
               }

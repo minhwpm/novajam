@@ -36,7 +36,7 @@ export const Statistics: React.FC<{
     >
       <div
         className={classNames(
-          "font-heading text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-bold",
+          "font-heading text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-semibold tracking-wide",
           { "text-primary-600": !darkMode },
           { "text-neutral-200": darkMode },
           { "text-center": alignment === "center" },

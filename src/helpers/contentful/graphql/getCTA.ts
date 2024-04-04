@@ -33,6 +33,7 @@ export default async function getCTA(id: string) {
                 text
                 url
                 buttonVariant
+                withArrow
               }
             }
           }

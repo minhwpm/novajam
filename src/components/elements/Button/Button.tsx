@@ -8,6 +8,7 @@ interface ButtonProps {
   className?: string;
   children: React.ReactNode;
   url?: string;
+  withArrow?: boolean;
   onClick?: () => void;
   variant?: ButtonVariant;
   size?: "base" | "lg";
@@ -19,8 +20,9 @@ interface ButtonProps {
 export const Button: React.FC<ButtonProps> = (props) => {
   const {
     size = "base",
-    variant = "standard",
+    variant = "primary",
     url,
+    withArrow = false,
     children,
     onClick,
     type = "button",
@@ -28,13 +30,13 @@ export const Button: React.FC<ButtonProps> = (props) => {
     openNewTab = false,
     className,
   } = props;
-  if (variant === "arrow") {
+  if (variant === "ghost") {
     return (
       <button type={type} onClick={onClick} disabled={disabled}>
         {url ? (
           <Link
             className={classNames(
-              "relative left-0 group inline-block text-primary-600 hover:left-1 transition-all duration-500",
+              "relative left-0 group inline-block hover:left-1 transition-all duration-500",
               { "py-2": size === "base" },
               { "py-3 lg:text-lg": size === "lg" },
               { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
@@ -43,24 +45,30 @@ export const Button: React.FC<ButtonProps> = (props) => {
             href={url}
           >
             {children}
-            <BsArrowRight
-              className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-500 ease"
-              size={20}
-            />
+            {withArrow && (
+              <BsArrowRight
+                className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-500 ease"
+                size={20}
+              />
+            )}
           </Link>
         ) : (
-          <span className={classNames(
-            "relative left-0 group inline-block text-primary-600 hover:left-1 transition-all duration-500",
-            { "py-2": size === "base" },
-            { "py-3 lg:text-lg": size === "lg" },
-            { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
-            className
-          )}>
+          <span
+            className={classNames(
+              "relative left-0 group inline-block text-primary-600 hover:left-1 transition-all duration-500",
+              { "py-2": size === "base" },
+              { "py-3 lg:text-lg": size === "lg" },
+              { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
+              className
+            )}
+          >
             {children}
-            <BsArrowRight
-              className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-500 ease"
-              size={20}
-            />
+            {withArrow && (
+              <BsArrowRight
+                className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-500 ease"
+                size={20}
+              />
+            )}
           </span>
         )}
       </button>
@@ -69,13 +77,13 @@ export const Button: React.FC<ButtonProps> = (props) => {
   const classes = classNames(
     "!border relative inline-flex justify-center items-center text-center rounded-assets bottom-0 hover:bottom-1 transition-all duration-500 ease",
     {
-      "border-primary-600 bg-primary-600 hover:bg-primary-500 hover:border-primary-500 text-white": variant === "standard",
+      "border-primary-600 bg-primary-600 hover:bg-primary-500 hover:border-primary-500 text-white": variant === "primary",
     },
     {
       "border-secondary-400 bg-secondary-400 hover:bg-secondary-300 hover:border-secondary-300 text-neutral-800":
-        variant === "alternate",
+        variant === "secondary",
     },
-    { "border-neutral-900 bg-neutral-900 text-white hover:bg-primary-500 hover:border-primary-500": variant === "black" },
+    { "border-neutral-900 bg-neutral-900 text-white": variant === "black" },
     {
       "border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white":
         variant === "outline",
@@ -97,14 +105,28 @@ export const Button: React.FC<ButtonProps> = (props) => {
     <button type={type} onClick={onClick} disabled={disabled}>
       {url ? (
         <Link
-          className={classNames(classes, className)}
+          className={classNames("group", classes, className)}
           href={url}
           target={openNewTab ? "_blank" : "_self"}
         >
           {children}
+          {withArrow && (
+            <BsArrowRight
+              className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-500 ease"
+              size={20}
+            />
+          )}
         </Link>
       ) : (
-        <span className={classNames(classes, className)}>{children}</span>
+        <span className={classNames(classes, className)}>
+          {children}
+          {withArrow && (
+            <BsArrowRight
+              className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-500 ease"
+              size={20}
+            />
+          )}
+        </span>
       )}
     </button>
   );

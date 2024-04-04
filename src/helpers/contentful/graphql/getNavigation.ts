@@ -55,6 +55,7 @@ export default async function getNavigation(url: string) {
                 url
                 openNewTab
                 buttonVariant
+                withArrow
               }
             }
             hotButtonsCollection {
@@ -66,6 +67,7 @@ export default async function getNavigation(url: string) {
                 url
                 openNewTab
                 buttonVariant
+                withArrow
               }
             }
             uiVariant
