@@ -1,4 +1,4 @@
-import { ExpertType } from "@/helpers/types";
+import { ExpertType, AlignmentType } from "@/helpers/types";
 import { SNS } from "@/components/elements/SNS/SNS";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
@@ -8,9 +8,10 @@ import classNames from "classnames";
 interface Props {
   data: ExpertType;
   layout: "horizontal" | "vertical";
+  alignment?: AlignmentType;
 }
 
-export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
+export const ExpertPreview: React.FC<Props> = ({ data, layout, alignment }) => {
   const {
     fullName,
     portrait,
@@ -55,7 +56,10 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
       })}
     >
       <MediaItem data={portrait} aspectRatio="square" />
-      <div className="w-full px-4 pt-4 pb-6 flex flex-col items-center gap-1 rounded-b-assets">
+      <div className={classNames("w-full px-4 pt-4 pb-6 flex flex-col gap-1 rounded-b-assets",
+        { "text-center": alignment === "center" },
+        { "text-end": alignment === "end" }
+      )}>
         <div
           className={classNames(
             "font-heading font-semibold text-lg",
@@ -84,7 +88,9 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
             {specialization && (
               <div
                 className={classNames(
-                  "flex flex-wrap items-center justify-center gap-2",
+                  "flex flex-wrap gap-2",
+                  { "justify-center": alignment === "center"},
+                  { "justify-end": alignment === "end"},
                   { "text-neutral-500": !darkMode },
                   { "text-neutral-200": darkMode }
                 )}
@@ -96,7 +102,7 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout }) => {
             )}
             {summary && (
               <div
-                className={classNames("prose line-clamp-3 text-center", {
+                className={classNames("prose line-clamp-3", {
                   "text-neutral-200": darkMode,
                 })}
               >
