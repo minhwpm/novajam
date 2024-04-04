@@ -104,7 +104,7 @@ export const Section: React.FC<Props> = ({
           className={classNames(
             "relative -bottom-10 opacity-0",
             {
-              "mt-8": heading || eyebrow || summary,
+              "mt-4": heading || eyebrow || summary,
             },
             {
               "animate-slidingUpSection animation-delay-500": isIntersecting,

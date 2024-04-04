@@ -153,23 +153,32 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
       ref={ref}
       className={classNames(
         "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20",
-        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`)}
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
+      )}
     >
       <Container>
         <div
           className={classNames(
             "w-full flex flex-wrap",
             { "flex-col gap-y-6": layout === "Vertical (Image | Text)" },
-            { "flex-col-reverse gap-y-6": layout === "Vertical (Text | Image)" },
+            {
+              "flex-col-reverse gap-y-6": layout === "Vertical (Text | Image)",
+            },
             { "flex-row-reverse": layout === "Horizontal (Text | Image)" }
           )}
         >
           <div
-            className={classNames("w-full max-w-5xl mx-auto", {
-              "w-full lg:w-6/12":
-                layout === "Horizontal (Text | Image)" ||
-                layout === "Horizontal (Image | Text)",
-            })}
+            className={classNames(
+              "relative -bottom-10 opacity-0 w-full max-w-5xl mx-auto",
+              {
+                "animate-slidingUpSection animation-delay-500": isIntersecting,
+              },
+              {
+                "w-full lg:w-6/12":
+                  layout === "Horizontal (Text | Image)" ||
+                  layout === "Horizontal (Image | Text)",
+              }
+            )}
           >
             <FlexibleContentMediaPart
               data={content}
@@ -178,7 +187,10 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
           </div>
           <div
             className={classNames(
-              "py-6 self-center flex flex-col mx-auto",
+              "relative -bottom-10 opacity-0 py-6 self-center flex flex-col mx-auto",
+              {
+                "animate-slidingUpSection animation-delay-500": isIntersecting,
+              },
               {
                 "lg:w-1/2 md:pr-8 lg:pr-16":
                   layout === "Horizontal (Text | Image)",
