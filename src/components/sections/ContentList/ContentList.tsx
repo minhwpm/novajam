@@ -9,9 +9,7 @@ import { MasonryList } from "./MasonryList";
 import { DeckList } from "./DeckList";
 import "@/app/css/bg-color.css";
 
-// @TODO refactor this and other files related to darkMode
 export const DarkModeContext = createContext(false)
-
 export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
   const {
     heading,
