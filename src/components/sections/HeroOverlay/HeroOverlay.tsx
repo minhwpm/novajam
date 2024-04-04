@@ -13,6 +13,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "@/app/css/custom-swiper.css";
 
+// @TODO implement darkMode for HeroOverlay
 export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
   const { content, alignment } = data;
 
