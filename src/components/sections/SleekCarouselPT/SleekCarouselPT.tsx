@@ -20,7 +20,7 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length, darkMode }: ArrowGroupP
   return (
     <>
       <IoIosArrowBack
-        className={classNames("cursor-pointer flex justify-center items-center rounded-assets w-12 h-12 p-2 bg-neutral-200 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
+        className={classNames("cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
           {"text-neutral-50": darkMode }
         )}
         onClick={() => {
@@ -29,7 +29,7 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length, darkMode }: ArrowGroupP
         }}
       />
       <IoIosArrowForward
-        className={classNames("cursor-pointer flex justify-center items-center rounded-assets w-12 h-12 p-2 bg-neutral-200 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
+        className={classNames("cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
           {"text-neutral-50": darkMode }
         )}
         onClick={() => {

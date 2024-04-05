@@ -29,7 +29,7 @@ export default async function getFeature(id: string) {
             htmlid
             mediaAspectRatio
             layout
-            uiVariant
+            style
             backgroundColor
             backgroundImage {
               url

@@ -28,10 +28,10 @@ const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
 );
 
 const Header: React.FC<{data: NavigationType}> = ({ data }) => {
-  const { logo, logoRedirect, menu, buttons, uiVariant } = data;
+  const { logo, logoRedirect, menu, buttons, style } = data;
   const sticky = useStickyHeaderOnScrollUp();
 
-  if (uiVariant === "minimal") {
+  if (style === "minimal") {
     return (
       <header className={classNames("relative z-[99999] tracking-wider")}>
         <div className={classNames("absolute w-screen flex justify-center")}>
@@ -52,7 +52,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
       </header>
     );
   }
-  if (uiVariant === "overlay") {
+  if (style === "overlay") {
     return (
       <header className={classNames("relative z-[99999] w-screen tracking-wider")}>
         <div
@@ -65,7 +65,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
               <Logo redirectUrl={logoRedirect} logo={logo} />
             </div>
             <div className="flex-1 pt-6 drop-shadow-lg lg:text-lg">
-              <NavMenu menu={menu} uiVariant={uiVariant} />
+              <NavMenu menu={menu} style={style} />
             </div>
             {buttons && buttons.length > 0 && (
               <div className="ml-8 shrink-0 hidden lg:block">
@@ -79,7 +79,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
     );
   }
 
-  // Default uiVariant - standard
+  // Default style - standard
   return (
     <header
       className={classNames(
@@ -92,7 +92,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
           <Logo redirectUrl={logoRedirect} logo={logo} />
         </div>
         <div className="flex-1 pt-6">
-          <NavMenu menu={menu} uiVariant={uiVariant} />
+          <NavMenu menu={menu} style={style} />
         </div>
         {buttons && buttons.length > 0 && (
           <div className="ml-8 shrink-0 hidden lg:block">

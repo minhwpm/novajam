@@ -1,12 +1,12 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import classNames from "classnames";
-import { LinkType, NavigationUiVariant, SubmenuType } from "@/helpers/types";
+import { LinkType, Navigationstyle, SubmenuType } from "@/helpers/types";
 import { Submenu } from "./Submenu/Submenu";
 import { NavLinkItem } from "../NavLinkItem/NavLinkItem";
 
 export interface NavMenuProps {
   menu: Array<LinkType | SubmenuType>;
-  uiVariant?: NavigationUiVariant
+  style?: Navigationstyle
 }
 
 export function getMenuItemText(item: LinkType | SubmenuType): string {
@@ -14,7 +14,7 @@ export function getMenuItemText(item: LinkType | SubmenuType): string {
   return item.title;
 }
 
-const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
+const NavMenu: React.FC<NavMenuProps> = ({ menu, style }) => {
   return (
     <NavigationMenu.Root
       className={classNames(
@@ -45,7 +45,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, uiVariant }) => {
                 </NavLinkItem>
               </div>
             )}
-            {item.contentType === "submenu" && <Submenu key={item.id} data={item} uiVariant={uiVariant} />}
+            {item.contentType === "submenu" && <Submenu key={item.id} data={item} style={style} />}
           </NavigationMenu.Item>
         ))}
       </NavigationMenu.List>

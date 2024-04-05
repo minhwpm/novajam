@@ -70,7 +70,7 @@ export default async function getNavigation(url: string) {
                 withArrow
               }
             }
-            uiVariant
+            style
           }
         }
       }

@@ -61,7 +61,7 @@ export interface SubmenuType {
   contentType: "submenu"
 }
 
-export type NavigationUiVariant = "standard" | "minimal" | "overlay"
+export type Navigationstyle = "standard" | "minimal" | "overlay"
 export interface NavigationType {
   url: string
   logo: MediaType,
@@ -69,7 +69,7 @@ export interface NavigationType {
   menu: Array<LinkType | SubmenuType>
   buttons: Array<ButtonType>
   hotButtons: Array<ButtonType>
-  uiVariant: NavigationUiVariant
+  style: Navigationstyle
 }
 
 export interface FooterType {
@@ -167,7 +167,7 @@ export type FeaturedContentType = {
   content: ContentPieceType
   htmlid: string
   layout: FeaturedContentLayoutType
-  uiVariant: "standard" | "extended"
+  style: "standard" | "extended"
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
   darkMode: boolean

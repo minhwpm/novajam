@@ -1,13 +1,13 @@
 "use client"
 import classNames from "classnames";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { NavigationUiVariant, SubmenuType } from "@/helpers/types";
+import { Navigationstyle, SubmenuType } from "@/helpers/types";
 import { usePathname } from "next/navigation";
 import { Dropdown } from "./Dropdown";
 import { Mega } from "./Mega";
 import { FaChevronDown } from "react-icons/fa";
 
-export const Submenu: React.FC<{ data: SubmenuType, uiVariant?: NavigationUiVariant }> = ({ data, uiVariant }) => {
+export const Submenu: React.FC<{ data: SubmenuType, style?: Navigationstyle }> = ({ data, style }) => {
   const pathname = usePathname();
   return (
     <>
@@ -40,11 +40,11 @@ export const Submenu: React.FC<{ data: SubmenuType, uiVariant?: NavigationUiVari
           "text-neutral-800 text-base",
           {
             "absolute top-full left-0 w-full bg-white border-t shadow-lg data-[state=open]:animate-slidingSubmenu":
-              data.layout === "mega" && uiVariant === "standard",
+              data.layout === "mega" && style === "standard",
           },
           {
             "absolute top-full left-0 w-full -mt-4 bg-white shadow-radiant rounded-md data-[state=open]:animate-slidingSubmenu":
-              data.layout === "mega" && uiVariant === "overlay",
+              data.layout === "mega" && style === "overlay",
           },
           {
             "absolute top-full left-0 w-64 -mt-4 p-3 bg-white shadow-radiant rounded-md data-[state=open]:animate-slidingSubmenu":
