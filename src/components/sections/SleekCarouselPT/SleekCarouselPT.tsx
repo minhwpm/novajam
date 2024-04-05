@@ -57,7 +57,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
       <div className="flex flex-col lg:flex-row gap-5 lg:py-10">
         <div className="lg:w-1/2 lg:pr-10">
           {eyebrow && (
-            <p className="uppercase tracking-widest text-primary-600 font-semibold mb-2">
+            <p className="uppercase tracking-widest text-primary-600 font-medium mb-2">
               {eyebrow}
             </p>
           )}

@@ -98,7 +98,7 @@ export const HeroSection: React.FC<{
         {data.eyebrow && (
           <div
             className={classNames(
-              "font-semibold tracking-widest max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-500",
+              "font-medium tracking-widest max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-500",
               { "text-primary-600": !darkMode },
               { "text-neutral-100": darkMode }
             )}

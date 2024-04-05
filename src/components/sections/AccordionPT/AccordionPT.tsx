@@ -50,7 +50,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     <div className="flex-1 flex flex-col items-center">
                       <div
                         className={classNames(
-                          "text-sm font-semibold tracking-widest",
+                          "text-sm font-medium tracking-widest",
                           { "text-neutral-500": !darkMode },
                           { "text-neutral-200": darkMode },
                         )}

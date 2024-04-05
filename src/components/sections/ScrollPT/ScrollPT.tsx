@@ -41,7 +41,7 @@ const TextContent = ({
       {eyebrow && (
         <div
           className={classNames(
-            "tracking-widest px-4 py-1 text-sm font-semibold text-primary-600 bg-primary-100 rounded-assets self-start"
+            "tracking-widest px-4 py-1 text-sm font-medium text-primary-600 bg-primary-100 rounded-assets self-start"
           )}
         >
           {eyebrow}
@@ -101,7 +101,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               {section.eyebrow && (
                 <div
                   className={classNames(
-                    "tracking-widest px-2 py-1 text-sm font-semibold text-primary-600 bg-primary-100 bg-opacity-10 rounded-assets"
+                    "tracking-widest px-2 py-1 text-sm font-medium text-primary-600 bg-primary-100 bg-opacity-10 rounded-assets"
                   )}
                 >
                   {section.eyebrow}

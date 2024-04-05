@@ -1,40 +1,63 @@
-"use client"
+"use client";
 import classNames from "classnames";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/elements/Button/Button";
-import { Container }from "@/components/elements/Container/Container";
+import { Container } from "@/components/elements/Container/Container";
 import { InquiryFormType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText";
 import { InputField } from "./InputField";
 import { TextAreaField } from "./TextAreaField";
 import { SelectField } from "./SelectField";
 import { DatePickerField } from "@/components/elements/DatePickerField/DatePickerField";
-import * as Toast from '@radix-ui/react-toast';
+import * as Toast from "@radix-ui/react-toast";
 import { AiOutlineClose, AiOutlineLoading3Quarters } from "react-icons/ai";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { RiErrorWarningLine } from "react-icons/ri";
 
 export type FormValues = {
   [x: string]: string | Date | undefined | null;
-}
+};
 
 type Props = {
-  data: InquiryFormType,
-}
+  data: InquiryFormType;
+};
 export const InquiryForm: React.FC<Props> = ({ data }) => {
-  const { title, heading, eyebrow, summary, description, formType, fields, dateFormat, submitButton, successMessage, errorMessage, backgroundColor, backgroundImage, htmlid, layout, darkMode } = data;
-  const { register, control, handleSubmit, reset, formState: { errors, isSubmitting, isSubmitted, isSubmitSuccessful } } = useForm<FormValues>();
-  
+  const {
+    title,
+    heading,
+    eyebrow,
+    summary,
+    description,
+    formType,
+    fields,
+    dateFormat,
+    submitButton,
+    successMessage,
+    errorMessage,
+    backgroundColor,
+    backgroundImage,
+    htmlid,
+    layout = "horizontal",
+    darkMode,
+  } = data;
+  const {
+    register,
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting, isSubmitted, isSubmitSuccessful },
+  } = useForm<FormValues>();
+
   async function onSubmitValid(formValues: FormValues) {
     for (const key in formValues) {
       if (formValues[key] instanceof Date) {
-        formValues[key] =  formValues[key]?.toLocaleString(undefined, {
+        formValues[key] = formValues[key]?.toLocaleString(undefined, {
           year: "numeric",
           month: "long",
           day: "numeric",
           hour: "numeric",
           minute: "numeric",
-        })
+        });
       }
     }
     try {
@@ -52,7 +75,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
         }),
       });
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
   }
 
@@ -84,7 +107,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               {eyebrow && (
                 <div
                   className={classNames(
-                    "tracking-widest font-semibold text-center lg:text-start mb-2",
+                    "tracking-widest font-medium text-center lg:text-start mb-2",
                     { "text-neutral-100": darkMode }
                   )}
                 >
@@ -94,8 +117,9 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               {heading && (
                 <div
                   className={classNames(
-                    "text-heading leading-tight font-heading tracking-wide text-center lg:text-start mb-5",
-                    { "text-neutral-50 drop-shadow-lg": darkMode }
+                    "text-heading text-center leading-tight font-heading tracking-wide mb-5",
+                    { "text-neutral-50 drop-shadow-lg": darkMode },
+                    { "lg:text-start": layout === "horizontal" }
                   )}
                 >
                   <RichText2 data={heading} />
@@ -104,8 +128,9 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               {summary && (
                 <div
                   className={classNames(
-                    "prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center lg:text-start mb-5",
-                    { "text-neutral-100": darkMode }
+                    "prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center mb-5",
+                    { "text-neutral-100": darkMode },
+                    { "lg:text-start": layout === "horizontal" }
                   )}
                 >
                   {summary}
@@ -261,4 +286,4 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
       )}
     </>
   );
-}
+};

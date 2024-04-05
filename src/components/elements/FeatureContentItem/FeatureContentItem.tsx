@@ -32,7 +32,7 @@ export const FeatureContentItem = ({ data, idx, setVisibleIdx, alignment }: Prop
       {eyebrow && (
         <div
           className={classNames(
-            "tracking-widest px-4 py-1 text-sm font-semibold text-primary-600 bg-primary-100 rounded-assets self-start"
+            "tracking-widest px-4 py-1 text-sm font-medium text-primary-600 bg-primary-100 rounded-assets self-start"
           )}
         >
           {eyebrow}

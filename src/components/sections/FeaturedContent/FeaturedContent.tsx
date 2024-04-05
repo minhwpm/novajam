@@ -16,7 +16,7 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
       {eyebrow && (
         <div
           className={classNames(
-            "tracking-widest mb-2 font-semibold",
+            "tracking-widest mb-2 font-medium",
             { "text-primary-600": !darkMode },
             { "text-neutral-100": darkMode },
             {

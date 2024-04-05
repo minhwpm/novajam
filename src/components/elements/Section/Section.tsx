@@ -70,7 +70,7 @@ export const Section: React.FC<Props> = ({
         {eyebrow && (
           <div
             className={classNames(
-              "tracking-widest font-semibold text-center mx-auto mb-2",
+              "tracking-widest font-medium text-center mx-auto mb-2",
               { "text-primary-600": !darkMode },
               { "text-neutral-100": darkMode }
             )}

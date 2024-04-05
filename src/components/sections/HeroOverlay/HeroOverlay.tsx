@@ -102,7 +102,7 @@ export const HeroOverlaySection: React.FC<{
               <div
                 className={classNames(
                   "opacity-0 animate-slidingHeroContent animation-delay-500",
-                  "tracking-widest font-semibold lg:text-lg xl:text-xl max-w-xl"
+                  "tracking-widest font-medium lg:text-lg xl:text-xl max-w-xl"
                 )}
               >
                 {data.eyebrow}

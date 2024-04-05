@@ -66,7 +66,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                   >
                     <div
                       className={classNames(
-                        "text-sm tracking-widest font-semibold group-hover/trigger:text-neutral-800 group-data-[state='active']/trigger:text-primary-100 transition-colors duration-500 ease",
+                        "text-sm tracking-widest font-medium group-hover/trigger:text-neutral-800 group-data-[state='active']/trigger:text-primary-100 transition-colors duration-500 ease",
                         { "text-neutral-500": !darkMode },
                         { "text-neutral-100": darkMode }
                       )}
