@@ -55,21 +55,30 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout, alignment }) => {
         "bg-white" : !darkMode
       })}
     >
-      <MediaItem data={portrait} aspectRatio="square" />
+      <div className="relative">
+        <MediaItem data={portrait} aspectRatio="square" />
+        {summary && (
+          <div
+            className={classNames("absolute bottom-0 opacity-0 group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-b-assets gr p-4 text-neutral-200 bg-primary-700 prose")}
+          >
+            <div className="line-clamp-5">
+              {summary}
+            </div>
+          </div>
+        )}
+      </div>
       <div className={classNames("w-full px-4 pt-4 pb-6 flex flex-col gap-1 rounded-b-assets",
         { "text-center": alignment === "center" },
         { "text-end": alignment === "end" }
       )}>
-        <div
-          className={classNames(
-            "font-heading font-semibold text-lg",
-            {
-              "text-neutral-800":
-                !darkMode,
-            },
-            { "text-neutral-50": darkMode }
-          )}
-        >
+        <div className={classNames(
+          "font-heading font-semibold text-lg",
+          {
+            "text-neutral-800":
+              !darkMode,
+          },
+          { "text-neutral-50": darkMode }
+        )}>
           {fullName}
         </div>
         {(role || specialization || summary) && (
@@ -100,18 +109,17 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout, alignment }) => {
                 ))}
               </div>
             )}
-            {summary && (
-              <div
-                className={classNames("prose line-clamp-3", {
-                  "text-neutral-200": darkMode,
-                })}
-              >
-                {summary}
-              </div>
-            )}
+            
           </>
         )}
-        {sns && <SNS data={sns} />}
+        {sns && (
+          <div className={classNames("flex",
+            {"justify-center": alignment === "center"},
+            {"justify-end": alignment === "end"}
+          )}>
+            <SNS data={sns} />
+          </div>
+        )}
       </div>
     </div>
   );

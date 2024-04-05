@@ -141,14 +141,12 @@ export const BLOG_PAGE_SIZE = 9
 
 export type ExpertType = {
   id: string
-  slug: string | null
   fullName: string
   portrait: MediaType | null
   role: string | null
   specialization: Array<string> | null
   organization: string | null
   summary: string | null
-  description: Document | null
   sns: SNSType | null
   contentType: "expert"
 }
@@ -165,7 +163,6 @@ export type FeaturedContentType = {
   description: Document | null 
   media: Array<MediaType>
   mediaAspectRatio: MediaAspectRatioType
-  url?: string
   buttons: Array<ButtonType>
   content: ContentPieceType
   htmlid: string

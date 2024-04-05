@@ -42,7 +42,6 @@ export default async function getBlogDetails(slug: string) {
               sys {
                 id
               }
-              slug
               fullName
               portrait {
                 url
