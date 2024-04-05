@@ -73,12 +73,6 @@ export default async function getBlogDetails(slug: string) {
     throw new Error("Failed to fetch Blog data. Error", data.error)
   }
   // console.log(`BLOG RAW DATA: ${JSON.stringify(data, null, 4)}`)
-  // async function getSectionData(contentType: string, id: string) {
-    
-  //   if (contentType === "inquiryform") {
-  //     return await getInquiryForm(id)
-  //   }
-  // }
 
   const richtextContent = data.data.blogCollection.items[0].content.json.content
   for(let i = 0; i < richtextContent.length; i++) {

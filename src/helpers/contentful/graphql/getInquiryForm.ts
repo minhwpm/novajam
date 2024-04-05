@@ -53,14 +53,17 @@ export default async function getInquiryForm(id: string) {
             }
             successMessage
             errorMessage
+            htmlid
+            formType
+            layout
+            backgroundColor
             backgroundImage {
               url
               title
               width
               height
             }
-            htmlid
-            formType
+            darkMode
           }
         }
       }

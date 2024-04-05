@@ -280,20 +280,19 @@ export type InquiryFormType = {
   description: Document | null
   fields: Array<FormFieldType>
   dateFormat: "DD/MM/YYYY" | "MM/DD/YYYY" | "YYYY/MM/DD"
-  submitButton: {
-    text: string
-    url: string
-    buttonVariant: ButtonVariant
-  } | null
-  successMessage: string
-  errorMessage: string
+  submitButton: ButtonType | null
+  successMessage: string | null
+  errorMessage: string | null
+  htmlid: string | null
+  formType: string
+  layout: "horizontal" | "vertical"
+  backgroundColor: BackgroundColorType | null
   backgroundImage: {
     url: string
     title: string
     width: number
     height: number
   }
-  htmlid: string
-  formType: string
+  darkMode: boolean
   contentType: "inquiryform"
 }

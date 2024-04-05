@@ -1,5 +1,3 @@
-// @TODO eslint-disable complexity
-/* eslint-disable complexity */ 
 import classNames from "classnames";
 import { Navigation } from "@/components/sections/Navigation/Navigation";
 import { Footer } from "@/components/sections/Footer/Footer";

@@ -21,10 +21,8 @@ export type FormValues = {
 type Props = {
   data: InquiryFormType,
 }
-// @TODO implement layout "horizontal", "vertical" for InquiryForm
-// @TODO implement darkMode for InquiryForm
 export const InquiryForm: React.FC<Props> = ({ data }) => {
-  const { title, heading, eyebrow, summary, description, formType, fields, dateFormat, submitButton, successMessage, errorMessage, backgroundImage, htmlid } = data;
+  const { title, heading, eyebrow, summary, description, formType, fields, dateFormat, submitButton, successMessage, errorMessage, backgroundColor, backgroundImage, htmlid, layout, darkMode } = data;
   const { register, control, handleSubmit, reset, formState: { errors, isSubmitting, isSubmitted, isSubmitSuccessful } } = useForm<FormValues>();
   
   async function onSubmitValid(formValues: FormValues) {
@@ -61,7 +59,10 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
   return (
     <>
       <section
-        id={htmlid}
+        id={htmlid ?? ""}
+        className={classNames(
+          `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
+        )}
         style={
           backgroundImage
             ? {
@@ -74,17 +75,17 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
         }
       >
         <Container>
-          <div className="grid grid-cols-12 gap-y-10 md:gap-x-10 my-24">
+          <div className="grid grid-cols-12 gap-x-10 gap-y-4 my-24">
             <div
-              className={classNames(
-                "col-span-12 lg:col-span-5 flex flex-col items-center lg:items-start",
-                { "text-white drop-shadow-lg": backgroundImage }
-              )}
+              className={classNames("col-span-12 flex flex-col items-center", {
+                "lg:col-span-5 lg:items-start": layout === "horizontal",
+              })}
             >
               {eyebrow && (
                 <div
                   className={classNames(
-                    "tracking-widest font-semibold text-center lg:text-start mb-2"
+                    "tracking-widest font-semibold text-center lg:text-start mb-2",
+                    { "text-neutral-100": darkMode }
                   )}
                 >
                   {eyebrow}
@@ -93,7 +94,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               {heading && (
                 <div
                   className={classNames(
-                    "text-heading leading-tight font-heading tracking-wide text-center lg:text-start mb-5"
+                    "text-heading leading-tight font-heading tracking-wide text-center lg:text-start mb-5",
+                    { "text-neutral-50 drop-shadow-lg": darkMode }
                   )}
                 >
                   <RichText2 data={heading} />
@@ -102,7 +104,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               {summary && (
                 <div
                   className={classNames(
-                    "prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center lg:text-start mb-5"
+                    "prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center lg:text-start mb-5",
+                    { "text-neutral-100": darkMode }
                   )}
                 >
                   {summary}
@@ -111,19 +114,29 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               {description && (
                 <div
                   className={classNames("prose 2xl:prose-lg", {
-                    "text-white drop-shadow-lg": backgroundImage,
+                    "text-neutral drop-shadow-lg": darkMode,
                   })}
                 >
                   <RichText2 data={description} />
                 </div>
               )}
             </div>
-            <div className="col-span-12 lg:col-span-7">
+            <div
+              className={classNames(
+                "col-span-12 flex flex-col ",
+                { "items-center": layout === "vertical" },
+                { "lg:col-span-7 lg:items-end": layout === "horizontal" }
+              )}
+            >
               <form
                 className={classNames(
-                  "bg-white first-letter:max-w-xl mx-auto lg:mr-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-6 pb-12 rounded-assets",
+                  "bg-white w-full max-w-2xl grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-4 pb-12 rounded-assets",
                   { "bg-opacity-90": backgroundImage },
-                  { "gap-x-0": fields.length === 1 }
+                  { "gap-x-0": fields.length === 1 },
+                  {
+                    "shadow-radiant":
+                      !darkMode && (backgroundColor || backgroundImage),
+                  }
                 )}
                 onSubmit={handleSubmit(onSubmitValid)}
                 // onSubmit={handleSubmit(() => console.log("Submitting"))}
@@ -152,16 +165,14 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                         </div>
                       )}
                       {fieldItem.fieldType === "select" && (
-                        <SelectField
-                          data={fieldItem}
-                          control={control}
-                        />
+                        <SelectField data={fieldItem} control={control} />
                       )}
                       {fieldItem.fieldType === "date" && (
                         <DatePickerField
                           data={fieldItem}
                           control={control}
-                          dateFormat={dateFormat}                         />
+                          dateFormat={dateFormat}
+                        />
                       )}
                       {fieldItem.fieldType === "datetime" && (
                         <>
@@ -187,6 +198,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                 <div className={classNames("col-span-2 flex flex-col mt-6")}>
                   <Button
                     variant={submitButton?.buttonVariant ?? "black"}
+                    withArrow={submitButton?.withArrow}
                     size="lg"
                     type="submit"
                   >
@@ -201,7 +213,10 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
       {isSubmitting && (
         <Toast.Provider swipeDirection="right" duration={100000}>
           <Toast.Root className="data-[state=open]:animate-fadeIn">
-            <AiOutlineLoading3Quarters className="animate-spin text-primary-500" size={50} />
+            <AiOutlineLoading3Quarters
+              className="animate-spin text-primary-500"
+              size={50}
+            />
           </Toast.Root>
           <Toast.Viewport className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col p-6 m-0 w-24 max-w-full z-50" />
         </Toast.Provider>
