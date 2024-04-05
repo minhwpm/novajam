@@ -1,4 +1,3 @@
-import getCTA from "./getCTA"
 import getContentList from "./getContentList"
 import getFeaturedContent from "./getFeaturedContent"
 import getHero from "./getHero"
@@ -59,11 +58,6 @@ export default async function getPage(url: string) {
                     id
                   }
                 }
-                ... on Cta {
-                  sys {
-                    id
-                  }
-                }
                 ... on CardList {
                   sys {
                     id
@@ -99,9 +93,6 @@ export default async function getPage(url: string) {
   async function getSectionData(contentType: string, id: string) {
     if (contentType === "hero") {
       return await getHero(id)
-    }
-    if (contentType === "cta") {
-      return await getCTA(id)
     }
     if (contentType === "presentation") {
       return await getContentPT(id)

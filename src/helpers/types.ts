@@ -105,7 +105,7 @@ export type PageType = {
   id: string
   title: string
   url: string
-  content: HeroType | CTAType | ContentPTType | ContentListType | FeaturedContentType | null
+  content: HeroType | ContentPTType | ContentListType | FeaturedContentType | null
   fontMain: string
   fontHeading: string
   headingFontSize: 'standard' | 'standout' | 'impactful'
@@ -187,14 +187,6 @@ export type HeroType = {
   backgroundImage: MediaType | null
   darkMode: boolean
   contentType: "hero"
-}
-
-export type CTAType = {
-  id: string
-  heading: Document
-  content: Document | null
-  buttons: Array<ButtonType>
-  contentType: "cta"
 }
 
 export type ContentPTType = {

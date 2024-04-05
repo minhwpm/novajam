@@ -1,4 +1,3 @@
-import { CTA } from "@/components/sections/CTA/CTA";
 import { Hero } from "@/components/sections/Hero/Hero";
 import { HeroOverlay } from "@/components/sections/HeroOverlay/HeroOverlay";
 import { ScrollPT } from "@/components/sections/ScrollPT/ScrollPT";
@@ -10,7 +9,6 @@ import { CarouselPT } from "@/components/sections/CarouselPT/CarouselPT";
 import { SleekCarouselPT } from "@/components/sections/SleekCarouselPT/SleekCarouselPT";
 import { InquiryForm } from "@/components/sections/InquiryForm/InquiryForm";
 import {
-  CTAType,
   ContentListType,
   FeaturedContentType,
   HeroType,
@@ -18,7 +16,7 @@ import {
   ContentPTType,
 } from "@/helpers/types";
 
-type ComponentType = HeroType | CTAType | ContentPTType | ContentListType | FeaturedContentType | InquiryFormType
+type ComponentType = HeroType | ContentPTType | ContentListType | FeaturedContentType | InquiryFormType
 
 function PresentationMapping({ data }: { data: ContentPTType }) {
   switch (data.layout) {
@@ -47,8 +45,6 @@ function SectionComponentMapping ({ data }: { data: ComponentType }) {
         return <HeroOverlay data={data} />
       }
       return null
-    case "cta":
-      return <CTA data={data} />
     case "presentation":
       return <PresentationMapping data={data} />
     case "feature":
@@ -66,7 +62,7 @@ export const SectionMapping: React.FC<{
   data: Array<ComponentType>;
 }> = ({ data }) => {
   return (
-    <main className="flex flex-col pb-32">
+    <main className="flex flex-col">
       {data?.map((section) => (
         <SectionComponentMapping key={section.id} data={section} />
       ))}

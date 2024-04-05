@@ -11,7 +11,7 @@ interface Props {
 export const Footer: React.FC<Props> = ({ data }) => {
   const { logo, logoRedirect, copyright, sns, menu } = data
   return (
-    <footer className="pt-6 pb-20">
+    <footer className="py-20">
       <div className="container mx-auto px-4 grid grid-cols-12 gap-x-5 gap-y-10">
         <div className="col-span-12 lg:col-span-6 xl:col-span-4 flex flex-col items-center lg:items-start">
           {logo?.url && 
