@@ -1,13 +1,13 @@
 "use client"
 import classNames from "classnames";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { Navigationstyle, SubmenuType } from "@/helpers/types";
+import { NavigationStyle, SubmenuType } from "@/helpers/types";
 import { usePathname } from "next/navigation";
 import { Dropdown } from "./Dropdown";
 import { Mega } from "./Mega";
 import { FaChevronDown } from "react-icons/fa";
 
-export const Submenu: React.FC<{ data: SubmenuType, style?: Navigationstyle }> = ({ data, style }) => {
+export const Submenu: React.FC<{ data: SubmenuType, style?: NavigationStyle }> = ({ data, style }) => {
   const pathname = usePathname();
   return (
     <>

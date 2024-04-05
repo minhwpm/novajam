@@ -10,7 +10,7 @@ import NavMenuMinimal from "@/components/elements/NavMenuMinimal/NavMenuMinimal"
 import { MediaType, NavigationType } from "@/helpers/types";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 
-// @TODO implement darkMode for Navigation
+// @TODO implement darkMode, backgroundColor for Navigation
 const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
   redirectUrl,
   logo,
@@ -37,7 +37,7 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
         <div className={classNames("absolute w-screen flex justify-center")}>
           <div className="px-4 pt-10 container flex items-center justify-between">
             <div className="shrink-0">
-              <Logo redirectUrl={logoRedirect} logo={logo} />
+              <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
             </div>
             <div className="flex gap-5 items-center">
               {buttons && buttons.length > 0 && (
@@ -62,17 +62,17 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
         >
           <div className="container p-4 lg:py-0 flex items-center">
             <div className="shrink-0">
-              <Logo redirectUrl={logoRedirect} logo={logo} />
+              <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
             </div>
             <div className="flex-1 pt-6 drop-shadow-lg lg:text-lg">
-              <NavMenu menu={menu} style={style} />
+              {menu && <NavMenu menu={menu} style={style} /> }
             </div>
             {buttons && buttons.length > 0 && (
               <div className="ml-8 shrink-0 hidden lg:block">
                 <ButtonGroup data={buttons} />
               </div>
             )}
-            <NavMenuMobile menu={menu} buttons={buttons} />
+            {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} /> }
           </div>
         </div>
       </header>
@@ -89,17 +89,17 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
     >
       <div className="container p-4 lg:py-0 mx-auto flex items-center">
         <div className="shrink-0">
-          <Logo redirectUrl={logoRedirect} logo={logo} />
+          <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
         </div>
         <div className="flex-1 pt-6">
-          <NavMenu menu={menu} style={style} />
+          {menu && <NavMenu menu={menu} style={style} /> }
         </div>
         {buttons && buttons.length > 0 && (
           <div className="ml-8 shrink-0 hidden lg:block">
             <ButtonGroup data={buttons} />
           </div>
         )}
-        <NavMenuMobile menu={menu} buttons={buttons} />
+        {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} /> }
       </div>
     </header>
   );
@@ -109,7 +109,7 @@ export const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
   return(
     <>
       <Header data={data} />
-      {data.hotButtons.length > 0 && (
+      {data.hotButtons && data.hotButtons.length > 0 && (
         <div className={classNames(
           "fixed z-[999999]",
           "w-full bottom-0 rounded-t-assets", //sm devices

@@ -1,12 +1,12 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import classNames from "classnames";
-import { LinkType, Navigationstyle, SubmenuType } from "@/helpers/types";
+import { LinkType, NavigationStyle, SubmenuType } from "@/helpers/types";
 import { Submenu } from "./Submenu/Submenu";
 import { NavLinkItem } from "../NavLinkItem/NavLinkItem";
 
 export interface NavMenuProps {
   menu: Array<LinkType | SubmenuType>;
-  style?: Navigationstyle
+  style?: NavigationStyle
 }
 
 export function getMenuItemText(item: LinkType | SubmenuType): string {

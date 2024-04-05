@@ -61,15 +61,17 @@ export interface SubmenuType {
   contentType: "submenu"
 }
 
-export type Navigationstyle = "standard" | "minimal" | "overlay"
+export type NavigationStyle = "standard" | "minimal" | "overlay"
 export interface NavigationType {
   url: string
   logo: MediaType,
-  logoRedirect?: string
+  logoRedirect: string | null
   menu: Array<LinkType | SubmenuType>
   buttons: Array<ButtonType>
   hotButtons: Array<ButtonType>
-  style: Navigationstyle
+  style: NavigationStyle
+  backgroundColor: BackgroundColorType | null
+  darkMode: boolean
 }
 
 export interface FooterType {
