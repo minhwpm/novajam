@@ -8,6 +8,7 @@ interface Props {
   data: FooterType
 }
 
+// @TODO implement backgroundColor, darkMode for Footer
 export const Footer: React.FC<Props> = ({ data }) => {
   const { logo, logoRedirect, copyright, sns, menu } = data
   return (
