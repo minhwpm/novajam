@@ -1,4 +1,4 @@
-import { ExpertType, AlignmentType } from "@/helpers/types";
+import { ExpertType, TextAlignmentType } from "@/helpers/types";
 import { SNS } from "@/components/elements/SNS/SNS";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
@@ -8,7 +8,7 @@ import classNames from "classnames";
 interface Props {
   data: ExpertType;
   layout: "horizontal" | "vertical";
-  alignment?: AlignmentType;
+  alignment?: TextAlignmentType;
 }
 
 export const ExpertPreview: React.FC<Props> = ({ data, layout, alignment }) => {

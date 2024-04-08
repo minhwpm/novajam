@@ -71,7 +71,6 @@ export default async function getNavigation(url: string) {
               }
             }
             style
-            backgroundColor
             darkMode
           }
         }

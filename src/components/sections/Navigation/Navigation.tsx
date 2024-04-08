@@ -10,7 +10,6 @@ import NavMenuMinimal from "@/components/elements/NavMenuMinimal/NavMenuMinimal"
 import { MediaType, NavigationType } from "@/helpers/types";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 
-// @TODO implement darkMode, backgroundColor for Navigation
 const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
   redirectUrl,
   logo,
@@ -27,15 +26,19 @@ const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
   </Link>
 );
 
-const Header: React.FC<{data: NavigationType}> = ({ data }) => {
-  const { logo, logoRedirect, menu, buttons, style } = data;
+const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
+  const { logo, logoRedirect, menu, buttons, style, darkMode } = data;
   const sticky = useStickyHeaderOnScrollUp();
 
   if (style === "minimal") {
     return (
       <header className={classNames("relative z-[99999] tracking-wider")}>
-        <div className={classNames("absolute w-screen flex justify-center")}>
-          <div className="px-4 pt-10 container flex items-center justify-between">
+        <div
+          className={classNames("absolute w-screen flex justify-center", {
+            "text-neutral-50": darkMode,
+          })}
+        >
+          <div className="px-4 pt-6 lg:pt-10 container flex items-center justify-between">
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
             </div>
@@ -54,10 +57,13 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
   }
   if (style === "overlay") {
     return (
-      <header className={classNames("relative z-[99999] w-screen tracking-wider")}>
+      <header
+        className={classNames("relative z-[99999] w-screen tracking-wider")}
+      >
         <div
           className={classNames(
-            "absolute top-0 left-0 right-0 pt-4 flex justify-center bg-gradient-to-b from-neutral-800/60 to-neutral-10/80 text-white"
+            "absolute top-0 left-0 right-0 pt-4 flex justify-center bg-gradient-to-b",
+            { "text-neutral-50": darkMode }
           )}
         >
           <div className="container p-4 lg:py-0 flex items-center">
@@ -65,56 +71,64 @@ const Header: React.FC<{data: NavigationType}> = ({ data }) => {
               <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
             </div>
             <div className="flex-1 pt-6 drop-shadow-lg lg:text-lg">
-              {menu && <NavMenu menu={menu} style={style} /> }
+              {menu && <NavMenu menu={menu} style={style} />}
             </div>
             {buttons && buttons.length > 0 && (
               <div className="ml-8 shrink-0 hidden lg:block">
                 <ButtonGroup data={buttons} />
               </div>
             )}
-            {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} /> }
+            {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} />}
           </div>
         </div>
       </header>
     );
   }
-
-  // Default style - standard
   return (
+    // Default style - standard
     <header
       className={classNames(
-        "relative bg-white z-[99999] tracking-wider",
-        { "sticky w-full z-50 top-0 border-b animate-headerSlideIn": sticky }
+        "relative z-[99999] tracking-wider",
+        { "sticky w-full z-50 top-0 animate-headerSlideIn": sticky },
+        { "bg-white": !darkMode },
+        { "border-b": sticky && !darkMode },
+        { "text-neutral-50 bg-neutral-950": darkMode }
       )}
     >
-      <div className="container p-4 lg:py-0 mx-auto flex items-center">
+      <div
+        className={classNames(
+          "container p-4 lg:py-0 mx-auto flex items-center"
+        )}
+      >
         <div className="shrink-0">
           <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
         </div>
         <div className="flex-1 pt-6">
-          {menu && <NavMenu menu={menu} style={style} /> }
+          {menu && <NavMenu menu={menu} style={style} />}
         </div>
         {buttons && buttons.length > 0 && (
           <div className="ml-8 shrink-0 hidden lg:block">
             <ButtonGroup data={buttons} />
           </div>
         )}
-        {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} /> }
+        {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} />}
       </div>
     </header>
   );
 };
 
-export const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
-  return(
+export const Navigation: React.FC<{ data: NavigationType }> = ({ data }) => {
+  return (
     <>
       <Header data={data} />
       {data.hotButtons && data.hotButtons.length > 0 && (
-        <div className={classNames(
-          "fixed z-[999999]",
-          "w-full bottom-0 rounded-t-assets", //sm devices
-          "lg:rotate-90 lg:translate-y-1/2 lg:translate-x-1/2 lg:rounded-t-none lg:rounded-b-assets lg:w-auto lg:bottom-1/2 lg:right-0" //big devices
-        )}>
+        <div
+          className={classNames(
+            "fixed z-[999999]",
+            "w-full bottom-0 rounded-t-assets", //sm devices
+            "lg:rotate-90 lg:translate-y-1/2 lg:translate-x-1/2 lg:rounded-t-none lg:rounded-b-assets lg:w-auto lg:bottom-1/2 lg:right-0" //big devices
+          )}
+        >
           <div className="relative flex justify-center py-2 bg-white bg-opacity-80 shadow-radiant lg:py-0 lg:bg-transparent">
             {data.hotButtons.map((button) => (
               <div key={button.id} className="flex-1 flex justify-center">
@@ -133,5 +147,5 @@ export const Navigation: React.FC<{data: NavigationType}> = ({ data }) => {
         </div>
       )}
     </>
-  )
-}
+  );
+};

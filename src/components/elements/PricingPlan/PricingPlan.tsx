@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import classNames from "classnames";
 import { Button } from "../Button/Button";
-import { AlignmentType, PricingPlanType } from "@/helpers/types";
+import { TextAlignmentType, PricingPlanType } from "@/helpers/types";
 import { RichText2 } from "../RichText/RichText";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 
 export const PricingPlan: React.FC<{
   data: PricingPlanType;
-  alignment?: AlignmentType;
+  alignment?: TextAlignmentType;
 }> = ({ data, alignment }) => {
   const darkMode = useContext(DarkModeContext);
   const { title, pricing, pricingSuffix, badge, description, ctaButton } = data;

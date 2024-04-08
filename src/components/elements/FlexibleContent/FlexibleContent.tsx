@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useContext } from "react";
-import { AlignmentType, ContentPieceType } from "@/helpers/types";
+import { TextAlignmentType, ContentPieceType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
@@ -8,7 +8,7 @@ import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 
 const TextPart: React.FC<{
   data: ContentPieceType;
-  alignment?: AlignmentType;
+  alignment?: TextAlignmentType;
 }> = ({ data, alignment }) => {
   const darkMode = useContext(DarkModeContext);
   const { heading, eyebrow, description, buttons } = data;
@@ -59,7 +59,7 @@ const TextPart: React.FC<{
 
 export const FlexibleContent: React.FC<{
   data: ContentPieceType;
-  alignment?: AlignmentType;
+  alignment?: TextAlignmentType;
   layout?: "vertical" | "horizontal";
 }> = ({ data, alignment = "center", layout = "vertical" }) => {
   const darkMode = useContext(DarkModeContext);

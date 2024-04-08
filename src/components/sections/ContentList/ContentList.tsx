@@ -17,9 +17,10 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     summary,
     exploreMore,
     content,
-    layout,
+    style,
     size,
-    alignment,
+    headingAlignment,
+    contentAlignment,
     htmlid,
     backgroundColor,
     backgroundImage,
@@ -35,12 +36,19 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         eyebrow={eyebrow}
         heading={heading}
         summary={summary}
-        framed={layout !== "carousel"}
+        alignment={headingAlignment}
+        framed={style !== "carousel"}
         backgroundImage={backgroundImage}
         darkMode={darkMode}
       >
         {exploreMore && (
-          <div className="w-full flex justify-center -mt-8 mb-4">
+          <div
+            className={classNames(
+              "w-full flex -mt-8 mb-4",
+              { "justify-center": headingAlignment === "center" },
+              { "justify-end": headingAlignment === "end" }
+            )}
+          >
             <Button
               size="lg"
               withArrow={true}
@@ -51,14 +59,22 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
             </Button>
           </div>
         )}
-        {layout === "carousel" && (
-          <CarouselList list={content} size={size} alignment={alignment} />
+        {style === "carousel" && (
+          <CarouselList
+            list={content}
+            size={size}
+            alignment={contentAlignment}
+          />
         )}
-        {layout === "masonry" && (
-          <MasonryList list={content} size={size} alignment={alignment} />
+        {style === "masonry" && (
+          <MasonryList
+            list={content}
+            size={size}
+            alignment={contentAlignment}
+          />
         )}
-        {layout === "deck" && (
-          <DeckList list={content} size={size} alignment={alignment} />
+        {style === "deck" && (
+          <DeckList list={content} size={size} alignment={contentAlignment} />
         )}
       </Section>
     </DarkModeContext.Provider>

@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import { ContentMapping } from "./ContentMapping"
-import { AlignmentType, Content, ContentSize } from "@/helpers/types";
+import { TextAlignmentType, Content, ContentSize } from "@/helpers/types";
 
 export const DeckList: React.FC<{
   list: Array<Content>
   size: ContentSize;
-  alignment: AlignmentType;
+  alignment: TextAlignmentType;
 }> = ({ list, size, alignment }) => {
   return (
     <div className="flex flex-wrap justify-center -mx-2 lg:-mx-3.5">

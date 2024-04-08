@@ -2,7 +2,7 @@
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
-import { AlignmentType, ContentPieceType, ContentPTType } from "@/helpers/types";
+import { TextAlignmentType, ContentPieceType, ContentPTType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -15,12 +15,13 @@ import "@/app/css/custom-swiper.css"
 import "@/app/css/padding.css"
 
 export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, alignment, backgroundColor, backgroundImage, darkMode } = data
+  const { eyebrow, heading, summary, content, contentAlignment, headingAlignment, backgroundColor, backgroundImage, darkMode } = data
   return (
     <Section
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
+      alignment={headingAlignment}
       className={classNames(
         `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
       )}
@@ -48,10 +49,10 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               {(item.heading || item.description || item.buttons) && (
                 <div className={classNames(
                   "flex flex-col",
-                  { "text-center": alignment === "center" },
-                  { "text-end": alignment === "end" }
+                  { "text-center": contentAlignment === "center" },
+                  { "text-end": contentAlignment === "end" }
                 )}>
-                  <TextPart data={item} alignment={alignment} darkMode={darkMode} />
+                  <TextPart data={item} alignment={contentAlignment} darkMode={darkMode} />
                 </div>
               )}
               { (item.media.length > 0 || item.embeddedMediaUrl)&&  
@@ -59,7 +60,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   { "lg:w-1/2 shrink-0 ": (item.heading || item.description) },
                   { "w-full": (!item.heading && !item.description) },
                 )}>
-                  <FlexibleContentMediaPart data={item} alignment={alignment} />
+                  <FlexibleContentMediaPart data={item} alignment={contentAlignment} />
                 </div>
               }
               </div>
@@ -85,7 +86,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
 
 const TextPart: React.FC<{
   data: ContentPieceType;
-  alignment?: AlignmentType;
+  alignment?: TextAlignmentType;
   darkMode: boolean;
 }> = ({ data, alignment, darkMode }) => {
   const { heading, eyebrow, description, buttons } = data;

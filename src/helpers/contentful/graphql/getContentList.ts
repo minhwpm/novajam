@@ -33,9 +33,10 @@ export default async function getContentList(id: string) {
               openNewTab
             }
             htmlid
-            layout
+            style
             size
-            alignment
+            headingAlignment
+            contentAlignment
             backgroundColor
             backgroundImage {
               url

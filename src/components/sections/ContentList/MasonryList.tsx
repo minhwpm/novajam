@@ -1,16 +1,17 @@
 "use client"
 import classNames from "classnames";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { AlignmentType, Content, ContentSize } from "@/helpers/types";
+import { TextAlignmentType, Content, ContentSize } from "@/helpers/types";
 import { ContentMapping } from "./ContentMapping";
 
 export const MasonryList: React.FC<{
   list: Content[];
   size: ContentSize;
-  alignment: AlignmentType;
+  alignment: TextAlignmentType;
 }> = ({ list, size, alignment }) => {
   return (
     <ResponsiveMasonry
+      className="pt-3.5"
       columnsCountBreakPoints={{
         320: 1,
         640: parseInt(

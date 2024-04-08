@@ -1,13 +1,13 @@
 import { useInView } from "react-hook-inview";
 import classNames from "classnames";
 import { RichText2 } from "@/components/elements/RichText/RichText"
-import { AlignmentType, ContentPieceType } from "@/helpers/types";
+import { TextAlignmentType, ContentPieceType } from "@/helpers/types";
 
 interface Props {
   data: ContentPieceType
   idx: number
   setVisibleIdx: (idx: number) => void
-  alignment: AlignmentType
+  alignment: TextAlignmentType
 }
 
 export const FeatureContentItem = ({ data, idx, setVisibleIdx, alignment }: Props) => {

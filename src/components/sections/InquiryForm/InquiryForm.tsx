@@ -78,7 +78,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
       console.error(err);
     }
   }
-
+// @TODO fix bug width on mobile
   return (
     <>
       <section

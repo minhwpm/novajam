@@ -4,7 +4,7 @@ import React from "react";
 import classNames from "classnames";
 import { Container } from "../Container/Container";
 import { RichText2 } from "@/components/elements/RichText/RichText";
-import { MediaType } from "@/helpers/types";
+import { MediaType, TextAlignmentType } from "@/helpers/types";
 import { Document } from "@contentful/rich-text-types";
 import { useInView } from "react-hook-inview";
 
@@ -13,18 +13,20 @@ interface Props {
   eyebrow?: string | null;
   heading?: Document | null;
   summary?: Document | null;
+  alignment?: TextAlignmentType;
   className?: string;
   backgroundImage?: MediaType | null;
   children: React.ReactNode;
   framed?: boolean;
   darkMode?: boolean;
 }
-
+// @TODO TEST add field "Heading Alignment" for sections (ContentList, ContentPT)
 export const Section: React.FC<Props> = ({
   id,
   heading,
   eyebrow,
   summary,
+  alignment,
   children,
   className,
   backgroundImage,
@@ -61,16 +63,18 @@ export const Section: React.FC<Props> = ({
     >
       <Container
         className={classNames(
-          "relative flex flex-col items-center -bottom-10 opacity-0",
-          {
-            "animate-slidingUpSection animation-delay-300": isIntersecting,
-          }
+          "relative flex flex-col -bottom-10 opacity-0",
+          { "animate-slidingUpSection animation-delay-300": isIntersecting },
+          { "items-center": alignment === "center" },
+          { "items-end": alignment === "end" }
         )}
       >
         {eyebrow && (
           <div
             className={classNames(
-              "tracking-widest font-medium text-center mx-auto mb-2",
+              "tracking-widest font-medium mb-2",
+              { "text-center": alignment === "center" },
+              { "text-end": alignment === "end" },
               { "text-primary-600": !darkMode },
               { "text-neutral-100": darkMode }
             )}
@@ -81,8 +85,10 @@ export const Section: React.FC<Props> = ({
         {heading && (
           <div
             className={classNames(
-              "font-heading text-heading leading-tight tracking-tight text-center max-w-6xl mb-4",
-              { "text-neutral-50": darkMode }
+              "font-heading text-heading leading-tighter tracking-tight max-w-6xl mb-4",
+              { "text-neutral-50": darkMode },
+              { "text-center": alignment === "center" },
+              { "text-end": alignment === "end" }
             )}
           >
             <RichText2 data={heading} />
@@ -91,8 +97,10 @@ export const Section: React.FC<Props> = ({
         {summary && (
           <div
             className={classNames(
-              "prose prose-lg 2xl:prose-xl text-center max-w-xl lg:max-w-3xl  mb-4",
-              { "text-neutral-200": darkMode }
+              "prose lg:prose-lg 2xl:prose-xl max-w-xl lg:max-w-3xl  mb-4",
+              { "text-neutral-200": darkMode },
+              { "text-center": alignment === "center" },
+              { "text-end": alignment === "end" }
             )}
           >
             <RichText2 data={summary} />

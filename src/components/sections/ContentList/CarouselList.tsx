@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { useContext, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
-import { AlignmentType, Content, ContentSize } from "@/helpers/types";
+import { TextAlignmentType, Content, ContentSize } from "@/helpers/types";
 import { ContentMapping } from "./ContentMapping";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
@@ -17,7 +17,7 @@ import "@/app/css/padding.css"
 export const CarouselList: React.FC<{
   list: Content[];
   size: ContentSize;
-  alignment: AlignmentType;
+  alignment: TextAlignmentType;
 }> = ({ list, size, alignment }) => {
   const darkMode = useContext(DarkModeContext);
   const [carouselState, setState] = useState({

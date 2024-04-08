@@ -1,11 +1,11 @@
 import classNames from "classnames";
-import { AlignmentType,  TestimonialType } from "@/helpers/types";
+import { TextAlignmentType,  TestimonialType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText"
 import { MediaItem } from "../MediaItem/MediaItem";
 
 export const Testimonial: React.FC<{
   data: TestimonialType;
-  alignment?: AlignmentType
+  alignment?: TextAlignmentType
 }> = ({
   data, alignment = 'center'
 }) => {

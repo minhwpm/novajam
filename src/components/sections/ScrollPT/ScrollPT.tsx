@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
-import { AlignmentType, ContentPTType, ContentPieceType } from "@/helpers/types";
+import { TextAlignmentType, ContentPTType, ContentPieceType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText";
 import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
@@ -19,7 +19,7 @@ const TextContent = ({
   data: ContentPieceType;
   idx: number;
   setVisibleIdx: (idx: number) => void;
-  alignment: AlignmentType;
+  alignment: TextAlignmentType;
   darkMode: boolean
 }) => {
   const { eyebrow, heading, description } = data;
@@ -62,7 +62,7 @@ const TextContent = ({
       )}
       {description && (
         <div
-          className={classNames("prose 2xl:prose-lg mt-6", {
+          className={classNames("prose xl:prose-lg mt-6", {
             "text-neutral-50": darkMode,
           })}
         >
@@ -74,7 +74,7 @@ const TextContent = ({
 };
 
 export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, alignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
+  const { eyebrow, heading, summary, content, headingAlignment, contentAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
@@ -84,6 +84,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
+      alignment={headingAlignment}
       backgroundImage={backgroundImage}
       darkMode={darkMode}
     >
@@ -94,8 +95,8 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             <div
               className={classNames(
                 "flex flex-col mb-10",
-                { "text-center": alignment === "center" },
-                { "text-end": alignment === "end" }
+                { "text-center": contentAlignment === "center" },
+                { "text-end": contentAlignment === "end" }
               )}
             >
               {section.eyebrow && (
@@ -128,7 +129,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               {section.buttons && section.buttons.length > 0 && (
                 <div
                   className={classNames("mt-8", {
-                    "flex justify-center": alignment === "center",
+                    "flex justify-center": contentAlignment === "center",
                   })}
                 >
                   {section.buttons.map((button) => (
@@ -148,7 +149,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               {section.media?.length > 0 && (
                 <FlexibleContentMediaPart
                   data={section}
-                  alignment={alignment}
+                  alignment={contentAlignment}
                 />
               )}
             </div>
@@ -179,7 +180,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   {(section.media.length > 0 || section.embeddedMediaUrl) && (
                     <FlexibleContentMediaPart
                       data={section}
-                      alignment={alignment}
+                      alignment={contentAlignment}
                     />
                   )}
                 </div>
@@ -195,7 +196,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               data={section}
               idx={idx}
               setVisibleIdx={setVisibleIdx}
-              alignment={alignment}
+              alignment={contentAlignment}
               darkMode={darkMode}
             />
           ))}

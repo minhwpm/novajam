@@ -1,11 +1,11 @@
-import { AlignmentType, ContentPieceType, MediaAspectRatioType } from "@/helpers/types";
+import { TextAlignmentType, ContentPieceType, MediaAspectRatioType } from "@/helpers/types";
 import classNames from "classnames";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 
 export const FlexibleContentMediaPart: React.FC<{
   data: ContentPieceType;
-  alignment?: AlignmentType;
+  alignment?: TextAlignmentType;
   aspectRatio?: MediaAspectRatioType,
   rounded?: "assets" | "full" | "none"
 }> = ({ data, alignment, aspectRatio = "4/3", rounded = "assets"}) => {

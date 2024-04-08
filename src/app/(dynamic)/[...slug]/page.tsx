@@ -85,5 +85,8 @@ export default async function Page({ params }: { params: { slug: Array<string> }
   }
 
   const data = await getPage(`/${params.slug!.join("/")}`);
-  return <SectionMapping data={data?.content} />;
+  if (!data) {
+    throw new Error("Page not found")
+  }
+  return <SectionMapping data={data.content} />;
 }

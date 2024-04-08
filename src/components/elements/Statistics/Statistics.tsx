@@ -1,7 +1,7 @@
 "use client"
 import classNames from "classnames";
 import { useInView } from "react-hook-inview";
-import { AlignmentType, StatisticsType } from "@/helpers/types"
+import { TextAlignmentType, StatisticsType } from "@/helpers/types"
 import { useContext } from "react";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 
@@ -9,7 +9,7 @@ import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 export const Statistics: React.FC<{
   data: StatisticsType;
   index: number;
-  alignment?: AlignmentType;
+  alignment?: TextAlignmentType;
 }> = ({ data, index, alignment }) => {
   const { number, text } = data;
   const darkMode = useContext(DarkModeContext);

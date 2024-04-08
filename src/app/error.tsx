@@ -17,7 +17,7 @@ export default function Error({
  
   return (
     <div className="mx-auto p-4 flex flex-col max-w-3xl justify-center items-center pt-52 pb-20 min-h-screen">
-      <h2 className="font-bold text-4xl lg:text-6xl mb-8">Page not found</h2>
+      <h2 className="font-bold text-4xl lg:text-6xl mb-8">{error.message}</h2>
       <div className="text-neutral-900 prose 2xl:prose-lg">
         <p>
           We’re sorry, the page you were looking for couldn’t be found. The link

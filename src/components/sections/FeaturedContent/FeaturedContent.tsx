@@ -32,7 +32,7 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
       {heading && (
         <div
           className={classNames(
-            "text-heading leading-normal font-heading tracking-tight max-w-6xl mb-5",
+            "text-heading leading-tighter font-heading tracking-tight max-w-6xl mb-5",
             { "text-neutral-50": darkMode },
             {
               "text-center mx-auto":
@@ -47,14 +47,14 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
       {description && (
         <div
           className={classNames(
-            "block prose 2xl:prose-lg ",
+            "block prose xl:prose-lg",
             { "text-neutral-100": darkMode } ,
             {
               "mx-auto":
                 layout === "Vertical (Text | Image)" ||
                 layout === "Vertical (Image | Text)",
             },
-            { "mb-5": buttons && buttons.length > 0 }
+            { "mb-8": buttons && buttons.length > 0 }
           )}
         >
           <RichText2 data={description} />

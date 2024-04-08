@@ -27,8 +27,9 @@ export default async function getContentPT(id: string) {
             summary {
               json
             }
-            layout
-            alignment
+            style
+            headingAlignment
+            contentAlignment
             htmlid
             backgroundColor
             backgroundImage {

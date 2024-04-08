@@ -19,7 +19,7 @@ import {
 type ComponentType = HeroType | ContentPTType | ContentListType | FeaturedContentType | InquiryFormType
 
 function PresentationMapping({ data }: { data: ContentPTType }) {
-  switch (data.layout) {
+  switch (data.style) {
     case "scroll":
       return <ScrollPT data={data} />;
     case "accordion":

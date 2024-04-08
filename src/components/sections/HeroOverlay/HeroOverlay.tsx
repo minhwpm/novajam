@@ -7,7 +7,7 @@ import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { RichText2 } from "@/components/elements/RichText/RichText";
 import { Container } from "@/components/elements/Container/Container";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
-import { HeroType, AlignmentType, ContentPieceType } from "@/helpers/types";
+import { HeroType, TextAlignmentType, ContentPieceType } from "@/helpers/types";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -15,7 +15,7 @@ import "@/app/css/custom-swiper.css";
 
 // @TODO implement darkMode for HeroOverlay
 export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
-  const { content, alignment } = data;
+  const { content, contentAlignment } = data;
 
   if (content.length === 0) {
     return null
@@ -25,7 +25,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
       {content.length === 1 && (
         <HeroOverlaySection
           data={content[0]}
-          alignment={alignment}
+          alignment={contentAlignment}
         />
       )}
 
@@ -49,7 +49,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
             <SwiperSlide key={section.id}>
               <HeroOverlaySection
                 data={section}
-                alignment={alignment}
+                alignment={contentAlignment}
               />
             </SwiperSlide>
           ))}
@@ -61,7 +61,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
 
 export const HeroOverlaySection: React.FC<{
   data: ContentPieceType;
-  alignment: AlignmentType;
+  alignment: TextAlignmentType;
 }> = ({ data, alignment }) => {
   return (
     <div
@@ -102,7 +102,7 @@ export const HeroOverlaySection: React.FC<{
               <div
                 className={classNames(
                   "opacity-0 animate-slidingHeroContent animation-delay-500",
-                  "tracking-widest font-medium lg:text-lg xl:text-xl max-w-xl"
+                  "tracking-widest font-medium lg:text-lg max-w-xl"
                 )}
               >
                 {data.eyebrow}
@@ -112,7 +112,7 @@ export const HeroOverlaySection: React.FC<{
               <div
                 className={classNames(
                   "relative animate-slidingHeroContent",
-                  "text-super-heading leading-none font-heading max-w-2xl mt-2"
+                  "text-super-heading leading-tighter font-heading max-w-2xl mt-2"
                 )}
               >
                 <RichText2 data={data.heading} />

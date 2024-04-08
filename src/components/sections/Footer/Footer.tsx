@@ -8,14 +8,18 @@ interface Props {
   data: FooterType
 }
 
-// @TODO implement backgroundColor, darkMode for Footer
 export const Footer: React.FC<Props> = ({ data }) => {
-  const { logo, logoRedirect, copyright, sns, menu } = data
+  const { logo, logoRedirect, copyright, sns, menu, backgroundColor, darkMode } = data
   return (
-    <footer className="py-20">
+    <footer
+      className={classNames(
+        "py-20",
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
+      )}
+    >
       <div className="container mx-auto px-4 grid grid-cols-12 gap-x-5 gap-y-10">
         <div className="col-span-12 lg:col-span-6 xl:col-span-4 flex flex-col items-center lg:items-start">
-          {logo?.url && 
+          {logo?.url && (
             <Link href={logoRedirect ?? "/"}>
               <Image
                 className="w-40 h-14 object-contain object-top"
@@ -25,8 +29,13 @@ export const Footer: React.FC<Props> = ({ data }) => {
                 alt={logo.title}
               />
             </Link>
-          }
-          <p className="text-neutral-500">
+          )}
+          <p
+            className={classNames(
+              { "text-neutral-500": !darkMode },
+              { "text-neutral-200": darkMode }
+            )}
+          >
             {copyright}
           </p>
           <div className="flex gap-2 mt-5">
@@ -34,21 +43,30 @@ export const Footer: React.FC<Props> = ({ data }) => {
           </div>
         </div>
         {menu.map((section, idx) => (
-          <div key={idx} className={classNames(
-            "col-span-6 lg:col-span-3 xl:col-span-2 flex flex-col gap-2",
-            { "xl:col-start-10": menu.length === 1},
-          )}>
-            <p className="font-semibold mb-1">{section.title}</p>
-            {section.links.map(link => (
-              <p key={link.text} className="text-neutral-700">
-                <Link href={link.url}>
-                  {link.text}
-                </Link>
+          <div
+            key={idx}
+            className={classNames(
+              "col-span-6 lg:col-span-3 xl:col-span-2 flex flex-col gap-2",
+              { "xl:col-start-10": menu.length === 1 }
+            )}
+          >
+            <p className={classNames("font-semibold mb-1",
+              { "text-neutral-50": darkMode }
+            )}>{section.title}</p>
+            {section.links.map((link) => (
+              <p
+                key={link.text}
+                className={classNames(
+                  { "text-neutral-600": !darkMode },
+                  { "text-neutral-100": darkMode }
+                )}
+              >
+                <Link href={link.url}>{link.text}</Link>
               </p>
             ))}
           </div>
         ))}
       </div>
     </footer>
-  )
+  );
 }

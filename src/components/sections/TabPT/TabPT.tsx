@@ -12,8 +12,8 @@ import "@/app/css/bg-color.css";
 import "./styles.css"
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
-  const { htmlid, eyebrow, heading, summary, content, alignment, backgroundColor, backgroundImage, darkMode } = data
-  const [justify, setJustify] = useState("center")
+  const { htmlid, eyebrow, heading, summary, content, headingAlignment, contentAlignment, backgroundColor, backgroundImage, darkMode } = data
+  const [justify, setJustify] = useState(headingAlignment)
   const wrapperRef = useRef(null) as unknown as React.MutableRefObject<HTMLDivElement>
   useEffect(() => {
     if (wrapperRef.current.scrollWidth > wrapperRef.current.clientWidth) {
@@ -29,6 +29,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
+      alignment={headingAlignment}
       framed={false}
       backgroundImage={backgroundImage}
       darkMode={darkMode}
@@ -40,7 +41,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
         <div
           ref={wrapperRef}
           className={classNames(
-            "flex overflow-x-auto whitespace-nowrap justify-start",
+            "flex overflow-x-auto whitespace-nowrap",
             [`justify-${justify}`]
           )}
         >
@@ -96,15 +97,15 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
               value={section.id}
               className={classNames(
                 "col-start-1 row-start-1 relative data-[state='active']:animate-fadeInSlideLeft",
-                { "text-center": alignment === "center" },
-                { "text-end": alignment === "end" }
+                { "text-center": contentAlignment === "center" },
+                { "text-end": contentAlignment === "end" }
               )}
             >
               <div className="flex flex-col-reverse lg:flex-row lg:items-center rounded-assets p-4 lg:p-8 -mx-4 lg:-mx-8">
-                <div className="py-4 lg:pr-10">
+                <div className="py-4 lg:pr-10 xl:pr-14">
                   {section.description && (
                     <div
-                      className={classNames("prose 2xl:prose-lg", {
+                      className={classNames("prose xl:prose-lg", {
                         "text-neutral-50": darkMode,
                       })}
                     >
@@ -114,7 +115,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                   {section.buttons && section.buttons.length > 0 && (
                     <div
                       className={classNames("mt-8", {
-                        "flex justify-center": alignment === "center",
+                        "flex justify-center": contentAlignment === "center",
                       })}
                     >
                       {section.buttons.map((button) => (
@@ -131,10 +132,11 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                   )}
                 </div>
                 {(section.media.length > 0 || section.embeddedMediaUrl) && (
-                  <div className="lg:w-1/2 shrink-0">
+                  <div className="lg:w-7/12 shrink-0">
                     <FlexibleContentMediaPart
                       data={section}
-                      alignment={alignment}
+                      alignment={contentAlignment}
+                      aspectRatio='16/9'
                     />
                   </div>
                 )}

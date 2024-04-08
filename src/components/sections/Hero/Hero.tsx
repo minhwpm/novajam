@@ -6,7 +6,7 @@ import { RichText2 } from "@/components/elements/RichText/RichText";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
-import { HeroType, AlignmentType, ContentPieceType, HeroLayoutType } from "@/helpers/types";
+import { HeroType, TextAlignmentType, ContentPieceType, HeroLayoutType } from "@/helpers/types";
 import "@/app/css/padding.css"
 import "swiper/css";
 import "swiper/css/navigation";
@@ -14,7 +14,7 @@ import "swiper/css/pagination";
 import "@/app/css/custom-swiper.css"
 
 export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
-  const { content, layout, alignment, backgroundImage, darkMode } = data;
+  const { content, layout, contentAlignment, backgroundImage, darkMode } = data;
 
   if (content.length === 0) {
     return null
@@ -35,7 +35,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
       {content.length === 1 && (
         <HeroSection
           data={content[0]}
-          alignment={alignment}
+          alignment={contentAlignment}
           layout={layout}
           darkMode={darkMode}
         />
@@ -61,7 +61,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
             <SwiperSlide key={section.id}>
               <HeroSection
                 data={section}
-                alignment={alignment}
+                alignment={contentAlignment}
                 layout={layout}
                 darkMode={darkMode}
               />
@@ -75,7 +75,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
 
 export const HeroSection: React.FC<{
   data: ContentPieceType;
-  alignment: AlignmentType;
+  alignment: TextAlignmentType;
   layout: HeroLayoutType;
   darkMode: boolean;
 }> = ({ data, alignment, layout, darkMode }) => {
@@ -109,7 +109,7 @@ export const HeroSection: React.FC<{
         {data.heading && (
           <div
             className={classNames(
-              "text-hero-heading leading-none tracking-tight font-heading max-w-3xl animate-slidingHeroContent",
+              "text-hero-heading leading-tighter tracking-tight font-heading max-w-3xl animate-slidingHeroContent",
               { "text-neutral-50": darkMode }
             )}
           >

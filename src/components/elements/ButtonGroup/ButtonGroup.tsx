@@ -1,8 +1,8 @@
-import { AlignmentType, ButtonType } from "@/helpers/types"
+import { TextAlignmentType, ButtonType } from "@/helpers/types"
 import classNames from "classnames"
 import { Button } from "../Button/Button"
 
-export const ButtonGroup: React.FC<{data: Array<ButtonType>, alignment?: AlignmentType, size?: "base" | "lg"}> = ({ data, alignment, size }) => {
+export const ButtonGroup: React.FC<{data: Array<ButtonType>, alignment?: TextAlignmentType, size?: "base" | "lg"}> = ({ data, alignment, size }) => {
   return (
     <div
       className={classNames("flex flex-row flex-wrap gap-6 lg:gap-8",

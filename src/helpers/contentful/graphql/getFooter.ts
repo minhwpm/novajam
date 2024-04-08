@@ -46,6 +46,8 @@ export default async function getFooter(url: string) {
                 }
               }
             }
+            backgroundColor
+            darkMode
           }
         }
       }

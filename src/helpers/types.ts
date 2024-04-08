@@ -18,7 +18,7 @@ export type SNSType = {
 
 export type BackgroundColorType = "neutral" | "red" | "orange" | "amber" | "yellow" | "lime" | "green" | "emerald" | "teal" | "cyan" | "sky" | "blue" | "indigo" | "violet" | "purple" | "fuchsia" | "pink" | "rose"  
 
-export type AlignmentType = "auto" | "center" | "end"
+export type TextAlignmentType = "start" | "center" | "end"
 
 export type ButtonVariant = "primary" | "secondary" | "black" | "ghost" | "outline" | "outline-black" | "outline-white"
 
@@ -70,7 +70,6 @@ export interface NavigationType {
   buttons: Array<ButtonType>
   hotButtons: Array<ButtonType>
   style: NavigationStyle
-  backgroundColor: BackgroundColorType | null
   darkMode: boolean
 }
 
@@ -90,6 +89,8 @@ export interface FooterType {
       url: string
     }>
   }>
+  backgroundColor: BackgroundColorType | null
+  darkMode: boolean
 }
 
 export type SEOType = {
@@ -182,7 +183,7 @@ export type HeroType = {
   id: string
   content: Array<ContentPieceType>
   layout: HeroLayoutType
-  alignment: AlignmentType
+  contentAlignment: TextAlignmentType
   backgroundImage: MediaType | null
   darkMode: boolean
   contentType: "hero"
@@ -194,8 +195,9 @@ export type ContentPTType = {
   heading: Document | null
   summary: Document | null
   content: Array<ContentPieceType>
-  layout: "carousel" | "sleek carousel" | "tab" | "accordion" | "scroll"
-  alignment: AlignmentType
+  style: "carousel" | "sleek carousel" | "tab" | "accordion" | "scroll"
+  headingAlignment: TextAlignmentType
+  contentAlignment: TextAlignmentType
   htmlid: string | null
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
@@ -244,7 +246,6 @@ export type PricingPlanType = {
 
 export type Content = BlogType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType | PricingPlanType | TestimonialType
 export type ContentSize =  "S" | "M" | "L" | "XL"
-export type ContentListLayout = "carousel" | "masonry" | "deck"
 
 export type ContentListType = {
   id: string
@@ -253,9 +254,10 @@ export type ContentListType = {
   summary: Document | null
   content: Array<Content>
   exploreMore: LinkType | null
-  layout: ContentListLayout
+  style: "carousel" | "masonry" | "deck"
   size: ContentSize
-  alignment: AlignmentType
+  headingAlignment: TextAlignmentType
+  contentAlignment: TextAlignmentType
   htmlid: string | null
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null

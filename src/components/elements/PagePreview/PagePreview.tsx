@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AlignmentType, PageType } from "@/helpers/types";
+import { TextAlignmentType, PageType } from "@/helpers/types";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { useContext } from "react";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
@@ -8,7 +8,7 @@ import classNames from "classnames";
 export const PagePreview: React.FC<{
   data: PageType;
   layout?: "vertical" | "horizontal";
-  alignment?: AlignmentType;
+  alignment?: TextAlignmentType;
 }> = ({ data, layout = "vertical", alignment }) => {
   const { title, url, metaTitle, metaImage } = data;
   const darkMode = useContext(DarkModeContext);

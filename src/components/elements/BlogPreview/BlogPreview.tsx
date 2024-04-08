@@ -1,7 +1,7 @@
 "use client";
 import classNames from "classnames";
 import Link from "next/link";
-import { AlignmentType, BlogType, MediaAspectRatioType } from "@/helpers/types";
+import { TextAlignmentType, BlogType, MediaAspectRatioType } from "@/helpers/types";
 import { usePathname } from "next/navigation";
 import { MediaItem } from "../MediaItem/MediaItem";
 
@@ -9,7 +9,7 @@ export const BlogPreview: React.FC<{
   data: BlogType;
   aspectRatio?: MediaAspectRatioType;
   layout?: "vertical" | "horizontal";
-  alignment?: AlignmentType;
+  alignment?: TextAlignmentType;
 }> = ({ data, aspectRatio = "3/2", layout = "vertical", alignment }) => {
   const { title, slug, media, topics } = data;
   const pathname = usePathname();

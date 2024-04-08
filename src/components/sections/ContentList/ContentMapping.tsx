@@ -6,12 +6,12 @@ import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview";
 import { Statistics } from "@/components/elements/Statistics/Statistics";
 import { FlexibleContent } from "@/components/elements/FlexibleContent/FlexibleContent";
 import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan";
-import { AlignmentType, Content } from "@/helpers/types";
+import { TextAlignmentType, Content } from "@/helpers/types";
 import { Testimonial } from "@/components/elements/Testimonial/Testimonial";
 
 export const ContentMapping: React.FC<{
   data: Content;
-  alignment: AlignmentType;
+  alignment: TextAlignmentType;
   layout?: "horizontal" | "vertical"
   index: number
 }> = ({ data, alignment, layout = "vertical", index }) => {

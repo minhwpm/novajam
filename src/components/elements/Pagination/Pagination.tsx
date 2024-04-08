@@ -10,7 +10,6 @@ export const Pagination: React.FC<{
   const pathname = usePathname().split("/")
   const searchParams = useSearchParams()
   const topic = searchParams.get("topic")
-  console.log("HOLA", topic)
 
   return (
     <div className="relative w-full flex flex-col items-center gap-5 my-12">
