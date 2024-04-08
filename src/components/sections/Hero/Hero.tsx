@@ -109,7 +109,7 @@ export const HeroSection: React.FC<{
         {data.heading && (
           <div
             className={classNames(
-              "text-hero-heading leading-tighter tracking-tight font-heading max-w-3xl animate-slidingHeroContent",
+              "text-hero-heading leading-tighter  font-heading max-w-3xl animate-slidingHeroContent",
               { "text-neutral-50": darkMode }
             )}
           >

@@ -62,7 +62,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
       >
         <div
           className={classNames(
-            "absolute top-0 left-0 right-0 pt-4 flex justify-center bg-gradient-to-b",
+            "absolute top-0 left-0 right-0 pt-2 flex justify-center",
             { "text-neutral-50": darkMode }
           )}
         >

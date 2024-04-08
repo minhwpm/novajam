@@ -85,7 +85,7 @@ export const Section: React.FC<Props> = ({
         {heading && (
           <div
             className={classNames(
-              "font-heading text-heading leading-tighter tracking-tight max-w-6xl mb-4",
+              "font-heading text-heading leading-tighter max-w-6xl mb-4",
               { "text-neutral-50": darkMode },
               { "text-center": alignment === "center" },
               { "text-end": alignment === "end" }

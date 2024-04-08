@@ -70,7 +70,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
           {heading && (
             <div
               className={classNames(
-                "font-heading text-heading !leading-tight tracking-tight mb-3",
+                "font-heading text-heading !leading-tight  mb-3",
                 { "text-neutral-50": darkMode },
                 { "text-center": headingAlignment === "center" },
                 { "text-end": headingAlignment === "end" }
