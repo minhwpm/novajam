@@ -4,7 +4,6 @@ import classNames from "classnames";
 import { ButtonVariant } from "@/helpers/types";
 import { BsArrowRight } from "react-icons/bs";
 
-// @TODO add one more variant "white" for Button
 interface ButtonProps {
   className?: string;
   children: React.ReactNode;
