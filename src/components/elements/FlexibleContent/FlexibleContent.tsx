@@ -104,7 +104,6 @@ export const FlexibleContent: React.FC<{
       )}
     >
       {(media || embeddedMediaUrl) && (
-        // @TODO implement Media Ratio for FlexibleContent (remove Media Ratio in FeaturedContent)
         <FlexibleContentMediaPart
           data={data}
           alignment={alignment}

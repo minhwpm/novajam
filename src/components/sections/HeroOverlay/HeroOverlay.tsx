@@ -97,7 +97,6 @@ export const HeroOverlaySection: React.FC<{
               "lg:absolute lg:top-0 lg:left-0":
                 data.media.length > 0 || data.embeddedMediaUrl,
             },
-            { "bg-neutral-900/20": darkMode } //@TODO fix background not dark on mobile
           )}
         >
           <Container

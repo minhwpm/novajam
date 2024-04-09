@@ -78,17 +78,6 @@ module.exports = {
         '16/9': '16 / 9',
       },
       keyframes: {
-        pop: {
-          '0%': {
-            opacity: 0,
-            transform: 'scale(0.6)',
-          },
-          '100%': {
-            opacity: 1,
-            transform: 'scale(1)',
-            visibility: 'visible',
-          },
-        },
         fadeIn: {
           '0%': {
             opacity: 0,
@@ -175,50 +164,6 @@ module.exports = {
             bottom: 0
           }
         },
-        expandingWidth: {
-          '0%': {
-            width: '70%'
-          },
-          '100%': {
-            width: '100%'
-          }
-        },
-        shrinkingWidth: {
-          '0%': {
-            width: '100%'
-          },
-          '100%': {
-            width: '70%'
-          }
-        },
-        poop: {
-          '25%': {
-            transform: 'scale(0.95)'
-          },
-          '60%': {
-            transform: 'scale(1.03)'
-          },
-          '70%': {
-            transform: 'scale(1.02)'
-          },
-          '100%': {
-            transform: 'scale(1.05)'
-          },
-        },
-        animationA: {
-          '0%': {
-            opacity:0,
-            transform: 'translateY(30px) scale(0.9)',
-          },
-          '60%': {
-            transform: 'translateY(-2px) scale(0.99)',
-          },
-          '100%': {
-            opacity: 1,
-            transform: 'translateY(0) scale(1.0)',
-            visibility: 'visible'
-          }
-        },
         headerSlideIn: {
           '0%': {
             top: '-100%',
@@ -267,42 +212,6 @@ module.exports = {
             transform: 'translateX(-200px)',
           }
         },
-        navMenu_scaleIn: {
-          'from': {
-            opacity: 0,
-            transform: 'rotateX(-30deg) scale(0.9)',
-          },
-          'to': {
-            opacity: 1,
-            transform: 'rotateX(0deg) scale(1)',
-          }
-        },
-        navMenu_scaleOut: {
-          'from': {
-            opacity: 1,
-            transform: 'rotateX(0deg) scale(1)',
-          },
-          'to': {
-            opacity: 0,
-            transform: 'rotateX(-10deg) scale(0.95)',
-          }
-        },
-        navMenu_fadeIn: {
-          'from': {
-            opacity: 0,
-          },
-          'to': {
-            opacity: 1,
-          }
-        },
-        navMenu_fadeOut: {
-          'from': {
-            opacity: 1,
-          },
-          'to': {
-            opacity: 0,
-          }
-        },
         accordionSlideUp: {
           'from': {
             height: "var(--radix-accordion-content-height)"
@@ -322,8 +231,6 @@ module.exports = {
       },
 
       animation: {
-        // @TODO check/refactor animation
-        pop: 'pop 0.3s ease-out forwards 1',
         fadeIn: 'fadeIn 0.5s ease-in forwards 1',
         fadeInSlideLeft: 'fadeInSlideLeft 0.5s ease-in-out forwards 1',
         slidingSubmenu: 'slidingSubmenu 0.3s ease-out forwards 1',
@@ -331,13 +238,7 @@ module.exports = {
         slidingHeroContent: 'slidingHeroContent 1s ease forwards',
         slidingUpSection: 'slidingUpSection 0.5s ease-in-out forwards',
         slidingText: 'slidingText 10s linear infinite normal none running',
-        expandingWidth: 'expandingWidth 0.5s ease-in-out forwards 1',
-        shrinkingWidth: 'shrinkingWidth 0.5s ease-in-out forwards 1',
-        poop: 'poop 0.5s ease-in-out forwards 1',
-        animationA: 'animationA 0.5s ease-out forwards 1',
         headerSlideIn: 'headerSlideIn 0.5s ease-out forwards 1',
-        navMenu_scaleIn: 'navMenu_scaleIn 0.2s ease',
-        navMenu_scaleOut: 'navMenu_scaleOut 0.2s ease',
         accordionSlideUp: 'accordionSlideUp 0.3s ease-in-out',
         accordionSlideDown: 'accordionSlideDown 0.3s ease-in-out',
       }
