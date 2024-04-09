@@ -17,8 +17,8 @@ const TextPart: React.FC<{
       {eyebrow && (
         <div
           className={classNames(
-            "text-sm font-medium tracking-widest mb-1",
-            { "text-neutral-400": !darkMode },
+            "text-xs font-medium tracking-widest mb-1",
+            { "text-neutral-500": !darkMode },
             { "text-neutral-100": darkMode }
           )}
         >
@@ -43,7 +43,7 @@ const TextPart: React.FC<{
             {
               "mb-4 lg:mb-6": buttons.length > 0,
             },
-            { "text-neutral-700": !darkMode },
+            { "text-neutral-600": !darkMode },
             { "text-neutral-100": darkMode }
           )}
         >

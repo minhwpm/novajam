@@ -120,7 +120,7 @@ export const HeroSection: React.FC<{
           <div
             className={classNames(
               "prose xl:prose-lg 2xl:prose-xl  mt-3 max-w-2xl opacity-0 animate-slidingHeroContent animation-delay-200",
-              { "text-neutral-700": !darkMode },
+              { "text-neutral-600": !darkMode },
               { "text-neutral-200": darkMode }
             )}
           >

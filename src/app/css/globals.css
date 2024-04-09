@@ -17,7 +17,7 @@
 @layer base {
   :root {
     /* THEME CONFIG STYLING VARIABLES */
-    --foreground-rgb: 38, 38, 38;
+    --foreground-rgb: 51, 51, 51;
     --font-heading: unset;
     --border-radius-assets: 0.125rem; /* 0.125rem / 0.5rem / 1.75rem */
     --primary-color-50: 239, 246, 255;  /* Default Primary Color & Secondary Color = BLUE */

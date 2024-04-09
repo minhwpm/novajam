@@ -20,7 +20,7 @@ export type BackgroundColorType = "neutral" | "red" | "orange" | "amber" | "yell
 
 export type TextAlignmentType = "start" | "center" | "end"
 
-export type ButtonVariant = "primary" | "secondary" | "black" | "ghost" | "outline" | "outline-black" | "outline-white"
+export type ButtonVariant = "primary" | "secondary" | "black" | "white" | "ghost" | "outline" | "outline-black" | "outline-white"
 
 export type ButtonType = {
   id?: string

@@ -40,7 +40,7 @@ export const PricingPlan: React.FC<{
           className={classNames(
             "text-3xl font-bold",
             { "text-neutral-50": darkMode && !badge },
-            { "text-neutral-700": !darkMode && !badge }
+            { "text-neutral-600": !darkMode && !badge }
           )}
         >
           {pricing}

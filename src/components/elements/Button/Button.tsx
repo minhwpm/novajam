@@ -66,7 +66,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
             {children}
             {withArrow && (
               <BsArrowRight
-                className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-500 ease"
+                className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-200 ease"
                 size={20}
               />
             )}
@@ -78,27 +78,38 @@ export const Button: React.FC<ButtonProps> = (props) => {
   const classes = classNames(
     "!border relative inline-flex justify-center items-center text-center rounded-assets bottom-0 hover:bottom-1 transition-all duration-500 ease",
     {
-      "border-primary-600 bg-primary-600 hover:bg-primary-500 hover:border-primary-500 text-white": variant === "primary",
+      "border-primary-600 bg-primary-600 hover:bg-primary-500 hover:border-primary-500 text-white":
+        variant === "primary",
     },
     {
       "border-secondary-400 bg-secondary-400 hover:bg-secondary-300 hover:border-secondary-300 text-neutral-800":
         variant === "secondary",
     },
-    { "border-neutral-900 bg-neutral-900 text-white": variant === "black" },
+    { "border-neutral-800 bg-neutral-800 text-white hover:bg-neutral-900 hover:border-neutral-900": variant === "black" },
+    {
+      "border-neutral-50 bg-neutral-50 hover:bg-white hover:border-white":
+        variant === "white",
+    },
     {
       "border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white":
         variant === "outline",
     },
     {
-      "border-black text-black hover:bg-black hover:text-white":
+      "border-neutral-800 text-neutral-800 hover:bg-neutral-800 hover:text-white":
         variant === "outline-black",
     },
     {
       "border-white text-white hover:bg-white hover:text-neutral-800 drop-shadow-lg":
         variant === "outline-white",
     },
-    { "px-3 py-1.5 min-w-[100px] text-smd lg:px-4 lg:py-2 lg:min-w-[120px] 2xl:text-base font-medium": size === "base" },
-    { "px-5 py-2.5 min-w-[130px] lg:px-6 lg:py-3 lg:min-w-[160px] font-semibold 2xl:text-lg": size === "lg" },
+    {
+      "px-3 py-1.5 min-w-[100px] text-smd lg:px-4 lg:py-2 lg:min-w-[120px] 2xl:text-base font-medium":
+        size === "base",
+    },
+    {
+      "px-5 py-2.5 min-w-[130px] lg:px-6 lg:py-3 lg:min-w-[160px] font-semibold 2xl:text-lg":
+        size === "lg",
+    },
     { "opacity-30 pointer-events-none cursor-not-allowed": disabled }
   );
 
@@ -113,7 +124,18 @@ export const Button: React.FC<ButtonProps> = (props) => {
           {children}
           {withArrow && (
             <BsArrowRight
-              className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-500 ease"
+              className={classNames(
+                "inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-300 ease",
+                {
+                  "text-primary-600 group-hover:text-white": variant === "outline",
+                },
+                {
+                  "text-neutral-800 group-hover:text-white": variant === "outline-black",
+                },
+                {
+                  "text-white group-hover:text-neutral-800": variant === "outline-white",
+                }
+              )}
               size={20}
             />
           )}
@@ -123,7 +145,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
           {children}
           {withArrow && (
             <BsArrowRight
-              className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-500 ease"
+              className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-300 ease"
               size={20}
             />
           )}
@@ -131,4 +153,4 @@ export const Button: React.FC<ButtonProps> = (props) => {
       )}
     </button>
   );
-}
+};

@@ -20,7 +20,7 @@ interface Props {
   framed?: boolean;
   darkMode?: boolean;
 }
-// @TODO TEST add field "Heading Alignment" for sections (ContentList, ContentPT)
+
 export const Section: React.FC<Props> = ({
   id,
   heading,
