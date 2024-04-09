@@ -75,7 +75,7 @@ const TextPart: React.FC<{ data: ContentPieceType, layout: FeaturedContentLayout
     </>
   );
 };
-
+// @TODO implement seperate Content fields instead of a referenced FlexibleContent entry
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data }) => {
   const { htmlid, layout, style, content, mediaAspectRatio, backgroundColor, backgroundImage, darkMode } = data;
   const [ref, isIntersecting] = useInView({

@@ -5,6 +5,7 @@ type FormValues = {
   [x: string]: string | FormValues;
 };
 
+// @TODO implement Server Actions instead of API handler
 export async function createIFSubmission(data: FormValues) {
   console.log("FORM VALUES:", data);
   for (const key in data) {
