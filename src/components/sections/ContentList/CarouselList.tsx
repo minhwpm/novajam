@@ -28,9 +28,6 @@ export const CarouselList: React.FC<{
     <Swiper
       className={classNames("carousel-list w-screen !pt-16 relative")}
       slidesPerView={"auto"}
-      autoplay={{
-        delay: 5000,
-      }}
       navigation={{
         enabled: true,
         nextEl: ".carouselList-btn-next",

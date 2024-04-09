@@ -78,7 +78,6 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
       console.error(err);
     }
   }
-// @TODO fix bug width on mobile
   return (
     <>
       <section
@@ -98,10 +97,10 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
         }
       >
         <Container>
-          <div className="grid grid-cols-12 gap-x-10 gap-y-4 my-24">
+          <div className="flex flex-col gap-x-10 gap-y-4 lg:flex-row my-24">
             <div
-              className={classNames("col-span-12 flex flex-col items-center", {
-                "lg:col-span-5 lg:items-start": layout === "horizontal",
+              className={classNames("flex flex-col items-center", {
+                "lg:w-5/12 lg:items-start": layout === "horizontal",
               })}
             >
               {eyebrow && (
@@ -150,7 +149,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               className={classNames(
                 "col-span-12 flex flex-col ",
                 { "items-center": layout === "vertical" },
-                { "lg:col-span-7 lg:items-end": layout === "horizontal" }
+                { "lg:w-7/12 lg:items-end": layout === "horizontal" }
               )}
             >
               <form
