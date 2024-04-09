@@ -16,8 +16,7 @@ export const BlogPreview: React.FC<{
   if (layout === "horizontal") {
     return (
       <div className="rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease">
-        {/* @TODO remove if there is more than 1 "blog" */}
-        <Link href={`${pathname}/blog/${slug}`}>
+        <Link href={`${pathname.replace(/\/blog/g, "")}/blog/${slug}`}>
           <div className="flex gap-4">
             <div className="basis-1/3 flex-1">
               <MediaItem data={media} aspectRatio={aspectRatio} />
@@ -41,7 +40,7 @@ export const BlogPreview: React.FC<{
   }
   return (
     <div className="rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease">
-      <Link href={`${pathname}/blog/${slug}`}>
+      <Link href={`${pathname.replace(/\/blog/g, "")}/blog/${slug}`}>
         <MediaItem data={media} aspectRatio={aspectRatio} />
         <div className={classNames("w-full px-4 pb-8 pt-4 flex flex-col")}>
           {topics && topics.length > 0 && (
