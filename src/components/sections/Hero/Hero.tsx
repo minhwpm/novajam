@@ -1,7 +1,7 @@
 "use client";
 import classNames from "classnames";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { RichText2 } from "@/components/elements/RichText/RichText";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
@@ -45,7 +45,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
         <Swiper
           slidesPerView={1}
           autoplay={{
-            delay: 3500,
+            delay: 5000,
           }}
           pagination={{
             enabled: true,
@@ -55,7 +55,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
             enabled: true,
           }}
           loop={true}
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, Autoplay]}
         >
           {content.map((section) => (
             <SwiperSlide key={section.id}>

@@ -13,19 +13,31 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "@/app/css/custom-swiper.css";
 
-// @TODO implement darkMode for HeroOverlay
 export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
-  const { content, contentAlignment } = data;
+  const { content, contentAlignment, backgroundImage, darkMode } = data;
 
   if (content.length === 0) {
     return null
   }
   return (
-    <section className={classNames("relative")}>
+    <section
+      style={
+        backgroundImage
+          ? {
+              backgroundImage: `url(${backgroundImage?.url})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundBlendMode: "overlay",
+            }
+          : {}
+      }
+      className={classNames("relative")}
+    >
       {content.length === 1 && (
         <HeroOverlaySection
           data={content[0]}
           alignment={contentAlignment}
+          darkMode={darkMode}
         />
       )}
 
@@ -50,6 +62,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
               <HeroOverlaySection
                 data={section}
                 alignment={contentAlignment}
+                darkMode={darkMode}
               />
             </SwiperSlide>
           ))}
@@ -62,7 +75,8 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
 export const HeroOverlaySection: React.FC<{
   data: ContentPieceType;
   alignment: TextAlignmentType;
-}> = ({ data, alignment }) => {
+  darkMode: boolean;
+}> = ({ data, alignment, darkMode }) => {
   return (
     <div
       key={data.id}
@@ -78,20 +92,17 @@ export const HeroOverlaySection: React.FC<{
       {(data.heading || data.description || data.buttons.length) && (
         <div
           className={classNames(
-            "w-full h-full px-4 pt-48 pb-20 text-white drop-shadow-lg overflow-hidden",
+            "w-full h-full px-4 pt-48 pb-20 overflow-hidden",
             {
-              "bg-gradient-to-b from-primary-800 via-primary-500 to-primary-300":
-                data.media.length === 0 && !data.embeddedMediaUrl,
-            },
-            {
-              "lg:absolute lg:top-0 lg:left-0 bg-neutral-900/20":
+              "lg:absolute lg:top-0 lg:left-0":
                 data.media.length > 0 || data.embeddedMediaUrl,
-            }
+            },
+            { "bg-neutral-900/20": darkMode }
           )}
         >
           <Container
             className={classNames(
-              "h-full flex flex-col justify-center bg-transparent",
+              "h-full flex flex-col justify-center",
               {
                 "items-center text-center": alignment === "center",
               },
@@ -101,8 +112,8 @@ export const HeroOverlaySection: React.FC<{
             {data.eyebrow && (
               <div
                 className={classNames(
-                  "opacity-0 animate-slidingHeroContent animation-delay-500",
-                  "tracking-widest font-medium lg:text-lg max-w-xl"
+                  "drop-shadow-lg opacity-0 animate-slidingHeroContent animation-delay-500 tracking-widest font-medium lg:text-lg max-w-xl",
+                  { "text-neutral-50": darkMode }
                 )}
               >
                 {data.eyebrow}
@@ -111,8 +122,8 @@ export const HeroOverlaySection: React.FC<{
             {data.heading && (
               <div
                 className={classNames(
-                  "relative animate-slidingHeroContent",
-                  "text-super-heading leading-tighter font-heading max-w-2xl mt-2"
+                  "relative animate-slidingHeroContent drop-shadow-lg text-super-heading leading-tighter font-heading max-w-2xl mt-2",
+                  { "text-white": darkMode }
                 )}
               >
                 <RichText2 data={data.heading} />
@@ -121,8 +132,8 @@ export const HeroOverlaySection: React.FC<{
             {data.description && (
               <div
                 className={classNames(
-                  "opacity-0 animate-slidingHeroContent animation-delay-200",
-                  "prose md:prose-lg lg:prose-xl text-white mt-6 lg:mt-10 max-w-xl"
+                  "opacity-0 animate-slidingHeroContent animation-delay-200 drop-shadow-lg prose md:prose-lg lg:prose-xl mt-6 lg:mt-10 max-w-xl",
+                  { "text-neutral-100": darkMode }
                 )}
               >
                 <RichText2 data={data.description} />
