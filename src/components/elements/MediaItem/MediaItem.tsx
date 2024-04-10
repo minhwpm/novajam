@@ -142,6 +142,7 @@ const Video = ({
               videoRef.current?.play();
               setVideoStarted(true);
             }}
+            aria-label="Play video"
           >
             <FaPlay className="text-neutral-50 w-16 h-16 transition-all duration-200 ease-linear hover:scale-110 hover:text-primary-600" />
           </button>
