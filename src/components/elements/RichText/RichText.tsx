@@ -59,6 +59,26 @@ export function RichText2({
               </li>
             )
           },
+          [BLOCKS.HEADING_1]: (node: Inline | Block, children: ReactNode) => {
+            return (
+              <h1 className="text-current font-heading">{children}</h1>
+            )
+          },
+          [BLOCKS.HEADING_2]: (node: Inline | Block, children: ReactNode) => {
+            return (
+              <h2 className="text-current font-heading">{children}</h2>
+            )
+          },
+          [BLOCKS.HEADING_3]: (node: Inline | Block, children: ReactNode) => {
+            return (
+              <h3 className="text-current font-heading">{children}</h3>
+            )
+          },
+          [BLOCKS.HEADING_4]: (node: Inline | Block, children: ReactNode) => {
+            return (
+              <h4 className="text-current font-heading">{children}</h4>
+            )
+          },
           [BLOCKS.EMBEDDED_ASSET]: (node: Inline | Block) => {
             return (
               <MediaItem data={node.data as MediaType} videoControls={true} />
