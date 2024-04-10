@@ -27,7 +27,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
               backgroundImage: `url(${backgroundImage?.url})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
-              backgroundBlendMode: "overlay",
+              backgroundBlendMode: "multiply",
             }
           : {}
       }

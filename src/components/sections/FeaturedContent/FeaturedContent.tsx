@@ -98,7 +98,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
                 backgroundImage: `url(${backgroundImage.url})`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
-                backgroundBlendMode: "overlay",
+                backgroundBlendMode: "multiply",
               }
             : {}
         }

@@ -56,7 +56,7 @@ export const Section: React.FC<Props> = ({
               backgroundImage: `url(${backgroundImage.url})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
-              backgroundBlendMode: "overlay",
+              backgroundBlendMode: "multiply",
             }
           : {}
       }
