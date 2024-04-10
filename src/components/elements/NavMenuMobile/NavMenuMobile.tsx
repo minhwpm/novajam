@@ -3,8 +3,8 @@ import { useState } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { ButtonType, LinkType, SubmenuType } from '@/helpers/types';
-import { RxHamburgerMenu } from "react-icons/rx";
-import { AiOutlineClose } from 'react-icons/ai';
+import { IoCloseOutline } from "react-icons/io5";
+import { CiMenuBurger } from "react-icons/ci";
 import { Button } from '../Button/Button';
 import { SubmenuMobile } from './SubmenuMobile/SubmenuMobile';
 import { NavLinkItem } from '../NavLinkItem/NavLinkItem';
@@ -22,7 +22,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
         orientation="vertical"
       >
         {mobileMenuShowed && (
-          <AiOutlineClose
+          <IoCloseOutline
             className="cursor-pointer absolute right-4 top-8"
             size={30}
             onClick={() => {
@@ -75,7 +75,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
       
       <div className="lg:hidden ml-auto">
         {!mobileMenuShowed && (
-          <RxHamburgerMenu
+          <CiMenuBurger
             className="cursor-pointer"
             size={30}
             onClick={() => {

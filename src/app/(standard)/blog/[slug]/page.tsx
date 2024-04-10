@@ -34,7 +34,7 @@ export default async function Page({ params }: {params: { slug: string } },) {
     const data = await getBlogDetails(params.slug)
     const latestBlogs = await getBlogs(3, 0) as Array<BlogType>
     return (
-      <main className="flex flex-col gap-10 min-h-screen pb-24">
+      <main className="flex flex-col gap-10 min-h-screen">
         <BlogPost data={data} />
         <div className="bg-primary-50 py-4 lg:py-10">
           <Container>

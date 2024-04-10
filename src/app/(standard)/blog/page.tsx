@@ -44,7 +44,7 @@ export default async function Page({ searchParams }: PageProps) {
   )) as Array<BlogType>;
 
   return (
-    <main className="flex flex-col min-h-screen pb-24">
+    <main className="flex flex-col min-h-screen">
       {featuredBlogs.length > 0 && <FeaturedBlogs data={featuredBlogs} /> }
       {latestBlogs.length > 0 && <LatestBlogs data={latestBlogs} /> }
       {(latestBlogs.length >= BLOG_PAGE_SIZE) && (

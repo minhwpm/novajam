@@ -5,7 +5,7 @@ import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { TextAlignmentType, ContentPieceType, ContentPTType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -70,12 +70,12 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             <div className={classNames("carouselPT-btn-prev cursor-pointer lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
               {"text-neutral-50": darkMode}
             )}>
-              <IoIosArrowBack size={35} />
+              <GoArrowLeft size={35} />
             </div>
             <div className={classNames("carouselPT-btn-next cursor-pointer lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
               {"text-neutral-50": darkMode}
             )}>
-              <IoIosArrowForward size={35} />
+              <GoArrowRight size={35} />
             </div>
           </div>
         </Swiper>

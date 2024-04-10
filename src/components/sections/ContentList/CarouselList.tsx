@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { TextAlignmentType, Content, ContentSize } from "@/helpers/types";
 import { ContentMapping } from "./ContentMapping";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -52,7 +52,7 @@ export const CarouselList: React.FC<{
             { "text-neutral-50": darkMode }
           )}
         >
-          <IoIosArrowBack size={35} />
+          <GoArrowLeft size={35} />
         </div>
         <div
           className={classNames(
@@ -64,7 +64,7 @@ export const CarouselList: React.FC<{
             { "text-neutral-50": darkMode }
           )}
         >
-          <IoIosArrowForward size={35} />
+          <GoArrowRight size={35} />
         </div>
       </div>
       {list.map((item, idx) => (

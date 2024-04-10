@@ -38,7 +38,7 @@ export default async function Page({ params }: { params: { slug: Array<string> }
     const featuredBlogs = (await getBlogs(4, 0, true)) as Array<BlogType>;
     const latestBlogs = (await getBlogs(BLOG_PAGE_SIZE, 0)) as Array<BlogType>;
     return (
-      <main className="flex flex-col min-h-screen pb-24">
+      <main className="flex flex-col min-h-screen">
         <FeaturedBlogs data={featuredBlogs} />
         <LatestBlogs data={latestBlogs} />
         <Container>
@@ -57,7 +57,7 @@ export default async function Page({ params }: { params: { slug: Array<string> }
       (pageNumber - 1) * BLOG_PAGE_SIZE
     )) as Array<BlogType>;
     return (
-      <main className="flex flex-col min-h-screen pb-24">
+      <main className="flex flex-col min-h-screen">
         <LatestBlogs data={latestBlogs} />
         <Container>
           <Pagination currentPageNumber={pageNumber} />
@@ -73,7 +73,7 @@ export default async function Page({ params }: { params: { slug: Array<string> }
     const data = await getBlogDetails(params.slug![params.slug!.length - 1]);
     const latestBlogs = (await getBlogs(3, 0)) as Array<BlogType>;
     return (
-      <main className="flex flex-col gap-10 lg:gap-12 2xl:gap-16 min-h-screen pb-24">
+      <main className="flex flex-col gap-10 lg:gap-12 2xl:gap-16 min-h-screen">
         <BlogPost data={data} />
         <div className="bg-primary-50 py-4 lg:py-10">
           <Container>

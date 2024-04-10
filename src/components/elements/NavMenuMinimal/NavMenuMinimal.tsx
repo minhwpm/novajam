@@ -4,8 +4,8 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { NavigationType } from "@/helpers/types";
 import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
 import { useState } from "react";
-import { RiMenu3Fill } from "react-icons/ri";
-import { AiOutlineClose } from "react-icons/ai";
+import { CiMenuFries } from "react-icons/ci";
+import { IoCloseOutline } from "react-icons/io5";
 import { Button } from "../Button/Button";
 import { SubmenuMinimal } from "./SubmenuMinimal/SubmenuMinimal";
 
@@ -15,7 +15,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
 
   return (
     <>
-      <RiMenu3Fill
+      <CiMenuFries
         className="ml-auto relative cursor-pointer rounded-full w-14 h-14 p-3 bottom-0 hover:bottom-1 hover:bg-primary-500/90 hover:text-white transition-all duration-500 ease"
         onClick={() => {
           setNavMenuShowed(true);
@@ -29,7 +29,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
         )}
       >
         <NavigationMenu.Root className={classNames("container mx-auto px-4")}>
-          <AiOutlineClose
+          <IoCloseOutline
             className="cursor-pointer ml-auto mt-10 w-14 h-14 p-3 rounded-full bg-transparent hover:bg-neutral-200 hover:text-neutral-900 transition-all duration-300 ease-in-out"
             size={30}
             onClick={() => {

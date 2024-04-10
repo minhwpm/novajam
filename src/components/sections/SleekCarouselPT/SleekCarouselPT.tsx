@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Section } from "@/components/elements/Section/Section";
 import { ContentPTType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import "@/app/css/bg-color.css";
@@ -19,7 +19,7 @@ interface ArrowGroupProps {
 const ArrowGroup = ({ visibleIdx, setVisibleIdx, length, darkMode }: ArrowGroupProps) => {
   return (
     <>
-      <IoIosArrowBack
+      <GoArrowLeft
         className={classNames("cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
           {"text-neutral-50": darkMode }
         )}
@@ -28,7 +28,7 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length, darkMode }: ArrowGroupP
           else setVisibleIdx(length - 1);
         }}
       />
-      <IoIosArrowForward
+      <GoArrowRight
         className={classNames("cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
           {"text-neutral-50": darkMode }
         )}

@@ -10,7 +10,8 @@ import { TextAreaField } from "./TextAreaField";
 import { SelectField } from "./SelectField";
 import { DatePickerField } from "@/components/elements/DatePickerField/DatePickerField";
 import * as Toast from "@radix-ui/react-toast";
-import { AiOutlineClose, AiOutlineLoading3Quarters } from "react-icons/ai";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { IoCloseOutline } from "react-icons/io5";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { RiErrorWarningLine } from "react-icons/ri";
 
@@ -256,7 +257,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             }}
           >
             <Toast.Close className="absolute top-2 right-2">
-              <AiOutlineClose className="cursor-pointer ml-auto w-10 h-10 p-2 rounded-full text-primary-500 hover:bg-primary-100 transition-all duration-300 ease-in-out" />
+              <IoCloseOutline className="cursor-pointer ml-auto w-10 h-10 p-2 rounded-full text-primary-500 hover:bg-primary-100 transition-all duration-300 ease-in-out" />
             </Toast.Close>
             <IoMdCheckmarkCircleOutline
               className="text-green-600 m-auto"
@@ -273,7 +274,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
         <Toast.Provider swipeDirection="right" duration={10000}>
           <Toast.Root className="relative bg-primary-50 rounded-assets border border-primary-300 shadow-lg p-8 data-[state=open]:animate-fadeIn">
             <Toast.Close className="absolute top-2 right-2">
-              <AiOutlineClose className="cursor-pointer ml-auto w-10 h-10 p-2 rounded-full text-primary-500 hover:bg-primary-100 transition-all duration-300 ease-in-out" />
+              <IoCloseOutline className="cursor-pointer ml-auto w-10 h-10 p-2 rounded-full text-primary-500 hover:bg-primary-100 transition-all duration-300 ease-in-out" />
             </Toast.Close>
             <RiErrorWarningLine className="text-red-600 m-auto" size="50" />
             <Toast.Title className="mt-4 font-heading xl:text-lg text-center">

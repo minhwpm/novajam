@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import classNames from "classnames";
 import { ButtonVariant } from "@/helpers/types";
-import { BsArrowRight } from "react-icons/bs";
+import { GoArrowRight } from "react-icons/go";
 
 interface ButtonProps {
   className?: string;
@@ -46,7 +46,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
           >
             {children}
             {withArrow && (
-              <BsArrowRight
+              <GoArrowRight
                 className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-500 ease"
                 size={20}
               />
@@ -64,7 +64,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
           >
             {children}
             {withArrow && (
-              <BsArrowRight
+              <GoArrowRight
                 className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-200 ease"
                 size={20}
               />
@@ -122,7 +122,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
         >
           {children}
           {withArrow && (
-            <BsArrowRight
+            <GoArrowRight
               className={classNames(
                 "inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-300 ease",
                 {
@@ -143,7 +143,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
         <span className={classNames(classes, className)}>
           {children}
           {withArrow && (
-            <BsArrowRight
+            <GoArrowRight
               className="inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-300 ease"
               size={20}
             />

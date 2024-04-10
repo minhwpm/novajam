@@ -20,7 +20,7 @@ export default async function Page({ params, searchParams } : Props ) {
   )) as Array<BlogType>;
   
   return (
-    <main className="flex flex-col min-h-screen pb-24">
+    <main className="flex flex-col min-h-screen">
       {latestBlogs.length > 0 && <LatestBlogs data={latestBlogs} /> }
       {(latestBlogs.length >= BLOG_PAGE_SIZE) && (
         <Container>
