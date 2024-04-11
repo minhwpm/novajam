@@ -33,7 +33,7 @@ export default async function getContentList(id: string) {
               openNewTab
             }
             htmlid
-            style
+            appearanceVariant
             size
             headingAlignment
             contentAlignment
@@ -168,6 +168,7 @@ export default async function getContentList(id: string) {
                   }
                   name
                   role
+                  rating
                 }
               }
             }

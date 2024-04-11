@@ -38,7 +38,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
     backgroundColor,
     backgroundImage,
     htmlid,
-    layout = "horizontal",
+    appearanceVariant = "horizontal",
     darkMode,
   } = data;
   const {
@@ -101,7 +101,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           <div className="flex flex-col gap-x-10 gap-y-4 lg:flex-row my-24">
             <div
               className={classNames("flex flex-col items-center", {
-                "lg:w-5/12 lg:items-start": layout === "horizontal",
+                "lg:w-5/12 lg:items-start": appearanceVariant === "horizontal",
               })}
             >
               {eyebrow && (
@@ -119,7 +119,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                   className={classNames(
                     "text-heading text-center leading-tight font-heading tracking-wide mb-5",
                     { "text-neutral-50 drop-shadow-lg": darkMode },
-                    { "lg:text-start": layout === "horizontal" }
+                    { "lg:text-start": appearanceVariant === "horizontal" }
                   )}
                 >
                   <RichText2 data={heading} />
@@ -130,7 +130,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                   className={classNames(
                     "prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center mb-5",
                     { "text-neutral-100": darkMode },
-                    { "lg:text-start": layout === "horizontal" }
+                    { "lg:text-start": appearanceVariant === "horizontal" }
                   )}
                 >
                   {summary}
@@ -149,8 +149,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             <div
               className={classNames(
                 "col-span-12 flex flex-col ",
-                { "items-center": layout === "vertical" },
-                { "lg:w-7/12 lg:items-end": layout === "horizontal" }
+                { "items-center": appearanceVariant === "vertical" },
+                { "lg:w-7/12 lg:items-end": appearanceVariant === "horizontal" }
               )}
             >
               <form

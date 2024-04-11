@@ -42,7 +42,6 @@ export default async function getNavigation(url: string) {
                     id
                   }
                   title
-                  layout
                 }
               }
             }
@@ -70,7 +69,7 @@ export default async function getNavigation(url: string) {
                 withArrow
               }
             }
-            style
+            appearanceVariant
             darkMode
           }
         }

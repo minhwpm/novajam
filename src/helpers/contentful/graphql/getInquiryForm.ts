@@ -55,7 +55,7 @@ export default async function getInquiryForm(id: string) {
             errorMessage
             htmlid
             formType
-            layout
+            appearanceVariant
             backgroundColor
             backgroundImage {
               url

@@ -52,7 +52,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
             clickable: true,
           }}
           navigation={{
-            enabled: true,
+            enabled: false,
           }}
           loop={true}
           modules={[Navigation, Pagination, Autoplay]}

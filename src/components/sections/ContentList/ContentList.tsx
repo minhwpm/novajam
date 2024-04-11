@@ -17,7 +17,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     summary,
     exploreMore,
     content,
-    style,
+    appearanceVariant,
     size,
     headingAlignment,
     contentAlignment,
@@ -37,7 +37,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         heading={heading}
         summary={summary}
         alignment={headingAlignment}
-        framed={style !== "carousel"}
+        framed={appearanceVariant !== "carousel"}
         backgroundImage={backgroundImage}
         darkMode={darkMode}
       >
@@ -59,21 +59,21 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
             </Button>
           </div>
         )}
-        {style === "carousel" && (
+        {appearanceVariant === "carousel" && (
           <CarouselList
             list={content}
             size={size}
             alignment={contentAlignment}
           />
         )}
-        {style === "masonry" && (
+        {appearanceVariant === "masonry" && (
           <MasonryList
             list={content}
             size={size}
             alignment={contentAlignment}
           />
         )}
-        {style === "deck" && (
+        {appearanceVariant === "deck" && (
           <DeckList list={content} size={size} alignment={contentAlignment} />
         )}
       </Section>

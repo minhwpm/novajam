@@ -6,7 +6,7 @@ import { RichText2 } from "@/components/elements/RichText/RichText";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
-import { HeroType, TextAlignmentType, ContentPieceType, HeroLayoutType } from "@/helpers/types";
+import { HeroType, TextAlignmentType, ContentPieceType, HeroLayoutVariant } from "@/helpers/types";
 import "@/app/css/padding.css"
 import "swiper/css";
 import "swiper/css/navigation";
@@ -14,7 +14,7 @@ import "swiper/css/pagination";
 import "@/app/css/custom-swiper.css"
 
 export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
-  const { content, layout, contentAlignment, backgroundImage, darkMode } = data;
+  const { content, appearanceVariant, contentAlignment, backgroundImage, darkMode } = data;
 
   if (content.length === 0) {
     return null
@@ -36,7 +36,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
         <HeroSection
           data={content[0]}
           alignment={contentAlignment}
-          layout={layout}
+          appearanceVariant={appearanceVariant}
           darkMode={darkMode}
         />
       )}
@@ -62,7 +62,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
               <HeroSection
                 data={section}
                 alignment={contentAlignment}
-                layout={layout}
+                appearanceVariant={appearanceVariant}
                 darkMode={darkMode}
               />
             </SwiperSlide>
@@ -76,21 +76,21 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
 export const HeroSection: React.FC<{
   data: ContentPieceType;
   alignment: TextAlignmentType;
-  layout: HeroLayoutType;
+  appearanceVariant: HeroLayoutVariant;
   darkMode: boolean;
-}> = ({ data, alignment, layout, darkMode }) => {
+}> = ({ data, alignment, appearanceVariant, darkMode }) => {
   return (
     <div
       key={data.id}
       className={classNames("flex flex-col items-center",
-        { "container mx-auto px-4 mt-12 mb-8": layout === "vertical" },
-        { "lg:flex-row lg:gap-x-12 ": layout === "horizontal" },
+        { "container mx-auto px-4 mt-12 mb-8": appearanceVariant === "vertical" },
+        { "lg:flex-row lg:gap-x-12 ": appearanceVariant === "horizontal" },
       )}
     >
       <div
         className={classNames(
           "flex flex-col gap-2 py-16 lg:py-20 xl:py-24",
-          { "px-4 custom-padding-left": layout === "horizontal" },
+          { "px-4 custom-padding-left": appearanceVariant === "horizontal" },
           { "items-center text-center": alignment === "center" },
           { "items-end text-end": alignment === "end" }
         )}

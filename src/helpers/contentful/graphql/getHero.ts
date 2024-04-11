@@ -20,7 +20,7 @@ export default async function getHero(id: string) {
           } 
         ) {
           items {
-            layout
+            appearanceVariant
             contentAlignment
             backgroundImage {
               url

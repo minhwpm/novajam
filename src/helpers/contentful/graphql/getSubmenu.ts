@@ -21,7 +21,7 @@ export default async function getSubmenu(id: string) {
         ) {
           items {
             title
-            layout
+            appearanceVariant
             menuCollection {
               items {
                 __typename

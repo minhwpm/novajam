@@ -57,11 +57,11 @@ export interface SubmenuType {
   title: string
   menu: Array<LinkType | LinkGroupType>
   featuredContent: Array<BlogType | PageType>
-  layout: 'dropdown' | 'mega'
+  appearanceVariant: 'dropdown' | 'mega'
   contentType: "submenu"
 }
 
-export type NavigationStyle = "standard" | "minimal" | "overlay"
+export type NavigationVariant = "standard" | "minimal" | "overlay"
 export interface NavigationType {
   url: string
   logo: MediaType,
@@ -69,7 +69,7 @@ export interface NavigationType {
   menu: Array<LinkType | SubmenuType>
   buttons: Array<ButtonType>
   hotButtons: Array<ButtonType>
-  style: NavigationStyle
+  appearanceVariant: NavigationVariant
   darkMode: boolean
 }
 
@@ -156,7 +156,7 @@ export type ExpertType = {
 
 export type MediaAspectRatioType = "auto" | "square" | "16/9" | "4/3" | "3/4" | "3/2"
 
-export type FeaturedContentLayoutType = "Horizontal (Image | Text)" | "Horizontal (Text | Image)" | "Vertical (Image | Text)" | "Vertical (Text | Image)"
+export type FeaturedContentVariantType = "Horizontal (Image | Text)" | "Horizontal (Text | Image)" | "Vertical (Image | Text)" | "Vertical (Text | Image)"
 
 export type FeaturedContentType = {
   id: string
@@ -169,20 +169,20 @@ export type FeaturedContentType = {
   buttons: Array<ButtonType>
   content: ContentPieceType
   htmlid: string
-  layout: FeaturedContentLayoutType
-  style: "standard" | "extended"
+  appearanceVariant: FeaturedContentVariantType
+  size: "standard" | "extended"
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
   darkMode: boolean
   contentType: "feature"
 }
 
-export type HeroLayoutType = "overlay" | "vertical" | "horizontal"
+export type HeroLayoutVariant = "overlay" | "vertical" | "horizontal"
 
 export type HeroType = {
   id: string
   content: Array<ContentPieceType>
-  layout: HeroLayoutType
+  appearanceVariant: HeroLayoutVariant
   contentAlignment: TextAlignmentType
   backgroundImage: MediaType | null
   darkMode: boolean
@@ -195,7 +195,7 @@ export type ContentPTType = {
   heading: Document | null
   summary: Document | null
   content: Array<ContentPieceType>
-  style: "carousel" | "sleek carousel" | "tab" | "accordion" | "scroll"
+  appearanceVariant: "carousel" | "sleek carousel" | "tab" | "accordion" | "scroll"
   headingAlignment: TextAlignmentType
   contentAlignment: TextAlignmentType
   htmlid: string | null
@@ -218,6 +218,7 @@ export type TestimonialType = {
   portrait: MediaType | null
   name: string | null
   role: string | null
+  rating: 0 | 1 | 2 | 3 | 4 | 5
   contentType: 'testimonial'
 }
 
@@ -254,7 +255,7 @@ export type ContentListType = {
   summary: Document | null
   content: Array<Content>
   exploreMore: LinkType | null
-  style: "carousel" | "masonry" | "deck"
+  appearanceVariant: "carousel" | "masonry" | "deck"
   size: ContentSize
   headingAlignment: TextAlignmentType
   contentAlignment: TextAlignmentType
@@ -289,7 +290,7 @@ export type InquiryFormType = {
   errorMessage: string | null
   htmlid: string | null
   formType: string
-  layout: "horizontal" | "vertical"
+  appearanceVariant: "horizontal" | "vertical"
   backgroundColor: BackgroundColorType | null
   backgroundImage: {
     url: string

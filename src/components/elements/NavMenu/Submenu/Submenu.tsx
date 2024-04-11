@@ -1,13 +1,13 @@
 "use client"
 import classNames from "classnames";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { NavigationStyle, SubmenuType } from "@/helpers/types";
+import { NavigationVariant, SubmenuType } from "@/helpers/types";
 import { usePathname } from "next/navigation";
 import { Dropdown } from "./Dropdown";
 import { Mega } from "./Mega";
 import { FaChevronDown } from "react-icons/fa";
 
-export const Submenu: React.FC<{ data: SubmenuType, style?: NavigationStyle }> = ({ data, style }) => {
+export const Submenu: React.FC<{ data: SubmenuType, appearanceVariant?: NavigationVariant }> = ({ data, appearanceVariant }) => {
   const pathname = usePathname();
   return (
     <>
@@ -40,22 +40,22 @@ export const Submenu: React.FC<{ data: SubmenuType, style?: NavigationStyle }> =
           "text-neutral-800 text-base",
           {
             "absolute top-full left-0 w-full bg-white border-t shadow-lg data-[state=open]:animate-slidingSubmenu":
-              data.layout === "mega" && style === "standard",
+              data.appearanceVariant === "mega" && appearanceVariant === "standard",
           },
           {
             "absolute top-full left-0 w-full -mt-4 bg-white shadow-radiant rounded-md data-[state=open]:animate-slidingSubmenu":
-              data.layout === "mega" && style === "overlay",
+              data.appearanceVariant === "mega" && appearanceVariant === "overlay",
           },
           {
             "absolute top-full left-0 w-64 -mt-4 p-3 bg-white shadow-radiant rounded-md data-[state=open]:animate-slidingSubmenu":
-              data.layout === "dropdown",
+              data.appearanceVariant === "dropdown",
           }
         )}
       >
-        {data.layout === "mega" && (
+        {data.appearanceVariant === "mega" && (
           <Mega data={data} />
         )}
-        {data.layout === "dropdown" && (
+        {data.appearanceVariant === "dropdown" && (
           <Dropdown data={data} />
         )}
       </NavigationMenu.Content>

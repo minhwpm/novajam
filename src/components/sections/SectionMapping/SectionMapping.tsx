@@ -19,7 +19,7 @@ import {
 type ComponentType = HeroType | ContentPTType | ContentListType | FeaturedContentType | InquiryFormType
 
 function PresentationMapping({ data }: { data: ContentPTType }) {
-  switch (data.style) {
+  switch (data.appearanceVariant) {
     case "scroll":
       return <ScrollPT data={data} />;
     case "accordion":
@@ -38,10 +38,10 @@ function PresentationMapping({ data }: { data: ContentPTType }) {
 function SectionComponentMapping ({ data }: { data: ComponentType }) {
   switch (data.contentType) {
     case "hero":
-      if (data.layout === "vertical" || data.layout === "horizontal") {
+      if (data.appearanceVariant === "vertical" || data.appearanceVariant === "horizontal") {
         return <Hero data={data} />
       }
-      if (data.layout === "overlay") {
+      if (data.appearanceVariant === "overlay") {
         return <HeroOverlay data={data} />
       }
       return null

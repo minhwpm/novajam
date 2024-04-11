@@ -27,7 +27,7 @@ export default async function getContentPT(id: string) {
             summary {
               json
             }
-            style
+            appearanceVariant
             headingAlignment
             contentAlignment
             htmlid
