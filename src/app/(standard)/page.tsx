@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   const data = await getPage("/")
   if (!data) {
-    throw new Error("Page Not Found")
+    throw new Error("Page not found")
   }
   return <SectionMapping data={data.content} />
 }
