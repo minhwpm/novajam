@@ -8,6 +8,7 @@ import { RichText2 } from "@/components/elements/RichText/RichText";
 import { Container } from "@/components/elements/Container/Container";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { HeroType, TextAlignmentType, ContentPieceType } from "@/helpers/types";
+import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -52,7 +53,9 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
             clickable: true,
           }}
           navigation={{
-            enabled: false,
+            enabled: true,
+            nextEl: ".hero-next",
+            prevEl: ".hero-prev"
           }}
           loop={true}
           modules={[Navigation, Pagination, Autoplay]}
@@ -66,6 +69,18 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
               />
             </SwiperSlide>
           ))}
+          <div className="absolute bottom-4 right-4 flex justify-center gap-4">
+            <div className={classNames("hero-prev cursor-pointer z-10 flex justify-center items-center rounded-full w-10 h-10 lg:w-12 lg:h-12 bg-neutral-500/20 hover:text-primary-600 hover:bg-neutral-200/80 transition-all duration-500 ease-in-out",
+              {"text-neutral-50": darkMode}
+            )}>
+              <GoArrowLeft size={30} />
+            </div>
+            <div className={classNames("hero-next cursor-pointer z-10 flex justify-center items-center rounded-full w-10 h-10 lg:w-12 lg:h-12 bg-neutral-500/20 hover:text-primary-600 hover:bg-neutral-200/80 transition-all duration-500 ease-in-out",
+              {"text-neutral-50": darkMode}
+            )}>
+              <GoArrowRight size={30} />
+            </div>
+          </div>
         </Swiper>
       )}
     </section>

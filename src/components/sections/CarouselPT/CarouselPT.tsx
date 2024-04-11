@@ -32,8 +32,8 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
           slidesPerView={1}
           navigation={{
             enabled: true,
-            nextEl: ".carouselPT-btn-next",
-            prevEl: ".carouselPT-btn-prev"
+            nextEl: ".carouselpt-next",
+            prevEl: ".carouselpt-prev"
           }}
           autoplay={{
             delay: 5000
@@ -67,12 +67,12 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             </SwiperSlide>
           ))}
           <div className="mt-4 lg:mt-0 w-full flex justify-center gap-4">
-            <div className={classNames("carouselPT-btn-prev cursor-pointer lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
+            <div className={classNames("carouselpt-prev cursor-pointer lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
               {"text-neutral-50": darkMode}
             )}>
               <GoArrowLeft size={35} />
             </div>
-            <div className={classNames("carouselPT-btn-next cursor-pointer lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
+            <div className={classNames("carouselpt-next cursor-pointer lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
               {"text-neutral-50": darkMode}
             )}>
               <GoArrowRight size={35} />

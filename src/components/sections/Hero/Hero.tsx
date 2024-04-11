@@ -7,6 +7,7 @@ import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { HeroType, TextAlignmentType, ContentPieceType, HeroLayoutVariant } from "@/helpers/types";
+import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import "@/app/css/padding.css"
 import "swiper/css";
 import "swiper/css/navigation";
@@ -43,6 +44,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
 
       {content.length > 1 && (
         <Swiper
+          className="relative"
           slidesPerView={1}
           autoplay={{
             delay: 5000,
@@ -53,6 +55,8 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
           }}
           navigation={{
             enabled: true,
+            nextEl: ".hero-next",
+            prevEl: ".hero-prev"
           }}
           loop={true}
           modules={[Navigation, Pagination, Autoplay]}
@@ -67,6 +71,18 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
               />
             </SwiperSlide>
           ))}
+          <div className="absolute bottom-4 right-4 flex justify-center gap-4">
+            <div className={classNames("hero-prev cursor-pointer z-10 flex justify-center items-center rounded-full w-10 h-10 lg:w-12 lg:h-12 bg-neutral-500/20 hover:text-primary-600 hover:bg-neutral-200/80 transition-all duration-500 ease-in-out",
+              {"text-neutral-50": darkMode}
+            )}>
+              <GoArrowLeft size={30} />
+            </div>
+            <div className={classNames("hero-next cursor-pointer z-10 flex justify-center items-center rounded-full w-10 h-10 lg:w-12 lg:h-12 bg-neutral-500/20 hover:text-primary-600 hover:bg-neutral-200/80 transition-all duration-500 ease-in-out",
+              {"text-neutral-50": darkMode}
+            )}>
+              <GoArrowRight size={30} />
+            </div>
+          </div>
         </Swiper>
       )}
     </section>
