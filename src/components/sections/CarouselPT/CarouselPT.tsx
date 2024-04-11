@@ -70,12 +70,12 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             <div className={classNames("carouselpt-prev cursor-pointer lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
               {"text-neutral-50": darkMode}
             )}>
-              <GoArrowLeft size={35} />
+              <GoArrowLeft size={30} />
             </div>
             <div className={classNames("carouselpt-next cursor-pointer lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
               {"text-neutral-50": darkMode}
             )}>
-              <GoArrowRight size={35} />
+              <GoArrowRight size={30} />
             </div>
           </div>
         </Swiper>

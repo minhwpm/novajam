@@ -52,7 +52,7 @@ export const CarouselList: React.FC<{
             { "text-neutral-50": darkMode }
           )}
         >
-          <GoArrowLeft size={35} />
+          <GoArrowLeft size={30} />
         </div>
         <div
           className={classNames(
@@ -64,7 +64,7 @@ export const CarouselList: React.FC<{
             { "text-neutral-50": darkMode }
           )}
         >
-          <GoArrowRight size={35} />
+          <GoArrowRight size={30} />
         </div>
       </div>
       {list.map((item, idx) => (
