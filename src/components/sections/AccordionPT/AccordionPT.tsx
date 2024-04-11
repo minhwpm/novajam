@@ -1,6 +1,3 @@
-// Created by minhwpm (minhhien134@gmail.com)
-// AccordionPT = Accordion Presentation
-
 "use client";
 import React from "react";
 import classNames from "classnames";
@@ -42,12 +39,12 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 key={section.id}
                 value={section.id}
                 className={classNames(
-                  "group w-full rounded-assets bg-white border data-[state=closed]:hover:bg-primary-500 data-[state=closed]:hover:text-neutral-100 hover:border-primary-600 transition-colors duration-300 ease-in-out",
+                  "group w-full rounded-assets bg-white border data-[state=closed]:hover:bg-primary-600 data-[state=closed]:hover:text-neutral-100 hover:border-primary-600 transition-colors duration-300 ease-in-out",
                   { "bg-opacity-5 text-neutral-50": darkMode}
                 )}
               >
                 <RadixAccordion.Trigger asChild>
-                  <div className="py-4 px-6 cursor-pointer flex gap-3 items-center rounded-t-assets data-[state=open]:bg-primary-500 data-[state=open]:text-white">
+                  <div className="py-4 px-6 cursor-pointer flex gap-3 items-center rounded-t-assets data-[state=open]:bg-primary-600 data-[state=open]:text-white">
                     <div className="flex-1 flex flex-col items-center">
                       <div
                         className={classNames(

@@ -1,5 +1,6 @@
 "use client";
 import classNames from "classnames";
+import { useInView } from "react-hook-inview";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
@@ -16,12 +17,16 @@ import "@/app/css/custom-swiper.css";
 
 export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
   const { content, contentAlignment, backgroundImage, darkMode } = data;
-
+  const [ref, isIntersecting] = useInView({
+    threshold: 0.3,
+    unobserveOnEnter: true
+  });
   if (content.length === 0) {
     return null
   }
   return (
     <section
+      ref={ref}
       style={
         backgroundImage
           ? {
@@ -39,6 +44,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
           data={content[0]}
           alignment={contentAlignment}
           darkMode={darkMode}
+          isIntersecting={isIntersecting}
         />
       )}
 
@@ -66,6 +72,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
                 data={section}
                 alignment={contentAlignment}
                 darkMode={darkMode}
+                isIntersecting={isIntersecting}
               />
             </SwiperSlide>
           ))}
@@ -91,7 +98,8 @@ export const HeroOverlaySection: React.FC<{
   data: ContentPieceType;
   alignment: TextAlignmentType;
   darkMode: boolean;
-}> = ({ data, alignment, darkMode }) => {
+  isIntersecting: boolean;
+}> = ({ data, alignment, darkMode, isIntersecting }) => {
   return (
     <div
       key={data.id}
@@ -111,7 +119,7 @@ export const HeroOverlaySection: React.FC<{
             {
               "lg:absolute lg:top-0 lg:left-0":
                 data.media.length > 0 || data.embeddedMediaUrl,
-            },
+            }
           )}
         >
           <Container
@@ -126,7 +134,11 @@ export const HeroOverlaySection: React.FC<{
             {data.eyebrow && (
               <div
                 className={classNames(
-                  "drop-shadow-lg opacity-0 animate-slidingHeroContent animation-delay-500 tracking-widest font-medium lg:text-lg max-w-xl",
+                  "drop-shadow-lg tracking-widest font-medium lg:text-lg max-w-xl opacity-0",
+                  {
+                    "animate-slidingHeroContent animation-delay-500":
+                      isIntersecting,
+                  },
                   { "text-neutral-50": darkMode }
                 )}
               >
@@ -136,7 +148,8 @@ export const HeroOverlaySection: React.FC<{
             {data.heading && (
               <div
                 className={classNames(
-                  "relative animate-slidingHeroContent drop-shadow-lg text-super-heading leading-tighter font-heading max-w-2xl mt-2",
+                  "relative drop-shadow-lg text-super-heading leading-tighter font-heading max-w-2xl mt-2 opacity-0",
+                  { "animate-slidingHeroContent": isIntersecting },
                   { "text-white": darkMode }
                 )}
               >
@@ -146,7 +159,8 @@ export const HeroOverlaySection: React.FC<{
             {data.description && (
               <div
                 className={classNames(
-                  "opacity-0 animate-slidingHeroContent animation-delay-200 drop-shadow-lg prose md:prose-lg lg:prose-xl mt-6 lg:mt-10 max-w-xl",
+                  "drop-shadow-lg prose md:prose-lg lg:prose-xl mt-6 lg:mt-10 max-w-xl opacity-0",
+                  { "animate-slidingHeroContent animation-delay-200 ": isIntersecting },
                   { "text-neutral-100": darkMode }
                 )}
               >
@@ -156,7 +170,8 @@ export const HeroOverlaySection: React.FC<{
             {data.buttons.length > 0 && (
               <div
                 className={classNames(
-                  "mt-8 lg:mt-12 opacity-0 animate-slidingHeroContent animation-delay-400",
+                  "mt-8 lg:mt-12 opacity-0",
+                  { "animate-slidingHeroContent animation-delay-400 ": isIntersecting },
                 )}
               >
                 <ButtonGroup
