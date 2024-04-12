@@ -15,13 +15,13 @@ import "@/app/css/custom-swiper.css"
 import "@/app/css/padding.css"
 
 export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, contentAlignment, headingAlignment, backgroundColor, backgroundImage, darkMode } = data
+  const { eyebrow, heading, summary, content, contentTextAlignment, headingTextAlignment, backgroundColor, backgroundImage, darkMode } = data
   return (
     <Section
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
-      alignment={headingAlignment}
+      alignment={headingTextAlignment}
       className={classNames(
         `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
       )}
@@ -49,10 +49,10 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               {(item.heading || item.description || item.buttons) && (
                 <div className={classNames(
                   "flex flex-col",
-                  { "text-center": contentAlignment === "center" },
-                  { "text-end": contentAlignment === "end" }
+                  { "text-center": contentTextAlignment === "center" },
+                  { "text-end": contentTextAlignment === "end" }
                 )}>
-                  <TextPart data={item} alignment={contentAlignment} darkMode={darkMode} />
+                  <TextPart data={item} alignment={contentTextAlignment} darkMode={darkMode} />
                 </div>
               )}
               { (item.media.length > 0 || item.embeddedMediaUrl)&&  
@@ -60,7 +60,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   { "lg:w-1/2 shrink-0 ": (item.heading || item.description) },
                   { "w-full": (!item.heading && !item.description) },
                 )}>
-                  <FlexibleContentMediaPart data={item} alignment={contentAlignment} />
+                  <FlexibleContentMediaPart data={item} alignment={contentTextAlignment} />
                 </div>
               }
               </div>

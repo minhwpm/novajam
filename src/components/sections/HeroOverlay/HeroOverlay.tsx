@@ -16,7 +16,7 @@ import "swiper/css/pagination";
 import "@/app/css/custom-swiper.css";
 
 export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
-  const { content, contentAlignment, backgroundImage, darkMode } = data;
+  const { content, contentTextAlignment, backgroundImage, darkMode } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.3,
     unobserveOnEnter: true
@@ -42,7 +42,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
       {content.length === 1 && (
         <HeroOverlaySection
           data={content[0]}
-          alignment={contentAlignment}
+          alignment={contentTextAlignment}
           darkMode={darkMode}
           isIntersecting={isIntersecting}
         />
@@ -70,7 +70,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
             <SwiperSlide key={section.id}>
               <HeroOverlaySection
                 data={section}
-                alignment={contentAlignment}
+                alignment={contentTextAlignment}
                 darkMode={darkMode}
                 isIntersecting={isIntersecting}
               />

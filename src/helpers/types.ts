@@ -183,7 +183,7 @@ export type HeroType = {
   id: string
   content: Array<ContentPieceType>
   appearanceVariant: HeroLayoutVariant
-  contentAlignment: TextAlignmentType
+  contentTextAlignment: TextAlignmentType
   backgroundImage: MediaType | null
   darkMode: boolean
   contentType: "hero"
@@ -196,8 +196,8 @@ export type ContentPTType = {
   summary: Document | null
   content: Array<ContentPieceType>
   appearanceVariant: "carousel" | "sleek carousel" | "tab" | "accordion" | "scroll"
-  headingAlignment: TextAlignmentType
-  contentAlignment: TextAlignmentType
+  headingTextAlignment: TextAlignmentType
+  contentTextAlignment: TextAlignmentType
   htmlid: string | null
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
@@ -257,8 +257,8 @@ export type ContentListType = {
   exploreMore: LinkType | null
   appearanceVariant: "carousel" | "masonry" | "deck"
   size: ContentSize
-  headingAlignment: TextAlignmentType
-  contentAlignment: TextAlignmentType
+  headingTextAlignment: TextAlignmentType
+  contentTextAlignment: TextAlignmentType
   htmlid: string | null
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null

@@ -28,8 +28,8 @@ export default async function getContentPT(id: string) {
               json
             }
             appearanceVariant
-            headingAlignment
-            contentAlignment
+            headingTextAlignment
+            contentTextAlignment
             htmlid
             backgroundColor
             backgroundImage {

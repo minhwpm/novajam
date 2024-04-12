@@ -74,7 +74,7 @@ const TextContent = ({
 };
 
 export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, headingAlignment, contentAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
+  const { eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
@@ -84,7 +84,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
-      alignment={headingAlignment}
+      alignment={headingTextAlignment}
       backgroundImage={backgroundImage}
       darkMode={darkMode}
     >
@@ -95,8 +95,8 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             <div
               className={classNames(
                 "flex flex-col mb-10",
-                { "text-center": contentAlignment === "center" },
-                { "text-end": contentAlignment === "end" }
+                { "text-center": contentTextAlignment === "center" },
+                { "text-end": contentTextAlignment === "end" }
               )}
             >
               {section.eyebrow && (
@@ -129,7 +129,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               {section.buttons && section.buttons.length > 0 && (
                 <div
                   className={classNames("mt-8", {
-                    "flex justify-center": contentAlignment === "center",
+                    "flex justify-center": contentTextAlignment === "center",
                   })}
                 >
                   {section.buttons.map((button) => (
@@ -149,7 +149,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               {section.media?.length > 0 && (
                 <FlexibleContentMediaPart
                   data={section}
-                  alignment={contentAlignment}
+                  alignment={contentTextAlignment}
                 />
               )}
             </div>
@@ -180,7 +180,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   {(section.media.length > 0 || section.embeddedMediaUrl) && (
                     <FlexibleContentMediaPart
                       data={section}
-                      alignment={contentAlignment}
+                      alignment={contentTextAlignment}
                     />
                   )}
                 </div>
@@ -196,7 +196,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               data={section}
               idx={idx}
               setVisibleIdx={setVisibleIdx}
-              alignment={contentAlignment}
+              alignment={contentTextAlignment}
               darkMode={darkMode}
             />
           ))}

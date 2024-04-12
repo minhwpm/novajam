@@ -35,8 +35,8 @@ export default async function getContentList(id: string) {
             htmlid
             appearanceVariant
             size
-            headingAlignment
-            contentAlignment
+            headingTextAlignment
+            contentTextAlignment
             backgroundColor
             backgroundImage {
               url

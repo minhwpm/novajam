@@ -24,7 +24,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
   const {
     content,
     appearanceVariant,
-    contentAlignment,
+    contentTextAlignment,
     backgroundImage,
     darkMode,
   } = data;
@@ -53,7 +53,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
       {content.length === 1 && (
         <HeroSection
           data={content[0]}
-          alignment={contentAlignment}
+          alignment={contentTextAlignment}
           appearanceVariant={appearanceVariant}
           darkMode={darkMode}
           isIntersecting={isIntersecting}
@@ -83,7 +83,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
             <SwiperSlide key={section.id}>
               <HeroSection
                 data={section}
-                alignment={contentAlignment}
+                alignment={contentTextAlignment}
                 appearanceVariant={appearanceVariant}
                 darkMode={darkMode}
                 isIntersecting={isIntersecting}

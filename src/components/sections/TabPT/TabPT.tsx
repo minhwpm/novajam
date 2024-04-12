@@ -12,8 +12,8 @@ import "@/app/css/bg-color.css";
 import "./styles.css"
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
-  const { htmlid, eyebrow, heading, summary, content, headingAlignment, contentAlignment, backgroundColor, backgroundImage, darkMode } = data
-  const [justify, setJustify] = useState(headingAlignment)
+  const { htmlid, eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, backgroundColor, backgroundImage, darkMode } = data
+  const [justify, setJustify] = useState(headingTextAlignment)
   const wrapperRef = useRef(null) as unknown as React.MutableRefObject<HTMLDivElement>
   useEffect(() => {
     if (wrapperRef.current.scrollWidth > wrapperRef.current.clientWidth) {
@@ -29,7 +29,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
-      alignment={headingAlignment}
+      alignment={headingTextAlignment}
       framed={false}
       backgroundImage={backgroundImage}
       darkMode={darkMode}
@@ -97,8 +97,8 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
               value={section.id}
               className={classNames(
                 "col-start-1 row-start-1 relative data-[state='active']:animate-fadeInSlideLeft",
-                { "text-center": contentAlignment === "center" },
-                { "text-end": contentAlignment === "end" }
+                { "text-center": contentTextAlignment === "center" },
+                { "text-end": contentTextAlignment === "end" }
               )}
             >
               <div className="flex flex-col-reverse lg:flex-row lg:items-center rounded-assets p-4 lg:p-8 -mx-4 lg:-mx-8">
@@ -115,7 +115,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                   {section.buttons && section.buttons.length > 0 && (
                     <div
                       className={classNames("mt-8", {
-                        "flex justify-center": contentAlignment === "center",
+                        "flex justify-center": contentTextAlignment === "center",
                       })}
                     >
                       {section.buttons.map((button) => (
@@ -135,7 +135,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                   <div className="lg:w-7/12 shrink-0">
                     <FlexibleContentMediaPart
                       data={section}
-                      alignment={contentAlignment}
+                      alignment={contentTextAlignment}
                       aspectRatio='16/9'
                     />
                   </div>

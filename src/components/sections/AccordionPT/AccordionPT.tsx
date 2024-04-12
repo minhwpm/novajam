@@ -11,7 +11,7 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import "@/app/css/bg-color.css";
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, headingAlignment, contentAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
+  const { eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   return (
     <Section
       id={htmlid}
@@ -21,7 +21,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
-      alignment={headingAlignment}
+      alignment={headingTextAlignment}
       backgroundImage={backgroundImage}
       darkMode={darkMode}
     >
@@ -78,8 +78,8 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     "overflow-hidden px-4 lg:px-10",
                     "data-[state=closed]:animate-accordionSlideUp",
                     "data-[state=open]:animate-accordionSlideDown",
-                    { "text-center": contentAlignment === "center" },
-                    { "text-end": contentAlignment === "end" }
+                    { "text-center": contentTextAlignment === "center" },
+                    { "text-end": contentTextAlignment === "end" }
                   )}
                 >
                   <div className="pt-4 pb-8">
@@ -93,7 +93,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     {section.buttons && section.buttons.length > 0 && (
                       <div
                         className={classNames("mt-8", {
-                          "flex justify-center": contentAlignment === "center",
+                          "flex justify-center": contentTextAlignment === "center",
                         })}
                       >
                         {section.buttons.map((button) => (
@@ -112,7 +112,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       <div className="max-w-xl mx-auto mt-10">
                         <FlexibleContentMediaPart
                           data={section}
-                          alignment={contentAlignment}
+                          alignment={contentTextAlignment}
                         />
                       </div>
                     )}

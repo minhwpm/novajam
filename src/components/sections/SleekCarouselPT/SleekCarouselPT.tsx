@@ -44,7 +44,7 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length, darkMode }: ArrowGroupP
 };
 
 export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, headingAlignment, contentAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
+  const { eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
 
   return (
@@ -62,8 +62,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
             <p
               className={classNames(
                 "uppercase tracking-widest text-primary-600 font-medium mb-2",
-                { "text-center": headingAlignment === "center" },
-                { "text-end": headingAlignment === "end" }
+                { "text-center": headingTextAlignment === "center" },
+                { "text-end": headingTextAlignment === "end" }
               )}
             >
               {eyebrow}
@@ -74,8 +74,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
               className={classNames(
                 "font-heading text-heading !leading-tight  mb-3",
                 { "text-neutral-50": darkMode },
-                { "text-center": headingAlignment === "center" },
-                { "text-end": headingAlignment === "end" }
+                { "text-center": headingTextAlignment === "center" },
+                { "text-end": headingTextAlignment === "end" }
               )}
             >
               <RichText2 data={heading} />
@@ -86,8 +86,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
               className={classNames(
                 "prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl",
                 { "text-neutral-50": darkMode },
-                { "text-center": headingAlignment === "center" },
-                { "text-end": headingAlignment === "end" }
+                { "text-center": headingTextAlignment === "center" },
+                { "text-end": headingTextAlignment === "end" }
               )}
             >
               <RichText2 data={summary} />
@@ -108,8 +108,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
               key={section.id}
               className={classNames(
                 "col-start-1 row-start-1 flex flex-col gap-6 p-8 lg:p-12 shadow-lg bg-white rounded-assets transition-all ease-in-out duration-500 relative",
-                { "items-center": contentAlignment === "center" },
-                { "items-end": contentAlignment === "end" },
+                { "items-center": contentTextAlignment === "center" },
+                { "items-end": contentTextAlignment === "end" },
                 { "opacity-100 right-0": visibleIdx === idx },
                 { "opacity-0 -right-24": visibleIdx !== idx },
                 { "bg-opacity-5": darkMode }
@@ -118,14 +118,14 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
               {(section.media.length > 0 || section.embeddedMediaUrl) && (
                 <FlexibleContentMediaPart
                   data={section}
-                  alignment={contentAlignment}
+                  alignment={contentTextAlignment}
                 />
               )}
               <div
                 className={classNames(
                   "grow flex flex-col justify-center",
-                  { "text-center": contentAlignment === "center" },
-                  { "text-end": contentAlignment === "end" }
+                  { "text-center": contentTextAlignment === "center" },
+                  { "text-end": contentTextAlignment === "end" }
                 )}
               >
                 <div
@@ -156,7 +156,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                 {section.buttons && section.buttons.length > 0 && (
                   <div
                     className={classNames("mt-8", {
-                      "flex justify-center": contentAlignment === "center",
+                      "flex justify-center": contentTextAlignment === "center",
                     })}
                   >
                     {section.buttons.map((button) => (

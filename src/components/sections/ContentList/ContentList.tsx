@@ -19,8 +19,8 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     content,
     appearanceVariant,
     size,
-    headingAlignment,
-    contentAlignment,
+    headingTextAlignment,
+    contentTextAlignment,
     htmlid,
     backgroundColor,
     backgroundImage,
@@ -36,7 +36,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         eyebrow={eyebrow}
         heading={heading}
         summary={summary}
-        alignment={headingAlignment}
+        alignment={headingTextAlignment}
         framed={appearanceVariant !== "carousel"}
         backgroundImage={backgroundImage}
         darkMode={darkMode}
@@ -45,8 +45,8 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
           <div
             className={classNames(
               "w-full flex -mt-8 mb-4",
-              { "justify-center": headingAlignment === "center" },
-              { "justify-end": headingAlignment === "end" }
+              { "justify-center": headingTextAlignment === "center" },
+              { "justify-end": headingTextAlignment === "end" }
             )}
           >
             <Button
@@ -63,18 +63,18 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
           <CarouselList
             list={content}
             size={size}
-            alignment={contentAlignment}
+            alignment={contentTextAlignment}
           />
         )}
         {appearanceVariant === "masonry" && (
           <MasonryList
             list={content}
             size={size}
-            alignment={contentAlignment}
+            alignment={contentTextAlignment}
           />
         )}
         {appearanceVariant === "deck" && (
-          <DeckList list={content} size={size} alignment={contentAlignment} />
+          <DeckList list={content} size={size} alignment={contentTextAlignment} />
         )}
       </Section>
     </DarkModeContext.Provider>
