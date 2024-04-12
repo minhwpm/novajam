@@ -22,13 +22,12 @@ export const Statistics: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "flex flex-col items-center gap-3 p-4 lg:p-6 bg-white rounded-assets",
+        "flex flex-col items-center gap-3 px-4 lg:px-6 rounded-assets",
         { "perspective-2500 backface-hidden -rotate-y-90": !isIntersecting },
         {
           "perspective-none backface-hidden rotate-y-0 transition-transform ease duration-1000 ":
             isIntersecting,
         },
-        { "bg-opacity-5": darkMode }
       )}
       style={{
         transitionDelay: `${(index + 1) * 0.2}s`,

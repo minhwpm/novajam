@@ -98,7 +98,12 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
         }
       >
         <Container>
-          <div className="flex flex-col gap-x-10 gap-y-4 lg:flex-row my-24">
+          <div
+            className={classNames(
+              "flex flex-col gap-x-10 gap-y-4 my-24",
+              { "lg:flex-row": appearanceVariant === "horizontal" }
+            )}
+          >
             <div
               className={classNames("flex flex-col items-center", {
                 "lg:w-5/12 lg:items-start": appearanceVariant === "horizontal",
@@ -128,7 +133,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               {summary && (
                 <div
                   className={classNames(
-                    "prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center mb-5",
+                    "prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center",
                     { "text-neutral-100": darkMode },
                     { "lg:text-start": appearanceVariant === "horizontal" }
                   )}
@@ -138,8 +143,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               )}
               {description && (
                 <div
-                  className={classNames("prose 2xl:prose-lg", {
-                    "text-neutral drop-shadow-lg": darkMode,
+                  className={classNames("prose 2xl:prose-lg mt-8", {
+                    "text-neutral-100 drop-shadow-lg": darkMode,
                   })}
                 >
                   <RichText2 data={description} />
@@ -148,14 +153,14 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             </div>
             <div
               className={classNames(
-                "col-span-12 flex flex-col ",
+                "col-span-12 flex flex-col",
                 { "items-center": appearanceVariant === "vertical" },
                 { "lg:w-7/12 lg:items-end": appearanceVariant === "horizontal" }
               )}
             >
               <form
                 className={classNames(
-                  "bg-white w-full max-w-2xl grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-4 pb-12 rounded-assets",
+                  "bg-white w-full max-w-2xl mx-auto lg:mx-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-4 pb-12 rounded-assets",
                   { "bg-opacity-90": backgroundImage },
                   { "gap-x-0": fields.length === 1 },
                   {

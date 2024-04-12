@@ -154,6 +154,16 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
         "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20",
         `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
       )}
+      style={
+        backgroundImage
+          ? {
+              backgroundImage: `url(${backgroundImage.url})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundBlendMode: "multiply",
+            }
+          : {}
+      }
     >
       <Container>
         <div
