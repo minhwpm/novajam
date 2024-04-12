@@ -46,7 +46,7 @@ export function RichText2({
               return (
                 <li className="not-prose flex gap-4 mb-2">
                   <FaCheck
-                    className="flex-shrink-0 relative top-1 ml-2 text-primary-300"
+                    className="flex-shrink-0 relative top-1 ml-2 text-primary-400"
                     size={20}
                   />
                   {children}

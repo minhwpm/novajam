@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { useContext, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
-import { TextAlignmentType, Content, ContentSize } from "@/helpers/types";
+import { TextAlignmentType, Content, ContentSize, ContentOrientationType } from "@/helpers/types";
 import { ContentMapping } from "./ContentMapping";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
@@ -18,7 +18,8 @@ export const CarouselList: React.FC<{
   list: Content[];
   size: ContentSize;
   alignment: TextAlignmentType;
-}> = ({ list, size, alignment }) => {
+  layout: ContentOrientationType;
+}> = ({ list, size, alignment, layout }) => {
   const darkMode = useContext(DarkModeContext);
   const [carouselState, setState] = useState({
     isBeginning: true,
@@ -81,7 +82,7 @@ export const CarouselList: React.FC<{
             }
           )}
         >
-          <ContentMapping data={item} alignment={alignment} index={idx} />
+          <ContentMapping data={item} alignment={alignment} layout={layout} index={idx} />
         </SwiperSlide>
       ))}
     </Swiper>

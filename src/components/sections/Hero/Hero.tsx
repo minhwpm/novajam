@@ -32,7 +32,6 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
     threshold: 0.3,
     unobserveOnEnter: true,
   });
-  console.log("isIntersecting", isIntersecting);
   if (content.length === 0) {
     return null;
   }

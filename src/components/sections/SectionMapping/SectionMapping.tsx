@@ -21,40 +21,43 @@ type ComponentType = HeroType | ContentPTType | ContentListType | FeaturedConten
 function PresentationMapping({ data }: { data: ContentPTType }) {
   switch (data.appearanceVariant) {
     case "scroll":
-      return <ScrollPT data={data} />;
+      return <ScrollPT key={data.id} data={data} />;
     case "accordion":
-      return <AccordionPT data={data} />;
+      return <AccordionPT key={data.id} data={data} />;
     case "tab":
-      return <TabPT data={data} />;
+      return <TabPT key={data.id} data={data} />;
     case "carousel":
-      return <CarouselPT data={data} />;
+      return <CarouselPT key={data.id} data={data} />;
     case "sleek carousel":
-      return <SleekCarouselPT data={data} />;
+      return <SleekCarouselPT key={data.id} data={data} />;
     default:
       return null;
   }
 }
 
-function SectionComponentMapping ({ data }: { data: ComponentType }) {
+function SectionComponentMapping({ data }: { data: ComponentType }) {
   switch (data.contentType) {
     case "hero":
-      if (data.appearanceVariant === "vertical" || data.appearanceVariant === "horizontal") {
-        return <Hero data={data} />
+      if (
+        data.appearanceVariant === "vertical" ||
+        data.appearanceVariant === "horizontal"
+      ) {
+        return <Hero data={data} />;
       }
       if (data.appearanceVariant === "overlay") {
-        return <HeroOverlay data={data} />
+        return <HeroOverlay data={data} />;
       }
-      return null
+      return null;
     case "presentation":
-      return <PresentationMapping data={data} />
+      return <PresentationMapping data={data} />;
     case "feature":
-      return <FeaturedContent data={data} />
+      return <FeaturedContent data={data} />;
     case "cardlist":
-      return <ContentList data={data} />
+      return <ContentList data={data} />;
     case "inquiryform":
-      return <InquiryForm data={data} />
+      return <InquiryForm data={data} />;
     default:
-      return null
+      return null;
   }
 }
 

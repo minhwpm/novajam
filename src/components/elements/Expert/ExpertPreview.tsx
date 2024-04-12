@@ -24,25 +24,61 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout, alignment }) => {
   const darkMode = useContext(DarkModeContext);
   if (layout === "horizontal") {
     return (
-      <div className={classNames("flex flex-wrap py-4 bg-white")}>
+      <div className={classNames("flex p-4 rounded-assets")}>
         <div className="w-1/3 md:w-1/4">
           <MediaItem data={portrait} aspectRatio="square" rounded="full" />
         </div>
-        <div className="w-full pt-6 md:w-3/4 md:pt-0 md:pl-10">
-          <div className="font-heading underline-hover-effect font-semibold text-2xl md:text-3xl mb-5">
+        <div className="w-2/3 md:w-3/4 pl-4 md:pl-6">
+          <div
+            className={classNames(
+              "font-heading font-semibold text-2xl md:text-3xl mb-2",
+              { "text-neutral-50": darkMode }
+            )}
+          >
             {fullName}
           </div>
-          <div className="font-semibold text-neutral-600 italic">{role}</div>
+          {role && (
+            <div
+              className={classNames(
+                "font-semibold",
+                { "text-neutral-500": !darkMode },
+                { "text-neutral-200": darkMode }
+              )}
+            >
+              {role}
+            </div>
+          )}
           {specialization && (
-            <div className="flex flex-wrap items-center gap-2">
+            <div
+              className={classNames(
+                "flex flex-wrap items-center gap-2",
+                { "text-neutral-500": !darkMode },
+                { "text-neutral-200": darkMode }
+              )}
+            >
               {specialization.map((item, index) => (
                 <span key={index}>{item}</span>
               ))}
             </div>
           )}
-          <div>{organization}</div>
+          {organization && (
+            <div
+              className={classNames(
+                { "text-neutral-500": !darkMode },
+                { "text-neutral-200": darkMode }
+              )}
+            >
+              {organization}
+            </div>
+          )}
           {summary && (
-            <div className="my-4 prose 2xl:prose-lg max-w-none">{summary}</div>
+            <div
+              className={classNames("my-4 prose 2xl:prose-lg max-w-none", {
+                "text-neutral-100": darkMode,
+              })}
+            >
+              {summary}
+            </div>
           )}
           {sns && <SNS data={sns} />}
         </div>
@@ -72,7 +108,7 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout, alignment }) => {
         { "text-end": alignment === "end" }
       )}>
         <div className={classNames(
-          "font-heading font-semibold text-lg",
+          "font-heading font-semibold text-lg xl:text-xl",
           {
             "text-neutral-800":
               !darkMode,
@@ -81,36 +117,41 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout, alignment }) => {
         )}>
           {fullName}
         </div>
-        {(role || specialization || summary) && (
-          <>
-            {role && (
-              <div
-                className={classNames(
-                  "font-semibold",
-                  { "text-neutral-500": !darkMode },
-                  { "text-neutral-200": darkMode }
-                )}
-              >
-                {role}
-              </div>
+        {role && (
+          <div
+            className={classNames(
+              "font-semibold",
+              { "text-neutral-500": !darkMode },
+              { "text-neutral-200": darkMode }
             )}
-            {specialization && (
-              <div
-                className={classNames(
-                  "flex flex-wrap gap-2",
-                  { "justify-center": alignment === "center"},
-                  { "justify-end": alignment === "end"},
-                  { "text-neutral-500": !darkMode },
-                  { "text-neutral-200": darkMode }
-                )}
-              >
-                {specialization.map((item, index) => (
-                  <span key={index}>{item}</span>
-                ))}
-              </div>
+          >
+            {role}
+          </div>
+        )}
+        {specialization && (
+          <div
+            className={classNames(
+              "flex flex-wrap gap-2",
+              { "justify-center": alignment === "center"},
+              { "justify-end": alignment === "end"},
+              { "text-neutral-500": !darkMode },
+              { "text-neutral-200": darkMode }
             )}
-            
-          </>
+          >
+            {specialization.map((item, index) => (
+              <span key={index}>{item}</span>
+            ))}
+          </div>
+        )}
+        {organization && (
+          <div
+            className={classNames(
+              { "text-neutral-600": !darkMode },
+              { "text-neutral-100": darkMode }
+            )}
+          >
+            {organization}
+          </div>
         )}
         {sns && (
           <div className={classNames("flex",

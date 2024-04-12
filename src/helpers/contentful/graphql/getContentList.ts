@@ -37,6 +37,7 @@ export default async function getContentList(id: string) {
             size
             headingTextAlignment
             contentTextAlignment
+            contentOrientation
             backgroundColor
             backgroundImage {
               url

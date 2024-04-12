@@ -14,6 +14,7 @@ import {
   Merriweather,
   Inria_Serif,
   PT_Serif,
+  Oswald,
 } from "next/font/google";
 
 export const Poppins_Font = Poppins({
@@ -110,6 +111,12 @@ export const PT_Serif_Font = PT_Serif({
   variable: "--font-heading",
 })
 
+export const Oswald_Font = Oswald({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["200", "300", "400", "500", "600", "700"],
+})
+
 export const generateFontClassnames = (fontMain: string | null, fontHeading: string | null) => classNames({
   [Poppins_Font.className]: fontMain === "Poppins",
   [Poppins_Font.variable]: fontHeading === "Poppins",
@@ -127,6 +134,7 @@ export const generateFontClassnames = (fontMain: string | null, fontHeading: str
   [Inria_Serif_Font.className]: fontMain === "Inria Serif",
   [Inria_Serif_Font.variable]: fontHeading === "Inria Serif",
   [Libre_Franklin_Font.className]: fontMain === "Libre Franklin",
+  [Oswald_Font.className]: fontMain === "Oswald",
   [Playfair_Display_Font.variable]: fontHeading === "Playfair Display",
   [Lora_Font.variable]: fontHeading === "Lora",
   [Rubik_Font.variable]: fontHeading === "Rubik",

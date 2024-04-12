@@ -1,12 +1,13 @@
 import classNames from "classnames";
 import { ContentMapping } from "./ContentMapping"
-import { TextAlignmentType, Content, ContentSize } from "@/helpers/types";
+import { TextAlignmentType, Content, ContentSize, ContentOrientationType } from "@/helpers/types";
 
 export const DeckList: React.FC<{
   list: Array<Content>
   size: ContentSize;
   alignment: TextAlignmentType;
-}> = ({ list, size, alignment }) => {
+  layout: ContentOrientationType;
+}> = ({ list, size, alignment, layout }) => {
   return (
     <div className="flex flex-wrap justify-center -mx-2 lg:-mx-3.5">
       {list.map((item, idx) => (
@@ -20,7 +21,7 @@ export const DeckList: React.FC<{
             { "basis-1/2 sm:basis-1/3 md:basis-1/4 xl:basis-1/5": size === "S" }
           )}
         >
-          <ContentMapping data={item} alignment={alignment} index={idx} />
+          <ContentMapping data={item} alignment={alignment} layout={layout} index={idx} />
         </div>
       ))}
     </div>

@@ -69,11 +69,11 @@ export const FlexibleContent: React.FC<{
     return (
       <div
         className={classNames(
-          "flex gap-5 rounded-assets ",
+          "flex gap-y-5 rounded-assets ",
           { "bg-white": !darkMode }
         )}
       >
-        <div className="basis-1/3 flex-1">
+        <div className="max-w-fit basis-5/12">
           {(media || embeddedMediaUrl) && (
             <FlexibleContentMediaPart
               data={data}
@@ -85,7 +85,7 @@ export const FlexibleContent: React.FC<{
         {(heading || eyebrow || description || buttons?.length > 0) && (
           <div
             className={classNames(
-              "basis-2/3 flex-1 px-4 pt-4 pb-6 lg:px-6 lg:pt-6 lg:pb-8 flex flex-col",
+              "basis-7/12 flex-1 p-4 lg:px-6 flex flex-col",
               { "text-center": alignment === "center" },
               { "text-end": alignment === "end" }
             )}
@@ -113,7 +113,7 @@ export const FlexibleContent: React.FC<{
       {(heading || eyebrow || description || buttons?.length > 0) && (
         <div
           className={classNames(
-            "px-4 md:px-6 pt-4 pb-8 flex-1 flex flex-col",
+            "p-4 md:p-6 pt-4 flex-1 flex flex-col",
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }
           )}

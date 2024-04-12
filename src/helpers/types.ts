@@ -247,6 +247,7 @@ export type PricingPlanType = {
 
 export type Content = BlogType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType | PricingPlanType | TestimonialType
 export type ContentSize =  "S" | "M" | "L" | "XL"
+export type ContentOrientationType = "horizontal" | "vertical"
 
 export type ContentListType = {
   id: string
@@ -259,6 +260,7 @@ export type ContentListType = {
   size: ContentSize
   headingTextAlignment: TextAlignmentType
   contentTextAlignment: TextAlignmentType
+  contentOrientation: ContentOrientationType
   htmlid: string | null
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null

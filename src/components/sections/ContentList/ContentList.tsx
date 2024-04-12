@@ -21,6 +21,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     size,
     headingTextAlignment,
     contentTextAlignment,
+    contentOrientation,
     htmlid,
     backgroundColor,
     backgroundImage,
@@ -44,7 +45,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         {exploreMore && (
           <div
             className={classNames(
-              "w-full flex -mt-8 mb-4",
+              "container mx-auto px-4 flex -mt-4",
               { "justify-center": headingTextAlignment === "center" },
               { "justify-end": headingTextAlignment === "end" }
             )}
@@ -64,6 +65,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
             list={content}
             size={size}
             alignment={contentTextAlignment}
+            layout={contentOrientation}
           />
         )}
         {appearanceVariant === "masonry" && (
@@ -71,10 +73,16 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
             list={content}
             size={size}
             alignment={contentTextAlignment}
+            layout={contentOrientation}
           />
         )}
         {appearanceVariant === "deck" && (
-          <DeckList list={content} size={size} alignment={contentTextAlignment} />
+          <DeckList
+            list={content}
+            size={size}
+            alignment={contentTextAlignment}
+            layout={contentOrientation}
+          />
         )}
       </Section>
     </DarkModeContext.Provider>

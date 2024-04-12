@@ -1,14 +1,15 @@
 "use client"
 import classNames from "classnames";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { TextAlignmentType, Content, ContentSize } from "@/helpers/types";
+import { TextAlignmentType, Content, ContentSize, ContentOrientationType } from "@/helpers/types";
 import { ContentMapping } from "./ContentMapping";
 
 export const MasonryList: React.FC<{
   list: Content[];
   size: ContentSize;
   alignment: TextAlignmentType;
-}> = ({ list, size, alignment }) => {
+  layout: ContentOrientationType;
+}> = ({ list, size, alignment, layout }) => {
   return (
     <ResponsiveMasonry
       className="pt-3.5"
@@ -50,7 +51,7 @@ export const MasonryList: React.FC<{
     >
       <Masonry gutter="28px">
         {list.map((item, idx) => (
-          <ContentMapping key={item.id} data={item} alignment={alignment} index={idx} />
+          <ContentMapping key={item.id} data={item} alignment={alignment} layout={layout} index={idx} />
         ))}
       </Masonry>
     </ResponsiveMasonry>
