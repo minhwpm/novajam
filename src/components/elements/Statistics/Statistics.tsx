@@ -22,12 +22,14 @@ export const Statistics: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "flex flex-col items-center gap-3 px-4 lg:px-6 rounded-assets",
+        "flex flex-col gap-3 px-4 lg:px-6 rounded-assets",
         { "perspective-2500 backface-hidden -rotate-y-90": !isIntersecting },
         {
           "perspective-none backface-hidden rotate-y-0 transition-transform ease duration-1000 ":
             isIntersecting,
         },
+        { "items-center": alignment === "center" },
+        { "items-end": alignment === "end" }
       )}
       style={{
         transitionDelay: `${(index + 1) * 0.2}s`,
@@ -37,7 +39,7 @@ export const Statistics: React.FC<{
         className={classNames(
           "font-heading text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-semibold tracking-wide",
           { "text-primary-600": !darkMode },
-          { "text-neutral-200": darkMode },
+          { "text-neutral-100": darkMode },
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" }
         )}

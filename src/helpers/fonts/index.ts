@@ -114,7 +114,7 @@ export const PT_Serif_Font = PT_Serif({
 export const Oswald_Font = Oswald({
   subsets: ["latin"],
   display: "swap",
-  weight: ["200", "300", "400", "500", "600", "700"],
+  weight: ["200", "300", "600", "700"],
 })
 
 export const generateFontClassnames = (fontMain: string | null, fontHeading: string | null) => classNames({

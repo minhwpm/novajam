@@ -122,7 +122,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               {heading && (
                 <div
                   className={classNames(
-                    "text-heading text-center leading-tight font-heading tracking-wide mb-5",
+                    "text-heading text-center leading-tight font-heading tracking-wide",
                     { "text-neutral-50 drop-shadow-lg": darkMode },
                     { "lg:text-start": appearanceVariant === "horizontal" }
                   )}
@@ -133,7 +133,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               {summary && (
                 <div
                   className={classNames(
-                    "prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center",
+                    "prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center mt-6",
                     { "text-neutral-100": darkMode },
                     { "lg:text-start": appearanceVariant === "horizontal" }
                   )}
@@ -143,7 +143,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               )}
               {description && (
                 <div
-                  className={classNames("prose 2xl:prose-lg mt-8", {
+                  className={classNames("prose xl:prose-lg mt-8", {
                     "text-neutral-100 drop-shadow-lg": darkMode,
                   })}
                 >

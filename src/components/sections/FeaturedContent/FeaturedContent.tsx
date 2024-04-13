@@ -32,7 +32,7 @@ const TextPart: React.FC<{ data: ContentPieceType, appearanceVariant: FeaturedCo
       {heading && (
         <div
           className={classNames(
-            "text-heading leading-tighter font-heading  max-w-6xl mb-5",
+            "text-heading leading-tighter font-heading  max-w-6xl mb-8",
             { "text-neutral-50": darkMode },
             {
               "text-center mx-auto":
