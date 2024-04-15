@@ -39,13 +39,13 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 key={section.id}
                 value={section.id}
                 className={classNames(
-                  "group w-full rounded-assets bg-white border data-[state=closed]:hover:bg-primary-600 data-[state=closed]:hover:text-neutral-100 hover:border-primary-600 transition-colors duration-300 ease-in-out",
+                  "group w-full rounded-assets bg-white data-[state=closed]:border data-[state=closed]:hover:bg-primary-600 data-[state=closed]:hover:text-neutral-100 hover:border-primary-600 transition-colors duration-500 ease-in-out",
                   { "bg-opacity-5 text-neutral-50": darkMode}
                 )}
               >
                 <RadixAccordion.Trigger asChild>
-                  <div className="py-4 px-6 cursor-pointer flex gap-3 items-center rounded-t-assets data-[state=open]:bg-primary-600 data-[state=open]:text-white">
-                    <div className="flex-1 flex flex-col items-center">
+                  <div className="py-4 px-6 cursor-pointer flex gap-3 rounded-t-assets data-[state=closed]:text-primary-600 data-[state=closed]:hover:text-white data-[state=open]:bg-primary-600 data-[state=open]:border-primary-600 data-[state=open]:text-white transition-colors duration-500 ease-in-out">
+                    <div className="flex-1 flex flex-col">
                       <div
                         className={classNames(
                           "text-sm font-medium tracking-widest",
@@ -78,6 +78,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     "overflow-hidden px-4 lg:px-10",
                     "data-[state=closed]:animate-accordionSlideUp",
                     "data-[state=open]:animate-accordionSlideDown",
+                    "data-[state=open]:border data-[state=open]:border-primary-600 rounded-b-assets",
                     { "text-center": contentTextAlignment === "center" },
                     { "text-end": contentTextAlignment === "end" }
                   )}
