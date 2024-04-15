@@ -104,7 +104,9 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               {section.eyebrow && (
                 <div
                   className={classNames(
-                    "tracking-widest px-2 py-1 text-sm font-medium text-primary-600 bg-primary-100 bg-opacity-10 rounded-assets"
+                    "tracking-widest text-sm font-medium",
+                    { "text-neutral-500": !darkMode },
+                    { "text-neutral-200": darkMode }
                   )}
                 >
                   {section.eyebrow}

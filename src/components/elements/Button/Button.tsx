@@ -37,8 +37,8 @@ export const Button: React.FC<ButtonProps> = (props) => {
           <Link
             className={classNames(
               "relative left-0 group inline-block text-primary-600 hover:left-1 transition-all duration-500",
-              { "py-2": size === "base" },
-              { "py-3 lg:text-lg": size === "lg" },
+              { "p-2": size === "base" },
+              { "p-3 lg:text-lg": size === "lg" },
               { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
               className
             )}
@@ -56,8 +56,8 @@ export const Button: React.FC<ButtonProps> = (props) => {
           <span
             className={classNames(
               "relative left-0 group inline-block text-primary-600 hover:left-1 transition-all duration-500",
-              { "py-2": size === "base" },
-              { "py-3 lg:text-lg": size === "lg" },
+              { "p-2": size === "base" },
+              { "p-3 lg:text-lg": size === "lg" },
               { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
               className
             )}

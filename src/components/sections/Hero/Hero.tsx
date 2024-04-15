@@ -182,7 +182,7 @@ const HeroSection: React.FC<{
         )}
         {data.buttons.length > 0 && (
           <div
-            className={classNames("mt-5 opacity-0", {
+            className={classNames("opacity-0", {
               "animate-slidingHeroContent animation-delay-400": isIntersecting,
             })}
           >

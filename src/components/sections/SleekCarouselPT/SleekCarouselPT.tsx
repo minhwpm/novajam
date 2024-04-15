@@ -56,7 +56,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
       )}
       backgroundImage={backgroundImage}
     >
-      <div className={classNames("flex flex-col lg:flex-row gap-5 lg:py-10")}>
+      <div className={classNames("flex flex-col lg:flex-row gap-5 py-10 lg:py-16")}>
         <div className="lg:w-1/2 lg:pr-10">
           {eyebrow && (
             <p
