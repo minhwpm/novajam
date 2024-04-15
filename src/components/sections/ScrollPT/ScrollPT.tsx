@@ -41,7 +41,9 @@ const TextContent = ({
       {eyebrow && (
         <div
           className={classNames(
-            "tracking-widest px-4 py-1 text-sm font-medium text-primary-600 bg-primary-100 rounded-assets self-start"
+            "tracking-widest text-sm font-medium",
+            { "text-neutral-500": !darkMode },
+            { "text-neutral-200": darkMode }
           )}
         >
           {eyebrow}
@@ -63,7 +65,7 @@ const TextContent = ({
       {description && (
         <div
           className={classNames("prose xl:prose-lg mt-6", {
-            "text-neutral-50": darkMode,
+            "text-neutral-100": darkMode,
           })}
         >
           <RichText2 data={description} />

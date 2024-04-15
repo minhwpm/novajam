@@ -146,8 +146,8 @@ export const ExpertPreview: React.FC<Props> = ({ data, layout, alignment }) => {
         {organization && (
           <div
             className={classNames(
-              { "text-neutral-600": !darkMode },
-              { "text-neutral-100": darkMode }
+              { "text-neutral-500": !darkMode },
+              { "text-neutral-200": darkMode }
             )}
           >
             {organization}

@@ -69,7 +69,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                       className={classNames(
                         "text-sm tracking-widest font-medium group-hover/trigger:text-neutral-800 group-data-[state='active']/trigger:text-primary-100 transition-colors duration-500 ease",
                         { "text-neutral-500": !darkMode },
-                        { "text-neutral-100": darkMode }
+                        { "text-neutral-200": darkMode }
                       )}
                     >
                       {section.eyebrow}
@@ -106,7 +106,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                   {section.description && (
                     <div
                       className={classNames("prose xl:prose-lg", {
-                        "text-neutral-50": darkMode,
+                        "text-neutral-100": darkMode,
                       })}
                     >
                       <RichText2 data={section.description} />
