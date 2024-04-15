@@ -48,7 +48,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
     reset,
     formState: { errors, isSubmitting, isSubmitted, isSubmitSuccessful },
   } = useForm<FormValues>();
-
+// TODO add animation for InquiryForm
   async function onSubmitValid(formValues: FormValues) {
     for (const key in formValues) {
       if (formValues[key] instanceof Date) {

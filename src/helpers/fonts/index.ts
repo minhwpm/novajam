@@ -115,6 +115,7 @@ export const Oswald_Font = Oswald({
   subsets: ["latin"],
   display: "swap",
   weight: ["200", "300", "600", "700"],
+  variable: "--font-heading",
 })
 
 export const generateFontClassnames = (fontMain: string | null, fontHeading: string | null) => classNames({
@@ -135,6 +136,7 @@ export const generateFontClassnames = (fontMain: string | null, fontHeading: str
   [Inria_Serif_Font.variable]: fontHeading === "Inria Serif",
   [Libre_Franklin_Font.className]: fontMain === "Libre Franklin",
   [Oswald_Font.className]: fontMain === "Oswald",
+  [Oswald_Font.variable]: fontHeading === "Oswald",
   [Playfair_Display_Font.variable]: fontHeading === "Playfair Display",
   [Lora_Font.variable]: fontHeading === "Lora",
   [Rubik_Font.variable]: fontHeading === "Rubik",

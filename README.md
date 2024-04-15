@@ -42,10 +42,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 6	Raleway
 7	Noto Sans / Serif
 8	Merriweather
-9	Nunito
-10 Lora
-11 Fira Sans
-12 Inter
-13 Quicksand
-14 Dosis
-15 Comfortaa
+9 Lora
+10 Fira Sans
+11 Inter

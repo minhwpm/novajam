@@ -62,15 +62,13 @@ export const FlexibleContent: React.FC<{
   alignment?: TextAlignmentType;
   layout?: "vertical" | "horizontal";
 }> = ({ data, alignment = "center", layout = "vertical" }) => {
-  const darkMode = useContext(DarkModeContext);
   const { heading, eyebrow, description, media, embeddedMediaUrl, buttons } =
     data;
   if (layout === "horizontal") {
     return (
       <div
         className={classNames(
-          "flex gap-y-5 rounded-assets ",
-          { "bg-white": !darkMode }
+          "flex rounded-assets",
         )}
       >
         <div className="max-w-fit basis-5/12">
@@ -85,7 +83,7 @@ export const FlexibleContent: React.FC<{
         {(heading || eyebrow || description || buttons?.length > 0) && (
           <div
             className={classNames(
-              "basis-7/12 flex-1 p-4 lg:px-6 flex flex-col",
+              "basis-7/12 flex-1 px-4 flex flex-col",
               { "text-center": alignment === "center" },
               { "text-end": alignment === "end" }
             )}
@@ -100,7 +98,6 @@ export const FlexibleContent: React.FC<{
     <div
       className={classNames(
         "flex flex-col rounded-assets",
-        { "bg-white": !darkMode }
       )}
     >
       {(media || embeddedMediaUrl) && (
@@ -113,7 +110,7 @@ export const FlexibleContent: React.FC<{
       {(heading || eyebrow || description || buttons?.length > 0) && (
         <div
           className={classNames(
-            "p-4 md:p-6 pt-4 flex-1 flex flex-col",
+            "py-4 md:pb-6 flex-1 flex flex-col",
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }
           )}
