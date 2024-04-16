@@ -50,19 +50,28 @@ export const Footer: React.FC<Props> = ({ data }) => {
               { "xl:col-start-10": menu.length === 1 }
             )}
           >
-            <p className={classNames("font-semibold mb-1",
-              { "text-neutral-50": darkMode }
-            )}>{section.title}</p>
+            <div
+              className={classNames(
+                "font-semibold mb-1",
+                { "text-neutral-600": !darkMode },
+                { "text-neutral-200": darkMode }
+              )}
+            >
+              {section.title}
+            </div>
             {section.links.map((link) => (
-              <p
+              <Link
                 key={link.text}
+                href={link.url}
                 className={classNames(
+                  "self-start select-none before:bg-primary-500 underline-hover-effect",
                   { "text-neutral-600": !darkMode },
                   { "text-neutral-100": darkMode }
                 )}
+                target={link.openNewTab ? "_blank" : "_self"}
               >
-                <Link href={link.url}>{link.text}</Link>
-              </p>
+                {link.text}
+              </Link>
             ))}
           </div>
         ))}

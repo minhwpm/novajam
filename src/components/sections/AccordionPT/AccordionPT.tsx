@@ -8,10 +8,15 @@ import { RichText2 } from "@/components/elements/RichText/RichText";
 import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
+import { useInView } from "react-hook-inview";
 import "@/app/css/bg-color.css";
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
+  const [ref, isIntersecting] = useInView({
+    threshold: 0.2,
+    unobserveOnEnter: true,
+  });
   return (
     <Section
       id={htmlid}
@@ -25,7 +30,16 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       backgroundImage={backgroundImage}
       darkMode={darkMode}
     >
-      <div className="w-full flex flex-col gap-10">
+      <div
+        ref={ref}
+        className={classNames(
+          "w-full flex flex-col gap-10",
+          "relative -bottom-10 opacity-0",
+          {
+            "animate-slidingUpContent animation-delay-300": isIntersecting,
+          }
+        )}
+      >
         <RadixAccordion.Root
           type="multiple"
           className={classNames(
@@ -39,26 +53,28 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 key={section.id}
                 value={section.id}
                 className={classNames(
-                  "group w-full rounded-assets bg-white data-[state=closed]:border data-[state=closed]:hover:bg-primary-600 data-[state=closed]:hover:text-neutral-100 hover:border-primary-600 transition-colors duration-500 ease-in-out",
-                  { "bg-opacity-5 text-neutral-50": darkMode}
+                  "group w-full rounded-assets bg-white data-[state=closed]:border data-[state=closed]:hover:bg-primary-600 data-[state=closed]:hover:text-neutral-100 hover:border-primary-600",
+                  { "bg-opacity-5 text-neutral-50": darkMode }
                 )}
               >
                 <RadixAccordion.Trigger asChild>
-                  <div className="py-4 px-6 cursor-pointer flex gap-3 rounded-t-assets data-[state=closed]:text-primary-600 data-[state=closed]:hover:text-white data-[state=open]:bg-primary-600 data-[state=open]:border-primary-600 data-[state=open]:text-white transition-colors duration-500 ease-in-out">
+                  <div className="py-4 px-6 cursor-pointer flex gap-3 rounded-t-assets data-[state=closed]:text-primary-600 data-[state=closed]:hover:text-white data-[state=open]:bg-primary-600 data-[state=open]:border-primary-600 data-[state=open]:text-white">
                     <div className="flex-1 flex flex-col">
                       <div
                         className={classNames(
                           "text-sm font-medium tracking-widest",
                           { "text-neutral-500": !darkMode },
-                          { "text-neutral-200": darkMode },
+                          { "text-neutral-200": darkMode }
                         )}
                       >
                         {section.eyebrow}
                       </div>
                       {section.heading && (
-                        <div className={classNames("font-semibold text-xl",
-                          { "text-neutral-50": darkMode },
-                        )}>
+                        <div
+                          className={classNames("font-semibold text-xl", {
+                            "text-neutral-50": darkMode,
+                          })}
+                        >
                           <RichText2 data={section.heading} />
                         </div>
                       )}
@@ -85,16 +101,19 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 >
                   <div className="pt-4 pb-8">
                     {section.description && (
-                      <div className={classNames("prose xl:prose-lg max-w-none",
-                        { "text-neutral-100": darkMode },
-                      )}>
+                      <div
+                        className={classNames("prose xl:prose-lg max-w-none", {
+                          "text-neutral-100": darkMode,
+                        })}
+                      >
                         <RichText2 data={section.description} />
                       </div>
                     )}
                     {section.buttons && section.buttons.length > 0 && (
                       <div
                         className={classNames("mt-8", {
-                          "flex justify-center": contentTextAlignment === "center",
+                          "flex justify-center":
+                            contentTextAlignment === "center",
                         })}
                       >
                         {section.buttons.map((button) => (

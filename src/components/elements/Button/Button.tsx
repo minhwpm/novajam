@@ -38,7 +38,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
             className={classNames(
               "relative left-0 group inline-block text-primary-600 hover:left-1 transition-all duration-500",
               { "p-2": size === "base" },
-              { "p-3 lg:text-lg": size === "lg" },
+              { "p-4 lg:text-lg": size === "lg" },
               { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
               className
             )}

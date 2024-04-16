@@ -8,7 +8,7 @@ export const NavLinkItem = ({
   children,
   className,
   onClick,
-  variant = 'highlighted',
+  variant = 'underlined',
   openNewTab = false,
 }: {
   href: string;

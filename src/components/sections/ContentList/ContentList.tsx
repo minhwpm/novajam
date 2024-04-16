@@ -3,7 +3,6 @@ import classNames from "classnames";
 import { createContext } from "react"
 import { Section } from "@/components/elements/Section/Section";
 import { ContentListType } from "@/helpers/types";
-import { Button } from "@/components/elements/Button/Button";
 import { CarouselList } from "./CarouselList";
 import { MasonryList } from "./MasonryList";
 import { DeckList } from "./DeckList";
@@ -41,25 +40,9 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         framed={appearanceVariant !== "carousel"}
         backgroundImage={backgroundImage}
         darkMode={darkMode}
+        additionalLink={exploreMore}
       >
-        {exploreMore && (
-          <div
-            className={classNames(
-              "container mx-auto px-4 flex -mt-4",
-              { "justify-center": headingTextAlignment === "center" },
-              { "justify-end": headingTextAlignment === "end" }
-            )}
-          >
-            <Button
-              size="lg"
-              withArrow={true}
-              variant="ghost"
-              url={exploreMore.url}
-            >
-              {exploreMore.text}
-            </Button>
-          </div>
-        )}
+        
         {appearanceVariant === "carousel" && (
           <CarouselList
             list={content}

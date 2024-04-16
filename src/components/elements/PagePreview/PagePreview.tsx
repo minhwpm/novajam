@@ -4,17 +4,33 @@ import { MediaItem } from "../MediaItem/MediaItem";
 import { useContext } from "react";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 import classNames from "classnames";
+import { useInView } from "react-hook-inview";
 
 export const PagePreview: React.FC<{
   data: PageType;
   layout?: "vertical" | "horizontal";
   alignment?: TextAlignmentType;
-}> = ({ data, layout = "vertical", alignment }) => {
+  animate: boolean
+}> = ({ data, layout = "vertical", alignment, animate }) => {
   const { title, url, metaTitle, metaImage } = data;
   const darkMode = useContext(DarkModeContext);
+  const [ref, isIntersecting] = useInView({
+    threshold: 0.2,
+    unobserveOnEnter: true,
+  });
   if (layout === "horizontal") {
     return (
-      <div className="rounded-assets flex gap-5">
+      <div
+        ref={ref}
+        className={classNames(
+          "rounded-assets flex gap-5",
+          { "relative -bottom-10 opacity-0": animate },
+          {
+            "animate-slidingUpContent animation-delay-150":
+              isIntersecting && animate,
+          }
+        )}
+      >
         <div className="basis-1/3 flex-1">
           <Link href={url}>
             <MediaItem data={metaImage} aspectRatio="square" />
@@ -36,7 +52,17 @@ export const PagePreview: React.FC<{
     );
   }
   return (
-    <div className="rounded-assets flex flex-col">
+    <div
+      ref={ref}
+      className={classNames(
+        "rounded-assets flex flex-col",
+        { "relative -bottom-10 opacity-0": animate },
+        {
+          "animate-slidingUpContent animation-delay-150":
+            isIntersecting && animate,
+        }
+      )}
+    >
       <Link href={url}>
         <MediaItem data={metaImage} aspectRatio="4/3" />
         <h4

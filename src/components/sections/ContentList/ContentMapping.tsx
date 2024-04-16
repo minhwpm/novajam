@@ -14,23 +14,25 @@ export const ContentMapping: React.FC<{
   alignment: TextAlignmentType;
   layout?: "horizontal" | "vertical"
   index: number
-}> = ({ data, alignment, layout = "vertical", index }) => {
+  animate?: boolean
+}> = ({ data, alignment, layout = "vertical", index, animate = true }) => {
   switch (data.contentType) {
     case "blog":
-      return <BlogPreview data={data} layout={layout} aspectRatio={layout === "horizontal" ? "square" : undefined} alignment={alignment} />;
+      return <BlogPreview data={data} layout={layout} aspectRatio={layout === "horizontal" ? "square" : undefined} alignment={alignment} animate={animate} />;
     case "page":
-      return <PagePreview data={data} layout={layout} alignment={alignment} />;
+      return <PagePreview data={data} layout={layout} alignment={alignment} animate={animate}/>;
     case "expert":
-      return <ExpertPreview data={data} layout={layout} alignment={alignment} />;
+      return <ExpertPreview data={data} layout={layout} alignment={alignment} animate={animate} />;
     case "statistics":
       return <Statistics index={index} data={data} alignment={alignment} />;
     case "contentpiece":
-      return <FlexibleContent data={data} alignment={alignment} layout={layout} />;
+      return <FlexibleContent data={data} alignment={alignment} layout={layout} animate={animate} />;
     case "pricingplan":
-      return <PricingPlan data={data} alignment={alignment} />;
+      return <PricingPlan data={data} alignment={alignment} animate={animate} />;
     case "testimonial":
-      return <Testimonial data={data} alignment={alignment} />;
+      return <Testimonial data={data} alignment={alignment} animate={animate} />;
     case "link":
+      // @TODO make a component ImageLink with animate prop
       return (
         <Link href={data.url}>
           {data.image ? (

@@ -4,17 +4,26 @@ import { Button } from "../Button/Button";
 import { TextAlignmentType, PricingPlanType } from "@/helpers/types";
 import { RichText2 } from "../RichText/RichText";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
+import { useInView } from "react-hook-inview";
 
 export const PricingPlan: React.FC<{
   data: PricingPlanType;
   alignment?: TextAlignmentType;
-}> = ({ data, alignment }) => {
+  animate: boolean;
+}> = ({ data, alignment, animate }) => {
   const darkMode = useContext(DarkModeContext);
   const { title, pricing, pricingSuffix, badge, description, ctaButton } = data;
+  const [ref, isIntersecting] = useInView({
+    threshold: 0.2,
+    unobserveOnEnter: true,
+  });
   return (
     <div
+      ref={ref}
       className={classNames(
         "flex flex-col gap-6 items-center rounded-assets",
+        { "relative -bottom-10 opacity-0": animate },
+        { "animate-slidingUpContent animation-delay-150": isIntersecting && animate },
         { "bg-white md:mt-16 shadow-radiant": !badge },
         {
           "bg-gradient-to-tl from-primary-600 to-primary-700 mt-6 md:mt-0 shadow-xl text-neutral-50":
@@ -61,6 +70,7 @@ export const PricingPlan: React.FC<{
           url={ctaButton.url}
           variant={ctaButton.buttonVariant}
           openNewTab={ctaButton.openNewTab}
+          size="lg"
         >
           {ctaButton.text}
         </Button>

@@ -4,9 +4,10 @@ import React from "react";
 import classNames from "classnames";
 import { Container } from "../Container/Container";
 import { RichText2 } from "@/components/elements/RichText/RichText";
-import { MediaType, TextAlignmentType } from "@/helpers/types";
+import { MediaType, TextAlignmentType, LinkType } from "@/helpers/types";
 import { Document } from "@contentful/rich-text-types";
 import { useInView } from "react-hook-inview";
+import { Button } from "../Button/Button";
 
 interface Props {
   id?: string | null;
@@ -14,11 +15,12 @@ interface Props {
   heading?: Document | null;
   summary?: Document | null;
   alignment?: TextAlignmentType;
+  additionalLink?: LinkType | null;
   className?: string;
-  backgroundImage?: MediaType | null;
-  children: React.ReactNode;
   framed?: boolean;
+  backgroundImage?: MediaType | null;
   darkMode?: boolean;
+  children: React.ReactNode;
 }
 
 export const Section: React.FC<Props> = ({
@@ -27,19 +29,19 @@ export const Section: React.FC<Props> = ({
   eyebrow,
   summary,
   alignment,
-  children,
+  additionalLink,
   className,
-  backgroundImage,
   framed = true,
+  backgroundImage,
   darkMode,
+  children,
 }) => {
   const [ref, isIntersecting] = useInView({
-    threshold: 0.1,
+    threshold: 0.3,
     unobserveOnEnter: true,
   });
   return (
     <section
-      ref={ref}
       id={id ?? ""}
       className={classNames(
         {
@@ -61,10 +63,11 @@ export const Section: React.FC<Props> = ({
           : {}
       }
     >
-      <Container
+      <div
+        ref={ref}
         className={classNames(
-          "relative flex flex-col -bottom-10 opacity-0",
-          { "animate-slidingUpSection animation-delay-300": isIntersecting },
+          "container mx-auto px-4 relative flex flex-col -bottom-10 opacity-0",
+          { "animate-slidingUpContent animation-delay-150": isIntersecting },
           { "items-center": alignment === "center" },
           { "items-end": alignment === "end" }
         )}
@@ -106,26 +109,45 @@ export const Section: React.FC<Props> = ({
             <RichText2 data={summary} />
           </div>
         )}
-      </Container>
+        {additionalLink && (
+          <div
+            className={classNames(
+              "flex -mx-4 -mt-4",
+              { "justify-center": alignment === "center" },
+              { "justify-end": alignment === "end" }
+            )}
+          >
+            <Button
+              size="lg"
+              withArrow={true}
+              variant="ghost"
+              url={additionalLink.url}
+            >
+              {additionalLink.text}
+            </Button>
+          </div>
+        )}
+      </div>
       {framed ? (
         <Container
           className={classNames(
-            "relative -bottom-10 opacity-0",
+            // "relative -bottom-10 opacity-0",
             {
               "mt-4": heading || eyebrow || summary,
             },
-            {
-              "animate-slidingUpSection animation-delay-500": isIntersecting,
-            }
+            // {
+            //   "animate-slidingUpContent animation-delay-500": isIntersecting,
+            // }
           )}
         >
           {children}
         </Container>
       ) : (
         <div
-          className={classNames("relative -bottom-10 opacity-0", {
-            "animate-slidingUpSection animation-delay-500": isIntersecting,
-          })}
+          // className={classNames(
+          //   "relative -bottom-10 opacity-0", {
+          //   "animate-slidingUpContent animation-delay-500": isIntersecting,
+          // })}
         >
           {children}
         </div>

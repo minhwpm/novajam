@@ -114,7 +114,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
           <div
             className={classNames(
               "relative w-full -bottom-10 opacity-0",
-              { "animate-slidingUpSection animation-delay-150": isIntersecting },
+              { "animate-slidingUpContent animation-delay-150": isIntersecting },
               { "lg:w-6/12": appearanceVariant === "Horizontal (Text | Image)" },
               { "lg:w-6/12": appearanceVariant === "Horizontal (Image | Text)" }
             )}
@@ -128,7 +128,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
           <div
             className={classNames(
               "relative -bottom-10 opacity-0 self-center w-full pt-4 md:pt-8 lg:pt-16 pb-16 flex flex-col",
-              { "animate-slidingUpSection animation-delay-500": isIntersecting },
+              { "animate-slidingUpContent animation-delay-500": isIntersecting },
               {
                 "lg:w-1/2 px-4 md:px-10 lg:pr-16 xl:pr-24 custom-padding-left":
                   appearanceVariant === "Horizontal (Text | Image)",
@@ -180,7 +180,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
             className={classNames(
               "relative -bottom-10 opacity-0 w-full max-w-5xl mx-auto",
               {
-                "animate-slidingUpSection animation-delay-500": isIntersecting,
+                "animate-slidingUpContent animation-delay-500": isIntersecting,
               },
               {
                 "w-full lg:w-6/12":
@@ -198,7 +198,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
             className={classNames(
               "relative -bottom-10 opacity-0 py-6 self-center flex flex-col mx-auto",
               {
-                "animate-slidingUpSection animation-delay-500": isIntersecting,
+                "animate-slidingUpContent animation-delay-500": isIntersecting,
               },
               {
                 "lg:w-1/2 md:pr-8 lg:pr-16":

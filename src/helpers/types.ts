@@ -82,13 +82,7 @@ export interface FooterType {
   logoRedirect?: string
   copyright?: string
   sns?: SNSType
-  menu: Array<{
-    title?:  string
-    links: Array<{
-      text: string
-      url: string
-    }>
-  }>
+  menu: Array<LinkGroupType>
   backgroundColor: BackgroundColorType | null
   darkMode: boolean
 }

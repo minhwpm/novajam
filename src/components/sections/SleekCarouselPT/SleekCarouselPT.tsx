@@ -8,6 +8,7 @@ import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import "@/app/css/bg-color.css";
+import { useInView } from "react-hook-inview";
 
 interface ArrowGroupProps {
   visibleIdx: number;
@@ -46,17 +47,29 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length, darkMode }: ArrowGroupP
 export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
-
+  const [ref, isIntersecting] = useInView({
+    threshold: 0.2,
+    unobserveOnEnter: true,
+  });
   return (
     <Section
       id={htmlid}
       className={classNames(
         "overflow-x-hidden",
-        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
+        
       )}
       backgroundImage={backgroundImage}
     >
-      <div className={classNames("flex flex-col lg:flex-row gap-5 py-10 lg:py-16")}>
+      <div
+        ref={ref}
+        className={classNames("flex flex-col lg:flex-row gap-5 py-10 lg:py-16",
+          "relative -bottom-10 opacity-0",
+          {
+            "animate-slidingUpContent animation-delay-150": isIntersecting,
+          }
+        )}
+      >
         <div className="lg:w-1/2 lg:pr-10">
           {eyebrow && (
             <p
@@ -102,7 +115,12 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
             />
           </div>
         </div>
-        <div className="lg:w-1/2 grid">
+        <div className={classNames("lg:w-1/2 grid",
+          "relative -bottom-10 opacity-0",
+          {
+            "animate-slidingUpContent animation-delay-300": isIntersecting,
+          }
+        )}>
           {content.map((section, idx) => (
             <div
               key={section.id}

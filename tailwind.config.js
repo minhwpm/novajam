@@ -154,7 +154,7 @@ module.exports = {
             opacity: 0,
           },
         },
-        slidingUpSection: {
+        slidingUpContent: {
           '0%': {
             opacity: 0,
             bottom: '-40px'
@@ -236,7 +236,7 @@ module.exports = {
         slidingSubmenu: 'slidingSubmenu 0.3s ease-out forwards 1',
         slidingLinkgroup: 'slidingLinkgroup 0.3s ease-out forwards 1',
         slidingHeroContent: 'slidingHeroContent 1s ease forwards',
-        slidingUpSection: 'slidingUpSection 0.5s ease-in-out forwards',
+        slidingUpContent: 'slidingUpContent 0.5s ease-in-out forwards',
         slidingText: 'slidingText 10s linear infinite normal none running',
         headerSlideIn: 'headerSlideIn 0.5s ease-out forwards 1',
         accordionSlideUp: 'accordionSlideUp 0.3s ease-in-out',

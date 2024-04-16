@@ -52,7 +52,7 @@ const TextContent = ({
       {heading && (
         <div
           className={classNames(
-            "text-2xl lg:text-3xl font-semibold",
+            "text-2xl lg:text-3xl",
             {
               "mt-2": eyebrow,
             },
@@ -78,7 +78,6 @@ const TextContent = ({
 export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
-
   return (
     <Section
       id={htmlid}
@@ -91,7 +90,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       darkMode={darkMode}
     >
       {/* FOR MOBILE, TABLETS */}
-      <div className="xl:hidden">
+      <div className="lg:hidden">
         {content?.map((section) => (
           <div key={section.id} className="mb-20">
             <div
@@ -115,7 +114,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               {section.heading && (
                 <div
                   className={classNames(
-                    "font-semibold text-2xl lg:text-3xl leading-snug",
+                    "text-2xl lg:text-3xl leading-snug",
                     { "mt-2": section.eyebrow },
                     { "text-neutral-50": darkMode },
                   )}
@@ -162,7 +161,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       </div>
 
       {/* FOR DESKTOP */}
-      <div className="hidden xl:flex">
+      <div className="hidden lg:flex">
         <div className="relative w-3/5">
           <div className="sticky top-20">
             <div className="relative h-[80vh]">

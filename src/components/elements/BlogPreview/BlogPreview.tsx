@@ -4,18 +4,34 @@ import Link from "next/link";
 import { TextAlignmentType, BlogType, MediaAspectRatioType } from "@/helpers/types";
 import { usePathname } from "next/navigation";
 import { MediaItem } from "../MediaItem/MediaItem";
+import { useInView } from "react-hook-inview";
 
 export const BlogPreview: React.FC<{
   data: BlogType;
   aspectRatio?: MediaAspectRatioType;
   layout?: "vertical" | "horizontal";
   alignment?: TextAlignmentType;
-}> = ({ data, aspectRatio = "3/2", layout = "vertical", alignment }) => {
+  animate: boolean;
+}> = ({ data, aspectRatio = "3/2", layout = "vertical", alignment, animate }) => {
   const { title, slug, media, topics } = data;
   const pathname = usePathname();
+  const [ref, isIntersecting] = useInView({
+    threshold: 0.2,
+    unobserveOnEnter: true,
+  });
   if (layout === "horizontal") {
     return (
-      <div className="rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease">
+      <div
+        ref={ref}
+        className={classNames(
+          "rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease",
+          { "relative -bottom-10 opacity-0": animate },
+          {
+            "animate-slidingUpContent animation-delay-150":
+              isIntersecting && animate,
+          }
+        )}
+      >
         <Link href={`${pathname.replace(/\/blog/g, "")}/blog/${slug}`}>
           <div className="flex gap-4">
             <div className="basis-1/3 flex-1">
@@ -39,7 +55,16 @@ export const BlogPreview: React.FC<{
     );
   }
   return (
-    <div className="rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease">
+    <div
+      className={classNames(
+        "rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease",
+        { "relative -bottom-10 opacity-0": animate },
+        {
+          "animate-slidingUpContent animation-delay-150":
+            isIntersecting && animate,
+        }
+      )}
+    >
       <Link href={`${pathname.replace(/\/blog/g, "")}/blog/${slug}`}>
         <MediaItem data={media} aspectRatio={aspectRatio} />
         <div className={classNames("w-full px-4 pb-8 pt-4 flex flex-col")}>

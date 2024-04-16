@@ -5,6 +5,7 @@ import { RichText2 } from "@/components/elements/RichText/RichText";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
+import { useInView } from "react-hook-inview";
 
 const TextPart: React.FC<{
   data: ContentPieceType;
@@ -61,14 +62,25 @@ export const FlexibleContent: React.FC<{
   data: ContentPieceType;
   alignment?: TextAlignmentType;
   layout?: "vertical" | "horizontal";
-}> = ({ data, alignment = "center", layout = "vertical" }) => {
+  animate: boolean;
+}> = ({ data, alignment = "center", layout = "vertical", animate }) => {
   const { heading, eyebrow, description, media, embeddedMediaUrl, buttons } =
     data;
+  const [ref, isIntersecting] = useInView({
+    threshold: 0.2,
+    unobserveOnEnter: true,
+  });
   if (layout === "horizontal") {
     return (
       <div
+        ref={ref}
         className={classNames(
           "flex rounded-assets",
+          { "relative -bottom-10 opacity-0": animate },
+          {
+            "animate-slidingUpContent animation-delay-150":
+              isIntersecting && animate,
+          }
         )}
       >
         <div className="max-w-fit basis-5/12">
@@ -96,8 +108,14 @@ export const FlexibleContent: React.FC<{
   }
   return (
     <div
+      ref={ref}
       className={classNames(
         "flex flex-col rounded-assets",
+        { "relative -bottom-10 opacity-0": animate },
+        {
+          "animate-slidingUpContent animation-delay-150":
+            isIntersecting && animate,
+        }
       )}
     >
       {(media || embeddedMediaUrl) && (

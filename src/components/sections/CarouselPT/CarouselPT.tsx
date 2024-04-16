@@ -8,6 +8,7 @@ import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentM
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import { useInView } from "react-hook-inview";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -16,6 +17,10 @@ import "@/app/css/padding.css"
 
 export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { eyebrow, heading, summary, content, contentTextAlignment, headingTextAlignment, backgroundColor, backgroundImage, darkMode } = data
+  const [ref, isIntersecting] = useInView({
+    threshold: 0.2,
+    unobserveOnEnter: true,
+  });
   return (
     <Section
       eyebrow={eyebrow}
@@ -28,60 +33,87 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       backgroundImage={backgroundImage}
       darkMode={darkMode}
     >
+      <div
+        ref={ref}
+        className={classNames("relative -bottom-10 opacity-0", {
+          "animate-slidingUpContent animation-delay-300": isIntersecting,
+        })}
+      >
         <Swiper
           slidesPerView={1}
           navigation={{
             enabled: true,
             nextEl: ".carouselpt-next",
-            prevEl: ".carouselpt-prev"
+            prevEl: ".carouselpt-prev",
           }}
           autoplay={{
-            delay: 5000
+            delay: 5000,
           }}
           loop={true}
           modules={[Navigation, Autoplay]}
         >
           {content.map((item) => (
             <SwiperSlide key={item.id}>
-              <div className={classNames(
-                "h-full flex flex-col-reverse lg:flex-row lg:items-center gap-x-16 gap-y-5 rounded-assets px-4 lg:px-10"
-              )}>
-              {(item.heading || item.description || item.buttons) && (
-                <div className={classNames(
-                  "flex flex-col",
-                  { "text-center": contentTextAlignment === "center" },
-                  { "text-end": contentTextAlignment === "end" }
-                )}>
-                  <TextPart data={item} alignment={contentTextAlignment} darkMode={darkMode} />
-                </div>
-              )}
-              { (item.media.length > 0 || item.embeddedMediaUrl)&&  
-                <div className={classNames(
-                  { "lg:w-1/2 shrink-0 ": (item.heading || item.description) },
-                  { "w-full": (!item.heading && !item.description) },
-                )}>
-                  <FlexibleContentMediaPart data={item} alignment={contentTextAlignment} />
-                </div>
-              }
+              <div
+                className={classNames(
+                  "h-full flex flex-col-reverse lg:flex-row lg:items-center gap-x-16 gap-y-5 rounded-assets px-4 lg:px-10"
+                )}
+              >
+                {(item.heading || item.description || item.buttons) && (
+                  <div
+                    className={classNames(
+                      "flex flex-col",
+                      { "text-center": contentTextAlignment === "center" },
+                      { "text-end": contentTextAlignment === "end" }
+                    )}
+                  >
+                    <TextPart
+                      data={item}
+                      alignment={contentTextAlignment}
+                      darkMode={darkMode}
+                    />
+                  </div>
+                )}
+                {(item.media.length > 0 || item.embeddedMediaUrl) && (
+                  <div
+                    className={classNames(
+                      {
+                        "lg:w-1/2 shrink-0 ": item.heading || item.description,
+                      },
+                      { "w-full": !item.heading && !item.description }
+                    )}
+                  >
+                    <FlexibleContentMediaPart
+                      data={item}
+                      alignment={contentTextAlignment}
+                    />
+                  </div>
+                )}
               </div>
             </SwiperSlide>
           ))}
           <div className="mt-4 lg:mt-0 w-full flex justify-center gap-4">
-            <div className={classNames("carouselpt-prev cursor-pointer lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
-              {"text-neutral-50": darkMode}
-            )}>
+            <div
+              className={classNames(
+                "carouselpt-prev cursor-pointer lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
+                { "text-neutral-50": darkMode }
+              )}
+            >
               <GoArrowLeft size={30} />
             </div>
-            <div className={classNames("carouselpt-next cursor-pointer lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
-              {"text-neutral-50": darkMode}
-            )}>
+            <div
+              className={classNames(
+                "carouselpt-next cursor-pointer lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
+                { "text-neutral-50": darkMode }
+              )}
+            >
               <GoArrowRight size={30} />
             </div>
           </div>
         </Swiper>
-      
+      </div>
     </Section>
-  )
+  );
 }
 
 const TextPart: React.FC<{

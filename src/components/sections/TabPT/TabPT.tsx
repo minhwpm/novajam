@@ -10,6 +10,7 @@ import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentM
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import "@/app/css/bg-color.css";
 import "./styles.css"
+import { useInView } from 'react-hook-inview';
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
   const { htmlid, eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, backgroundColor, backgroundImage, darkMode } = data
@@ -20,6 +21,10 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
       setJustify("start")
     }
   }, [])
+  const [ref, isIntersecting] = useInView({
+    threshold: 0.2,
+    unobserveOnEnter: true,
+  });
   return (
     <Section
       id={htmlid}
@@ -35,15 +40,17 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
       darkMode={darkMode}
     >
       <RadixTabs.Root
-        className="w-full mt-6"
+        ref={ref}
+        className={classNames("w-full mt-6", "relative -bottom-10 opacity-0", {
+          "animate-slidingUpContent animation-delay-300": isIntersecting,
+        })}
         defaultValue={content.length > 0 ? content[0].id : ""}
       >
         <div
           ref={wrapperRef}
-          className={classNames(
-            "flex overflow-x-auto whitespace-nowrap",
-            [`justify-${justify}`]
-          )}
+          className={classNames("flex overflow-x-auto whitespace-nowrap", [
+            `justify-${justify}`,
+          ])}
         >
           <RadixTabs.List
             className={classNames("group/list tab-list flex")}
@@ -62,12 +69,12 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                     key={section.id}
                     value={section.id}
                     className={classNames(
-                      "group/trigger shrink-0 px-6 py-2 hover:bg-neutral-200 flex flex-col justify-center items-center cursor-pointer rounded-assets hover:bg-opacity-90 data-[state='active']:bg-primary-600 transition-colors duration-500 ease "
+                      "group/trigger shrink-0 px-6 py-2 hover:bg-neutral-200 flex flex-col justify-center items-center cursor-pointer rounded-assets hover:bg-opacity-90 data-[state='active']:bg-primary-600"
                     )}
                   >
                     <div
                       className={classNames(
-                        "text-sm tracking-widest font-medium group-hover/trigger:text-neutral-800 group-data-[state='active']/trigger:text-primary-100 transition-colors duration-500 ease",
+                        "text-sm tracking-widest font-medium group-hover/trigger:text-neutral-800 group-data-[state='active']/trigger:text-primary-100",
                         { "text-neutral-500": !darkMode },
                         { "text-neutral-200": darkMode }
                       )}
@@ -77,7 +84,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                     {section.heading && (
                       <div
                         className={classNames(
-                          "block font-semibold lg:text-lg group-hover/trigger:text-neutral-800 group-data-[state='active']/trigger:text-white transition-colors duration-500 ease",
+                          "block font-semibold lg:text-lg group-hover/trigger:text-neutral-800 group-data-[state='active']/trigger:text-neutral-50",
                           { "text-neutral-600": !darkMode },
                           { "text-neutral-50": darkMode }
                         )}
@@ -115,7 +122,8 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                   {section.buttons && section.buttons.length > 0 && (
                     <div
                       className={classNames("mt-8", {
-                        "flex justify-center": contentTextAlignment === "center",
+                        "flex justify-center":
+                          contentTextAlignment === "center",
                       })}
                     >
                       {section.buttons.map((button) => (
@@ -136,7 +144,6 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                     <FlexibleContentMediaPart
                       data={section}
                       alignment={contentTextAlignment}
-                      // aspectRatio='16/9'
                     />
                   </div>
                 )}
