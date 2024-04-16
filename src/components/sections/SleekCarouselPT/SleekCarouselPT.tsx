@@ -22,7 +22,7 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length, darkMode }: ArrowGroupP
     <>
       <GoArrowLeft
         size={30}
-        className={classNames("cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
+        className={classNames("cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
           {"text-neutral-50": darkMode }
         )}
         onClick={() => {
@@ -32,7 +32,7 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length, darkMode }: ArrowGroupP
       />
       <GoArrowRight
         size={30}
-        className={classNames("cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
+        className={classNames("cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
           {"text-neutral-50": darkMode }
         )}
         onClick={() => {
@@ -148,7 +148,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
               >
                 <div
                   className={classNames(
-                    "text-sm font-semibold text-primary-500 tracking-widest"
+                    "text-sm font-semibold text-primary-600 tracking-widest"
                   )}
                 >
                   {section.eyebrow}

@@ -56,7 +56,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             <SwiperSlide key={item.id}>
               <div
                 className={classNames(
-                  "h-full flex flex-col-reverse lg:flex-row lg:items-center gap-x-16 gap-y-5 rounded-assets px-4 lg:px-10"
+                  "h-full flex flex-col-reverse lg:flex-row lg:items-center gap-x-16 gap-y-5 rounded-assets px-4 lg:py-4 lg:px-14 xl:px-16"
                 )}
               >
                 {(item.heading || item.description || item.buttons) && (
@@ -93,22 +93,20 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             </SwiperSlide>
           ))}
           <div className="mt-4 lg:mt-0 w-full flex justify-center gap-4">
-            <div
+            <GoArrowLeft
+              size={30}
               className={classNames(
-                "carouselpt-prev cursor-pointer lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
+                "carouselpt-prev cursor-pointer lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-full w-12 h-12 p-2 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
                 { "text-neutral-50": darkMode }
               )}
-            >
-              <GoArrowLeft size={30} />
-            </div>
-            <div
+            />
+            <GoArrowRight
+              size={30}
               className={classNames(
-                "carouselpt-next cursor-pointer lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-assets w-12 h-12 bg-neutral-200 bg-opacity-20 hover:text-primary-600 hover:bg-opacity-80 transition-all duration-500 ease",
+                "carouselpt-next cursor-pointer lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-full w-12 h-12 p-2 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
                 { "text-neutral-50": darkMode }
               )}
-            >
-              <GoArrowRight size={30} />
-            </div>
+            />
           </div>
         </Swiper>
       </div>
@@ -143,7 +141,7 @@ const TextPart: React.FC<{
         </div>
       )}
       {description && (
-        <div className={classNames("mt-5 prose 2xl:prose-lg",
+        <div className={classNames("mt-5 prose xl:prose-lg",
           { "text-neutral-100": darkMode },
         )}>
           <RichText2 data={description} />

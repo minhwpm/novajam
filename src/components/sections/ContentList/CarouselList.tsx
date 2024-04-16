@@ -33,13 +33,12 @@ export const CarouselList: React.FC<{
   return (
     <div
       ref={ref}
-      className={classNames(
-        "relative -bottom-10 opacity-0", {
+      className={classNames("relative -bottom-10 opacity-0", {
         "animate-slidingUpContent animation-delay-300": isIntersecting,
       })}
     >
       <Swiper
-        className={classNames("CarouselList relative w-screen !pt-14 !pb-4")}
+        className={classNames("CarouselList relative w-screen !pt-16 !pb-4")}
         slidesPerView={"auto"}
         navigation={{
           enabled: true,
@@ -55,30 +54,28 @@ export const CarouselList: React.FC<{
         }}
       >
         <div className="absolute top-0 right-0 z-10 w-full flex justify-end gap-4 custom-padding-right">
-          <div
+          <GoArrowLeft
+            size={30}
             className={classNames(
-              "carouselList-btn-prev cursor-pointer flex justify-center items-center rounded-full w-12 h-12 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
+              "carouselList-btn-prev cursor-pointer flex justify-center items-center rounded-full w-12 h-12 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
               {
                 "opacity-10 pointer-events-none cursor-not-allowed":
                   carouselState.isBeginning,
               },
               { "text-neutral-50": darkMode }
             )}
-          >
-            <GoArrowLeft size={30} />
-          </div>
-          <div
+          />
+          <GoArrowRight
+            size={30}
             className={classNames(
-              "carouselList-btn-next cursor-pointer flex justify-center items-center rounded-full w-12 h-12 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-500 ease",
+              "carouselList-btn-next cursor-pointer flex justify-center items-center rounded-full w-12 h-12 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
               {
                 "opacity-10 pointer-events-none cursor-not-allowed":
                   carouselState.isEnd,
               },
               { "text-neutral-50": darkMode }
             )}
-          >
-            <GoArrowRight size={30} />
-          </div>
+          />
         </div>
         {list.map((item, idx) => (
           <SwiperSlide
@@ -87,14 +84,22 @@ export const CarouselList: React.FC<{
               "px-4 !w-11/12",
               { "lg:max-w-[50%]": size === "XL" },
               { "md:max-w-[50%] lg:max-w-[33.33%]": size === "L" },
-              { "sm:max-w-[50%] md:max-w-[33.5%] lg:max-w-[25%]": size === "M" },
+              {
+                "sm:max-w-[50%] md:max-w-[33.5%] lg:max-w-[25%]": size === "M",
+              },
               {
                 "max-w-[50%] sm:max-w-[33.3%] md:max-w-[25%] lg:max-w-[20%]":
                   size === "S",
               }
             )}
           >
-            <ContentMapping data={item} alignment={alignment} layout={layout} index={idx} animate={false} />
+            <ContentMapping
+              data={item}
+              alignment={alignment}
+              layout={layout}
+              index={idx}
+              animate={false}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

@@ -16,7 +16,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
   return (
     <>
       <CiMenuFries
-        className="ml-auto relative cursor-pointer rounded-full w-14 h-14 p-3 bottom-0 hover:bottom-1 hover:bg-primary-500/90 hover:text-white transition-all duration-500 ease"
+        className="ml-auto relative cursor-pointer rounded-full w-14 h-14 p-3 bottom-0 hover:bottom-1 hover:bg-primary-600/90 hover:text-white transition-all duration-500 ease"
         onClick={() => {
           setNavMenuShowed(true);
           document.body.style.overflow = "hidden";
@@ -42,7 +42,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
               <NavigationMenu.Item key={item.id} className="py-2 border-b last:border-none border-neutral-800">
                 {item.contentType === "link" && (
                   <NavLinkItem
-                    className="before:bg-primary-500"
+                    className="before:bg-primary-600"
                     href={item.url}
                     variant="underlined"
                     onClick={() => {
