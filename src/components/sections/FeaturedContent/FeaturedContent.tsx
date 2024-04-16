@@ -180,7 +180,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
             className={classNames(
               "relative -bottom-10 opacity-0 w-full max-w-5xl mx-auto",
               {
-                "animate-slidingUpContent animation-delay-500": isIntersecting,
+                "animate-slidingUpContent animation-delay-150": isIntersecting,
               },
               {
                 "w-full lg:w-6/12":

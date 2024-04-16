@@ -2,18 +2,18 @@
 import classNames from "classnames";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/elements/Button/Button";
-import { Container } from "@/components/elements/Container/Container";
 import { InquiryFormType } from "@/helpers/types";
 import { RichText2 } from "@/components/elements/RichText/RichText";
 import { InputField } from "./InputField";
 import { TextAreaField } from "./TextAreaField";
 import { SelectField } from "./SelectField";
 import { DatePickerField } from "@/components/elements/DatePickerField/DatePickerField";
-import * as Toast from "@radix-ui/react-toast";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { IoCloseOutline } from "react-icons/io5";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { RiErrorWarningLine } from "react-icons/ri";
+import { useInView } from "react-hook-inview";
+import * as Toast from "@radix-ui/react-toast";
 
 export type FormValues = {
   [x: string]: string | Date | undefined | null;
@@ -41,6 +41,11 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
     appearanceVariant = "horizontal",
     darkMode,
   } = data;
+  const [ref, isIntersecting] = useInView({
+    threshold: 0.3,
+    unobserveOnEnter: true,
+  });
+
   const {
     register,
     control,
@@ -48,37 +53,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
     reset,
     formState: { errors, isSubmitting, isSubmitted, isSubmitSuccessful },
   } = useForm<FormValues>();
-// TODO add animation for InquiryForm
-  async function onSubmitValid(formValues: FormValues) {
-    for (const key in formValues) {
-      if (formValues[key] instanceof Date) {
-        formValues[key] = formValues[key]?.toLocaleString(undefined, {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-          hour: "numeric",
-          minute: "numeric",
-        });
-      }
-    }
-    try {
-      await fetch(`/api/inquiry-form-submission/`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({
-          title: title,
-          formType: formType,
-          submittedContent: {
-            ...formValues,
-          },
-        }),
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  }
+
   return (
     <>
       <section
@@ -97,148 +72,162 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             : {}
         }
       >
-        <Container>
+        <div
+          ref={ref}
+          className={classNames(
+            "container mx-auto px-4 flex flex-col gap-x-10 gap-y-4 my-24",
+            {
+              "lg:flex-row": appearanceVariant === "horizontal",
+            },
+            "relative -bottom-10 opacity-0",
+            {
+              "animate-slidingUpContent animation-delay-150": isIntersecting,
+            }
+          )}
+        >
+          <div
+            className={classNames("flex flex-col items-center", {
+              "lg:w-5/12 lg:items-start": appearanceVariant === "horizontal",
+            })}
+          >
+            {eyebrow && (
+              <div
+                className={classNames(
+                  "tracking-widest font-medium text-center lg:text-start mb-2",
+                  { "text-neutral-100": darkMode }
+                )}
+              >
+                {eyebrow}
+              </div>
+            )}
+            {heading && (
+              <div
+                className={classNames(
+                  "text-heading text-center leading-tight font-heading tracking-wide",
+                  { "text-neutral-50 drop-shadow-lg": darkMode },
+                  { "lg:text-start": appearanceVariant === "horizontal" }
+                )}
+              >
+                <RichText2 data={heading} />
+              </div>
+            )}
+            {summary && (
+              <div
+                className={classNames(
+                  "prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center mt-6",
+                  { "text-neutral-100": darkMode },
+                  { "lg:text-start": appearanceVariant === "horizontal" }
+                )}
+              >
+                {summary}
+              </div>
+            )}
+            {description && (
+              <div
+                className={classNames("prose xl:prose-lg mt-8", {
+                  "text-neutral-100 drop-shadow-lg": darkMode,
+                })}
+              >
+                <RichText2 data={description} />
+              </div>
+            )}
+          </div>
           <div
             className={classNames(
-              "flex flex-col gap-x-10 gap-y-4 my-24",
-              { "lg:flex-row": appearanceVariant === "horizontal" }
+              "col-span-12 flex flex-col",
+              { "items-center": appearanceVariant === "vertical" },
+              { "lg:w-7/12 lg:items-end": appearanceVariant === "horizontal" },
+              "relative -bottom-10 opacity-0",
+              {
+                "animate-slidingUpContent animation-delay-300": isIntersecting,
+              }
             )}
           >
-            <div
-              className={classNames("flex flex-col items-center", {
-                "lg:w-5/12 lg:items-start": appearanceVariant === "horizontal",
-              })}
-            >
-              {eyebrow && (
-                <div
-                  className={classNames(
-                    "tracking-widest font-medium text-center lg:text-start mb-2",
-                    { "text-neutral-100": darkMode }
-                  )}
-                >
-                  {eyebrow}
-                </div>
-              )}
-              {heading && (
-                <div
-                  className={classNames(
-                    "text-heading text-center leading-tight font-heading tracking-wide",
-                    { "text-neutral-50 drop-shadow-lg": darkMode },
-                    { "lg:text-start": appearanceVariant === "horizontal" }
-                  )}
-                >
-                  <RichText2 data={heading} />
-                </div>
-              )}
-              {summary && (
-                <div
-                  className={classNames(
-                    "prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center mt-6",
-                    { "text-neutral-100": darkMode },
-                    { "lg:text-start": appearanceVariant === "horizontal" }
-                  )}
-                >
-                  {summary}
-                </div>
-              )}
-              {description && (
-                <div
-                  className={classNames("prose xl:prose-lg mt-8", {
-                    "text-neutral-100 drop-shadow-lg": darkMode,
-                  })}
-                >
-                  <RichText2 data={description} />
-                </div>
-              )}
-            </div>
-            <div
+            <form
               className={classNames(
-                "col-span-12 flex flex-col",
-                { "items-center": appearanceVariant === "vertical" },
-                { "lg:w-7/12 lg:items-end": appearanceVariant === "horizontal" }
+                "bg-white w-full max-w-2xl mx-auto lg:mx-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-4 pb-12 rounded-assets",
+                { "bg-opacity-90": backgroundImage },
+                { "gap-x-0": fields.length === 1 },
+                {
+                  "shadow-radiant":
+                    !darkMode && (backgroundColor || backgroundImage),
+                }
               )}
+              onSubmit={handleSubmit(onSubmitValid)}
             >
-              <form
-                className={classNames(
-                  "bg-white w-full max-w-2xl mx-auto lg:mx-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-4 pb-12 rounded-assets",
-                  { "bg-opacity-90": backgroundImage },
-                  { "gap-x-0": fields.length === 1 },
-                  {
-                    "shadow-radiant":
-                      !darkMode && (backgroundColor || backgroundImage),
-                  }
-                )}
-                onSubmit={handleSubmit(onSubmitValid)}
-                // onSubmit={handleSubmit(() => console.log("Submitting"))}
-                // onSubmit={handleSubmit(createIFSubmission)}
-              >
-                {fields.length > 0 &&
-                  fields.map((fieldItem) => (
-                    <div
-                      key={fieldItem.id}
-                      className={classNames(
-                        "relative col-span-2 flex flex-col",
-                        { "md:col-span-1": fieldItem.uiWidth === "half-size" }
+              {fields.length > 0 &&
+                fields.map((fieldItem) => (
+                  <div
+                    key={fieldItem.id}
+                    className={classNames("relative col-span-2 flex flex-col", {
+                      "md:col-span-1": fieldItem.uiWidth === "half-size",
+                    })}
+                  >
+                    <div className="text-xs text-red-500 h-6 pt-1 pl-4">
+                      {errors[fieldItem.label]?.type === "required" && (
+                        <p>required * </p>
                       )}
-                    >
-                      <div className="text-xs text-red-500 h-6 pt-1 pl-4">
-                        {errors[fieldItem.label]?.type === "required" && (
-                          <p>required * </p>
-                        )}
-                        {errors[fieldItem.label]?.type === "pattern" && (
-                          <p>Wrong format. Please try again. </p>
-                        )}
+                      {errors[fieldItem.label]?.type === "pattern" && (
+                        <p>Wrong format. Please try again. </p>
+                      )}
+                    </div>
+                    {fieldItem.helpText && (
+                      <div className="text-neutral-800 pl-2 pb-2">
+                        {fieldItem.helpText}
                       </div>
-                      {fieldItem.helpText && (
-                        <div className="text-neutral-800 pl-2 pb-2">
-                          {fieldItem.helpText}
-                        </div>
-                      )}
-                      {fieldItem.fieldType === "select" && (
-                        <SelectField data={fieldItem} control={control} />
-                      )}
-                      {fieldItem.fieldType === "date" && (
+                    )}
+                    {fieldItem.fieldType === "select" && (
+                      <SelectField data={fieldItem} control={control} />
+                    )}
+                    {fieldItem.fieldType === "date" && (
+                      <DatePickerField
+                        data={fieldItem}
+                        control={control}
+                        dateFormat={dateFormat}
+                      />
+                    )}
+                    {fieldItem.fieldType === "datetime" && (
+                      <>
                         <DatePickerField
                           data={fieldItem}
                           control={control}
+                          showTimeSelect={true}
                           dateFormat={dateFormat}
                         />
+                      </>
+                    )}
+                    {fieldItem.fieldType === "textarea" && (
+                      <TextAreaField data={fieldItem} register={register} />
+                    )}
+                    {fieldItem.fieldType !== "textarea" &&
+                      fieldItem.fieldType !== "select" &&
+                      fieldItem.fieldType !== "date" &&
+                      fieldItem.fieldType !== "datetime" && (
+                        <InputField data={fieldItem} register={register} />
                       )}
-                      {fieldItem.fieldType === "datetime" && (
-                        <>
-                          <DatePickerField
-                            data={fieldItem}
-                            control={control}
-                            showTimeSelect={true}
-                            dateFormat={dateFormat}
-                          />
-                        </>
-                      )}
-                      {fieldItem.fieldType === "textarea" && (
-                        <TextAreaField data={fieldItem} register={register} />
-                      )}
-                      {fieldItem.fieldType !== "textarea" &&
-                        fieldItem.fieldType !== "select" &&
-                        fieldItem.fieldType !== "date" &&
-                        fieldItem.fieldType !== "datetime" && (
-                          <InputField data={fieldItem} register={register} />
-                        )}
-                    </div>
-                  ))}
-                <div className={classNames("col-span-2 flex flex-col mt-6")}>
-                  <Button
-                    variant={submitButton?.buttonVariant ?? "black"}
-                    withArrow={submitButton?.withArrow}
-                    size="lg"
-                    type="submit"
-                  >
-                    {submitButton?.text ?? "Submit"}
-                  </Button>
-                </div>
-              </form>
-            </div>
+                  </div>
+                ))}
+              <input hidden readOnly value={title} {...register("title")} />
+              <input
+                hidden
+                readOnly
+                value={formType}
+                {...register("formType")}
+              />
+
+              <div className={classNames("col-span-2 flex flex-col mt-6")}>
+                <Button
+                  variant={submitButton?.buttonVariant ?? "black"}
+                  withArrow={submitButton?.withArrow}
+                  size="lg"
+                  type="submit"
+                >
+                  {submitButton?.text ?? "Submit"}
+                </Button>
+              </div>
+            </form>
           </div>
-        </Container>
+        </div>
       </section>
       {isSubmitting && (
         <Toast.Provider swipeDirection="right" duration={100000}>
@@ -292,3 +281,38 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
     </>
   );
 };
+
+async function onSubmitValid(formValues: FormValues) {
+  const { title, formType } = formValues;
+  delete formValues.title;
+  delete formValues.formType;
+
+  for (const key in formValues) {
+    if (formValues[key] instanceof Date) {
+      formValues[key] = formValues[key]?.toLocaleString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+      });
+    }
+  }
+  try {
+    await fetch(`/api/inquiry-form-submission/`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({
+        title,
+        formType,
+        submittedContent: {
+          ...formValues,
+        },
+      }),
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
