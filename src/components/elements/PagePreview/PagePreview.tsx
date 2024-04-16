@@ -1,9 +1,10 @@
+import classNames from "classnames";
 import Link from "next/link";
+import Image from "next/image"
 import { TextAlignmentType, PageType } from "@/helpers/types";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { useContext } from "react";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
-import classNames from "classnames";
 import { useInView } from "react-hook-inview";
 
 export const PagePreview: React.FC<{
@@ -55,7 +56,7 @@ export const PagePreview: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "rounded-assets flex flex-col",
+        "group rounded-assets flex flex-col pb-4 lg:pb-6",
         { "relative -bottom-10 opacity-0": animate },
         {
           "animate-slidingUpContent animation-delay-150":
@@ -64,10 +65,18 @@ export const PagePreview: React.FC<{
       )}
     >
       <Link href={url}>
-        <MediaItem data={metaImage} aspectRatio="4/3" />
+        <div className="w-full overflow-hidden rounded-assets">
+          <Image
+            className="w-full aspect-4/3 object-cover group-hover:scale-110 transition-all duration-500"
+            alt={metaImage?.title ?? ""}
+            src={metaImage?.url ?? "/bluebiz_square.webp"}
+            width={metaImage?.width ?? 400}
+            height={metaImage?.height ?? 300}
+          />
+        </div>
         <h4
           className={classNames(
-            "mt-4 text-xl font-heading font-semibold pb-4 lg:pb-6",
+            "mt-4 text-xl font-heading font-semibold group-hover:text-primary-600 transition-colors duration-300 ease-in-out",
             { "text-neutral-50": darkMode },
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }

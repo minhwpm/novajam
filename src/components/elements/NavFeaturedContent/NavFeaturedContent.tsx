@@ -38,7 +38,7 @@ export const NavFeaturedContent: React.FC<{
         onClick={onClick}
       >
         {result.thumbnailImage && (
-          <div  className="w-full overflow-hidden rounded-assets">
+          <div className="w-full overflow-hidden rounded-assets">
             <Image
               className="w-full aspect-square object-cover group-hover:scale-110 transition-all duration-500"
               alt={result.thumbnailImage?.title ?? result.title}

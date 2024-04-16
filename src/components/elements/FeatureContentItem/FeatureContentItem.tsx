@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { RichText2 } from "@/components/elements/RichText/RichText"
 import { TextAlignmentType, ContentPieceType } from "@/helpers/types";
 
+// @TODO remove this file as it isn't used in anywhere
 interface Props {
   data: ContentPieceType
   idx: number

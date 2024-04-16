@@ -74,9 +74,9 @@ body {
   content: "";
   position: absolute;
   left: 0px;
-  bottom: 0;
+  bottom: 2px;
   width: 0;
-  height: 2px;
+  height: 1.5px;
   transition: width 0.3s ease-out;
   background-color: currentColor;
 }
