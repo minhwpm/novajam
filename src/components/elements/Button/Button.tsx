@@ -106,7 +106,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
         size === "base",
     },
     {
-      "px-6 py-3 min-w-[130px] lg:min-w-[160px] font-medium xl:text-lg":
+      "px-6 py-2.5 min-w-[130px] lg:min-w-[160px] font-medium xl:text-lg":
         size === "lg",
     },
     { "opacity-30 pointer-events-none cursor-not-allowed": disabled }

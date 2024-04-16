@@ -39,7 +39,7 @@ export const CarouselList: React.FC<{
       })}
     >
       <Swiper
-        className={classNames("carousel-list w-screen !pt-14 relative")}
+        className={classNames("CarouselList relative w-screen !pt-14 !pb-4")}
         slidesPerView={"auto"}
         navigation={{
           enabled: true,

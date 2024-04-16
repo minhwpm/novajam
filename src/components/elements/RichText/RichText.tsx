@@ -35,13 +35,13 @@ export function RichText2({
               </Link>
             );
           },
-          [BLOCKS.UL_LIST]: (node: Inline | Block, children: ReactNode) => {
+          [BLOCKS.UL_LIST]: (_node: Inline | Block, children: ReactNode) => {
             if (style === "marketing") {
               return <ul className="list-none !pl-0">{children}</ul>;
             }
             return <ul>{children}</ul>
           },
-          [BLOCKS.LIST_ITEM]: (node: Inline | Block, children: ReactNode) => {
+          [BLOCKS.LIST_ITEM]: (_node: Inline | Block, children: ReactNode) => {
             if (style === "marketing") {
               return (
                 <li className="not-prose flex gap-4 mb-2">
@@ -59,22 +59,22 @@ export function RichText2({
               </li>
             )
           },
-          [BLOCKS.HEADING_1]: (node: Inline | Block, children: ReactNode) => {
+          [BLOCKS.HEADING_1]: (_node: Inline | Block, children: ReactNode) => {
             return (
               <h1 className="text-current font-heading">{children}</h1>
             )
           },
-          [BLOCKS.HEADING_2]: (node: Inline | Block, children: ReactNode) => {
+          [BLOCKS.HEADING_2]: (_node: Inline | Block, children: ReactNode) => {
             return (
               <h2 className="text-current font-heading">{children}</h2>
             )
           },
-          [BLOCKS.HEADING_3]: (node: Inline | Block, children: ReactNode) => {
+          [BLOCKS.HEADING_3]: (_node: Inline | Block, children: ReactNode) => {
             return (
               <h3 className="text-current font-heading">{children}</h3>
             )
           },
-          [BLOCKS.HEADING_4]: (node: Inline | Block, children: ReactNode) => {
+          [BLOCKS.HEADING_4]: (_node: Inline | Block, children: ReactNode) => {
             return (
               <h4 className="text-current font-heading">{children}</h4>
             )

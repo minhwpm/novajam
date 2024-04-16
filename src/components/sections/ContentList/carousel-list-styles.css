@@ -1,5 +1,5 @@
 
-.carousel-list.swiper {
+.CarouselList.swiper {
   padding: 0 0.5rem;
   @media (min-width: 640px) {
     padding: 0 calc((100vw + 1rem - 640px)/2);
@@ -28,7 +28,7 @@
 
 }
 
-.carousel-list .swiper-button-prev.swiper-button-disabled,
-.carousel-list .swiper-button-next.swiper-button-disabled {
+.CarouselList .swiper-button-prev.swiper-button-disabled,
+.CarouselList .swiper-button-next.swiper-button-disabled {
   opacity: 0
 }

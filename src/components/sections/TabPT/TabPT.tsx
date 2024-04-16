@@ -53,7 +53,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
           ])}
         >
           <RadixTabs.List
-            className={classNames("group/list tab-list flex")}
+            className={classNames("group/list TabList flex")}
             aria-label={heading ? documentToHtmlString(heading) : undefined}
           >
             <div
