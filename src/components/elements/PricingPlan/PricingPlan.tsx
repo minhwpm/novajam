@@ -14,7 +14,7 @@ export const PricingPlan: React.FC<{
   const darkMode = useContext(DarkModeContext);
   const { title, pricing, pricingSuffix, badge, description, ctaButton } = data;
   const [ref, isIntersecting] = useInView({
-    threshold: 0.2,
+    threshold: 0.4,
     unobserveOnEnter: true,
   });
   return (

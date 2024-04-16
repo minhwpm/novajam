@@ -14,7 +14,7 @@ import "@/app/css/bg-color.css";
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   const [ref, isIntersecting] = useInView({
-    threshold: 0.2,
+    threshold: 0.4,
     unobserveOnEnter: true,
   });
   return (

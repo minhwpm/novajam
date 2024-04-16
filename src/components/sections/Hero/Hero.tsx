@@ -29,7 +29,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
     darkMode,
   } = data;
   const [ref, isIntersecting] = useInView({
-    threshold: 0.3,
+    threshold: 0.4,
     unobserveOnEnter: true,
   });
   if (content.length === 0) {

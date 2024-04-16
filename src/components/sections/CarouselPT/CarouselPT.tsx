@@ -18,7 +18,7 @@ import "@/app/css/padding.css"
 export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { eyebrow, heading, summary, content, contentTextAlignment, headingTextAlignment, backgroundColor, backgroundImage, darkMode } = data
   const [ref, isIntersecting] = useInView({
-    threshold: 0.2,
+    threshold: 0.4,
     unobserveOnEnter: true,
   });
   return (

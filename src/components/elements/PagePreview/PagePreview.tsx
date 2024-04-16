@@ -16,7 +16,7 @@ export const PagePreview: React.FC<{
   const { title, url, metaTitle, metaImage } = data;
   const darkMode = useContext(DarkModeContext);
   const [ref, isIntersecting] = useInView({
-    threshold: 0.2,
+    threshold: 0.4,
     unobserveOnEnter: true,
   });
   if (layout === "horizontal") {

@@ -22,7 +22,7 @@ export const ExpertPreview: React.FC<{
     sns,
   } = data;
   const [ref, isIntersecting] = useInView({
-    threshold: 0.2,
+    threshold: 0.4,
     unobserveOnEnter: true,
   });
   const darkMode = useContext(DarkModeContext);

@@ -12,7 +12,7 @@ export const Testimonial: React.FC<{
 }> = ({ data, alignment = "center", animate }) => {
   const { content, portrait, name, role, rating } = data;
   const [ref, isIntersecting] = useInView({
-    threshold: 0.2,
+    threshold: 0.4,
     unobserveOnEnter: true,
   });
   return (

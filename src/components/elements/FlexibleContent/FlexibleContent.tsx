@@ -67,7 +67,7 @@ export const FlexibleContent: React.FC<{
   const { heading, eyebrow, description, media, embeddedMediaUrl, buttons } =
     data;
   const [ref, isIntersecting] = useInView({
-    threshold: 0.2,
+    threshold: 0.4,
     unobserveOnEnter: true,
   });
   if (layout === "horizontal") {

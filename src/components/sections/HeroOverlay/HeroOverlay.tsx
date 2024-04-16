@@ -18,7 +18,7 @@ import "@/app/css/custom-swiper.css";
 export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
   const { content, contentTextAlignment, backgroundImage, darkMode } = data;
   const [ref, isIntersecting] = useInView({
-    threshold: 0.3,
+    threshold: 0.4,
     unobserveOnEnter: true
   });
   if (content.length === 0) {

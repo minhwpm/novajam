@@ -42,7 +42,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
     darkMode,
   } = data;
   const [ref, isIntersecting] = useInView({
-    threshold: 0.3,
+    threshold: 0.4,
     unobserveOnEnter: true,
   });
 

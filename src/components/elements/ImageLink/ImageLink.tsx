@@ -9,7 +9,7 @@ export const ImageLink: React.FC<{
   animate?: boolean
 }> = ({ data, animate }) => {
   const [ref, isIntersecting] = useInView({
-    threshold: 0.2,
+    threshold: 0.4,
     unobserveOnEnter: true,
   });
   return (

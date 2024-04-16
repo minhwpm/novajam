@@ -27,7 +27,7 @@ export const CarouselList: React.FC<{
     isEnd: false,
   });
   const [ref, isIntersecting] = useInView({
-    threshold: 0.2,
+    threshold: 0.4,
     unobserveOnEnter: true,
   });
   return (

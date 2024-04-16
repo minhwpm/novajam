@@ -37,7 +37,7 @@ export const Section: React.FC<Props> = ({
   children,
 }) => {
   const [ref, isIntersecting] = useInView({
-    threshold: 0.3,
+    threshold: 0.5,
     unobserveOnEnter: true,
   });
   return (
