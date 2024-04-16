@@ -110,7 +110,7 @@ export const FlexibleContent: React.FC<{
       {(heading || eyebrow || description || buttons?.length > 0) && (
         <div
           className={classNames(
-            "py-4 md:pb-6 flex-1 flex flex-col",
+            "pt-4 flex-1 flex flex-col",
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }
           )}

@@ -128,7 +128,7 @@ const HeroSection: React.FC<{
         {
           "container mx-auto px-4 mt-12 mb-8": appearanceVariant === "vertical",
         },
-        { "lg:flex-row lg:gap-x-12 ": appearanceVariant === "horizontal" }
+        { "lg:flex-row ": appearanceVariant === "horizontal" }
       )}
     >
       <div
@@ -168,7 +168,7 @@ const HeroSection: React.FC<{
         {data.description && (
           <div
             className={classNames(
-              "prose xl:prose-lg 2xl:prose-xl  mt-3 max-w-2xl opacity-0",
+              "prose xl:prose-lg 2xl:prose-xl mt-4 max-w-2xl opacity-0",
               {
                 "animate-slidingHeroContent animation-delay-200":
                   isIntersecting,
@@ -182,7 +182,7 @@ const HeroSection: React.FC<{
         )}
         {data.buttons.length > 0 && (
           <div
-            className={classNames("opacity-0", {
+            className={classNames("mt-6 opacity-0", {
               "animate-slidingHeroContent animation-delay-400": isIntersecting,
             })}
           >
@@ -198,7 +198,7 @@ const HeroSection: React.FC<{
       </div>
       {(data.media.length > 0 || data.embeddedMediaUrl) && (
         <div
-          className={classNames("w-full lg:basis-3/5 min-w-[50%] opacity-0", {
+          className={classNames("w-full lg:basis-3/5 min-w-[55%] opacity-0", {
             "animate-slidingHeroContent animation-delay-300": isIntersecting,
           })}
         >

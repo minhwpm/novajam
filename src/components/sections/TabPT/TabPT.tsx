@@ -136,7 +136,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                     <FlexibleContentMediaPart
                       data={section}
                       alignment={contentTextAlignment}
-                      aspectRatio='16/9'
+                      // aspectRatio='16/9'
                     />
                   </div>
                 )}
