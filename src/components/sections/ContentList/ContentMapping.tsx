@@ -1,5 +1,3 @@
-import Link from "next/link";
-import Image from "next/image";
 import { BlogPreview } from "@/components/elements/BlogPreview/BlogPreview";
 import { PagePreview } from "@/components/elements/PagePreview/PagePreview";
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview";
@@ -8,6 +6,7 @@ import { FlexibleContent } from "@/components/elements/FlexibleContent/FlexibleC
 import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan";
 import { TextAlignmentType, Content } from "@/helpers/types";
 import { Testimonial } from "@/components/elements/Testimonial/Testimonial";
+import { ImageLink } from "@/components/elements/ImageLink/ImageLink";
 
 export const ContentMapping: React.FC<{
   data: Content;
@@ -32,20 +31,6 @@ export const ContentMapping: React.FC<{
     case "testimonial":
       return <Testimonial data={data} alignment={alignment} animate={animate} />;
     case "link":
-      // @TODO make a component ImageLink with animate prop
-      return (
-        <Link href={data.url}>
-          {data.image ? (
-            <Image
-              src={data.image.url}
-              alt={data.text}
-              width={data.image.width}
-              height={data.image.height}
-            />
-          ) : (
-            data.text
-          )}
-        </Link>
-      );
+      return <ImageLink data={data} animate={animate} />;
   }
 };

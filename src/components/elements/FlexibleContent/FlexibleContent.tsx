@@ -62,7 +62,7 @@ export const FlexibleContent: React.FC<{
   data: ContentPieceType;
   alignment?: TextAlignmentType;
   layout?: "vertical" | "horizontal";
-  animate: boolean;
+  animate?: boolean;
 }> = ({ data, alignment = "center", layout = "vertical", animate }) => {
   const { heading, eyebrow, description, media, embeddedMediaUrl, buttons } =
     data;

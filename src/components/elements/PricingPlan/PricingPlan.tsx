@@ -9,7 +9,7 @@ import { useInView } from "react-hook-inview";
 export const PricingPlan: React.FC<{
   data: PricingPlanType;
   alignment?: TextAlignmentType;
-  animate: boolean;
+  animate?: boolean;
 }> = ({ data, alignment, animate }) => {
   const darkMode = useContext(DarkModeContext);
   const { title, pricing, pricingSuffix, badge, description, ctaButton } = data;

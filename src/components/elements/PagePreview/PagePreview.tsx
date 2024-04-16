@@ -10,7 +10,7 @@ export const PagePreview: React.FC<{
   data: PageType;
   layout?: "vertical" | "horizontal";
   alignment?: TextAlignmentType;
-  animate: boolean
+  animate?: boolean
 }> = ({ data, layout = "vertical", alignment, animate }) => {
   const { title, url, metaTitle, metaImage } = data;
   const darkMode = useContext(DarkModeContext);

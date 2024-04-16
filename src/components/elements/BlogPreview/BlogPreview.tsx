@@ -11,7 +11,7 @@ export const BlogPreview: React.FC<{
   aspectRatio?: MediaAspectRatioType;
   layout?: "vertical" | "horizontal";
   alignment?: TextAlignmentType;
-  animate: boolean;
+  animate?: boolean;
 }> = ({ data, aspectRatio = "3/2", layout = "vertical", alignment, animate }) => {
   const { title, slug, media, topics } = data;
   const pathname = usePathname();

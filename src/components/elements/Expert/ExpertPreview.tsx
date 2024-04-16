@@ -10,7 +10,7 @@ export const ExpertPreview: React.FC<{
   data: ExpertType;
   layout: "horizontal" | "vertical";
   alignment?: TextAlignmentType;
-  animate: boolean;
+  animate?: boolean;
 }> = ({ data, layout, alignment, animate }) => {
   const {
     fullName,

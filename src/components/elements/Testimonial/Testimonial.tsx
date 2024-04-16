@@ -8,7 +8,7 @@ import { useInView } from "react-hook-inview";
 export const Testimonial: React.FC<{
   data: TestimonialType;
   alignment?: TextAlignmentType;
-  animate: boolean;
+  animate?: boolean;
 }> = ({ data, alignment = "center", animate }) => {
   const { content, portrait, name, role, rating } = data;
   const [ref, isIntersecting] = useInView({
