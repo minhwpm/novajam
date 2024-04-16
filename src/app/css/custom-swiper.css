@@ -1,5 +1,10 @@
+.swiper-pagination-bullet {
+  --swiper-pagination-bullet-inactive-color: rgb(var(--primary-color-600));
+  --swiper-pagination-bullet-inactive-opacity: 0.5;
+}
+
 .swiper-pagination-bullet-active {
-  --swiper-pagination-color: rgb(var(--primary-color-500));
+  --swiper-pagination-color: rgb(var(--primary-color-600));
   transform: scale(1.5);
   background: transparent;
   border: 2px solid var(--swiper-pagination-color, var(--swiper-theme-color))

@@ -72,15 +72,17 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                       "group/trigger shrink-0 px-6 py-2 hover:bg-neutral-200 flex flex-col justify-center items-center cursor-pointer rounded-assets hover:bg-opacity-90 data-[state='active']:bg-primary-600"
                     )}
                   >
-                    <div
-                      className={classNames(
-                        "text-sm tracking-widest font-medium group-hover/trigger:text-neutral-800 group-data-[state='active']/trigger:text-primary-100",
-                        { "text-neutral-500": !darkMode },
-                        { "text-neutral-200": darkMode }
-                      )}
-                    >
-                      {section.eyebrow}
-                    </div>
+                    {section.eyebrow && (
+                      <div
+                        className={classNames(
+                          "text-sm tracking-widest font-medium group-hover/trigger:text-neutral-800 group-data-[state='active']/trigger:text-primary-100",
+                          { "text-neutral-500": !darkMode },
+                          { "text-neutral-200": darkMode }
+                        )}
+                      >
+                        {section.eyebrow}
+                      </div>
+                    )}
                     {section.heading && (
                       <div
                         className={classNames(

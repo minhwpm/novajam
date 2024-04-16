@@ -17,8 +17,8 @@ const TextPart: React.FC<{ data: ContentPieceType, appearanceVariant: FeaturedCo
         <div
           className={classNames(
             "tracking-widest mb-2 font-medium",
-            { "text-primary-600": !darkMode },
-            { "text-neutral-100": darkMode },
+            { "text-primary-500": !darkMode },
+            { "text-primary-400": darkMode },
             {
               "text-center":
                 appearanceVariant === "Vertical (Text | Image)" ||

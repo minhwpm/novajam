@@ -78,8 +78,8 @@ export const Section: React.FC<Props> = ({
               "tracking-widest font-medium mb-2",
               { "text-center": alignment === "center" },
               { "text-end": alignment === "end" },
-              { "text-primary-600": !darkMode },
-              { "text-neutral-100": darkMode }
+              { "text-primary-500": !darkMode },
+              { "text-primary-400": darkMode }
             )}
           >
             {eyebrow}
@@ -112,7 +112,7 @@ export const Section: React.FC<Props> = ({
         {additionalLink && (
           <div
             className={classNames(
-              "flex -mx-4 -mt-4",
+              "flex -mx-4",
               { "justify-center": alignment === "center" },
               { "justify-end": alignment === "end" }
             )}

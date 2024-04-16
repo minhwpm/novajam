@@ -56,14 +56,14 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
       id={htmlid}
       className={classNames(
         "overflow-x-hidden",
-        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
-        
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
       )}
       backgroundImage={backgroundImage}
     >
       <div
         ref={ref}
-        className={classNames("flex flex-col lg:flex-row gap-5 py-10 lg:py-16",
+        className={classNames(
+          "flex flex-col lg:flex-row gap-5 py-10 lg:py-16",
           "relative -bottom-10 opacity-0",
           {
             "animate-slidingUpContent animation-delay-150": isIntersecting,
@@ -115,12 +115,15 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
             />
           </div>
         </div>
-        <div className={classNames("lg:w-1/2 grid",
-          "relative -bottom-10 opacity-0",
-          {
-            "animate-slidingUpContent animation-delay-300": isIntersecting,
-          }
-        )}>
+        <div
+          className={classNames(
+            "lg:w-1/2 grid",
+            "relative -bottom-10 opacity-0",
+            {
+              "animate-slidingUpContent animation-delay-300": isIntersecting,
+            }
+          )}
+        >
           {content.map((section, idx) => (
             <div
               key={section.id}
@@ -146,13 +149,17 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                   { "text-end": contentTextAlignment === "end" }
                 )}
               >
-                <div
-                  className={classNames(
-                    "text-sm font-semibold text-primary-600 tracking-widest"
-                  )}
-                >
-                  {section.eyebrow}
-                </div>
+                {section.heading && (
+                  <div
+                    className={classNames(
+                      "text-sm font-semibold tracking-widest",
+                      { "text-primary-500": !darkMode },
+                      { "text-primary-400": darkMode }
+                    )}
+                  >
+                    {section.eyebrow}
+                  </div>
+                )}
                 {section.heading && (
                   <div
                     className={classNames("text-2xl font-semibold", {

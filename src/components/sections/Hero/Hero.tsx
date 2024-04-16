@@ -93,14 +93,14 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
             <GoArrowLeft
               size={30}
               className={classNames(
-                "hero-prev cursor-pointer z-10 flex justify-center items-center rounded-full w-12 h-12 bg-neutral-500/20 hover:text-primary-600 hover:bg-neutral-200/80 transition-all duration-300 ease-in-out",
+                "hero-prev cursor-pointer z-10 flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600/80 transition-colors duration-300 ease-in-out",
                 { "text-neutral-50": darkMode }
               )}
             />
             <GoArrowRight
               size={30}
               className={classNames(
-                "hero-next cursor-pointer z-10 flex justify-center items-center rounded-full w-12 h-12 bg-neutral-500/20 hover:text-primary-600 hover:bg-neutral-200/80 transition-all duration-300 ease-in-out",
+                "hero-next cursor-pointer z-10 flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600/80 transition-colors duration-300 ease-in-out",
                 { "text-neutral-50": darkMode }
               )}
             />
@@ -145,8 +145,8 @@ const HeroSection: React.FC<{
                 "animate-slidingHeroContent animation-delay-500":
                   isIntersecting,
               },
-              { "text-primary-600": !darkMode },
-              { "text-neutral-100": darkMode }
+              { "text-primary-500": !darkMode },
+              { "text-primary-400": darkMode }
             )}
           >
             {data.eyebrow}

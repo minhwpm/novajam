@@ -94,7 +94,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               <div
                 className={classNames(
                   "tracking-widest font-medium text-center lg:text-start mb-2",
-                  { "text-neutral-100": darkMode }
+                  { "text-primary-500": !darkMode },
+                  { "text-primary-400": darkMode }
                 )}
               >
                 {eyebrow}

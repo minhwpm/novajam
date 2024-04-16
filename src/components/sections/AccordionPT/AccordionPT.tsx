@@ -60,15 +60,17 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 <RadixAccordion.Trigger asChild>
                   <div className="py-4 px-6 cursor-pointer flex gap-3 rounded-t-assets data-[state=closed]:text-primary-600 data-[state=closed]:hover:text-white data-[state=open]:bg-primary-600 data-[state=open]:border-primary-600 data-[state=open]:text-white">
                     <div className="flex-1 flex flex-col">
-                      <div
-                        className={classNames(
-                          "text-sm font-medium tracking-widest",
-                          { "text-neutral-500": !darkMode },
-                          { "text-neutral-200": darkMode }
-                        )}
-                      >
-                        {section.eyebrow}
-                      </div>
+                      {section.eyebrow && (
+                        <div
+                          className={classNames(
+                            "text-sm font-medium tracking-widest",
+                            { "text-neutral-500": !darkMode },
+                            { "text-neutral-200": darkMode }
+                          )}
+                        >
+                          {section.eyebrow}
+                        </div>
+                      )}
                       {section.heading && (
                         <div
                           className={classNames("font-semibold text-xl", {
