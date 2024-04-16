@@ -49,7 +49,7 @@ export const MasonryList: React.FC<{
         ),
       }}
     >
-      <Masonry gutter="28px">
+      <Masonry gutter="32px">
         {list.map((item, idx) => (
           <ContentMapping key={item.id} data={item} alignment={alignment} layout={layout} index={idx} />
         ))}

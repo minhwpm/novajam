@@ -84,7 +84,7 @@ export const CarouselList: React.FC<{
           <SwiperSlide
             key={item.id}
             className={classNames(
-              "px-2 lg:px-3.5 2xl:px-4 !w-11/12",
+              "px-4 !w-11/12",
               { "lg:max-w-[50%]": size === "XL" },
               { "md:max-w-[50%] lg:max-w-[33.33%]": size === "L" },
               { "sm:max-w-[50%] md:max-w-[33.5%] lg:max-w-[25%]": size === "M" },
