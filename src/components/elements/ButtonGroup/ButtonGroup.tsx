@@ -13,11 +13,8 @@ export const ButtonGroup: React.FC<{data: Array<ButtonType>, alignment?: TextAli
       {data.map(button => (
         <Button
           key={button.id}
-          url={button.url}
-          withArrow={button.withArrow}
-          variant={button.buttonVariant}
+          data={button}
           size={size ?? "base"}
-          openNewTab={button.openNewTab}
         >
           {button.text}
         </Button>

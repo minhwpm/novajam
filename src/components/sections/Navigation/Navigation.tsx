@@ -133,9 +133,7 @@ export const Navigation: React.FC<{ data: NavigationType }> = ({ data }) => {
             {data.hotButtons.map((button) => (
               <div key={button.id} className="flex-1 flex justify-center">
                 <Button
-                  url={button.url}
-                  variant={button.buttonVariant ?? "outline-white"}
-                  openNewTab={button.openNewTab}
+                  data={button}
                   className="grow absolute lg:top-1/2 mx-1 lg:my-1"
                   size="lg"
                 >

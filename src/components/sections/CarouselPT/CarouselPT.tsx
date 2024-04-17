@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { TextAlignmentType, ContentPieceType, ContentPTType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText";
+import { RichText } from "@/components/elements/RichText/RichText";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -137,14 +137,14 @@ const TextPart: React.FC<{
         <div className={classNames("text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl",
           { "text-neutral-50": darkMode },
         )}>
-          <RichText2 data={heading} />
+          <RichText data={heading} />
         </div>
       )}
       {description && (
         <div className={classNames("mt-5 prose xl:prose-lg",
           { "text-neutral-100": darkMode },
         )}>
-          <RichText2 data={description} />
+          <RichText data={description} />
         </div>
       )}
       {buttons && buttons.length > 0 && (

@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { useContext } from "react";
 import { TextAlignmentType, ContentPieceType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText";
+import { RichText } from "@/components/elements/RichText/RichText";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
@@ -34,7 +34,7 @@ const TextPart: React.FC<{
             { "text-neutral-50": darkMode }
           )}
         >
-          <RichText2 data={heading} />
+          <RichText data={heading} />
         </div>
       )}
       {description && (
@@ -48,7 +48,7 @@ const TextPart: React.FC<{
             { "text-neutral-100": darkMode }
           )}
         >
-          <RichText2 data={description} />
+          <RichText data={description} />
         </div>
       )}
       {buttons && buttons.length > 0 && (

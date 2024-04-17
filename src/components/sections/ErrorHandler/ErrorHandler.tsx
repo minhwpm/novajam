@@ -9,7 +9,7 @@ export const ErrorHandler: React.FC<{
       <h2 className="font-bold text-4xl lg:text-6xl mb-8">
         Something went wrong!
       </h2>
-      <div className="text-neutral-900 prose 2xl:prose-lg">
+      <div className="text-neutral-600 prose xl:prose-lg">
         <p>
           We’re sorry, the page you were looking for couldn’t be found. The link
           you followed may either be broken or no longer exist.
@@ -20,11 +20,28 @@ export const ErrorHandler: React.FC<{
         </p>
       </div>
       <div className="mt-6 flex flex-wrap justify-center items-center gap-4">
-        <Button onClick={() => reset()}>Try again</Button>
+        <Button
+          data={{
+            text: "Try again",
+            url: null,
+            withArrow: false,
+            buttonVariant: "primary",
+            openNewTab: false,
+          }}
+          onClick={() => reset()}
+          size="lg"
+        />
         <span className="text-neutral-500 px-6">OR</span>
-        <Button url="/" withArrow={true} variant="ghost">
-          Go to Home page
-        </Button>
+        <Button
+          data={{
+            text: "Go to Home page",
+            url: "/",
+            withArrow: true,
+            buttonVariant: "ghost",
+            openNewTab: false,
+          }}
+          size="lg"
+        />
       </div>
     </div>
   );

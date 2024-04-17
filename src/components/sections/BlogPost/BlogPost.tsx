@@ -1,7 +1,7 @@
 "use client"
 import { Container }from "@/components/elements/Container/Container"
 import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview"
-import { RichText2 } from "@/components/elements/RichText/RichText"
+import { RichText } from "@/components/elements/RichText/RichText"
 import { BlogType } from "@/helpers/types"
 import Image from "next/image"
 import Link from "next/link"
@@ -57,7 +57,7 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
           </div>
           <div className="flex flex-col items-center gap-10 text-lg">
             <div className="lg:w-3/4 xl:w-2/3 mb-10 prose xl:prose-lg max-w-none overflow-x-hidden">
-              <RichText2 data={content} style="blog" />
+              <RichText data={content} style="blog" />
             </div>
             { author && 
               <div className="lg:w-3/4 xl:w-2/3 text-lg">

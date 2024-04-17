@@ -55,6 +55,12 @@ export default async function getNavigation(url: string) {
                 openNewTab
                 buttonVariant
                 withArrow
+                icon {
+                  url
+                  title
+                  width
+                  height
+                }
               }
             }
             hotButtonsCollection {
@@ -67,6 +73,12 @@ export default async function getNavigation(url: string) {
                 openNewTab
                 buttonVariant
                 withArrow
+                icon {
+                  url
+                  title
+                  width
+                  height
+                }
               }
             }
             appearanceVariant

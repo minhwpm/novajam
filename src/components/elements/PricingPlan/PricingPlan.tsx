@@ -2,7 +2,7 @@ import { useContext } from "react";
 import classNames from "classnames";
 import { Button } from "../Button/Button";
 import { TextAlignmentType, PricingPlanType } from "@/helpers/types";
-import { RichText2 } from "../RichText/RichText";
+import { RichText } from "../RichText/RichText";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 import { useInView } from "react-hook-inview";
 
@@ -61,10 +61,7 @@ export const PricingPlan: React.FC<{
       </div>
       <div>
         <Button
-          url={ctaButton.url}
-          withArrow={ctaButton.withArrow}
-          variant={ctaButton.buttonVariant}
-          openNewTab={ctaButton.openNewTab}
+          data={ctaButton}
           size="lg"
         >
           {ctaButton.text}
@@ -79,7 +76,7 @@ export const PricingPlan: React.FC<{
             { "text-end": alignment === "end" }
           )}
         >
-          <RichText2 data={description} />
+          <RichText data={description} />
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
 import { useInView } from "react-hook-inview";
 import classNames from "classnames";
-import { RichText2 } from "@/components/elements/RichText/RichText"
+import { RichText } from "@/components/elements/RichText/RichText"
 import { TextAlignmentType, ContentPieceType } from "@/helpers/types";
 
 // @TODO remove this file as it isn't used in anywhere
@@ -45,12 +45,12 @@ export const FeatureContentItem = ({ data, idx, setVisibleIdx, alignment }: Prop
             "mt-2": eyebrow,
           })}
         >
-          <RichText2 data={heading} />
+          <RichText data={heading} />
         </div>
       )}
       {description && (
         <div className="prose 2xl:prose-lg mt-6">
-          <RichText2 data={description} />
+          <RichText data={description} />
         </div>
       )}
     </div>

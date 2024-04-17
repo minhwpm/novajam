@@ -4,12 +4,12 @@ import classNames from "classnames";
 import * as RadixAccordion from "@radix-ui/react-accordion";
 import { Section } from "@/components/elements/Section/Section";
 import { ContentPTType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText";
-import { Button } from "@/components/elements/Button/Button";
+import { RichText } from "@/components/elements/RichText/RichText";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import { useInView } from "react-hook-inview";
 import "@/app/css/bg-color.css";
+import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
@@ -77,7 +77,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                             "text-neutral-50": darkMode,
                           })}
                         >
-                          <RichText2 data={section.heading} />
+                          <RichText data={section.heading} />
                         </div>
                       )}
                     </div>
@@ -108,26 +108,15 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                           "text-neutral-100": darkMode,
                         })}
                       >
-                        <RichText2 data={section.description} />
+                        <RichText data={section.description} />
                       </div>
                     )}
                     {section.buttons && section.buttons.length > 0 && (
-                      <div
-                        className={classNames("mt-8", {
-                          "flex justify-center":
-                            contentTextAlignment === "center",
-                        })}
-                      >
-                        {section.buttons.map((button) => (
-                          <Button
-                            key={button.id}
-                            url={button.url}
-                            variant={button.buttonVariant}
-                            openNewTab={button.openNewTab}
-                          >
-                            {button.text}
-                          </Button>
-                        ))}
+                      <div className={classNames("mt-8")}>
+                        <ButtonGroup
+                          data={section.buttons}
+                          alignment={contentTextAlignment}
+                        />
                       </div>
                     )}
                     {(section.media.length > 0 || section.embeddedMediaUrl) && (

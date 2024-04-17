@@ -151,6 +151,12 @@ export default async function getContentList(id: string) {
                     openNewTab
                     buttonVariant
                     withArrow
+                    icon {
+                      url
+                      title
+                      width
+                      height
+                    }
                   }
                 }
                 ... on Testimonial {

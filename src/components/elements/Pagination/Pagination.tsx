@@ -15,6 +15,13 @@ export const Pagination: React.FC<{
     <div className="relative w-full flex flex-col items-center gap-5 my-12">
       <div className="flex justify-center gap-5">
         <Button
+          data={{
+            text: "Back",
+            url: null,
+            buttonVariant: "primary",
+            withArrow: false,
+            openNewTab: false
+          }}
           onClick={() => {
             if (currentPageNumber - 1 === 1) {
               pathname.splice(pathname.length - 2, 2)
@@ -24,12 +31,18 @@ export const Pagination: React.FC<{
             }
             router.push(pathname.join("/"))
           }}
-          variant="outline"
           disabled={currentPageNumber <= 1}
         >
           <AiOutlineArrowLeft size={20} />
         </Button>
-        <Button 
+        <Button
+          data={{
+            text: "Next",
+            url: null,
+            buttonVariant: "primary",
+            withArrow: false,
+            openNewTab: false
+          }}
           onClick={() => {
             if (currentPageNumber === 1) {
               pathname.splice(pathname.length, 0, "page", "2")

@@ -3,12 +3,12 @@ import classNames from "classnames";
 import React, { useState } from "react";
 import { Section } from "@/components/elements/Section/Section";
 import { ContentPTType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText";
+import { RichText } from "@/components/elements/RichText/RichText";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
-import { Button } from "@/components/elements/Button/Button";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import "@/app/css/bg-color.css";
 import { useInView } from "react-hook-inview";
+import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 
 interface ArrowGroupProps {
   visibleIdx: number;
@@ -91,7 +91,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                 { "text-end": headingTextAlignment === "end" }
               )}
             >
-              <RichText2 data={heading} />
+              <RichText data={heading} />
             </div>
           )}
           {summary && (
@@ -103,7 +103,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                 { "text-end": headingTextAlignment === "end" }
               )}
             >
-              <RichText2 data={summary} />
+              <RichText data={summary} />
             </div>
           )}
           <div className="mt-8 hidden lg:flex gap-4">
@@ -166,7 +166,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                       "text-neutral-50": darkMode,
                     })}
                   >
-                    <RichText2 data={section.heading} />
+                    <RichText data={section.heading} />
                   </div>
                 )}
                 {section.description && (
@@ -175,25 +175,15 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                       "text-neutral-50": darkMode,
                     })}
                   >
-                    <RichText2 data={section.description} />
+                    <RichText data={section.description} />
                   </div>
                 )}
                 {section.buttons && section.buttons.length > 0 && (
-                  <div
-                    className={classNames("mt-8", {
-                      "flex justify-center": contentTextAlignment === "center",
-                    })}
-                  >
-                    {section.buttons.map((button) => (
-                      <Button
-                        key={button.id}
-                        url={button.url}
-                        variant={button.buttonVariant}
-                        openNewTab={button.openNewTab}
-                      >
-                        {button.text}
-                      </Button>
-                    ))}
+                  <div className={classNames("mt-8")}>
+                    <ButtonGroup
+                      data={section.buttons}
+                      alignment={contentTextAlignment}
+                    />
                   </div>
                 )}
               </div>

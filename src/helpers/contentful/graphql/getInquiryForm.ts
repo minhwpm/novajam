@@ -50,6 +50,12 @@ export default async function getInquiryForm(id: string) {
               url
               buttonVariant
               withArrow
+              icon {
+                url
+                title
+                width
+                height
+              }
             }
             successMessage
             errorMessage

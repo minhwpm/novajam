@@ -57,9 +57,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
             {buttons.map((button) => (
               <Button
                 key={button.id}
-                variant={button.buttonVariant ?? "outline-white"}
-                openNewTab={button.openNewTab}
-                url={button.url}
+                data={button}
                 onClick={() => {
                   setMobileMenuShowed(false)
                   document.body.style.overflow = "auto";

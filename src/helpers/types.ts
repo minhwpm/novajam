@@ -24,11 +24,17 @@ export type ButtonVariant = "primary" | "secondary" | "black" | "white" | "ghost
 
 export type ButtonType = {
   id?: string
-  url: string
   text: string
-  openNewTab: boolean
+  url: string | null
   buttonVariant: ButtonVariant
+  openNewTab: boolean
   withArrow: boolean
+  icon?: {
+    url: string
+    title: string
+    width: number
+    height: number
+  } | null
 }
 
 export type LinkType = {
@@ -39,7 +45,7 @@ export type LinkType = {
     title: string
     width: number
     height: number
-  }
+  } | null
   url: string
   openNewTab: boolean
   contentType: "link"

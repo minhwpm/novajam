@@ -1,7 +1,7 @@
 "use client"
 import classNames from "classnames";
 import { ContentPieceType, FeaturedContentType, FeaturedContentVariantType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText";
+import { RichText } from "@/components/elements/RichText/RichText";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { Container } from "@/components/elements/Container/Container";
@@ -41,7 +41,7 @@ const TextPart: React.FC<{ data: ContentPieceType, appearanceVariant: FeaturedCo
             }
           )}
         >
-          <RichText2 data={heading} />
+          <RichText data={heading} />
         </div>
       )}
       {description && (
@@ -57,7 +57,7 @@ const TextPart: React.FC<{ data: ContentPieceType, appearanceVariant: FeaturedCo
             { "mb-8": buttons && buttons.length > 0 }
           )}
         >
-          <RichText2 data={description} />
+          <RichText data={description} />
         </div>
       )}
       {buttons && buttons.length > 0 && (

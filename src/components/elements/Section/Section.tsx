@@ -3,7 +3,7 @@
 import React from "react";
 import classNames from "classnames";
 import { Container } from "../Container/Container";
-import { RichText2 } from "@/components/elements/RichText/RichText";
+import { RichText } from "@/components/elements/RichText/RichText";
 import { MediaType, TextAlignmentType, LinkType } from "@/helpers/types";
 import { Document } from "@contentful/rich-text-types";
 import { useInView } from "react-hook-inview";
@@ -94,7 +94,7 @@ export const Section: React.FC<Props> = ({
               { "text-end": alignment === "end" }
             )}
           >
-            <RichText2 data={heading} />
+            <RichText data={heading} />
           </div>
         )}
         {summary && (
@@ -106,7 +106,7 @@ export const Section: React.FC<Props> = ({
               { "text-end": alignment === "end" }
             )}
           >
-            <RichText2 data={summary} />
+            <RichText data={summary} />
           </div>
         )}
         {additionalLink && (
@@ -118,13 +118,15 @@ export const Section: React.FC<Props> = ({
             )}
           >
             <Button
+              data={{
+                text: additionalLink.text,
+                url: additionalLink.url,
+                withArrow: true,
+                buttonVariant: "ghost",
+                openNewTab: false,
+              }}
               size="lg"
-              withArrow={true}
-              variant="ghost"
-              url={additionalLink.url}
-            >
-              {additionalLink.text}
-            </Button>
+            />
           </div>
         )}
       </div>

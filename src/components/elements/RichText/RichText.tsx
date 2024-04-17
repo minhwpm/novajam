@@ -13,7 +13,7 @@ import { FlexibleContent } from "../FlexibleContent/FlexibleContent";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
 
-export function RichText2({
+export function RichText({
   data,
   style = "marketing",
 }: {

@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { useInView } from "react-hook-inview";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { RichText2 } from "@/components/elements/RichText/RichText";
+import { RichText } from "@/components/elements/RichText/RichText";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
@@ -160,7 +160,7 @@ const HeroSection: React.FC<{
               { "text-neutral-50": darkMode }
             )}
           >
-            <RichText2 data={data.heading} />
+            <RichText data={data.heading} />
           </div>
         )}
         {data.description && (
@@ -175,7 +175,7 @@ const HeroSection: React.FC<{
               { "text-neutral-200": darkMode }
             )}
           >
-            <RichText2 data={data.description} />
+            <RichText data={data.description} />
           </div>
         )}
         {data.buttons.length > 0 && (

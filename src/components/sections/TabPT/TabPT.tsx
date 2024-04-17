@@ -3,14 +3,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import classNames from "classnames";
 import * as RadixTabs from '@radix-ui/react-tabs';
 import { Section } from '@/components/elements/Section/Section';
-import { Button } from '@/components/elements/Button/Button';
 import { ContentPTType } from '@/helpers/types';
-import { RichText2 } from "@/components/elements/RichText/RichText"
+import { RichText } from "@/components/elements/RichText/RichText"
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { useInView } from 'react-hook-inview';
+import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import "@/app/css/bg-color.css";
 import "./styles.css"
-import { useInView } from 'react-hook-inview';
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
   const { htmlid, eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, backgroundColor, backgroundImage, darkMode } = data
@@ -91,7 +91,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                           { "text-neutral-50": darkMode }
                         )}
                       >
-                        <RichText2 data={section.heading} />
+                        <RichText data={section.heading} />
                       </div>
                     )}
                   </RadixTabs.Trigger>
@@ -118,26 +118,15 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                         "text-neutral-100": darkMode,
                       })}
                     >
-                      <RichText2 data={section.description} />
+                      <RichText data={section.description} />
                     </div>
                   )}
                   {section.buttons && section.buttons.length > 0 && (
-                    <div
-                      className={classNames("mt-8", {
-                        "flex justify-center":
-                          contentTextAlignment === "center",
-                      })}
-                    >
-                      {section.buttons.map((button) => (
-                        <Button
-                          key={button.id}
-                          url={button.url}
-                          variant={button.buttonVariant}
-                          openNewTab={button.openNewTab}
-                        >
-                          {button.text}
-                        </Button>
-                      ))}
+                    <div className={classNames("mt-8")}>
+                      <ButtonGroup
+                        data={section.buttons}
+                        alignment={contentTextAlignment}
+                      />
                     </div>
                   )}
                 </div>

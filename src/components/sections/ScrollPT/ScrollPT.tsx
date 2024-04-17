@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
 import { TextAlignmentType, ContentPTType, ContentPieceType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText";
-import { Button } from "@/components/elements/Button/Button";
+import { RichText } from "@/components/elements/RichText/RichText";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { useInView } from "react-hook-inview";
+import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import "@/app/css/bg-color.css";
 
 const TextContent = ({
@@ -59,7 +59,7 @@ const TextContent = ({
             { "text-neutral-50": darkMode }
           )}
         >
-          <RichText2 data={heading} />
+          <RichText data={heading} />
         </div>
       )}
       {description && (
@@ -68,7 +68,7 @@ const TextContent = ({
             "text-neutral-100": darkMode,
           })}
         >
-          <RichText2 data={description} />
+          <RichText data={description} />
         </div>
       )}
     </div>
@@ -119,32 +119,24 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     { "text-neutral-50": darkMode },
                   )}
                 >
-                  <RichText2 data={section.heading} />
+                  <RichText data={section.heading} />
                 </div>
               )}
               {section.description && (
                 <div className={classNames("prose mt-6",
                   { "text-neutral-50": darkMode}
                 )}>
-                  <RichText2 data={section.description} />
+                  <RichText data={section.description} />
                 </div>
               )}
               {section.buttons && section.buttons.length > 0 && (
                 <div
-                  className={classNames("mt-8", {
-                    "flex justify-center": contentTextAlignment === "center",
-                  })}
+                  className={classNames("mt-8")}
                 >
-                  {section.buttons.map((button) => (
-                    <Button
-                      key={button.id}
-                      url={button.url}
-                      variant={button.buttonVariant}
-                      openNewTab={button.openNewTab}
-                    >
-                      {button.text}
-                    </Button>
-                  ))}
+                  <ButtonGroup
+                    data={section.buttons}
+                    alignment={contentTextAlignment}
+                  />
                 </div>
               )}
             </div>

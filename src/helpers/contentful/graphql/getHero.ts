@@ -50,6 +50,12 @@ export default async function getHero(id: string) {
                     openNewTab
                     buttonVariant
                     withArrow
+                    icon {
+                      url
+                      title
+                      width
+                      height
+                    }
                   }
                 }
               }

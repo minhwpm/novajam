@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
-import { RichText2 } from "@/components/elements/RichText/RichText";
+import { RichText } from "@/components/elements/RichText/RichText";
 import { Container } from "@/components/elements/Container/Container";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { HeroType, TextAlignmentType, ContentPieceType } from "@/helpers/types";
@@ -157,7 +157,7 @@ export const HeroOverlaySection: React.FC<{
                   { "text-white": darkMode }
                 )}
               >
-                <RichText2 data={data.heading} />
+                <RichText data={data.heading} />
               </div>
             )}
             {data.description && (
@@ -168,7 +168,7 @@ export const HeroOverlaySection: React.FC<{
                   { "text-neutral-100": darkMode }
                 )}
               >
-                <RichText2 data={data.description} />
+                <RichText data={data.description} />
               </div>
             )}
             {data.buttons.length > 0 && (

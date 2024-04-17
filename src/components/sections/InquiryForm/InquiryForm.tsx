@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/elements/Button/Button";
 import { InquiryFormType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText";
+import { RichText } from "@/components/elements/RichText/RichText";
 import { InputField } from "./InputField";
 import { TextAreaField } from "./TextAreaField";
 import { SelectField } from "./SelectField";
@@ -109,7 +109,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                   { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
               >
-                <RichText2 data={heading} />
+                <RichText data={heading} />
               </div>
             )}
             {summary && (
@@ -129,7 +129,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                   "text-neutral-100 drop-shadow-lg": darkMode,
                 })}
               >
-                <RichText2 data={description} />
+                <RichText data={description} />
               </div>
             )}
           </div>
@@ -217,14 +217,25 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               />
 
               <div className={classNames("col-span-2 flex flex-col mt-6")}>
-                <Button
-                  variant={submitButton?.buttonVariant ?? "black"}
-                  withArrow={submitButton?.withArrow}
-                  size="lg"
-                  type="submit"
-                >
-                  {submitButton?.text ?? "Submit"}
-                </Button>
+                {submitButton ? (
+                  <Button
+                    data={submitButton}
+                    size="lg"
+                    type="submit"
+                  />
+                ) : (
+                  <Button
+                    data={{
+                      text: "Submit",
+                      url: null,
+                      withArrow: false,
+                      buttonVariant: "black",
+                      openNewTab: false,
+                    }}
+                    size="lg"
+                    type="submit"
+                  />
+                )}
               </div>
             </form>
           </div>

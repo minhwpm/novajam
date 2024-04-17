@@ -64,11 +64,9 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
               buttons.length > 0 &&
               buttons.map((button) => (
                 <Button
-                  key={button.text}
-                  variant={button.buttonVariant ?? "outline-white"}
+                  key={button.id}
+                  data={button}
                   size="base"
-                  url={button.url}
-                  openNewTab={button.openNewTab}
                   onClick={() => {
                     setNavMenuShowed(false);
                     document.body.style.overflow = "auto";

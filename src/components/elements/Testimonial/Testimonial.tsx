@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { TextAlignmentType, TestimonialType } from "@/helpers/types";
-import { RichText2 } from "@/components/elements/RichText/RichText";
+import { RichText } from "@/components/elements/RichText/RichText";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { AiFillStar } from "react-icons/ai";
 import { useInView } from "react-hook-inview";
@@ -36,7 +36,7 @@ export const Testimonial: React.FC<{
           { "text-end": alignment === "end" }
         )}
       >
-        <RichText2 data={content} />
+        <RichText data={content} />
       </div>
       {rating > 0 && (
         <div className="flex gap-2 mb-6">
