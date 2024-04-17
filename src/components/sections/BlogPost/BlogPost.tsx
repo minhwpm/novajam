@@ -18,7 +18,7 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
           </h1>
           <div className="flex flex-col lg:items-center gap-8">
             <div className="lg:w-3/4 xl:w-2/3">
-              <p className="text-neutral-600 prose xl:prose-lg font-semibold max-w-none">
+              <p className="text-neutral-600 prose xl:prose-lg max-w-none">
                 {summary}
               </p>
             </div>
@@ -61,7 +61,7 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
             </div>
             { author && 
               <div className="lg:w-3/4 xl:w-2/3 text-lg">
-                <p className="text-neutral-600 tracking-wider text-sm md:text-base">
+                <p className="text-neutral-400 font-semibold tracking-wider text-sm md:text-base mb-8">
                   ABOUT THE AUTHOR
                 </p>
                 <ExpertPreview data={author} layout="horizontal" />

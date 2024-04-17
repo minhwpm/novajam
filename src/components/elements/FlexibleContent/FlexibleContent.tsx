@@ -18,7 +18,7 @@ const TextPart: React.FC<{
       {eyebrow && (
         <div
           className={classNames(
-            "text-xs font-medium tracking-widest mb-1",
+            "not-prose text-xs font-medium tracking-widest mb-1",
             { "text-neutral-500": !darkMode },
             { "text-neutral-100": darkMode }
           )}
@@ -29,7 +29,7 @@ const TextPart: React.FC<{
       {heading && (
         <div
           className={classNames(
-            "font-heading text-lg lg:text-xl",
+            "not-prose font-heading text-lg lg:text-xl",
             { "mb-2 lg:mb-4": description || buttons.length > 0 },
             { "text-neutral-50": darkMode }
           )}

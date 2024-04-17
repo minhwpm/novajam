@@ -26,7 +26,12 @@ export const Button: React.FC<ButtonProps> = ({ size = "lg", type, data, onClick
   } = data;
   if (buttonVariant === "ghost") {
     return (
-      <button type={type} onClick={onClick} disabled={disabled} aria-label={text}>
+      <button
+        type={type}
+        onClick={onClick}
+        disabled={disabled}
+        aria-label={text}
+      >
         <Link
           className={classNames(
             "relative left-0 group inline-block text-primary-600 hover:left-1 transition-all duration-500",
@@ -39,7 +44,11 @@ export const Button: React.FC<ButtonProps> = ({ size = "lg", type, data, onClick
         >
           {icon && (
             <Image
-              className="object-contain w-4 h-4 mr-2"
+              className={classNames(
+                "object-contain",
+                { "w-4 h-4 mr-2": size === "base" },
+                { "w-5 h-5 mr-2.5": size === "lg" }
+              )}
               src={icon.url}
               alt={icon.title}
               width={icon.width}
@@ -60,7 +69,7 @@ export const Button: React.FC<ButtonProps> = ({ size = "lg", type, data, onClick
   const classes = classNames(
     "!border relative inline-flex justify-center items-center text-center rounded-assets bottom-0 hover:bottom-1 transition-all duration-500 ease",
     {
-      "border-primary-600 bg-primary-600 hover:bg-primary-600 hover:border-primary-600 text-white":
+      "border-primary-600 bg-primary-600 hover:bg-primary-600 hover:bg-primary-700 text-white":
         buttonVariant === "primary",
     },
     {
@@ -104,7 +113,11 @@ export const Button: React.FC<ButtonProps> = ({ size = "lg", type, data, onClick
       >
         {icon && (
           <Image
-            className="object-contain w-4 h-4 mr-2"
+            className={classNames(
+              "object-contain",
+              { "w-4 h-4 mr-2": size === "base" },
+              { "w-5 h-5 mr-2.5": size === "lg" }
+            )}
             src={icon.url}
             alt={icon.title}
             width={icon.width}

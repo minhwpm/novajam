@@ -79,13 +79,27 @@ export function RichText({
               <h4 className="text-current font-heading">{children}</h4>
             )
           },
+          [BLOCKS.HEADING_5]: (_node: Inline | Block, children: ReactNode) => {
+            return (
+              <h5 className="text-current font-heading">{children}</h5>
+            )
+          },
+          [BLOCKS.HEADING_6]: (_node: Inline | Block, children: ReactNode) => {
+            return (
+              <h6 className="text-current font-heading">{children}</h6>
+            )
+          },
           [BLOCKS.EMBEDDED_ASSET]: (node: Inline | Block) => {
             return (
               <MediaItem data={node.data as MediaType} videoControls={true} />
             );
           },
           [BLOCKS.EMBEDDED_ENTRY]: (node: Inline | Block) => {
-            return <FlexibleContent data={node.data as ContentPieceType} />;
+            return (
+              <div className="my-8">
+                <FlexibleContent data={node.data as ContentPieceType} />
+              </div>
+            );
           },
         },
       })}

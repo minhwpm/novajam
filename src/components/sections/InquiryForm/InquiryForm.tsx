@@ -117,8 +117,9 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             {summary && (
               <div
                 className={classNames(
-                  "prose-lg lg:prose-xl max-w-xl lg:max-w-3xl text-center mt-6",
-                  { "text-neutral-100": darkMode },
+                  "prose-lg 2xl:prose-xl max-w-xl lg:max-w-3xl text-center mt-6",
+                  { "text-neutral-600": !darkMode },
+                  { "text-neutral-200": darkMode },
                   { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
               >
@@ -127,9 +128,13 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             )}
             {description && (
               <div
-                className={classNames("prose xl:prose-lg mt-8", {
-                  "text-neutral-100 drop-shadow-lg": darkMode,
-                })}
+                className={classNames(
+                  "prose xl:prose-lg mt-8",
+                  { "text-neutral-600": !darkMode },
+                  {
+                    "text-neutral-200": darkMode,
+                  }
+                )}
               >
                 <RichText data={description} />
               </div>
