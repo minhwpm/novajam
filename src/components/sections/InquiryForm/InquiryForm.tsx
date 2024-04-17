@@ -65,8 +65,10 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           backgroundImage
             ? {
                 backgroundImage: `url(${backgroundImage.url})`,
+                backgroundAttachment: "fixed",
                 backgroundPosition: "center",
                 backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
                 backgroundBlendMode: "multiply",
               }
             : {}
@@ -218,11 +220,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
 
               <div className={classNames("col-span-2 flex flex-col mt-6")}>
                 {submitButton ? (
-                  <Button
-                    data={submitButton}
-                    size="lg"
-                    type="submit"
-                  />
+                  <Button data={submitButton} size="lg" type="submit" />
                 ) : (
                   <Button
                     data={{
