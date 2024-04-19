@@ -266,7 +266,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
       {isSubmitted && isSubmitSuccessful && (
         <Toast.Provider swipeDirection="right" duration={10000}>
           <Toast.Root
-            className="relative bg-primary-50 rounded-assets border border-primary-300 shadow-lg p-8 data-[state=open]:animate-fadeIn"
+            className="relative bg-white rounded-assets border shadow-lg p-8 data-[state=open]:animate-fadeIn"
             onOpenChange={(open: boolean) => {
               if (!open) {
                 reset();

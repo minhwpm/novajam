@@ -6,10 +6,10 @@ import { Section } from "@/components/elements/Section/Section";
 import { ContentPTType } from "@/helpers/types";
 import { RichText } from "@/components/elements/RichText/RichText";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import { useInView } from "react-hook-inview";
-import "@/app/css/bg-color.css";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
+import { FaChevronDown } from "react-icons/fa";
+import "@/app/css/bg-color.css";
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
@@ -53,8 +53,8 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 key={section.id}
                 value={section.id}
                 className={classNames(
-                  "group w-full rounded-assets bg-white data-[state=closed]:border data-[state=closed]:hover:bg-primary-600 data-[state=closed]:hover:text-neutral-100 hover:border-primary-600",
-                  { "bg-opacity-5 text-neutral-50": darkMode }
+                  "group w-full rounded-assets data-[state=closed]:border data-[state=closed]:hover:bg-primary-500 data-[state=closed]:hover:text-neutral-100 hover:border-primary-500",
+                  { "text-neutral-50": darkMode }
                 )}
               >
                 <RadixAccordion.Trigger asChild>
@@ -81,30 +81,36 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                         </div>
                       )}
                     </div>
-                    <AiOutlinePlus
-                      size={25}
-                      className="group-data-[state=open]:hidden shrink-0"
-                    />
-                    <AiOutlineMinus
-                      size={25}
-                      className="group-data-[state=closed]:hidden shrink-0"
+                    <FaChevronDown
+                      size={20}
+                      className={classNames(
+                        "inline-block shrink-0 mt-1 transition-transform duration-500 group-data-[state=open]:rotate-180",
+                        { "text-neutral-50": darkMode }
+                      )}
                     />
                   </div>
                 </RadixAccordion.Trigger>
                 <RadixAccordion.Content
                   className={classNames(
-                    "overflow-hidden px-4 lg:px-10",
+                    "overflow-hidden px-6 rounded-b-assets",
                     "data-[state=closed]:animate-accordionSlideUp",
-                    "data-[state=open]:animate-accordionSlideDown",
-                    "data-[state=open]:border data-[state=open]:border-primary-600 rounded-b-assets",
+                    "data-[state=open]:animate-accordionSlideDown data-[state=open]:border data-[state=open]:border-primary-600",
                     { "text-center": contentTextAlignment === "center" },
                     { "text-end": contentTextAlignment === "end" }
                   )}
                 >
                   <div className="pt-4 pb-8">
+                    {(section.media.length > 0 || section.embeddedMediaUrl) && (
+                      <div className="max-w-xl mx-auto mt-10">
+                        <FlexibleContentMediaPart
+                          data={section}
+                          alignment={contentTextAlignment}
+                        />
+                      </div>
+                    )}
                     {section.description && (
                       <div
-                        className={classNames("prose xl:prose-lg max-w-none", {
+                        className={classNames("prose xl:prose-lg max-w-none group-data-[state=closed]:text-transparent", {
                           "text-neutral-100": darkMode,
                         })}
                       >
@@ -115,14 +121,6 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       <div className={classNames("mt-8")}>
                         <ButtonGroup
                           data={section.buttons}
-                          alignment={contentTextAlignment}
-                        />
-                      </div>
-                    )}
-                    {(section.media.length > 0 || section.embeddedMediaUrl) && (
-                      <div className="max-w-xl mx-auto mt-10">
-                        <FlexibleContentMediaPart
-                          data={section}
                           alignment={contentTextAlignment}
                         />
                       </div>
