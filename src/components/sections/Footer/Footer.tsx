@@ -64,7 +64,7 @@ export const Footer: React.FC<Props> = ({ data }) => {
                 key={link.text}
                 href={link.url}
                 className={classNames(
-                  "self-start select-none before:bg-primary-600 underline-hover-effect",
+                  "self-start select-none before:bg-primary-500 underline-hover-effect",
                   { "text-neutral-600": !darkMode },
                   { "text-neutral-100": darkMode }
                 )}

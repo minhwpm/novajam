@@ -13,9 +13,10 @@ interface ButtonProps {
   size?: "base" | "lg";
   type?: "submit" | "button" | "reset" | undefined;
   disabled?: boolean;
+  fullWidth?: boolean;
 }
 
-export const Button: React.FC<ButtonProps> = ({ size = "lg", type, data, onClick, children, className, disabled }) => {
+export const Button: React.FC<ButtonProps> = ({ size = "lg", type, data, onClick, children, className, disabled, fullWidth }) => {
   const {
     text,
     url,
@@ -31,10 +32,11 @@ export const Button: React.FC<ButtonProps> = ({ size = "lg", type, data, onClick
         onClick={onClick}
         disabled={disabled}
         aria-label={text}
+        className={classNames({ "w-full": fullWidth })}
       >
         <Link
           className={classNames(
-            "relative left-0 group inline-block text-primary-600 hover:left-1 transition-all duration-500",
+            "group relative left-0 inline-block text-primary-600 hover:left-1 transition-all duration-500",
             { "px-2": size === "base" },
             { "px-4 font-medium lg:text-lg": size === "lg" },
             { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
@@ -67,7 +69,7 @@ export const Button: React.FC<ButtonProps> = ({ size = "lg", type, data, onClick
     );
   }
   const classes = classNames(
-    "!border relative inline-flex justify-center items-center text-center rounded-assets bottom-0 hover:bottom-1 transition-all duration-500 ease",
+    "w-full !border relative inline-flex justify-center items-center text-center rounded-assets bottom-0 hover:bottom-1 transition-all duration-500 ease",
     {
       "border-primary-600 bg-primary-600 hover:bg-primary-600 hover:bg-primary-700 text-white":
         buttonVariant === "primary",
@@ -105,47 +107,92 @@ export const Button: React.FC<ButtonProps> = ({ size = "lg", type, data, onClick
   );
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} aria-label={text}>
-      <Link
-        className={classNames("group", classes)}
-        href={url ?? ""}
-        target={openNewTab ? "_blank" : "_self"}
-      >
-        {icon && (
-          <Image
-            className={classNames(
-              "object-contain",
-              { "w-4 h-4 mr-2": size === "base" },
-              { "w-5 h-5 mr-2.5": size === "lg" }
-            )}
-            src={icon.url}
-            alt={icon.title}
-            width={icon.width}
-            height={icon.height}
-          />
-        )}
-        {children ? children : text}
-        {withArrow && (
-          <GoArrowRight
-            className={classNames(
-              "inline-block relative left-2 group-hover:left-4 transition-all duration-300 ease",
-              {
-                "text-primary-600 group-hover:text-white":
-                  buttonVariant === "outline",
-              },
-              {
-                "text-neutral-800 group-hover:text-white":
-                  buttonVariant === "outline-black",
-              },
-              {
-                "text-white group-hover:text-neutral-800":
-                  buttonVariant === "outline-white",
-              }
-            )}
-            size={20}
-          />
-        )}
-      </Link>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={text}
+      className={classNames({ "w-full": fullWidth })}
+    >
+      {url ? (
+        <Link
+          className={classNames("group", classes)}
+          href={url}
+          target={openNewTab ? "_blank" : "_self"}
+        >
+          {icon && (
+            <Image
+              className={classNames(
+                "object-contain",
+                { "w-4 h-4 mr-2": size === "base" },
+                { "w-5 h-5 mr-2.5": size === "lg" }
+              )}
+              src={icon.url}
+              alt={icon.title}
+              width={icon.width}
+              height={icon.height}
+            />
+          )}
+          {children ? children : text}
+          {withArrow && (
+            <GoArrowRight
+              className={classNames(
+                "inline-block relative left-2 group-hover:left-4 transition-all duration-300 ease",
+                {
+                  "text-primary-600 group-hover:text-white":
+                    buttonVariant === "outline",
+                },
+                {
+                  "text-neutral-800 group-hover:text-white":
+                    buttonVariant === "outline-black",
+                },
+                {
+                  "text-white group-hover:text-neutral-800":
+                    buttonVariant === "outline-white",
+                }
+              )}
+              size={20}
+            />
+          )}
+        </Link>
+      ) : (
+        <span className={classNames("group", classes)}>
+          {icon && (
+            <Image
+              className={classNames(
+                "object-contain",
+                { "w-4 h-4 mr-2": size === "base" },
+                { "w-5 h-5 mr-2.5": size === "lg" }
+              )}
+              src={icon.url}
+              alt={icon.title}
+              width={icon.width}
+              height={icon.height}
+            />
+          )}
+          {children ? children : text}
+          {withArrow && (
+            <GoArrowRight
+              className={classNames(
+                "inline-block relative left-2 group-hover:left-4 transition-all duration-300 ease",
+                {
+                  "text-primary-600 group-hover:text-white":
+                    buttonVariant === "outline",
+                },
+                {
+                  "text-neutral-800 group-hover:text-white":
+                    buttonVariant === "outline-black",
+                },
+                {
+                  "text-white group-hover:text-neutral-800":
+                    buttonVariant === "outline-white",
+                }
+              )}
+              size={20}
+            />
+          )}
+        </span>
+      )}
     </button>
   );
 };

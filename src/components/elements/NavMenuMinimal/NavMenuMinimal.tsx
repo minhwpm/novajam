@@ -42,7 +42,6 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
               <NavigationMenu.Item key={item.id} className="py-2 border-b last:border-none border-neutral-800">
                 {item.contentType === "link" && (
                   <NavLinkItem
-                    className="before:bg-primary-600"
                     href={item.url}
                     variant="underlined"
                     onClick={() => {

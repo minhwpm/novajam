@@ -19,7 +19,7 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType, setNavMenuShowed: Disp
       >
         <div
           className={classNames(
-            "text-center font-medium select-none rounded-assets before:bg-primary-600 underline-hover-effect group-data-[state=open]:before:w-full",
+            "text-center font-medium select-none rounded-assets before:bg-primary-500 underline-hover-effect group-data-[state=open]:before:w-full",
             {
               "before:w-full":
                 data.featuredContent.find(
@@ -67,7 +67,7 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType, setNavMenuShowed: Disp
                     <NavigationMenu.Item>
                       <NavigationMenu.Trigger
                         className={classNames(
-                          "font-medium select-none text-left py-2 rounded-assets before:bg-primary-600 underline-hover-effect data-[state=open]:before:w-full group",
+                          "font-medium select-none text-left py-2 rounded-assets before:bg-primary-500 underline-hover-effect data-[state=open]:before:w-full group",
                           {
                             "before:w-full": subItem.links.find(
                               (link) => link.url === pathname
@@ -90,7 +90,6 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType, setNavMenuShowed: Disp
                             subItem.links.map((link) => (
                               <NavLinkItem
                                 key={link.id}
-                                className="before:bg-primary-600"
                                 href={link.url}
                                 variant="underlined"
                                 onClick={() => {

@@ -105,7 +105,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             {heading && (
               <div
                 className={classNames(
-                  "text-heading text-center leading-tight font-heading tracking-wide",
+                  "font-heading text-heading text-center leading-tight",
                   { "text-neutral-50 drop-shadow-lg": darkMode },
                   { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
@@ -152,13 +152,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           >
             <form
               className={classNames(
-                "bg-white w-full max-w-2xl mx-auto lg:mx-0 grid grid-cols-2 gap-x-5 gap-y-3 px-8 pt-4 pb-12 rounded-assets",
-                { "bg-opacity-90": backgroundImage },
-                { "gap-x-0": fields.length === 1 },
-                {
-                  "shadow-radiant":
-                    !darkMode && (backgroundColor || backgroundImage),
-                }
+                " w-full max-w-xl mx-auto lg:mx-0 grid grid-cols-2 gap-x-5 gap-y-3 rounded-assets",
+                { "gap-x-0": fields.length === 1 }
               )}
               onSubmit={handleSubmit(onSubmitValid)}
             >
@@ -179,7 +174,13 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                       )}
                     </div>
                     {fieldItem.helpText && (
-                      <div className="text-neutral-800 pl-2 pb-2">
+                      <div
+                        className={classNames(
+                          "pl-2 pb-2",
+                          { "text-neutral-700": !darkMode },
+                          { "text-neutral-100": darkMode }
+                        )}
+                      >
                         {fieldItem.helpText}
                       </div>
                     )}
@@ -222,9 +223,16 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                 {...register("formType")}
               />
 
-              <div className={classNames("col-span-2 flex flex-col mt-6")}>
+              <div className={classNames("col-span-2",
+                {"mt-6": formType !== "subscription"},
+              )}>
                 {submitButton ? (
-                  <Button data={submitButton} size="lg" type="submit" />
+                  <Button
+                    data={submitButton}
+                    size="lg"
+                    type="submit"
+                    fullWidth={true}
+                  />
                 ) : (
                   <Button
                     data={{
@@ -236,6 +244,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                     }}
                     size="lg"
                     type="submit"
+                    fullWidth={true}
                   />
                 )}
               </div>
