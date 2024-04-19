@@ -156,7 +156,7 @@ const HeroSection: React.FC<{
         {data.heading && (
           <div
             className={classNames(
-              "text-hero-heading leading-tighter font-heading max-w-3xl opacity-0",
+              "text-hero-heading leading-tight font-heading max-w-3xl opacity-0",
               { "animate-slidingHeroContent": isIntersecting },
               { "text-neutral-50": darkMode }
             )}

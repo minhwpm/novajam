@@ -152,7 +152,7 @@ export const HeroOverlaySection: React.FC<{
             {data.heading && (
               <div
                 className={classNames(
-                  "relative drop-shadow-lg text-super-heading leading-tighter font-heading max-w-2xl mt-2 opacity-0",
+                  "relative drop-shadow-lg text-super-heading leading-tight font-heading max-w-2xl mt-2 opacity-0",
                   { "animate-slidingHeroContent": isIntersecting },
                   { "text-white": darkMode }
                 )}

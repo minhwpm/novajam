@@ -85,7 +85,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
           {heading && (
             <div
               className={classNames(
-                "font-heading text-heading !leading-tight  mb-3",
+                "font-heading text-heading leading-tight mb-3",
                 { "text-neutral-50": darkMode },
                 { "text-center": headingTextAlignment === "center" },
                 { "text-end": headingTextAlignment === "end" }
@@ -149,7 +149,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                   { "text-end": contentTextAlignment === "end" }
                 )}
               >
-                {section.heading && (
+                {section.eyebrow && (
                   <div
                     className={classNames(
                       "text-sm font-semibold tracking-widest",
