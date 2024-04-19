@@ -85,9 +85,9 @@ export interface FooterType {
     url: string
     title: string
   }
-  logoRedirect?: string
-  copyright?: string
-  sns?: SNSType
+  logoRedirect: string | null
+  copyright: string | null
+  sns: SNSType | null
   menu: Array<LinkGroupType>
   backgroundColor: BackgroundColorType | null
   darkMode: boolean
@@ -184,6 +184,7 @@ export type HeroType = {
   content: Array<ContentPieceType>
   appearanceVariant: HeroLayoutVariant
   contentTextAlignment: TextAlignmentType
+  backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
   darkMode: boolean
   contentType: "hero"

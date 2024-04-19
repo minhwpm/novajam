@@ -19,12 +19,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "@/app/css/custom-swiper.css";
+import "@/app/css/bg-color.css";
 
 export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
   const {
     content,
     appearanceVariant,
     contentTextAlignment,
+    backgroundColor,
     backgroundImage,
     darkMode,
   } = data;
@@ -38,10 +40,13 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
   return (
     <section
       ref={ref}
-      className={classNames({
-        "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
-          backgroundImage,
-      })}
+      className={classNames(
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
+        {
+          "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
+            backgroundImage,
+        }
+      )}
       style={
         backgroundImage
           ? {

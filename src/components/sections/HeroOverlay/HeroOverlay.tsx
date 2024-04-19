@@ -14,9 +14,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "@/app/css/custom-swiper.css";
+import "@/app/css/bg-color.css";
 
 export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
-  const { content, contentTextAlignment, backgroundImage, darkMode } = data;
+  const { content, contentTextAlignment, backgroundColor, backgroundImage, darkMode } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
     unobserveOnEnter: true
@@ -27,10 +28,14 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
   return (
     <section
       ref={ref}
-      className={classNames("relative", {
-        "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
-          backgroundImage,
-      })}
+      className={classNames(
+        "relative",
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
+        {
+          "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
+            backgroundImage,
+        }
+      )}
       style={
         backgroundImage
           ? {

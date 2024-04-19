@@ -10,6 +10,7 @@ interface Props {
 
 export const Footer: React.FC<Props> = ({ data }) => {
   const { logo, logoRedirect, copyright, sns, menu, backgroundColor, darkMode } = data
+  // @TODO implement background image for Footer section
   return (
     <footer
       className={classNames(

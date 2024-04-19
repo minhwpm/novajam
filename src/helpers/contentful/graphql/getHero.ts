@@ -22,6 +22,7 @@ export default async function getHero(id: string) {
           items {
             appearanceVariant
             contentTextAlignment
+            backgroundColor
             backgroundImage {
               url
               title
