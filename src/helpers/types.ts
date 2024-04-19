@@ -90,6 +90,7 @@ export interface FooterType {
   sns: SNSType | null
   menu: Array<LinkGroupType>
   backgroundColor: BackgroundColorType | null
+  backgroundImage: MediaType | null
   darkMode: boolean
 }
 
@@ -280,27 +281,22 @@ export type FormFieldType = {
 }
 
 export type InquiryFormType = {
-  id: string
-  title: string
-  eyebrow: string | null
-  heading: Document | null
-  summary: string | null
-  description: Document | null
-  fields: Array<FormFieldType>
-  dateFormat: "DD/MM/YYYY" | "MM/DD/YYYY" | "YYYY/MM/DD"
-  submitButton: ButtonType | null
-  successMessage: string | null
-  errorMessage: string | null
-  htmlid: string | null
-  formType: string
-  appearanceVariant: "horizontal" | "vertical"
-  backgroundColor: BackgroundColorType | null
-  backgroundImage: {
-    url: string
-    title: string
-    width: number
-    height: number
-  }
-  darkMode: boolean
-  contentType: "inquiryform"
-}
+  id: string;
+  title: string;
+  eyebrow: string | null;
+  heading: Document | null;
+  summary: string | null;
+  description: Document | null;
+  fields: Array<FormFieldType>;
+  dateFormat: "DD/MM/YYYY" | "MM/DD/YYYY" | "YYYY/MM/DD";
+  submitButton: ButtonType | null;
+  successMessage: string | null;
+  errorMessage: string | null;
+  htmlid: string | null;
+  formType: string;
+  appearanceVariant: "horizontal" | "vertical";
+  backgroundColor: BackgroundColorType | null;
+  backgroundImage: MediaType | null;
+  darkMode: boolean;
+  contentType: "inquiryform";
+};

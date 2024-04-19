@@ -47,6 +47,13 @@ export default async function getFooter(url: string) {
               }
             }
             backgroundColor
+            backgroundImage {
+              url
+              title
+              width
+              height
+              contentType
+            }
             darkMode
           }
         }

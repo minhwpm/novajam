@@ -37,8 +37,8 @@ export const Button: React.FC<ButtonProps> = ({ size = "lg", type, data, onClick
         <Link
           className={classNames(
             "group relative left-0 inline-block text-primary-600 hover:left-1 transition-all duration-500",
-            { "px-2": size === "base" },
-            { "px-4 font-medium lg:text-lg": size === "lg" },
+            { "px-2 py-2": size === "base" },
+            { "px-4 py-2.5 font-medium lg:text-lg": size === "lg" },
             { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
             className
           )}

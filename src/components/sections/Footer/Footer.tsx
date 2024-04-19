@@ -9,14 +9,24 @@ interface Props {
 }
 
 export const Footer: React.FC<Props> = ({ data }) => {
-  const { logo, logoRedirect, copyright, sns, menu, backgroundColor, darkMode } = data
-  // @TODO implement background image for Footer section
+  const { logo, logoRedirect, copyright, sns, menu, backgroundColor, backgroundImage, darkMode } = data
   return (
     <footer
       className={classNames(
         "py-20",
-        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
+        {
+          "bg-center bg-no-repeat bg-cover bg-blend-multiply":
+            backgroundImage,
+        }
       )}
+      style={
+        backgroundImage
+          ? {
+              backgroundImage: `url(${backgroundImage?.url})`,
+            }
+          : {}
+      }
     >
       <div className="container mx-auto px-4 grid grid-cols-12 gap-x-5 gap-y-10">
         <div className="col-span-12 lg:col-span-6 xl:col-span-4 flex flex-col items-center lg:items-start">
@@ -48,7 +58,8 @@ export const Footer: React.FC<Props> = ({ data }) => {
             key={idx}
             className={classNames(
               "col-span-6 lg:col-span-3 xl:col-span-2 flex flex-col gap-2",
-              { "xl:col-start-10": menu.length === 1 }
+              { "xl:col-start-10": menu.length === 1 },
+              { "text-neutral-100": darkMode }
             )}
           >
             <div
@@ -65,9 +76,9 @@ export const Footer: React.FC<Props> = ({ data }) => {
                 key={link.text}
                 href={link.url}
                 className={classNames(
-                  "self-start select-none before:bg-primary-500 underline-hover-effect",
-                  { "text-neutral-600": !darkMode },
-                  { "text-neutral-100": darkMode }
+                  "self-start select-none underline-hover-effect",
+                  { "before:bg-primary-500": !darkMode },
+                  { "before:bg-primary-100": darkMode }
                 )}
                 target={link.openNewTab ? "_blank" : "_self"}
               >
