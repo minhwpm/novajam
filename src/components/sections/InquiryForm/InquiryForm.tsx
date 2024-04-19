@@ -59,17 +59,16 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
       <section
         id={htmlid ?? ""}
         className={classNames(
-          `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
+          `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
+          {
+            "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
+              backgroundImage,
+          }
         )}
         style={
           backgroundImage
             ? {
                 backgroundImage: `url(${backgroundImage.url})`,
-                backgroundAttachment: "fixed",
-                backgroundPosition: "center",
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                backgroundBlendMode: "multiply",
               }
             : {}
         }

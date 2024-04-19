@@ -38,15 +38,14 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
   return (
     <section
       ref={ref}
+      className={classNames({
+        "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
+          backgroundImage,
+      })}
       style={
         backgroundImage
           ? {
               backgroundImage: `url(${backgroundImage?.url})`,
-              backgroundAttachment: "fixed",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundBlendMode: "multiply",
             }
           : {}
       }

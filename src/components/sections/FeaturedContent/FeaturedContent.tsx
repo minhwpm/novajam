@@ -90,17 +90,16 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
         id={htmlid}
         ref={ref}
         className={classNames(
-          `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
+          `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
+          {
+            "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
+              backgroundImage,
+          }
         )}
         style={
           backgroundImage
             ? {
                 backgroundImage: `url(${backgroundImage.url})`,
-                backgroundAttachment: "fixed",
-                backgroundPosition: "center",
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                backgroundBlendMode: "multiply",
               }
             : {}
         }
@@ -108,16 +107,26 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
         <div
           className={classNames(
             "relative flex flex-wrap",
-            { "flex-row-reverse": appearanceVariant === "Horizontal (Text | Image)" },
+            {
+              "flex-row-reverse":
+                appearanceVariant === "Horizontal (Text | Image)",
+            },
             { "flex-col": appearanceVariant === "Vertical (Image | Text)" },
-            { "flex-col-reverse": appearanceVariant === "Vertical (Text | Image)" }
+            {
+              "flex-col-reverse":
+                appearanceVariant === "Vertical (Text | Image)",
+            }
           )}
         >
           <div
             className={classNames(
               "relative w-full -bottom-10 opacity-0",
-              { "animate-slidingUpContent animation-delay-150": isIntersecting },
-              { "lg:w-6/12": appearanceVariant === "Horizontal (Text | Image)" },
+              {
+                "animate-slidingUpContent animation-delay-150": isIntersecting,
+              },
+              {
+                "lg:w-6/12": appearanceVariant === "Horizontal (Text | Image)",
+              },
               { "lg:w-6/12": appearanceVariant === "Horizontal (Image | Text)" }
             )}
           >
@@ -130,7 +139,9 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
           <div
             className={classNames(
               "relative -bottom-10 opacity-0 self-center w-full pt-4 md:pt-8 lg:pt-16 pb-16 flex flex-col",
-              { "animate-slidingUpContent animation-delay-500": isIntersecting },
+              {
+                "animate-slidingUpContent animation-delay-500": isIntersecting,
+              },
               {
                 "lg:w-1/2 px-4 md:px-10 lg:pr-16 xl:pr-24 custom-padding-left":
                   appearanceVariant === "Horizontal (Text | Image)",
@@ -141,7 +152,11 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
               }
             )}
           >
-            <TextPart data={content} appearanceVariant={appearanceVariant} darkMode={darkMode} />
+            <TextPart
+              data={content}
+              appearanceVariant={appearanceVariant}
+              darkMode={darkMode}
+            />
           </div>
         </div>
       </section>

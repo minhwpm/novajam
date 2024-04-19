@@ -50,17 +50,16 @@ export const Section: React.FC<Props> = ({
         {
           "py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10": !heading,
         },
+        {
+          "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
+            backgroundImage,
+        },
         className
       )}
       style={
         backgroundImage
           ? {
               backgroundImage: `url(${backgroundImage.url})`,
-              backgroundAttachment: "fixed",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundBlendMode: "multiply",
             }
           : {}
       }
@@ -138,7 +137,7 @@ export const Section: React.FC<Props> = ({
             // "relative -bottom-10 opacity-0",
             {
               "mt-4": heading || eyebrow || summary,
-            },
+            }
             // {
             //   "animate-slidingUpContent animation-delay-500": isIntersecting,
             // }
@@ -148,10 +147,10 @@ export const Section: React.FC<Props> = ({
         </Container>
       ) : (
         <div
-          // className={classNames(
-          //   "relative -bottom-10 opacity-0", {
-          //   "animate-slidingUpContent animation-delay-500": isIntersecting,
-          // })}
+        // className={classNames(
+        //   "relative -bottom-10 opacity-0", {
+        //   "animate-slidingUpContent animation-delay-500": isIntersecting,
+        // })}
         >
           {children}
         </div>
