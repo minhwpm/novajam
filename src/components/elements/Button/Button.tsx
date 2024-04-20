@@ -85,7 +85,7 @@ export const Button: React.FC<{
   const otherVariantClasses = classNames(
     "w-full relative border inline-flex justify-center items-center text-center rounded-assets bottom-0 hover:bottom-1 transition-all duration-500 ease",
     {
-      "border-primary-600 bg-primary-600 hover:bg-primary-700 text-white":
+      "border-primary-600 bg-primary-600 hover:bg-primary-700 hover:border-primary-700 text-white":
         buttonVariant === "primary",
       "border-secondary-400 bg-secondary-400 hover:bg-secondary-300 hover:border-secondary-300 text-neutral-800":
         buttonVariant === "secondary",
