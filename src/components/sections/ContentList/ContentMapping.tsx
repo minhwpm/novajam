@@ -1,6 +1,6 @@
 import { BlogPreview } from "@/components/elements/BlogPreview/BlogPreview";
 import { PagePreview } from "@/components/elements/PagePreview/PagePreview";
-import { ExpertPreview } from "@/components/elements/Expert/ExpertPreview";
+import { ExpertPreview } from "@/components/elements/ExpertPreview/ExpertPreview";
 import { Statistics } from "@/components/elements/Statistics/Statistics";
 import { FlexibleContent } from "@/components/elements/FlexibleContent/FlexibleContent";
 import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan";
