@@ -3,10 +3,9 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
 import { TextAlignmentType, ContentPTType, ContentPieceType } from "@/helpers/types";
-import { RichText } from "@/components/elements/RichText/RichText";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { useInView } from "react-hook-inview";
-import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
+import { TextPartPT } from "@/components/elements/TextPartPT/TextPartPT";
 import "@/app/css/bg-color.css";
 
 const TextContent = ({
@@ -22,7 +21,6 @@ const TextContent = ({
   alignment: TextAlignmentType;
   darkMode: boolean
 }) => {
-  const { eyebrow, heading, description } = data;
   const [ref, isVisible] = useInView({
     threshold: 0.9,
     onEnter: () => setVisibleIdx(idx),
@@ -38,39 +36,11 @@ const TextContent = ({
         { "text-end": alignment === "end" }
       )}
     >
-      {eyebrow && (
-        <div
-          className={classNames(
-            "tracking-widest text-sm font-medium",
-            { "text-neutral-500": !darkMode },
-            { "text-neutral-200": darkMode }
-          )}
-        >
-          {eyebrow}
-        </div>
-      )}
-      {heading && (
-        <div
-          className={classNames(
-            "text-2xl lg:text-3xl",
-            {
-              "mt-2": eyebrow,
-            },
-            { "text-neutral-50": darkMode }
-          )}
-        >
-          <RichText data={heading} />
-        </div>
-      )}
-      {description && (
-        <div
-          className={classNames("prose xl:prose-lg mt-6", {
-            "text-neutral-100": darkMode,
-          })}
-        >
-          <RichText data={description} />
-        </div>
-      )}
+      <TextPartPT 
+        data={data}
+        alignment={alignment}
+        darkMode={darkMode}
+      />
     </div>
   );
 };
@@ -100,45 +70,11 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 { "text-end": contentTextAlignment === "end" }
               )}
             >
-              {section.eyebrow && (
-                <div
-                  className={classNames(
-                    "tracking-widest text-sm font-medium",
-                    { "text-neutral-500": !darkMode },
-                    { "text-neutral-200": darkMode }
-                  )}
-                >
-                  {section.eyebrow}
-                </div>
-              )}
-              {section.heading && (
-                <div
-                  className={classNames(
-                    "text-2xl lg:text-3xl leading-snug",
-                    { "mt-2": section.eyebrow },
-                    { "text-neutral-50": darkMode },
-                  )}
-                >
-                  <RichText data={section.heading} />
-                </div>
-              )}
-              {section.description && (
-                <div className={classNames("prose mt-6",
-                  { "text-neutral-50": darkMode}
-                )}>
-                  <RichText data={section.description} />
-                </div>
-              )}
-              {section.buttons && section.buttons.length > 0 && (
-                <div
-                  className={classNames("mt-8")}
-                >
-                  <ButtonGroup
-                    data={section.buttons}
-                    alignment={contentTextAlignment}
-                  />
-                </div>
-              )}
+              <TextPartPT
+                data={section}
+                alignment={contentTextAlignment}
+                darkMode={darkMode}
+              />
             </div>
             <div className="md:w-3/5 mx-auto">
               {section.media?.length > 0 && (

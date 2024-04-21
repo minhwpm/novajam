@@ -6,24 +6,29 @@ import { ContentPTType } from "@/helpers/types";
 import { RichText } from "@/components/elements/RichText/RichText";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
-import "@/app/css/bg-color.css";
 import { useInView } from "react-hook-inview";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
+import "@/app/css/bg-color.css";
 
-interface ArrowGroupProps {
+
+const ArrowGroup = ({
+  visibleIdx,
+  setVisibleIdx,
+  length,
+  darkMode,
+}: {
   visibleIdx: number;
   setVisibleIdx: (idx: number) => void;
   length: number;
   darkMode: boolean;
-}
-
-const ArrowGroup = ({ visibleIdx, setVisibleIdx, length, darkMode }: ArrowGroupProps) => {
+}) => {
   return (
     <>
       <GoArrowLeft
         size={30}
-        className={classNames("cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
-          {"text-neutral-50": darkMode }
+        className={classNames(
+          "cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
+          { "text-neutral-50": darkMode }
         )}
         onClick={() => {
           if (visibleIdx > 0) setVisibleIdx(visibleIdx - 1);
@@ -32,8 +37,9 @@ const ArrowGroup = ({ visibleIdx, setVisibleIdx, length, darkMode }: ArrowGroupP
       />
       <GoArrowRight
         size={30}
-        className={classNames("cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
-          {"text-neutral-50": darkMode }
+        className={classNames(
+          "cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
+          { "text-neutral-50": darkMode }
         )}
         onClick={() => {
           if (visibleIdx < length - 1) setVisibleIdx(visibleIdx + 1);
@@ -153,8 +159,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                   <div
                     className={classNames(
                       "text-sm font-semibold tracking-widest",
-                      { "text-primary-500": !darkMode },
-                      { "text-primary-400": darkMode }
+                      { "text-neutral-500": !darkMode },
+                      { "text-neutral-200": darkMode }
                     )}
                   >
                     {section.eyebrow}
@@ -162,7 +168,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                 )}
                 {section.heading && (
                   <div
-                    className={classNames("text-2xl font-semibold", {
+                    className={classNames("text-2xl", {
                       "text-neutral-50": darkMode,
                     })}
                   >
@@ -171,7 +177,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                 )}
                 {section.description && (
                   <div
-                    className={classNames("prose 2xl:prose-lg mt-5", {
+                    className={classNames("mt-5 prose 2xl:prose-lg", {
                       "text-neutral-50": darkMode,
                     })}
                   >

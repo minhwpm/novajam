@@ -19,49 +19,40 @@ const TextPart: React.FC<{
 }> = ({ data, appearanceVariant, darkMode }) => {
   const { eyebrow, heading, description, buttons } = data;
 
-  const renderEyebrow = () =>
-    eyebrow && (
-      <div
-        className={classNames(
-          "tracking-widest mb-2 font-medium max-w-5xl",
-          { "text-primary-500": !darkMode },
-          { "text-primary-400": darkMode }
-        )}
-      >
-        {eyebrow}
-      </div>
-    );
-
-  const renderHeading = () =>
-    heading && (
-      <div
-        className={classNames(
-          "text-heading leading-tight font-heading max-w-6xl mb-4 lg:mb-8",
-          { "text-neutral-50": darkMode }
-        )}
-      >
-        <RichText data={heading} />
-      </div>
-    );
-
-  const renderDescription = () =>
-    description && (
-      <div
-        className={classNames(
-          "block prose xl:prose-lg",
-          { "text-neutral-100": darkMode },
-          { "mb-8": buttons && buttons.length > 0 }
-        )}
-      >
-        <RichText data={description} />
-      </div>
-    );
-
   return (
     <>
-      {renderEyebrow()}
-      {renderHeading()}
-      {renderDescription()}
+      {eyebrow && (
+        <div
+          className={classNames(
+            "tracking-widest mb-2 font-medium max-w-5xl",
+            { "text-primary-500": !darkMode },
+            { "text-primary-400": darkMode }
+          )}
+        >
+          {eyebrow}
+        </div>
+      )}
+      {heading && (
+        <div
+          className={classNames(
+            "text-heading leading-tight font-heading max-w-6xl mb-4 lg:mb-8",
+            { "text-neutral-50": darkMode }
+          )}
+        >
+          <RichText data={heading} />
+        </div>
+      )}
+      {description && (
+        <div
+          className={classNames(
+            "block prose xl:prose-lg",
+            { "text-neutral-100": darkMode },
+            { "mb-8": buttons && buttons.length > 0 }
+          )}
+        >
+          <RichText data={description} />
+        </div>
+      )}
       {buttons && buttons.length > 0 && (
         <ButtonGroup
           data={buttons}

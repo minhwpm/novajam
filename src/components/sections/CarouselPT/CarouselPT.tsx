@@ -1,14 +1,13 @@
 "use client"
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
-import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
-import { TextAlignmentType, ContentPieceType, ContentPTType } from "@/helpers/types";
-import { RichText } from "@/components/elements/RichText/RichText";
+import { ContentPTType } from "@/helpers/types";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { useInView } from "react-hook-inview";
+import { TextPartPT } from "@/components/elements/TextPartPT/TextPartPT";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -67,7 +66,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       { "text-end": contentTextAlignment === "end" }
                     )}
                   >
-                    <TextPart
+                    <TextPartPT
                       data={item}
                       alignment={contentTextAlignment}
                       darkMode={darkMode}
@@ -112,46 +111,4 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       </div>
     </Section>
   );
-}
-
-const TextPart: React.FC<{
-  data: ContentPieceType;
-  alignment?: TextAlignmentType;
-  darkMode: boolean;
-}> = ({ data, alignment, darkMode }) => {
-  const { heading, eyebrow, description, buttons } = data;
-  return (
-    <>
-      {eyebrow && (
-        <div
-          className={classNames(
-            "text-sm font-medium tracking-widest",
-            { "text-neutral-500": !darkMode },
-            { "text-neutral-200": darkMode },
-          )}
-        >
-          {eyebrow}
-        </div>
-      )}
-      {heading && (
-        <div className={classNames("text-2xl lg:text-3xl leading-snug lg:leading-snug font-bold max-w-4xl",
-          { "text-neutral-50": darkMode },
-        )}>
-          <RichText data={heading} />
-        </div>
-      )}
-      {description && (
-        <div className={classNames("mt-5 prose xl:prose-lg",
-          { "text-neutral-100": darkMode },
-        )}>
-          <RichText data={description} />
-        </div>
-      )}
-      {buttons && buttons.length > 0 && (
-        <div className="mt-4">
-          <ButtonGroup data={buttons} alignment={alignment} />
-        </div>
-      )}
-    </>
-  )
 }
