@@ -40,17 +40,78 @@ export const Section: React.FC<Props> = ({
     threshold: 0.5,
     unobserveOnEnter: true,
   });
+
+  const renderEyebrow = () =>
+    eyebrow && (
+      <div
+        className={classNames(
+          "tracking-widest font-medium mb-2",
+          { "text-center": alignment === "center" },
+          { "text-end": alignment === "end" },
+          { "text-primary-500": !darkMode },
+          { "text-primary-400": darkMode }
+        )}
+      >
+        {eyebrow}
+      </div>
+    );
+
+  const renderHeading = () =>
+    heading && (
+      <div
+        className={classNames(
+          "font-heading text-heading leading-tight max-w-6xl mb-4",
+          { "text-neutral-50": darkMode },
+          { "text-center": alignment === "center" },
+          { "text-end": alignment === "end" }
+        )}
+      >
+        <RichText data={heading} />
+      </div>
+    );
+
+  const renderSummary = () =>
+    summary && (
+      <div
+        className={classNames(
+          "prose lg:prose-lg 2xl:prose-xl max-w-xl lg:max-w-3xl  mb-4",
+          { "text-neutral-200": darkMode },
+          { "text-center": alignment === "center" },
+          { "text-end": alignment === "end" }
+        )}
+      >
+        <RichText data={summary} />
+      </div>
+    );
+
+  const renderAdditionalLink = () =>
+    additionalLink && (
+      <div
+        className={classNames(
+          "flex -mx-4",
+          { "justify-center": alignment === "center" },
+          { "justify-end": alignment === "end" }
+        )}
+      >
+        <Button
+          data={{
+            text: additionalLink.text,
+            url: additionalLink.url,
+            withArrow: true,
+            buttonVariant: "ghost",
+            openNewTab: false,
+          }}
+          size="lg"
+        />
+      </div>
+    );
   return (
     <section
       id={id ?? ""}
       className={classNames(
         {
           "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20": heading,
-        },
-        {
           "py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10": !heading,
-        },
-        {
           "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
             backgroundImage,
         },
@@ -58,9 +119,7 @@ export const Section: React.FC<Props> = ({
       )}
       style={
         backgroundImage
-          ? {
-              backgroundImage: `url(${backgroundImage.url})`,
-            }
+          ? { backgroundImage: `url(${backgroundImage.url})` }
           : {}
       }
     >
@@ -73,87 +132,21 @@ export const Section: React.FC<Props> = ({
           { "items-end": alignment === "end" }
         )}
       >
-        {eyebrow && (
-          <div
-            className={classNames(
-              "tracking-widest font-medium mb-2",
-              { "text-center": alignment === "center" },
-              { "text-end": alignment === "end" },
-              { "text-primary-500": !darkMode },
-              { "text-primary-400": darkMode }
-            )}
-          >
-            {eyebrow}
-          </div>
-        )}
-        {heading && (
-          <div
-            className={classNames(
-              "font-heading text-heading leading-tight max-w-6xl mb-4",
-              { "text-neutral-50": darkMode },
-              { "text-center": alignment === "center" },
-              { "text-end": alignment === "end" }
-            )}
-          >
-            <RichText data={heading} />
-          </div>
-        )}
-        {summary && (
-          <div
-            className={classNames(
-              "prose lg:prose-lg 2xl:prose-xl max-w-xl lg:max-w-3xl  mb-4",
-              { "text-neutral-200": darkMode },
-              { "text-center": alignment === "center" },
-              { "text-end": alignment === "end" }
-            )}
-          >
-            <RichText data={summary} />
-          </div>
-        )}
-        {additionalLink && (
-          <div
-            className={classNames(
-              "flex -mx-4",
-              { "justify-center": alignment === "center" },
-              { "justify-end": alignment === "end" }
-            )}
-          >
-            <Button
-              data={{
-                text: additionalLink.text,
-                url: additionalLink.url,
-                withArrow: true,
-                buttonVariant: "ghost",
-                openNewTab: false,
-              }}
-              size="lg"
-            />
-          </div>
-        )}
+        {renderEyebrow()}
+        {renderHeading()}
+        {renderSummary()}
+        {renderAdditionalLink()}
       </div>
       {framed ? (
         <Container
-          className={classNames(
-            // "relative -bottom-10 opacity-0",
-            {
-              "mt-4": heading || eyebrow || summary,
-            }
-            // {
-            //   "animate-slidingUpContent animation-delay-500": isIntersecting,
-            // }
-          )}
+          className={classNames({
+            "mt-4": heading || eyebrow || summary,
+          })}
         >
           {children}
         </Container>
       ) : (
-        <div
-        // className={classNames(
-        //   "relative -bottom-10 opacity-0", {
-        //   "animate-slidingUpContent animation-delay-500": isIntersecting,
-        // })}
-        >
-          {children}
-        </div>
+        <div>{children}</div>
       )}
     </section>
   );
