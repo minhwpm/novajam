@@ -56,7 +56,7 @@ export const Button: React.FC<{
       {withArrow && (
         <GoArrowRight
           className={classNames(
-            "inline-block relative left-2 group-hover:left-4 transition-all duration-300 ease",
+            "inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-300 ease",
             {
               "text-primary-600 group-hover:text-white":
                 buttonVariant === "outline",
