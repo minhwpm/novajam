@@ -33,60 +33,76 @@ export async function generateMetadata(
   }
 }
 
-export default async function Page({ params }: { params: { slug: Array<string> } }) {
-  if (params.slug![params.slug!.length - 1] === "blog") {
-    const featuredBlogs = (await getBlogs(4, 0, true)) as Array<BlogType>;
-    const latestBlogs = (await getBlogs(BLOG_PAGE_SIZE, 0)) as Array<BlogType>;
-    return (
-      <main className="flex flex-col min-h-screen">
-        <FeaturedBlogs data={featuredBlogs} />
-        <LatestBlogs data={latestBlogs} />
-        <Container>
-          <Pagination />
-        </Container>
-      </main>
-    );
-  }
-  if (
-    params.slug![params.slug!.length - 3] === "blog" &&
-    params.slug![params.slug!.length - 2] === "page"
-  ) {
-    const pageNumber = parseInt(params.slug![params.slug!.length - 1]);
-    const latestBlogs = (await getBlogs(
-      BLOG_PAGE_SIZE,
-      (pageNumber - 1) * BLOG_PAGE_SIZE
-    )) as Array<BlogType>;
-    return (
-      <main className="flex flex-col min-h-screen">
-        <LatestBlogs data={latestBlogs} />
-        <Container>
-          <Pagination currentPageNumber={pageNumber} />
-        </Container>
-      </main>
-    );
-  }
-  if (
-    params.slug!.find(
-      (item, idx) => item === "blog" && idx + 2 === params.slug!.length
-    )
-  ) {
-    const data = await getBlogDetails(params.slug![params.slug!.length - 1]);
-    const latestBlogs = (await getBlogs(3, 0)) as Array<BlogType>;
-    return (
-      <main className="flex flex-col gap-10 lg:gap-12 2xl:gap-16 min-h-screen">
-        <BlogPost data={data} />
-        <div className="bg-primary-50 py-4 lg:py-10">
+export default async function Page({
+  params,
+}: {
+  params: { slug: Array<string> };
+}) {
+  try {
+    if (params.slug![params.slug!.length - 1] === "blog") {
+      const featuredBlogs = (await getBlogs(4, 0, true)) as Array<BlogType>;
+      const latestBlogs = (await getBlogs(
+        BLOG_PAGE_SIZE,
+        0
+      )) as Array<BlogType>;
+      return (
+        <main className="flex flex-col min-h-screen">
+          <FeaturedBlogs data={featuredBlogs} />
+          <LatestBlogs data={latestBlogs} />
           <Container>
-            <LatestBlogs title="DISCOVER MORE" data={latestBlogs} />
+            <Pagination />
           </Container>
-        </div>
-      </main>
-    );
-  }
+        </main>
+      );
+    }
+    if (
+      params.slug![params.slug!.length - 3] === "blog" &&
+      params.slug![params.slug!.length - 2] === "page"
+    ) {
+      const pageNumber = parseInt(params.slug![params.slug!.length - 1]);
+      const latestBlogs = (await getBlogs(
+        BLOG_PAGE_SIZE,
+        (pageNumber - 1) * BLOG_PAGE_SIZE
+      )) as Array<BlogType>;
+      return (
+        <main className="flex flex-col min-h-screen">
+          <LatestBlogs data={latestBlogs} />
+          <Container>
+            <Pagination currentPageNumber={pageNumber} />
+          </Container>
+        </main>
+      );
+    }
+    if (
+      params.slug!.find(
+        (item, idx) => item === "blog" && idx + 2 === params.slug!.length
+      )
+    ) {
+      const currentBlogSlug = params.slug![params.slug!.length - 1];
+      const data = await getBlogDetails(currentBlogSlug);
+      const latestBlogs = (await getBlogs(
+        3,
+        0,
+        undefined,
+        undefined,
+        currentBlogSlug
+      )) as Array<BlogType>;
+      return (
+        <main className="flex flex-col gap-10 lg:gap-12 2xl:gap-16 min-h-screen">
+          <BlogPost data={data} />
+          <div className="bg-primary-50 py-4 lg:py-10">
+            <Container>
+              <LatestBlogs title="DISCOVER MORE" data={latestBlogs} />
+            </Container>
+          </div>
+        </main>
+      );
+    }
 
-  const data = await getPage(`/${params.slug!.join("/")}`);
-  if (!data) {
-    throw new Error("Page not found")
+    const data = await getPage(`/${params.slug!.join("/")}`);
+    return <SectionMapping data={data.content} />;
+    
+  } catch {
+    throw new Error("Something went wrong");
   }
-  return <SectionMapping data={data.content} />;
 }

@@ -32,7 +32,13 @@ export async function generateMetadata(
 export default async function Page({ params }: {params: { slug: string } },) {
   try {
     const data = await getBlogDetails(params.slug)
-    const latestBlogs = await getBlogs(3, 0) as Array<BlogType>
+    const latestBlogs = (await getBlogs(
+      3,
+      0,
+      undefined,
+      undefined,
+      params.slug
+    )) as Array<BlogType>;
     return (
       <main className="flex flex-col gap-10 min-h-screen">
         <BlogPost data={data} />
@@ -45,10 +51,6 @@ export default async function Page({ params }: {params: { slug: string } },) {
     )
   } catch (e) {
     console.error(e)
-    return (
-      <main>
-        404 Error Page
-      </main>
-    )
+    throw new Error("Something went wrong")
   }
 }

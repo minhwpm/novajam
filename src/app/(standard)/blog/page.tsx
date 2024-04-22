@@ -15,7 +15,7 @@ export async function generateMetadata(
     parent: ResolvingMetadata
   ): Promise<Metadata> {
     const previousMetadata = (await parent)
-    console.log("Previous metadata", previousMetadata);
+    // console.log("Previous metadata", previousMetadata);
     return {
       title: `Blog ${
         previousMetadata.title ? `| ${previousMetadata.title}` : ""

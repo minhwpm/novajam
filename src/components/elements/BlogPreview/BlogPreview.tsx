@@ -32,7 +32,7 @@ export const BlogPreview: React.FC<{
           }
         )}
       >
-        <Link href={`${pathname.replace(/\/blog/g, "")}/blog/${slug}`}>
+        <Link href={`${pathname.replace(/\/blog\/?(.*)$/, "")}/blog/${slug}`}>
           <div className="flex gap-4">
             <div className="basis-1/3 flex-1">
               <MediaItem data={media} aspectRatio={aspectRatio} />
@@ -65,7 +65,7 @@ export const BlogPreview: React.FC<{
         }
       )}
     >
-      <Link href={`${pathname.replace(/\/blog/g, "")}/blog/${slug}`}>
+      <Link href={`${pathname.replace(/\/blog\/?(.*)$/, "")}/blog/${slug}`}>
         <MediaItem data={media} aspectRatio={aspectRatio} />
         <div className={classNames("w-full px-4 pb-8 pt-4 flex flex-col")}>
           {topics && topics.length > 0 && (
