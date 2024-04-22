@@ -88,9 +88,7 @@ export default async function getPage(url: string) {
   if (res.status !== 200) {
     throw new Error("Failed to fetch Page data. Error", data.error)
   }
-  if (data.data.pageCollection.items.length === 0) {
-    throw new Error("404 Page Not Found")
-  }
+  
   const normalizedData = normalizeDataCollection({...data.data})
 
   async function getSectionData(contentType: string, id: string) {
