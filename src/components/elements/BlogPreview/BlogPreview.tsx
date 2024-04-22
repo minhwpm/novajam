@@ -24,7 +24,7 @@ export const BlogPreview: React.FC<{
       <div
         ref={ref}
         className={classNames(
-          "rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease",
+          "group rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease",
           { "relative -bottom-10 opacity-0": animate },
           {
             "animate-slidingUpContent animation-delay-150":
@@ -45,7 +45,7 @@ export const BlogPreview: React.FC<{
                   ))}
                 </div>
               )}
-              <h4 className="font-heading lg:text-lg font-semibold hover:text-primary-600 transition-colors duration-500">
+              <h4 className="font-heading lg:text-lg font-semibold group-hover:text-primary-600 transition-colors duration-500">
                 {title}
               </h4>
             </div>
@@ -57,7 +57,7 @@ export const BlogPreview: React.FC<{
   return (
     <div
       className={classNames(
-        "rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease",
+        "group rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease",
         { "relative -bottom-10 opacity-0": animate },
         {
           "animate-slidingUpContent animation-delay-150":
@@ -83,7 +83,7 @@ export const BlogPreview: React.FC<{
           )}
           <h4
             className={classNames(
-              "font-heading text-lg font-semibold hover:text-primary-600 transition-colors duration-500",
+              "font-heading text-lg font-semibold group-hover:text-primary-600 transition-colors duration-500",
               { "text-center": alignment === "center" },
               { "text-end": alignment === "end" }
             )}

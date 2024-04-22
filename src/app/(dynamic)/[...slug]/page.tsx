@@ -91,7 +91,7 @@ export default async function Page({
       return (
         <main className="flex flex-col gap-10 lg:gap-12 2xl:gap-16 min-h-screen">
           <BlogPost data={data} />
-          <div className="bg-primary-50 py-4 lg:py-10">
+          <div className="bg-primary-100 py-4 lg:py-10">
             <Container>
               <LatestBlogs title="DISCOVER MORE" data={latestBlogs} />
             </Container>
