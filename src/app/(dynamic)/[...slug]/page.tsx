@@ -10,6 +10,7 @@ import getPage from "@/helpers/contentful/graphql/getPage";
 import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails";
 import getBlogs from "@/helpers/contentful/graphql/getBlogs";
 
+// @TODO remove all console.log
 export async function generateMetadata(
   { params }: { params: { slug: Array<string> } },
   parent: ResolvingMetadata
