@@ -2,12 +2,13 @@
 import { Button } from '@/components/elements/Button/Button'
  
 export const ErrorHandler: React.FC<{
+  error: Error & { digest?: string }
   reset: () => void;
-}> = ({ reset }) => {
+}> = ({ error, reset }) => {
   return (
     <div className="mx-auto p-4 flex flex-col max-w-3xl justify-center items-center pt-32 pb-20 min-h-screen">
       <h2 className="font-bold text-4xl lg:text-6xl mb-8">
-        Something went wrong!
+        {error.message ?? "Something went wrong"}
       </h2>
       <div className="text-neutral-600 prose xl:prose-lg">
         <p>

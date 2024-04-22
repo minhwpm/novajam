@@ -30,27 +30,22 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params }: {params: { slug: string } },) {
-  try {
-    const data = await getBlogDetails(params.slug)
-    const latestBlogs = (await getBlogs(
-      3,
-      0,
-      undefined,
-      undefined,
-      params.slug
-    )) as Array<BlogType>;
-    return (
-      <main className="flex flex-col gap-10 min-h-screen">
-        <BlogPost data={data} />
-        <div className="bg-primary-50 py-4 lg:py-10">
-          <Container>
-            <LatestBlogs title="DISCOVER MORE" data={latestBlogs} />
-          </Container>
-        </div>
-      </main>
-    )
-  } catch (e) {
-    console.error(e)
-    throw new Error("Something went wrong")
-  }
+  const data = await getBlogDetails(params.slug)
+  const latestBlogs = (await getBlogs(
+    3,
+    0,
+    undefined,
+    undefined,
+    params.slug
+  )) as Array<BlogType>;
+  return (
+    <main className="flex flex-col gap-10 min-h-screen">
+      <BlogPost data={data} />
+      <div className="bg-primary-50 py-4 lg:py-10">
+        <Container>
+          <LatestBlogs title="DISCOVER MORE" data={latestBlogs} />
+        </Container>
+      </div>
+    </main>
+  )
 }
