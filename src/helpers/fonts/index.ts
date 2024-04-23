@@ -15,6 +15,7 @@ import {
   Inria_Serif,
   PT_Serif,
   Oswald,
+  Cormorant_Garamond
 } from "next/font/google";
 
 export const Poppins_Font = Poppins({
@@ -118,6 +119,13 @@ export const Oswald_Font = Oswald({
   variable: "--font-heading",
 })
 
+export const Cormorant_Garamond_Font = Cormorant_Garamond({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-heading",
+})
+
 export const generateFontClassnames = (fontMain: string | null, fontHeading: string | null) => classNames({
   [Poppins_Font.className]: fontMain === "Poppins",
   [Poppins_Font.variable]: fontHeading === "Poppins",
@@ -141,4 +149,5 @@ export const generateFontClassnames = (fontMain: string | null, fontHeading: str
   [Lora_Font.variable]: fontHeading === "Lora",
   [Rubik_Font.variable]: fontHeading === "Rubik",
   [Merriweather_Font.variable]: fontHeading === "Merriweather",
+  [Cormorant_Garamond_Font.variable]: fontHeading === "Cormorant Garamond"
 })

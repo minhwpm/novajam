@@ -148,7 +148,8 @@ export const HeroOverlaySection: React.FC<{
                     "animate-slidingHeroContent animation-delay-500":
                       isIntersecting,
                   },
-                  { "text-neutral-50": darkMode }
+                  { "text-primary-500": !darkMode },
+                  { "text-primary-400": darkMode }
                 )}
               >
                 {data.eyebrow}
