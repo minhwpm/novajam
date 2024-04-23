@@ -13,8 +13,8 @@ import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "@/app/css/custom-swiper.css";
-import "@/app/css/bg-color.css";
+import "@/app/styles/custom-swiper.css";
+import "@/app/styles/bg-color.css";
 
 export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
   const { content, contentTextAlignment, backgroundColor, backgroundImage, darkMode } = data;

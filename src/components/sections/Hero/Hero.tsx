@@ -14,12 +14,12 @@ import {
   HeroLayoutVariant,
 } from "@/helpers/types";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
-import "@/app/css/padding.css";
+import "@/app/styles/padding.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "@/app/css/custom-swiper.css";
-import "@/app/css/bg-color.css";
+import "@/app/styles/custom-swiper.css";
+import "@/app/styles/bg-color.css";
 
 export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
   const {

@@ -6,7 +6,7 @@ import { ContentListType } from "@/helpers/types";
 import { CarouselList } from "./CarouselList";
 import { MasonryList } from "./MasonryList";
 import { DeckList } from "./DeckList";
-import "@/app/css/bg-color.css";
+import "@/app/styles/bg-color.css";
 
 export const DarkModeContext = createContext(false)
 export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {

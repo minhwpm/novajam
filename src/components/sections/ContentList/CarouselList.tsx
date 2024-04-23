@@ -12,8 +12,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./carousel-list-styles.css"
-import "@/app/css/custom-swiper.css"
-import "@/app/css/padding.css"
+import "@/app/styles/custom-swiper.css"
+import "@/app/styles/padding.css"
 
 export const CarouselList: React.FC<{
   list: Content[];

@@ -8,7 +8,7 @@ import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { useInView } from "react-hook-inview";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
-import "@/app/css/bg-color.css";
+import "@/app/styles/bg-color.css";
 
 
 const ArrowGroup = ({

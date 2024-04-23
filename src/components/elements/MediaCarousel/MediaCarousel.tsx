@@ -9,7 +9,7 @@ import 'swiper/css';
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "@/app/css/custom-swiper.css"
+import "@/app/styles/custom-swiper.css"
 
 export const MediaCarousel: React.FC<{
   data: Array<MediaType>;

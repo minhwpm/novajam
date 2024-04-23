@@ -9,7 +9,7 @@ import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentM
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { useInView } from 'react-hook-inview';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
-import "@/app/css/bg-color.css";
+import "@/app/styles/bg-color.css";
 import "./styles.css"
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {

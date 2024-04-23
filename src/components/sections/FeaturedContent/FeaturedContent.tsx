@@ -9,8 +9,8 @@ import { RichText } from "@/components/elements/RichText/RichText";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { useInView } from "react-hook-inview";
-import "@/app/css/bg-color.css";
-import "@/app/css/padding.css";
+import "@/app/styles/bg-color.css";
+import "@/app/styles/padding.css";
 
 const TextPart: React.FC<{
   data: ContentPieceType;

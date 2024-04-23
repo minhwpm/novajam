@@ -11,8 +11,8 @@ import { TextPartPT } from "@/components/elements/TextPartPT/TextPartPT";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "@/app/css/custom-swiper.css"
-import "@/app/css/padding.css"
+import "@/app/styles/custom-swiper.css"
+import "@/app/styles/padding.css"
 
 export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { eyebrow, heading, summary, content, contentTextAlignment, headingTextAlignment, backgroundColor, backgroundImage, darkMode } = data

@@ -9,7 +9,7 @@ import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentM
 import { useInView } from "react-hook-inview";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { FaChevronDown } from "react-icons/fa";
-import "@/app/css/bg-color.css";
+import "@/app/styles/bg-color.css";
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;

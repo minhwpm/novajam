@@ -6,7 +6,7 @@ import { TextAlignmentType, ContentPTType, ContentPieceType } from "@/helpers/ty
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { useInView } from "react-hook-inview";
 import { TextPartPT } from "@/components/elements/TextPartPT/TextPartPT";
-import "@/app/css/bg-color.css";
+import "@/app/styles/bg-color.css";
 
 const TextContent = ({
   data,
