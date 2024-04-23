@@ -1,11 +1,10 @@
 import  { createClient } from "contentful-management";
 import { type NextRequest } from "next/server";
 
-const client = createClient({
-  accessToken: process.env.CONTENTFUL_MANAGEMENT_PERSONAL_ACCESS_TOKEN ?? ""
-})
-
 export async function POST(req: NextRequest) {
+  const client = createClient({
+    accessToken: process.env.CONTENTFUL_MANAGEMENT_PERSONAL_ACCESS_TOKEN ?? ""
+  })
   const reqBody = await req.json()
   return client
     .getSpace(process.env.CONTENTFUL_SPACE_ID ?? "")

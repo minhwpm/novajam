@@ -8,11 +8,7 @@ type FormValues = {
 // @TODO implement Server Actions instead of API handler
 export async function createIFSubmission(data: FormValues) {
   console.log("FORM VALUES:", data);
-  for (const key in data) {
-    data[key] = {
-      "en-US": data[key]
-    };
-  }
+  
   const client = createClient({
     accessToken: process.env.CONTENTFUL_MANAGEMENT_PERSONAL_ACCESS_TOKEN ?? "",
   });
