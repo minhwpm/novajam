@@ -3,6 +3,7 @@ import { Pagination }from "@/components/elements/Pagination/Pagination"
 import { LatestBlogs } from "@/components/sections/LatestBlogs/LatestBlogs"
 import { BlogType, BLOG_PAGE_SIZE } from "@/helpers/types"
 import getBlogs from "@/helpers/contentful/graphql/getBlogs"
+import { notFound } from "next/navigation"
 
 type Props = { 
   params: { number: string }
@@ -18,7 +19,9 @@ export default async function Page({ params, searchParams } : Props ) {
     false,
     topic as string[]
   )) as Array<BlogType>;
-  
+  if (!latestBlogs.length) {
+    notFound()
+  }
   return (
     <main className="flex flex-col min-h-screen">
       {latestBlogs.length > 0 && <LatestBlogs data={latestBlogs} /> }

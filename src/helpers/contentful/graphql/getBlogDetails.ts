@@ -72,10 +72,9 @@ export default async function getBlogDetails(slug: string) {
     console.error(data)
     throw new Error("Failed to fetch Blog data. Error", data.error)
   }
-  if (data.data.blogCollection.items.length === 0) {
-    throw new Error("404 Blog Not Found")
-  }
-  // console.log(`BLOG RAW DATA: ${JSON.stringify(data, null, 4)}`)
+  // if (data.data.blogCollection.items.length === 0) {
+  //   throw new Error("404 Blog Not Found")
+  // }
   const richtextContent = data.data.blogCollection.items[0]?.content.json.content
   for(let i = 0; i < richtextContent?.length; i++) {
     if (richtextContent[i].nodeType === "embedded-asset-block") {
@@ -87,12 +86,10 @@ export default async function getBlogDetails(slug: string) {
     if (richtextContent[i].nodeType === "embedded-entry-block") {
       richtextContent[i].data = {
         ... richtextContent[i].data,
-        // ... await getEntry()
         ... await getFlexibleContent(richtextContent[i].data.target.sys.id)
       }
     }
   }
-  // console.log(`BLOG RAW DATA: ${JSON.stringify(data, null, 4)}`)
   const normalizedData = normalizeDataCollection({...data.data})
   // console.log(`BLOG DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]

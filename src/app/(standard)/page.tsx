@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { SectionMapping } from "@/components/sections/SectionMapping/SectionMapping"
 import { PageType } from "@/helpers/types"
 import getPage from "@/helpers/contentful/graphql/getPage"
+import { notFound } from 'next/navigation'
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
@@ -22,5 +23,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home() {
   const data = await getPage("/")
+  if (!data) {
+    notFound()
+  }
   return <SectionMapping data={data.content} />
 }

@@ -9,6 +9,7 @@ import { Pagination } from "@/components/elements/Pagination/Pagination";
 import getPage from "@/helpers/contentful/graphql/getPage";
 import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails";
 import getBlogs from "@/helpers/contentful/graphql/getBlogs";
+import { notFound } from "next/navigation";
 
 // @TODO remove all console.log
 export async function generateMetadata(
@@ -64,6 +65,9 @@ export default async function Page({
       BLOG_PAGE_SIZE,
       (pageNumber - 1) * BLOG_PAGE_SIZE
     )) as Array<BlogType>;
+    if (!latestBlogs.length) {
+      notFound()
+    }
     return (
       <main className="flex flex-col min-h-screen">
         <LatestBlogs data={latestBlogs} />
@@ -87,6 +91,9 @@ export default async function Page({
       undefined,
       currentBlogSlug
     )) as Array<BlogType>;
+    if (!data) {
+      notFound()
+    }
     return (
       <main className="flex flex-col gap-10 lg:gap-12 2xl:gap-16 min-h-screen">
         <BlogPost data={data} />
@@ -100,5 +107,8 @@ export default async function Page({
   }
 
   const data = await getPage(`/${params.slug!.join("/")}`);
-  return <SectionMapping data={data?.content} />;
+  if (!data) {
+    notFound()
+  }
+  return <SectionMapping data={data.content} />;
 }

@@ -5,6 +5,7 @@ import { LatestBlogs } from "@/components/sections/LatestBlogs/LatestBlogs"
 import { BlogType } from "@/helpers/types"
 import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails"
 import getBlogs from "@/helpers/contentful/graphql/getBlogs"
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(
 { params }: { params: { slug: string } },
@@ -38,6 +39,9 @@ export default async function Page({ params }: {params: { slug: string } },) {
     undefined,
     params.slug
   )) as Array<BlogType>;
+  if (!data) {
+    notFound()
+  }
   return (
     <main className="flex flex-col gap-10 min-h-screen">
       <BlogPost data={data} />
