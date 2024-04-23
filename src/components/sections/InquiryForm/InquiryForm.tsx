@@ -306,6 +306,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
 };
 
 async function onSubmitValid(formValues: FormValues) {
+  const DEFAULT_LOCALE = "en-US"
   const { title, formType } = formValues;
   delete formValues.title;
   delete formValues.formType;
@@ -321,19 +322,27 @@ async function onSubmitValid(formValues: FormValues) {
       });
     }
   }
+  const reqBody = {
+    title: {
+      [DEFAULT_LOCALE]: title
+    },
+    formType: {
+      [DEFAULT_LOCALE]: formType
+    },
+    submittedContent: {
+      [DEFAULT_LOCALE]: {
+        ...formValues,
+      }
+    },
+  }
+  
   try {
     await fetch(`/api/inquiry-form-submission/`, {
       headers: {
         "Content-Type": "application/json",
       },
       method: "POST",
-      body: JSON.stringify({
-        title,
-        formType,
-        submittedContent: {
-          ...formValues,
-        },
-      }),
+      body: JSON.stringify(reqBody),
     });
   } catch (err) {
     console.error(err);

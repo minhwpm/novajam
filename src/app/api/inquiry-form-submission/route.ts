@@ -7,11 +7,6 @@ const client = createClient({
 
 export async function POST(req: NextRequest) {
   const reqBody = await req.json()
-  for (const key in reqBody) {
-    reqBody[key] = {
-      'en-US': reqBody[key] //@TODO locale
-    }
-  }
   return client
     .getSpace(process.env.CONTENTFUL_SPACE_ID ?? "")
     .then((space) => space.getEnvironment(process.env.CONTENTFUL_ENVIRONMENT ?? ""))
