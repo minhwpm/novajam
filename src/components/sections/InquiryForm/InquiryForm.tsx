@@ -128,11 +128,12 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             {description && (
               <div
                 className={classNames(
-                  "prose xl:prose-lg mt-8",
+                  "prose xl:prose-lg mt-8 text-center",
                   { "text-neutral-600": !darkMode },
                   {
                     "text-neutral-200": darkMode,
-                  }
+                  },
+                  { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
               >
                 <RichText data={description} />

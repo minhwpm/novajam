@@ -15,7 +15,6 @@ export default async function Layout({
   children: React.ReactNode
   params: { slug: Array<string> }
 }) {
-  // console.log(params, JSON.stringify(children, null, 4))
   let navigation, footer, page, fontTheme, colorTheme, borderRadiusTheme, headingFontSizeTheme;
   try {
     while (

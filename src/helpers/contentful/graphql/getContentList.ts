@@ -189,7 +189,6 @@ export default async function getContentList(id: string) {
     }),
   })
   const data = await res.json()
-  // console.log(`RAW CONTENT LIST DATA: ${JSON.stringify(data, null, 4)}`)
   if (res.status !== 200) {
     console.error(data)
     throw new Error("Failed to fetch Card List data. Error: ", data.error)

@@ -84,13 +84,10 @@ export default async function getPage(url: string) {
   })
 
   const data = await res.json()
-  // console.log(`RAW PAGE DATA: ${JSON.stringify(data, null, 4)}`)
   if (res.status !== 200) {
     throw new Error("Failed to fetch Page data. Error", data.error)
   }
-  
   const normalizedData = normalizeDataCollection({...data.data})
-
   async function getSectionData(contentType: string, id: string) {
     if (contentType === "hero") {
       return await getHero(id)

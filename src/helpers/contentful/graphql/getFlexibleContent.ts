@@ -74,7 +74,6 @@ export default async function getFlexibleContent(id: string) {
     }
   })
   const data = await res.json()
-  // console.log(`RAW CONTENT PIECE DATA: ${JSON.stringify(data, null, 4)}`)
   if (res.status !== 200) {
     console.error(data)
     throw new Error("Failed to fetch Content Piece data. Error: ", data.error)

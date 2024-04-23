@@ -68,14 +68,11 @@ export default async function getBlogs(
   );
 
   const data = await res.json();
-  // console.log(`BLOG LIST RAW DATA: ${JSON.stringify(data, null, 4)}`)
-
   if (res.status !== 200) {
     console.error(data);
     throw new Error("Failed to fetch Blog List data. Error", data.error);
   }
   const normalizedData = normalizeDataCollection({ ...data.data });
-
   // console.log(`BLOG LIST DATA: ${JSON.stringify(normalizedData, null, 4)}`)
   return normalizedData;
 }
