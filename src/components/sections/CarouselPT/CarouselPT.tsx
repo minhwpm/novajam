@@ -26,9 +26,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       heading={heading}
       summary={summary}
       alignment={headingTextAlignment}
-      className={classNames(
-        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
-      )}
+      backgroundColor={backgroundColor}
       backgroundImage={backgroundImage}
       darkMode={darkMode}
     >

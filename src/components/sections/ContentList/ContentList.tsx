@@ -1,5 +1,4 @@
 "use client"
-import classNames from "classnames";
 import { createContext } from "react"
 import { Section } from "@/components/elements/Section/Section";
 import { ContentListType } from "@/helpers/types";
@@ -30,14 +29,12 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     <DarkModeContext.Provider value={darkMode}>
       <Section
         id={htmlid}
-        className={classNames(
-          `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
-        )}
         eyebrow={eyebrow}
         heading={heading}
         summary={summary}
         alignment={headingTextAlignment}
         framed={appearanceVariant !== "carousel"}
+        backgroundColor={backgroundColor}
         backgroundImage={backgroundImage}
         darkMode={darkMode}
         additionalLink={exploreMore}

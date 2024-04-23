@@ -4,12 +4,12 @@ import React from "react";
 import classNames from "classnames";
 import { Container } from "../Container/Container";
 import { RichText } from "@/components/elements/RichText/RichText";
-import { MediaType, TextAlignmentType, LinkType } from "@/helpers/types";
+import { MediaType, TextAlignmentType, LinkType, BackgroundColorType } from "@/helpers/types";
 import { Document } from "@contentful/rich-text-types";
 import { useInView } from "react-hook-inview";
 import { Button } from "../Button/Button";
 
-interface Props {
+interface SectionProps {
   id?: string | null;
   eyebrow?: string | null;
   heading?: Document | null;
@@ -18,12 +18,13 @@ interface Props {
   additionalLink?: LinkType | null;
   className?: string;
   framed?: boolean;
+  backgroundColor?: BackgroundColorType | null;
   backgroundImage?: MediaType | null;
   darkMode?: boolean;
   children: React.ReactNode;
 }
 
-export const Section: React.FC<Props> = ({
+export const Section: React.FC<SectionProps> = ({
   id,
   heading,
   eyebrow,
@@ -32,6 +33,7 @@ export const Section: React.FC<Props> = ({
   additionalLink,
   className,
   framed = true,
+  backgroundColor,
   backgroundImage,
   darkMode,
   children,
@@ -109,6 +111,7 @@ export const Section: React.FC<Props> = ({
     <section
       id={id ?? ""}
       className={classNames(
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
         {
           "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20": heading,
           "py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10": !heading,

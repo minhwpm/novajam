@@ -62,8 +62,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
       id={htmlid}
       className={classNames(
         "overflow-x-hidden",
-        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
       )}
+      backgroundColor={backgroundColor}
       backgroundImage={backgroundImage}
     >
       <div

@@ -142,21 +142,16 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
       id={htmlid}
       ref={ref}
       className={classNames(
+        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
         {
           "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20": size === "standard",
+          "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
+            backgroundImage,
         },
-        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
       )}
       style={
         backgroundImage
-          ? {
-              backgroundImage: `url(${backgroundImage.url})`,
-              backgroundAttachment: "fixed",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundBlendMode: "multiply",
-            }
+          ? { backgroundImage: `url(${backgroundImage.url})`, }
           : {}
       }
     >

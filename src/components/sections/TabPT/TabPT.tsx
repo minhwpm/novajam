@@ -28,14 +28,12 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
   return (
     <Section
       id={htmlid}
-      className={classNames(
-        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`
-      )}
       eyebrow={eyebrow}
       heading={heading}
       summary={summary}
       alignment={headingTextAlignment}
       framed={false}
+      backgroundColor={backgroundColor}
       backgroundImage={backgroundImage}
       darkMode={darkMode}
     >
