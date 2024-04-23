@@ -71,7 +71,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       )}
                       {section.heading && (
                         <div
-                          className={classNames("font-semibold text-xl", {
+                          className={classNames("text-lg lg:text-xl", {
                             "text-neutral-50": darkMode,
                           })}
                         >
