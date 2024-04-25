@@ -5,7 +5,6 @@ import { TextAlignmentType, StatisticsType } from "@/helpers/types"
 import { useContext } from "react";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 
-  
 export const Statistics: React.FC<{
   data: StatisticsType;
   index: number;
@@ -37,7 +36,7 @@ export const Statistics: React.FC<{
     >
       <div
         className={classNames(
-          "font-heading text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-semibold tracking-wide",
+          "font-heading text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-bold tracking-wide",
           { "text-primary-600": !darkMode },
           { "text-neutral-100": darkMode },
           { "text-center": alignment === "center" },
@@ -48,7 +47,7 @@ export const Statistics: React.FC<{
       </div>
       <div
         className={classNames(
-          "font-heading font-semibold tracking-wide md:text-lg xl:text-xl max-w-[150px]",
+          "font-medium tracking-wide lg:text-lg 2xl:text-xl max-w-[150px]",
           { "text-neutral-600": !darkMode },
           { "text-neutral-300": darkMode },
           { "text-center": alignment === "center" },

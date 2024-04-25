@@ -1,9 +1,12 @@
+"use client"
 import classNames from "classnames";
 import { TextAlignmentType, TestimonialType } from "@/helpers/types";
 import { RichText } from "@/components/elements/RichText/RichText";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { AiFillStar } from "react-icons/ai";
 import { useInView } from "react-hook-inview";
+import { useContext } from "react";
+import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 
 export const Testimonial: React.FC<{
   data: TestimonialType;
@@ -11,6 +14,7 @@ export const Testimonial: React.FC<{
   animate?: boolean;
 }> = ({ data, alignment = "center", animate }) => {
   const { content, portrait, name, role, rating } = data;
+  const darkMode = useContext(DarkModeContext);
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
     unobserveOnEnter: true,
@@ -19,7 +23,7 @@ export const Testimonial: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "px-4 pt-4 pb-6 lg:px-6 lg:pt-6 lg:pb-8 flex flex-col rounded-assets bg-white",
+        "flex flex-col rounded-assets",
         { "relative -bottom-10 opacity-0": animate },
         {
           "animate-slidingUpContent animation-delay-150":
@@ -33,7 +37,8 @@ export const Testimonial: React.FC<{
         className={classNames(
           "prose 2xl:prose-lg mb-6",
           { "text-center": alignment === "center" },
-          { "text-end": alignment === "end" }
+          { "text-end": alignment === "end" },
+          { "text-neutral-100": darkMode },
         )}
       >
         <RichText data={content} />
@@ -41,7 +46,10 @@ export const Testimonial: React.FC<{
       {rating > 0 && (
         <div className="flex gap-2 mb-6">
           {new Array(rating).fill(0).map((_item, idx) => (
-            <AiFillStar key={idx} className="text-primary-600" size={20} />
+            <AiFillStar key={idx} className={classNames(
+              { "text-primary-600": !darkMode },
+              { "text-primary-400": darkMode },
+            )} size={20} />
           ))}
         </div>
       )}
@@ -60,8 +68,15 @@ export const Testimonial: React.FC<{
 
         {(name || role) && (
           <div className="flex flex-col">
-            <div className="font-semibold">{name}</div>
-            <div className="text-neutral-500 text-sm">{role}</div>
+            <div className={classNames("font-semibold",
+              { "text-neutral-100": darkMode },
+
+            )}>{name}</div>
+            <div className={classNames("text-sm",
+              { "text-neutral-500": !darkMode },
+              { "text-neutral-200": darkMode },
+
+            )}>{role}</div>
           </div>
         )}
       </div>
