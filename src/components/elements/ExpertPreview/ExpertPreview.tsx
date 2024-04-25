@@ -147,7 +147,6 @@ export const ExpertPreview: React.FC<{
         {role && (
           <div
             className={classNames(
-              "font-semibold",
               { "text-neutral-500": !darkMode },
               { "text-neutral-200": darkMode }
             )}

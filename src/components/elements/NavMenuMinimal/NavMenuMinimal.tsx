@@ -4,7 +4,9 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { NavigationType } from "@/helpers/types";
 import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
 import { useState } from "react";
-import { CiMenuFries } from "react-icons/ci";
+// import { CiMenuFries } from "react-icons/ci";
+import { FiMenu } from "react-icons/fi";
+
 import { IoCloseOutline } from "react-icons/io5";
 import { Button } from "../Button/Button";
 import { SubmenuMinimal } from "./SubmenuMinimal/SubmenuMinimal";
@@ -15,7 +17,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
 
   return (
     <>
-      <CiMenuFries
+      <FiMenu
         className="ml-auto relative cursor-pointer rounded-full w-14 h-14 p-3 bottom-0 hover:bottom-1 hover:bg-primary-600/90 hover:text-white transition-all duration-500 ease"
         onClick={() => {
           setNavMenuShowed(true);
@@ -30,7 +32,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
       >
         <NavigationMenu.Root className={classNames("container mx-auto px-4")}>
           <IoCloseOutline
-            className="cursor-pointer ml-auto mt-10 w-14 h-14 p-3 rounded-full bg-transparent hover:bg-neutral-200 hover:text-neutral-900 transition-all duration-300 ease-in-out"
+            className="cursor-pointer ml-auto mt-6 lg:mt-10 w-14 h-14 p-3 rounded-full bg-transparent hover:bg-neutral-200 hover:text-neutral-900 transition-all duration-300 ease-in-out"
             size={30}
             onClick={() => {
               setNavMenuShowed(false);
