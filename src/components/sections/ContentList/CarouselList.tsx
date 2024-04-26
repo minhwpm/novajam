@@ -62,6 +62,7 @@ export const CarouselList: React.FC<{
                 "opacity-10 pointer-events-none cursor-not-allowed":
                   carouselState.isBeginning,
               },
+              { "text-primary-600": !darkMode },
               { "text-neutral-50": darkMode }
             )}
           />
@@ -73,6 +74,7 @@ export const CarouselList: React.FC<{
                 "opacity-10 pointer-events-none cursor-not-allowed":
                   carouselState.isEnd,
               },
+              { "text-primary-600": !darkMode },
               { "text-neutral-50": darkMode }
             )}
           />

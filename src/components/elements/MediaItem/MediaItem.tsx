@@ -77,7 +77,7 @@ export const MediaItem: React.FC<{
         <Image
           className={classNames(
             { "object-cover w-full h-full": width >= 200 },
-            { "w-20 object-contain": width < 200 }
+            { "object-contain": width < 200 }
           )}
           src={url ?? "/bluebiz_square.webp"}
           alt={altText ?? title}
