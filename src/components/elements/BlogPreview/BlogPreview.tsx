@@ -56,6 +56,7 @@ export const BlogPreview: React.FC<{
   }
   return (
     <div
+      ref={ref}
       className={classNames(
         "group rounded-assets bg-white",
         { "relative -bottom-10 opacity-0": animate },
