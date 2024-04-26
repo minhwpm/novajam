@@ -76,7 +76,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
         <div
           ref={ref}
           className={classNames(
-            "container mx-auto px-4 flex flex-col gap-x-10 gap-y-4 my-24",
+            "container mx-auto px-4 flex flex-col gap-x-10 gap-y-4 my-24 lg:my-28",
             {
               "lg:flex-row": appearanceVariant === "horizontal",
             },

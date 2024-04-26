@@ -24,7 +24,7 @@ export const BlogPreview: React.FC<{
       <div
         ref={ref}
         className={classNames(
-          "group rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease",
+          "group rounded-assets bg-white relative",
           { "relative -bottom-10 opacity-0": animate },
           {
             "animate-slidingUpContent animation-delay-150":
@@ -57,7 +57,7 @@ export const BlogPreview: React.FC<{
   return (
     <div
       className={classNames(
-        "group rounded-assets bg-white relative bottom-0 hover:bottom-2 transition-all duration-500 ease",
+        "group rounded-assets bg-white",
         { "relative -bottom-10 opacity-0": animate },
         {
           "animate-slidingUpContent animation-delay-150":

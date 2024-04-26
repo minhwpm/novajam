@@ -47,7 +47,7 @@ export default async function Page({ params }: {params: { slug: string } },) {
       <BlogPost data={data} />
       <div className="bg-primary-50 py-4 lg:py-10">
         <Container>
-          <LatestBlogs title="DISCOVER MORE" data={latestBlogs} />
+          <LatestBlogs title="Discover more" data={latestBlogs} />
         </Container>
       </div>
     </main>

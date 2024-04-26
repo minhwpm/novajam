@@ -9,7 +9,7 @@ export const DeckList: React.FC<{
   layout: ContentOrientationType;
 }> = ({ list, size, alignment, layout }) => {
   return (
-    <div className="flex flex-wrap justify-center lg:-mx-4">
+    <div className="flex flex-wrap justify-center -mx-4">
       {list.map((item, idx) => (
         <div 
           key={item.id} 

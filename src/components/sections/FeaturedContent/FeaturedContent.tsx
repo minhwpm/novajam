@@ -47,7 +47,7 @@ const TextPart: React.FC<{
           className={classNames(
             "block prose xl:prose-lg",
             { "text-neutral-100": darkMode },
-            { "mb-8": buttons && buttons.length > 0 }
+            { "mb-4 lg:mb-8": buttons && buttons.length > 0 }
           )}
         >
           <RichText data={description} />
@@ -118,12 +118,12 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
             size === "extended",
           "lg:w-1/2 pb-4 lg:pr-16 xl:pr-24":
             appearanceVariant === "Horizontal (Text | Image)",
-          "custom-padding-left pr-4 py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20":
+          "custom-padding-left pr-4 py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24":
             appearanceVariant === "Horizontal (Text | Image)" &&
             size === "extended",
           "lg:w-1/2 pt-4 lg:pl-16 xl:pl-24":
             appearanceVariant === "Horizontal (Image | Text)",
-          "custom-padding-right pl-4 py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20":
+          "custom-padding-right pl-4 py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24":
             appearanceVariant === "Horizontal (Image | Text)" &&
             size === "extended",
         }
@@ -144,7 +144,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
       className={classNames(
         `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
         {
-          "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20": size === "standard",
+          "py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24": size === "standard",
           "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
             backgroundImage,
         },
@@ -156,7 +156,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
       }
     >
       <div
-        className={classNames("w-full flex flex-wrap lg:gap-0", {
+        className={classNames("w-full flex flex-wrap gap-4 lg:gap-0", {
           "container mx-auto px-4": size === "standard",
           "flex-col items-center":
             appearanceVariant === "Vertical (Image | Text)",

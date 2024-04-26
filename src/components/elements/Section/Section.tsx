@@ -113,7 +113,7 @@ export const Section: React.FC<SectionProps> = ({
       className={classNames(
         `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
         {
-          "py-12 md:py-14 lg:py-16 xl:py-18 2xl:py-20": heading,
+          "py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24": heading,
           "py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10": !heading,
           "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
             backgroundImage,

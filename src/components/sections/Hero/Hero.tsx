@@ -99,14 +99,14 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
             <GoArrowLeft
               size={30}
               className={classNames(
-                "hero-prev cursor-pointer z-10 flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600/80 transition-colors duration-300 ease-in-out",
+                "hero-prev cursor-pointer z-10 flex justify-center items-center rounded-full w-10 h-10 lg:w-12 lg:h-12 p-2 hover:bg-primary-600/80 transition-colors duration-300 ease-in-out",
                 { "text-neutral-50": darkMode }
               )}
             />
             <GoArrowRight
               size={30}
               className={classNames(
-                "hero-next cursor-pointer z-10 flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600/80 transition-colors duration-300 ease-in-out",
+                "hero-next cursor-pointer z-10 flex justify-center items-center rounded-full w-10 h-10 lg:w-12 lg:h-12 p-2 hover:bg-primary-600/80 transition-colors duration-300 ease-in-out",
                 { "text-neutral-50": darkMode }
               )}
             />

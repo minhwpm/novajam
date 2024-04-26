@@ -99,7 +99,7 @@ export default async function Page({
         <BlogPost data={data} />
         <div className="bg-primary-100 py-4 lg:py-10">
           <Container>
-            <LatestBlogs title="DISCOVER MORE" data={latestBlogs} />
+            <LatestBlogs title="Discover more" data={latestBlogs} />
           </Container>
         </div>
       </main>
