@@ -81,8 +81,8 @@ export const Button: React.FC<{
   );
   const ghostVariantClasses = classNames(
     "w-full relative left-0 inline-block font-semibold hover:left-1 transition-all duration-500 ease",
-    { "px-2 py-2": size === "base" },
-    { "px-4 py-2.5 font-medium lg:text-lg": size === "lg" },
+    { "px-2 py-2.5": size === "base" },
+    { "px-4 py-3 font-medium lg:text-lg": size === "lg" },
     { "opacity-20 pointer-events-none cursor-not-allowed": disabled },
     className
   )
@@ -103,9 +103,9 @@ export const Button: React.FC<{
         buttonVariant === "outline-black",
       "border-white text-white hover:bg-white hover:text-neutral-800 drop-shadow-lg":
         buttonVariant === "outline-white",
-      "px-5 py-2 min-w-[100px] lg:min-w-[120px] text-smd 2xl:text-base font-medium":
+      "px-5 py-2.5 min-w-[100px] lg:min-w-[120px] text-smd 2xl:text-base font-medium":
         size === "base",
-      "px-6 py-2.5 min-w-[130px] lg:min-w-[160px] font-medium xl:text-lg":
+      "px-6 py-3 min-w-[130px] lg:min-w-[160px] font-medium xl:text-lg":
         size === "lg",
       "opacity-20 pointer-events-none cursor-not-allowed": disabled
     },
