@@ -91,16 +91,16 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
           ))}
           <div className="mt-4 lg:mt-0 w-full flex justify-center gap-4">
             <GoArrowLeft
-              size={30}
+              size={50}
               className={classNames(
-                "carouselpt-prev cursor-pointer lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-full w-12 h-12 p-2 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
+                "carouselpt-prev cursor-pointer lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
                 { "text-neutral-50": darkMode }
               )}
             />
             <GoArrowRight
-              size={30}
+              size={50}
               className={classNames(
-                "carouselpt-next cursor-pointer lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-full w-12 h-12 p-2 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
+                "carouselpt-next cursor-pointer lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-10 flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
                 { "text-neutral-50": darkMode }
               )}
             />

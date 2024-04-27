@@ -97,16 +97,16 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
           ))}
           <div className="absolute bottom-4 right-4 flex justify-center gap-4">
             <GoArrowLeft
-              size={30}
+              size={45}
               className={classNames(
-                "hero-prev cursor-pointer z-10 flex justify-center items-center rounded-full w-10 h-10 lg:w-12 lg:h-12 p-2 hover:bg-primary-600/80 transition-colors duration-300 ease-in-out",
+                "hero-prev cursor-pointer z-10 flex justify-center items-center rounded-full p-2.5 hover:bg-primary-600/80 transition-colors duration-300 ease-in-out",
                 { "text-neutral-50": darkMode }
               )}
             />
             <GoArrowRight
-              size={30}
+              size={45}
               className={classNames(
-                "hero-next cursor-pointer z-10 flex justify-center items-center rounded-full w-10 h-10 lg:w-12 lg:h-12 p-2 hover:bg-primary-600/80 transition-colors duration-300 ease-in-out",
+                "hero-next cursor-pointer z-10 flex justify-center items-center rounded-full p-2.5 hover:bg-primary-600/80 transition-colors duration-300 ease-in-out",
                 { "text-neutral-50": darkMode }
               )}
             />

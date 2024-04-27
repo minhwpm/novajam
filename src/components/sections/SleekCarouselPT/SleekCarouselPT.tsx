@@ -25,9 +25,9 @@ const ArrowGroup = ({
   return (
     <>
       <GoArrowLeft
-        size={30}
+        size={50}
         className={classNames(
-          "cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
+          "cursor-pointer flex justify-center items-center rounded-full p-2.5 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
           { "text-neutral-50": darkMode }
         )}
         onClick={() => {
@@ -36,9 +36,9 @@ const ArrowGroup = ({
         }}
       />
       <GoArrowRight
-        size={30}
+        size={50}
         className={classNames(
-          "cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
+          "cursor-pointer flex justify-center items-center rounded-full p-2.5 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
           { "text-neutral-50": darkMode }
         )}
         onClick={() => {

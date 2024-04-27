@@ -83,16 +83,16 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
           ))}
           <div className="absolute bottom-4 right-4 flex justify-center gap-4">
             <GoArrowLeft
-              size={30}
+              size={45}
               className={classNames(
-                "hero-prev cursor-pointer z-10 flex justify-center items-center rounded-full w-10 h-10 lg:w-12 lg:h-12 p-2 bg-neutral-500/20 hover:text-primary-600 hover:bg-neutral-200/80 transition-colors duration-300 ease-in-out",
+                "hero-prev cursor-pointer z-10 flex justify-center items-center rounded-full p-2.5 bg-neutral-500/20 hover:text-primary-600 hover:bg-neutral-200/80 transition-colors duration-300 ease-in-out",
                 { "text-neutral-50": darkMode }
               )}
             />
             <GoArrowRight
-              size={30}
+              size={45}
               className={classNames(
-                "hero-next cursor-pointer z-10 flex justify-center items-center rounded-full w-10 h-10 lg:w-12 lg:h-12 p-2 bg-neutral-500/20 hover:text-primary-600 hover:bg-neutral-200/80 transition-colors duration-300 ease-in-out",
+                "hero-next cursor-pointer z-10 flex justify-center items-center rounded-full p-2.5 bg-neutral-500/20 hover:text-primary-600 hover:bg-neutral-200/80 transition-colors duration-300 ease-in-out",
                 { "text-neutral-50": darkMode }
               )}
             />

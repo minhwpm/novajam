@@ -55,9 +55,9 @@ export const CarouselList: React.FC<{
       >
         <div className="absolute top-0 right-0 z-10 w-full flex justify-end gap-4 custom-padding-right">
           <GoArrowLeft
-            size={30}
+            size={50}
             className={classNames(
-              "carouselList-btn-prev cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
+              "carouselList-btn-prev cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
               {
                 "opacity-10 pointer-events-none cursor-not-allowed":
                   carouselState.isBeginning,
@@ -67,9 +67,9 @@ export const CarouselList: React.FC<{
             )}
           />
           <GoArrowRight
-            size={30}
+            size={50}
             className={classNames(
-              "carouselList-btn-next cursor-pointer flex justify-center items-center rounded-full w-12 h-12 p-2 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
+              "carouselList-btn-next cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
               {
                 "opacity-10 pointer-events-none cursor-not-allowed":
                   carouselState.isEnd,

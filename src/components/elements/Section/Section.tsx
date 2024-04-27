@@ -7,7 +7,7 @@ import { RichText } from "@/components/elements/RichText/RichText";
 import { MediaType, TextAlignmentType, BackgroundColorType, ButtonType } from "@/helpers/types";
 import { Document } from "@contentful/rich-text-types";
 import { useInView } from "react-hook-inview";
-import { Button } from "../Button/Button";
+import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
 
 interface SectionProps {
   id?: string | null;
@@ -86,23 +86,11 @@ export const Section: React.FC<SectionProps> = ({
       </div>
     );
 
-  const renderButtons = () => {
-    return buttons && buttons.length > 0 && buttons.map(button => (
-      <div
-        key={button.id}
-        className={classNames(
-          "flex",
-          { "justify-center": alignment === "center" },
-          { "justify-end": alignment === "end" }
-        )}
-      >
-        <Button
-          data={button}
-          size="base"
-        />
-      </div>
-    ))
-  };
+  const renderButtons = () =>
+    buttons &&
+    buttons.length > 0 && (
+      <ButtonGroup data={buttons} alignment={alignment} size="base" />
+    );
   return (
     <section
       id={id ?? ""}
