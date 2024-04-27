@@ -85,12 +85,12 @@ export const CarouselList: React.FC<{
             className={classNames(
               "px-4 !w-11/12",
               { "lg:max-w-[50%]": size === "XL" },
-              { "md:max-w-[50%] lg:max-w-[33.33%]": size === "L" },
+              { "md:max-w-[50%] xl:max-w-[33.33%]": size === "L" },
               {
-                "sm:max-w-[50%] md:max-w-[33.5%] lg:max-w-[25%]": size === "M",
+                "sm:max-w-[50%] lg:max-w-[33.33%] xl:max-w-[25%]": size === "M",
               },
               {
-                "max-w-[50%] sm:max-w-[33.3%] md:max-w-[25%] lg:max-w-[20%]":
+                "max-w-[50%] sm:max-w-[33.33%] md:max-w-[25%] xl:max-w-[20%]":
                   size === "S",
               }
             )}
