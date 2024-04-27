@@ -33,21 +33,24 @@ export const Button: React.FC<{
     icon,
   } = data;
 
-  const renderIcon = () => (
+  const renderIcon = () =>
     icon && (
       <Image
         className={classNames(
           "object-contain",
           { "w-4 h-4 mr-2": size === "base" },
-          { "w-5 h-5 mr-2.5": size === "lg" }
+          { "w-5 h-5 mr-2.5": size === "lg" },
+          {
+            "group-hover:brightness-100 group-hover:invert transition-all duration-500 ease":
+              buttonVariant === "outline-white",
+          }
         )}
         src={icon.url}
         alt={icon.title}
         width={icon.width}
         height={icon.height}
       />
-    )
-  );
+    );
 
   const renderButtonContent = () => (
     <>
@@ -57,6 +60,7 @@ export const Button: React.FC<{
         <GoArrowRight
           className={classNames(
             "inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-300 ease",
+            { "text-primary-600": buttonVariant === "ghost" },
             {
               "text-primary-600 group-hover:text-white":
                 buttonVariant === "outline",
@@ -76,10 +80,10 @@ export const Button: React.FC<{
     </>
   );
   const ghostVariantClasses = classNames(
-    "w-full relative left-0 inline-block text-primary-600 hover:left-1 transition-all duration-500 ease",
+    "w-full relative left-0 inline-block font-semibold hover:left-1 transition-all duration-500 ease",
     { "px-2 py-2": size === "base" },
     { "px-4 py-2.5 font-medium lg:text-lg": size === "lg" },
-    { "opacity-30 pointer-events-none cursor-not-allowed": disabled },
+    { "opacity-20 pointer-events-none cursor-not-allowed": disabled },
     className
   )
   const otherVariantClasses = classNames(
@@ -89,13 +93,13 @@ export const Button: React.FC<{
         buttonVariant === "primary",
       "border-secondary-400 bg-secondary-400 hover:bg-secondary-300 hover:border-secondary-300 text-neutral-800":
         buttonVariant === "secondary",
-      "border-neutral-800 bg-neutral-800 text-white hover:bg-neutral-900 hover:border-neutral-900":
+      "border-neutral-800 bg-neutral-900 text-white hover:bg-neutral-950 hover:border-neutral-900":
         buttonVariant === "black",
       "border-neutral-50 bg-neutral-50 hover:bg-white hover:border-white":
         buttonVariant === "white",
       "border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white":
         buttonVariant === "outline",
-      "border-neutral-800 text-neutral-800 hover:bg-neutral-800 hover:text-white":
+      "border-neutral-900 text-neutral-800 hover:bg-neutral-950 hover:text-white":
         buttonVariant === "outline-black",
       "border-white text-white hover:bg-white hover:text-neutral-800 drop-shadow-lg":
         buttonVariant === "outline-white",
@@ -103,7 +107,7 @@ export const Button: React.FC<{
         size === "base",
       "px-6 py-2.5 min-w-[130px] lg:min-w-[160px] font-medium xl:text-lg":
         size === "lg",
-      "opacity-30 pointer-events-none cursor-not-allowed": disabled
+      "opacity-20 pointer-events-none cursor-not-allowed": disabled
     },
     className,
   );

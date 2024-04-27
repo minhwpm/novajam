@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { Metadata, ResolvingMetadata } from "next";
 import { SectionMapping } from "@/components/sections/SectionMapping/SectionMapping";
 import { BLOG_PAGE_SIZE, BlogType, PageType } from "@/helpers/types";
@@ -9,7 +10,6 @@ import { Pagination } from "@/components/elements/Pagination/Pagination";
 import getPage from "@/helpers/contentful/graphql/getPage";
 import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails";
 import getBlogs from "@/helpers/contentful/graphql/getBlogs";
-import { notFound } from "next/navigation";
 
 // @TODO remove all console.log
 export async function generateMetadata(
@@ -97,11 +97,7 @@ export default async function Page({
     return (
       <main className="flex flex-col gap-10 lg:gap-12 2xl:gap-16 min-h-screen">
         <BlogPost data={data} />
-        <div className="bg-primary-100 py-4 lg:py-10">
-          <Container>
-            <LatestBlogs title="Discover more" data={latestBlogs} />
-          </Container>
-        </div>
+        <LatestBlogs title="Discover more" data={latestBlogs} />
       </main>
     );
   }

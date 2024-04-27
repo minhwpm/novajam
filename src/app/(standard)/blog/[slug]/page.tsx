@@ -1,11 +1,10 @@
+import { notFound } from "next/navigation";
 import { Metadata, ResolvingMetadata } from "next";
-import { Container } from "@/components/elements/Container/Container"
 import { BlogPost } from "@/components/sections/BlogPost/BlogPost"
 import { LatestBlogs } from "@/components/sections/LatestBlogs/LatestBlogs"
 import { BlogType } from "@/helpers/types"
 import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails"
 import getBlogs from "@/helpers/contentful/graphql/getBlogs"
-import { notFound } from "next/navigation";
 
 export async function generateMetadata(
 { params }: { params: { slug: string } },
@@ -45,11 +44,7 @@ export default async function Page({ params }: {params: { slug: string } },) {
   return (
     <main className="flex flex-col gap-10 min-h-screen">
       <BlogPost data={data} />
-      <div className="bg-primary-50 py-4 lg:py-10">
-        <Container>
-          <LatestBlogs title="Discover more" data={latestBlogs} />
-        </Container>
-      </div>
+      <LatestBlogs title="Discover more" data={latestBlogs} />
     </main>
   )
 }
