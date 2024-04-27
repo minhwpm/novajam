@@ -257,7 +257,7 @@ export type ContentListType = {
   eyebrow: string | null
   summary: Document | null
   content: Array<Content>
-  exploreMore: LinkType | null
+  buttons: Array<ButtonType>
   appearanceVariant: "carousel" | "masonry" | "deck"
   size: ContentSize
   headingTextAlignment: TextAlignmentType

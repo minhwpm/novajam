@@ -4,7 +4,7 @@ import React from "react";
 import classNames from "classnames";
 import { Container } from "../Container/Container";
 import { RichText } from "@/components/elements/RichText/RichText";
-import { MediaType, TextAlignmentType, LinkType, BackgroundColorType } from "@/helpers/types";
+import { MediaType, TextAlignmentType, BackgroundColorType, ButtonType } from "@/helpers/types";
 import { Document } from "@contentful/rich-text-types";
 import { useInView } from "react-hook-inview";
 import { Button } from "../Button/Button";
@@ -15,7 +15,7 @@ interface SectionProps {
   heading?: Document | null;
   summary?: Document | null;
   alignment?: TextAlignmentType;
-  additionalLink?: LinkType | null;
+  buttons?: Array<ButtonType>;
   className?: string;
   framed?: boolean;
   backgroundColor?: BackgroundColorType | null;
@@ -29,8 +29,8 @@ export const Section: React.FC<SectionProps> = ({
   heading,
   eyebrow,
   summary,
+  buttons,
   alignment,
-  additionalLink,
   className,
   framed = true,
   backgroundColor,
@@ -86,27 +86,23 @@ export const Section: React.FC<SectionProps> = ({
       </div>
     );
 
-  const renderAdditionalLink = () =>
-    additionalLink && (
+  const renderButtons = () => {
+    return buttons && buttons.length > 0 && buttons.map(button => (
       <div
+        key={button.id}
         className={classNames(
-          "flex -mx-4",
+          "flex",
           { "justify-center": alignment === "center" },
           { "justify-end": alignment === "end" }
         )}
       >
         <Button
-          data={{
-            text: additionalLink.text,
-            url: additionalLink.url,
-            withArrow: true,
-            buttonVariant: "ghost",
-            openNewTab: false,
-          }}
-          size="lg"
+          data={button}
+          size="base"
         />
       </div>
-    );
+    ))
+  };
   return (
     <section
       id={id ?? ""}
@@ -138,7 +134,7 @@ export const Section: React.FC<SectionProps> = ({
         {renderEyebrow()}
         {renderHeading()}
         {renderSummary()}
-        {renderAdditionalLink()}
+        {renderButtons()}
       </div>
       {framed ? (
         <Container

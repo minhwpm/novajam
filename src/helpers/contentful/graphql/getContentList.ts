@@ -27,10 +27,23 @@ export default async function getContentList(id: string) {
             summary {
               json
             }
-            exploreMore {
-              url
-              text
-              openNewTab
+            buttonsCollection {
+              items {
+                sys {
+                  id
+                }
+                url
+                text
+                openNewTab
+                buttonVariant
+                withArrow
+                icon {
+                  url
+                  title
+                  width
+                  height
+                }
+              }
             }
             htmlid
             appearanceVariant

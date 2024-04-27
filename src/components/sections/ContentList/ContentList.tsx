@@ -13,7 +13,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     heading,
     eyebrow,
     summary,
-    exploreMore,
+    buttons,
     content,
     appearanceVariant,
     size,
@@ -32,14 +32,13 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         eyebrow={eyebrow}
         heading={heading}
         summary={summary}
+        buttons={buttons}
         alignment={headingTextAlignment}
         framed={appearanceVariant !== "carousel"}
         backgroundColor={backgroundColor}
         backgroundImage={backgroundImage}
         darkMode={darkMode}
-        additionalLink={exploreMore}
       >
-        
         {appearanceVariant === "carousel" && (
           <CarouselList
             list={content}
