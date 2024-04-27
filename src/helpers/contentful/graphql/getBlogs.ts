@@ -33,6 +33,8 @@ export default async function getBlogs(
           items {
             sys {
               id
+              firstPublishedAt
+              publishedAt
             }
             title
             featured

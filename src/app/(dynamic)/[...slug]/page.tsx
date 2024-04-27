@@ -37,14 +37,19 @@ export async function generateMetadata(
 
 export default async function Page({
   params,
+  searchParams
 }: {
   params: { slug: Array<string> };
+  searchParams: { topic: string | string[] | undefined };
 }) {
+  const { topic } = searchParams;
   if (params.slug![params.slug!.length - 1] === "blog") {
     const featuredBlogs = (await getBlogs(4, 0, true)) as Array<BlogType>;
     const latestBlogs = (await getBlogs(
       BLOG_PAGE_SIZE,
-      0
+      0,
+      false,
+      topic as string[]
     )) as Array<BlogType>;
     return (
       <main className="flex flex-col min-h-screen">
@@ -63,7 +68,9 @@ export default async function Page({
     const pageNumber = parseInt(params.slug![params.slug!.length - 1]);
     const latestBlogs = (await getBlogs(
       BLOG_PAGE_SIZE,
-      (pageNumber - 1) * BLOG_PAGE_SIZE
+      (pageNumber - 1) * BLOG_PAGE_SIZE,
+      false,
+      topic as string[]
     )) as Array<BlogType>;
     if (!latestBlogs.length) {
       notFound()

@@ -53,6 +53,8 @@ export default async function getContentList(id: string) {
                 ... on Blog {
                   sys {
                     id
+                    firstPublishedAt
+                    publishedAt
                   }
                   title
                   slug
@@ -205,6 +207,6 @@ export default async function getContentList(id: string) {
       ... await getSectionData(normalizedData[0].content[i].contentType, normalizedData[0].content[i].id)
     }
   }
-  // console.log(`CONTENT LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  console.log(`CONTENT LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 }

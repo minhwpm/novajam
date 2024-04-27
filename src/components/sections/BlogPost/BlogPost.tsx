@@ -1,10 +1,10 @@
 "use client"
+import Image from "next/image"
+import Link from "next/link"
 import { Container }from "@/components/elements/Container/Container"
 import { ExpertPreview } from "@/components/elements/ExpertPreview/ExpertPreview"
 import { RichText } from "@/components/elements/RichText/RichText"
 import { BlogType } from "@/helpers/types"
-import Image from "next/image"
-import Link from "next/link"
 import { format } from 'date-fns'
 
 export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
