@@ -71,7 +71,7 @@ export const BlogPreview: React.FC<{
         <Link href={`${pathname.replace(/\/blog\/?(.*)$/, "")}/blog/${slug}`}>
           <div className="flex gap-4">
             <div className="basis-1/3 flex-1">{renderThumbnailImage()}</div>
-            <div className="basis-2/3 flex-1 flex flex-col gap-y-2 pr-4">
+            <div className="basis-2/3 flex-1 flex flex-col gap-y-1 pr-4">
               {topics && topics.length > 0 && renderTopic()}
               <h3
                 className={classNames(
@@ -112,7 +112,7 @@ export const BlogPreview: React.FC<{
       <Link href={`${pathname.replace(/\/blog\/?(.*)$/, "")}/blog/${slug}`}>
         {renderThumbnailImage()}
         <div
-          className={classNames("w-full px-4 pb-8 pt-4 flex flex-col gap-y-2")}
+          className={classNames("w-full px-4 pb-8 pt-4 flex flex-col gap-y-1")}
         >
           {topics && topics.length > 0 && renderTopic()}
           <h3
