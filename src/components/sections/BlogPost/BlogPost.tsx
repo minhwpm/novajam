@@ -1,11 +1,11 @@
 "use client"
-import Image from "next/image"
 import Link from "next/link"
 import { Container }from "@/components/elements/Container/Container"
 import { ExpertPreview } from "@/components/elements/ExpertPreview/ExpertPreview"
 import { RichText } from "@/components/elements/RichText/RichText"
 import { BlogType } from "@/helpers/types"
 import { format } from 'date-fns'
+import { MediaItem } from "@/components/elements/MediaItem/MediaItem"
 
 export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
   const { title, summary, content, media, topics, author, firstPublishedAt } = data
@@ -33,7 +33,7 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
                     {topics.map((topic, idx) => (
                       <Link
                         key={idx}
-                        className="px-4 py-2 text-sm lg:text-base rounded-assets relative bottom-0 hover:bottom-1 hover:shadow-lg transition-all duration-500 ease bg-primary-50 text-neutral-600 tracking-wider"
+                        className="px-4 py-2 text-sm bg-primary-50 border border-primary-50 text-neutral-600 tracking-wider rounded-assets relative bottom-0 hover:bottom-1 hover:border-primary-500 transition-all duration-500 ease"
                         href={`/blog?topic=${topic}`}
                       >
                         {topic}
@@ -44,15 +44,11 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
               }
             </div>
             {media && 
-              <div className="lg:w-3/4 xl:w-2/3 aspect-16/9">
-                <Image  
-                  className="w-full h-full object-cover"
-                  src={media.url}
-                  alt={media.title}
-                  width={media.width}
-                  height={media.height}
-                />
+              <div className="lg:w-3/4 xl:w-2/3">
+                
+                <MediaItem data={media} aspectRatio="16/9" rounded="assets" />
               </div>
+
             }
           </div>
           <div className="flex flex-col items-center gap-10 text-lg">

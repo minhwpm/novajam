@@ -91,7 +91,7 @@ export function RichText({
           },
           [BLOCKS.EMBEDDED_ASSET]: (node: Inline | Block) => {
             return (
-              <MediaItem data={node.data as MediaType} videoControls={true} />
+              <MediaItem data={node.data as MediaType} videoControls={true} rounded="assets"/>
             );
           },
           [BLOCKS.EMBEDDED_ENTRY]: (node: Inline | Block) => {

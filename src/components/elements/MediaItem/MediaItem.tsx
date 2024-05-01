@@ -75,7 +75,7 @@ export const MediaItem: React.FC<{
     >
       {contentType.includes("image") && (
         <Image
-          className={classNames(
+          className={classNames("not-prose",
             { "object-cover w-full h-full": width >= 200 },
             { "object-contain": width < 200 }
           )}
@@ -117,7 +117,7 @@ const Video = ({
   return (
     <>
       <video
-        className="object-cover w-full h-full"
+        className="not-prose object-cover w-full h-full"
         src={url}
         autoPlay={videoAutoplay}
         loop={videoAutoplay}
