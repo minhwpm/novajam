@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import Link from "next/link";
-import Image from "next/image"
 import { TextAlignmentType, PageType } from "@/helpers/types";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { useContext } from "react";
@@ -65,15 +64,7 @@ export const PagePreview: React.FC<{
       )}
     >
       <Link href={url}>
-        <div className="w-full overflow-hidden rounded-assets">
-          <Image
-            className="w-full aspect-4/3 object-cover group-hover:scale-110 transition-all duration-500"
-            alt={metaImage?.title ?? ""}
-            src={metaImage?.url ?? "/bluebiz_square.webp"}
-            width={metaImage?.width ?? 400}
-            height={metaImage?.height ?? 300}
-          />
-        </div>
+        <MediaItem data={metaImage} altText={metaImage?.title} aspectRatio="4/3" zoomInOverHover />
         <h4
           className={classNames(
             "mt-4 text-xl font-heading font-semibold group-hover:text-primary-600 transition-colors duration-300 ease-in-out",

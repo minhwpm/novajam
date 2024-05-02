@@ -11,7 +11,7 @@ export const LatestBlogs: React.FC<{title?: string, data: Array<BlogType>}> = ({
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10">
           {data.map(item => (
-            <BlogPreview key={item.id} data={item} aspectRatio="3/2" />
+            <BlogPreview key={item.id} data={item} aspectRatio="4/3" />
           ))}
         </div>
       </Container>
