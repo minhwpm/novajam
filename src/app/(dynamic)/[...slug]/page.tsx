@@ -12,7 +12,6 @@ import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails";
 import getBlogs from "@/helpers/contentful/graphql/getBlogs";
 
 // @TODO remove all console.log
-// @TODO replace <Image> with <MediaItem>
 export async function generateMetadata(
   { params }: { params: { slug: Array<string> } },
   parent: ResolvingMetadata
