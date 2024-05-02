@@ -39,7 +39,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
               document.body.style.overflow = "auto";
             }}
           />
-          <NavigationMenu.List className="flex flex-col items-center text-xl py-20">
+          <NavigationMenu.List className="flex flex-col items-center text-lg xl:text-xl py-20">
             {menu.map((item) => (
               <NavigationMenu.Item key={item.id} className="py-2 border-b last:border-none border-neutral-800">
                 {item.contentType === "link" && (

@@ -30,6 +30,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, appearanceVariant }) => {
           <NavigationMenu.Item
             key={item.id}
             className={classNames(
+              "text-smd",
               { relative: "menu" in item && item.appearanceVariant === "dropdown" }
             )}
           >

@@ -36,7 +36,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
             <NavigationMenu.Item key={item.id} className="py-2 border-b last:border-none border-neutral-200">
               {item.contentType === "link" && (
                 <NavLinkItem
-                  className="font-semibold"
+                  className="mx-3 font-semibold"
                   href={item.url} 
                   onClick={() => {
                     setMobileMenuShowed(false)
