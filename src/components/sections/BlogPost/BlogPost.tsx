@@ -45,10 +45,8 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
             </div>
             {media && 
               <div className="lg:w-3/4 xl:w-2/3">
-                
                 <MediaItem data={media} aspectRatio="16/9" rounded="assets" />
               </div>
-
             }
           </div>
           <div className="flex flex-col items-center gap-10 text-lg">

@@ -1,7 +1,7 @@
 "use client";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
-import { Button } from "../Button/Button";
+import { GoArrowLeft, GoArrowRight } from "react-icons/go";
+import { Button } from "@/components/elements/Button/Button";
 
 export const Pagination: React.FC<{
   currentPageNumber?: number;
@@ -33,7 +33,7 @@ export const Pagination: React.FC<{
           }}
           disabled={currentPageNumber <= 1}
         >
-          <AiOutlineArrowLeft size={20} />
+          <GoArrowLeft size={20} />
         </Button>
         <Button
           data={{
@@ -53,7 +53,7 @@ export const Pagination: React.FC<{
             router.push(pathname.join("/") + (topic ? ("?topic=" + topic) : "") )
           }}
         >
-          <AiOutlineArrowRight size={20} />
+          <GoArrowRight size={20} />
         </Button>
       </div>
     </div>
