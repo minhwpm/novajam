@@ -55,6 +55,7 @@ export default async function getSubmenu(id: string) {
                     title
                     width
                     height
+                    contentType
                   }
                 }
                 ... on Page {
@@ -68,6 +69,7 @@ export default async function getSubmenu(id: string) {
                     title
                     width
                     height
+                    contentType
                   }
                 }
               }

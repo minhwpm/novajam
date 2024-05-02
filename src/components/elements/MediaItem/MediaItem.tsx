@@ -1,8 +1,8 @@
 "use client";
+import Image from "next/image";
+import classNames from "classnames";
 import { useRef, useState } from "react";
 import { MediaAspectRatioType, MediaType } from "@/helpers/types";
-import classNames from "classnames";
-import Image from "next/image";
 import { FaPlay } from "react-icons/fa";
 
 export const MediaItem: React.FC<{
@@ -14,6 +14,7 @@ export const MediaItem: React.FC<{
   dimensionBase?: "width" | "height";
   priority?: boolean;
   rounded?: "assets" | "full" | "none";
+  zoomInOverHover?: boolean
 }> = ({
   data,
   altText,
@@ -23,6 +24,7 @@ export const MediaItem: React.FC<{
   dimensionBase = "width",
   priority = false,
   rounded = "assets",
+  zoomInOverHover = false
 }) => {
   if (!data) {
     return (
@@ -36,7 +38,9 @@ export const MediaItem: React.FC<{
         )}
       >
         <Image
-          className={classNames("object-cover w-full h-full")}
+          className={classNames("object-cover w-full h-full",
+            {"hover:scale-110 transition-all duration-500": zoomInOverHover}
+          )}
           src="/bluebiz_square.webp"
           width={500}
           height={500}
@@ -75,9 +79,14 @@ export const MediaItem: React.FC<{
     >
       {contentType.includes("image") && (
         <Image
-          className={classNames("not-prose",
+          className={classNames(
+            "not-prose",
             { "object-cover w-full h-full": width >= 200 },
-            { "object-contain": width < 200 }
+            { "object-contain": width < 200 },
+            {
+              "hover:scale-110 transition-all duration-500":
+                zoomInOverHover,
+            }
           )}
           src={url ?? "/bluebiz_square.webp"}
           alt={altText ?? title}
@@ -93,6 +102,7 @@ export const MediaItem: React.FC<{
           videoAutoplay={videoAutoplay}
           videoControls={videoControls}
           type={contentType}
+          zoomInOnHover={zoomInOverHover}
         />
       )}
     </div>
@@ -105,19 +115,23 @@ const Video = ({
   videoAutoplay,
   videoControls,
   type,
+  zoomInOnHover,
 }: {
   url: string;
   title: string;
   videoAutoplay: boolean;
   videoControls: boolean;
   type: string;
+  zoomInOnHover: boolean
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoStarted, setVideoStarted] = useState(false);
   return (
     <>
       <video
-        className="not-prose object-cover w-full h-full"
+        className={classNames("not-prose object-cover w-full h-full", {
+          "hover:scale-110 transition-all duration-500": zoomInOnHover,
+        })}
         src={url}
         autoPlay={videoAutoplay}
         loop={videoAutoplay}

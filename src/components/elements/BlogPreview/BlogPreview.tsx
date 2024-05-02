@@ -1,10 +1,10 @@
 "use client";
 import classNames from "classnames";
 import Link from "next/link";
-import Image from "next/image"
 import { useContext } from "react";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 import { TextAlignmentType, BlogType, MediaAspectRatioType } from "@/helpers/types";
+import { MediaItem } from "../MediaItem/MediaItem";
 import { usePathname } from "next/navigation";
 import { useInView } from "react-hook-inview";
 import { format } from 'date-fns'
@@ -24,22 +24,6 @@ export const BlogPreview: React.FC<{
     threshold: 0.4,
     unobserveOnEnter: true,
   });
-  const renderThumbnailImage = () => {
-    return(
-      <div className="w-full overflow-hidden rounded-assets">
-        <Image
-          className={classNames(
-            "w-full object-cover group-hover:scale-110 transition-all duration-500",
-            `aspect-${aspectRatio}`
-          )}
-          alt={media?.title ?? ""}
-          src={media?.url ?? "/bluebiz_square.webp"}
-          width={media?.width ?? 400}
-          height={media?.height ?? 400}
-        />
-      </div>
-    )
-  }
   const renderTopic = () => (
     <div
       className={classNames(
@@ -70,7 +54,9 @@ export const BlogPreview: React.FC<{
       >
         <Link href={`${pathname.replace(/\/blog\/?(.*)$/, "")}/blog/${slug}`}>
           <div className="flex gap-4">
-            <div className="basis-1/3 flex-1">{renderThumbnailImage()}</div>
+            <div className="basis-1/3 flex-1">
+              <MediaItem data={media} altText={title} aspectRatio={aspectRatio} zoomInOverHover />
+            </div>
             <div className="basis-2/3 flex-1 flex flex-col gap-y-1 pr-4">
               {topics && topics.length > 0 && renderTopic()}
               <h3
@@ -110,7 +96,7 @@ export const BlogPreview: React.FC<{
       )}
     >
       <Link href={`${pathname.replace(/\/blog\/?(.*)$/, "")}/blog/${slug}`}>
-        {renderThumbnailImage()}
+        <MediaItem data={media} altText={title} aspectRatio={aspectRatio} zoomInOverHover />
         <div
           className={classNames("w-full px-4 pb-8 pt-4 flex flex-col gap-y-1")}
         >
