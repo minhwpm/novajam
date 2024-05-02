@@ -26,12 +26,19 @@ export const MediaItem: React.FC<{
   rounded = "assets",
   zoomInOverHover = false
 }) => {
+  const aspectRatioClass = classNames(
+    {"aspect-square": aspectRatio === "square"},
+    {"aspect-video": aspectRatio === "16/9"},
+    {"aspect-4/3": aspectRatio === "4/3"},
+    {"aspect-3/2": aspectRatio === "3/2"},
+    {"aspect-3/4": aspectRatio === "3/4"},
+  )
   if (!data) {
     return (
       <div
         className={classNames(
           "overflow-hidden",
-          `aspect-${aspectRatio}`,
+          [aspectRatioClass],
           { "w-full": dimensionBase === "width" },
           { "h-full": dimensionBase === "height" },
           `rounded-${rounded}`
@@ -57,8 +64,7 @@ export const MediaItem: React.FC<{
       className={classNames(
         "overflow-hidden relative",
         {
-          [`aspect-${aspectRatio}`]:
-            width >= 200 || contentType.includes("video"),
+          [aspectRatioClass]: width >= 200 || contentType.includes("video"),
         },
         {
           "w-full":
@@ -84,8 +90,7 @@ export const MediaItem: React.FC<{
             { "object-cover w-full h-full": width >= 200 },
             { "object-contain": width < 200 },
             {
-              "hover:scale-110 transition-all duration-500":
-                zoomInOverHover,
+              "hover:scale-110 transition-all duration-500": zoomInOverHover,
             }
           )}
           src={url ?? "/bluebiz_square.webp"}
