@@ -3,12 +3,11 @@ import { createClient } from "contentful-management";
 
 export type FormState = {
   message: string;
-  error?: Error;
 };
 
 export async function createInquiryFormSubmission(
   data: FormData
-): Promise<FormState> {
+): Promise<FormState | Error> {
   const formData = Object.fromEntries(data);
   const DEFAULT_LOCALE = process.env.DEFAULT_LOCALE ?? "en-US";
   const { title, formType } = formData;
@@ -48,10 +47,7 @@ export async function createInquiryFormSubmission(
       };
     })
     .catch((error) => {
-      console.error("ERROR", error);
-      return {
-        message: "ERROR",
-        error: error,
-      };
+      console.error("ERROR WHEN CREATING AN ENTRY OF INQUIRY FORM", error);
+      return new Error("ERROR WHEN CREATING AN ENTRY OF INQUIRY FORM", error);
     });
 }

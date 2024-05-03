@@ -72,9 +72,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
       formData.append(prop, data[prop] as string);
     }
     return createInquiryFormSubmission(formData)
-      .then((result) => {
-        return result;
-      })
+      .then((result) => result)
       .catch((e) => {
         console.error(e);
         return e;
