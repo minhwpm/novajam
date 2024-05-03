@@ -271,7 +271,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
         </div>
       </section>
       {isSubmitting && (
-        <Toast.Provider swipeDirection="right" duration={100000}>
+        <Toast.Provider swipeDirection="right">
           <Toast.Root className="data-[state=open]:animate-fadeIn">
             <AiOutlineLoading3Quarters
               className="animate-spin text-primary-600"
@@ -282,7 +282,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
         </Toast.Provider>
       )}
       {isSubmitted && isSubmitSuccessful && (
-        <Toast.Provider swipeDirection="right" duration={10000}>
+        <Toast.Provider swipeDirection="right" duration={5000}>
           <Toast.Root
             className="relative bg-white rounded-theme border shadow-lg p-8 data-[state=open]:animate-fadeIn"
             onOpenChange={(open: boolean) => {
@@ -306,7 +306,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
         </Toast.Provider>
       )}
       {isSubmitted && !isSubmitSuccessful && (
-        <Toast.Provider swipeDirection="right" duration={10000}>
+        <Toast.Provider swipeDirection="right" duration={5000}>
           <Toast.Root className="relative bg-primary-50 rounded-theme border border-primary-300 shadow-lg p-8 data-[state=open]:animate-fadeIn">
             <Toast.Close className="absolute top-2 right-2">
               <IoCloseOutline className="cursor-pointer ml-auto w-10 h-10 p-2 rounded-full text-primary-600 hover:bg-primary-100 transition-all duration-300 ease-in-out" />
