@@ -201,7 +201,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                     {fieldItem.helpText && (
                       <div
                         className={classNames(
-                          "pl-2 pb-2",
+                          "pl-2 pb-2 text-smd",
                           { "text-neutral-700": !darkMode },
                           { "text-neutral-100": darkMode }
                         )}
