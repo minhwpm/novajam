@@ -59,17 +59,26 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
     const formData = new FormData();
     for (const prop in data) {
       if (data[prop] instanceof Date) {
-        data[prop] = data[prop]?.toLocaleString(undefined, {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-          hour: "numeric",
-          minute: "numeric",
-        }).toString();
+        data[prop] = data[prop]
+          ?.toLocaleString(undefined, {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+          })
+          .toString();
       }
       formData.append(prop, data[prop] as string);
     }
-    createInquiryFormSubmission(formData)
+    return createInquiryFormSubmission(formData)
+      .then((result) => {
+        return result;
+      })
+      .catch((e) => {
+        console.error(e);
+        return e;
+      });
   }
   return (
     <>
@@ -241,9 +250,11 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                 {...register("formType")}
               />
 
-              <div className={classNames("col-span-2",
-                {"mt-6": formType !== "subscription"},
-              )}>
+              <div
+                className={classNames("col-span-2", {
+                  "mt-6": formType !== "subscription",
+                })}
+              >
                 {submitButton ? (
                   <Button
                     data={submitButton}

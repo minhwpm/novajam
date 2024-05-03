@@ -2,28 +2,31 @@
 import { createClient } from "contentful-management";
 
 export type FormState = {
-  message: string
-}
+  message: string;
+  error?: Error;
+};
 
-export async function createInquiryFormSubmission(data: FormData): Promise<FormState> {
-  const formData=Object.fromEntries(data)
-  const DEFAULT_LOCALE = process.env.DEFAULT_LOCALE ?? "en-US"
+export async function createInquiryFormSubmission(
+  data: FormData
+): Promise<FormState> {
+  const formData = Object.fromEntries(data);
+  const DEFAULT_LOCALE = process.env.DEFAULT_LOCALE ?? "en-US";
   const { title, formType } = formData;
   delete formData.title;
   delete formData.formType;
   const standardizedData = {
     title: {
-      [DEFAULT_LOCALE]: title
+      [DEFAULT_LOCALE]: title,
     },
     formType: {
-      [DEFAULT_LOCALE]: formType
+      [DEFAULT_LOCALE]: formType,
     },
     submittedContent: {
       [DEFAULT_LOCALE]: {
         ...formData,
-      }
+      },
     },
-  }
+  };
 
   const client = createClient({
     accessToken: process.env.CONTENTFUL_MANAGEMENT_PERSONAL_ACCESS_TOKEN ?? "",
@@ -39,8 +42,7 @@ export async function createInquiryFormSubmission(data: FormData): Promise<FormS
         fields: { ...standardizedData },
       });
     })
-    .then((entry) => {
-      console.log("RESULT ENTRY", entry);
+    .then(() => {
       return {
         message: "SUCCESSFULLY CREATED AN ENTRY OF INQUIRY FORM SUBMISSION",
       };
@@ -49,6 +51,7 @@ export async function createInquiryFormSubmission(data: FormData): Promise<FormS
       console.error("ERROR", error);
       return {
         message: "ERROR",
+        error: error,
       };
     });
 }
