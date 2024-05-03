@@ -53,7 +53,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             <SwiperSlide key={item.id}>
               <div
                 className={classNames(
-                  "h-full flex flex-col-reverse lg:flex-row lg:items-center gap-x-16 gap-y-5 rounded-assets px-4 lg:py-4 lg:px-14 xl:px-16"
+                  "h-full flex flex-col-reverse lg:flex-row lg:items-center gap-x-16 gap-y-5 rounded-theme px-4 lg:py-4 lg:px-14 xl:px-16"
                 )}
               >
                 {(item.heading || item.description || item.buttons) && (

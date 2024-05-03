@@ -7,8 +7,8 @@ export const FlexibleContentMediaPart: React.FC<{
   data: ContentPieceType;
   alignment?: TextAlignmentType;
   aspectRatio?: MediaAspectRatioType,
-  rounded?: "assets" | "full" | "none"
-}> = ({ data, alignment, aspectRatio = "4/3", rounded = "assets"}) => {
+  rounded?: "theme" | "full" | "none"
+}> = ({ data, alignment, aspectRatio = "4/3", rounded = "theme"}) => {
   const { media, embeddedMediaUrl, embeddedMediaTitle } = data;
   return (
     <div

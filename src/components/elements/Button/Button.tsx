@@ -87,7 +87,7 @@ export const Button: React.FC<{
     className
   )
   const otherVariantClasses = classNames(
-    "w-full relative border inline-flex justify-center items-center text-center rounded-assets bottom-0 hover:bottom-1 transition-all duration-500 ease",
+    "w-full relative border inline-flex justify-center items-center text-center rounded-theme-button bottom-0 hover:bottom-1 transition-all duration-500 ease",
     {
       "border-primary-600 bg-primary-600 hover:bg-primary-700 hover:border-primary-700 text-white":
         buttonVariant === "primary",

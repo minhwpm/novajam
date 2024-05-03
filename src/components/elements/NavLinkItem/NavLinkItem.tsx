@@ -22,7 +22,7 @@ export const NavLinkItem = ({
   const classes = classNames(
     { "inline-block py-2 select-none before:bg-primary-500 underline-hover-effect": variant === "underlined"},
     { "before:w-full": variant === "underlined" && href === pathname },
-    { "block w-full px-3 py-2 rounded-assets hover:bg-primary-50 hover:text-neutral-800 transition duration-500": variant === "highlighted" },
+    { "block w-full px-3 py-2 rounded-theme hover:bg-primary-50 hover:text-neutral-800 transition duration-500": variant === "highlighted" },
     { "bg-primary-100 text-neutral-800": variant === "highlighted" && href === pathname },
     className
   )

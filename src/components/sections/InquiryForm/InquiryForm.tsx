@@ -14,9 +14,10 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { useInView } from "react-hook-inview";
 import * as Toast from "@radix-ui/react-toast";
+import { createInquiryFormSubmission } from "@/helpers/actions/createInquiryFormSubmission";
 
 export type FormValues = {
-  [x: string]: string | Date | undefined | null;
+  [x: string]: string | Date;
 };
 
 type Props = {
@@ -54,6 +55,22 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
     formState: { errors, isSubmitting, isSubmitted, isSubmitSuccessful },
   } = useForm<FormValues>();
 
+  function onSubmit(data: FormValues) {
+    const formData = new FormData();
+    for (const prop in data) {
+      if (data[prop] instanceof Date) {
+        data[prop] = data[prop]?.toLocaleString(undefined, {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+        }).toString();
+      }
+      formData.append(prop, data[prop] as string);
+    }
+    createInquiryFormSubmission(formData)
+  }
   return (
     <>
       <section
@@ -153,10 +170,10 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           >
             <form
               className={classNames(
-                " w-full max-w-xl mx-auto lg:mx-0 grid grid-cols-2 gap-x-5 gap-y-3 rounded-assets",
+                " w-full max-w-xl mx-auto lg:mx-0 grid grid-cols-2 gap-x-5 gap-y-3 rounded-theme",
                 { "gap-x-0": fields.length === 1 }
               )}
-              onSubmit={handleSubmit(onSubmitValid)}
+              onSubmit={handleSubmit(onSubmit)}
             >
               {fields.length > 0 &&
                 fields.map((fieldItem) => (
@@ -267,7 +284,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
       {isSubmitted && isSubmitSuccessful && (
         <Toast.Provider swipeDirection="right" duration={10000}>
           <Toast.Root
-            className="relative bg-white rounded-assets border shadow-lg p-8 data-[state=open]:animate-fadeIn"
+            className="relative bg-white rounded-theme border shadow-lg p-8 data-[state=open]:animate-fadeIn"
             onOpenChange={(open: boolean) => {
               if (!open) {
                 reset();
@@ -290,7 +307,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
       )}
       {isSubmitted && !isSubmitSuccessful && (
         <Toast.Provider swipeDirection="right" duration={10000}>
-          <Toast.Root className="relative bg-primary-50 rounded-assets border border-primary-300 shadow-lg p-8 data-[state=open]:animate-fadeIn">
+          <Toast.Root className="relative bg-primary-50 rounded-theme border border-primary-300 shadow-lg p-8 data-[state=open]:animate-fadeIn">
             <Toast.Close className="absolute top-2 right-2">
               <IoCloseOutline className="cursor-pointer ml-auto w-10 h-10 p-2 rounded-full text-primary-600 hover:bg-primary-100 transition-all duration-300 ease-in-out" />
             </Toast.Close>
@@ -305,47 +322,3 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
     </>
   );
 };
-
-async function onSubmitValid(formValues: FormValues) {
-  const DEFAULT_LOCALE = "en-US"
-  const { title, formType } = formValues;
-  delete formValues.title;
-  delete formValues.formType;
-
-  for (const key in formValues) {
-    if (formValues[key] instanceof Date) {
-      formValues[key] = formValues[key]?.toLocaleString(undefined, {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-      });
-    }
-  }
-  const reqBody = {
-    title: {
-      [DEFAULT_LOCALE]: title
-    },
-    formType: {
-      [DEFAULT_LOCALE]: formType
-    },
-    submittedContent: {
-      [DEFAULT_LOCALE]: {
-        ...formValues,
-      }
-    },
-  }
-  
-  try {
-    await fetch(`/api/inquiry-form-submission/`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify(reqBody),
-    });
-  } catch (err) {
-    console.error(err);
-  }
-}

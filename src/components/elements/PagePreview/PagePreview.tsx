@@ -23,7 +23,7 @@ export const PagePreview: React.FC<{
       <div
         ref={ref}
         className={classNames(
-          "rounded-assets flex gap-5",
+          "rounded-theme flex gap-5",
           { "relative -bottom-10 opacity-0": animate },
           {
             "animate-slidingUpContent animation-delay-150":
@@ -55,7 +55,7 @@ export const PagePreview: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "group rounded-assets flex flex-col pb-4 lg:pb-6",
+        "group rounded-theme flex flex-col pb-4 lg:pb-6",
         { "relative -bottom-10 opacity-0": animate },
         {
           "animate-slidingUpContent animation-delay-150":

@@ -53,7 +53,8 @@ module.exports = {
         },
       },
       borderRadius: {
-        'assets': 'var(--border-radius-assets)',
+        'theme': 'var(--border-radius-theme)',
+        'theme-button': 'var(--border-radius-theme-button)',
       },
       borderWidth: {
         '3': '3px',

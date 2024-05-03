@@ -13,7 +13,7 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
     <>
       <NavigationMenu.Trigger
         className={classNames(
-          "py-2 px-3 select-none font-semibold text-start w-full group rounded-assets hover:bg-primary-100 transition duration-500",
+          "py-2 px-3 select-none font-semibold text-start w-full group rounded-theme hover:bg-primary-100 transition duration-500",
           {
             "bg-primary-100":
               data.featuredContent.find(
@@ -39,7 +39,7 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
         />
       </NavigationMenu.Trigger>
       <NavigationMenu.Content
-        className="bg-white font-medium mt-2 rounded-assets"
+        className="bg-white font-medium mt-2 rounded-theme"
         onPointerLeave={(e) => e.preventDefault()}
       >
         <NavigationMenu.Root
@@ -69,7 +69,7 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
                     <>
                       <NavigationMenu.Trigger
                         className={classNames(
-                          "w-full select-none text-left py-2 px-3 rounded-assets hover:bg-primary-100 transition-color duration-300 data-[state=open]:bg-primary-100 group",
+                          "w-full select-none text-left py-2 px-3 rounded-theme hover:bg-primary-100 transition-color duration-300 data-[state=open]:bg-primary-100 group",
                           {
                             "bg-primary-100": subItem.links.find(
                               (link) => link.url === pathname

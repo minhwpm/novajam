@@ -31,7 +31,7 @@ export default async function Layout({
             page.colorPrimary,
             page.colorSecondary
           );
-          borderRadiusTheme = `${page.borderRadius}-border-radius-assets`;
+          borderRadiusTheme = `${page.borderRadius}-border-radius-theme`;
           headingFontSizeTheme= `${page.headingFontSize}-heading-font-size`;
         }
       }

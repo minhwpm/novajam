@@ -23,7 +23,7 @@ export default async function RootLayout({
       page.colorPrimary,
       page.colorSecondary
     );
-    borderRadiusTheme = `${page.borderRadius}-border-radius-assets`;
+    borderRadiusTheme = `${page.borderRadius}-border-radius-theme`;
     headingFontSizeTheme= `${page.headingFontSize}-heading-font-size`;
   }
 

@@ -15,13 +15,13 @@ export const SelectField: React.FC<{
     rules: { required: data.required },
   });
   const [isClient, setIsClient] = useState(false)
-  useEffect(() => { // fix hydration warnings and errors
+  useEffect(() => { // for fixing hydration warnings and errors
     setIsClient(true)
   }, [])
   
   return isClient ? (
     <ReactSelect
-      className="rounded-assets w-full"
+      className="rounded-theme w-full"
       name={data.label}
       options={data.options.map(option => {
         return {
@@ -34,7 +34,7 @@ export const SelectField: React.FC<{
           ...baseStyles,
           padding: "8px 6px",
           borderColor: "rgb(212 212 212)",
-          borderRadius: "var(--border-radius-assets)",
+          borderRadius: "var(--border-radius-theme)",
         }),
       }}
       placeholder={(
@@ -42,8 +42,8 @@ export const SelectField: React.FC<{
           {data.label + (data.required ? "*" : "")}
         </div>
       )}
-      onChange={(value) => {
-        field.onChange(value)
+      onChange={(selectedOption) => {
+        field.onChange(selectedOption?.value)
       }}
     />
   ) : null

@@ -17,7 +17,7 @@ export const MediaCarousel: React.FC<{
   videoAutoplay?: boolean;
   dimensionBase?: "width" | "height";
   priority?: boolean;
-  rounded?: "assets" | "full" | "none";
+  rounded?: "theme" | "full" | "none";
   loop?: boolean
   effect?: "fade" | "coverflow" | "cube"
   freeMode?: FreeModeOptions
@@ -31,7 +31,7 @@ export const MediaCarousel: React.FC<{
   videoAutoplay = false,
   dimensionBase = "width",
   priority = false,
-  rounded = "assets",
+  rounded = "theme",
   loop,
   effect,
   freeMode,

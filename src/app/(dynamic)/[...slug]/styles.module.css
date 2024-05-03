@@ -1,13 +1,16 @@
-.small-border-radius-assets {
-  --border-radius-assets: 0.125rem;
+.small-border-radius-theme {
+  --border-radius-theme: 0.125rem;
+  --border-radius-theme-button: 0.125rem;
 }
 
-.medium-border-radius-assets {
-  --border-radius-assets: 0.375rem;
+.medium-border-radius-theme {
+  --border-radius-theme: 0.375rem;
+  --border-radius-theme-button: 0.375rem;
 }
 
-.large-border-radius-assets {
-  --border-radius-assets: 1rem;
+.large-border-radius-theme {
+  --border-radius-theme: 1rem;
+  --border-radius-theme-button: 1.75rem;
 }
 
 .standard-heading-font-size {

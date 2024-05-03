@@ -31,7 +31,7 @@ export const ExpertPreview: React.FC<{
       <div
         ref={ref}
         className={classNames(
-          "flex p-4 rounded-assets",
+          "flex p-4 rounded-theme",
           { "relative -bottom-10 opacity-0": animate },
           {
             "animate-slidingUpContent animation-delay-150":
@@ -103,7 +103,7 @@ export const ExpertPreview: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "group rounded-assets",
+        "group rounded-theme",
         { "relative -bottom-10 opacity-0": animate },
         {
           "animate-slidingUpContent animation-delay-150":
@@ -119,7 +119,7 @@ export const ExpertPreview: React.FC<{
         {summary && (
           <div
             className={classNames(
-              "absolute bottom-0 opacity-0 group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-b-assets gr p-4 text-neutral-200 bg-primary-700 prose"
+              "absolute bottom-0 opacity-0 group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-b-theme gr p-4 text-neutral-200 bg-primary-700 prose"
             )}
           >
             <div className="line-clamp-5">{summary}</div>
@@ -128,7 +128,7 @@ export const ExpertPreview: React.FC<{
       </div>
       <div
         className={classNames(
-          "w-full px-4 pt-4 pb-6 flex flex-col gap-1 rounded-b-assets",
+          "w-full px-4 pt-4 pb-6 flex flex-col gap-1 rounded-b-theme",
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" }
         )}

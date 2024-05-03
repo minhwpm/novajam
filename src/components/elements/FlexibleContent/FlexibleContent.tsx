@@ -75,7 +75,7 @@ export const FlexibleContent: React.FC<{
       <div
         ref={ref}
         className={classNames(
-          "flex rounded-assets",
+          "flex rounded-theme",
           { "relative -bottom-10 opacity-0": animate },
           {
             "animate-slidingUpContent animation-delay-150":
@@ -110,7 +110,7 @@ export const FlexibleContent: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "flex flex-col rounded-assets",
+        "flex flex-col rounded-theme",
         { "relative -bottom-10 opacity-0": animate },
         {
           "animate-slidingUpContent animation-delay-150":

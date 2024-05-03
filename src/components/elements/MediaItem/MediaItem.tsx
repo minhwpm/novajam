@@ -13,7 +13,7 @@ export const MediaItem: React.FC<{
   videoControls?: boolean;
   dimensionBase?: "width" | "height";
   priority?: boolean;
-  rounded?: "assets" | "full" | "none";
+  rounded?: "theme" | "full" | "none";
   zoomInOverHover?: boolean
 }> = ({
   data,
@@ -23,7 +23,7 @@ export const MediaItem: React.FC<{
   videoControls = false,
   dimensionBase = "width",
   priority = false,
-  rounded = "assets",
+  rounded = "theme",
   zoomInOverHover = false
 }) => {
   const aspectRatioClass = classNames(

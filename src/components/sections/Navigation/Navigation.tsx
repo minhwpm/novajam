@@ -125,8 +125,8 @@ export const Navigation: React.FC<{ data: NavigationType }> = ({ data }) => {
         <div
           className={classNames(
             "fixed z-[999999]",
-            "w-full bottom-0 rounded-t-assets", //sm devices
-            "lg:rotate-90 lg:translate-y-1/2 lg:translate-x-1/2 lg:rounded-t-none lg:rounded-b-assets lg:w-auto lg:bottom-1/2 lg:right-0" //big devices
+            "w-full bottom-0 rounded-t-theme", //sm devices
+            "lg:rotate-90 lg:translate-y-1/2 lg:translate-x-1/2 lg:rounded-t-none lg:rounded-b-theme lg:w-auto lg:bottom-1/2 lg:right-0" //big devices
           )}
         >
           <div className="relative flex justify-center py-2 bg-white bg-opacity-80 shadow-radiant lg:py-0 lg:bg-transparent">

@@ -44,7 +44,7 @@ export const BlogPreview: React.FC<{
       <div
         ref={ref}
         className={classNames(
-          "group rounded-assets relative",
+          "group rounded-theme relative",
           { "relative -bottom-10 opacity-0": animate },
           {
             "animate-slidingUpContent animation-delay-150":
@@ -87,7 +87,7 @@ export const BlogPreview: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "group rounded-assets",
+        "group rounded-theme",
         { "relative -bottom-10 opacity-0": animate },
         {
           "animate-slidingUpContent animation-delay-150":

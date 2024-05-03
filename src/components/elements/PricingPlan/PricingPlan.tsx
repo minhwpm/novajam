@@ -21,14 +21,14 @@ export const PricingPlan: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "relative flex flex-col gap-6 items-center rounded-assets bg-white shadow-radiant",
+        "relative flex flex-col gap-6 items-center rounded-theme bg-white shadow-radiant",
         { "-bottom-10 opacity-0": animate },
         { "animate-slidingUpContent animation-delay-150": isIntersecting && animate },
         { "bg-opacity-5": darkMode }
       )}
     >
       {badge && (
-        <div className="absolute -top-5 rounded-assets text-center bg-primary-600 text-neutral-50 px-4 py-2 font-bold tracking-wider">
+        <div className="absolute -top-5 rounded-theme text-center bg-primary-600 text-neutral-50 px-4 py-2 font-bold tracking-wider">
           {badge}
         </div>
       )}

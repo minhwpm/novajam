@@ -134,7 +134,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
             <div
               key={section.id}
               className={classNames(
-                "col-start-1 row-start-1 flex flex-col gap-6 p-8 lg:p-12 shadow-lg bg-white rounded-assets transition-all ease-in-out duration-500 relative",
+                "col-start-1 row-start-1 flex flex-col gap-6 p-8 lg:p-12 shadow-lg bg-white rounded-theme transition-all ease-in-out duration-500 relative",
                 { "items-center": contentTextAlignment === "center" },
                 { "items-end": contentTextAlignment === "end" },
                 { "opacity-100 right-0": visibleIdx === idx },

@@ -21,7 +21,7 @@ export const Statistics: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "flex flex-col gap-3 px-4 lg:px-6 rounded-assets",
+        "flex flex-col gap-3 px-4 lg:px-6 rounded-theme",
         { "perspective-2500 backface-hidden -rotate-y-90": !isIntersecting },
         {
           "perspective-none backface-hidden rotate-y-0 transition-transform ease duration-1000 ":

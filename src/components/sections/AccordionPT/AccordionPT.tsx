@@ -51,12 +51,12 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 key={section.id}
                 value={section.id}
                 className={classNames(
-                  "group w-full rounded-assets data-[state=closed]:border data-[state=closed]:hover:bg-primary-500 data-[state=closed]:hover:text-neutral-100 hover:border-primary-500",
+                  "group w-full rounded-theme data-[state=closed]:border data-[state=closed]:hover:bg-primary-500 data-[state=closed]:hover:text-neutral-100 hover:border-primary-500",
                   { "text-neutral-50": darkMode }
                 )}
               >
                 <RadixAccordion.Trigger asChild>
-                  <div className="py-4 px-6 cursor-pointer flex gap-3 rounded-t-assets data-[state=closed]:text-primary-600 data-[state=closed]:hover:text-white data-[state=open]:bg-primary-600 data-[state=open]:border-primary-600 data-[state=open]:text-white">
+                  <div className="py-4 px-6 cursor-pointer flex gap-3 rounded-t-theme data-[state=closed]:text-primary-600 data-[state=closed]:hover:text-white data-[state=open]:bg-primary-600 data-[state=open]:border-primary-600 data-[state=open]:text-white">
                     <div className="flex-1 flex flex-col">
                       {section.eyebrow && (
                         <div
@@ -90,7 +90,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 </RadixAccordion.Trigger>
                 <RadixAccordion.Content
                   className={classNames(
-                    "overflow-hidden px-6 rounded-b-assets",
+                    "overflow-hidden px-6 rounded-b-theme",
                     "data-[state=closed]:animate-accordionSlideUp",
                     "data-[state=open]:animate-accordionSlideDown data-[state=open]:border data-[state=open]:border-primary-600",
                     { "text-center": contentTextAlignment === "center" },

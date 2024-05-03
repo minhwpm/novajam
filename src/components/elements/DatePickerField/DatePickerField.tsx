@@ -24,7 +24,7 @@ export function DatePickerField({ data, control, showTimeSelect, dateFormat = "D
   });
   return (
     <DatePicker
-      className="w-full border border-neutral-300 rounded-assets px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-500"
+      className="w-full border border-neutral-300 rounded-theme px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-500"
       placeholderText={data.label + (data.required ? "*" : "")}
       selected={field.value as Date | null | undefined}
       name={data.label}
@@ -33,7 +33,10 @@ export function DatePickerField({ data, control, showTimeSelect, dateFormat = "D
       }}
       onFocus={e => e.target.blur()} //to prevent edit by typing
       showTwoColumnMonthYearPicker
-      showTimeInput={showTimeSelect}
+      showTimeSelect={showTimeSelect}
+      showMonthDropdown={!showTimeSelect}
+      showYearDropdown={!showTimeSelect}
+      dropdownMode="select"
       dateFormat={showTimeSelect ? `${dateFormatMatching[dateFormat]} - h:mma` : dateFormatMatching[dateFormat]}
       isClearable
     />
