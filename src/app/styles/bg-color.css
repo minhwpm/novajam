@@ -56,31 +56,31 @@
   @apply bg-cyan-100;
 }
 .cyan-dark-section-bg-color {
-  @apply bg-cyan-700;
+  @apply bg-cyan-900;
 }
 .sky-section-bg-color {
   @apply bg-sky-100;
 }
 .sky-dark-section-bg-color {
-  @apply bg-sky-700;
+  @apply bg-sky-900;
 }
 .blue-section-bg-color {
   @apply bg-blue-100;
 }
 .blue-dark-section-bg-color {
-  @apply bg-blue-700;
+  @apply bg-blue-900;
 }
 .indigo-section-bg-color {
   @apply bg-indigo-100;
 }
 .indigo-dark-section-bg-color {
-  @apply bg-indigo-800;
+  @apply bg-indigo-900;
 }
 .violet-section-bg-color {
   @apply bg-violet-100;
 }
 .violet-dark-section-bg-color {
-  @apply bg-violet-700;
+  @apply bg-violet-900;
 }
 .purple-section-bg-color {
   @apply bg-purple-100;
