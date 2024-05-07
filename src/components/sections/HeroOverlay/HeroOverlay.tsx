@@ -143,7 +143,7 @@ export const HeroOverlaySection: React.FC<{
             {data.eyebrow && (
               <div
                 className={classNames(
-                  "drop-shadow-lg tracking-widest font-medium lg:text-lg max-w-xl opacity-0",
+                  "drop-shadow-lg text-sm lg:text-base xl:text-lg tracking-widest font-medium  max-w-xl opacity-0",
                   {
                     "animate-slidingHeroContent animation-delay-500":
                       isIntersecting,

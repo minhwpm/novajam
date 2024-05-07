@@ -146,7 +146,7 @@ const HeroSection: React.FC<{
         {data.eyebrow && (
           <div
             className={classNames(
-              "font-medium tracking-widest max-w-2xl opacity-0",
+              "text-sm lg:text-base font-medium tracking-widest max-w-2xl opacity-0",
               {
                 "animate-slidingHeroContent animation-delay-500":
                   isIntersecting,

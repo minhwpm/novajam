@@ -118,7 +118,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             {eyebrow && (
               <div
                 className={classNames(
-                  "tracking-widest font-medium text-center lg:text-start mb-2",
+                  "text-sm lg:text-base tracking-widest font-medium text-center lg:text-start mb-2",
                   { "text-primary-500": !darkMode },
                   { "text-primary-400": darkMode }
                 )}

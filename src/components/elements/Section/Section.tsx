@@ -47,7 +47,7 @@ export const Section: React.FC<SectionProps> = ({
     eyebrow && (
       <div
         className={classNames(
-          "tracking-widest font-medium mb-2",
+          "text-sm lg:text-base tracking-widest font-medium mb-2",
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" },
           { "text-primary-500": !darkMode },

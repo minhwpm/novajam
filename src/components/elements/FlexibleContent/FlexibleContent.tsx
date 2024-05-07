@@ -18,8 +18,8 @@ const TextPart: React.FC<{
       {eyebrow && (
         <div
           className={classNames(
-            "not-prose text-xs font-medium tracking-widest mb-1",
-            { "text-neutral-500": !darkMode },
+            "not-prose text-xs xl:text-sm font-medium tracking-widest mb-1",
+            { "text-neutral-400": !darkMode },
             { "text-neutral-100": darkMode }
           )}
         >

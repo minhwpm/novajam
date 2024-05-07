@@ -80,7 +80,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
           {eyebrow && (
             <p
               className={classNames(
-                "uppercase tracking-widest text-primary-600 font-medium mb-2",
+                "uppercase text-sm lg:text-base tracking-widest text-primary-600 font-medium mb-2",
                 { "text-center": headingTextAlignment === "center" },
                 { "text-end": headingTextAlignment === "end" }
               )}
