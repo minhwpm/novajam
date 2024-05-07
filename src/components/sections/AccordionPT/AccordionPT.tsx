@@ -31,8 +31,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       <div
         ref={ref}
         className={classNames(
-          "w-full flex flex-col gap-10",
-          "relative -bottom-10 opacity-0",
+          "w-full flex flex-col gap-10 relative -bottom-10 opacity-0",
           {
             "animate-slidingUpContent animation-delay-300": isIntersecting,
           }
@@ -41,7 +40,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
         <RadixAccordion.Root
           type="multiple"
           className={classNames(
-            "w-full lg:w-[800px] mx-auto flex flex-col items-start justify-center gap-6"
+            "w-full lg:w-[800px] mx-auto flex flex-col items-start justify-center"
           )}
         >
           {content &&
@@ -51,12 +50,12 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 key={section.id}
                 value={section.id}
                 className={classNames(
-                  "group w-full rounded-theme data-[state=closed]:border data-[state=closed]:hover:bg-primary-500 data-[state=closed]:hover:text-neutral-100 hover:border-primary-500",
+                  "group w-full border-b border-neutral-200 data-[state=closed]:hover:text-neutral-100",
                   { "text-neutral-50": darkMode }
                 )}
               >
                 <RadixAccordion.Trigger asChild>
-                  <div className="py-4 px-6 cursor-pointer flex gap-3 rounded-t-theme data-[state=closed]:text-primary-600 data-[state=closed]:hover:text-white data-[state=open]:bg-primary-600 data-[state=open]:border-primary-600 data-[state=open]:text-white">
+                  <div className="py-6 xl:py-8 cursor-pointer flex gap-3 data-[state=closed]:hover:text-primary-500 data-[state=open]:text-primary-600">
                     <div className="flex-1 flex flex-col">
                       {section.eyebrow && (
                         <div
@@ -71,7 +70,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       )}
                       {section.heading && (
                         <div
-                          className={classNames("text-lg lg:text-xl", {
+                          className={classNames("text-xl xl:text-2xl", {
                             "text-neutral-50": darkMode,
                           })}
                         >
@@ -90,14 +89,12 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 </RadixAccordion.Trigger>
                 <RadixAccordion.Content
                   className={classNames(
-                    "overflow-hidden px-6 rounded-b-theme",
-                    "data-[state=closed]:animate-accordionSlideUp",
-                    "data-[state=open]:animate-accordionSlideDown data-[state=open]:border data-[state=open]:border-primary-600",
+                    "overflow-hidden data-[state=closed]:animate-accordionSlideUp data-[state=open]:animate-accordionSlideDown",
                     { "text-center": contentTextAlignment === "center" },
                     { "text-end": contentTextAlignment === "end" }
                   )}
                 >
-                  <div className="pt-4 pb-8">
+                  <div className="pb-8 xl:pb-10">
                     {(section.media.length > 0 || section.embeddedMediaUrl) && (
                       <div className="max-w-xl mx-auto mt-10">
                         <FlexibleContentMediaPart
