@@ -13,9 +13,9 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
     <>
       <NavigationMenu.Trigger
         className={classNames(
-          "py-2 px-3 select-none font-semibold text-start w-full group rounded-theme hover:bg-primary-100 transition duration-500",
+          "py-2 px-2 -mx-2 select-none font-semibold text-start w-full group rounded-theme data-[state=open]:text-primary-600",
           {
-            "bg-primary-100":
+            "text-primary-600":
               data.featuredContent.find(
                 (content) => "url" in content && content.url === pathname
               ) ||
@@ -69,9 +69,9 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
                     <>
                       <NavigationMenu.Trigger
                         className={classNames(
-                          "w-full select-none text-left py-2 px-3 rounded-theme hover:bg-primary-100 transition-color duration-300 data-[state=open]:bg-primary-100 group",
+                          "-mx-2 w-full select-none text-left py-2 px-2 rounded-theme data-[state=open]:text-primary-600 group",
                           {
-                            "bg-primary-100": subItem.links.find(
+                            "text-primary-600": subItem.links.find(
                               (link) => link.url === pathname
                             ),
                           }
