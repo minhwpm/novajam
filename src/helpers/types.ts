@@ -157,7 +157,7 @@ export type ExpertType = {
 
 export type MediaAspectRatioType = "auto" | "square" | "16/9" | "4/3" | "3/4" | "3/2"
 
-export type FeaturedContentVariantType = "Horizontal (Image | Text)" | "Horizontal (Text | Image)" | "Vertical (Image | Text)" | "Vertical (Text | Image)"
+export type FeaturedContentVariantType = "Horizontal (Media | Text)" | "Horizontal (Text | Media)" | "Vertical (Media | Text)" | "Vertical (Text | Media)"
 
 export type FeaturedContentType = {
   id: string

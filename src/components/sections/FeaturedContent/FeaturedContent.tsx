@@ -58,7 +58,7 @@ const TextPart: React.FC<{
           data={buttons}
           size="lg"
           alignment={
-            ["Vertical (Text | Image)", "Vertical (Image | Text)"].includes(
+            ["Vertical (Text | Media)", "Vertical (Media | Text)"].includes(
               appearanceVariant
             )
               ? "center"
@@ -86,8 +86,8 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
         "relative w-full -bottom-10 opacity-0",
         { "animate-slidingUpContent animation-delay-150": isIntersecting,
           "lg:w-6/12": [
-            "Horizontal (Text | Image)",
-            "Horizontal (Image | Text)",
+            "Horizontal (Text | Media)",
+            "Horizontal (Media | Text)",
           ].includes(appearanceVariant),
         }
       )}
@@ -106,25 +106,25 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
         "relative -bottom-10 opacity-0 self-center w-full flex flex-col",
         {
           "animate-slidingUpContent animation-delay-500": isIntersecting,
-          "items-center pt-4 md:pt-6 lg:pt-8 xl:pt-10":
-            appearanceVariant === "Vertical (Image | Text)",
-          "items-center pb-4 md:pb-6 lg:pb-8 xl:pb-10":
-            appearanceVariant === "Vertical (Text | Image)",
+          "items-center pt-4 md:pt-6 lg:pt-8 xl:pt-10 text-center":
+            appearanceVariant === "Vertical (Media | Text)",
+          "items-center pb-4 md:pb-6 lg:pb-8 xl:pb-10 text-center":
+            appearanceVariant === "Vertical (Text | Media)",
           "px-4 pb-12 md:pb-14 lg:pb-16 xl:pb-18 2xl:pb-20":
-            appearanceVariant === "Vertical (Image | Text)" &&
+            appearanceVariant === "Vertical (Media | Text)" &&
             size === "extended",
           "px-4 pt-12 md:pt-14 lg:pt-16 xl:pt-18 2xl:pt-20":
-            appearanceVariant === "Vertical (Text | Image)" &&
+            appearanceVariant === "Vertical (Text | Media)" &&
             size === "extended",
           "lg:w-1/2 pb-4 lg:pr-16 xl:pr-24":
-            appearanceVariant === "Horizontal (Text | Image)",
+            appearanceVariant === "Horizontal (Text | Media)",
           "custom-padding-left pr-4 py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24":
-            appearanceVariant === "Horizontal (Text | Image)" &&
+            appearanceVariant === "Horizontal (Text | Media)" &&
             size === "extended",
           "lg:w-1/2 pt-4 lg:pl-16 xl:pl-24":
-            appearanceVariant === "Horizontal (Image | Text)",
+            appearanceVariant === "Horizontal (Media | Text)",
           "custom-padding-right pl-4 py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24":
-            appearanceVariant === "Horizontal (Image | Text)" &&
+            appearanceVariant === "Horizontal (Media | Text)" &&
             size === "extended",
         }
       )}
@@ -159,9 +159,9 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
         className={classNames("w-full flex flex-wrap gap-4 lg:gap-0", {
           "container mx-auto px-4": size === "standard",
           "flex-col items-center":
-            appearanceVariant === "Vertical (Image | Text)",
-          "flex-col-reverse": appearanceVariant === "Vertical (Text | Image)",
-          "flex-row-reverse flex-wrap-reverse": appearanceVariant === "Horizontal (Text | Image)",
+            appearanceVariant === "Vertical (Media | Text)",
+          "flex-col-reverse": appearanceVariant === "Vertical (Text | Media)",
+          "flex-row-reverse flex-wrap-reverse": appearanceVariant === "Horizontal (Text | Media)",
         })}
       >
         {renderMediaPart()}

@@ -27,8 +27,9 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
                 {format(Date.parse(firstPublishedAt), 'MMMM dd, yyyy')}
               </div>
               
-              {topics && topics?.length > 0  && 
-                <div className="flex flex-col gap-2">
+              {topics && topics?.length > 0  &&
+                <div className="flex items-center gap-4">
+                  <div className="text-sm tracking-wide text-neutral-500">TOPICS:</div>
                   <div className="flex flex-wrap gap-4">
                     {topics.map((topic, idx) => (
                       <Link

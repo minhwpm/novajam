@@ -8,7 +8,7 @@ export const NavFeaturedContent: React.FC<{
 }> = ({ data }) => {
   switch(data.contentType) {
     case "blog":
-      return <BlogPreview data={data} />
+      return <BlogPreview data={data} alignment="center" />
     case "page":
       return <PagePreview data={data} alignment="center"/>;
     default:

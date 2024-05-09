@@ -43,7 +43,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
     darkMode,
   } = data;
   const [ref, isIntersecting] = useInView({
-    threshold: 0.4,
+    threshold: 0.2,
     unobserveOnEnter: true,
   });
 
@@ -118,9 +118,10 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             {eyebrow && (
               <div
                 className={classNames(
-                  "text-sm lg:text-base tracking-widest font-medium text-center lg:text-start mb-2",
+                  "text-sm lg:text-base tracking-widest font-medium text-center mb-2",
                   { "text-primary-500": !darkMode },
-                  { "text-primary-400": darkMode }
+                  { "text-primary-400": darkMode },
+                  { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
               >
                 {eyebrow}
@@ -152,7 +153,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             {description && (
               <div
                 className={classNames(
-                  "prose xl:prose-lg mt-8 text-center",
+                  "prose xl:prose-lg mt-8",
                   { "text-neutral-600": !darkMode },
                   {
                     "text-neutral-200": darkMode,

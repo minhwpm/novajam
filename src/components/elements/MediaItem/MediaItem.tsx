@@ -48,7 +48,7 @@ export const MediaItem: React.FC<{
           className={classNames("object-cover w-full h-full",
             {"hover:scale-110 transition-all duration-500": zoomInOverHover}
           )}
-          src="/bluebiz_square.webp"
+          src="/fallback-image.webp"
           width={500}
           height={500}
           alt={altText ?? "No image"}
@@ -93,7 +93,7 @@ export const MediaItem: React.FC<{
               "hover:scale-110 transition-all duration-500": zoomInOverHover,
             }
           )}
-          src={url ?? "/bluebiz_square.webp"}
+          src={url ?? "/fallback-image.webp"}
           alt={altText ?? title}
           width={width}
           height={height}

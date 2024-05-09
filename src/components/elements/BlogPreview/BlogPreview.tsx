@@ -27,15 +27,13 @@ export const BlogPreview: React.FC<{
   const renderTopic = () => (
     <div
       className={classNames(
-        "text-xs uppercase tracking-widest flex flex-wrap gap-x-5 gap-y-1",
-        { "text-primary-600": !darkMode},
-        { "text-primary-300": darkMode},
+        "text-xs uppercase tracking-widest flex flex-wrap gap-x-2 gap-y-1",
         { "justify-center": alignment === "center" },
         { "justify-end": alignment === "end" }
       )}
     >
       {topics.map((topic, idx) => (
-        <span key={idx}>{topic}</span>
+        <div key={idx} className="rounded-theme px-2.5 py-1 text-xs bg-primary-50 border border-primary-50 text-neutral-600 tracking-wider">{topic}</div>
       ))}
     </div>
   )
@@ -70,13 +68,14 @@ export const BlogPreview: React.FC<{
               </h3>
               <div
                 className={classNames(
-                  "text-sm mt-2",
+                  "text-sm my-2",
                   { "text-neutral-500": !darkMode },
                   { "text-neutral-300": darkMode }
                 )}
               >
-                {format(Date.parse(firstPublishedAt), "MMMM dd, yyyy")}
+                {firstPublishedAt && format(Date.parse(firstPublishedAt), "MMMM dd, yyyy")}
               </div>
+
             </div>
           </div>
         </Link>
@@ -121,12 +120,12 @@ export const BlogPreview: React.FC<{
           )}
           <div
             className={classNames(
-              "text-smd mt-2",
+              "text-smd my-2",
               { "text-neutral-500": !darkMode },
               { "text-neutral-300": darkMode }
             )}
           >
-            {format(Date.parse(firstPublishedAt), "MMMM dd, yyyy")}
+            {firstPublishedAt && format(Date.parse(firstPublishedAt), "MMMM dd, yyyy")}
           </div>
         </div>
       </Link>
