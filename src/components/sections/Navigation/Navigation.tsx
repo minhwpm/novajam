@@ -92,7 +92,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
         { "sticky w-full z-50 top-0 animate-headerSlideIn": sticky },
         { "bg-white": !darkMode },
         { "border-b": sticky && !darkMode },
-        { "text-neutral-50 bg-neutral-900": darkMode }
+        { "text-neutral-50 bg-neutral-950": darkMode }
       )}
     >
       <div
