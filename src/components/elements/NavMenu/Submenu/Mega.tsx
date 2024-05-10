@@ -8,7 +8,7 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
     <div className="container px-4 mx-auto">
       <div className="py-10 flex flex-wrap gap-8">
         {data.menu.length > 0 && (
-          <div className={classNames("shrink flex flex-wrap gap-6")}>
+          <div className={classNames("basis-80 shrink-0 grow flex flex-wrap gap-6")}>
             {data.menu.map((subItem) => (
               <div key={subItem.id} className="basis-52">
                 {subItem.contentType === "link" && (
@@ -19,7 +19,7 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
                     {subItem.title}
                   </p>
                 )}
-                <ul className="flex flex-col">
+                <ul>
                   {subItem.contentType === "linkgroup" &&
                     subItem.links.length > 0 &&
                     subItem.links.map((link) => (
