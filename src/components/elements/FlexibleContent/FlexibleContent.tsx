@@ -10,8 +10,8 @@ import { useInView } from "react-hook-inview";
 const TextPart: React.FC<{
   data: ContentPieceType;
   alignment?: TextAlignmentType;
-}> = ({ data, alignment }) => {
-  const darkMode = useContext(DarkModeContext);
+  darkMode?: boolean
+}> = ({ data, alignment, darkMode }) => {
   const { heading, eyebrow, description, buttons } = data;
   return (
     <>
@@ -70,6 +70,7 @@ export const FlexibleContent: React.FC<{
     threshold: 0.4,
     unobserveOnEnter: true,
   });
+  const darkMode = useContext(DarkModeContext);
   if (layout === "horizontal") {
     return (
       <div
@@ -100,7 +101,7 @@ export const FlexibleContent: React.FC<{
               { "text-end": alignment === "end" }
             )}
           >
-            <TextPart data={data} alignment={alignment} />
+            <TextPart data={data} alignment={alignment} darkMode={darkMode} />
           </div>
         )}
       </div>
@@ -129,11 +130,12 @@ export const FlexibleContent: React.FC<{
         <div
           className={classNames(
             "py-4 flex-1 flex flex-col",
+            {"text-neutral-100": darkMode},
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }
           )}
         >
-          <TextPart data={data} alignment={alignment} />
+          <TextPart data={data} alignment={alignment} darkMode={darkMode} />
         </div>
       )}
     </div>

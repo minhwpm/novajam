@@ -93,7 +93,7 @@ export const Button: React.FC<{
         buttonVariant === "primary",
       "border-secondary-400 bg-secondary-400 hover:bg-secondary-300 hover:border-secondary-300 text-neutral-800":
         buttonVariant === "secondary",
-      "border-neutral-800 bg-neutral-900 text-white hover:bg-neutral-950 hover:border-neutral-900":
+      "border-neutral-900 bg-neutral-900 text-white hover:bg-neutral-950 hover:border-neutral-950":
         buttonVariant === "black",
       "border-neutral-50 bg-neutral-50 hover:bg-white hover:border-white text-neutral-800":
         buttonVariant === "white",
