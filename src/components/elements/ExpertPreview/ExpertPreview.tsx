@@ -187,7 +187,7 @@ export const ExpertPreview: React.FC<{
               { "justify-end": alignment === "end" }
             )}
           >
-            <SNS data={sns} />
+            <SNS data={sns} darkMode={darkMode} />
           </div>
         )}
       </div>
