@@ -67,8 +67,8 @@ export const Footer: React.FC<Props> = ({ data }) => {
               <div
                 className={classNames(
                   "font-semibold mb-1",
-                  { "text-neutral-600": !darkMode },
-                  { "text-neutral-200": darkMode }
+                  { "text-neutral-500": !darkMode },
+                  { "text-neutral-100/60": darkMode }
                 )}
               >
                 {section.title}
@@ -78,9 +78,8 @@ export const Footer: React.FC<Props> = ({ data }) => {
                   key={link.text}
                   href={link.url}
                   className={classNames(
-                    "self-start select-none underline-hover-effect",
-                    { "before:bg-primary-500": !darkMode },
-                    { "before:bg-primary-100": darkMode }
+                    "self-start select-none underline-hover-effect before:bg-primary-500",
+                    { "text-neutral-50": darkMode }
                   )}
                   target={link.openNewTab ? "_blank" : "_self"}
                 >

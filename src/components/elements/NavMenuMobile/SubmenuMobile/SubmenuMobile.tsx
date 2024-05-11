@@ -117,7 +117,7 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
               {data.featuredContent.map((content) => (
                 <div
                   key={content.id}
-                  className="w-4/5 md:basis-72 shrink-0 grow max-w-xs"
+                  className="w-11/12 md:basis-72 shrink-0 grow max-w-xs"
                 >
                   <NavFeaturedContent
                     data={content}

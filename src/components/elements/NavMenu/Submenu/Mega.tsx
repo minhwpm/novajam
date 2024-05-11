@@ -8,7 +8,11 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
     <div className="container px-4 mx-auto">
       <div className="py-10 flex flex-wrap gap-8">
         {data.menu.length > 0 && (
-          <div className={classNames("basis-80 shrink-0 grow flex flex-wrap gap-6")}>
+          <div
+            className={classNames(
+              "basis-52 shrink-0 grow flex flex-wrap gap-6"
+            )}
+          >
             {data.menu.map((subItem) => (
               <div key={subItem.id} className="basis-52">
                 {subItem.contentType === "link" && (
@@ -35,7 +39,8 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
         {data.featuredContent.length > 0 && (
           <div
             className={classNames(
-              "basis-80 shrink-0 grow flex gap-4 overflow-x-scroll overscroll-x-contain",
+              " basis-80 flex gap-4 lg:gap-6 overflow-x-scroll overscroll-x-contain",
+              { grow: data.featuredContent.length > 1 },
               {
                 "justify-end": data.featuredContent.length === 1,
               }
@@ -44,7 +49,7 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
             {data.featuredContent.map((data) => (
               <div
                 key={data.id}
-                className="w-4/5 basis-64 shrink-0 grow max-w-xs"
+                className="w-11/12 basis-80 shrink-0 grow max-w-xs"
               >
                 <NavFeaturedContent data={data} />
               </div>
