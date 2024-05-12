@@ -39,7 +39,7 @@ export const PagePreview: React.FC<{
         <div className="basis-2/3 flex-1 py-4 pr-4 lg:py-6 lg:pr-6">
           <h4
             className={classNames(
-              "text-lg lg:text-xl font-heading file:font-semibold",
+              "text-lg 2xl:text-xl font-heading file:font-semibold",
               { "text-neutral-50": darkMode },
               { "text-center": alignment === "center" },
               { "text-end": alignment === "end" }
@@ -67,7 +67,7 @@ export const PagePreview: React.FC<{
         <MediaItem data={metaImage} altText={metaImage?.title} aspectRatio="4/3" zoomInOverHover />
         <h4
           className={classNames(
-            "mt-4 text-xl font-heading font-semibold group-hover:text-primary-600 transition-colors duration-300 ease-in-out",
+            "mt-4 text-lg 2xl:text-xl font-heading font-semibold group-hover:text-primary-600 transition-colors duration-300 ease-in-out",
             { "text-neutral-50": darkMode },
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }

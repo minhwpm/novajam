@@ -125,37 +125,10 @@ module.exports = {
             opacity: 1
           }
         },
-        slidingText: {
-          '0%': {
-            opacity: 0,
-          },
-          '5%': {
-            opacity: 0,
-            transform: 'translateY(-20px)'
-          },
-          '10%': {
-            opacity: 1,
-            transform: 'translateY(0px)'
-          },
-          '25%': {
-            opacity: 1,
-            transform: 'translateY(0px)'
-          },
-          '30%': {
-            opacity: 0,
-            transform: 'translateY(10px)'
-          },
-          '80%': {
-            opacity: 0,
-          },
-          '100%': {
-            opacity: 0,
-          },
-        },
         slidingUpContent: {
           '0%': {
             opacity: 0,
-            bottom: '-40px'
+            bottom: '-50px'
           },
           '100%': {
             opacity: 1,
@@ -229,14 +202,13 @@ module.exports = {
       },
 
       animation: {
-        fadeIn: 'fadeIn 0.5s ease-in forwards 1',
-        fadeInSlideLeft: 'fadeInSlideLeft 0.5s ease-in-out forwards 1',
-        slidingSubmenu: 'slidingSubmenu 0.3s ease-out forwards 1',
-        slidingLinkgroup: 'slidingLinkgroup 0.3s ease-out forwards 1',
+        fadeIn: 'fadeIn 0.5s ease-in forwards',
+        fadeInSlideLeft: 'fadeInSlideLeft 0.5s ease-in-out forwards',
+        slidingSubmenu: 'slidingSubmenu 0.3s ease-out forwards',
+        slidingLinkgroup: 'slidingLinkgroup 0.3s ease-out forwards',
         slidingHeroContent: 'slidingHeroContent 1s ease forwards',
-        slidingUpContent: 'slidingUpContent 0.5s ease-in-out forwards',
-        slidingText: 'slidingText 10s linear infinite normal none running',
-        headerSlideIn: 'headerSlideIn 0.5s ease-out forwards 1',
+        slidingUpContent: 'slidingUpContent 0.5s ease-out forwards',
+        headerSlideIn: 'headerSlideIn 0.5s ease-out forwards',
         accordionSlideUp: 'accordionSlideUp 0.3s ease-in-out',
         accordionSlideDown: 'accordionSlideDown 0.3s ease-in-out',
       }
