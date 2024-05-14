@@ -1,15 +1,19 @@
-import normalizeDataCollection from "./normalizeDataCollection"
+import normalizeDataCollection from "./normalizeDataCollection";
 
 export default async function getAsset(id: string) {
-  const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      // Authenticate the request
-      Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
-    },
-    // send the GraphQL query
-    body: JSON.stringify({ query: `
+  try {
+    const res = await fetch(
+      `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Authenticate the request
+          Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
+        },
+        // send the GraphQL query
+        body: JSON.stringify({
+          query: `
       query($id: String) {
         assetCollection(
           where: {
@@ -27,18 +31,31 @@ export default async function getAsset(id: string) {
           }
         }
       }
-    `, 
-      variables: {
-        id
-      },
-    }),
-  })
-  const data = await res.json()
-  if (res.status !== 200) {
-    console.error(data)
-    throw new Error("Failed to fetch Blog data. Error", data.error)
+    `,
+          variables: {
+            id,
+          },
+        }),
+      }
+    );
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(
+        `Failed to fetch Asset data: ${
+          errorData.errors?.[0]?.message || res.statusText
+        }`
+      );
+    }
+
+    const data = await res.json();
+    const normalizedData = normalizeDataCollection(data.data);
+
+    // console.log(`ASSET DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+    return normalizedData[0];
+  } catch (error) {
+    console.error(error);
+    throw new Error(
+      `An error occurred while fetching asset data: ${error}`
+    );
   }
-  const normalizedData = normalizeDataCollection({...data.data})
-  // console.log(`ASSET DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
-  return normalizedData[0]
 }

@@ -2,15 +2,19 @@ import getSubmenu from "./getSubmenu"
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getNavigation(url: string) {
-  const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      // Authenticate the request
-      Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
-    },
-    // send the GraphQL query
-    body: JSON.stringify({ query: `
+  try {
+    const res = await fetch(
+      `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Authenticate the request
+          Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
+        },
+        // send the GraphQL query
+        body: JSON.stringify({
+          query: `
       query($url: String) {
         navigationCollection(
           where: { 
@@ -87,28 +91,44 @@ export default async function getNavigation(url: string) {
         }
       }
     `,
-      variables: {
-        url,
-      },
-   }),
-  })
-
-  const data = await res.json()
-  if (res.status !== 200) {
-    console.error(data)    
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch Navigation data')
-  }
-  const normalizedData = normalizeDataCollection({...data.data})
-
-  for (let i = 0; i < normalizedData[0]?.menu.length; i++) {
-    if (normalizedData[0].menu[i]?.contentType === "submenu") {
-      normalizedData[0].menu[i] = {
-        ... normalizedData[0].menu[i],
-        ... await getSubmenu(normalizedData[0].menu[i].id)
+          variables: {
+            url,
+          },
+        }),
       }
+    );
+
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(
+        `Failed to fetch Navigation data: ${
+          errorData.errors?.[0]?.message || res.statusText
+        }`
+      );
     }
+
+    const data = await res.json();
+    const normalizedData = normalizeDataCollection(data.data);
+
+    await Promise.all(
+      normalizedData[0]?.menu.map(
+        async (
+          menuItem: { __typename: string; sys: { id: string } },
+          index: string | number
+        ) => {
+          if (menuItem.__typename === "Submenu") {
+            const submenuData = await getSubmenu(menuItem.sys.id);
+            normalizedData[0].menu[index] = { ...menuItem, ...submenuData };
+          }
+        }
+      )
+    );
+    // console.log(`NAVIGATION DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+    return normalizedData[0];
+  } catch (error) {
+    console.error(error);
+    throw new Error(
+      `An error occurred while fetching navigation data: ${error}`
+    );
   }
-  // console.log(`NAVIGATION DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
-  return normalizedData[0]
 }

@@ -2,15 +2,19 @@ import getFlexibleContent from "./getFlexibleContent"
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getContentPT(id: string) {
-  const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      // Authenticate the request
-      Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
-    },
-    // send the GraphQL query
-    body: JSON.stringify({ query: `
+  try {
+    const res = await fetch(
+      `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Authenticate the request
+          Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
+        },
+        // send the GraphQL query
+        body: JSON.stringify({
+          query: `
       query($id: String) {
         contentPresentationCollection(
           where: {
@@ -53,31 +57,42 @@ export default async function getContentPT(id: string) {
           }
         }
       }
-    `, 
-      variables: {
-        id
-      },
-    }),
-  })
+    `,
+          variables: {
+            id,
+          },
+        }),
+      }
+    );
 
-  const data = await res.json()
-  if (res.status !== 200) {
-    console.error(data)
-    throw new Error("Failed to fetch ContentPT data. Error: ", data.error)
-  }
-  const normalizedData = normalizeDataCollection({...data.data})
-  async function getSectionData(contentType: string, id: string) {
-    if (contentType === "flexiblecontent") {
-      return await getFlexibleContent(id)
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(
+        `Failed to fetch ContentPT data: ${
+          errorData.errors?.[0]?.message || res.statusText
+        }`
+      );
     }
-  }
-  for(let i = 0; i < normalizedData[0]?.content.length; i++) {
-    normalizedData[0].content[i] = {
-      ... normalizedData[0].content[i],
-      ... await getSectionData(normalizedData[0].content[i].contentType, normalizedData[0].content[i].id)
-    }
-  }
-  // console.log(`ContentPT DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
-  return normalizedData[0]
 
+    const data = await res.json();
+    const normalizedData = normalizeDataCollection(data.data);
+
+    await Promise.all(
+      normalizedData[0]?.content.map(
+        async (
+          contentItem: { contentType: string;  id: string },
+          index: string | number
+        ) => {
+          const sectionData = await getFlexibleContent(contentItem.id);
+          normalizedData[0].content[index] = { ...contentItem, ...sectionData };
+        }
+      )
+    )
+
+    // console.log(`ContentPT DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+    return normalizedData[0];
+  } catch (error) {
+    console.error(error);
+    throw new Error(`An error occurred while fetching contentPT data: ${error}`);
+  }
 }

@@ -16,10 +16,10 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
           "py-2 px-2 -mx-2 select-none font-semibold text-start w-full group rounded-theme data-[state=open]:text-primary-600",
           {
             "text-primary-600":
-              data.featuredContent.find(
+              data.featuredContent?.find(
                 (content) => content && "url" in content && content.url === pathname
               ) ||
-              data.menu.find(
+              data.menu?.find(
                 (subItem) =>
                   (subItem.contentType === "link" &&
                     subItem.url === pathname) ||
@@ -48,7 +48,7 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
           className="py-2 px-4"
         >
           <NavigationMenu.List>
-            {data.menu.length > 0 &&
+            {data.menu?.length > 0 &&
               data.menu.map((subItem) => (
                 <NavigationMenu.Item
                   key={subItem.id}

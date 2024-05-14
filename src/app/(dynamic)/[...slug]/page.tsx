@@ -17,22 +17,17 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const previousImages = (await parent).openGraph?.images || [];
-  try {
-    const data: PageType = await getPage(`/${params.slug!.join("/")}`);
-    return {
-      title: data?.metaTitle,
-      description: data?.metaDescription,
-      keywords: data?.metaKeywords,
-      openGraph: {
-        title: data?.metaTitle ?? "",
-        description: data?.metaDescription ?? "",
-        images: [data?.metaImage ?? "", ...previousImages],
-      },
-    };
-  } catch (e) {
-    console.error(e);
-    return {};
-  }
+  const data: PageType = await getPage(`/${params.slug!.join("/")}`);
+  return {
+    title: data?.metaTitle,
+    description: data?.metaDescription,
+    keywords: data?.metaKeywords,
+    openGraph: {
+      title: data?.metaTitle ?? "",
+      description: data?.metaDescription ?? "",
+      images: [data?.metaImage ?? "", ...previousImages],
+    },
+  };
 }
 
 export default async function Page({

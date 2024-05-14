@@ -100,7 +100,7 @@ export default async function getPage(url: string) {
     const normalizedData = normalizeDataCollection(data.data);
 
     const getSectionData = async (contentType: string, id: string) => {
-      switch (contentType.toLowerCase()) {
+      switch (contentType) {
         case "hero":
           return await getHero(id);
         case "contentpresentation":
@@ -116,23 +116,23 @@ export default async function getPage(url: string) {
       }
     };
 
-    await Promise.all(
+    normalizedData[0]?.content && await Promise.all(
       normalizedData[0]?.content.map(
         async (
           contentItem: { contentType: string;  id: string },
           index: string | number
         ) => {
-          const sectionData = await getSectionData(
-            contentItem.contentType,
-            contentItem.id
-          );
-          normalizedData[0].content[index] = { ...contentItem, ...sectionData };
-        }
+            const sectionData = await getSectionData(
+              contentItem?.contentType,
+              contentItem?.id
+            );
+            normalizedData[0].content[index] = { ...(contentItem ? contentItem : {}), ...(sectionData ? sectionData : {}) };
+          }
       )
     );
     
     // console.log(`PAGE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
-    return normalizedData ? normalizedData[0] : null;
+    return normalizedData[0]
   } catch (error) {
     console.error(error);
     throw new Error(

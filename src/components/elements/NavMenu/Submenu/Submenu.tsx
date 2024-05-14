@@ -16,11 +16,11 @@ export const Submenu: React.FC<{ data: SubmenuType, appearanceVariant?: Navigati
           "py-2 select-none underline-hover-effect cursor-pointer before:bg-primary-500 group-data-[state=open]:before:w-full",
           {
             "before:w-full":
-              data.featuredContent.find(
+              data.featuredContent?.find(
                 (content) =>
                   content && "url" in content && content.url === pathname
               ) ||
-              data.menu.find(
+              data.menu?.find(
                 (subItem) =>
                   (subItem.contentType === "link" &&
                     subItem.url === pathname) ||

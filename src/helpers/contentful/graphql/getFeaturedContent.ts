@@ -2,15 +2,19 @@ import getFlexibleContent from "./getFlexibleContent"
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getFeature(id: string) {
-  const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      // Authenticate the request
-      Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
-    },
-    // send the GraphQL query
-    body: JSON.stringify({ query: `
+  try {
+    const res = await fetch(
+      `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Authenticate the request
+          Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
+        },
+        // send the GraphQL query
+        body: JSON.stringify({
+          query: `
       query($id: String) {
         featuredContentCollection(
           where: {
@@ -42,23 +46,35 @@ export default async function getFeature(id: string) {
           }
         }
       }
-    `, 
-      variables: {
-        id
-      },
-    }),
-  })
+    `,
+          variables: {
+            id,
+          },
+        }),
+      }
+    );
 
-  const data = await res.json()
-  if (res.status !== 200) {
-    throw new Error("Failed to fetch Featured Content data. Error: ", data)
-  }
-  const normalizedData = normalizeDataCollection({...data.data})
-  if (normalizedData[0].content) {
-    normalizedData[0].content = {
-      ... await getFlexibleContent(normalizedData[0].content.sys.id)
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(
+        `Failed to fetch FeaturedContent data: ${
+          errorData.errors?.[0]?.message || res.statusText
+        }`
+      );
     }
+
+    const data = await res.json();
+    const normalizedData = normalizeDataCollection(data.data);
+
+    if (normalizedData[0].content) {
+      normalizedData[0].content = {
+        ...(await getFlexibleContent(normalizedData[0].content.sys.id)),
+      };
+    }
+    // console.log(`FEATURED CONTENT DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+    return normalizedData[0];
+  } catch (error) {
+    console.error(error);
+    throw new Error(`An error occurred while fetching featuredContent data: ${error}`);
   }
-  // console.log(`FEATURED CONTENT DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
-  return normalizedData[0]
 }

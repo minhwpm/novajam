@@ -2,6 +2,7 @@ import getFlexibleContent from "./getFlexibleContent"
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getHero(id: string) {
+  try {
   const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
     method: "POST",
     headers: {
@@ -70,23 +71,34 @@ export default async function getHero(id: string) {
       },
     }),
   })
-  const data = await res.json()
-  if (res.status !== 200) {
-    throw new Error("Failed to fetch Hero data. Error: ", data.error)
+  if (!res.ok) {
+    const errorData = await res.json();
+    throw new Error(
+      `Failed to fetch Hero data: ${
+        errorData.errors?.[0]?.message || res.statusText
+      }`
+    );
   }
-  const normalizedData = normalizeDataCollection({...data.data})
-  async function getSectionData(contentType: string, id: string) {
-    if (contentType === "flexiblecontent") {
-      return await getFlexibleContent(id)
-    }
-  }
-  for(let i = 0; i < normalizedData[0]?.content.length; i++) {
-    normalizedData[0].content[i] = {
-      ... normalizedData[0].content[i],
-      ... await getSectionData(normalizedData[0].content[i]?.contentType, normalizedData[0].content[i]?.id)
-    }
-  }
+
+  const data = await res.json();
+  const normalizedData = normalizeDataCollection(data.data);
+
+  await Promise.all(
+    normalizedData[0]?.content.map(
+      async (
+        contentItem: { contentType: string;  id: string },
+        index: string | number
+      ) => {
+        const sectionData = await getFlexibleContent(contentItem.id);
+        normalizedData[0].content[index] = { ...contentItem, ...sectionData };
+      }
+    )
+  )
+
   // console.log(`HERO DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
-
+} catch (error) {
+  console.error(error);
+  throw new Error(`An error occurred while fetching hero data: ${error}`);
+}
 }

@@ -1,15 +1,19 @@
 import normalizeDataCollection from "./normalizeDataCollection"
 
 export default async function getFooter(url: string) {
-  const res = await fetch(`${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      // Authenticate the request
-      Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
-    },
-    // send the GraphQL query
-    body: JSON.stringify({ query: `
+  try {
+    const res = await fetch(
+      `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Authenticate the request
+          Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
+        },
+        // send the GraphQL query
+        body: JSON.stringify({
+          query: `
       query($url: String) {
         footerCollection(
           where: { 
@@ -59,19 +63,29 @@ export default async function getFooter(url: string) {
         }
       }
     `,
-      variables: {
-        url,
-      },
-    }),
-  })
+          variables: {
+            url,
+          },
+        }),
+      }
+    );
 
-  if (res.status !== 200) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch Header data')
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(
+        `Failed to fetch Footer data: ${
+          errorData.errors?.[0]?.message || res.statusText
+        }`
+      );
+    }
+
+    const data = await res.json();
+    const normalizedData = normalizeDataCollection(data.data);
+
+    // console.log(`FOOTER DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+    return normalizedData[0];
+  } catch (error) {
+    console.error(error);
+    throw new Error(`An error occurred while fetching footer data: ${error}`);
   }
-  
-  const data = await res.json()
-  const normalizedData = normalizeDataCollection({...data.data})
-  // console.log(`FOOTER DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
-  return normalizedData[0]
 }

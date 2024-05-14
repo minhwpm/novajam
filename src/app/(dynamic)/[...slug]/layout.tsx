@@ -16,30 +16,27 @@ export default async function Layout({
   params: { slug: Array<string> }
 }) {
   let navigation, footer, page, fontTheme, colorTheme, borderRadiusTheme, headingFontSizeTheme;
-  try {
-    while (
-      params.slug!.length >= 0 &&
-      (!navigation || !footer || !fontTheme || !colorTheme || !borderRadiusTheme)
-    ) {
-      if (!navigation) navigation = await getNavigation(`/${params.slug!.join("/")}`);
-      if (!footer) footer = await getFooter(`/${params.slug!.join("/")}`);
-      if (!fontTheme || !colorTheme || !borderRadiusTheme) {
-        page = await getPage(`/${params.slug!.join("/")}`);
-        if (page) {
-          fontTheme = generateFontClassnames(page.fontMain, page.fontHeading);
-          colorTheme = generateColorClassnames(
-            page.colorPrimary,
-            page.colorSecondary
-          );
-          borderRadiusTheme = `${page.borderRadius}-border-radius-theme`;
-          headingFontSizeTheme= `${page.headingFontSize}-heading-font-size`;
-        }
+  while (
+    params.slug!.length >= 0 &&
+    (!navigation || !footer || !fontTheme || !colorTheme || !borderRadiusTheme)
+  ) {
+    if (!navigation) navigation = await getNavigation(`/${params.slug!.join("/")}`);
+    if (!footer) footer = await getFooter(`/${params.slug!.join("/")}`);
+    if (!fontTheme || !colorTheme || !borderRadiusTheme) {
+      page = await getPage(`/${params.slug!.join("/")}`);
+      if (page) {
+        fontTheme = generateFontClassnames(page.fontMain, page.fontHeading);
+        colorTheme = generateColorClassnames(
+          page.colorPrimary,
+          page.colorSecondary
+        );
+        borderRadiusTheme = `${page.borderRadius}-border-radius-theme`;
+        headingFontSizeTheme= `${page.headingFontSize}-heading-font-size`;
       }
-      params.slug!.pop();
     }
-  } catch(e) {
-    console.error(e);
+    params.slug!.pop();
   }
+  
 
   return (
     <div

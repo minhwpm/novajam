@@ -11,21 +11,16 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const previousImages = (await parent).openGraph?.images || [];
-  try {
-    const data: BlogType = await getBlogDetails(params.slug)
-    return {
+  const data: BlogType = await getBlogDetails(params.slug)
+  return {
+    title: data?.metaTitle ?? data?.title,
+    description: data?.metaDescription ?? data.summary,
+    keywords: data?.metaKeywords,
+    openGraph: {
       title: data?.metaTitle ?? data?.title,
-      description: data?.metaDescription ?? data.summary,
-      keywords: data?.metaKeywords,
-      openGraph: {
-        title: data?.metaTitle ?? data?.title,
-        description: data?.metaDescription ?? data?.summary,
-        images: [data?.metaImage ?? "", ...previousImages ]
-      }
+      description: data?.metaDescription ?? data?.summary,
+      images: [data?.metaImage ?? "", ...previousImages ]
     }
-  } catch (e) {
-    console.error(e)
-    return {}
   }
 }
 
