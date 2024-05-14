@@ -110,7 +110,7 @@ export default async function getNavigation(url: string) {
     const data = await res.json();
     const normalizedData = normalizeDataCollection(data.data);
 
-    await Promise.all(
+    normalizedData[0]?.menu && await Promise.all(
       normalizedData[0]?.menu.map(
         async (
           menuItem: { __typename: string; sys: { id: string } },

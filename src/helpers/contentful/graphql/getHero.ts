@@ -83,7 +83,7 @@ export default async function getHero(id: string) {
   const data = await res.json();
   const normalizedData = normalizeDataCollection(data.data);
 
-  await Promise.all(
+  normalizedData[0]?.content && await Promise.all(
     normalizedData[0]?.content.map(
       async (
         contentItem: { contentType: string;  id: string },
