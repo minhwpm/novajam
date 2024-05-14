@@ -112,7 +112,9 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
               <RichText data={summary} />
             </div>
           )}
-          <div className="mt-8 hidden lg:flex gap-4">
+          <div className={classNames("mt-8 hidden lg:flex gap-4",
+            { "lg:justify-center": headingTextAlignment === "center" },
+          )}>
             <ArrowGroup
               visibleIdx={visibleIdx}
               setVisibleIdx={setVisibleIdx}

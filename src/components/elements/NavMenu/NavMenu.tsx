@@ -26,7 +26,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, appearanceVariant }) => {
           "flex justify-center items-start px-5 list-none m-0 gap-x-10"
         )}
       >
-        {menu.map((item) => (
+        {menu.map((item) => item && (
           <NavigationMenu.Item
             key={item.id}
             className={classNames(

@@ -92,7 +92,7 @@ export default async function getSubmenu(id: string) {
   const normalizedData = normalizeDataCollection({...data.data})
 
   for (let i = 0; i < normalizedData[0].menu.length; i++) {
-    if (normalizedData[0].menu[i].contentType === "linkgroup") {
+    if (normalizedData[0].menu[i]?.contentType === "linkgroup") {
       normalizedData[0].menu[i] = {
         ... normalizedData[0].menu[i],
         ... await getLinkGroup(normalizedData[0].menu[i].id)

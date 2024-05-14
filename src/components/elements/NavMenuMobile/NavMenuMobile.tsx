@@ -32,7 +32,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
           />
         )}
         <NavigationMenu.List >
-          {menu.map((item) => (
+          {menu.map((item) => item && (
             <NavigationMenu.Item key={item.id} className={classNames("py-2 border-b last:border-none border-neutral-200")}>
               {item.contentType === "link" && (
                 <NavLinkItem

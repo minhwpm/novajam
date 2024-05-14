@@ -102,7 +102,7 @@ export default async function getNavigation(url: string) {
   const normalizedData = normalizeDataCollection({...data.data})
 
   for (let i = 0; i < normalizedData[0]?.menu.length; i++) {
-    if (normalizedData[0].menu[i].contentType === "submenu") {
+    if (normalizedData[0].menu[i]?.contentType === "submenu") {
       normalizedData[0].menu[i] = {
         ... normalizedData[0].menu[i],
         ... await getSubmenu(normalizedData[0].menu[i].id)
