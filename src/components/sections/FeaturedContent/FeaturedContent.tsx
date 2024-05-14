@@ -1,7 +1,7 @@
 "use client";
 import classNames from "classnames";
 import {
-  ContentPieceType,
+  FlexibleContentType,
   FeaturedContentType,
   FeaturedContentVariantType,
 } from "@/helpers/types";
@@ -13,7 +13,7 @@ import "@/app/styles/bg-color.css";
 import "@/app/styles/padding.css";
 
 const TextPart: React.FC<{
-  data: ContentPieceType;
+  data: FlexibleContentType;
   appearanceVariant: FeaturedContentVariantType;
   darkMode: boolean;
 }> = ({ data, appearanceVariant, darkMode }) => {

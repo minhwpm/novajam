@@ -20,13 +20,13 @@ export async function generateMetadata(
   try {
     const data: PageType = await getPage(`/${params.slug!.join("/")}`);
     return {
-      title: data.metaTitle,
-      description: data.metaDescription,
-      keywords: data.metaKeywords,
+      title: data?.metaTitle,
+      description: data?.metaDescription,
+      keywords: data?.metaKeywords,
       openGraph: {
-        title: data.metaTitle ?? "",
-        description: data.metaDescription ?? "",
-        images: [data.metaImage ?? "", ...previousImages],
+        title: data?.metaTitle ?? "",
+        description: data?.metaDescription ?? "",
+        images: [data?.metaImage ?? "", ...previousImages],
       },
     };
   } catch (e) {

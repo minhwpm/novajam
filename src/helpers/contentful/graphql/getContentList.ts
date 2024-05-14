@@ -12,7 +12,7 @@ export default async function getContentList(id: string) {
     // send the GraphQL query
     body: JSON.stringify({ query: `
       query($id: String) {
-        cardListCollection(
+        contentListCollection(
           where: {
             sys: {
               id: $id
@@ -144,7 +144,7 @@ export default async function getContentList(id: string) {
                   number
                   text
                 }
-                ... on ContentPiece {
+                ... on FlexibleContent {
                   sys {
                     id
                   }
@@ -206,11 +206,11 @@ export default async function getContentList(id: string) {
   const data = await res.json()
   if (res.status !== 200) {
     console.error(data)
-    throw new Error("Failed to fetch Card List data. Error: ", data.error)
+    throw new Error("Failed to fetch Content List data. Error: ", data.error)
   }
   const normalizedData = normalizeDataCollection({...data.data})
   async function getSectionData(contentType: string, id: string) {
-    if (contentType === "contentpiece") {
+    if (contentType === "flexiblecontent") {
       return await getFlexibleContent(id)
     }
   }

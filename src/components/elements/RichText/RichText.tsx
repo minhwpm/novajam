@@ -8,7 +8,7 @@ import {
   Inline,
 } from "@contentful/rich-text-types";
 import { MediaItem } from "../MediaItem/MediaItem";
-import { ContentPieceType, MediaType } from "@/helpers/types";
+import { FlexibleContentType, MediaType } from "@/helpers/types";
 import { FlexibleContent } from "../FlexibleContent/FlexibleContent";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
@@ -97,7 +97,7 @@ export function RichText({
           [BLOCKS.EMBEDDED_ENTRY]: (node: Inline | Block) => {
             return (
               <div className="my-8">
-                <FlexibleContent data={node.data as ContentPieceType} />
+                <FlexibleContent data={node.data as FlexibleContentType} />
               </div>
             );
           },

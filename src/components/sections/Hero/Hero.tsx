@@ -10,7 +10,7 @@ import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import {
   HeroType,
   TextAlignmentType,
-  ContentPieceType,
+  FlexibleContentType,
   HeroLayoutVariant,
 } from "@/helpers/types";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
@@ -118,7 +118,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
 };
 
 const HeroSection: React.FC<{
-  data: ContentPieceType;
+  data: FlexibleContentType;
   alignment: TextAlignmentType;
   appearanceVariant: HeroLayoutVariant;
   darkMode: boolean;
@@ -213,7 +213,7 @@ const HeroSection: React.FC<{
   );
 };
 
-const HeroMediaPart: React.FC<{ data: ContentPieceType }> = ({ data }) => {
+const HeroMediaPart: React.FC<{ data: FlexibleContentType }> = ({ data }) => {
   return (
     <>
       {data.embeddedMediaUrl && (

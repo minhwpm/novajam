@@ -8,7 +8,7 @@ import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { RichText } from "@/components/elements/RichText/RichText";
 import { Container } from "@/components/elements/Container/Container";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
-import { HeroType, TextAlignmentType, ContentPieceType } from "@/helpers/types";
+import { HeroType, TextAlignmentType, FlexibleContentType } from "@/helpers/types";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -104,7 +104,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
 }
 
 export const HeroOverlaySection: React.FC<{
-  data: ContentPieceType;
+  data: FlexibleContentType;
   alignment: TextAlignmentType;
   darkMode: boolean;
   isIntersecting: boolean;
@@ -198,7 +198,7 @@ export const HeroOverlaySection: React.FC<{
   );
 };
 
-const HeroMediaPart: React.FC<{ data: ContentPieceType }> = ({ data }) => {
+const HeroMediaPart: React.FC<{ data: FlexibleContentType }> = ({ data }) => {
   return (
     <>
       {data.embeddedMediaUrl && (

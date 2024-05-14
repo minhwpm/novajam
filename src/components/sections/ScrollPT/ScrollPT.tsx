@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
-import { TextAlignmentType, ContentPTType, ContentPieceType } from "@/helpers/types";
+import { TextAlignmentType, ContentPTType, FlexibleContentType } from "@/helpers/types";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { useInView } from "react-hook-inview";
 import { TextPartPT } from "@/components/elements/TextPartPT/TextPartPT";
@@ -15,7 +15,7 @@ const TextContent = ({
   alignment,
   darkMode
 }: {
-  data: ContentPieceType;
+  data: FlexibleContentType;
   idx: number;
   setVisibleIdx: (idx: number) => void;
   alignment: TextAlignmentType;

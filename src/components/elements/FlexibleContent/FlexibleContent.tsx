@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useContext } from "react";
-import { TextAlignmentType, ContentPieceType } from "@/helpers/types";
+import { TextAlignmentType, FlexibleContentType } from "@/helpers/types";
 import { RichText } from "@/components/elements/RichText/RichText";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
@@ -8,7 +8,7 @@ import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 import { useInView } from "react-hook-inview";
 
 const TextPart: React.FC<{
-  data: ContentPieceType;
+  data: FlexibleContentType;
   alignment?: TextAlignmentType;
   darkMode?: boolean
 }> = ({ data, alignment, darkMode }) => {
@@ -59,7 +59,7 @@ const TextPart: React.FC<{
 };
 
 export const FlexibleContent: React.FC<{
-  data: ContentPieceType;
+  data: FlexibleContentType;
   alignment?: TextAlignmentType;
   layout?: "vertical" | "horizontal";
   animate?: boolean;

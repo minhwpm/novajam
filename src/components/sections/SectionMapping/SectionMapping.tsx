@@ -18,7 +18,7 @@ import {
 
 type ComponentType = HeroType | ContentPTType | ContentListType | FeaturedContentType | InquiryFormType
 
-function PresentationMapping({ data }: { data: ContentPTType }) {
+function ContentPresentationMapping({ data }: { data: ContentPTType }) {
   switch (data.appearanceVariant) {
     case "scroll":
       return <ScrollPT key={data.id} data={data} />;
@@ -48,11 +48,11 @@ function SectionComponentMapping({ data }: { data: ComponentType }) {
         return <HeroOverlay data={data} />;
       }
       return null;
-    case "presentation":
-      return <PresentationMapping data={data} />;
+    case "contentpresentation":
+      return <ContentPresentationMapping data={data} />;
     case "feature":
       return <FeaturedContent data={data} />;
-    case "cardlist":
+    case "contentlist":
       return <ContentList data={data} />;
     case "inquiryform":
       return <InquiryForm data={data} />;

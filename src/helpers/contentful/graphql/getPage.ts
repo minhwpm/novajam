@@ -48,7 +48,7 @@ export default async function getPage(url: string) {
                     id
                   }
                 }
-                ... on Presentation {
+                ... on ContentPresentation {
                   sys {
                     id
                   }
@@ -58,7 +58,7 @@ export default async function getPage(url: string) {
                     id
                   }
                 }
-                ... on CardList {
+                ... on ContentList {
                   sys {
                     id
                   }
@@ -92,13 +92,13 @@ export default async function getPage(url: string) {
     if (contentType === "hero") {
       return await getHero(id)
     }
-    if (contentType === "presentation") {
+    if (contentType === "contentpresentation") {
       return await getContentPT(id)
     }
     if (contentType === "feature") {
       return await getFeaturedContent(id)
     }
-    if (contentType === "cardlist") {
+    if (contentType === "contenlist") {
       return await getContentList(id)
     }
     if (contentType === "inquiryform") {
@@ -111,6 +111,6 @@ export default async function getPage(url: string) {
       ... await getSectionData(normalizedData[0].content[i]?.contentType, normalizedData[0].content[i]?.id)
     }
   }
-  // console.log(`PAGE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+  console.log(`PAGE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
-}
+} 

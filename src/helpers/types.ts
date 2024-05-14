@@ -168,7 +168,7 @@ export type FeaturedContentType = {
   media: Array<MediaType>
   mediaAspectRatio: MediaAspectRatioType
   buttons: Array<ButtonType>
-  content: ContentPieceType
+  content: FlexibleContentType
   htmlid: string
   appearanceVariant: FeaturedContentVariantType
   size: "standard" | "extended"
@@ -182,7 +182,7 @@ export type HeroLayoutVariant = "overlay" | "vertical" | "horizontal"
 
 export type HeroType = {
   id: string
-  content: Array<ContentPieceType>
+  content: Array<FlexibleContentType>
   appearanceVariant: HeroLayoutVariant
   contentTextAlignment: TextAlignmentType
   backgroundColor: BackgroundColorType | null
@@ -196,7 +196,7 @@ export type ContentPTType = {
   eyebrow: string | null
   heading: Document | null
   summary: Document | null
-  content: Array<ContentPieceType>
+  content: Array<FlexibleContentType>
   appearanceVariant: "carousel" | "sleek carousel" | "tab" | "accordion" | "scroll"
   headingTextAlignment: TextAlignmentType
   contentTextAlignment: TextAlignmentType
@@ -204,7 +204,7 @@ export type ContentPTType = {
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
   darkMode: boolean
-  contentType: "presentation"
+  contentType: "contentpresentation"
 }
 
 export type StatisticsType = {
@@ -224,7 +224,7 @@ export type TestimonialType = {
   contentType: 'testimonial'
 }
 
-export type ContentPieceType = {
+export type FlexibleContentType = {
   id: string
   eyebrow: string | null
   heading: Document | null
@@ -233,7 +233,7 @@ export type ContentPieceType = {
   media: Array<MediaType>
   embeddedMediaUrl: string | null
   embeddedMediaTitle: string | null
-  contentType: 'contentpiece'
+  contentType: 'flexiblecontent'
 }
 
 export type PricingPlanType = {
@@ -247,7 +247,7 @@ export type PricingPlanType = {
   contentType: 'pricingplan'
 }
 
-export type Content = BlogType | PageType | LinkType | ExpertType | StatisticsType | ContentPieceType | PricingPlanType | TestimonialType
+export type Content = BlogType | PageType | LinkType | ExpertType | StatisticsType | FlexibleContentType | PricingPlanType | TestimonialType
 export type ContentSize =  "S" | "M" | "L" | "XL"
 export type ContentOrientationType = "horizontal" | "vertical"
 
@@ -267,7 +267,7 @@ export type ContentListType = {
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
   darkMode: boolean
-  contentType: "cardlist"
+  contentType: "contentlist"
 }
 
 export type FormFieldType = {

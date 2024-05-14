@@ -12,7 +12,7 @@ export default async function getContentPT(id: string) {
     // send the GraphQL query
     body: JSON.stringify({ query: `
       query($id: String) {
-        presentationCollection(
+        contentPresentationCollection(
           where: {
             sys: {
               id: $id
@@ -43,7 +43,7 @@ export default async function getContentPT(id: string) {
             contentCollection (limit: 20) {
               items {
                 __typename
-                ... on ContentPiece {
+                ... on FlexibleContent {
                   sys {
                     id
                   }
@@ -67,7 +67,7 @@ export default async function getContentPT(id: string) {
   }
   const normalizedData = normalizeDataCollection({...data.data})
   async function getSectionData(contentType: string, id: string) {
-    if (contentType === "contentpiece") {
+    if (contentType === "flexiblecontent") {
       return await getFlexibleContent(id)
     }
   }

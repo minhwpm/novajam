@@ -11,7 +11,7 @@ export default async function getFlexibleContent(id: string) {
     // send the GraphQL query
     body: JSON.stringify({ query: `
       query($id: String) {
-        contentPieceCollection(
+        flexibleContentCollection(
           where: {
             sys: {
               id: $id

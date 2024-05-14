@@ -14,13 +14,13 @@ export async function generateMetadata(
   try {
     const data: BlogType = await getBlogDetails(params.slug)
     return {
-      title: data.metaTitle ?? data.title,
-      description: data.metaDescription ?? data.summary,
-      keywords: data.metaKeywords,
+      title: data?.metaTitle ?? data?.title,
+      description: data?.metaDescription ?? data.summary,
+      keywords: data?.metaKeywords,
       openGraph: {
-        title: data.metaTitle ?? data.title,
-        description: data.metaDescription ?? data.summary,
-        images: [data.metaImage ?? "", ...previousImages ]
+        title: data?.metaTitle ?? data?.title,
+        description: data?.metaDescription ?? data?.summary,
+        images: [data?.metaImage ?? "", ...previousImages ]
       }
     }
   } catch (e) {

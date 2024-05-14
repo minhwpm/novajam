@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
-import { TextAlignmentType, ContentPieceType } from "@/helpers/types";
+import { TextAlignmentType, FlexibleContentType } from "@/helpers/types";
 import { RichText } from "@/components/elements/RichText/RichText";
 
 export const TextPartPT: React.FC<{
-  data: ContentPieceType;
+  data: FlexibleContentType;
   alignment?: TextAlignmentType;
   darkMode: boolean;
 }> = ({ data, alignment, darkMode }) => {

@@ -8,11 +8,11 @@ export async function generateMetadata(): Promise<Metadata> {
   try {
     const data: PageType = await getPage("/")
     return {
-      title: data.metaTitle,
-      description: data.metaDescription,
-      keywords: data.metaKeywords,
+      title: data?.metaTitle,
+      description: data?.metaDescription,
+      keywords: data?.metaKeywords,
       openGraph: {
-        images: [data.metaImage ?? "" ]
+        images: [data?.metaImage ?? "" ]
       }
     }
   } catch (e) {

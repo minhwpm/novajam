@@ -24,7 +24,7 @@ export const ContentMapping: React.FC<{
       return <ExpertPreview data={data} layout={layout} alignment={alignment} animate={animate} />;
     case "statistics":
       return <Statistics index={index} data={data} alignment={alignment} />;
-    case "contentpiece":
+    case "flexiblecontent":
       return <FlexibleContent data={data} alignment={alignment} layout={layout} animate={animate} />;
     case "pricingplan":
       return <PricingPlan data={data} alignment={alignment} animate={animate} />;
