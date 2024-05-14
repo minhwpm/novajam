@@ -5,19 +5,14 @@ import getPage from "@/helpers/contentful/graphql/getPage"
 import { notFound } from 'next/navigation'
 
 export async function generateMetadata(): Promise<Metadata> {
-  try {
-    const data: PageType = await getPage("/")
-    return {
-      title: data?.metaTitle,
-      description: data?.metaDescription,
-      keywords: data?.metaKeywords,
-      openGraph: {
-        images: [data?.metaImage ?? "" ]
-      }
+  const data: PageType = await getPage("/")
+  return {
+    title: data?.metaTitle,
+    description: data?.metaDescription,
+    keywords: data?.metaKeywords,
+    openGraph: {
+      images: [data?.metaImage ?? "" ]
     }
-  } catch (e) {
-    console.error(e)
-    return {}
   }
 }
 

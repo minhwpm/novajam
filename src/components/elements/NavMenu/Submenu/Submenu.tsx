@@ -18,7 +18,7 @@ export const Submenu: React.FC<{ data: SubmenuType, appearanceVariant?: Navigati
             "before:w-full":
               data.featuredContent.find(
                 (content) =>
-                  "url" in content && content.url === pathname
+                  content && "url" in content && content.url === pathname
               ) ||
               data.menu.find(
                 (subItem) =>

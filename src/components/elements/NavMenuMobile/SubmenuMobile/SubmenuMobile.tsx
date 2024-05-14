@@ -17,7 +17,7 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
           {
             "text-primary-600":
               data.featuredContent.find(
-                (content) => "url" in content && content.url === pathname
+                (content) => content && "url" in content && content.url === pathname
               ) ||
               data.menu.find(
                 (subItem) =>
@@ -114,7 +114,7 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
           </NavigationMenu.List>
           {data.featuredContent?.length > 0 && (
             <div className="mt-4 flex gap-4 overflow-y-auto overscroll-y-contain">
-              {data.featuredContent.map((content) => (
+              {data.featuredContent.map((content) => content && (
                 <div
                   key={content.id}
                   className="w-11/12 md:basis-72 shrink-0 grow max-w-xs"

@@ -46,12 +46,12 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
               }
             )}
           >
-            {data.featuredContent.map((data) => (
+            {data.featuredContent.map((content) => content && (
               <div
-                key={data.id}
+                key={content.id}
                 className="w-11/12 basis-80 shrink-0 grow max-w-xs"
               >
-                <NavFeaturedContent data={data} />
+                <NavFeaturedContent data={content} />
               </div>
             ))}
           </div>
