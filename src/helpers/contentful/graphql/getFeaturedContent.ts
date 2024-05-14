@@ -12,7 +12,7 @@ export default async function getFeature(id: string) {
     // send the GraphQL query
     body: JSON.stringify({ query: `
       query($id: String) {
-        featureCollection(
+        featuredContentCollection(
           where: {
             sys: {
               id: $id

@@ -50,7 +50,7 @@ function SectionComponentMapping({ data }: { data: ComponentType }) {
       return null;
     case "contentpresentation":
       return <ContentPresentationMapping data={data} />;
-    case "feature":
+    case "featuredcontent":
       return <FeaturedContent data={data} />;
     case "contentlist":
       return <ContentList data={data} />;

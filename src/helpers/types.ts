@@ -175,7 +175,7 @@ export type FeaturedContentType = {
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
   darkMode: boolean
-  contentType: "feature"
+  contentType: "featuredcontent"
 }
 
 export type HeroLayoutVariant = "overlay" | "vertical" | "horizontal"

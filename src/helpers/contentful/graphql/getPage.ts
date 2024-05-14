@@ -95,7 +95,7 @@ export default async function getPage(url: string) {
     if (contentType === "contentpresentation") {
       return await getContentPT(id)
     }
-    if (contentType === "feature") {
+    if (contentType === "featuredcontent") {
       return await getFeaturedContent(id)
     }
     if (contentType === "contentlist") {
