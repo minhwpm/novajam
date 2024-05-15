@@ -42,7 +42,7 @@ export const ExpertPreview: React.FC<{
         <div className="w-1/2 sm:w-1/3 md:w-1/4">
           <MediaItem data={portrait} aspectRatio="square" rounded="full" />
         </div>
-        <div className="w-full sm:w-2/3 md:w-3/4 sm:pl-4 md:pl-6">
+        <div className="w-full sm:w-2/3 md:w-3/4 sm:pl-4 md:pl-6 lg:pl-8">
           <div
             className={classNames(
               "font-heading font-semibold text-2xl md:text-3xl text-center sm:text-start mb-2",

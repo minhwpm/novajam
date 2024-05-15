@@ -56,7 +56,7 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
             </div>
             { author && 
               <div className="lg:w-3/4 xl:w-2/3 text-lg">
-                <p className="text-neutral-400 font-semibold tracking-wider text-sm md:text-base mb-8">
+                <p className="text-neutral-400 font-semibold tracking-wider text-sm md:text-base mb-8 text-center sm:text-start">
                   ABOUT THE AUTHOR
                 </p>
                 <ExpertPreview data={author} layout="horizontal" />
