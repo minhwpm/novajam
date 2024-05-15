@@ -4,8 +4,13 @@ import getHero from "./getHero";
 import getInquiryForm from "./getInquiryForm";
 import getContentPT from "./getContentPT";
 import normalizeDataCollection from "./normalizeDataCollection";
+import pages from "./static-data/pages.json"
 
 export default async function getPage(url: string) {
+  if (process.env.DATA_SOURCE === "STATIC") {
+    const result = pages.find(item => item.url === url)
+    return result
+  }
   try {
     const res = await fetch(
       `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
@@ -131,7 +136,8 @@ export default async function getPage(url: string) {
       )
     );
     
-    // console.log(`PAGE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+    console.log(`************************`)
+    console.log(`**************PAGE DATA: ${JSON.stringify(normalizedData[0])}`)
     return normalizedData[0]
   } catch (error) {
     console.error(error);

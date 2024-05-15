@@ -1,8 +1,8 @@
 import { Navigation } from '@/components/sections/Navigation/Navigation';
 import { Footer } from '@/components/sections/Footer/Footer';
-import getNavigation from '@/helpers/contentful/graphql/getNavigation';
-import getFooter from '@/helpers/contentful/graphql/getFooter';
-import getPage from '@/helpers/contentful/graphql/getPage';
+import getNavigation from '@/helpers/query/getNavigation';
+import getFooter from '@/helpers/query/getFooter';
+import getPage from '@/helpers/query/getPage';
 import { generateFontClassnames } from '@/helpers/fonts';
 import { generateColorClassnames } from '@/helpers/utils';
 import styles from "@/app/(dynamic)/[...slug]/styles.module.css";

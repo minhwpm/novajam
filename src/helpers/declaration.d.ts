@@ -1,3 +1,4 @@
+// @TODO remove this
 declare module 'react-responsive-masonry' {
   import React, { CSSProperties } from 'react';
 

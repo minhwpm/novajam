@@ -1,0 +1,3567 @@
+[
+  {
+    "title": "NovaJAM",
+    "url": "/",
+    "metaTitle": "NovaJAM | Versatile Web Solution",
+    "metaDescription": "NovaJAM is an Multi-purpose All-in-One JAMstack Template & Web Page Composer which is built with cutting edge technologies: React, NextJS 14, Typescript, Tailwind and seamlessly integrated with Contentful CMS.",
+    "metaKeywords": [
+      "web",
+      "theme",
+      "template",
+      "NextJS",
+      "React",
+      "Tailwind",
+      "CMS",
+      "Contentful",
+      "Vercel"
+    ],
+    "fontMain": "Open Sans",
+    "fontHeading": "Montserrat",
+    "headingFontSize": "standout",
+    "colorPrimary": "blue",
+    "colorSecondary": "lime",
+    "borderRadius": "large",
+    "metaImage": {
+      "url": "https://images.ctfassets.net/ehmycbmc25mu/6orZ4qKj3GDeIHlTfuNsiz/01d9ba299017fa6b2cc8bb41ed012289/novajam_meta_image.webp",
+      "title": "novajam meta image.webp",
+      "width": 1500,
+      "height": 1098,
+      "contentType": "image/webp"
+    },
+    "content": [
+      {
+        "contentType": "hero",
+        "id": "6fG5HjVFv4LnYtyAEZkj11",
+        "appearanceVariant": "vertical",
+        "contentTextAlignment": "center",
+        "backgroundColor": null,
+        "darkMode": false,
+        "backgroundImage": {
+          "url": "https://images.ctfassets.net/ehmycbmc25mu/6j1Jm5FcrpVFHy1gZeKqW0/85990cae0a947a19244b0e4028c59af1/background-colorful-cloud.jpg",
+          "title": "background-colorful-cloud",
+          "width": 3116,
+          "height": 1892,
+          "contentType": "image/jpeg"
+        },
+        "content": [
+          {
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "Modular, Scalable ",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-1"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "& Multi-purpose",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-1"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": "POWERED BY NEXT.JS 14",
+            "contentType": "flexiblecontent",
+            "id": "7BhNiR1ob5zBt8j3keGEu2",
+            "buttons": [
+              {
+                "url": "#demo",
+                "text": "Live Demo",
+                "openNewTab": false,
+                "buttonVariant": "primary",
+                "withArrow": false,
+                "icon": {
+                  "url": "https://images.ctfassets.net/ehmycbmc25mu/4mgk5NPt5p7HHFhDa36jP6/6a878dae7dc1ce185e47bd9cb5c2e89e/icon_arrow_down_-_white.svg",
+                  "title": "icon arrow down - white",
+                  "width": 200,
+                  "height": 200
+                },
+                "id": "22RqkXc2FZVgA2OzzwNonI"
+              },
+              {
+                "url": "#",
+                "text": "Purchase Now",
+                "openNewTab": true,
+                "buttonVariant": "black",
+                "withArrow": true,
+                "icon": null,
+                "id": "4scdLAJQOEMVbuGqh47jGo"
+              }
+            ],
+            "description": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "Explore endless possibilities of NovaJAM - an All-in-One React JAMstack Theme & Page Composer seamlessly integrated with the leading Headless CMS - Contentful",
+                      "marks": [],
+                      "data": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": []
+          }
+        ]
+      },
+      {
+        "contentType": "contentlist",
+        "id": "3dtp5rcRmsOGpu9qg3DVmE",
+        "heading": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }],
+                  "value": "Explore our pre-built pages",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "heading-2"
+            },
+            {
+              "data": {},
+              "content": [
+                { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "summary": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [],
+                  "value": "Ensuring continuous improvement, additional functionalities, and an enhanced user experience through regular updates.",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "eyebrow": "OUR SELECTED DEMOS",
+        "htmlid": "demo",
+        "appearanceVariant": "deck",
+        "size": "L",
+        "headingTextAlignment": "center",
+        "contentTextAlignment": "center",
+        "contentOrientation": "vertical",
+        "backgroundColor": null,
+        "darkMode": false,
+        "backgroundImage": {
+          "url": "https://images.ctfassets.net/ehmycbmc25mu/6j1Jm5FcrpVFHy1gZeKqW0/85990cae0a947a19244b0e4028c59af1/background-colorful-cloud.jpg",
+          "title": "background-colorful-cloud",
+          "width": 3116,
+          "height": 1892,
+          "contentType": "image/jpeg"
+        },
+        "buttons": [],
+        "content": [
+          {
+            "title": "SaaS",
+            "url": "/demo/saas",
+            "metaTitle": "SaaS Platform",
+            "metaDescription": "This is a web template for SaaS Platform from NovaJAM.",
+            "metaKeywords": ["web template", "SaaS", "Software", "App"],
+            "metaImage": {
+              "url": "https://images.ctfassets.net/ehmycbmc25mu/1MCaO1fpUjXiBcU9a8zqkO/c6db5a6802734a0efa92bba6cb0bdd9a/screenshot_saas.webp",
+              "title": "screenshot saas",
+              "width": 1440,
+              "height": 1080,
+              "contentType": "image/webp"
+            },
+            "contentType": "page",
+            "id": "4veiFpEJjqfg58YX3aO3L4"
+          },
+          {},
+          {
+            "title": "Healthcare",
+            "url": "/demo/healthcare",
+            "metaTitle": "Healthcare",
+            "metaDescription": "Healthcare | NOVA is a NovaJAM Web Template for Healthcare.",
+            "metaKeywords": [
+              "web template",
+              "healthcare",
+              "clinic",
+              "hospital",
+              "booking system",
+              "appointment booking"
+            ],
+            "metaImage": {
+              "url": "https://images.ctfassets.net/ehmycbmc25mu/yp3ZADDVKbVlxMTuJOv2K/50fa96868eca7f104be46567d3f7a368/Healthcare.webp",
+              "title": "Healthcare",
+              "width": 900,
+              "height": 568,
+              "contentType": "image/webp"
+            },
+            "contentType": "page",
+            "id": "1uZlU1igoWT1qlSlcPWWfQ"
+          },
+          {},
+          {
+            "title": "Yoga & Fitness",
+            "url": "/demo/yoga",
+            "metaTitle": "Yoga & Fitness",
+            "metaDescription": "Yoga & Fitness is a NovaJAM Web template for Yoga & Fitness",
+            "metaKeywords": ["yoga", "fitness", "web template"],
+            "metaImage": {
+              "url": "https://images.ctfassets.net/ehmycbmc25mu/6Bn8q4WbIyfmREY922Je6E/ae08c5c3b4fe20c44d7382f52317eeb4/yoga.webp",
+              "title": "yoga",
+              "width": 900,
+              "height": 677,
+              "contentType": "image/webp"
+            },
+            "contentType": "page",
+            "id": "6aNWiGLg4GUYE7RPKJp1sY"
+          }
+        ]
+      },
+      {
+        "contentType": "contentlist",
+        "id": "3PE8ZRheehMuamqIXdLMoX",
+        "heading": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }],
+                  "value": "Inner Pages",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "heading-3"
+            },
+            {
+              "data": {},
+              "content": [
+                { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "summary": null,
+        "eyebrow": "VARIETY IN",
+        "htmlid": "inner-pages",
+        "appearanceVariant": "deck",
+        "size": "L",
+        "headingTextAlignment": "center",
+        "contentTextAlignment": "center",
+        "contentOrientation": "vertical",
+        "backgroundColor": "neutral",
+        "backgroundImage": null,
+        "darkMode": true,
+        "buttons": [],
+        "content": [
+          {
+            "contentType": "flexiblecontent",
+            "id": "19oLNjAcbgKuBd0SrTzUxS",
+            "heading": null,
+            "description": null,
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/5md8ikrq9FcXc2WQbF3tWU/24b5fffffc86b1cc49b1fe74a22ca3e0/blog_page.webp",
+                "title": "blog page",
+                "width": 800,
+                "height": 1066,
+                "contentType": "image/webp",
+                "id": "5md8ikrq9FcXc2WQbF3tWU"
+              }
+            ],
+            "buttons": [
+              {
+                "url": "/demo/saas/blog",
+                "text": "Blog page",
+                "openNewTab": true,
+                "buttonVariant": "black",
+                "withArrow": true,
+                "icon": null,
+                "id": "2gqauzWgcY9r6VivwM1xnL"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "4E8ySGasyIKyuoIGjS7Gjb",
+            "heading": null,
+            "description": null,
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/6rzQh8GS0PJJZIbfN0YaLB/4a3402b4eb436539d6641cc94d88c9b5/about_page.webp",
+                "title": "corporation about",
+                "width": 800,
+                "height": 1067,
+                "contentType": "image/webp",
+                "id": "6rzQh8GS0PJJZIbfN0YaLB"
+              }
+            ],
+            "buttons": [
+              {
+                "url": "/demo/corporation/about",
+                "text": "About page",
+                "openNewTab": true,
+                "buttonVariant": "black",
+                "withArrow": true,
+                "icon": null,
+                "id": "3pl71Ohw5cnFzeKhLy4aOu"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "w8kzTvMkR10p87ik7vvAP",
+            "heading": null,
+            "description": null,
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/Cl0jK5PwK6WxWbqT1BOB3/4a3ed66f0f2fe3ca1fb3d37fa33688fa/gallery_page.webp",
+                "title": "barber gallery",
+                "width": 800,
+                "height": 1067,
+                "contentType": "image/webp",
+                "id": "Cl0jK5PwK6WxWbqT1BOB3"
+              }
+            ],
+            "buttons": [
+              {
+                "url": "/demo/barber/gallery",
+                "text": "Gallery page",
+                "openNewTab": true,
+                "buttonVariant": "black",
+                "withArrow": true,
+                "icon": null,
+                "id": "2sJVeqU1nGW1NLBOjuPIdS"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "68EPiwgLz4zmIKDIzx6ry7",
+            "heading": null,
+            "description": null,
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/3vQOD4ifdxbmp1QBoSHLdj/dc3b93deae674d6cc82813d10c14e489/healthcare_booking.webp",
+                "title": "healthcare booking",
+                "width": 935,
+                "height": 935,
+                "contentType": "image/webp",
+                "id": "3vQOD4ifdxbmp1QBoSHLdj"
+              }
+            ],
+            "buttons": [
+              {
+                "url": "/demo/healthcare/booking",
+                "text": "Booking page",
+                "openNewTab": true,
+                "buttonVariant": "black",
+                "withArrow": true,
+                "icon": null,
+                "id": "4jfwUQ1BVjE6W0BfMhIAc7"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "2bUN5SlGCHq7xWAgpTd9pp",
+            "heading": null,
+            "description": null,
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/72JGUvPUg5AVlO304X4Neu/e0e61de0a3993200c967d61cde6d2228/survey_form_page.webp",
+                "title": "survey form page",
+                "width": 1452,
+                "height": 1452,
+                "contentType": "image/webp",
+                "id": "72JGUvPUg5AVlO304X4Neu"
+              }
+            ],
+            "buttons": [
+              {
+                "url": "/demo/yoga/personalization",
+                "text": "Survey page",
+                "openNewTab": true,
+                "buttonVariant": "black",
+                "withArrow": true,
+                "icon": null,
+                "id": "2e9vcQof8w6bfZ4WdbYode"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "contentlist",
+        "id": "6RTZzuAa6YOT3O66vRYJaG",
+        "heading": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }],
+                  "value": "Build & Launch ",
+                  "nodeType": "text"
+                },
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }, { "type": "underline" }],
+                  "value": "easily",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "heading-2"
+            },
+            {
+              "data": {},
+              "content": [
+                { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "summary": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [],
+                  "value": "Discover our standout features, offering effortless customization and streamlined launch processes. Empower your online presence with simplicity and efficiency.",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "eyebrow": "FEATURES",
+        "htmlid": "design-and-build-easily",
+        "appearanceVariant": "deck",
+        "size": "L",
+        "headingTextAlignment": "center",
+        "contentTextAlignment": "center",
+        "contentOrientation": "vertical",
+        "backgroundColor": "neutral",
+        "backgroundImage": null,
+        "darkMode": true,
+        "buttons": [],
+        "content": [
+          {
+            "contentType": "flexiblecontent",
+            "id": "1Joyk4CTpGgQNpvJ87xp52",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "Next.js 14 Template",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Powered by Next.js 14 with advanced App Router and Server Actions for ultimate performance",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/CV5BgLa8uyBaUsZxXQ2tt/d659a5366f8138bdc72d95e061b196db/technology.svg",
+                "title": "technology",
+                "width": 60,
+                "height": 60,
+                "contentType": "image/svg+xml",
+                "id": "CV5BgLa8uyBaUsZxXQ2tt"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "1audgTX8DZigMaQWl5lQOE",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "Personalized",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "Easily customize themes and widgets to suit your needs with theme configuration",
+                      "marks": [],
+                      "data": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/J5jbHIaIpkQdjNZvVSkJv/7df0a9e5e43c317e2df57038afc1ad78/personalization.svg",
+                "title": "personalization",
+                "width": 60,
+                "height": 60,
+                "contentType": "image/svg+xml",
+                "id": "J5jbHIaIpkQdjNZvVSkJv"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "7clqFQbTrpvMAMVv9zJ4f",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "Do-It-Yourself",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "Easy-to-use web page composing tool designed for simplicity, requiring ",
+                      "marks": [],
+                      "data": {}
+                    },
+                    {
+                      "nodeType": "text",
+                      "value": "no coding skills",
+                      "marks": [{ "type": "bold" }, { "type": "underline" }],
+                      "data": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/3afzZSetkhlRZSA2McGEUh/9bbcb9f2d5f0e83decae79b1ebc5c32c/empowering.svg",
+                "title": "empowering",
+                "width": 60,
+                "height": 60,
+                "contentType": "image/svg+xml",
+                "id": "3afzZSetkhlRZSA2McGEUh"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "LAfLFwYZ4b4AGn1SsQdiq",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "100% Responsive",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Optimized for seamless experience across all devices and touchscreens",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/2aM7sOF9AUSsaFLLVm81h8/1c7b384a3a79a2081eb38362c94cabd8/responsive.svg",
+                "title": "responsive",
+                "width": 60,
+                "height": 60,
+                "contentType": "image/svg+xml",
+                "id": "2aM7sOF9AUSsaFLLVm81h8"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "74aG5Ed5ZxzW4orWbK0sUX",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "Free Updates & Supports",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Collaborate closely with customers to deliver top-tier support and free updates",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/5WL7GcUywKYL0XRVAr9NBc/1b0f320fc0f2e4817a5f4255a684f6e4/support.svg",
+                "title": "support",
+                "width": 60,
+                "height": 60,
+                "contentType": "image/svg+xml",
+                "id": "5WL7GcUywKYL0XRVAr9NBc"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "6rdFEkLtHEbYjCN2At4S01",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "Affordable",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "Build & Launch with the free plans from both Contentful CMS and Vercel hosting (optional)",
+                      "marks": [],
+                      "data": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/2nj8It8TYRTId1mTFN3fC8/f40cff1073a15dfdb7dbc78e985f0a47/affordable.svg",
+                "title": "affordable",
+                "width": 60,
+                "height": 60,
+                "contentType": "image/svg+xml",
+                "id": "2nj8It8TYRTId1mTFN3fC8"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "hero",
+        "id": "vgiYQP8DuYfNCffe5Znvn",
+        "appearanceVariant": "vertical",
+        "contentTextAlignment": "center",
+        "backgroundColor": null,
+        "backgroundImage": null,
+        "darkMode": false,
+        "content": [
+          {
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }, { "type": "underline" }],
+                      "value": "Let's get started",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-2"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "contentType": "flexiblecontent",
+            "id": "45WaESc1lJnxw5gZVZ4kCO",
+            "buttons": [
+              {
+                "url": "#",
+                "text": "BUY NOW",
+                "openNewTab": false,
+                "buttonVariant": "secondary",
+                "withArrow": true,
+                "icon": null,
+                "id": "2A0gdgsb8lKr9oU8xHLr7q"
+              }
+            ],
+            "description": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "Transform your online presence with NovaJAM. Purchase now and unleash the full power of your website.",
+                      "marks": [],
+                      "data": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": []
+          }
+        ]
+      },
+      {
+        "contentType": "contentlist",
+        "id": "1qeZvXwRBEWhSKy14DIJSX",
+        "heading": null,
+        "summary": null,
+        "eyebrow": null,
+        "htmlid": "tech-stack",
+        "appearanceVariant": "deck",
+        "size": "S",
+        "headingTextAlignment": "center",
+        "contentTextAlignment": "start",
+        "contentOrientation": "vertical",
+        "backgroundColor": null,
+        "backgroundImage": null,
+        "darkMode": false,
+        "buttons": [],
+        "content": [
+          {
+            "text": "React",
+            "url": "https://react.dev/",
+            "openNewTab": true,
+            "image": {
+              "url": "https://images.ctfassets.net/ehmycbmc25mu/3qgt7Gi6nBAJbZcBKHy7QH/18fde35b0e9d4f8dbdf740ba0ba7e56b/react_logo.png",
+              "title": "react logo",
+              "width": 650,
+              "height": 180,
+              "contentType": "image/png"
+            },
+            "contentType": "link",
+            "id": "7gMvebS1a3KrfSOOar9hSw"
+          },
+          {
+            "text": "Next.js",
+            "url": "https://nextjs.org/",
+            "openNewTab": true,
+            "image": {
+              "url": "https://images.ctfassets.net/ehmycbmc25mu/3hBHdyQHLfNRvJw525A8jr/b4730fa1eb10d8b3e424c3233efe00fb/next.svg",
+              "title": "Next.js",
+              "width": 550,
+              "height": 150,
+              "contentType": "image/svg+xml"
+            },
+            "contentType": "link",
+            "id": "3UwuKlVj9dMP371oom2tcM"
+          },
+          {
+            "text": "Typescript",
+            "url": "https://www.typescriptlang.org/",
+            "openNewTab": true,
+            "image": {
+              "url": "https://images.ctfassets.net/ehmycbmc25mu/4hQlSLx5aezBhsRIO91uFu/61f34ca4ef776028ef341f4ef7469002/Typescript_logo.png",
+              "title": "Typescript logo",
+              "width": 550,
+              "height": 125,
+              "contentType": "image/png"
+            },
+            "contentType": "link",
+            "id": "43NEt8OgLOcM9Krw0kaJPV"
+          },
+          {
+            "text": "TailwindCSS",
+            "url": "https://tailwindcss.com/",
+            "openNewTab": false,
+            "image": {
+              "url": "https://images.ctfassets.net/ehmycbmc25mu/6TmsSPdChFmS3pV7pr31ma/8a52260e881e93c4be954b96626c9e7a/tailwindcss.png",
+              "title": "tailwindcss",
+              "width": 1200,
+              "height": 250,
+              "contentType": "image/png"
+            },
+            "contentType": "link",
+            "id": "tvqb4hI4i4dOBX9rcmTJA"
+          },
+          {
+            "text": "Contentful CMS",
+            "url": "https://www.contentful.com/",
+            "openNewTab": true,
+            "image": {
+              "url": "https://images.ctfassets.net/ehmycbmc25mu/3eQyp8cq0NqBVZbgx4MyiE/6488dcd75cfa44fc4caac7000943ea45/contentful.svg",
+              "title": "Contentful CMS",
+              "width": 850,
+              "height": 200,
+              "contentType": "image/svg+xml"
+            },
+            "contentType": "link",
+            "id": "4GuWJfjl9MiCSSpw5nASTO"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "SaaS",
+    "url": "/demo/saas",
+    "metaTitle": "SaaS Platform",
+    "metaDescription": "This is a web template for SaaS Platform from NovaJAM.",
+    "metaKeywords": ["web template", "SaaS", "Software", "App"],
+    "fontMain": "Poppins",
+    "fontHeading": null,
+    "headingFontSize": "standard",
+    "colorPrimary": "indigo",
+    "colorSecondary": "indigo",
+    "borderRadius": "medium",
+    "metaImage": {
+      "url": "https://images.ctfassets.net/ehmycbmc25mu/1MCaO1fpUjXiBcU9a8zqkO/c6db5a6802734a0efa92bba6cb0bdd9a/screenshot_saas.webp",
+      "title": "screenshot saas",
+      "width": 1440,
+      "height": 1080,
+      "contentType": "image/webp"
+    },
+    "content": [
+      {
+        "contentType": "hero",
+        "id": "7r2tMC7mndDNUkpBu0CZt0",
+        "appearanceVariant": "horizontal",
+        "contentTextAlignment": "start",
+        "backgroundColor": null,
+        "darkMode": false,
+        "backgroundImage": {
+          "url": "https://images.ctfassets.net/ehmycbmc25mu/2aYdpuGfbvVjFsLAFxZY1i/a2b35d378e66a5cdeba9eee7d48364fe/hexagon_background.webp",
+          "title": "hexagon background.webp",
+          "width": 2000,
+          "height": 1341,
+          "contentType": "image/webp"
+        },
+        "content": [
+          {
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "Elevate your ",
+                      "nodeType": "text"
+                    },
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }, { "type": "underline" }],
+                      "value": "growth",
+                      "nodeType": "text"
+                    },
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": " with AI-driven customer service",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-1"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "contentType": "flexiblecontent",
+            "id": "7xA4zXqlnga9LPryNN4I3V",
+            "buttons": [
+              {
+                "url": "/demo/saas/contact",
+                "text": "Get started free",
+                "openNewTab": false,
+                "buttonVariant": "primary",
+                "withArrow": false,
+                "icon": null,
+                "id": "4jw1KgKF0C9vHH3Zym3m6w"
+              },
+              {
+                "url": "/demo/saas/contact",
+                "text": "Book a demo",
+                "openNewTab": false,
+                "buttonVariant": "ghost",
+                "withArrow": true,
+                "icon": null,
+                "id": "7870GpDTkQr2pD94zjYwlS"
+              }
+            ],
+            "description": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "Our suite of products revolutionizes the way you engage with your customers, boosting efficiency and satisfaction.",
+                      "marks": [],
+                      "data": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/6TYiEnu8HRS1DUedawveli/81091e141a6ba548fa39fac7514bebf3/saas_hero.webp",
+                "title": "saas - hero",
+                "width": 2100,
+                "height": 1750,
+                "contentType": "image/webp",
+                "id": "6TYiEnu8HRS1DUedawveli"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "contentpresentation",
+        "id": "7mj05MT8nsvjR7UXLVc3nS",
+        "heading": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [{ "type": "underline" }, { "type": "bold" }],
+                  "value": "Automating",
+                  "nodeType": "text"
+                },
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }],
+                  "value": " your customer service",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "heading-2"
+            },
+            {
+              "data": {},
+              "content": [
+                { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "summary": null,
+        "eyebrow": "PLATFORM OVERVIEW",
+        "appearanceVariant": "tab",
+        "headingTextAlignment": "center",
+        "contentTextAlignment": "start",
+        "htmlid": "automating-your-customer-service",
+        "backgroundColor": null,
+        "backgroundImage": null,
+        "darkMode": false,
+        "content": [
+          {
+            "contentType": "flexiblecontent",
+            "id": "5lpDX4KRUzSqIL3ay5kvWN",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Chatbots",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Instant Customer Engagement",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Our Chatbot product utilizes advanced natural language processing (NLP) algorithms to provide instant and personalized responses to customer inquiries. Seamlessly integrated into your website or messaging platforms, it serves as a round-the-clock virtual assistant, enhancing customer satisfaction and reducing response times.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/4hIaiy38wpROTqmUOy5URA/667d8b551442f246d2240f9d60804b78/saas_chatbot.webp",
+                "title": "saas chatbot",
+                "width": 1200,
+                "height": 842,
+                "contentType": "image/webp",
+                "id": "4hIaiy38wpROTqmUOy5URA"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "3t3IypzVIWhbdID0xXvU0s",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Ticketing",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Centralized Ticketing System",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "With our Ticketing solution, managing customer support tickets has never been easier. Centralize all customer inquiries and issues into one intuitive platform, allowing your support team to efficiently track, prioritize, and resolve tickets. Customizable workflows and automated notifications ensure no query goes unanswered, resulting in streamlined operations and satisfied customers.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/6wAwvqTEJXxibJyDLShQ2N/84ed758c649088c9cf7b4adb0b2f0f94/saas_ticketing.webp",
+                "title": "saas ticketing system",
+                "width": 1066,
+                "height": 801,
+                "contentType": "image/webp",
+                "id": "6wAwvqTEJXxibJyDLShQ2N"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "78w35CTWYGL9dlIORoOg8s",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "AI Agent",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Intelligent Customer Assistance",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "The AI Agent revolutionizes customer interactions by leveraging machine learning algorithms to understand context and provide intelligent assistance. From suggesting solutions to complex problems to personalizing recommendations based on customer preferences, it augments your support team's capabilities, leading to faster resolution times and higher customer loyalty.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/4T9XL7OHAmQegFmjINZsZ2/9eccd64e138bd7179df8314d102a3ff7/person-using-ai-tool-job.jpg",
+                "title": "saas ai agent",
+                "width": 6000,
+                "height": 4000,
+                "contentType": "image/jpeg",
+                "id": "4T9XL7OHAmQegFmjINZsZ2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "featuredcontent",
+        "id": "2tGUuTgNV1moNhL6tIdNRY",
+        "htmlid": "were-with-you-at-every-stage",
+        "mediaAspectRatio": "4/3",
+        "appearanceVariant": "Horizontal (Media | Text)",
+        "size": "standard",
+        "backgroundColor": null,
+        "backgroundImage": null,
+        "darkMode": false,
+        "content": {
+          "heading": {
+            "data": {},
+            "content": [
+              {
+                "data": {},
+                "content": [
+                  {
+                    "data": {},
+                    "marks": [{ "type": "bold" }],
+                    "value": "Unlocking Success",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {},
+                "content": [
+                  { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          },
+          "description": {
+            "data": {},
+            "content": [
+              {
+                "data": {},
+                "content": [
+                  {
+                    "data": {},
+                    "content": [
+                      {
+                        "data": {},
+                        "content": [
+                          {
+                            "data": {},
+                            "marks": [],
+                            "value": "Improve customer satisfaction with prompt and accurate responses.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {},
+                    "content": [
+                      {
+                        "data": {},
+                        "content": [
+                          {
+                            "data": {},
+                            "marks": [],
+                            "value": "Increase operational efficiency by automating routine tasks.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  },
+                  {
+                    "data": {},
+                    "content": [
+                      {
+                        "data": {},
+                        "content": [
+                          {
+                            "data": {},
+                            "marks": [],
+                            "value": "Enhance agent productivity through AI-powered insights and assistance.",
+                            "nodeType": "text"
+                          }
+                        ],
+                        "nodeType": "paragraph"
+                      }
+                    ],
+                    "nodeType": "list-item"
+                  }
+                ],
+                "nodeType": "unordered-list"
+              },
+              {
+                "data": {},
+                "content": [
+                  { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          },
+          "eyebrow": "ADVANCED PERSONALIZATION",
+          "embeddedMediaUrl": null,
+          "embeddedMediaTitle": null,
+          "id": "5kyl7WA4qWNznRLs5shIpk",
+          "buttons": [],
+          "media": [
+            {
+              "url": "https://images.ctfassets.net/ehmycbmc25mu/29wIyACZa7kuw2EjQA1cxT/961a07da4e25ced212a0061dcd551c06/young-pretty-woman-using-mobile-phone-checking-social-media.jpg",
+              "title": "saas unlock success",
+              "width": 6000,
+              "height": 4000,
+              "contentType": "image/jpeg",
+              "id": "29wIyACZa7kuw2EjQA1cxT"
+            }
+          ]
+        }
+      },
+      {
+        "contentType": "contentlist",
+        "id": "2D6MNv6btfu09FOMp97VRt",
+        "heading": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }],
+                  "value": "A customer experience solution that’s",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "heading-2"
+            },
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }, { "type": "underline" }],
+                  "value": "built around your business",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "heading-2"
+            },
+            {
+              "data": {},
+              "content": [
+                { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "summary": null,
+        "eyebrow": "BUILT FOR E-COMMERCE",
+        "htmlid": "a-customer-experience-solution-thats-built-around-your-business",
+        "appearanceVariant": "deck",
+        "size": "L",
+        "headingTextAlignment": "center",
+        "contentTextAlignment": "center",
+        "contentOrientation": "vertical",
+        "backgroundColor": "neutral",
+        "backgroundImage": null,
+        "darkMode": true,
+        "buttons": [],
+        "content": [
+          {
+            "contentType": "flexiblecontent",
+            "id": "4YEb2Kk2EozrNSfE3lamAU",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "Scalable solution",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Morbi vel justo at nunc blandit feugiat. Donec at cursus enim, quis pulvinar turpis. Nullam sollicitudin nibh sit amet sapien dapibus sollicitudin at at nunc.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/1X2ifqhlC6G0jzm4s9NDgd/992db91653278a713d491649065b4e91/scalable.svg",
+                "title": "icon scalable",
+                "width": 60,
+                "height": 60,
+                "contentType": "image/svg+xml",
+                "id": "1X2ifqhlC6G0jzm4s9NDgd"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "1qJOtWGOFE18WfCnL8UNA6",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "Quick ROI",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Morbi vel justo at nunc blandit feugiat. Donec at cursus enim, quis pulvinar turpis. Nullam sollicitudin nibh sit amet sapien dapibus sollicitudin at at nunc.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/1H8d5f7a7ObeyW7x6BiPBv/c6463cd07de0b9cc6cdfb06400c7aef6/quick.svg",
+                "title": "icon rapid",
+                "width": 60,
+                "height": 60,
+                "contentType": "image/svg+xml",
+                "id": "1H8d5f7a7ObeyW7x6BiPBv"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "DhA2qitcVaIuiOEHWHk5S",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "Committed to your success",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Morbi vel justo at nunc blandit feugiat. Donec at cursus enim, quis pulvinar turpis. Nullam sollicitudin nibh sit amet sapien dapibus sollicitudin at at nunc.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/4ORA1In2abi5J3JJVRlTD6/255864334cb11eb09158183edecacc3e/success.svg",
+                "title": "icon success",
+                "width": 60,
+                "height": 60,
+                "contentType": "image/svg+xml",
+                "id": "4ORA1In2abi5J3JJVRlTD6"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "featuredcontent",
+        "id": "5F3HhpDYhpz5mG0iOl92C3",
+        "htmlid": "cutting-edge-technology",
+        "mediaAspectRatio": "auto",
+        "appearanceVariant": "Horizontal (Media | Text)",
+        "size": "standard",
+        "backgroundColor": "neutral",
+        "backgroundImage": null,
+        "darkMode": true,
+        "content": {
+          "heading": {
+            "nodeType": "document",
+            "data": {},
+            "content": [
+              {
+                "nodeType": "heading-2",
+                "data": {},
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Automates Over 45% of your customer support within 90 Days",
+                    "marks": [{ "type": "bold" }],
+                    "data": {}
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {},
+                "content": [
+                  { "nodeType": "text", "value": "", "marks": [], "data": {} }
+                ]
+              }
+            ]
+          },
+          "description": {
+            "data": {},
+            "content": [
+              {
+                "data": {},
+                "content": [
+                  {
+                    "data": {},
+                    "marks": [],
+                    "value": "Our products leverage cutting-edge AI algorithms to analyze data, understand context, and deliver tailored responses. This technology ensures faster resolution times, reduces errors, and continuously learns to improve performance.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          },
+          "eyebrow": null,
+          "embeddedMediaUrl": null,
+          "embeddedMediaTitle": null,
+          "id": "1YLk2y0RxCbkWjCQPF5MCY",
+          "buttons": [],
+          "media": [
+            {
+              "url": "https://images.ctfassets.net/ehmycbmc25mu/7L66WxrTUqyT8oUxgNBelF/a51c389702d728b39d65bfd52e674652/saas_graph.webp",
+              "title": "saas graph",
+              "width": 1000,
+              "height": 667,
+              "contentType": "image/webp",
+              "id": "7L66WxrTUqyT8oUxgNBelF"
+            }
+          ]
+        }
+      },
+      {
+        "contentType": "contentpresentation",
+        "id": "4t8Wg94VhNp5ljev0sCXOz",
+        "heading": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }, { "type": "underline" }],
+                  "value": "Boost",
+                  "nodeType": "text"
+                },
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }],
+                  "value": " your revenue with automated flow",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "heading-2"
+            },
+            {
+              "data": {},
+              "content": [
+                { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "summary": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [],
+                  "value": "Enhance your funnels with expert automation solutions",
+                  "nodeType": "text"
+                },
+                {
+                  "data": {},
+                  "marks": [],
+                  "value": ". If you face any issues, ",
+                  "nodeType": "text"
+                },
+                {
+                  "data": { "uri": "/demo/saas/contact" },
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "contact us",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "hyperlink"
+                },
+                {
+                  "data": {},
+                  "marks": [],
+                  "value": " for assistance—we're here to help.",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "paragraph"
+            },
+            {
+              "data": {},
+              "content": [
+                { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "eyebrow": null,
+        "appearanceVariant": "scroll",
+        "headingTextAlignment": "center",
+        "contentTextAlignment": "start",
+        "htmlid": "step-by-step-guide",
+        "backgroundColor": null,
+        "backgroundImage": null,
+        "darkMode": false,
+        "content": [
+          {
+            "contentType": "flexiblecontent",
+            "id": "5Nh8NLQiiTMlSogfQnWJ7n",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "Eliminate guesswork with tailored automation solutions",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Collaborate with Your Success Manager to Automate Your Funnels. Our Team Identifies Flows That Drive Industry Success and Customizes Them to Your Business Requirements",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": "STEP 1",
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/7BMEx7f8mqoS6ePONtSGna/89e770dc2e28248c878c55f89830efd9/saas_how_to_1.webp",
+                "title": "saas how to 1",
+                "width": 1000,
+                "height": 750,
+                "contentType": "image/webp",
+                "id": "7BMEx7f8mqoS6ePONtSGna"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "75VXXijrVH1UMxOfqu1JCz",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "Maximize your automation potential",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Stay informed with regular updates on Flow performance and receive optimization strategies to further enhance efficiency.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": "STEP 2",
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/37amy8Tpvu8GXxJYZutXTV/e31292300b32b060ff0961b03d64c3dc/saas_how_to_2.webp",
+                "title": "saas how to 2",
+                "width": 1000,
+                "height": 750,
+                "contentType": "image/webp",
+                "id": "37amy8Tpvu8GXxJYZutXTV"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "2AlGwigEH3ZsR97dtz7bFH",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "Across external platforms",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Access personalized Flows to facilitate seamless data interchange with third-party tools via API integrations, automating critical business operations.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": "STEP 3",
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/3FGhaycACdCUSpTC8hx4gj/2f710a9d507549ffa91786549fdfdcd1/saas_how_to_3.webp",
+                "title": "saas how to 3",
+                "width": 1000,
+                "height": 750,
+                "contentType": "image/webp",
+                "id": "3FGhaycACdCUSpTC8hx4gj"
+              }
+            ]
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "59AVAEjkKftK576ushPMJD",
+            "heading": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [{ "type": "bold" }],
+                      "value": "Create custom Flows with personalized training",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "heading-3"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Discover how to craft your own Flows with expert guidance. Plus, our team is available 24/7 to assist you whenever you need support.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": "STEP 4",
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "buttons": [],
+            "media": [
+              {
+                "url": "https://images.ctfassets.net/ehmycbmc25mu/CMEXS4n35agAmA5HGugZI/84e94b0f8e1c7e120352eb459a0a2213/saas_how_to_4.webp",
+                "title": "saas how to 4",
+                "width": 1000,
+                "height": 750,
+                "contentType": "image/webp",
+                "id": "CMEXS4n35agAmA5HGugZI"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "contentpresentation",
+        "id": "1Ov06cvH3EszNjnHtSgHO7",
+        "heading": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }],
+                  "value": "Don’t just take our words for it, ",
+                  "nodeType": "text"
+                },
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }, { "type": "underline" }],
+                  "value": "check how we helps",
+                  "nodeType": "text"
+                },
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }],
+                  "value": " users grow their business",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "heading-2"
+            },
+            {
+              "data": {},
+              "content": [
+                { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "summary": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+              ],
+              "nodeType": "paragraph"
+            },
+            {
+              "data": {},
+              "content": [
+                { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "eyebrow": "TESTIMONIALS",
+        "appearanceVariant": "sleek carousel",
+        "headingTextAlignment": "start",
+        "contentTextAlignment": "start",
+        "htmlid": "testimonials",
+        "backgroundColor": "neutral",
+        "backgroundImage": null,
+        "darkMode": false,
+        "content": [
+          {
+            "contentType": "flexiblecontent",
+            "id": "5v3dgAhUAYlGGmuj4DnK8J",
+            "heading": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "Excellent product. Excellent support.",
+                      "marks": [{ "type": "bold" }],
+                      "data": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "\"Since implementing NOVA's Chatbot, our customer support has been transformed. It's like having an extra team member available 24/7! Highly recommend!\"",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "- Sarah Johnson, CEO, Evergreen Solutions Inc.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [],
+            "buttons": []
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "2GJheSxYW85l5DS7lwU3d9",
+            "heading": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "Get more leads",
+                      "marks": [{ "type": "bold" }],
+                      "data": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "\"The Ticketing system from NOVA has streamlined our support operations immensely. It's intuitive, easy to use, and has significantly improved our response times.\"",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "- Mark Roberts, Customer Support Manager, Bright Ideas Co.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [],
+            "buttons": []
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "4PP9ynC1Tjv7KkjU7zaBGK",
+            "heading": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "One of the best AI agent services",
+                      "marks": [{ "type": "bold" }],
+                      "data": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "\"NOVA's AI Agent is a game-changer for us. It's incredibly smart and always provides the right solutions to our customers' problems. Our satisfaction scores have never been higher!\"",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "- Emily Chen, Head of Customer Experience, GlobalTech Innovations Ltd.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [],
+            "buttons": []
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "5d5ntaz6EAS3pHENPFlvql",
+            "heading": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "A comprehensive chatbot automation solution",
+                      "marks": [{ "type": "bold" }],
+                      "data": {}
+                    }
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "\"The Analytics Dashboard from NOVA has given us valuable insights into our customer behavior. It's helped us make data-driven decisions and optimize our strategies for better results.\" ",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "- Alex Thompson, Marketing Director, Peak Performance Enterprises",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [],
+            "buttons": []
+          }
+        ]
+      },
+      {
+        "contentType": "contentlist",
+        "id": "6zsFPj14PMxD7WJq9ug6nP",
+        "heading": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }],
+                  "value": "Find the tier tailored for you!",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "heading-3"
+            },
+            {
+              "data": {},
+              "content": [
+                { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "summary": null,
+        "eyebrow": "FLEXIBLE PRICING",
+        "htmlid": "saas-pricing",
+        "appearanceVariant": "carousel",
+        "size": "M",
+        "headingTextAlignment": "center",
+        "contentTextAlignment": "start",
+        "contentOrientation": "vertical",
+        "backgroundColor": null,
+        "backgroundImage": null,
+        "darkMode": false,
+        "buttons": [],
+        "content": [
+          {
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Curabitur quis nisl sem. Mauris vitae congue sapien.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "content": [
+                        {
+                          "data": {},
+                          "content": [
+                            {
+                              "data": {},
+                              "marks": [],
+                              "value": "Donec ut tortor in nisi laoreet porttitor",
+                              "nodeType": "text"
+                            }
+                          ],
+                          "nodeType": "paragraph"
+                        }
+                      ],
+                      "nodeType": "list-item"
+                    },
+                    {
+                      "data": {},
+                      "content": [
+                        {
+                          "data": {},
+                          "content": [
+                            {
+                              "data": {},
+                              "marks": [],
+                              "value": "Morbi cursus diam facilisis faucibus luctus.",
+                              "nodeType": "text"
+                            }
+                          ],
+                          "nodeType": "paragraph"
+                        }
+                      ],
+                      "nodeType": "list-item"
+                    },
+                    {
+                      "data": {},
+                      "content": [
+                        {
+                          "data": {},
+                          "content": [
+                            {
+                              "data": {},
+                              "marks": [],
+                              "value": "Donec a tortor a ex pretium tempus nec at dui.",
+                              "nodeType": "text"
+                            }
+                          ],
+                          "nodeType": "paragraph"
+                        }
+                      ],
+                      "nodeType": "list-item"
+                    },
+                    {
+                      "data": {},
+                      "content": [
+                        {
+                          "data": {},
+                          "content": [
+                            {
+                              "data": {},
+                              "marks": [],
+                              "value": "Sed placerat tortor id neque varius bibendum.",
+                              "nodeType": "text"
+                            }
+                          ],
+                          "nodeType": "paragraph"
+                        }
+                      ],
+                      "nodeType": "list-item"
+                    }
+                  ],
+                  "nodeType": "unordered-list"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "title": "Basic",
+            "pricing": "Free",
+            "pricingSuffix": "always",
+            "badge": null,
+            "ctaButton": {
+              "url": "/demo/corporation/contact",
+              "text": "Get started",
+              "openNewTab": false,
+              "buttonVariant": "outline-black",
+              "withArrow": false,
+              "icon": null
+            },
+            "contentType": "pricingplan",
+            "id": "7oiJDfem3aS47ZrDc63XVc"
+          },
+          {
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Curabitur quis nisl sem. Mauris vitae congue sapien.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "content": [
+                        {
+                          "data": {},
+                          "content": [
+                            {
+                              "data": {},
+                              "marks": [],
+                              "value": "Donec ut tortor in nisi laoreet porttitor",
+                              "nodeType": "text"
+                            }
+                          ],
+                          "nodeType": "paragraph"
+                        }
+                      ],
+                      "nodeType": "list-item"
+                    },
+                    {
+                      "data": {},
+                      "content": [
+                        {
+                          "data": {},
+                          "content": [
+                            {
+                              "data": {},
+                              "marks": [],
+                              "value": "Morbi cursus diam facilisis faucibus luctus.",
+                              "nodeType": "text"
+                            }
+                          ],
+                          "nodeType": "paragraph"
+                        }
+                      ],
+                      "nodeType": "list-item"
+                    },
+                    {
+                      "data": {},
+                      "content": [
+                        {
+                          "data": {},
+                          "content": [
+                            {
+                              "data": {},
+                              "marks": [],
+                              "value": "Donec a tortor a ex pretium tempus nec at dui.",
+                              "nodeType": "text"
+                            }
+                          ],
+                          "nodeType": "paragraph"
+                        }
+                      ],
+                      "nodeType": "list-item"
+                    },
+                    {
+                      "data": {},
+                      "content": [
+                        {
+                          "data": {},
+                          "content": [
+                            {
+                              "data": {},
+                              "marks": [],
+                              "value": "Sed placerat tortor id neque varius bibendum.",
+                              "nodeType": "text"
+                            }
+                          ],
+                          "nodeType": "paragraph"
+                        }
+                      ],
+                      "nodeType": "list-item"
+                    },
+                    {
+                      "data": {},
+                      "content": [
+                        {
+                          "data": {},
+                          "content": [
+                            {
+                              "data": {},
+                              "marks": [],
+                              "value": "Mauris ac purus eget purus vestibulum auctor.",
+                              "nodeType": "text"
+                            }
+                          ],
+                          "nodeType": "paragraph"
+                        }
+                      ],
+                      "nodeType": "list-item"
+                    }
+                  ],
+                  "nodeType": "unordered-list"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "title": "Standard",
+            "pricing": "$12",
+            "pricingSuffix": "per month",
+            "badge": "MOST POPULAR",
+            "ctaButton": {
+              "url": "/demo/corporation/contact",
+              "text": "Get Started",
+              "openNewTab": false,
+              "buttonVariant": "primary",
+              "withArrow": true,
+              "icon": null
+            },
+            "contentType": "pricingplan",
+            "id": "2y2JMTrNtsAGEpuwREZvh0"
+          },
+          {
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Curabitur quis nisl sem. Mauris vitae congue sapien.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "content": [
+                        {
+                          "data": {},
+                          "content": [
+                            {
+                              "data": {},
+                              "marks": [],
+                              "value": "Donec ut tortor in nisi laoreet porttitor",
+                              "nodeType": "text"
+                            }
+                          ],
+                          "nodeType": "paragraph"
+                        }
+                      ],
+                      "nodeType": "list-item"
+                    },
+                    {
+                      "data": {},
+                      "content": [
+                        {
+                          "data": {},
+                          "content": [
+                            {
+                              "data": {},
+                              "marks": [],
+                              "value": "Morbi cursus diam facilisis faucibus luctus.",
+                              "nodeType": "text"
+                            }
+                          ],
+                          "nodeType": "paragraph"
+                        }
+                      ],
+                      "nodeType": "list-item"
+                    },
+                    {
+                      "data": {},
+                      "content": [
+                        {
+                          "data": {},
+                          "content": [
+                            {
+                              "data": {},
+                              "marks": [],
+                              "value": "Donec a tortor a ex pretium tempus nec at dui.",
+                              "nodeType": "text"
+                            }
+                          ],
+                          "nodeType": "paragraph"
+                        }
+                      ],
+                      "nodeType": "list-item"
+                    },
+                    {
+                      "data": {},
+                      "content": [
+                        {
+                          "data": {},
+                          "content": [
+                            {
+                              "data": {},
+                              "marks": [],
+                              "value": "Sed placerat tortor id neque varius bibendum.",
+                              "nodeType": "text"
+                            }
+                          ],
+                          "nodeType": "paragraph"
+                        }
+                      ],
+                      "nodeType": "list-item"
+                    }
+                  ],
+                  "nodeType": "unordered-list"
+                },
+                {
+                  "data": {},
+                  "content": [
+                    { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "title": "Premium",
+            "pricing": "$48",
+            "pricingSuffix": "per month",
+            "badge": null,
+            "ctaButton": {
+              "url": "/demo/corporation/contact",
+              "text": "Get started",
+              "openNewTab": false,
+              "buttonVariant": "outline-black",
+              "withArrow": false,
+              "icon": null
+            },
+            "contentType": "pricingplan",
+            "id": "OPPf2nJvLzM9k3nav0n83"
+          },
+          {
+            "description": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "Curabitur quis nisl sem. Mauris vitae congue sapien.",
+                      "marks": [],
+                      "data": {}
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "unordered-list",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "list-item",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Donec ut tortor in nisi laoreet porttitor",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "list-item",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Morbi cursus diam facilisis faucibus luctus.",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "list-item",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Donec a tortor a ex pretium tempus nec at dui.",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "list-item",
+                      "data": {},
+                      "content": [
+                        {
+                          "nodeType": "paragraph",
+                          "data": {},
+                          "content": [
+                            {
+                              "nodeType": "text",
+                              "value": "Sed placerat tortor id neque varius bibendum.",
+                              "marks": [],
+                              "data": {}
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    { "nodeType": "text", "value": "", "marks": [], "data": {} }
+                  ]
+                }
+              ]
+            },
+            "title": "Enterprise",
+            "pricing": "Let's discuss",
+            "pricingSuffix": null,
+            "badge": null,
+            "ctaButton": {
+              "url": "/demo/saas/contact",
+              "text": "Contact Us",
+              "openNewTab": false,
+              "buttonVariant": "outline",
+              "withArrow": true,
+              "icon": null
+            },
+            "contentType": "pricingplan",
+            "id": "40LtCk5b85D3bXobfpGpF3"
+          }
+        ]
+      },
+      {
+        "contentType": "contentpresentation",
+        "id": "SMjbAufGFN8FoH7tZVEiA",
+        "heading": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }],
+                  "value": "Our users benefit from 24/7 support",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "heading-2"
+            },
+            {
+              "data": {},
+              "content": [
+                { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "summary": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [],
+                  "value": "Here are other answers to frequently asked questions:",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "paragraph"
+            },
+            {
+              "data": {},
+              "content": [
+                { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "eyebrow": "FREQUENTLY ASKED QUESTIONS",
+        "appearanceVariant": "accordion",
+        "headingTextAlignment": "center",
+        "contentTextAlignment": "start",
+        "htmlid": "other-answers-to-frequently",
+        "backgroundColor": null,
+        "backgroundImage": null,
+        "darkMode": false,
+        "content": [
+          {
+            "contentType": "flexiblecontent",
+            "id": "2pJRU6OGVa6q3ocaA94vkO",
+            "heading": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "heading-4",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "How easy is it to integrate NOVA with our existing systems?",
+                      "marks": [{ "type": "bold" }],
+                      "data": {}
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    { "nodeType": "text", "value": "", "marks": [], "data": {} }
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Integrating NOVA with your existing systems is straightforward and can be done through APIs or integration plugins. Our team provides documentation and support to ensure a smooth integration process.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [],
+            "buttons": []
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "1MIYxt6noCDyl3o3KttLzp",
+            "heading": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "heading-4",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "Can we customize the Chatbot's responses to fit our brand's tone and style?",
+                      "marks": [{ "type": "bold" }],
+                      "data": {}
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    { "nodeType": "text", "value": "", "marks": [], "data": {} }
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Yes, absolutely. NOVA's Chatbot allows for extensive customization, including personalized responses tailored to your brand's tone and style. You can customize greetings, messages, and responses to align with your brand identity.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [],
+            "buttons": []
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "3aiTYMuxzEdYIPwiXoJpWn",
+            "heading": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "heading-4",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "Is there a limit to the number of tickets we can handle with the Ticketing system?",
+                      "marks": [{ "type": "bold" }],
+                      "data": {}
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    { "nodeType": "text", "value": "", "marks": [], "data": {} }
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "NOVA's Ticketing system is designed to handle a large volume of tickets efficiently. While there may be tiered plans with different limits, we offer scalable solutions that can accommodate the ticket volume of businesses of all sizes. If you have specific requirements, our team can work with you to tailor a solution that meets your needs.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [],
+            "buttons": []
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "2Ey2AKHFaQTiCgVcnulQN5",
+            "heading": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "heading-4",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "What kind of support do you offer to customers?",
+                      "marks": [{ "type": "bold" }],
+                      "data": {}
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    { "nodeType": "text", "value": "", "marks": [], "data": {} }
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "We provide comprehensive support to our customers, including technical assistance, onboarding support, and ongoing guidance. Our dedicated support team is available to help you with any questions or issues you may encounter. Additionally, we offer training resources and documentation to ensure that you and your team can make the most out of NOVA's features.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [],
+            "buttons": []
+          },
+          {
+            "contentType": "flexiblecontent",
+            "id": "bciv5dCPU4e3anme9ZvSJ",
+            "heading": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "heading-4",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "Can I change my subscription at any time?",
+                      "marks": [{ "type": "bold" }],
+                      "data": {}
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    { "nodeType": "text", "value": "", "marks": [], "data": {} }
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Morbi tincidunt turpis quis odio faucibus, non fringilla ipsum egestas. Aliquam fermentum, leo pretium fermentum tincidunt, turpis orci finibus diam, non pellentesque libero purus et orci. Nullam id finibus metus. Nunc pharetra dolor suscipit, porta dolor ut, hendrerit lectus.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "eyebrow": null,
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": [],
+            "buttons": []
+          }
+        ]
+      },
+      {
+        "contentType": "inquiryform",
+        "id": "6KSIzGKf0EL6OcYdNSXMn2",
+        "heading": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [{ "type": "bold" }],
+                  "value": "Join our Newsletter",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "heading-3"
+            },
+            {
+              "data": {},
+              "content": [
+                { "data": {}, "marks": [], "value": "", "nodeType": "text" }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "description": {
+          "data": {},
+          "content": [
+            {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "marks": [],
+                  "value": "Get all the latest NovaJAM updates, news and events.",
+                  "nodeType": "text"
+                }
+              ],
+              "nodeType": "paragraph"
+            }
+          ],
+          "nodeType": "document"
+        },
+        "title": "Join our Newsletter",
+        "eyebrow": null,
+        "summary": null,
+        "dateFormat": "DD/MM/YYYY",
+        "successMessage": "Thank you! Your submission has been sent.",
+        "errorMessage": "Your submission has failed. Please try again.",
+        "htmlid": "join-our-newsletter",
+        "formType": "subscription",
+        "appearanceVariant": "vertical",
+        "backgroundColor": "indigo",
+        "darkMode": true,
+        "backgroundImage": {
+          "url": "https://images.ctfassets.net/ehmycbmc25mu/1DQTIosnqw65bPRC7Q3bUt/6ffe7580335d9343a0a32890d20250ed/paper_plane_background.webp",
+          "title": "paper plane background.webp",
+          "width": 1600,
+          "height": 900
+        },
+        "submitButton": {
+          "text": "Subscribe",
+          "url": null,
+          "buttonVariant": "outline-white",
+          "withArrow": false,
+          "icon": null
+        },
+        "fields": [
+          {
+            "label": "Email",
+            "fieldType": "email",
+            "options": null,
+            "required": true,
+            "helpText": null,
+            "uiWidth": "full-size",
+            "id": "CjimkaH8B1H7yndIssVch"
+          }
+        ]
+      },
+      {
+        "contentType": "hero",
+        "id": "4qh4qtRjsfCdF40XLjIwZz",
+        "appearanceVariant": "vertical",
+        "contentTextAlignment": "center",
+        "backgroundColor": null,
+        "backgroundImage": null,
+        "darkMode": false,
+        "content": [
+          {
+            "heading": {
+              "nodeType": "document",
+              "data": {},
+              "content": [
+                {
+                  "nodeType": "heading-2",
+                  "data": {},
+                  "content": [
+                    {
+                      "nodeType": "text",
+                      "value": "We'll be happy to assist you!",
+                      "marks": [{ "type": "bold" }],
+                      "data": {}
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "paragraph",
+                  "data": {},
+                  "content": [
+                    { "nodeType": "text", "value": "", "marks": [], "data": {} }
+                  ]
+                }
+              ]
+            },
+            "eyebrow": "HAVE ANY QUESTION?",
+            "contentType": "flexiblecontent",
+            "id": "5a7JYeH0iUlfD0qpIyB94c",
+            "buttons": [
+              {
+                "url": "/demo/saas/contact",
+                "text": "Contact Us",
+                "openNewTab": false,
+                "buttonVariant": "primary",
+                "withArrow": false,
+                "icon": null,
+                "id": "6SCDJAZfH8Ci5QslAeMNIg"
+              }
+            ],
+            "description": {
+              "data": {},
+              "content": [
+                {
+                  "data": {},
+                  "content": [
+                    {
+                      "data": {},
+                      "marks": [],
+                      "value": "Our suite of products revolutionizes the way you engage with your customers, boosting efficiency and satisfaction.",
+                      "nodeType": "text"
+                    }
+                  ],
+                  "nodeType": "paragraph"
+                }
+              ],
+              "nodeType": "document"
+            },
+            "embeddedMediaUrl": null,
+            "embeddedMediaTitle": null,
+            "media": []
+          }
+        ]
+      }
+    ]
+  }
+]

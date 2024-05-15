@@ -4,7 +4,7 @@ import { Pagination } from "@/components/elements/Pagination/Pagination";
 import { FeaturedBlogs } from "@/components/sections/FeaturedBlogs/FeaturedBlogs";
 import { LatestBlogs } from "@/components/sections/LatestBlogs/LatestBlogs";
 import { BlogType, BLOG_PAGE_SIZE } from "@/helpers/types";
-import getBlogs from "@/helpers/contentful/graphql/getBlogs";
+import getBlogs from "@/helpers/query/getBlogs";
 
 type PageProps = {
   searchParams: { topic: string | string[] | undefined };
@@ -34,12 +34,12 @@ export async function generateMetadata(
 
 export default async function Page({ searchParams }: PageProps) {
   const { topic } = searchParams;
-  const featuredBlogs = (await getBlogs(4, 0, true, topic as string[])) as Array<BlogType>;
+  const featuredBlogs = (await getBlogs(4, 0, true, topic as string)) as Array<BlogType>;
   const latestBlogs = (await getBlogs(
     BLOG_PAGE_SIZE,
     0,
     false,
-    topic as string[]
+    topic as string
   )) as Array<BlogType>;
 
   return (

@@ -14,7 +14,7 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { useInView } from "react-hook-inview";
 import * as Toast from "@radix-ui/react-toast";
-import { createInquiryFormSubmission } from "@/helpers/actions/createInquiryFormSubmission";
+import { createInquiryFormSubmission } from "@/helpers/server-actions/createInquiryFormSubmission";
 
 export type FormValues = {
   [x: string]: string | Date;

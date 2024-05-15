@@ -3,15 +3,15 @@ import { Metadata, ResolvingMetadata } from "next";
 import { BlogPost } from "@/components/sections/BlogPost/BlogPost"
 import { LatestBlogs } from "@/components/sections/LatestBlogs/LatestBlogs"
 import { BlogType } from "@/helpers/types"
-import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails"
-import getBlogs from "@/helpers/contentful/graphql/getBlogs"
+import getBlogPost from "@/helpers/query/getBlogPost"
+import getBlogs from "@/helpers/query/getBlogs"
 
 export async function generateMetadata(
 { params }: { params: { slug: string } },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const previousImages = (await parent).openGraph?.images || [];
-  const data: BlogType = await getBlogDetails(params.slug)
+  const data: BlogType = await getBlogPost(params.slug)
   return {
     title: data?.metaTitle ?? data?.title,
     description: data?.metaDescription ?? data.summary,
@@ -25,7 +25,7 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params }: {params: { slug: string } },) {
-  const data = await getBlogDetails(params.slug)
+  const data = await getBlogPost(params.slug)
   const latestBlogs = (await getBlogs(
     3,
     0,

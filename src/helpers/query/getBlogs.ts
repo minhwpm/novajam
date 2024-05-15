@@ -1,12 +1,23 @@
 import normalizeDataCollection from "./normalizeDataCollection";
+import blogs from "./static-data/blogs.json"
 
 export default async function getBlogs(
   limit?: number,
   skip?: number,
   featured?: boolean,
-  topic?: string[],
+  topic?: string,
   excludeSlug?: string
 ) {
+  if (process.env.DATA_SOURCE === "STATIC") {
+    const result = blogs
+      .filter(item => {
+        const isFeaturedMatch = (featured !== undefined) ? item.featured === featured : true;
+        const isTopicMatch = topic ? item.topics.includes(topic) : true;
+        return isFeaturedMatch && isTopicMatch;
+      })
+      .slice(skip ? skip - 1 : 0, limit)
+    return result
+  }
   try {
     const res = await fetch(
       `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,

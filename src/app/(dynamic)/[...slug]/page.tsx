@@ -7,9 +7,9 @@ import { FeaturedBlogs } from "@/components/sections/FeaturedBlogs/FeaturedBlogs
 import { LatestBlogs } from "@/components/sections/LatestBlogs/LatestBlogs";
 import { Container } from "@/components/elements/Container/Container";
 import { Pagination } from "@/components/elements/Pagination/Pagination";
-import getPage from "@/helpers/contentful/graphql/getPage";
-import getBlogDetails from "@/helpers/contentful/graphql/getBlogDetails";
-import getBlogs from "@/helpers/contentful/graphql/getBlogs";
+import getPage from "@/helpers/query/getPage";
+import getBlogPost from "@/helpers/query/getBlogPost";
+import getBlogs from "@/helpers/query/getBlogs";
 
 // @TODO remove all console.log
 export async function generateMetadata(
@@ -44,7 +44,7 @@ export default async function Page({
       BLOG_PAGE_SIZE,
       0,
       false,
-      topic as string[]
+      topic as string
     )) as Array<BlogType>;
     return (
       <main className="flex flex-col min-h-screen">
@@ -65,7 +65,7 @@ export default async function Page({
       BLOG_PAGE_SIZE,
       (pageNumber - 1) * BLOG_PAGE_SIZE,
       false,
-      topic as string[]
+      topic as string
     )) as Array<BlogType>;
     if (!latestBlogs.length) {
       notFound()
@@ -85,7 +85,7 @@ export default async function Page({
     )
   ) {
     const currentBlogSlug = params.slug![params.slug!.length - 1];
-    const data = await getBlogDetails(currentBlogSlug);
+    const data = await getBlogPost(currentBlogSlug);
     const latestBlogs = (await getBlogs(
       3,
       0,

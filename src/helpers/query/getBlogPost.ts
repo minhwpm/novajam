@@ -1,8 +1,13 @@
 import getAsset from "./getAsset";
 import getFlexibleContent from "./getFlexibleContent";
 import normalizeDataCollection from "./normalizeDataCollection";
+import blogs from "./static-data/blogs.json"
 
-export default async function getBlogDetails(slug: string) {
+export default async function getBlogPost(slug: string) {
+  if (process.env.DATA_SOURCE === "STATIC") {
+    const result = blogs.find(item => item.slug === slug)
+    return result
+  }
   try {
     const res = await fetch(
       `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
@@ -42,6 +47,7 @@ export default async function getBlogDetails(slug: string) {
               json
             }
             topics
+            featured
             author {
               sys {
                 id
@@ -99,7 +105,8 @@ export default async function getBlogDetails(slug: string) {
       }
     }
     const normalizedData = normalizeDataCollection(data.data);
-    // console.log(`BLOG DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+    console.log(`************************************`)
+    console.log(`BLOG DATA: ${JSON.stringify(normalizedData[0])}`)
     return normalizedData[0];
   } catch (error) {
     console.error(error);
