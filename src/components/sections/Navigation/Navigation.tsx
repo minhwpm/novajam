@@ -62,11 +62,11 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
       >
         <div
           className={classNames(
-            "absolute top-0 left-0 right-0 pt-2 flex justify-center lg:min-h-[80px]",
+            "absolute top-0 left-0 right-0 flex justify-center",
             { "text-neutral-50": darkMode }
           )}
         >
-          <div className="container p-4 lg:py-0 flex items-center">
+          <div className="container px-4 min-h-[70px] lg:min-h-[80px] flex items-center">
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
             </div>
@@ -97,7 +97,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
     >
       <div
         className={classNames(
-          "container p-4 lg:py-0 lg:min-h-[80px] mx-auto flex items-center"
+          "container px-4 min-h-[70px] lg:min-h-[80px] mx-auto flex items-center"
         )}
       >
         <div className="shrink-0">
