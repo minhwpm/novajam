@@ -62,7 +62,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
       >
         <div
           className={classNames(
-            "absolute top-0 left-0 right-0 pt-2 flex justify-center",
+            "absolute top-0 left-0 right-0 pt-2 flex justify-center lg:min-h-[80px]",
             { "text-neutral-50": darkMode }
           )}
         >
@@ -97,7 +97,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
     >
       <div
         className={classNames(
-          "container p-4 lg:py-0 mx-auto flex items-center"
+          "container p-4 lg:py-0 lg:min-h-[80px] mx-auto flex items-center"
         )}
       >
         <div className="shrink-0">
