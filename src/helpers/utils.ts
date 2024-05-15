@@ -1,3 +1,4 @@
+// @TODO remove this
 export function simpleStringify (object: {[x: PropertyKey]: any}){
   // stringify an object, avoiding circular structures
   // https://stackoverflow.com/a/31557814
