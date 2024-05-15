@@ -31,7 +31,7 @@ export const ExpertPreview: React.FC<{
       <div
         ref={ref}
         className={classNames(
-          "flex p-4 rounded-theme",
+          "flex flex-wrap gap-y-4 justify-center rounded-theme",
           { "relative -bottom-10 opacity-0": animate },
           {
             "animate-slidingUpContent animation-delay-150":
@@ -39,13 +39,13 @@ export const ExpertPreview: React.FC<{
           }
         )}
       >
-        <div className="w-1/3 md:w-1/4">
+        <div className="w-1/2 sm:w-1/3 md:w-1/4">
           <MediaItem data={portrait} aspectRatio="square" rounded="full" />
         </div>
-        <div className="w-2/3 md:w-3/4 pl-4 md:pl-6">
+        <div className="w-full sm:w-2/3 md:w-3/4 sm:pl-4 md:pl-6">
           <div
             className={classNames(
-              "font-heading font-semibold text-2xl md:text-3xl mb-2",
+              "font-heading font-semibold text-2xl md:text-3xl text-center sm:text-start mb-2",
               { "text-neutral-50": darkMode }
             )}
           >
@@ -54,7 +54,7 @@ export const ExpertPreview: React.FC<{
           {role && (
             <div
               className={classNames(
-                "font-semibold",
+                "font-semibold text-center sm:text-start",
                 { "text-neutral-500": !darkMode },
                 { "text-neutral-200": darkMode }
               )}
@@ -65,7 +65,7 @@ export const ExpertPreview: React.FC<{
           {specialization && (
             <div
               className={classNames(
-                "flex flex-wrap items-center gap-2",
+                "flex flex-wrap items-center gap-2 justify-center sm:justify-start",
                 { "text-neutral-500": !darkMode },
                 { "text-neutral-200": darkMode }
               )}
@@ -78,6 +78,7 @@ export const ExpertPreview: React.FC<{
           {organization && (
             <div
               className={classNames(
+                "text-center sm:text-start",
                 { "text-neutral-500": !darkMode },
                 { "text-neutral-200": darkMode }
               )}

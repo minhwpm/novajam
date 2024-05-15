@@ -113,11 +113,11 @@ export default async function getNavigation(url: string) {
     normalizedData[0]?.menu && await Promise.all(
       normalizedData[0]?.menu.map(
         async (
-          menuItem: { __typename: string; sys: { id: string } },
+          menuItem: { contentType: string;  id: string },
           index: string | number
         ) => {
-          if (menuItem.__typename === "Submenu") {
-            const submenuData = await getSubmenu(menuItem.sys.id);
+          if (menuItem.contentType === "submenu") {
+            const submenuData = await getSubmenu(menuItem.id);
             normalizedData[0].menu[index] = { ...menuItem, ...submenuData };
           }
         }

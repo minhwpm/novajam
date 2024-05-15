@@ -12,7 +12,7 @@ export const DeckList: React.FC<{
     <div className="flex flex-wrap justify-center -mx-4">
       {list.map((item, idx) => (
         <div 
-          key={item.id} 
+          key={idx} 
           className={classNames(
             "p-4 w-full",
             { "lg:basis-1/2": size === "XL" },
