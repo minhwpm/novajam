@@ -1,7 +1,5 @@
-// @TODO remove this
 export function simpleStringify (object: {[x: PropertyKey]: any}){
   // stringify an object, avoiding circular structures
-  // https://stackoverflow.com/a/31557814
   const simpleObject: {[x: PropertyKey]: any} = {};
   for (const prop in object ){
     if (!Object.prototype.hasOwnProperty.call(object, prop)) {
