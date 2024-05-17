@@ -136,8 +136,7 @@ export default async function getPage(url: string) {
       )
     );
     
-    console.log(`************************`)
-    console.log(`**************PAGE DATA: ${JSON.stringify(normalizedData[0])}`)
+    // console.log(`PAGE DATA: ${JSON.stringify(normalizedData[0])}`)
     return normalizedData[0]
   } catch (error) {
     console.error(error);
