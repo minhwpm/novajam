@@ -50,7 +50,6 @@ export default async function getAsset(id: string) {
     const data = await res.json();
     const normalizedData = normalizeDataCollection(data.data);
 
-    // console.log(`ASSET DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
     return normalizedData[0];
   } catch (error) {
     console.error(error);

@@ -92,7 +92,6 @@ export default async function getBlogs(
     const data = await res.json();
 
     const normalizedData = normalizeDataCollection(data.data);
-    // console.log(`BLOG LIST DATA: ${JSON.stringify(normalizedData, null, 4)}`)
     return normalizedData;
   } catch (error) {
     console.error(error);

@@ -11,7 +11,6 @@ import getPage from "@/helpers/query/getPage";
 import getBlogPost from "@/helpers/query/getBlogPost";
 import getBlogs from "@/helpers/query/getBlogs";
 
-// @TODO remove all console.log
 export async function generateMetadata(
   { params }: { params: { slug: Array<string> } },
   parent: ResolvingMetadata

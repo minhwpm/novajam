@@ -109,7 +109,6 @@ export default async function getSubmenu(id: string) {
         };
       }
     }
-    // console.log(`SUBMENU DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
     return normalizedData[0];
   } catch (error) {
     console.error(error);

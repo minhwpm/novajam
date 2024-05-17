@@ -105,8 +105,6 @@ export default async function getBlogPost(slug: string) {
       }
     }
     const normalizedData = normalizeDataCollection(data.data);
-    console.log(`************************************`)
-    console.log(`BLOG DATA: ${JSON.stringify(normalizedData[0])}`)
     return normalizedData[0];
   } catch (error) {
     console.error(error);
