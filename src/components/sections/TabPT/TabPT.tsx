@@ -67,7 +67,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                     key={section.id}
                     value={section.id}
                     className={classNames(
-                      "group/trigger shrink-0 px-6 py-2 hover:bg-neutral-200 flex flex-col justify-center items-center cursor-pointer rounded-theme hover:bg-opacity-90 data-[state='active']:bg-primary-600"
+                      "group/trigger shrink-0 px-6 py-2 hover:bg-neutral-200 flex flex-col justify-center items-center cursor-pointer rounded-theme-button hover:bg-opacity-90 data-[state='active']:bg-primary-600"
                     )}
                   >
                     {section.eyebrow && (
