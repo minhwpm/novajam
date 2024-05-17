@@ -17,7 +17,7 @@ export default async function Page({ params, searchParams } : Props ) {
     BLOG_PAGE_SIZE,
     (number - 1) * BLOG_PAGE_SIZE,
     false,
-    topic as string[]
+    topic as string
   )) as Array<BlogType>;
   if (!latestBlogs.length) {
     notFound()
