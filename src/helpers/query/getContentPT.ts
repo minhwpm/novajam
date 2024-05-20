@@ -89,7 +89,6 @@ export default async function getContentPT(id: string) {
       )
     )
 
-    // console.log(`ContentPT DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
     return normalizedData[0];
   } catch (error) {
     console.error(error);

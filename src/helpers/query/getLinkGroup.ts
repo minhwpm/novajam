@@ -57,7 +57,6 @@ export default async function getLinkGroup(id: string) {
     const data = await res.json();
     const normalizedData = normalizeDataCollection(data.data);
 
-    // console.log(`LinkGroup DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
     return normalizedData[0];
   } catch (error) {
     console.error(error);

@@ -71,7 +71,6 @@ export default async function getFeature(id: string) {
         ...(await getFlexibleContent(normalizedData[0].content.sys.id)),
       };
     }
-    // console.log(`FEATURED CONTENT DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
     return normalizedData[0];
   } catch (error) {
     console.error(error);

@@ -239,7 +239,6 @@ export default async function getContentList(id: string) {
         }
       )
     );
-    // console.log(`CONTENT LIST DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
     return normalizedData[0];
   } catch (error) {
     console.error(error);

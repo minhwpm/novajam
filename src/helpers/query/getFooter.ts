@@ -1,6 +1,11 @@
 import normalizeDataCollection from "./normalizeDataCollection"
+import footers from "./static-data/footers.json"
 
 export default async function getFooter(url: string) {
+  if (process.env.DATA_SOURCE === "STATIC") {
+    const result = footers.find(item => item.url === url)
+    return result
+  }
   try {
     const res = await fetch(
       `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
@@ -82,7 +87,6 @@ export default async function getFooter(url: string) {
     const data = await res.json();
     const normalizedData = normalizeDataCollection(data.data);
 
-    // console.log(`FOOTER DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
     return normalizedData[0];
   } catch (error) {
     console.error(error);

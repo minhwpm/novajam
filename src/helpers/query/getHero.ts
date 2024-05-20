@@ -95,7 +95,6 @@ export default async function getHero(id: string) {
     )
   )
 
-  // console.log(`HERO DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
   return normalizedData[0]
 } catch (error) {
   console.error(error);

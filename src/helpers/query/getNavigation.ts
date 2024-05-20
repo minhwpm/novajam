@@ -1,7 +1,12 @@
 import getSubmenu from "./getSubmenu"
 import normalizeDataCollection from "./normalizeDataCollection"
+import navigations from "./static-data/navigations.json"
 
 export default async function getNavigation(url: string) {
+  if (process.env.DATA_SOURCE === "STATIC") {
+    const result = navigations.find(item => item.url === url)
+    return result
+  }
   try {
     const res = await fetch(
       `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
@@ -123,7 +128,7 @@ export default async function getNavigation(url: string) {
         }
       )
     );
-    // console.log(`NAVIGATION DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
+
     return normalizedData[0];
   } catch (error) {
     console.error(error);

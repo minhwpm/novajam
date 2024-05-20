@@ -7178,7 +7178,7 @@
         "darkMode": false,
         "buttons": [
           {
-            "url": "/demo/health-care/blog",
+            "url": "/demo/healthcare/blog",
             "text": "View All Stories",
             "openNewTab": true,
             "buttonVariant": "primary",

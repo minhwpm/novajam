@@ -90,7 +90,6 @@ export default async function getFlexibleContent(id: string) {
 
     const data = await res.json();
     const normalizedData = normalizeDataCollection(data.data);
-    // console.log(`CONTENT PIECE DATA: ${JSON.stringify(normalizedData[0], null, 4)}`)
     return normalizedData[0];
   } catch (error) {
     console.error(error);
