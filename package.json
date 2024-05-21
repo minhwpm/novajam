@@ -1,6 +1,8 @@
 {
-  "name": "bluebiz",
-  "version": "0.1.0",
+  "name": "novajam",
+  "description": "NovaJAM is an Multi-purpose All-in-One JAMstack Template & Web Page Composer which is built with cutting edge technologies: React, NextJS 14, Typescript, Tailwind and seamlessly integrated with Contentful CMS.",
+  "author": "HelloWebbie",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
