@@ -10,7 +10,13 @@ NovaJAM is an Multi-purpose All-in-One JAMstack Template & Web Page Composer whi
 cp .env.template .env
 ```
 
-2. Run the development server:
+2. Install dependencies
+
+```bash
+yarn
+```
+
+3. Run the development server:
 
 ```bash
 yarn dev
