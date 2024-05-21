@@ -1,0 +1,6 @@
+{
+  "contentFile": "./data.json",
+  "spaceId": "Replace with your Contentful Space ID",
+  "managementToken": "Replace with your Contentful Management Personal Access Token",
+  "skipContentPublishing": false
+}
