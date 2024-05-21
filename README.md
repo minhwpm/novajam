@@ -13,11 +13,7 @@ cp .env.template .env
 2. Run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -30,7 +26,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Integrate with Contentful (a Headless CMS)
+## Integrate with [Contentful](https://www.contentful.com/), a Headless CMS
 
 This project is initially served by static data in the format of JSON files, which you can find in [this directory](/src/helpers/query/static-data). However, you can easily integrate it with the leading Headless CMS, Contentful, to leverage its powerful features such as the Page Composing tool, Theme configuration, Form building, User form submissions, etc. Follow these steps:
 
@@ -39,12 +35,13 @@ This project is initially served by static data in the format of JSON files, whi
 3. Create a Contentful Delivery API Access Token: Generate an API key under Settings > API keys.
 4. Create a Contentful Manangement Personal Access Token: Generate a Personal Access Token under Settings > CMA tokens.
 5. Import Content Models and Entries: Follow the [instructions below](##-import-content-models-and-entries-into-contentful) to import content models and entries into your Contentful space.
-6. Update Environment Variable for Local Development: 
-* Change the `DATA_SOURCE` variable in your `.env` file from `STATIC` to `CONTENTFUL`
-* Update `CONTENTFUL_SPACE_ID`, `CONTENTFUL_DELIVERY_API_ACCESS_TOKEN`, and `CONTENTFUL_MANAGEMENT_PERSONAL_ACCESS_TOKEN` with the values generated in steps 2, 3, and 4.
-7. Update Environment Variable on Vercel (if you choose to deploy with Vercel):
+6. Update Environment Variable 
+* Local Development: 
+  - Update the `DATA_SOURCE` variable in your `.env` file with `CONTENTFUL`
+  - Update `CONTENTFUL_SPACE_ID`, `CONTENTFUL_DELIVERY_API_ACCESS_TOKEN`, and `CONTENTFUL_MANAGEMENT_PERSONAL_ACCESS_TOKEN` with the values generated in steps 2, 3, and 4.
+* Vercel (if you choose to deploy with Vercel):
 Open the Vercel dashboard, go to Settings > Environment Variables, and update the variables as specified for Local Development.
-8. (OPTIONAL) Install Contentful extensions: Follow the [instruction below](##-install-contentful-extensions). Extensions are not required but provide a more intuitive and comfortable editing experience.
+7. (OPTIONAL) Install Contentful extensions: Follow the [instruction below](##-install-contentful-extensions). Extensions are not required but provide a more intuitive and comfortable editing experience.
 
 ## Import Content Models and Entries into Contentful
 1. Install Contentful CLI: Ensure you have the Contentful CLI installed locally. Follow the [Contentful CLI installation guide](https://www.contentful.com/developers/docs/tutorials/cli/installation/)

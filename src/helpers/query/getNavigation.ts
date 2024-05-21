@@ -1,25 +1,22 @@
-import getSubmenu from "./getSubmenu"
-import normalizeDataCollection from "./normalizeDataCollection"
-import navigations from "./static-data/navigations.json"
+import getSubmenu from "./getSubmenu";
+import normalizeDataCollection from "./normalizeDataCollection";
+import navigations from "./static-data/navigations.json";
 
 export default async function getNavigation(url: string) {
-  if (process.env.DATA_SOURCE === "STATIC") {
-    const result = navigations.find(item => item.url === url)
-    return result
-  }
-  try {
-    const res = await fetch(
-      `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // Authenticate the request
-          Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
-        },
-        // send the GraphQL query
-        body: JSON.stringify({
-          query: `
+  if (process.env.DATA_SOURCE === "CONTENTFUL") {
+    try {
+      const res = await fetch(
+        `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            // Authenticate the request
+            Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
+          },
+          // send the GraphQL query
+          body: JSON.stringify({
+            query: `
       query($url: String) {
         navigationCollection(
           where: { 
@@ -96,44 +93,51 @@ export default async function getNavigation(url: string) {
         }
       }
     `,
-          variables: {
-            url,
-          },
-        }),
-      }
-    );
+            variables: {
+              url,
+            },
+          }),
+        }
+      );
 
-    if (!res.ok) {
-      const errorData = await res.json();
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(
+          `Failed to fetch Navigation data: ${
+            errorData.errors?.[0]?.message || res.statusText
+          }`
+        );
+      }
+
+      const data = await res.json();
+      const normalizedData = normalizeDataCollection(data.data);
+
+      normalizedData[0]?.menu &&
+        (await Promise.all(
+          normalizedData[0]?.menu.map(
+            async (
+              menuItem: { contentType: string; id: string },
+              index: string | number
+            ) => {
+              if (menuItem.contentType === "submenu") {
+                const submenuData = await getSubmenu(menuItem.id);
+                normalizedData[0].menu[index] = { ...menuItem, ...submenuData };
+              }
+            }
+          )
+        ));
+
+      return normalizedData[0];
+    } catch (error) {
+      console.error(error);
       throw new Error(
-        `Failed to fetch Navigation data: ${
-          errorData.errors?.[0]?.message || res.statusText
-        }`
+        `An error occurred while fetching navigation data: ${error}`
       );
     }
+  }
 
-    const data = await res.json();
-    const normalizedData = normalizeDataCollection(data.data);
-
-    normalizedData[0]?.menu && await Promise.all(
-      normalizedData[0]?.menu.map(
-        async (
-          menuItem: { contentType: string;  id: string },
-          index: string | number
-        ) => {
-          if (menuItem.contentType === "submenu") {
-            const submenuData = await getSubmenu(menuItem.id);
-            normalizedData[0].menu[index] = { ...menuItem, ...submenuData };
-          }
-        }
-      )
-    );
-
-    return normalizedData[0];
-  } catch (error) {
-    console.error(error);
-    throw new Error(
-      `An error occurred while fetching navigation data: ${error}`
-    );
+  if (process.env.DATA_SOURCE === 'STATIC' || !process.env.DATA_SOURCE) {
+    const result = navigations.find((item) => item.url === url);
+    return result;
   }
 }
