@@ -103,7 +103,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
         <div className="shrink-0">
           <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
         </div>
-        <div className="flex-1 pt-6">
+        <div className="flex-1 pt-4">
           {menu && <NavMenu menu={menu} appearanceVariant={appearanceVariant} />}
         </div>
         {buttons && buttons.length > 0 && (

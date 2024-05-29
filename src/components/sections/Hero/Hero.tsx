@@ -137,7 +137,7 @@ const HeroSection: React.FC<{
     >
       <div
         className={classNames(
-          "flex flex-col gap-2 py-16 lg:py-20 xl:py-24",
+          "flex flex-col gap-4 py-16 lg:py-20 xl:py-24",
           { "px-4 custom-padding-left": appearanceVariant === "horizontal" },
           { "items-center text-center": alignment === "center" },
           { "items-end text-end": alignment === "end" }
@@ -146,7 +146,7 @@ const HeroSection: React.FC<{
         {data.eyebrow && (
           <div
             className={classNames(
-              "text-sm lg:text-base font-medium tracking-widest max-w-2xl opacity-0",
+              "text-sm xl:text-base tracking-widest max-w-2xl opacity-0",
               {
                 "animate-slidingHeroContent animation-delay-500":
                   isIntersecting,

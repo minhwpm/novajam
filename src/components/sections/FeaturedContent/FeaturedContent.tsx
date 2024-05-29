@@ -24,7 +24,7 @@ const TextPart: React.FC<{
       {eyebrow && (
         <div
           className={classNames(
-            "text-sm lg:text-base tracking-widest mb-2 font-medium max-w-5xl",
+            "text-sm xl:text-base tracking-widest mb-2 max-w-5xl",
             { "text-primary-500": !darkMode },
             { "text-primary-400": darkMode }
           )}
