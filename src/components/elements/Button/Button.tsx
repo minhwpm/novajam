@@ -103,9 +103,9 @@ export const Button: React.FC<{
         buttonVariant === "outline-black",
       "border-white text-white hover:bg-white hover:text-neutral-800 drop-shadow-lg":
         buttonVariant === "outline-white",
-      "px-5 py-2.5 min-w-[100px] lg:min-w-[120px] text-smd 2xl:text-base font-medium":
+      "px-4 py-2 min-w-[100px] lg:min-w-[120px] text-smd 2xl:text-base font-medium":
         size === "base",
-      "px-6 py-3 min-w-[130px] lg:min-w-[160px] font-medium xl:text-lg":
+      "px-8 py-4 min-w-[130px] lg:min-w-[160px] font-medium xl:text-lg":
         size === "lg",
       "opacity-20 pointer-events-none cursor-not-allowed": disabled
     },
