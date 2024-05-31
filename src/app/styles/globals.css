@@ -86,8 +86,12 @@ body {
   width: 100%;
 }
 
-h1 u, h2 u, h3 u, h4 u {
-  @apply bg-gradient-to-r from-primary-500 via-primary-600 to-primary-500 bg-clip-text text-transparent;
+h1 u, h2 u {
+  @apply bg-gradient-to-tr from-primary-400 via-primary-700 to-primary-500 bg-clip-text text-transparent;
+  text-decoration: unset;
+}
+h3 u, h4 u {
+  @apply text-primary-600;
   text-decoration: unset;
 }
 
