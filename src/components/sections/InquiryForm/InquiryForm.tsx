@@ -257,7 +257,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                 {submitButton ? (
                   <Button
                     data={submitButton}
-                    size="lg"
+                    size="base"
                     type="submit"
                     fullWidth={true}
                   />

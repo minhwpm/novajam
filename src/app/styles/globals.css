@@ -87,8 +87,12 @@ body {
 }
 
 h1 u, h2 u, h3 u, h4 u {
-  @apply text-primary-600;
+  @apply bg-gradient-to-r from-primary-500 via-primary-600 to-primary-500 bg-clip-text text-transparent;
   text-decoration: unset;
+}
+
+h1 b, h2 b {
+  @apply font-extrabold;
 }
 
 .show-scrollbar::-webkit-scrollbar {

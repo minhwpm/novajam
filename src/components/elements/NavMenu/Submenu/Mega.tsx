@@ -27,7 +27,7 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
                   {subItem.contentType === "linkgroup" &&
                     subItem.links.length > 0 &&
                     subItem.links.map((link) => (
-                      <li key={link.id}>
+                      <li key={link.id} className="py-1.5">
                         <NavLinkItem href={link.url}>{link.text}</NavLinkItem>
                       </li>
                     ))}
@@ -39,7 +39,7 @@ export const Mega: React.FC<{data: SubmenuType}> = ({ data }) => {
         {data.featuredContent.length > 0 && (
           <div
             className={classNames(
-              " basis-80 flex gap-4 lg:gap-6 overflow-x-scroll overscroll-x-contain",
+              "basis-80 flex gap-4 lg:gap-6 overflow-x-scroll overscroll-x-contain",
               { grow: data.featuredContent.length > 1 },
               {
                 "justify-end": data.featuredContent.length === 1,

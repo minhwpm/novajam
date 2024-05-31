@@ -10,7 +10,7 @@ export const Button: React.FC<{
   className?: string;
   children?: React.ReactNode;
   onClick?: () => void;
-  size?: "base" | "lg";
+  size?: "sm" | "base" | "lg";
   type?: "submit" | "button" | "reset" | undefined;
   disabled?: boolean;
   fullWidth?: boolean;
@@ -80,9 +80,10 @@ export const Button: React.FC<{
     </>
   );
   const ghostVariantClasses = classNames(
-    "w-full relative left-0 inline-block font-semibold hover:left-1 transition-all duration-500 ease",
-    { "px-2 py-2.5": size === "base" },
-    { "px-4 py-3 font-medium lg:text-lg": size === "lg" },
+    "w-full relative left-0 inline-block font-medium hover:left-1 transition-all duration-500 ease",
+    { "px-2 py-2 text-sm": size === "sm" },
+    { "px-3 py-3 text-base": size === "base" },
+    { "px-4 py-4 xl:text-lg": size === "lg" },
     { "opacity-20 pointer-events-none cursor-not-allowed": disabled },
     className
   )
@@ -103,9 +104,11 @@ export const Button: React.FC<{
         buttonVariant === "outline-black",
       "border-white text-white hover:bg-white hover:text-neutral-800 drop-shadow-lg":
         buttonVariant === "outline-white",
-      "px-4 py-2 min-w-[100px] lg:min-w-[120px] text-smd 2xl:text-base font-medium":
+      "px-4 py-2 min-w-[100px] lg:min-w-[120px] text-sm font-medium":
+        size === "sm",
+      "px-6 py-3 min-w-[100px] lg:min-w-[120px] text-base font-medium":
         size === "base",
-      "px-8 py-4 min-w-[130px] lg:min-w-[160px] font-medium xl:text-lg":
+      "px-8 py-4 min-w-[130px] lg:min-w-[160px] xl:text-lg font-medium":
         size === "lg",
       "opacity-20 pointer-events-none cursor-not-allowed": disabled
     },

@@ -66,16 +66,16 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
             { "text-neutral-50": darkMode }
           )}
         >
-          <div className="container px-4 min-h-[70px] lg:min-h-[80px] flex items-center">
+          <div className="container px-4 flex items-center">
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
             </div>
-            <div className="flex-1 pt-6 drop-shadow-lg lg:text-lg">
+            <div className="flex-1 drop-shadow-lg lg:text-lg">
               {menu && <NavMenu menu={menu} appearanceVariant={appearanceVariant} />}
             </div>
             {buttons && buttons.length > 0 && (
               <div className="ml-8 shrink-0 hidden lg:block">
-                <ButtonGroup data={buttons} />
+                <ButtonGroup data={buttons} size="sm" />
               </div>
             )}
             {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} />}
@@ -97,18 +97,18 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
     >
       <div
         className={classNames(
-          "container px-4 min-h-[70px] lg:min-h-[80px] mx-auto flex items-center"
+          "container px-4 mx-auto flex items-center"
         )}
       >
         <div className="shrink-0">
           <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
         </div>
-        <div className="flex-1 pt-4">
+        <div className="flex-1">
           {menu && <NavMenu menu={menu} appearanceVariant={appearanceVariant} />}
         </div>
         {buttons && buttons.length > 0 && (
           <div className="ml-8 shrink-0 hidden lg:block">
-            <ButtonGroup data={buttons} />
+            <ButtonGroup data={buttons} size="sm" />
           </div>
         )}
         {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} />}
@@ -135,7 +135,7 @@ export const Navigation: React.FC<{ data: NavigationType }> = ({ data }) => {
                 <Button
                   data={button}
                   className="grow absolute lg:top-1/2 mx-1 lg:my-1"
-                  size="lg"
+                  size="base"
                 >
                   {button.text}
                 </Button>

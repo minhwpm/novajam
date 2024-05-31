@@ -22,6 +22,7 @@ export const Pagination: React.FC<{
             withArrow: false,
             openNewTab: false
           }}
+          size="base"
           onClick={() => {
             if (currentPageNumber - 1 === 1) {
               pathname.splice(pathname.length - 2, 2)
@@ -43,6 +44,7 @@ export const Pagination: React.FC<{
             withArrow: false,
             openNewTab: false
           }}
+          size="base"
           onClick={() => {
             if (currentPageNumber === 1) {
               pathname.splice(pathname.length, 0, "page", "2")

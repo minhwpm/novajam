@@ -13,7 +13,7 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
     <>
       <NavigationMenu.Trigger
         className={classNames(
-          "py-2 px-2 -mx-2 select-none font-semibold text-start w-full group rounded-theme data-[state=open]:text-primary-600",
+          "select-none font-semibold text-start w-full group rounded-theme data-[state=open]:text-primary-600",
           {
             "text-primary-600":
               data.featuredContent?.find(

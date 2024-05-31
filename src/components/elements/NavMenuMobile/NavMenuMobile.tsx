@@ -31,27 +31,37 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
             }}
           />
         )}
-        <NavigationMenu.List >
-          {menu.map((item) => item && (
-            <NavigationMenu.Item key={item.id} className={classNames("py-2 border-b last:border-none border-neutral-200")}>
-              {item.contentType === "link" && (
-                <NavLinkItem
-                  className={classNames("font-semibold",
+        <NavigationMenu.List>
+          {menu.map(
+            (item) =>
+              item && (
+                <NavigationMenu.Item
+                  key={item.id}
+                  className={classNames(
+                    "py-2 border-b last:border-none border-neutral-200"
                   )}
-                  href={item.url} 
-                  onClick={() => {
-                    setMobileMenuShowed(false)
-                    document.body.style.overflow = "auto";
-                  }}
                 >
-                  {item.text}
-                </NavLinkItem>
-              )}
-              {item.contentType === "submenu" && (
-                <SubmenuMobile data={item} setMobileMenuShowed={setMobileMenuShowed}/>
-              )}
-            </NavigationMenu.Item>
-          ))}
+                  {item.contentType === "link" && (
+                    <NavLinkItem
+                      className={classNames("font-semibold")}
+                      href={item.url}
+                      onClick={() => {
+                        setMobileMenuShowed(false);
+                        document.body.style.overflow = "auto";
+                      }}
+                    >
+                      {item.text}
+                    </NavLinkItem>
+                  )}
+                  {item.contentType === "submenu" && (
+                    <SubmenuMobile
+                      data={item}
+                      setMobileMenuShowed={setMobileMenuShowed}
+                    />
+                  )}
+                </NavigationMenu.Item>
+              )
+          )}
         </NavigationMenu.List>
         {buttons && buttons.length > 0 && (
           <div className="my-10 flex flex-wrap justify-center gap-5">
@@ -60,10 +70,10 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
                 key={button.id}
                 data={button}
                 onClick={() => {
-                  setMobileMenuShowed(false)
+                  setMobileMenuShowed(false);
                   document.body.style.overflow = "auto";
                 }}
-                size="lg"
+                size="base"
               >
                 {button.text}
               </Button>
@@ -71,7 +81,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
           </div>
         )}
       </NavigationMenu.Root>
-      
+
       <div className="lg:hidden ml-auto">
         {!mobileMenuShowed && (
           <CiMenuBurger

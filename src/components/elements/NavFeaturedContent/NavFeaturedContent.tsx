@@ -8,7 +8,7 @@ export const NavFeaturedContent: React.FC<{
 }> = ({ data, onClick }) => {
   return (
     <div onClick={onClick} onKeyDown={onClick} role="link" tabIndex={0}>
-      {data.contentType === "blog" && <BlogPreview data={data} alignment="center" />}
+      {data.contentType === "blog" && <BlogPreview data={data} />}
       {data.contentType === "page" && <PagePreview data={data} alignment="center" />}
     </div>
   )

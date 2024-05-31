@@ -4,17 +4,15 @@ import { LinkType, NavigationVariant, SubmenuType } from "@/helpers/types";
 import { Submenu } from "./Submenu/Submenu";
 import { NavLinkItem } from "../NavLinkItem/NavLinkItem";
 
-export interface NavMenuProps {
-  menu: Array<LinkType | SubmenuType>;
-  appearanceVariant?: NavigationVariant
-}
-
 export function getMenuItemText(item: LinkType | SubmenuType): string {
   if ("text" in item) return item.text;
   return item.title;
 }
 
-const NavMenu: React.FC<NavMenuProps> = ({ menu, appearanceVariant }) => {
+const NavMenu: React.FC<{
+  menu: Array<LinkType | SubmenuType>;
+  appearanceVariant?: NavigationVariant
+}> = ({ menu, appearanceVariant }) => {
   return (
     <NavigationMenu.Root
       className={classNames(
@@ -23,7 +21,8 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, appearanceVariant }) => {
     >
       <NavigationMenu.List
         className={classNames(
-          "flex justify-center items-start px-5 list-none m-0 gap-x-10"
+          "flex justify-center items-start px-5 list-none m-0"
+          // "gap-x-10"
         )}
       >
         {menu.map((item) => item && (
@@ -35,7 +34,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ menu, appearanceVariant }) => {
             )}
           >
             {item.contentType === "link" && (
-              <div className="pb-8">
+              <div className="py-6 px-5">
                 <NavLinkItem
                   key={item.id}
                   href={item.url}

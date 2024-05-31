@@ -21,7 +21,7 @@ export const SelectField: React.FC<{
   
   return isClient ? (
     <ReactSelect
-      className="rounded-theme w-full"
+      className="w-full"
       name={data.label}
       options={data.options.map(option => {
         return {
@@ -34,7 +34,7 @@ export const SelectField: React.FC<{
           ...baseStyles,
           padding: "8px 6px",
           borderColor: "rgb(212 212 212)",
-          borderRadius: "var(--border-radius-theme)",
+          borderRadius: "var(--border-radius-theme-button)",
         }),
       }}
       placeholder={(
