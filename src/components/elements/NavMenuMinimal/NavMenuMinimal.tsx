@@ -26,7 +26,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
       />
       <div
         className={classNames(
-          "absolute top-0 left-0 z-[99999] w-screen h-screen  bg-neutral-950/95 bg-text-neutral-500 text-white overflow-auto",
+          "absolute top-0 left-0 z-[99999] w-screen h-screen  bg-neutral-900/95 bg-text-neutral-500 text-white overflow-auto",
           { hidden: !navMenuShowed }
         )}
       >

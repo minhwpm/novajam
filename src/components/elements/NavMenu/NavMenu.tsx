@@ -34,7 +34,7 @@ const NavMenu: React.FC<{
             )}
           >
             {item.contentType === "link" && (
-              <div className="py-6 px-5">
+              <div className="py-7 px-5">
                 <NavLinkItem
                   key={item.id}
                   href={item.url}

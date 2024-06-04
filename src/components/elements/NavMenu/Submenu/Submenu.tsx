@@ -14,7 +14,7 @@ export const Submenu: React.FC<{
   const pathname = usePathname();
   return (
     <>
-      <NavigationMenu.Trigger className="group py-4 px-1">
+      <NavigationMenu.Trigger className="group py-5 px-1">
         <span
           className={classNames(
             "select-none cursor-pointer rounded-theme-button py-2 px-4 inline-block group-data-[state=open]:text-primary-600 group-data-[state=open]:bg-white/100 duration-500 transition-colors ease-in-out",
