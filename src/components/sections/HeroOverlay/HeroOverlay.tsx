@@ -143,13 +143,13 @@ export const HeroOverlaySection: React.FC<{
             {data.eyebrow && (
               <div
                 className={classNames(
-                  "drop-shadow-lg text-sm lg:text-base xl:text-lg tracking-widest font-medium  max-w-xl opacity-0",
+                  "text-sm lg:text-base xl:text-lg tracking-widest font-medium  max-w-xl opacity-0",
                   {
                     "animate-slidingHeroContent animation-delay-500":
                       isIntersecting,
                   },
                   { "text-primary-500": !darkMode },
-                  { "text-primary-400": darkMode }
+                  { "text-primary-400 drop-shadow-lg": darkMode }
                 )}
               >
                 {data.eyebrow}
@@ -158,9 +158,9 @@ export const HeroOverlaySection: React.FC<{
             {data.heading && (
               <div
                 className={classNames(
-                  "relative drop-shadow-lg text-super-heading leading-tight font-heading max-w-2xl mt-2 opacity-0",
+                  "relative text-super-heading leading-tight font-heading max-w-2xl mt-2 opacity-0",
                   { "animate-slidingHeroContent": isIntersecting },
-                  { "text-white": darkMode }
+                  { "text-white drop-shadow-lg": darkMode }
                 )}
               >
                 <RichText data={data.heading} />
@@ -169,9 +169,9 @@ export const HeroOverlaySection: React.FC<{
             {data.description && (
               <div
                 className={classNames(
-                  "drop-shadow-lg prose md:prose-lg lg:prose-xl mt-6 lg:mt-10 max-w-xl opacity-0",
+                  "prose md:prose-lg lg:prose-xl mt-6 lg:mt-10 max-w-3xl opacity-0",
                   { "animate-slidingHeroContent animation-delay-200 ": isIntersecting },
-                  { "text-neutral-100": darkMode }
+                  { "text-neutral-100 drop-shadow-lg": darkMode }
                 )}
               >
                 <RichText data={data.description} />
