@@ -17,7 +17,7 @@ export const Dropdown: React.FC<{data: SubmenuType}> =
             <NavigationMenu.Item
               key={subItem.id}
               value={subItem.id}
-              className="relative py-2 border-b border-neutral-100 first:pt-0 last:pb-0 last:border-none"
+              className="relative py-2 first:pt-0 last:pb-0"
             >
               {subItem.contentType === "link" && (
                 <NavLinkItem href={subItem.url}>{subItem.text}</NavLinkItem>
@@ -44,7 +44,7 @@ export const Dropdown: React.FC<{data: SubmenuType}> =
                     <ul className="px-6 py-4 bg-white rounded-md shadow-radiant w-64 flex flex-col">
                       {subItem.links.length > 0 &&
                         subItem.links.map((link) => (
-                          <li key={link.id} className="py-2 border-b border-neutral-100 first:pt-0 last:pb-0 last:border-none">
+                          <li key={link.id} className="py-2 first:pt-0 last:pb-0">
                             <NavLinkItem href={link.url}>
                               {link.text}
                             </NavLinkItem>
