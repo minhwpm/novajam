@@ -38,7 +38,7 @@ export const Button: React.FC<{
       <Image
         className={classNames(
           "object-contain",
-          { "w-4 h-4 mr-2": size === "base" },
+          { "w-4 h-4 mr-2": size === "sm" || size === "base" },
           { "w-5 h-5 mr-2.5": size === "lg" },
           {
             "group-hover:brightness-100 group-hover:invert transition-all duration-500 ease":
