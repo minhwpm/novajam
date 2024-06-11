@@ -7,6 +7,7 @@ import { AiFillStar } from "react-icons/ai";
 import { useInView } from "react-hook-inview";
 import { useContext } from "react";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
+import { RxQuote } from "react-icons/rx";
 
 export const Testimonial: React.FC<{
   data: TestimonialType;
@@ -23,7 +24,7 @@ export const Testimonial: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "flex flex-col rounded-theme",
+        "px-4 flex flex-col rounded-theme",
         { "relative -bottom-10 opacity-0": animate },
         {
           "animate-slidingUpContent animation-delay-150":
@@ -35,12 +36,14 @@ export const Testimonial: React.FC<{
     >
       <div
         className={classNames(
-          "prose 2xl:prose-lg mb-6",
+          "relative prose 2xl:prose-lg mb-6",
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" },
           { "text-neutral-100": darkMode },
         )}
       >
+        <RxQuote size={40} className="text-neutral-200/70 absolute -top-4 -left-4 rotate-180 -z-10" />
+        <RxQuote size={40} className="text-neutral-200/70 absolute -bottom-4 -right-4 -z-10" />
         <RichText data={content} />
       </div>
       {rating > 0 && (
