@@ -124,7 +124,7 @@ export const HeroOverlaySection: React.FC<{
       {(data.heading || data.description || data.buttons.length) && (
         <div
           className={classNames(
-            "w-full h-full px-4 pt-48 pb-20 overflow-hidden",
+            "w-full h-full px-4 py-36 overflow-hidden",
             {
               "lg:absolute lg:top-0 lg:left-0":
                 data.media.length > 0 || data.embeddedMediaUrl,
@@ -158,7 +158,7 @@ export const HeroOverlaySection: React.FC<{
             {data.heading && (
               <div
                 className={classNames(
-                  "relative text-super-heading leading-tight font-heading max-w-2xl mt-2 opacity-0",
+                  "relative text-super-heading leading-tight font-heading max-w-3xl mt-2 opacity-0",
                   { "animate-slidingHeroContent": isIntersecting },
                   { "text-white drop-shadow-lg": darkMode }
                 )}
