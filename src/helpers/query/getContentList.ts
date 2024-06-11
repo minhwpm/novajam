@@ -76,6 +76,9 @@ export default async function getContentList(id: string) {
                   title
                   slug
                   summary
+                  content {
+                    json
+                  }
                   topics
                   media {
                     url
@@ -221,24 +224,25 @@ export default async function getContentList(id: string) {
     const data = await res.json();
     const normalizedData = normalizeDataCollection(data.data);
 
-    normalizedData[0]?.content && await Promise.all(
-      normalizedData[0]?.content.map(
-        async (
-          contentItem: { contentType: string; id: string },
-          index: string | number
-        ) => {
-          if (contentItem?.contentType === "flexiblecontent") {
-            const sectionData = await getFlexibleContent(contentItem.id);
-            normalizedData[0].content[index] = {
-              ...contentItem,
-              ...sectionData,
-            };
-          } else {
-            normalizedData[0].content[index] = { ...contentItem };
+    normalizedData[0]?.content &&
+      (await Promise.all(
+        normalizedData[0]?.content.map(
+          async (
+            contentItem: { contentType: string; id: string },
+            index: string | number
+          ) => {
+            if (contentItem?.contentType === "flexiblecontent") {
+              const sectionData = await getFlexibleContent(contentItem.id);
+              normalizedData[0].content[index] = {
+                ...contentItem,
+                ...sectionData,
+              };
+            } else {
+              normalizedData[0].content[index] = { ...contentItem };
+            }
           }
-        }
-      )
-    );
+        )
+      ));
     return normalizedData[0];
   } catch (error) {
     console.error(error);

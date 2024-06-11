@@ -3,11 +3,17 @@ import classNames from "classnames";
 import Link from "next/link";
 import { useContext } from "react";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
-import { TextAlignmentType, BlogType, MediaAspectRatioType } from "@/helpers/types";
+import {
+  TextAlignmentType,
+  BlogType,
+  MediaAspectRatioType,
+} from "@/helpers/types";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { usePathname } from "next/navigation";
 import { useInView } from "react-hook-inview";
-import { format } from 'date-fns'
+import { format } from "date-fns";
+import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
+import readingTime from "reading-time";
 
 export const BlogPreview: React.FC<{
   data: BlogType;
@@ -15,15 +21,23 @@ export const BlogPreview: React.FC<{
   layout?: "vertical" | "horizontal" | "featured";
   alignment?: TextAlignmentType;
   animate?: boolean;
-  featured?: boolean
-}> = ({ data, aspectRatio = "4/3", layout = "vertical", alignment, animate, featured }) => {
-  const { title, slug, media, topics, firstPublishedAt } = data;
+  featured?: boolean;
+}> = ({
+  data,
+  aspectRatio = "4/3",
+  layout = "vertical",
+  alignment,
+  animate,
+  featured,
+}) => {
+  const { title, slug, content, media, topics, firstPublishedAt } = data;
   const darkMode = useContext(DarkModeContext);
   const pathname = usePathname();
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
     unobserveOnEnter: true,
   });
+  const readingTimeStats = readingTime(documentToPlainTextString(content));
   const renderTopic = () => (
     <div
       className={classNames(
@@ -33,10 +47,15 @@ export const BlogPreview: React.FC<{
       )}
     >
       {topics.map((topic, idx) => (
-        <div key={idx} className="rounded-theme px-2.5 py-1 text-xs bg-primary-50 border border-primary-50 text-neutral-600 tracking-wider">{topic}</div>
+        <div
+          key={idx}
+          className="rounded-theme px-2.5 py-1 text-xs bg-primary-50 border border-primary-50 text-neutral-600 tracking-wider"
+        >
+          {topic}
+        </div>
       ))}
     </div>
-  )
+  );
   if (layout === "horizontal") {
     return (
       <div
@@ -53,10 +72,22 @@ export const BlogPreview: React.FC<{
         <Link href={`${pathname.replace(/\/blog\/?(.*)$/, "")}/blog/${slug}`}>
           <div className="flex gap-4">
             <div className="basis-1/3 flex-1">
-              <MediaItem data={media} altText={title} aspectRatio={aspectRatio} zoomInOverHover />
+              <MediaItem
+                data={media}
+                altText={title}
+                aspectRatio={aspectRatio}
+                zoomInOverHover
+              />
             </div>
             <div className="basis-2/3 flex-1 flex flex-col gap-y-1 pr-4">
-              {topics && topics.length > 0 && renderTopic()}
+              <div className="flex gap-x-4 justify-between items-center">
+                {topics && topics.length > 0 && renderTopic()}
+                {readingTimeStats.minutes > 0 && (
+                  <div className="text-neutral-500 text-sm font-medium uppercase">
+                    {readingTimeStats.text}
+                  </div>
+                )}
+              </div>
               <h3
                 className={classNames(
                   "font-heading xl:text-lg font-semibold transition-colors duration-500",
@@ -73,9 +104,9 @@ export const BlogPreview: React.FC<{
                   { "text-neutral-300": darkMode }
                 )}
               >
-                {firstPublishedAt && format(Date.parse(firstPublishedAt), "MMMM dd, yyyy")}
+                {firstPublishedAt &&
+                  format(Date.parse(firstPublishedAt), "MMMM dd, yyyy")}
               </div>
-
             </div>
           </div>
         </Link>
@@ -95,11 +126,23 @@ export const BlogPreview: React.FC<{
       )}
     >
       <Link href={`${pathname.replace(/\/blog\/?(.*)$/, "")}/blog/${slug}`}>
-        <MediaItem data={media} altText={title} aspectRatio={aspectRatio} zoomInOverHover />
+        <MediaItem
+          data={media}
+          altText={title}
+          aspectRatio={aspectRatio}
+          zoomInOverHover
+        />
         <div
           className={classNames("w-full px-4 pb-8 pt-4 flex flex-col gap-y-1")}
         >
-          {topics && topics.length > 0 && renderTopic()}
+          <div className="flex gap-x-4 justify-between items-center">
+            {topics && topics.length > 0 && renderTopic()}
+            {readingTimeStats.minutes > 0 && (
+              <div className="text-neutral-500 text-sm font-medium uppercase">
+                {readingTimeStats.text}
+              </div>
+            )}
+          </div>
           <h3
             className={classNames(
               "font-heading font-semibold transition-colors duration-500",
@@ -125,7 +168,8 @@ export const BlogPreview: React.FC<{
               { "text-neutral-300": darkMode }
             )}
           >
-            {firstPublishedAt && format(Date.parse(firstPublishedAt), "MMMM dd, yyyy")}
+            {firstPublishedAt &&
+              format(Date.parse(firstPublishedAt), "MMMM dd, yyyy")}
           </div>
         </div>
       </Link>

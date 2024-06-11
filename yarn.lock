@@ -71,6 +71,13 @@
     "@contentful/rich-text-types" "^16.3.5"
     escape-html "^1.0.3"
 
+"@contentful/rich-text-plain-text-renderer@^16.1.3":
+  version "16.1.3"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-plain-text-renderer/-/rich-text-plain-text-renderer-16.1.3.tgz#21c470b3a14e730672dea85fbce9f2e1ca3cc076"
+  integrity sha512-TO5D/5wEwRT1lakk/1AEcoqSzR8qtCk3x4Kk6Co+QmUVq9tp54220iwGomed3qsZyOr+/YXPKLbkVFZqPOxflQ==
+  dependencies:
+    "@contentful/rich-text-types" "^16.5.2"
+
 "@contentful/rich-text-react-renderer@^15.19.0":
   version "15.19.6"
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-react-renderer/-/rich-text-react-renderer-15.19.6.tgz#a5121d2262bd0c28cef2bf6b1cf2a63871cf7c93"
@@ -82,6 +89,11 @@
   version "16.3.5"
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.3.5.tgz#927433a84416101ba3dbf19bd0924e755f5e6d65"
   integrity sha512-ZLq6p5uyQXg+i1XGDFu4tAc2VYS12S1KA/jIOyyZjNgC1DvDajsi1JzuiBuOuMEhi1sKEUy6Ry3Yr9jsQtOKuQ==
+
+"@contentful/rich-text-types@^16.5.2":
+  version "16.5.2"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.5.2.tgz#924641091d5ae83b9fb34908745a62d652b44d68"
+  integrity sha512-qD98Amp/vWxCYMtv7yprh4Ry3QHFX50sf+i3E6e/WRquz+aUW2ilqmQqW6ucb4F2dlatUxMbOOhZOFazv2XLjg==
 
 "@emotion/babel-plugin@^11.11.0":
   version "11.11.0"
@@ -3581,6 +3593,11 @@ readdirp@~3.6.0:
   integrity sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==
   dependencies:
     picomatch "^2.2.1"
+
+reading-time@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/reading-time/-/reading-time-1.5.0.tgz#d2a7f1b6057cb2e169beaf87113cc3411b5bc5bb"
+  integrity sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==
 
 redux-thunk@^2.4.2:
   version "2.4.2"

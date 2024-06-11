@@ -6,17 +6,25 @@ import { RichText } from "@/components/elements/RichText/RichText"
 import { BlogType } from "@/helpers/types"
 import { format } from 'date-fns'
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem"
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
+import readingTime from 'reading-time'
 
 export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
   const { title, summary, content, media, topics, author, firstPublishedAt } = data
+  const readingTimeStats = readingTime(documentToPlainTextString(content))
   return (
     <div>
       <Container>
-        <article className="w-full my-10 flex flex-col gap-y-10">
-          <h1 className="text-heading font-heading leading-tight font-bold text-5xl mt-10 max-w-5xl text-center mx-auto">
+        <article className="w-full my-10 flex flex-col pt-10">
+          {readingTimeStats.minutes > 0 && (
+            <div className="mx-auto text-neutral-500 text-sm font-medium uppercase mb-5">
+              {readingTimeStats.text}
+            </div>
+          )}
+          <h1 className="text-heading font-heading leading-tight font-bold text-5xl max-w-5xl text-center mx-auto">
             {title}
           </h1>
-          <div className="flex flex-col lg:items-center gap-8">
+          <div className="mt-10 flex flex-col lg:items-center gap-8">
             <div className="lg:w-3/4 xl:w-2/3">
               <p className="text-neutral-600 prose xl:prose-lg max-w-none">
                 {summary}
@@ -24,12 +32,14 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
             </div>
             <div className="lg:w-3/4 xl:w-2/3">
               <div className="text-neutral-500 font-semibold mb-4">
-                {format(Date.parse(firstPublishedAt), 'MMMM dd, yyyy')}
+                {format(Date.parse(firstPublishedAt), "MMMM dd, yyyy")}
               </div>
-              
-              {topics && topics?.length > 0  &&
+
+              {topics && topics?.length > 0 && (
                 <div className="flex items-center gap-4">
-                  <div className="text-sm tracking-wide text-neutral-500">TOPICS:</div>
+                  <div className="text-sm tracking-wide text-neutral-500">
+                    TOPICS:
+                  </div>
                   <div className="flex flex-wrap gap-4">
                     {topics.map((topic, idx) => (
                       <Link
@@ -42,29 +52,29 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
                     ))}
                   </div>
                 </div>
-              }
+              )}
             </div>
-            {media && 
+            {media && (
               <div className="lg:w-3/4 xl:w-2/3">
                 <MediaItem data={media} aspectRatio="16/9" rounded="theme" />
               </div>
-            }
+            )}
           </div>
-          <div className="flex flex-col items-center gap-10 text-lg">
+          <div className="mt-10 flex flex-col items-center gap-10 text-lg">
             <div className="lg:w-3/4 xl:w-2/3 mb-10 prose xl:prose-lg max-w-none overflow-x-hidden">
               <RichText data={content} style="blog" />
             </div>
-            { author && 
+            {author && (
               <div className="lg:w-3/4 xl:w-2/3 text-lg">
                 <p className="text-neutral-400 font-semibold tracking-wider text-sm md:text-base mb-8 text-center sm:text-start">
                   ABOUT THE AUTHOR
                 </p>
                 <ExpertPreview data={author} layout="horizontal" />
               </div>
-            }
+            )}
           </div>
         </article>
       </Container>
     </div>
-  )
+  );
 }
