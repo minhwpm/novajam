@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { SectionMapping } from "@/components/sections/SectionMapping/SectionMapping"
-import { PageType } from "@/helpers/types"
-import getPage from "@/helpers/query/getPage"
+import { PageType } from "@/lib/types"
+import getPage from "@/lib/query/getPage"
 import { notFound } from 'next/navigation'
 
 export async function generateMetadata(): Promise<Metadata> {

@@ -4,7 +4,7 @@ import {
   FlexibleContentType,
   FeaturedContentType,
   FeaturedContentVariantType,
-} from "@/helpers/types";
+} from "@/lib/types";
 import { RichText } from "@/components/elements/RichText/RichText";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";

@@ -12,7 +12,7 @@ import {
   TextAlignmentType,
   FlexibleContentType,
   HeroLayoutVariant,
-} from "@/helpers/types";
+} from "@/lib/types";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import "@/app/styles/padding.css";
 import "swiper/css";

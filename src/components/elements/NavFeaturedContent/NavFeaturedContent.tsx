@@ -1,4 +1,4 @@
-import { BlogType, PageType } from "@/helpers/types"
+import { BlogType, PageType } from "@/lib/types"
 import { BlogPreview } from "../BlogPreview/BlogPreview";
 import { PagePreview } from "../PagePreview/PagePreview";
 

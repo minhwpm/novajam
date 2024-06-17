@@ -73,6 +73,7 @@ export interface NavigationType {
   logo: MediaType,
   logoRedirect: string | null
   menu: Array<LinkType | SubmenuType>
+  showSearch: boolean
   buttons: Array<ButtonType>
   hotButtons: Array<ButtonType>
   appearanceVariant: NavigationVariant
@@ -266,6 +267,7 @@ export type ContentListType = {
   htmlid: string | null
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
+  enableParallaxBackground: boolean
   darkMode: boolean
   contentType: "contentlist"
 }

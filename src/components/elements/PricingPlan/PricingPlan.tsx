@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import classNames from "classnames";
 import { Button } from "../Button/Button";
-import { TextAlignmentType, PricingPlanType } from "@/helpers/types";
+import { TextAlignmentType, PricingPlanType } from "@/lib/types";
 import { RichText } from "../RichText/RichText";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 import { useInView } from "react-hook-inview";

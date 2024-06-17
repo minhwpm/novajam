@@ -14,7 +14,7 @@ import {
   HeroType,
   InquiryFormType,
   ContentPTType,
-} from "@/helpers/types";
+} from "@/lib/types";
 
 type ComponentType = HeroType | ContentPTType | ContentListType | FeaturedContentType | InquiryFormType
 

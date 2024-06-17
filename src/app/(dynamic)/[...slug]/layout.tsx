@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import { Navigation } from "@/components/sections/Navigation/Navigation";
 import { Footer } from "@/components/sections/Footer/Footer";
-import { generateColorClassnames } from "@/helpers/utils";
-import { generateFontClassnames } from "@/helpers/fonts";
-import getPage from "@/helpers/query/getPage";
-import getNavigation from "@/helpers/query/getNavigation";
-import getFooter from "@/helpers/query/getFooter";
+import { generateColorClassnames } from "@/lib/utils";
+import { generateFontClassnames } from "@/lib/fonts";
+import getPage from "@/lib/query/getPage";
+import getNavigation from "@/lib/query/getNavigation";
+import getFooter from "@/lib/query/getFooter";
 import styles from "./styles.module.css";
 
 export default async function Layout({
@@ -41,7 +41,7 @@ export default async function Layout({
   return (
     <div
       className={classNames(
-        "min-h-screen flex flex-col justify-between",
+        "main min-h-screen flex flex-col justify-between", //@TODO reconsider flexbox here
         fontTheme,
         styles[borderRadiusTheme ?? ""],
         styles[headingFontSizeTheme ?? ""],

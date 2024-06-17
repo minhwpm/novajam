@@ -1,6 +1,6 @@
 "use client"
 import classNames from "classnames";
-import { TextAlignmentType, TestimonialType } from "@/helpers/types";
+import { TextAlignmentType, TestimonialType } from "@/lib/types";
 import { RichText } from "@/components/elements/RichText/RichText";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { AiFillStar } from "react-icons/ai";

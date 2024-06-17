@@ -1,6 +1,6 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import classNames from "classnames";
-import { LinkType, NavigationVariant, SubmenuType } from "@/helpers/types";
+import { LinkType, NavigationVariant, SubmenuType } from "@/lib/types";
 import { Submenu } from "./Submenu/Submenu";
 import { NavLinkItem } from "../NavLinkItem/NavLinkItem";
 

@@ -1,4 +1,4 @@
-import { FormFieldType } from "@/helpers/types"
+import { FormFieldType } from "@/lib/types"
 import { UseFormRegister } from "react-hook-form/dist/types/form";
 import { FormValues } from "./InquiryForm";
 

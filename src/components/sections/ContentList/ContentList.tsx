@@ -1,7 +1,7 @@
 "use client"
 import { createContext } from "react"
 import { Section } from "@/components/elements/Section/Section";
-import { ContentListType } from "@/helpers/types";
+import { ContentListType } from "@/lib/types";
 import { CarouselList } from "./CarouselList";
 import { MasonryList } from "./MasonryList";
 import { DeckList } from "./DeckList";
@@ -23,6 +23,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     htmlid,
     backgroundColor,
     backgroundImage,
+    enableParallaxBackground,
     darkMode
   } = data;
   return (
@@ -37,6 +38,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         framed={appearanceVariant !== "carousel"}
         backgroundColor={backgroundColor}
         backgroundImage={backgroundImage}
+        enableParallaxBackground={enableParallaxBackground}
         darkMode={darkMode}
       >
         {appearanceVariant === "carousel" && (
