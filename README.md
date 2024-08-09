@@ -2,7 +2,7 @@
 
 NovaJAM is an Multi-purpose All-in-One JAMstack Template & Web Page Composer which is built with cutting edge technologies: React, NextJS 14, Typescript, Tailwind and seamlessly integrated with Contentful CMS.
 
-## Local Development
+## Getting Started
 
 1. Create `.env` file from `.env.template` file
 
@@ -26,11 +26,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Easily deploy your Next.js app with [Vercel](https://vercel.com/new/git/external?repository-url=https://github.com/minhwpm/novajam) by clicking the button below:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/minhwpm/novajam)
 
 ## Integrate with [Contentful](https://www.contentful.com/), a Headless CMS
 
