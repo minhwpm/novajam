@@ -1,5 +1,5 @@
-import { useContext } from "react";
 import classNames from "classnames";
+import { useContext } from "react";
 import { Button } from "../Button/Button";
 import { TextAlignmentType, PricingPlanType } from "@/helpers/types";
 import { RichText } from "../RichText/RichText";
@@ -59,14 +59,16 @@ export const PricingPlan: React.FC<{
           {pricingSuffix}
         </div>
       </div>
-      <div>
-        <Button
-          data={ctaButton}
-          size="base"
-        >
-          {ctaButton.text}
-        </Button>
-      </div>
+      {ctaButton && (
+        <div>
+          <Button
+            data={ctaButton}
+            size="base"
+          >
+            {ctaButton.text}
+          </Button>
+        </div>
+      )}
       {description && (
         <div
           className={classNames(

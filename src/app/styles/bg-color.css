@@ -1,108 +1,108 @@
 .neutral-section-bg-color {
-  @apply bg-neutral-100;
+  @apply bg-neutral-50;
 }
 .neutral-dark-section-bg-color {
-  @apply bg-neutral-900;
+  @apply bg-neutral-800;
 }
 .red-section-bg-color {
-  @apply bg-red-100;
+  @apply bg-red-50;
 }
 .red-dark-section-bg-color {
-  @apply bg-red-700;
+  @apply bg-red-800;
 }
 .orange-section-bg-color {
-  @apply bg-orange-100;
+  @apply bg-orange-50;
 }
 .orange-dark-section-bg-color {
-  @apply bg-orange-700;
+  @apply bg-orange-800;
 }
 .amber-section-bg-color {
-  @apply bg-amber-100;
+  @apply bg-amber-50;
 }
 .amber-dark-section-bg-color {
-  @apply bg-amber-700;
+  @apply bg-amber-800;
 }
 .yellow-section-bg-color {
-  @apply bg-yellow-100;
+  @apply bg-yellow-50;
 }
 .yellow-dark-section-bg-color {
-  @apply bg-yellow-700;
+  @apply bg-yellow-800;
 }
 .lime-section-bg-color {
-  @apply bg-lime-100;
+  @apply bg-lime-50;
 }
 .lime-dark-section-bg-color {
-  @apply bg-lime-700;
+  @apply bg-lime-800;
 }
 .green-section-bg-color {
-  @apply bg-green-100;
+  @apply bg-green-50;
 }
 .green-dark-section-bg-color {
-  @apply bg-green-700;
+  @apply bg-green-800;
 }
 .emerald-section-bg-color {
-  @apply bg-emerald-100;
+  @apply bg-emerald-50;
 }
 .emerald-dark-section-bg-color {
-  @apply bg-emerald-700;
+  @apply bg-emerald-800;
 }
 .teal-section-bg-color {
-  @apply bg-teal-100;
+  @apply bg-teal-50;
 }
 .teal-dark-section-bg-color {
-  @apply bg-teal-700;
+  @apply bg-teal-800;
 }
 .cyan-section-bg-color {
-  @apply bg-cyan-100;
+  @apply bg-cyan-50;
 }
 .cyan-dark-section-bg-color {
-  @apply bg-cyan-700;
+  @apply bg-cyan-800;
 }
 .sky-section-bg-color {
-  @apply bg-sky-100;
+  @apply bg-sky-50;
 }
 .sky-dark-section-bg-color {
-  @apply bg-sky-700;
+  @apply bg-sky-800;
 }
 .blue-section-bg-color {
-  @apply bg-blue-100;
+  @apply bg-blue-50;
 }
 .blue-dark-section-bg-color {
-  @apply bg-blue-700;
+  @apply bg-blue-800;
 }
 .indigo-section-bg-color {
-  @apply bg-indigo-100;
+  @apply bg-indigo-50;
 }
 .indigo-dark-section-bg-color {
-  @apply bg-indigo-700;
+  @apply bg-indigo-800;
 }
 .violet-section-bg-color {
-  @apply bg-violet-100;
+  @apply bg-violet-50;
 }
 .violet-dark-section-bg-color {
-  @apply bg-violet-700;
+  @apply bg-violet-800;
 }
 .purple-section-bg-color {
-  @apply bg-purple-100;
+  @apply bg-purple-50;
 }
 .purple-dark-section-bg-color {
-  @apply bg-purple-700;
+  @apply bg-purple-800;
 }
 .fuchsia-section-bg-color {
-  @apply bg-fuchsia-100;
+  @apply bg-fuchsia-50;
 }
 .fuchsia-dark-section-bg-color {
-  @apply bg-fuchsia-700;
+  @apply bg-fuchsia-800;
 }
 .pink-section-bg-color {
-  @apply bg-pink-100;
+  @apply bg-pink-50;
 }
 .pink-dark-section-bg-color {
-  @apply bg-pink-700;
+  @apply bg-pink-800;
 }
 .rose-section-bg-color {
-  @apply bg-rose-100;
+  @apply bg-rose-50;
 }
 .rose-dark-section-bg-color {
-  @apply bg-rose-700;
+  @apply bg-rose-800;
 }
