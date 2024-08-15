@@ -82,7 +82,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
   }
   const renderMediaPart = () => (
     <div
-      className={classNames("relative w-full -bottom-10 opacity-0", {
+      className={classNames("relative max-w-5xl w-full -bottom-10 opacity-0", {
         "animate-slidingUpContent animation-delay-150": isIntersecting,
         "lg:w-6/12": [
           "Horizontal (Text | Media)",
