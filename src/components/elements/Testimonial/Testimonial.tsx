@@ -45,7 +45,8 @@ export const Testimonial: React.FC<{
         <BiSolidQuoteAltLeft
           size={40}
           className={classNames(
-            "text-neutral-200/70 absolute -top-4 -left-4 -z-10",
+            "absolute -top-4 -left-4 -z-10",
+            { "text-neutral-200/70": !darkMode },
             { "text-neutral-200/20": darkMode }
           )}
         />
