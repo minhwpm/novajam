@@ -7,7 +7,7 @@ import { AiFillStar } from "react-icons/ai";
 import { useInView } from "react-hook-inview";
 import { useContext } from "react";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
-import { RxQuote } from "react-icons/rx";
+import { BiSolidQuoteAltLeft } from "react-icons/bi";
 
 export const Testimonial: React.FC<{
   data: TestimonialType;
@@ -39,20 +39,29 @@ export const Testimonial: React.FC<{
           "relative prose 2xl:prose-lg mb-6",
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" },
-          { "text-neutral-100": darkMode },
+          { "text-neutral-100": darkMode }
         )}
       >
-        <RxQuote size={40} className="text-neutral-200/70 absolute -top-4 -left-4 rotate-180 -z-10" />
-        <RxQuote size={40} className="text-neutral-200/70 absolute -bottom-4 -right-4 -z-10" />
+        <BiSolidQuoteAltLeft
+          size={40}
+          className={classNames(
+            "text-neutral-200/70 absolute -top-4 -left-4 -z-10",
+            { "text-neutral-200/20": darkMode }
+          )}
+        />
         <RichText data={content} />
       </div>
       {rating > 0 && (
         <div className="flex gap-2 mb-6">
           {new Array(rating).fill(0).map((_item, idx) => (
-            <AiFillStar key={idx} className={classNames(
-              { "text-primary-600": !darkMode },
-              { "text-primary-400": darkMode },
-            )} size={20} />
+            <AiFillStar
+              key={idx}
+              className={classNames(
+                { "text-primary-600": !darkMode },
+                { "text-primary-400": darkMode }
+              )}
+              size={20}
+            />
           ))}
         </div>
       )}
@@ -71,15 +80,22 @@ export const Testimonial: React.FC<{
 
         {(name || role) && (
           <div className="flex flex-col">
-            <div className={classNames("font-semibold",
-              { "text-neutral-100": darkMode },
-
-            )}>{name}</div>
-            <div className={classNames("text-sm",
-              { "text-neutral-500": !darkMode },
-              { "text-neutral-200": darkMode },
-
-            )}>{role}</div>
+            <div
+              className={classNames("font-semibold", {
+                "text-neutral-100": darkMode,
+              })}
+            >
+              {name}
+            </div>
+            <div
+              className={classNames(
+                "text-sm",
+                { "text-neutral-500": !darkMode },
+                { "text-neutral-200": darkMode }
+              )}
+            >
+              {role}
+            </div>
           </div>
         )}
       </div>

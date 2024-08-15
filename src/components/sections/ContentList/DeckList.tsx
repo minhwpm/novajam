@@ -14,7 +14,7 @@ export const DeckList: React.FC<{
         <div 
           key={idx} 
           className={classNames(
-            "p-4 w-full",
+            "p-4 lg:p-6 w-full",
             { "lg:basis-1/2": size === "XL" },
             { "md:basis-1/2 xl:basis-1/3": size === "L" },
             { "sm:basis-1/2 lg:basis-1/3 xl:basis-1/4": size === "M" },
