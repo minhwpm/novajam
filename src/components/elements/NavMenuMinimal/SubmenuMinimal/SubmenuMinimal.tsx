@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import classNames from "classnames";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu"
-import { SubmenuType } from "@/helpers/types";
+import { SubmenuType } from "@/lib/types";
 import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
 import { usePathname } from "next/navigation";
 import { FaChevronDown } from "react-icons/fa";

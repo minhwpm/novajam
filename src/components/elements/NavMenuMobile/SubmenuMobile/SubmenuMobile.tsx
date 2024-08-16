@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { FaChevronDown } from "react-icons/fa";
 import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
 import { NavFeaturedContent } from "@/components/elements/NavFeaturedContent/NavFeaturedContent";
-import { SubmenuType } from "@/helpers/types";
+import { SubmenuType } from "@/lib/types";
 
 export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  Dispatch<SetStateAction<boolean>>}> = ({data, setMobileMenuShowed}) => {
   const pathname = usePathname();

@@ -2,7 +2,7 @@
 import classNames from "classnames";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/elements/Button/Button";
-import { InquiryFormType } from "@/helpers/types";
+import { InquiryFormType } from "@/lib/types";
 import { RichText } from "@/components/elements/RichText/RichText";
 import { InputField } from "./InputField";
 import { TextAreaField } from "./TextAreaField";
@@ -14,7 +14,7 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { useInView } from "react-hook-inview";
 import * as Toast from "@radix-ui/react-toast";
-import { createInquiryFormSubmission } from "@/helpers/server-actions/createInquiryFormSubmission";
+import { createInquiryFormSubmission } from "@/lib/server-actions/createInquiryFormSubmission";
 
 export type FormValues = {
   [x: string]: string | Date;

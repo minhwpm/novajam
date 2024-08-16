@@ -3,8 +3,8 @@ import { Container } from "@/components/elements/Container/Container";
 import { Pagination } from "@/components/elements/Pagination/Pagination";
 import { FeaturedBlogs } from "@/components/sections/FeaturedBlogs/FeaturedBlogs";
 import { LatestBlogs } from "@/components/sections/LatestBlogs/LatestBlogs";
-import { BlogType, BLOG_PAGE_SIZE } from "@/helpers/types";
-import getBlogs from "@/helpers/query/getBlogs";
+import { BlogType, BLOG_PAGE_SIZE } from "@/lib/types";
+import getBlogs from "@/lib/query/getBlogs";
 
 type PageProps = {
   searchParams: { topic: string | string[] | undefined };

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
-import { ButtonType, LinkType, SubmenuType } from '@/helpers/types';
+import { ButtonType, LinkType, SubmenuType } from '@/lib/types';
 import { IoCloseOutline } from "react-icons/io5";
 import { CiMenuBurger } from "react-icons/ci";
 import { Button } from '../Button/Button';

@@ -1,7 +1,7 @@
 "use client"
 import classNames from "classnames";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { TextAlignmentType, Content, ContentSize, ContentOrientationType } from "@/helpers/types";
+import { TextAlignmentType, Content, ContentSize, ContentOrientationType } from "@/lib/types";
 import { ContentMapping } from "./ContentMapping";
 
 export const MasonryList: React.FC<{

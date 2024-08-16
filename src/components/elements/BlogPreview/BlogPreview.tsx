@@ -7,7 +7,7 @@ import {
   TextAlignmentType,
   BlogType,
   MediaAspectRatioType,
-} from "@/helpers/types";
+} from "@/lib/types";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { usePathname } from "next/navigation";
 import { useInView } from "react-hook-inview";

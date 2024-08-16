@@ -1,6 +1,6 @@
 import { BlogPreview } from "@/components/elements/BlogPreview/BlogPreview"
 import { Container } from "@/components/elements/Container/Container"
-import { BlogType } from "@/helpers/types"
+import { BlogType } from "@/lib/types"
 
 export const FeaturedBlogs: React.FC<{data: Array<BlogType>}> = ({data}) => {
   return (

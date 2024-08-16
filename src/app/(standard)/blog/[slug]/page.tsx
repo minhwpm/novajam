@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 import { Metadata, ResolvingMetadata } from "next";
 import { BlogPost } from "@/components/sections/BlogPost/BlogPost"
 import { LatestBlogs } from "@/components/sections/LatestBlogs/LatestBlogs"
-import { BlogType } from "@/helpers/types"
-import getBlogPost from "@/helpers/query/getBlogPost"
-import getBlogs from "@/helpers/query/getBlogs"
+import { BlogType } from "@/lib/types"
+import getBlogPost from "@/lib/query/getBlogPost"
+import getBlogs from "@/lib/query/getBlogs"
 
 export async function generateMetadata(
 { params }: { params: { slug: string } },

@@ -1,4 +1,4 @@
-import { SubmenuType } from "@/helpers/types";
+import { SubmenuType } from "@/lib/types";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import classNames from "classnames";
 import { FaChevronRight } from "react-icons/fa";
