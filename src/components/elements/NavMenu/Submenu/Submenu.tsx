@@ -1,7 +1,7 @@
 "use client";
 import classNames from "classnames";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { NavigationVariant, SubmenuType } from "@/helpers/types";
+import { NavigationVariant, SubmenuType } from "@/lib/types";
 import { usePathname } from "next/navigation";
 import { Dropdown } from "./Dropdown";
 import { Mega } from "./Mega";

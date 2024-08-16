@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 import { Navigation } from '@/components/sections/Navigation/Navigation';
 import { Footer } from '@/components/sections/Footer/Footer';
-import getNavigation from '@/helpers/query/getNavigation';
-import getFooter from '@/helpers/query/getFooter';
-import getPage from '@/helpers/query/getPage';
-import { generateFontClassnames } from '@/helpers/fonts';
-import { generateColorClassnames } from '@/helpers/utils';
+import getNavigation from '@/lib/query/getNavigation';
+import getFooter from '@/lib/query/getFooter';
+import getPage from '@/lib/query/getPage';
+import { generateFontClassnames } from '@/lib/fonts';
+import { generateColorClassnames } from '@/lib/utils';
 import styles from "@/app/(dynamic)/[...slug]/styles.module.css";
 
 export default async function RootLayout({
@@ -30,6 +30,7 @@ export default async function RootLayout({
   return (
     <div 
       className={classNames(
+        "main",
         fontTheme,
         styles[borderRadiusTheme ?? ""],
         styles[headingFontSizeTheme ?? ""],

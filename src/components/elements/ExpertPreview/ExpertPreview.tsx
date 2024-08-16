@@ -1,4 +1,4 @@
-import { ExpertType, TextAlignmentType } from "@/helpers/types";
+import { ExpertType, TextAlignmentType } from "@/lib/types";
 import { SNS } from "@/components/elements/SNS/SNS";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";

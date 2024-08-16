@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { SNSType } from "@/helpers/types"
+import { SNSType } from "@/lib/types"
 import { RiFacebookFill } from "react-icons/ri";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagram, FaYoutube, FaLinkedinIn } from "react-icons/fa";

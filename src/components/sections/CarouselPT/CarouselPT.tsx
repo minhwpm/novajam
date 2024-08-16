@@ -1,7 +1,7 @@
 "use client"
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
-import { ContentPTType } from "@/helpers/types";
+import { ContentPTType } from "@/lib/types";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { Swiper, SwiperSlide } from "swiper/react";

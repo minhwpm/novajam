@@ -1,15 +1,15 @@
 import { notFound } from "next/navigation";
 import { Metadata, ResolvingMetadata } from "next";
 import { SectionMapping } from "@/components/sections/SectionMapping/SectionMapping";
-import { BLOG_PAGE_SIZE, BlogType, PageType } from "@/helpers/types";
+import { BLOG_PAGE_SIZE, BlogType, PageType } from "@/lib/types";
 import { BlogPost } from "@/components/sections/BlogPost/BlogPost";
 import { FeaturedBlogs } from "@/components/sections/FeaturedBlogs/FeaturedBlogs";
 import { LatestBlogs } from "@/components/sections/LatestBlogs/LatestBlogs";
 import { Container } from "@/components/elements/Container/Container";
 import { Pagination } from "@/components/elements/Pagination/Pagination";
-import getPage from "@/helpers/query/getPage";
-import getBlogPost from "@/helpers/query/getBlogPost";
-import getBlogs from "@/helpers/query/getBlogs";
+import getPage from "@/lib/query/getPage";
+import getBlogPost from "@/lib/query/getBlogPost";
+import getBlogs from "@/lib/query/getBlogs";
 
 export async function generateMetadata(
   { params }: { params: { slug: Array<string> } },
