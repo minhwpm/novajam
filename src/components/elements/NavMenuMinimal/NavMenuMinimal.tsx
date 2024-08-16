@@ -1,7 +1,7 @@
 // This nav menu is for Minimal Navigation
 import classNames from "classnames";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { NavigationType } from "@/helpers/types";
+import { NavigationType } from "@/lib/types";
 import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
 import { useState } from "react";
 // import { CiMenuFries } from "react-icons/ci";

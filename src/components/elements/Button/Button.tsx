@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import classNames from "classnames";
-import { ButtonType } from "@/helpers/types";
+import { ButtonType } from "@/lib/types";
 import { GoArrowRight } from "react-icons/go";
 import Image from "next/image";
 

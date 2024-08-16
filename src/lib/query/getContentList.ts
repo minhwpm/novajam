@@ -63,6 +63,7 @@ export default async function getContentList(id: string) {
               height
               contentType
             }
+            enableParallaxBackground
             darkMode
             contentCollection (limit: 20) {
               items {

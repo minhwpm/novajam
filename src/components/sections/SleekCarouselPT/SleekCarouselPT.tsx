@@ -2,7 +2,7 @@
 import classNames from "classnames";
 import React, { useState } from "react";
 import { Section } from "@/components/elements/Section/Section";
-import { ContentPTType } from "@/helpers/types";
+import { ContentPTType } from "@/lib/types";
 import { RichText } from "@/components/elements/RichText/RichText";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";

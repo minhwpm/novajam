@@ -1,6 +1,6 @@
 import classNames from "classnames"
-import { FormFieldType } from "@/helpers/types"
-import { getRegEx } from "@/helpers/utils";
+import { FormFieldType } from "@/lib/types"
+import { getRegEx } from "@/lib/utils";
 import { UseFormRegister } from "react-hook-form/dist/types/form";
 import { FormValues } from "./InquiryForm";
 
