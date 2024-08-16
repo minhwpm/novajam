@@ -8,7 +8,7 @@ import {
   Inline,
 } from "@contentful/rich-text-types";
 import { MediaItem } from "../MediaItem/MediaItem";
-import { FlexibleContentType, MediaType } from "@/helpers/types";
+import { FlexibleContentType, MediaType } from "@/lib/types";
 import { FlexibleContent } from "../FlexibleContent/FlexibleContent";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";

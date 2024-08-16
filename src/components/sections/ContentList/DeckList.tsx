@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { ContentMapping } from "./ContentMapping"
-import { TextAlignmentType, Content, ContentSize, ContentOrientationType } from "@/helpers/types";
+import { TextAlignmentType, Content, ContentSize, ContentOrientationType } from "@/lib/types";
 
 export const DeckList: React.FC<{
   list: Array<Content>

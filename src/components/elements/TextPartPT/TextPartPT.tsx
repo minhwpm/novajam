@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
-import { TextAlignmentType, FlexibleContentType } from "@/helpers/types";
+import { TextAlignmentType, FlexibleContentType } from "@/lib/types";
 import { RichText } from "@/components/elements/RichText/RichText";
 
 export const TextPartPT: React.FC<{

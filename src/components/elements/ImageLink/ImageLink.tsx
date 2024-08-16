@@ -2,7 +2,7 @@ import classNames from "classnames";
 import Link from "next/link"
 import Image from "next/image";
 import { useInView } from "react-hook-inview";
-import { LinkType } from "@/helpers/types";
+import { LinkType } from "@/lib/types";
 
 export const ImageLink: React.FC<{
   data: LinkType

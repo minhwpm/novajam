@@ -51,6 +51,7 @@ export default async function getNavigation(url: string) {
                 }
               }
             }
+            showSearch
             buttonsCollection {
               items {
                 sys {

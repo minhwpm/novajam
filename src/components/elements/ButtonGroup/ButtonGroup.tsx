@@ -1,4 +1,4 @@
-import { TextAlignmentType, ButtonType } from "@/helpers/types"
+import { TextAlignmentType, ButtonType } from "@/lib/types"
 import classNames from "classnames"
 import { Button } from "../Button/Button"
 

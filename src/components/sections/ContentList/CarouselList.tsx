@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { useContext, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
-import { TextAlignmentType, Content, ContentSize, ContentOrientationType } from "@/helpers/types";
+import { TextAlignmentType, Content, ContentSize, ContentOrientationType } from "@/lib/types";
 import { ContentMapping } from "./ContentMapping";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";

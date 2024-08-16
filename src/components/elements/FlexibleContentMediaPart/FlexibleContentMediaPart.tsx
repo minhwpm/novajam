@@ -1,4 +1,4 @@
-import { TextAlignmentType, FlexibleContentType, MediaAspectRatioType } from "@/helpers/types";
+import { TextAlignmentType, FlexibleContentType, MediaAspectRatioType } from "@/lib/types";
 import classNames from "classnames";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";

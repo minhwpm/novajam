@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import { Section } from "@/components/elements/Section/Section";
-import { TextAlignmentType, ContentPTType, FlexibleContentType } from "@/helpers/types";
+import { TextAlignmentType, ContentPTType, FlexibleContentType } from "@/lib/types";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { useInView } from "react-hook-inview";
 import { TextPartPT } from "@/components/elements/TextPartPT/TextPartPT";
