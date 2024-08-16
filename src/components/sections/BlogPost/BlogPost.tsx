@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Container }from "@/components/elements/Container/Container"
 import { ExpertPreview } from "@/components/elements/ExpertPreview/ExpertPreview"
 import { RichText } from "@/components/elements/RichText/RichText"
-import { BlogType } from "@/helpers/types"
+import { BlogType } from "@/lib/types"
 import { format } from 'date-fns'
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem"
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';

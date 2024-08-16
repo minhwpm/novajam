@@ -4,7 +4,7 @@ import React from "react";
 import classNames from "classnames";
 import { Container } from "../Container/Container";
 import { RichText } from "@/components/elements/RichText/RichText";
-import { MediaType, TextAlignmentType, BackgroundColorType, ButtonType } from "@/helpers/types";
+import { MediaType, TextAlignmentType, BackgroundColorType, ButtonType } from "@/lib/types";
 import { Document } from "@contentful/rich-text-types";
 import { useInView } from "react-hook-inview";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
@@ -20,6 +20,7 @@ interface SectionProps {
   framed?: boolean;
   backgroundColor?: BackgroundColorType | null;
   backgroundImage?: MediaType | null;
+  enableParallaxBackground?: boolean;
   darkMode?: boolean;
   children: React.ReactNode;
 }
@@ -35,6 +36,7 @@ export const Section: React.FC<SectionProps> = ({
   framed = true,
   backgroundColor,
   backgroundImage,
+  enableParallaxBackground,
   darkMode,
   children,
 }) => {
@@ -99,8 +101,9 @@ export const Section: React.FC<SectionProps> = ({
         {
           "py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24": heading,
           "py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10": !heading,
-          "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
+          "bg-center bg-no-repeat bg-cover bg-blend-multiply":
             backgroundImage,
+          "lg:bg-fixed": enableParallaxBackground,
         },
         className
       )}

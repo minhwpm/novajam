@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useContext } from "react";
-import { TextAlignmentType, FlexibleContentType } from "@/helpers/types";
+import { TextAlignmentType, FlexibleContentType } from "@/lib/types";
 import { RichText } from "@/components/elements/RichText/RichText";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";

@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import classNames from "classnames";
 import * as RadixTabs from '@radix-ui/react-tabs';
 import { Section } from '@/components/elements/Section/Section';
-import { ContentPTType } from '@/helpers/types';
+import { ContentPTType } from '@/lib/types';
 import { RichText } from "@/components/elements/RichText/RichText"
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';

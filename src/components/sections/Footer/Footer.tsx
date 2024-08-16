@@ -1,5 +1,5 @@
 import { SNS } from "@/components/elements/SNS/SNS"
-import { FooterType } from "@/helpers/types"
+import { FooterType } from "@/lib/types"
 import classNames from "classnames"
 import Image from "next/image"
 import Link from "next/link"

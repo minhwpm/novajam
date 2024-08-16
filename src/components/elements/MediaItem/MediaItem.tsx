@@ -2,7 +2,7 @@
 import Image from "next/image";
 import classNames from "classnames";
 import { useRef, useState } from "react";
-import { MediaAspectRatioType, MediaType } from "@/helpers/types";
+import { MediaAspectRatioType, MediaType } from "@/lib/types";
 import { FaPlay } from "react-icons/fa";
 
 export const MediaItem: React.FC<{

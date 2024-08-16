@@ -4,7 +4,7 @@ import { ExpertPreview } from "@/components/elements/ExpertPreview/ExpertPreview
 import { Statistics } from "@/components/elements/Statistics/Statistics";
 import { FlexibleContent } from "@/components/elements/FlexibleContent/FlexibleContent";
 import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan";
-import { TextAlignmentType, Content } from "@/helpers/types";
+import { TextAlignmentType, Content } from "@/lib/types";
 import { Testimonial } from "@/components/elements/Testimonial/Testimonial";
 import { ImageLink } from "@/components/elements/ImageLink/ImageLink";
 

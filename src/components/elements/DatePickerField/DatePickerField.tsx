@@ -1,6 +1,6 @@
 import DatePicker from "react-datepicker"
 import { useController } from "react-hook-form";
-import { FormFieldType } from "@/helpers/types";
+import { FormFieldType } from "@/lib/types";
 import { Control } from "react-hook-form/dist/types/form";
 import { FormValues } from "@/components/sections/InquiryForm/InquiryForm";
 import "react-datepicker/dist/react-datepicker.css";
