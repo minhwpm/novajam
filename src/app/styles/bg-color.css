@@ -4,6 +4,12 @@
 .neutral-dark-section-bg-color {
   @apply bg-neutral-800;
 }
+.slate-section-bg-color {
+  @apply bg-slate-50;
+}
+.slate-dark-section-bg-color {
+  @apply bg-slate-800;
+}
 .red-section-bg-color {
   @apply bg-red-50;
 }

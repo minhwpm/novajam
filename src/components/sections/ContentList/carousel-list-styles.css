@@ -14,12 +14,12 @@
     --swiper-navigation-sides-offset: calc((100vw + 0.25rem - 1024px)/2 + 10px);
   }
   @media (min-width: 1280px) {
-    padding: 0 calc((100vw + 0.25rem - 1280px)/2);
-    --swiper-navigation-sides-offset: calc((100vw + 0.25rem - 1280px)/2 + 10px);
+    padding: 0 calc((100vw + 0.25rem - 1140px)/2);
+    --swiper-navigation-sides-offset: calc((100vw + 0.25rem - 1140px)/2 + 10px);
   }
   @media (min-width: 1536px) {
-    padding: 0 calc((100vw - 1536px)/2);
-    --swiper-navigation-sides-offset: calc((100vw - 1536px)/2 + 10px);
+    padding: 0 calc((100vw - 1400px)/2);
+    --swiper-navigation-sides-offset: calc((100vw - 1400px)/2 + 10px);
   }
 
   --swiper-pagination-bottom: 0px;

@@ -38,7 +38,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
             "text-neutral-50": darkMode,
           })}
         >
-          <div className="px-4 pt-6 lg:pt-10 container flex items-center justify-between">
+          <div className="px-4 pt-6 lg:pt-10 xl:min-w-[1140px] max-w-[1400px] flex items-center justify-between flex-1">
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
             </div>
@@ -66,7 +66,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
             { "text-neutral-50": darkMode }
           )}
         >
-          <div className="container px-4 flex items-center">
+          <div className="xl:min-w-[1140px] max-w-[1400px] px-4 flex items-center">
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
             </div>
@@ -74,7 +74,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
               {menu && <NavMenu menu={menu} appearanceVariant={appearanceVariant} />}
             </div>
             {buttons && buttons.length > 0 && (
-              <div className="ml-8 shrink-0 hidden lg:block">
+              <div className="ml-4 shrink-0 hidden lg:block">
                 <ButtonGroup data={buttons} size="sm" />
               </div>
             )}
@@ -97,7 +97,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
     >
       <div
         className={classNames(
-          "container px-4 mx-auto flex items-center"
+          "xl:min-w-[1140px] max-w-[1400px] px-4 mx-auto flex items-center"
         )}
       >
         <div className="shrink-0">
@@ -107,7 +107,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
           {menu && <NavMenu menu={menu} appearanceVariant={appearanceVariant} />}
         </div>
         {buttons && buttons.length > 0 && (
-          <div className="ml-8 shrink-0 hidden lg:block">
+          <div className="ml-4 shrink-0 hidden lg:block">
             <ButtonGroup data={buttons} size="sm" />
           </div>
         )}

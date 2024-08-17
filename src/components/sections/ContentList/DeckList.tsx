@@ -14,10 +14,10 @@ export const DeckList: React.FC<{
         <div 
           key={idx} 
           className={classNames(
-            "p-4 lg:p-6 w-full",
-            { "lg:basis-1/2": size === "XL" },
-            { "md:basis-1/2 xl:basis-1/3": size === "L" },
-            { "sm:basis-1/2 lg:basis-1/3 xl:basis-1/4": size === "M" },
+            "p-4 w-full",
+            { "lg:basis-1/2 sm:p-5 lg:p-6 xl:p-7": size === "XL" },
+            { "md:basis-1/2 xl:basis-1/3 sm:p-5 lg:p-6": size === "L" },
+            { "sm:basis-1/2 lg:basis-1/3 xl:basis-1/4 sm:p-5": size === "M" },
             { "basis-1/2 sm:basis-1/3 md:basis-1/4 xl:basis-1/5": size === "S" }
           )}
         >

@@ -40,7 +40,7 @@ const TextPart: React.FC<{
       {description && (
         <div
           className={classNames(
-            "prose 2xl:prose-lg",
+            "prose 2xl:prose-lg leading-loose",
             {
               "mb-4 lg:mb-6": buttons.length > 0,
             },
@@ -96,7 +96,7 @@ export const FlexibleContent: React.FC<{
         {(heading || eyebrow || description || buttons?.length > 0) && (
           <div
             className={classNames(
-              "basis-7/12 flex-1 px-4 flex flex-col",
+              "basis-7/12 flex-1 pl-4 xl:pl-6 flex flex-col",
               { "text-center": alignment === "center" },
               { "text-end": alignment === "end" }
             )}
@@ -129,7 +129,7 @@ export const FlexibleContent: React.FC<{
       {(heading || eyebrow || description || buttons?.length > 0) && (
         <div
           className={classNames(
-            "py-4 flex-1 flex flex-col",
+            "py-4 xl:pt-6 flex-1 flex flex-col",
             {"text-neutral-100": darkMode},
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }

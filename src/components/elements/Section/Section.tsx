@@ -47,11 +47,11 @@ export const Section: React.FC<SectionProps> = ({
     eyebrow && (
       <div
         className={classNames(
-          "text-sm xl:text-base tracking-widest mb-2",
+          "text-sm xl:text-base tracking-widest mb-6 font-semibold",
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" },
-          { "text-primary-500": !darkMode },
-          { "text-primary-400": darkMode }
+          { "text-secondary-500": !darkMode },
+          { "text-secondary-400": darkMode }
         )}
       >
         {eyebrow}
@@ -62,7 +62,7 @@ export const Section: React.FC<SectionProps> = ({
     heading && (
       <div
         className={classNames(
-          "font-heading text-heading leading-tight max-w-6xl mb-4",
+          "font-heading text-heading leading-snug max-w-3xl mb-4",
           { "text-neutral-50": darkMode },
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" }
@@ -99,8 +99,10 @@ export const Section: React.FC<SectionProps> = ({
         {
           "py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24": heading,
           "py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10": !heading,
-          "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
+          "bg-center bg-no-repeat bg-cover bg-blend-overlay":
             backgroundImage,
+          // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
+
         },
         className
       )}

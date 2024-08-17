@@ -41,7 +41,7 @@ export default async function Layout({
   return (
     <div
       className={classNames(
-        "min-h-screen flex flex-col justify-between",
+        "flex flex-col justify-between",
         fontTheme,
         styles[borderRadiusTheme ?? ""],
         styles[headingFontSizeTheme ?? ""],

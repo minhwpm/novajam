@@ -16,7 +16,7 @@ export const Footer: React.FC<Props> = ({ data }) => {
         "py-20",
         `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
         {
-          "bg-center bg-no-repeat bg-cover bg-blend-multiply":
+          "bg-center bg-no-repeat bg-cover bg-blend-overlay":
             backgroundImage,
         }
       )}

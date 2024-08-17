@@ -2,7 +2,9 @@ import React from "react";
 import Link from "next/link";
 import classNames from "classnames";
 import { ButtonType } from "@/helpers/types";
-import { GoArrowRight } from "react-icons/go";
+// import { GoArrowRight } from "react-icons/go";
+import { IoIosArrowRoundForward } from "react-icons/io";
+
 import Image from "next/image";
 
 export const Button: React.FC<{
@@ -57,10 +59,9 @@ export const Button: React.FC<{
       {renderIcon()}
       {children ? children : text}
       {withArrow && (
-        <GoArrowRight
+        <IoIosArrowRoundForward
           className={classNames(
             "inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-300 ease",
-            { "text-primary-600": buttonVariant === "ghost" },
             {
               "text-primary-600 group-hover:text-white":
                 buttonVariant === "outline",
@@ -74,7 +75,7 @@ export const Button: React.FC<{
                 buttonVariant === "outline-white",
             }
           )}
-          size={20}
+          size={25}
         />
       )}
     </>

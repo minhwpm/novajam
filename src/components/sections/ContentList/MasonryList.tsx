@@ -19,7 +19,7 @@ export const MasonryList: React.FC<{
             { 2: size === "S" },
             { 1: size === "M" },
             { 1: size === "L" },
-            { 1: size === "XL" },
+            { 1: size === "XL" }
           )
         ),
         640: parseInt(
@@ -27,7 +27,7 @@ export const MasonryList: React.FC<{
             { 3: size === "S" },
             { 2: size === "M" },
             { 1: size === "L" },
-            { 1: size === "XL" },
+            { 1: size === "XL" }
           )
         ),
         768: parseInt(
@@ -35,7 +35,7 @@ export const MasonryList: React.FC<{
             { 4: size === "S" },
             { 2: size === "M" },
             { 2: size === "L" },
-            { 1: size === "XL" },
+            { 1: size === "XL" }
           )
         ),
         1024: parseInt(
@@ -56,11 +56,24 @@ export const MasonryList: React.FC<{
         ),
       }}
     >
-      <Masonry gutter="32px">
+      <Masonry
+        gutter={classNames(
+          { "32px": size === "S" },
+          { "40px": size === "M" },
+          { "48px": size === "L" },
+          { "54px": size === "XL" }
+        )}
+      >
         {list.map((item, idx) => (
-          <ContentMapping key={item.id} data={item} alignment={alignment} layout={layout} index={idx} />
+          <ContentMapping
+            key={item.id}
+            data={item}
+            alignment={alignment}
+            layout={layout}
+            index={idx}
+          />
         ))}
       </Masonry>
     </ResponsiveMasonry>
-  )
+  );
 }

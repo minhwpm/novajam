@@ -36,7 +36,7 @@ export const Testimonial: React.FC<{
     >
       <div
         className={classNames(
-          "relative prose 2xl:prose-lg mb-6",
+          "relative prose 2xl:prose-lg mb-6 leading-loose",
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" },
           { "text-neutral-100": darkMode }

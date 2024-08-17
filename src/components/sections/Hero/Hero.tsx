@@ -43,7 +43,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
       className={classNames(
         `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
         {
-          "bg-center bg-no-repeat bg-cover bg-blend-multiply":
+          "bg-center bg-no-repeat bg-cover bg-blend-overlay":
             backgroundImage,
           // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
         }
@@ -138,7 +138,7 @@ const HeroSection: React.FC<{
     >
       <div
         className={classNames(
-          "flex flex-col gap-4 py-16 lg:py-20 xl:py-24",
+          "flex flex-col gap-6 py-16 lg:py-20 xl:py-24",
           { "px-4 custom-padding-left": appearanceVariant === "horizontal" },
           { "items-center text-center": alignment === "center" },
           { "items-end text-end": alignment === "end" }
@@ -147,13 +147,13 @@ const HeroSection: React.FC<{
         {data.eyebrow && (
           <div
             className={classNames(
-              "text-sm xl:text-base tracking-widest max-w-2xl opacity-0",
+              "text-sm xl:text-base tracking-widest max-w-2xl opacity-0 font-semibold",
               {
                 "animate-slidingHeroContent animation-delay-500":
                   isIntersecting,
               },
-              { "text-primary-500": !darkMode },
-              { "text-primary-400": darkMode }
+              { "text-secondary-500": !darkMode },
+              { "text-secondary-400": darkMode }
             )}
           >
             {data.eyebrow}
@@ -162,7 +162,7 @@ const HeroSection: React.FC<{
         {data.heading && (
           <div
             className={classNames(
-              "text-hero-heading leading-tight font-heading max-w-3xl opacity-0",
+              "text-hero-heading leading-snug font-heading max-w-3xl opacity-0",
               { "animate-slidingHeroContent": isIntersecting },
               { "text-neutral-50": darkMode }
             )}
@@ -173,7 +173,7 @@ const HeroSection: React.FC<{
         {data.description && (
           <div
             className={classNames(
-              "prose xl:prose-lg 2xl:prose-xl mt-4 max-w-2xl opacity-0",
+              "prose xl:prose-lg 2xl:prose-xl mt-4 max-w-2xl opacity-0 !leading-loose",
               {
                 "animate-slidingHeroContent animation-delay-200":
                   isIntersecting,

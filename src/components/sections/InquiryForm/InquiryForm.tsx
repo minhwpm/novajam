@@ -85,8 +85,10 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
         className={classNames(
           `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
           {
-            "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
+            "bg-center bg-no-repeat bg-cover bg-blend-overlay":
               backgroundImage,
+          // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
+
           }
         )}
         style={
@@ -119,8 +121,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               <div
                 className={classNames(
                   "text-sm lg:text-base tracking-widest text-center mb-2",
-                  { "text-primary-500": !darkMode },
-                  { "text-primary-400": darkMode },
+                  { "text-secondary-500": !darkMode },
+                  { "text-secondary-400": darkMode },
                   { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
               >

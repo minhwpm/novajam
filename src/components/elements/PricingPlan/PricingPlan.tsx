@@ -21,7 +21,7 @@ export const PricingPlan: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "relative flex flex-col gap-6 items-center rounded-theme bg-white shadow-radiant",
+        "relative flex flex-col gap-6 items-center rounded-theme bg-white",
         { "-bottom-10 opacity-0": animate },
         { "animate-slidingUpContent animation-delay-150": isIntersecting && animate },
         { "bg-opacity-5": darkMode }
