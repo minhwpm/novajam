@@ -21,7 +21,7 @@ export const Statistics: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "flex flex-col gap-5 px-4 lg:px-6 rounded-theme",
+        "flex flex-col gap-6 px-4 lg:px-6 rounded-theme",
         { "perspective-2500 backface-hidden -rotate-y-90": !isIntersecting },
         {
           "perspective-none backface-hidden rotate-y-0 transition-transform ease duration-1000 ":
@@ -47,7 +47,7 @@ export const Statistics: React.FC<{
       </div>
       <div
         className={classNames(
-          "tracking-wide leading-loose",
+          "tracking-wide leading-loose pb-4",
           { "text-neutral-600": !darkMode },
           { "text-neutral-300": darkMode },
           { "text-center": alignment === "center" },

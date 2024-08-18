@@ -81,10 +81,10 @@ export const Button: React.FC<{
     </>
   );
   const ghostVariantClasses = classNames(
-    "w-full relative left-0 inline-block font-medium hover:left-1 transition-all duration-500 ease",
-    { "px-2 py-2 text-sm": size === "sm" },
-    { "px-3 py-3 text-base": size === "base" },
-    { "px-4 py-4 xl:text-lg": size === "lg" },
+    "w-full relative left-0 inline-block font-medium text-primary-600 hover:left-1 transition-all duration-500 ease",
+    { "px-2 text-sm": size === "sm" },
+    { "px-3 text-base": size === "base" },
+    { "px-4 xl:text-lg": size === "lg" },
     { "opacity-20 pointer-events-none cursor-not-allowed": disabled },
     className
   )
