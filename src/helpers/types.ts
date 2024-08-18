@@ -267,6 +267,7 @@ export type ContentListType = {
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
   darkMode: boolean
+  sectionSeparator: Array<string> | null
   contentType: "contentlist"
 }
 

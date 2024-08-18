@@ -64,6 +64,7 @@ export default async function getContentList(id: string) {
               contentType
             }
             darkMode
+            sectionSeparator
             contentCollection (limit: 20) {
               items {
                 __typename

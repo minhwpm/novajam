@@ -4,7 +4,12 @@ import React from "react";
 import classNames from "classnames";
 import { Container } from "../Container/Container";
 import { RichText } from "@/components/elements/RichText/RichText";
-import { MediaType, TextAlignmentType, BackgroundColorType, ButtonType } from "@/helpers/types";
+import {
+  MediaType,
+  TextAlignmentType,
+  BackgroundColorType,
+  ButtonType,
+} from "@/helpers/types";
 import { Document } from "@contentful/rich-text-types";
 import { useInView } from "react-hook-inview";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
@@ -21,6 +26,7 @@ interface SectionProps {
   backgroundColor?: BackgroundColorType | null;
   backgroundImage?: MediaType | null;
   darkMode?: boolean;
+  sectionSeparator?: Array<string> | null;
   children: React.ReactNode;
 }
 
@@ -36,6 +42,7 @@ export const Section: React.FC<SectionProps> = ({
   backgroundColor,
   backgroundImage,
   darkMode,
+  sectionSeparator,
   children,
 }) => {
   const [ref, isIntersecting] = useInView({
@@ -91,52 +98,59 @@ export const Section: React.FC<SectionProps> = ({
     buttons.length > 0 && (
       <ButtonGroup data={buttons} alignment={alignment} size="base" />
     );
-  return (
-    <section
-      id={id ?? ""}
-      className={classNames(
-        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
-        {
-          "py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24": heading,
-          "py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10": !heading,
-          "bg-center bg-no-repeat bg-cover bg-blend-overlay":
-            backgroundImage,
-          // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
 
-        },
-        className
+  return (
+    <>
+      {sectionSeparator && sectionSeparator.includes("top") && (
+        <hr className="container m-auto px-4" />
       )}
-      style={
-        backgroundImage
-          ? { backgroundImage: `url(${backgroundImage.url})` }
-          : {}
-      }
-    >
-      <div
-        ref={ref}
+      <section
+        id={id ?? ""}
         className={classNames(
-          "container mx-auto px-4 relative flex flex-col -bottom-10 opacity-0",
-          { "animate-slidingUpContent animation-delay-150": isIntersecting },
-          { "items-center": alignment === "center" },
-          { "items-end": alignment === "end" }
+          `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
+          {
+            "py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24": heading,
+            "py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10": !heading,
+            "bg-center bg-no-repeat bg-cover bg-blend-overlay": backgroundImage,
+            // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
+          },
+          className
         )}
+        style={
+          backgroundImage
+            ? { backgroundImage: `url(${backgroundImage.url})` }
+            : {}
+        }
       >
-        {renderEyebrow()}
-        {renderHeading()}
-        {renderSummary()}
-        {renderButtons()}
-      </div>
-      {framed ? (
-        <Container
-          className={classNames({
-            "mt-4": heading || eyebrow || summary,
-          })}
+        <div
+          ref={ref}
+          className={classNames(
+            "container mx-auto px-4 relative flex flex-col -bottom-10 opacity-0",
+            { "animate-slidingUpContent animation-delay-150": isIntersecting },
+            { "items-center": alignment === "center" },
+            { "items-end": alignment === "end" }
+          )}
         >
-          {children}
-        </Container>
-      ) : (
-        <div>{children}</div>
+          {renderEyebrow()}
+          {renderHeading()}
+          {renderSummary()}
+          {renderButtons()}
+        </div>
+        {framed ? (
+          <Container
+            className={classNames({
+              "mt-4": heading || eyebrow || summary,
+            })}
+          >
+            {children}
+          </Container>
+        ) : (
+          <div>{children}</div>
+        )}
+      </section>
+      {sectionSeparator && sectionSeparator.includes("bottom") && (
+        <hr className="container m-auto" />
       )}
-    </section>
+    </>
   );
 };

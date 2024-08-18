@@ -23,7 +23,8 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     htmlid,
     backgroundColor,
     backgroundImage,
-    darkMode
+    darkMode,
+    sectionSeparator
   } = data;
   return (
     <DarkModeContext.Provider value={darkMode}>
@@ -37,6 +38,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         framed={appearanceVariant !== "carousel"}
         backgroundColor={backgroundColor}
         backgroundImage={backgroundImage}
+        sectionSeparator={sectionSeparator}
         darkMode={darkMode}
       >
         {appearanceVariant === "carousel" && (
