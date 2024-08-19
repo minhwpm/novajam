@@ -106,7 +106,7 @@ export const Section: React.FC<SectionProps> = ({
       className={classNames(
         "container mx-auto border-t",
         { "border-slate-800": darkMode },
-        { "border-slate-100": !darkMode }
+        { "border-slate-200": !darkMode }
       )}
     />
   );
