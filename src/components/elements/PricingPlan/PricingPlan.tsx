@@ -33,7 +33,7 @@ export const PricingPlan: React.FC<{
         </div>
       )}
       <h4
-        className={classNames("text-2xl font-bold", {
+        className={classNames(" font-semibold tracking-wide", {
           "text-primary-600 mt-12": true,
         })}
       >
@@ -42,9 +42,8 @@ export const PricingPlan: React.FC<{
       <div className="flex flex-col items-center">
         <div
           className={classNames(
-            "text-3xl font-bold",
+            "text-4xl xl:text-5xl font-bold",
             { "text-neutral-50": darkMode },
-            { "text-neutral-600": !darkMode }
           )}
         >
           {pricing}
@@ -72,7 +71,7 @@ export const PricingPlan: React.FC<{
       {description && (
         <div
           className={classNames(
-            "pt-6 pb-10 px-6 border-t prose 2xl:prose-lg",
+            "pt-6 pb-10 px-6 border-t prose leading-loose",
             { "text-neutral-200": darkMode },
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }

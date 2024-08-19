@@ -14,21 +14,21 @@
 }
 
 .standard-heading-font-size {
-  --heading-font-size: clamp(1.75rem, 6vw, 2.75rem);
-  --hero-heading-font-size: clamp(2.125rem, 7vw, 3.125rem);
+  --heading-font-size: clamp(1.75rem, 6vw, 2.125rem);
+  --hero-heading-font-size: clamp(2rem, 7vw, 3.125rem);
   --super-heading-font-size: clamp(2.5rem, 8vw, 3.75rem);
 }
 
 .standout-heading-font-size {
-  --heading-font-size: clamp(2rem, 6vw, 3.5rem);
-  --hero-heading-font-size: clamp(2.5rem, 7vw, 3.875rem);
-  --super-heading-font-size: clamp(3rem, 8vw, 4.25rem);
+  --heading-font-size: clamp(2rem, 6vw, 2.875rem);
+  --hero-heading-font-size: clamp(2.5rem, 7vw, 3.75rem);
+  --super-heading-font-size: clamp(3rem, 8vw, 4rem);
 }
 
 .impactful-heading-font-size {
   --heading-font-size: clamp(2.25rem, 6vw, 4.25rem);
   --hero-heading-font-size: clamp(2.875rem, 7vw, 5.175rem);
-  --super-heading-font-size: clamp(3.5rem, 8vw, 6.125rem);
+  --super-heading-font-size: clamp(3.5rem, 8vw, 5.5rem);
 }
 
 

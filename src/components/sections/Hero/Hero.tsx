@@ -164,7 +164,7 @@ const HeroSection: React.FC<{
             className={classNames(
               "text-hero-heading leading-snug font-heading max-w-3xl opacity-0",
               { "animate-slidingHeroContent": isIntersecting },
-              { "text-neutral-50": darkMode }
+              { "text-white": darkMode }
             )}
           >
             <RichText data={data.heading} />
@@ -178,8 +178,8 @@ const HeroSection: React.FC<{
                 "animate-slidingHeroContent animation-delay-200":
                   isIntersecting,
               },
-              { "text-neutral-600": !darkMode },
-              { "text-neutral-200": darkMode }
+              { "text-white/70": darkMode },
+              { "text-slate-500": !darkMode },
             )}
           >
             <RichText data={data.description} />

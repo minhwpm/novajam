@@ -171,9 +171,10 @@ export const HeroOverlaySection: React.FC<{
             {data.description && (
               <div
                 className={classNames(
-                  "prose md:prose-lg lg:prose-xl mt-6 lg:mt-10 max-w-3xl opacity-0",
+                  "prose xl:prose-lg 2xl:prose-xl mt-6 lg:mt-10 max-w-3xl opacity-0 !leading-loose",
                   { "animate-slidingHeroContent animation-delay-200 ": isIntersecting },
-                  { "text-neutral-100 drop-shadow-lg": darkMode }
+                  { "text-white/70 drop-shadow-lg": darkMode },
+                  { "text-slate-500": !darkMode },
                 )}
               >
                 <RichText data={data.description} />

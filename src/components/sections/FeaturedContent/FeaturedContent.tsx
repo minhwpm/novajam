@@ -20,65 +20,81 @@ const TextPart: React.FC<{
   const { eyebrow, heading, description, buttons } = data;
 
   return (
-    <>
-      {eyebrow && (
-        <div
-          className={classNames(
-            "text-sm xl:text-base tracking-widest mb-2 max-w-5xl",
-            { "text-primary-500": !darkMode },
-            { "text-primary-400": darkMode }
-          )}
-        >
-          {eyebrow}
-        </div>
-      )}
-      {heading && (
-        <div
-          className={classNames(
-            "text-heading leading-tight font-heading max-w-6xl mb-4 lg:mb-8",
-            { "text-neutral-50": darkMode }
-          )}
-        >
-          <RichText data={heading} />
-        </div>
-      )}
-      {description && (
-        <div
-          className={classNames(
-            "block prose xl:prose-lg leading-loose",
-            { "text-neutral-100": darkMode },
-            { "mb-4 lg:mb-8": buttons && buttons.length > 0 }
-          )}
-        >
-          <RichText data={description} />
-        </div>
-      )}
-      {buttons && buttons.length > 0 && (
-        <ButtonGroup
-          data={buttons}
-          size="lg"
-          alignment={
-            ["Vertical (Text | Media)", "Vertical (Media | Text)"].includes(
-              appearanceVariant
-            )
-              ? "center"
-              : undefined
-          }
-        />
-      )}
-    </>
+    <div className="flex flex-wrap gap-4 items-center justify-between">
+      <div>
+        {eyebrow && (
+          <div
+            className={classNames(
+              "text-sm xl:text-base tracking-widest mb-2 max-w-5xl",
+              { "text-primary-500": !darkMode },
+              { "text-primary-400": darkMode }
+            )}
+          >
+            {eyebrow}
+          </div>
+        )}
+        {heading && (
+          <div
+            className={classNames(
+              "text-heading leading-snug font-heading max-w-3xl xl:max-w-4xl mb-4 lg:mb-8",
+              { "text-white": darkMode }
+            )}
+          >
+            <RichText data={heading} />
+          </div>
+        )}
+        {description && (
+          <div
+            className={classNames(
+              "block prose xl:prose-lg leading-loose",
+              { "text-white/70": darkMode },
+              { "text-slate-500": !darkMode },
+              { "mb-4 lg:mb-8": buttons && buttons.length > 0 }
+            )}
+          >
+            <RichText data={description} />
+          </div>
+        )}
+      </div>
+      <div>
+        {buttons && buttons.length > 0 && (
+          <ButtonGroup
+            data={buttons}
+            size="lg"
+            alignment={
+              ["Vertical (Text | Media)", "Vertical (Media | Text)"].includes(
+                appearanceVariant
+              )
+                ? "center"
+                : undefined
+            }
+          />
+        )}
+      </div>
+    </div>
   );
 };
 
-export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data }) => {
-  const { htmlid, appearanceVariant, size, content, mediaAspectRatio, backgroundColor, backgroundImage, darkMode } = data;
+export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
+  data,
+}) => {
+  const {
+    htmlid,
+    appearanceVariant,
+    size,
+    content,
+    mediaAspectRatio,
+    backgroundColor,
+    backgroundImage,
+    darkMode,
+  } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
-    unobserveOnEnter: true
+    unobserveOnEnter: true,
   });
-  
+
   if (content === null) {
-    return null
+    return null;
   }
   const renderMediaPart = () => (
     <div
@@ -104,10 +120,6 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
         "relative -bottom-10 opacity-0 self-center w-full flex flex-col",
         {
           "animate-slidingUpContent animation-delay-500": isIntersecting,
-          "items-center pt-4 md:pt-6 lg:pt-8 xl:pt-10 text-center":
-            appearanceVariant === "Vertical (Media | Text)",
-          "items-center pb-4 md:pb-6 lg:pb-8 xl:pb-10 text-center":
-            appearanceVariant === "Vertical (Text | Media)",
           "px-4 pb-12 md:pb-14 lg:pb-16 xl:pb-18 2xl:pb-20":
             appearanceVariant === "Vertical (Media | Text)" &&
             size === "extended",
@@ -134,7 +146,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
       />
     </div>
   );
-  
+
   return (
     <section
       id={htmlid}
@@ -146,11 +158,11 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
           "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-overlay":
             backgroundImage,
           // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
-        },
+        }
       )}
       style={
         backgroundImage
-          ? { backgroundImage: `url(${backgroundImage.url})`, }
+          ? { backgroundImage: `url(${backgroundImage.url})` }
           : {}
       }
     >
@@ -160,7 +172,8 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({ data 
           "flex-col items-center":
             appearanceVariant === "Vertical (Media | Text)",
           "flex-col-reverse": appearanceVariant === "Vertical (Text | Media)",
-          "flex-row-reverse flex-wrap-reverse": appearanceVariant === "Horizontal (Text | Media)",
+          "flex-row-reverse flex-wrap-reverse":
+            appearanceVariant === "Horizontal (Text | Media)",
         })}
       >
         {renderMediaPart()}

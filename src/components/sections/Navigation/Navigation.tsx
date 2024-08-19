@@ -38,7 +38,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
             "text-neutral-50": darkMode,
           })}
         >
-          <div className="px-4 pt-6 lg:pt-10 xl:min-w-[1140px] max-w-[1400px] flex items-center justify-between flex-1">
+          <div className="px-4 pt-6 container flex items-center justify-between flex-1">
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
             </div>
@@ -66,7 +66,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
             { "text-neutral-50": darkMode }
           )}
         >
-          <div className="xl:min-w-[1140px] max-w-[1400px] px-4 flex items-center">
+          <div className="container px-4 flex items-center">
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
             </div>
@@ -97,7 +97,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
     >
       <div
         className={classNames(
-          "xl:min-w-[1140px] max-w-[1400px] px-4 mx-auto flex items-center"
+          "container px-4 mx-auto flex items-center"
         )}
       >
         <div className="shrink-0">

@@ -31,7 +31,7 @@ const TextPart: React.FC<{
           className={classNames(
             "not-prose font-heading text-lg lg:text-xl",
             { "mb-2 lg:mb-4": description || buttons.length > 0 },
-            { "text-neutral-50": darkMode }
+            { "text-white": darkMode }
           )}
         >
           <RichText data={heading} />
@@ -44,8 +44,8 @@ const TextPart: React.FC<{
             {
               "mb-4 lg:mb-6": buttons.length > 0,
             },
-            { "text-neutral-600": !darkMode },
-            { "text-neutral-100": darkMode }
+            { "text-white/70": darkMode },
+            { "text-slate-500": !darkMode },
           )}
         >
           <RichText data={description} />

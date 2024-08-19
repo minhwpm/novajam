@@ -8,7 +8,7 @@
   @apply bg-slate-50;
 }
 .slate-dark-section-bg-color {
-  @apply bg-slate-800;
+  @apply bg-slate-900;
 }
 .red-section-bg-color {
   @apply bg-red-50;

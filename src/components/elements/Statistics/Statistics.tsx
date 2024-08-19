@@ -37,7 +37,6 @@ export const Statistics: React.FC<{
       <div
         className={classNames(
           "font-heading text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-wide",
-          { "text-primary-600": !darkMode },
           { "text-neutral-100": darkMode },
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" }
@@ -48,8 +47,8 @@ export const Statistics: React.FC<{
       <div
         className={classNames(
           "tracking-wide leading-loose pb-4",
-          { "text-neutral-600": !darkMode },
-          { "text-neutral-300": darkMode },
+          { "text-white/70": darkMode },
+            { "text-slate-500": !darkMode },
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" }
         )}
