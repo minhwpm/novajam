@@ -76,12 +76,12 @@ export function RichText({
           },
           [BLOCKS.HEADING_4]: (_node: Inline | Block, children: ReactNode) => {
             return (
-              <h4 className="text-current font-heading">{children}</h4>
+              <h4 className="text-current font-heading text-xl">{children}</h4>
             )
           },
           [BLOCKS.HEADING_5]: (_node: Inline | Block, children: ReactNode) => {
             return (
-              <h5 className="text-current font-heading">{children}</h5>
+              <h5 className="text-current font-heading text-lg">{children}</h5>
             )
           },
           [BLOCKS.HEADING_6]: (_node: Inline | Block, children: ReactNode) => {

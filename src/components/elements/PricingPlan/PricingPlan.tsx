@@ -33,8 +33,9 @@ export const PricingPlan: React.FC<{
         </div>
       )}
       <h4
-        className={classNames(" font-semibold tracking-wide", {
-          "text-primary-600 mt-12": true,
+        className={classNames(" font-semibold tracking-wide mt-12", {
+          "text-primary-600": !darkMode,
+          "text-primary-400": darkMode,
         })}
       >
         {title}
@@ -72,7 +73,7 @@ export const PricingPlan: React.FC<{
         <div
           className={classNames(
             "pt-6 pb-10 px-6 border-t prose leading-loose",
-            { "text-neutral-200": darkMode },
+            { "text-white/70 border-slate-700": darkMode },
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }
           )}

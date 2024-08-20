@@ -80,7 +80,7 @@ export const MediaItem: React.FC<{
               width >= 200 ||
               contentType.includes("video")),
         },
-        `rounded-${rounded}`
+        {[`rounded-${rounded}`]: width >= 200}
       )}
     >
       {contentType.includes("image") && (
