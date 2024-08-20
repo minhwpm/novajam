@@ -70,7 +70,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
             </div>
-            <div className="flex-1 drop-shadow-lg lg:text-lg">
+            <div className="flex-1 lg:text-lg">
               {menu && <NavMenu menu={menu} appearanceVariant={appearanceVariant} />}
             </div>
             {buttons && buttons.length > 0 && (
