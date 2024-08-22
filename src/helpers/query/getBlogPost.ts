@@ -85,20 +85,20 @@ export default async function getBlogPost(slug: string) {
       }
 
       const data = await res.json();
-      const richtextContent =
+      const RichTextRendererContent =
         data.data.blogCollection.items[0]?.content.json.content;
-      for (let i = 0; i < richtextContent?.length; i++) {
-        if (richtextContent[i].nodeType === "embedded-asset-block") {
-          richtextContent[i].data = {
-            ...richtextContent[i].data,
-            ...(await getAsset(richtextContent[i].data.target.sys.id)),
+      for (let i = 0; i < RichTextRendererContent?.length; i++) {
+        if (RichTextRendererContent[i].nodeType === "embedded-asset-block") {
+          RichTextRendererContent[i].data = {
+            ...RichTextRendererContent[i].data,
+            ...(await getAsset(RichTextRendererContent[i].data.target.sys.id)),
           };
         }
-        if (richtextContent[i].nodeType === "embedded-entry-block") {
-          richtextContent[i].data = {
-            ...richtextContent[i].data,
+        if (RichTextRendererContent[i].nodeType === "embedded-entry-block") {
+          RichTextRendererContent[i].data = {
+            ...RichTextRendererContent[i].data,
             ...(await getFlexibleContent(
-              richtextContent[i].data.target.sys.id
+              RichTextRendererContent[i].data.target.sys.id
             )),
           };
         }

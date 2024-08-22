@@ -1,7 +1,7 @@
 "use client"
 import classNames from "classnames";
 import { TextAlignmentType, TestimonialType } from "@/helpers/types";
-import { RichText } from "@/components/elements/RichText/RichText";
+import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { AiFillStar } from "react-icons/ai";
 import { useInView } from "react-hook-inview";
@@ -51,7 +51,7 @@ export const Testimonial: React.FC<{
             { "text-slate-200/20": darkMode }
           )}
         />
-        <RichText data={content} />
+        <RichTextRenderer content={content} />
       </div>
       {rating > 0 && (
         <div className="flex gap-2 mb-6">

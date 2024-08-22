@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { Container }from "@/components/elements/Container/Container"
 import { ExpertPreview } from "@/components/elements/ExpertPreview/ExpertPreview"
-import { RichText } from "@/components/elements/RichText/RichText"
+import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer"
 import { BlogType } from "@/helpers/types"
 import { format } from 'date-fns'
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem"
@@ -62,7 +62,7 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
           </div>
           <div className="mt-10 flex flex-col items-center gap-10 text-lg">
             <div className="lg:w-3/4 xl:w-2/3 mb-10 prose xl:prose-lg max-w-none overflow-x-hidden">
-              <RichText data={content} style="blog" />
+              <RichTextRenderer content={content} style="blog" />
             </div>
             {author && (
               <div className="lg:w-3/4 xl:w-2/3 text-lg">

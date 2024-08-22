@@ -1,12 +1,12 @@
 "use client";
+import classNames from "classnames";
 import Image from "next/image";
-import { Button } from "@/components/elements/Button/Button";
 import Link from "next/link";
 import useStickyHeaderOnScrollUp from "@/helpers/hooks/useStickyHeaderOnScrollUp";
-import classNames from "classnames";
 import NavMenu from "@/components/elements/NavMenu/NavMenu";
 import NavMenuMobile from "@/components/elements/NavMenuMobile/NavMenuMobile";
 import NavMenuMinimal from "@/components/elements/NavMenuMinimal/NavMenuMinimal";
+import { Button } from "@/components/elements/Button/Button";
 import { MediaType, NavigationType } from "@/helpers/types";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 

@@ -4,7 +4,7 @@ import classNames from "classnames";
 import * as RadixTabs from '@radix-ui/react-tabs';
 import { Section } from '@/components/elements/Section/Section';
 import { ContentPTType } from '@/helpers/types';
-import { RichText } from "@/components/elements/RichText/RichText"
+import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer"
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { useInView } from 'react-hook-inview';
@@ -89,7 +89,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                           { "text-neutral-50": darkMode }
                         )}
                       >
-                        <RichText data={section.heading} />
+                        <RichTextRenderer content={section.heading} />
                       </div>
                     )}
                   </RadixTabs.Trigger>
@@ -116,7 +116,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                         "text-neutral-100": darkMode,
                       })}
                     >
-                      <RichText data={section.description} />
+                      <RichTextRenderer content={section.description} />
                     </div>
                   )}
                   {section.buttons && section.buttons.length > 0 && (

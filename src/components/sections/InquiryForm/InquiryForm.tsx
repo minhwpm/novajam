@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/elements/Button/Button";
 import { InquiryFormType } from "@/helpers/types";
-import { RichText } from "@/components/elements/RichText/RichText";
+import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
 import { InputField } from "./InputField";
 import { TextAreaField } from "./TextAreaField";
 import { SelectField } from "./SelectField";
@@ -137,7 +137,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                   { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
               >
-                <RichText data={heading} />
+                <RichTextRenderer content={heading} />
               </div>
             )}
             {summary && (
@@ -163,7 +163,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                   { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
               >
-                <RichText data={description} />
+                <RichTextRenderer content={description} />
               </div>
             )}
           </div>

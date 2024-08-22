@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import { useContext } from "react";
-import { Button } from "../Button/Button";
-import { TextAlignmentType, PricingPlanType } from "@/helpers/types";
-import { RichText } from "../RichText/RichText";
-import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 import { useInView } from "react-hook-inview";
+import { Button } from "@/components/elements/Button/Button";
+import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
+import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
+import { TextAlignmentType, PricingPlanType } from "@/helpers/types";
 
 export const PricingPlan: React.FC<{
   data: PricingPlanType;
@@ -78,7 +78,7 @@ export const PricingPlan: React.FC<{
             { "text-end": alignment === "end" }
           )}
         >
-          <RichText data={description} />
+          <RichTextRenderer content={description} />
         </div>
       )}
     </div>

@@ -3,7 +3,7 @@ import classNames from "classnames";
 import React, { useState } from "react";
 import { Section } from "@/components/elements/Section/Section";
 import { ContentPTType } from "@/helpers/types";
-import { RichText } from "@/components/elements/RichText/RichText";
+import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { useInView } from "react-hook-inview";
@@ -97,7 +97,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                 { "text-end": headingTextAlignment === "end" }
               )}
             >
-              <RichText data={heading} />
+              <RichTextRenderer content={heading} />
             </div>
           )}
           {summary && (
@@ -109,7 +109,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                 { "text-end": headingTextAlignment === "end" }
               )}
             >
-              <RichText data={summary} />
+              <RichTextRenderer content={summary} />
             </div>
           )}
           <div className={classNames("mt-8 hidden lg:flex gap-4",
@@ -174,7 +174,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                       "text-neutral-50": darkMode,
                     })}
                   >
-                    <RichText data={section.heading} />
+                    <RichTextRenderer content={section.heading} />
                   </div>
                 )}
                 {section.description && (
@@ -183,7 +183,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                       "text-neutral-50": darkMode,
                     })}
                   >
-                    <RichText data={section.description} />
+                    <RichTextRenderer content={section.description} />
                   </div>
                 )}
                 {section.buttons && section.buttons.length > 0 && (

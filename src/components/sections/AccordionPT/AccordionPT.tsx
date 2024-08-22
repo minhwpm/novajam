@@ -4,7 +4,7 @@ import classNames from "classnames";
 import * as RadixAccordion from "@radix-ui/react-accordion";
 import { Section } from "@/components/elements/Section/Section";
 import { ContentPTType } from "@/helpers/types";
-import { RichText } from "@/components/elements/RichText/RichText";
+import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { useInView } from "react-hook-inview";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
@@ -74,7 +74,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                             "text-neutral-50": darkMode,
                           })}
                         >
-                          <RichText data={section.heading} />
+                          <RichTextRenderer content={section.heading} />
                         </div>
                       )}
                     </div>
@@ -109,7 +109,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                           "text-neutral-100": darkMode,
                         })}
                       >
-                        <RichText data={section.description} />
+                        <RichTextRenderer content={section.description} />
                       </div>
                     )}
                     {section.buttons && section.buttons.length > 0 && (

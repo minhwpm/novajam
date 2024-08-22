@@ -967,7 +967,7 @@
         {
           "id": "heading",
           "name": "Heading",
-          "type": "RichText",
+          "type": "RichTextRenderer",
           "localized": false,
           "required": false,
           "validations": [
@@ -1002,7 +1002,7 @@
         {
           "id": "summary",
           "name": "Summary",
-          "type": "RichText",
+          "type": "RichTextRenderer",
           "localized": false,
           "required": false,
           "validations": [
@@ -1805,7 +1805,7 @@
         {
           "id": "heading",
           "name": "Heading",
-          "type": "RichText",
+          "type": "RichTextRenderer",
           "localized": false,
           "required": false,
           "validations": [
@@ -1851,7 +1851,7 @@
         {
           "id": "description",
           "name": "Description",
-          "type": "RichText",
+          "type": "RichTextRenderer",
           "localized": false,
           "required": false,
           "validations": [
@@ -2522,7 +2522,7 @@
         {
           "id": "notes",
           "name": "Notes",
-          "type": "RichText",
+          "type": "RichTextRenderer",
           "localized": false,
           "required": false,
           "validations": [
@@ -2709,7 +2709,7 @@
         {
           "id": "content",
           "name": "Content",
-          "type": "RichText",
+          "type": "RichTextRenderer",
           "localized": false,
           "required": true,
           "validations": [
@@ -2946,7 +2946,7 @@
         {
           "id": "heading",
           "name": "Heading",
-          "type": "RichText",
+          "type": "RichTextRenderer",
           "localized": false,
           "required": false,
           "validations": [
@@ -2981,7 +2981,7 @@
         {
           "id": "summary",
           "name": "Summary",
-          "type": "RichText",
+          "type": "RichTextRenderer",
           "localized": false,
           "required": false,
           "validations": [
@@ -4134,7 +4134,7 @@
         {
           "id": "description",
           "name": "Description",
-          "type": "RichText",
+          "type": "RichTextRenderer",
           "localized": false,
           "required": false,
           "validations": [
@@ -4268,7 +4268,7 @@
         {
           "id": "heading",
           "name": "Heading",
-          "type": "RichText",
+          "type": "RichTextRenderer",
           "localized": false,
           "required": false,
           "validations": [
@@ -4303,7 +4303,7 @@
         {
           "id": "description",
           "name": "Description",
-          "type": "RichText",
+          "type": "RichTextRenderer",
           "localized": false,
           "required": false,
           "validations": [
@@ -4522,7 +4522,7 @@
         {
           "id": "content",
           "name": "Content",
-          "type": "RichText",
+          "type": "RichTextRenderer",
           "localized": false,
           "required": true,
           "validations": [
@@ -5207,12 +5207,12 @@
         },
         {
           "fieldId": "heading",
-          "widgetId": "richTextEditor",
+          "widgetId": "RichTextRendererEditor",
           "widgetNamespace": "builtin"
         },
         {
           "fieldId": "summary",
-          "widgetId": "richTextEditor",
+          "widgetId": "RichTextRendererEditor",
           "widgetNamespace": "builtin"
         },
         {
@@ -5695,7 +5695,7 @@
         },
         {
           "fieldId": "heading",
-          "widgetId": "richTextEditor",
+          "widgetId": "RichTextRendererEditor",
           "widgetNamespace": "builtin"
         },
         {
@@ -5705,7 +5705,7 @@
         },
         {
           "fieldId": "description",
-          "widgetId": "richTextEditor",
+          "widgetId": "RichTextRendererEditor",
           "widgetNamespace": "builtin"
         },
         {
@@ -6087,7 +6087,7 @@
         },
         {
           "fieldId": "notes",
-          "widgetId": "richTextEditor",
+          "widgetId": "RichTextRendererEditor",
           "widgetNamespace": "builtin"
         }
       ]
@@ -6195,7 +6195,7 @@
         },
         {
           "fieldId": "content",
-          "widgetId": "richTextEditor",
+          "widgetId": "RichTextRendererEditor",
           "widgetNamespace": "builtin"
         },
         {
@@ -6375,12 +6375,12 @@
         },
         {
           "fieldId": "heading",
-          "widgetId": "richTextEditor",
+          "widgetId": "RichTextRendererEditor",
           "widgetNamespace": "builtin"
         },
         {
           "fieldId": "summary",
-          "widgetId": "richTextEditor",
+          "widgetId": "RichTextRendererEditor",
           "widgetNamespace": "builtin"
         },
         {
@@ -7064,7 +7064,7 @@
         },
         {
           "fieldId": "description",
-          "widgetId": "richTextEditor",
+          "widgetId": "RichTextRendererEditor",
           "widgetNamespace": "builtin"
         },
         {
@@ -7149,12 +7149,12 @@
         },
         {
           "fieldId": "heading",
-          "widgetId": "richTextEditor",
+          "widgetId": "RichTextRendererEditor",
           "widgetNamespace": "builtin"
         },
         {
           "fieldId": "description",
-          "widgetId": "richTextEditor",
+          "widgetId": "RichTextRendererEditor",
           "widgetNamespace": "builtin"
         },
         {
@@ -7286,7 +7286,7 @@
         },
         {
           "fieldId": "content",
-          "widgetId": "richTextEditor",
+          "widgetId": "RichTextRendererEditor",
           "widgetNamespace": "builtin"
         },
         {

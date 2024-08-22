@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { useContext } from "react";
 import { TextAlignmentType, FlexibleContentType } from "@/helpers/types";
-import { RichText } from "@/components/elements/RichText/RichText";
+import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
@@ -34,7 +34,7 @@ const TextPart: React.FC<{
             { "text-white": darkMode }
           )}
         >
-          <RichText data={heading} />
+          <RichTextRenderer content={heading} />
         </div>
       )}
       {description && (
@@ -48,7 +48,7 @@ const TextPart: React.FC<{
             { "text-slate-500": !darkMode },
           )}
         >
-          <RichText data={description} />
+          <RichTextRenderer content={description} />
         </div>
       )}
       {buttons && buttons.length > 0 && (

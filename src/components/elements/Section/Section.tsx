@@ -3,7 +3,7 @@
 import React from "react";
 import classNames from "classnames";
 import { Container } from "../Container/Container";
-import { RichText } from "@/components/elements/RichText/RichText";
+import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
 import {
   MediaType,
   TextAlignmentType,
@@ -75,7 +75,7 @@ export const Section: React.FC<SectionProps> = ({
           { "text-end": alignment === "end" }
         )}
       >
-        <RichText data={heading} />
+        <RichTextRenderer content={heading} />
       </div>
     );
 
@@ -90,7 +90,7 @@ export const Section: React.FC<SectionProps> = ({
           { "text-end": alignment === "end" }
         )}
       >
-        <RichText data={summary} />
+        <RichTextRenderer content={summary} />
       </div>
     );
 

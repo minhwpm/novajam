@@ -5,7 +5,7 @@ import {
   FeaturedContentType,
   FeaturedContentVariantType,
 } from "@/helpers/types";
-import { RichText } from "@/components/elements/RichText/RichText";
+import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { useInView } from "react-hook-inview";
@@ -40,7 +40,7 @@ const TextPart: React.FC<{
               { "text-white": darkMode }
             )}
           >
-            <RichText data={heading} />
+            <RichTextRenderer content={heading} />
           </div>
         )}
         {description && (
@@ -52,7 +52,7 @@ const TextPart: React.FC<{
               { "mb-4 lg:mb-8": buttons && buttons.length > 0 }
             )}
           >
-            <RichText data={description} />
+            <RichTextRenderer content={description} />
           </div>
         )}
       </div>
