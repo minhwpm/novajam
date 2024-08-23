@@ -277,6 +277,7 @@ export type FormFieldType = {
   fieldType: 'text' | 'email' | 'tel' | 'number' | 'date' | 'datetime' | 'textarea' | 'select'
   options: Array<string>
   required: boolean
+  placeholder: string
   helpText: string
   uiWidth: "half-size" | "full-size"
 }

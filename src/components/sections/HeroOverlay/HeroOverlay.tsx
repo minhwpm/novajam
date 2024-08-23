@@ -32,7 +32,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
         "relative",
         `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
         {
-          "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-overlay":
+          "bg-center bg-no-repeat bg-cover bg-blend-overlay":
             backgroundImage,
           // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
 
@@ -160,7 +160,7 @@ export const HeroOverlaySection: React.FC<{
             {data.heading && (
               <div
                 className={classNames(
-                  "relative text-super-heading leading-tight font-heading max-w-3xl mt-2 opacity-0",
+                  "relative text-super-heading leading-tight font-heading max-w-2xl mt-2 opacity-0",
                   { "animate-slidingHeroContent": isIntersecting },
                   { "text-white drop-shadow-lg": darkMode }
                 )}
@@ -171,7 +171,7 @@ export const HeroOverlaySection: React.FC<{
             {data.description && (
               <div
                 className={classNames(
-                  "prose xl:prose-lg 2xl:prose-xl mt-6 lg:mt-10 max-w-3xl opacity-0 !leading-loose",
+                  "prose xl:prose-lg 2xl:prose-xl mt-6 lg:mt-10 max-w-xl opacity-0 !leading-loose",
                   { "animate-slidingHeroContent animation-delay-200 ": isIntersecting },
                   { "text-white/70 drop-shadow-lg": darkMode },
                   { "text-slate-500": !darkMode },

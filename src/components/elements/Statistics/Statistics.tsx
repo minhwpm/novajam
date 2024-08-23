@@ -1,15 +1,16 @@
-"use client"
+"use client";
 import classNames from "classnames";
 import { useInView } from "react-hook-inview";
-import { TextAlignmentType, StatisticsType } from "@/helpers/types"
+import { TextAlignmentType, StatisticsType } from "@/helpers/types";
 import { useContext } from "react";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 
 export const Statistics: React.FC<{
   data: StatisticsType;
+  layout: "horizontal" | "vertical";
   index: number;
   alignment?: TextAlignmentType;
-}> = ({ data, index, alignment }) => {
+}> = ({ data, index, layout = "vertical", alignment }) => {
   const { number, text } = data;
   const darkMode = useContext(DarkModeContext);
   const [ref, isIntersecting] = useInView({
@@ -21,7 +22,9 @@ export const Statistics: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "flex flex-col gap-6 px-4 lg:px-6 rounded-theme",
+        "flex gap-6 rounded-theme",
+        { "flex-col": layout === "vertical" },
+        { "flex-row": layout === "vertical" },
         { "perspective-2500 backface-hidden -rotate-y-90": !isIntersecting },
         {
           "perspective-none backface-hidden rotate-y-0 transition-transform ease duration-1000 ":
@@ -36,7 +39,7 @@ export const Statistics: React.FC<{
     >
       <div
         className={classNames(
-          "font-heading text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-wide",
+          "font-heading text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight",
           { "text-neutral-100": darkMode },
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" }
@@ -48,7 +51,7 @@ export const Statistics: React.FC<{
         className={classNames(
           "tracking-wide leading-loose pb-4",
           { "text-white/70": darkMode },
-            { "text-slate-500": !darkMode },
+          { "text-slate-500": !darkMode },
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" }
         )}

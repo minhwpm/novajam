@@ -18,7 +18,7 @@ export const InputField: React.FC<{
         required: data.required,
         pattern: getRegEx(data.fieldType),
       })}
-      placeholder={data.label + (data.required ? "*" : "")}
+      placeholder={(data.placeholder ? data.placeholder : data.label) + (data.required ? "*" : "")}
     />
   );
 };

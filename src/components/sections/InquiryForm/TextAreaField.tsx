@@ -12,7 +12,7 @@ export const TextAreaField: React.FC<{
       className="block border border-neutral-300 rounded-theme w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-500"
       id={data.label}
       placeholder={
-        data.label + (data.required ? "*" : "")
+        (data.placeholder ? data.placeholder : data.label) + (data.required ? "*" : "")
       }
       rows={5}
       {...register(data.label, {

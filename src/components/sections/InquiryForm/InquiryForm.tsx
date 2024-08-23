@@ -85,10 +85,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
         className={classNames(
           `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
           {
-            "bg-center bg-no-repeat bg-cover bg-blend-overlay":
-              backgroundImage,
-          // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
-
+            "bg-center bg-no-repeat bg-cover bg-blend-overlay": backgroundImage,
+            // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
           }
         )}
         style={
@@ -104,7 +102,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           className={classNames(
             "container mx-auto px-4 flex flex-col gap-x-10 gap-y-4 my-24 lg:my-28",
             {
-              "lg:flex-row": appearanceVariant === "horizontal",
+              "lg:flex-row lg:justify-between":
+                appearanceVariant === "horizontal",
             },
             "relative -bottom-10 opacity-0",
             {
@@ -113,8 +112,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           )}
         >
           <div
-            className={classNames("flex flex-col items-center", {
-              "lg:w-5/12 lg:items-start": appearanceVariant === "horizontal",
+            className={classNames("flex flex-col items-center basis-5/12", {
+              "lg:items-start": appearanceVariant === "horizontal",
             })}
           >
             {eyebrow && (
@@ -132,8 +131,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             {heading && (
               <div
                 className={classNames(
-                  "font-heading text-heading text-center leading-tight",
-                  { "text-neutral-50 drop-shadow-lg": darkMode },
+                  "font-heading text-heading text-center leading-snug",
+                  { "text-slate-50 drop-shadow-lg": darkMode },
                   { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
               >
@@ -143,9 +142,9 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             {summary && (
               <div
                 className={classNames(
-                  "prose-lg 2xl:prose-xl max-w-xl lg:max-w-3xl text-center mt-6",
-                  { "text-neutral-600": !darkMode },
-                  { "text-neutral-200": darkMode },
+                  "prose-lg 2xl:prose-xl max-w-xl lg:max-w-3xl text-center mt-6 !leading-loose",
+                  { "text-white/70": darkMode },
+                  { "text-slate-500": !darkMode },
                   { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
               >
@@ -156,9 +155,9 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               <div
                 className={classNames(
                   "prose xl:prose-lg mt-8",
-                  { "text-neutral-600": !darkMode },
+                  { "text-slate-600": !darkMode },
                   {
-                    "text-neutral-200": darkMode,
+                    "text-slate-200": darkMode,
                   },
                   { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
@@ -169,18 +168,19 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           </div>
           <div
             className={classNames(
-              "col-span-12 flex flex-col",
-              { "items-center": appearanceVariant === "vertical" },
-              { "lg:w-7/12 lg:items-end": appearanceVariant === "horizontal" },
+              "col-span-12 flex flex-col basis-5/12 max-w-2xl rounded-theme",
+              { "items-center self-center": appearanceVariant === "vertical" },
+              // { "lg:items-end": appearanceVariant === "horizontal" },
               "relative -bottom-10 opacity-0",
               {
                 "animate-slidingUpContent animation-delay-300": isIntersecting,
-              }
+              },
+              { "bg-white": darkMode }
             )}
           >
             <form
               className={classNames(
-                " w-full max-w-xl mx-auto lg:mx-0 grid grid-cols-2 gap-x-5 gap-y-3 rounded-theme",
+                "w-full max-w-xl px-4 pb-4 pt-2 lg:px-8 lg:pb-8 lg:pt-4 mx-auto lg:mx-0 grid grid-cols-2 gap-x-5 gap-y-3 rounded-theme",
                 { "gap-x-0": fields.length === 1 }
               )}
               onSubmit={handleSubmit(onSubmit)}
@@ -201,15 +201,9 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                         <p>Wrong format. Please try again. </p>
                       )}
                     </div>
-                    {fieldItem.helpText && (
-                      <div
-                        className={classNames(
-                          "pl-2 pb-2 text-smd",
-                          { "text-neutral-700": !darkMode },
-                          { "text-neutral-100": darkMode }
-                        )}
-                      >
-                        {fieldItem.helpText}
+                    {fieldItem.placeholder && (
+                      <div className={classNames("pb-2 text-smd")}>
+                        {fieldItem.label}
                       </div>
                     )}
                     {fieldItem.fieldType === "select" && (
@@ -241,6 +235,11 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                       fieldItem.fieldType !== "datetime" && (
                         <InputField data={fieldItem} register={register} />
                       )}
+                    {fieldItem.helpText && (
+                      <div className={classNames("pl-2 pt-1 text-sm text-slate-800/50")}>
+                        {fieldItem.helpText}
+                      </div>
+                    )}
                   </div>
                 ))}
               <input hidden readOnly value={title} {...register("title")} />
@@ -259,7 +258,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                 {submitButton ? (
                   <Button
                     data={submitButton}
-                    size="base"
+                    size="lg"
                     type="submit"
                     fullWidth={true}
                   />

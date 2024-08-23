@@ -84,7 +84,7 @@ export const Section: React.FC<SectionProps> = ({
       <div
         className={classNames(
           "prose lg:prose-lg 2xl:prose-xl max-w-xl lg:max-w-3xl  mb-4",
-          { "text-white text-opacity-70": darkMode },
+          { "text-white/70": darkMode },
           { "text-slate-500": !darkMode },
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" }

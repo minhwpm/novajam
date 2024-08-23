@@ -23,7 +23,7 @@ export const SelectField: React.FC<{
     <ReactSelect
       className="w-full"
       name={data.label}
-      options={data.options.map(option => {
+      options={data.options?.map(option => {
         return {
           label: option,
           value: option
@@ -38,8 +38,8 @@ export const SelectField: React.FC<{
         }),
       }}
       placeholder={(
-        <div className="text-neutral-500">
-          {data.label + (data.required ? "*" : "")}
+        <div className="text-opacity-70">
+          {(data.placeholder ? data.placeholder : data.label) + (data.required ? "*" : "")}
         </div>
       )}
       onChange={(selectedOption) => {
