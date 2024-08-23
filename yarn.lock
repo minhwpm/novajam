@@ -102,6 +102,11 @@
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.5.2.tgz#924641091d5ae83b9fb34908745a62d652b44d68"
   integrity sha512-qD98Amp/vWxCYMtv7yprh4Ry3QHFX50sf+i3E6e/WRquz+aUW2ilqmQqW6ucb4F2dlatUxMbOOhZOFazv2XLjg==
 
+"@contentful/rich-text-types@^16.6.1":
+  version "16.8.3"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.8.3.tgz#f0effea5d0ed23f9abfd992c9b1be8a00f4d63e9"
+  integrity sha512-vXwXDQMDbqITCWfTkU5R/q+uvXWCc1eYNvdZyjtrs0YDIYr4L7QJ2s1r4ZheIs3iVf3AFucKIHgDSpwCAm2wKA==
+
 "@contentlayer/core@0.3.4":
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/@contentlayer/core/-/core-0.3.4.tgz#9f108a6fdc612482d6c59255ad5b3f2f3d8091d5"
@@ -1210,11 +1215,6 @@
     "@types/react" "*"
     hoist-non-react-statics "^3.3.0"
 
-"@types/json-patch@0.0.30":
-  version "0.0.30"
-  resolved "https://registry.yarnpkg.com/@types/json-patch/-/json-patch-0.0.30.tgz#7c562173216c50529e70126ceb8e7a533f865e9b"
-  integrity sha512-MhCUjojzDhVLnZnxwPwa+rETFRDQ0ffjxYdrqOP6TBO2O0/Z64PV5tNeYApo4bc4y4frbWOrRwv/eEkXlI13Rw==
-
 "@types/json-schema@^7.0.12":
   version "7.0.15"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.15.tgz#596a1747233694d50f6ad8a7869fcb6f56cf5841"
@@ -1683,10 +1683,19 @@ axe-core@=4.7.0:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.7.0.tgz#34ba5a48a8b564f67e103f0aa5768d76e15bbbbf"
   integrity sha512-M0JtH+hlOL5pLQwHOLNYZaXuhqmvS8oExsqB1SBYgA4Dk7u/xx+YdGHXaK5pyUfed5mYXdlYiphWq3G8cRi5JQ==
 
-axios@^1.6.2, axios@^1.6.7:
+axios@^1.6.7:
   version "1.6.8"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz#66d294951f5d988a00e87a0ffb955316a619ea66"
   integrity sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==
+  dependencies:
+    follow-redirects "^1.15.6"
+    form-data "^4.0.0"
+    proxy-from-env "^1.1.0"
+
+axios@^1.7.4:
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.4.tgz#4c8ded1b43683c8dd362973c393f3ede24052aa2"
+  integrity sha512-DukmaFRnY6AzAALSH4J2M3k6PkaC+MfaAGdEERRWcC9q3/TWQwLpHR8ZRLKTdQ3aBDL64EdluRDjJqKw+BPZEw==
   dependencies:
     follow-redirects "^1.15.6"
     form-data "^4.0.0"
@@ -1934,18 +1943,15 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
-contentful-management@^11.3.0:
-  version "11.24.3"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-11.24.3.tgz#8553bf8b0c9961a3fea7d0d17d31b38dd102bf98"
-  integrity sha512-vgbjt/3efD+vLxQlLRhGFcqVLkRmQM53fdPTMc4utAbKAj9JkhyfF4wSV4lIrbwyOXTU5HMrxDbRUIAAEsLiHQ==
+contentful-management@^11.31.1:
+  version "11.31.7"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-11.31.7.tgz#1700f6d718daaf54844c1cefcbbee20b834eadf0"
+  integrity sha512-vF8yHzhJB9HGmZ01Rs9258X1z9LLerFX+2mDA8cCg9Pis3mCJ4V12L5QdtCYKc5dc7JDowuPS5tN57YR/xvR0Q==
   dependencies:
-    "@contentful/rich-text-types" "^16.3.0"
-    "@types/json-patch" "0.0.30"
-    axios "^1.6.2"
-    contentful-sdk-core "^8.1.0"
+    "@contentful/rich-text-types" "^16.6.1"
+    axios "^1.7.4"
+    contentful-sdk-core "^8.3.1"
     fast-copy "^3.0.0"
-    lodash.isplainobject "^4.0.6"
-    type-fest "^4.0.0"
 
 contentful-resolve-response@^1.8.1:
   version "1.8.1"
@@ -1958,6 +1964,17 @@ contentful-sdk-core@^8.1.0:
   version "8.1.2"
   resolved "https://registry.yarnpkg.com/contentful-sdk-core/-/contentful-sdk-core-8.1.2.tgz#a27ea57cfd631b4c6d58e5ca04fcde6d231e2c1b"
   integrity sha512-XZvX2JMJF4YiICXLrHFv59KBHaQJ6ElqAP8gSNgnCu4x+pPG7Y1bC2JMNOiyAgJuGQGVUOcNZ5PmK+tsNEayYw==
+  dependencies:
+    fast-copy "^2.1.7"
+    lodash.isplainobject "^4.0.6"
+    lodash.isstring "^4.0.1"
+    p-throttle "^4.1.1"
+    qs "^6.11.2"
+
+contentful-sdk-core@^8.3.1:
+  version "8.3.1"
+  resolved "https://registry.yarnpkg.com/contentful-sdk-core/-/contentful-sdk-core-8.3.1.tgz#773d59f286d1bd8e50a3ffd9e3f4f410da6fb929"
+  integrity sha512-HYy4ecFA76ERxz7P0jW7hgDcL8jH+bRckv2QfAwQ4k1yPP9TvxpZwrKnlLM69JOStxVkCXP37HvbjbFnjcoWdg==
   dependencies:
     fast-copy "^2.1.7"
     lodash.isplainobject "^4.0.6"
