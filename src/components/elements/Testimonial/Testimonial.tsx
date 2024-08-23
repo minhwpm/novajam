@@ -39,16 +39,15 @@ export const Testimonial: React.FC<{
           "relative prose 2xl:prose-lg mb-6 leading-loose",
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" },
-          { "text-white/70": darkMode },
-          { "text-slate-500": !darkMode },
+          { "text-white": darkMode },
         )}
       >
         <BiSolidQuoteAltLeft
           size={40}
           className={classNames(
             "absolute -top-4 -left-4 -z-10",
-            { "text-slate-200/70": !darkMode },
-            { "text-slate-200/20": darkMode }
+            { "text-primary-200/70": !darkMode },
+            { "text-primary-200/20": darkMode }
           )}
         />
         <RichTextRenderer content={content} />
