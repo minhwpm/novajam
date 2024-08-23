@@ -132,7 +132,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               <div
                 className={classNames(
                   "font-heading text-heading text-center leading-snug",
-                  { "text-slate-50 drop-shadow-lg": darkMode },
+                  { "text-white drop-shadow-lg": darkMode },
                   { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
               >
@@ -155,10 +155,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               <div
                 className={classNames(
                   "prose xl:prose-lg mt-8",
-                  { "text-slate-600": !darkMode },
-                  {
-                    "text-slate-200": darkMode,
-                  },
+                  { "text-white/70": darkMode },
+                  { "text-slate-500": !darkMode },
                   { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
               >
