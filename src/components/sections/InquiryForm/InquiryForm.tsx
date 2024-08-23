@@ -100,7 +100,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
         <div
           ref={ref}
           className={classNames(
-            "container mx-auto px-4 flex flex-col gap-x-10 gap-y-4 my-24 lg:my-28",
+            "container mx-auto px-4 flex flex-col gap-10 my-24 lg:my-28",
             {
               "lg:flex-row lg:justify-between":
                 appearanceVariant === "horizontal",
@@ -132,7 +132,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               <div
                 className={classNames(
                   "font-heading text-heading text-center leading-snug",
-                  { "text-slate-50 drop-shadow-lg": darkMode },
+                  { "text-white drop-shadow-lg": darkMode },
                   { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
               >
@@ -142,7 +142,7 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
             {summary && (
               <div
                 className={classNames(
-                  "prose-lg 2xl:prose-xl max-w-xl lg:max-w-3xl text-center mt-6 !leading-loose",
+                  "prose-lg 2xl:prose-xl max-w-xl xl:max-w-2xl text-center mt-6 !leading-loose",
                   { "text-white/70": darkMode },
                   { "text-slate-500": !darkMode },
                   { "lg:text-start": appearanceVariant === "horizontal" }
@@ -155,10 +155,8 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
               <div
                 className={classNames(
                   "prose xl:prose-lg mt-8",
-                  { "text-slate-600": !darkMode },
-                  {
-                    "text-slate-200": darkMode,
-                  },
+                  { "text-white/70": darkMode },
+                  { "text-slate-500": !darkMode },
                   { "lg:text-start": appearanceVariant === "horizontal" }
                 )}
               >
@@ -168,19 +166,15 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
           </div>
           <div
             className={classNames(
-              "col-span-12 flex flex-col basis-5/12 max-w-2xl rounded-theme",
+              "relative -bottom-10 opacity-0 flex flex-col min-w-[40%] max-w-2xl rounded-theme",
               { "items-center self-center": appearanceVariant === "vertical" },
-              // { "lg:items-end": appearanceVariant === "horizontal" },
-              "relative -bottom-10 opacity-0",
-              {
-                "animate-slidingUpContent animation-delay-300": isIntersecting,
-              },
+              { "animate-slidingUpContent animation-delay-300": isIntersecting },
               { "bg-white": darkMode }
             )}
           >
             <form
               className={classNames(
-                "w-full max-w-xl px-4 pb-4 pt-2 lg:px-8 lg:pb-8 lg:pt-4 mx-auto lg:mx-0 grid grid-cols-2 gap-x-5 gap-y-3 rounded-theme",
+                "w-full px-4 pb-4 pt-2 lg:px-8 lg:pb-8 lg:pt-4 mx-auto lg:mx-0 grid grid-cols-2 gap-x-5 gap-y-3 rounded-theme",
                 { "gap-x-0": fields.length === 1 }
               )}
               onSubmit={handleSubmit(onSubmit)}
@@ -236,7 +230,11 @@ export const InquiryForm: React.FC<Props> = ({ data }) => {
                         <InputField data={fieldItem} register={register} />
                       )}
                     {fieldItem.helpText && (
-                      <div className={classNames("pl-2 pt-1 text-sm text-slate-800/50")}>
+                      <div
+                        className={classNames(
+                          "pl-2 pt-1 text-sm text-slate-800/50"
+                        )}
+                      >
                         {fieldItem.helpText}
                       </div>
                     )}
