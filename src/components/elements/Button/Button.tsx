@@ -40,8 +40,8 @@ export const Button: React.FC<{
       <Image
         className={classNames(
           "object-contain",
-          { "w-4 h-4 mr-2": size === "sm" || size === "base" },
-          { "w-5 h-5 mr-2.5": size === "lg" },
+          { "w-5 h-5 mr-2": size === "sm" || size === "base" },
+          { "w-7 h-7 mr-2.5": size === "lg" },
           {
             "group-hover:brightness-100 group-hover:invert transition-all duration-500 ease":
               buttonVariant === "outline-white",
@@ -61,21 +61,24 @@ export const Button: React.FC<{
       {withArrow && (
         <IoIosArrowRoundForward
           className={classNames(
-            "inline-block relative bottom-0.5 left-2 group-hover:left-4 transition-all duration-300 ease",
+            "inline-block ml-4 relative left-1 group-hover:left-2 transition-all duration-300 ease",
             {
               "text-primary-600 group-hover:text-white":
                 buttonVariant === "outline",
             },
             {
-              "text-neutral-800 group-hover:text-white":
+              "text-slate-800 group-hover:text-white":
                 buttonVariant === "outline-black",
             },
             {
-              "text-white group-hover:text-neutral-800":
+              "text-white group-hover:text-slate-800":
                 buttonVariant === "outline-white",
             }
           )}
-          size={25}
+          size={classNames(
+            { 20: size === "sm" || size === "base" },
+            { 30: size === "lg" }
+          )}
         />
       )}
     </>
@@ -89,21 +92,21 @@ export const Button: React.FC<{
     className
   )
   const otherVariantClasses = classNames(
-    "w-full relative border inline-flex justify-center items-center text-center rounded-theme-button bottom-0 hover:bottom-1 transition-all duration-500 ease",
+    "w-full relative border inline-flex justify-center items-center text-center rounded-theme-button transition-all duration-500 ease",
     {
       "border-primary-600 bg-primary-600 hover:bg-primary-700 hover:border-primary-700 text-white":
         buttonVariant === "primary",
-      "border-secondary-400 bg-secondary-400 hover:bg-secondary-300 hover:border-secondary-300 text-neutral-800":
+      "border-secondary-400 bg-secondary-400 hover:bg-secondary-300 hover:border-secondary-300 text-slate-800":
         buttonVariant === "secondary",
-      "border-neutral-900 bg-neutral-900 text-white hover:bg-neutral-950 hover:border-neutral-950":
+      "border-slate-950 bg-slate-950 text-white hover:bg-slate-900 hover:border-slate-900":
         buttonVariant === "black",
-      "border-neutral-50 bg-neutral-50 hover:bg-white hover:border-white text-neutral-800":
+      "border-slate-50 bg-slate-50 hover:bg-white hover:border-white text-slate-800":
         buttonVariant === "white",
       "border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white":
         buttonVariant === "outline",
-      "border-neutral-900 text-neutral-800 hover:bg-neutral-950 hover:text-white":
+      "border-slate-900 text-slate-800 hover:bg-slate-950 hover:text-white":
         buttonVariant === "outline-black",
-      "border-white text-white hover:bg-white hover:text-neutral-800 drop-shadow-lg":
+      "border-white text-white hover:bg-white hover:text-slate-800 drop-shadow-lg":
         buttonVariant === "outline-white",
       "px-4 py-2 min-w-[100px] lg:min-w-[120px] text-sm font-medium":
         size === "sm",
