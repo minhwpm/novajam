@@ -84,10 +84,10 @@ export const CarouselList: React.FC<{
             key={item.id}
             className={classNames(
               "px-4 !w-11/12",
-              { "lg:max-w-[50%] sm:px-5 lg:px-6 xl:px-7": size === "XL" },
-              { "md:max-w-[50%] xl:max-w-[33.33%] sm:px-5 lg:px-6": size === "L" },
+              { "lg:max-w-[50%] lg:px-5 xl:px-6": size === "XL" },
+              { "md:max-w-[50%] xl:max-w-[33.33%] lg:px-5": size === "L" },
               {
-                "sm:max-w-[50%] lg:max-w-[33.33%] xl:max-w-[25%] sm:px-5": size === "M",
+                "sm:max-w-[50%] lg:max-w-[33.33%] xl:max-w-[25%]": size === "M",
               },
               {
                 "max-w-[50%] sm:max-w-[33.33%] md:max-w-[25%] xl:max-w-[20%]":

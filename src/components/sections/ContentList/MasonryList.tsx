@@ -58,10 +58,9 @@ export const MasonryList: React.FC<{
     >
       <Masonry
         gutter={classNames(
-          { "32px": size === "S" },
-          { "40px": size === "M" },
-          { "48px": size === "L" },
-          { "54px": size === "XL" }
+          { "32px": size === "S" || size === "M" },
+          { "40px": size === "L" },
+          { "48px": size === "XL" }
         )}
       >
         {list.map((item, idx) => (
