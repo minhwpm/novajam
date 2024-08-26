@@ -70,7 +70,6 @@ export const Section: React.FC<SectionProps> = ({
       <div
         className={classNames(
           "font-heading text-heading leading-snug max-w-3xl mb-4",
-          { "text-neutral-50": darkMode },
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" }
         )}
@@ -115,6 +114,7 @@ export const Section: React.FC<SectionProps> = ({
       <section
         id={id ?? ""}
         className={classNames(
+          {"text-white": darkMode},
           `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
           {
             "bg-center bg-no-repeat bg-cover bg-blend-overlay": backgroundImage,
@@ -138,7 +138,7 @@ export const Section: React.FC<SectionProps> = ({
           <div
             ref={ref}
             className={classNames(
-              "container mx-auto px-4 relative flex flex-col -bottom-10 opacity-0",
+              "container mx-auto px-4 mb-6 relative flex flex-col -bottom-10 opacity-0",
               {
                 "animate-slidingUpContent animation-delay-150": isIntersecting,
               },

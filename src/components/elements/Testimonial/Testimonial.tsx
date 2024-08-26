@@ -46,8 +46,8 @@ export const Testimonial: React.FC<{
           size={40}
           className={classNames(
             "absolute -top-4 -left-4 -z-10",
-            { "text-primary-200/70": !darkMode },
-            { "text-primary-200/20": darkMode }
+            { "text-slate-300/70": !darkMode },
+            { "text-slate-300/20": darkMode }
           )}
         />
         <RichTextRenderer content={content} />
