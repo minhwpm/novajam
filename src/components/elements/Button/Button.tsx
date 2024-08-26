@@ -84,7 +84,7 @@ export const Button: React.FC<{
     </>
   );
   const ghostVariantClasses = classNames(
-    "w-full relative left-0 inline-block font-medium text-primary-600 hover:left-1 transition-all duration-500 ease",
+    "w-full relative left-0 inline-block font-medium text-current hover:left-1 transition-all duration-500 ease",
     { "px-2 text-sm": size === "sm" },
     { "px-3 text-base": size === "base" },
     { "px-4 xl:text-lg": size === "lg" },
