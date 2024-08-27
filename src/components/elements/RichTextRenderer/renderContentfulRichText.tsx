@@ -11,7 +11,6 @@ import { MediaItem } from "../MediaItem/MediaItem";
 import { FlexibleContentType, MediaType } from "@/helpers/types";
 import { FlexibleContent } from "../FlexibleContent/FlexibleContent";
 import Link from "next/link";
-import { FaCheck } from "react-icons/fa";
 
 export function renderContentfulRichText (
   data: Document,
@@ -34,18 +33,14 @@ export function renderContentfulRichText (
           },
           [BLOCKS.UL_LIST]: (_node: Inline | Block, children: ReactNode) => {
             if (style === "marketing") {
-              return <ul className="list-none !pl-0">{children}</ul>;
+              return <ul className="list-none">{children}</ul>;
             }
             return <ul>{children}</ul>
           },
           [BLOCKS.LIST_ITEM]: (_node: Inline | Block, children: ReactNode) => {
             if (style === "marketing") {
               return (
-                <li className="not-prose flex gap-4 mb-2">
-                  <FaCheck
-                    className="flex-shrink-0 relative top-1 ml-2 text-green-500"
-                    size={20}
-                  />
+                <li className="not-prose mb-2 custom-bullet">
                   {children}
                 </li>
               );
