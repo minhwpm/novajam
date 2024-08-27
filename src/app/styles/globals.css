@@ -107,6 +107,11 @@ h1 b, h2 b {
   @apply font-extrabold;
 }
 
+ul li.custom-bullet {
+  list-style-image: url('/icons/checkmark.svg');
+  text-indent: 5px;
+}
+
 .show-scrollbar::-webkit-scrollbar {
   height: 5px; /* for Horizonatal scrollbar */
   width: 5px; /* for Vertical scrollbar */
