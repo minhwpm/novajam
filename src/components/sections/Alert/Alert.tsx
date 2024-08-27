@@ -13,8 +13,8 @@ export const Alert: React.FC<{ data: AlertType }> = ({ data }) => {
       className={classNames(
         "p-4 lg:py-5 flex justify-center gap-4 items-center",
         { "text-white": darkMode },
-        `bg-[${backgroundColor}]`
       )}
+      style={{ backgroundColor }}
     >
       {icon && (
         <Image

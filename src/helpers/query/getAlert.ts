@@ -54,10 +54,7 @@ export default async function getAlert(id: string) {
 
   const data = await res.json();
   const normalizedData = normalizeDataCollection(data.data);
-  console.log("ALERT data", normalizedData)
   return normalizedData[0]
-
-  
 } catch (error) {
   console.error(error);
   throw new Error(`An error occurred while fetching hero data: ${error}`);
