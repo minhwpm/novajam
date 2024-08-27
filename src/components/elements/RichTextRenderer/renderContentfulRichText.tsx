@@ -23,7 +23,7 @@ export function renderContentfulRichText (
           [INLINES.HYPERLINK]: (node: Inline | Block, children: ReactNode) => {
             return (
               <Link
-                className="text-blue-500 hover:text-blue-600 underline-offset-4 transition-colors duration-300 ease"
+                className="underline underline-offset-2 decoration-1"
                 target="_blank"
                 href={node.data.uri}
               >

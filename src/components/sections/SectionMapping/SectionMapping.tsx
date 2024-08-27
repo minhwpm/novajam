@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero/Hero";
 import { HeroOverlay } from "@/components/sections/HeroOverlay/HeroOverlay";
+import { Alert } from "@/components/sections/Alert/Alert";
 import { ScrollPT } from "@/components/sections/ScrollPT/ScrollPT";
 import { AccordionPT } from "@/components/sections/AccordionPT/AccordionPT";
 import { ContentList } from "@/components/sections/ContentList/ContentList";
@@ -14,9 +15,10 @@ import {
   HeroType,
   InquiryFormType,
   ContentPTType,
+  AlertType,
 } from "@/helpers/types";
 
-type ComponentType = HeroType | ContentPTType | ContentListType | FeaturedContentType | InquiryFormType
+type ComponentType = HeroType | AlertType | ContentPTType | ContentListType | FeaturedContentType | InquiryFormType
 
 function ContentPresentationMapping({ data }: { data: ContentPTType }) {
   switch (data.appearanceVariant) {
@@ -48,6 +50,8 @@ function SectionComponentMapping({ data }: { data: ComponentType }) {
         return <HeroOverlay data={data} />;
       }
       return null;
+    case "alert":
+      return <Alert data={data} />;
     case "contentpresentation":
       return <ContentPresentationMapping data={data} />;
     case "featuredcontent":

@@ -191,6 +191,15 @@ export type HeroType = {
   contentType: "hero"
 }
 
+export type AlertType = {
+  id: string
+  icon: MediaType | null
+  message: Document | null
+  backgroundColor: string
+  darkMode: boolean
+  contentType: "alert"
+}
+
 export type ContentPTType = {
   id: string
   eyebrow: string | null
