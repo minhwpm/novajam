@@ -155,7 +155,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
         `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
         {
           "py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24": size === "standard",
-          "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-overlay":
+          "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
             backgroundImage,
           // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
         }

@@ -117,7 +117,7 @@ export const Section: React.FC<SectionProps> = ({
           {"text-white": darkMode},
           `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
           {
-            "bg-center bg-no-repeat bg-cover bg-blend-overlay": backgroundImage,
+            "bg-center bg-no-repeat bg-cover bg-blend-multiply": backgroundImage,
             // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
           },
           className

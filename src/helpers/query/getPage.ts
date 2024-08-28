@@ -6,6 +6,7 @@ import getContentPT from "./getContentPT";
 import normalizeDataCollection from "./normalizeDataCollection";
 import pages from "./static-data/pages.json";
 import getAlert from "./getAlert";
+import getCTA from "./getCTA";
 
 export default async function getPage(url: string) {
   if (process.env.DATA_SOURCE === "CONTENTFUL") {
@@ -80,6 +81,11 @@ export default async function getPage(url: string) {
                     id
                   }
                 }
+                ... on Cta {
+                  sys {
+                    id
+                  }
+                }
               }
             }
           }
@@ -121,6 +127,8 @@ export default async function getPage(url: string) {
             return await getInquiryForm(id);
           case "alert": 
             return await getAlert(id);
+          case "cta": 
+            return await getCTA(id);
           default:
             return null;
         }

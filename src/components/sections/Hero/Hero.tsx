@@ -43,7 +43,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
       className={classNames(
         `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
         {
-          "bg-center bg-no-repeat bg-cover bg-blend-overlay":
+          "bg-center bg-no-repeat bg-cover bg-blend-multiply":
             backgroundImage,
           // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
         }

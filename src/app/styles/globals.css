@@ -94,16 +94,16 @@ body {
   width: 100%;
 }
 
-h1 u, h2 u {
-  @apply bg-gradient-to-br from-primary-400 via-primary-600 to-primary-700 bg-clip-text text-transparent;
+h1 u, h2 u, h1 code, h2 code {
+  @apply font-heading bg-gradient-to-br from-primary-400 via-primary-600 to-primary-700 bg-clip-text text-transparent;
   text-decoration: unset;
 }
-h3 u, h4 u {
-  @apply text-primary-600;
+h3 u, h4 u, h3 code, h4 code {
+  @apply font-heading text-primary-600;
   text-decoration: unset;
 }
 
-h1 b, h2 b {
+h1 b, h2 b, h1 strong, h2 strong {
   @apply font-extrabold;
 }
 
