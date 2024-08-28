@@ -105,11 +105,13 @@ export type SEOType = {
   }
 }
 
+export type PageContentType = HeroType | AlertType | ContentPTType | ContentListType | FeaturedContentType | InquiryFormType | CTAType
+
 export type PageType = {
   id: string
   title: string
   url: string
-  content: HeroType | ContentPTType | ContentListType | FeaturedContentType | null
+  content: PageContentType | null
   fontMain: string
   fontHeading: string
   headingFontSize: 'standard' | 'standout' | 'impactful'
@@ -311,3 +313,31 @@ export type InquiryFormType = {
   darkMode: boolean;
   contentType: "inquiryform";
 };
+
+export type CTAType = {
+  id: string;
+  title: string;
+  htmlid: string | null;
+  displayTitle: string | null;
+  eyebrow: string | null;
+  description: string | null;
+  buttons: Array<ButtonType> | null;
+  form: FormType | null;
+  layout: "side-by-side" | "top-to-bottom";
+  backgroundColor: string | null;
+  backgroundImage: MediaType | null;
+  darkMode: boolean;
+  contentType: "cta";
+};
+
+export type FormType = {
+  id: string
+  title: string
+  fields: Array<FormFieldType>;
+  submitButton: ButtonType | null;
+  formType: string;
+  dateFormat: "DD/MM/YYYY" | "MM/DD/YYYY" | "YYYY/MM/DD";
+  successMessage: string | null;
+  errorMessage: string | null;
+
+}

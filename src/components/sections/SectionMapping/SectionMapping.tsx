@@ -9,16 +9,8 @@ import { TabPT } from "@/components/sections/TabPT/TabPT";
 import { CarouselPT } from "@/components/sections/CarouselPT/CarouselPT";
 import { SleekCarouselPT } from "@/components/sections/SleekCarouselPT/SleekCarouselPT";
 import { InquiryForm } from "@/components/sections/InquiryForm/InquiryForm";
-import {
-  ContentListType,
-  FeaturedContentType,
-  HeroType,
-  InquiryFormType,
-  ContentPTType,
-  AlertType,
-} from "@/helpers/types";
-
-type ComponentType = HeroType | AlertType | ContentPTType | ContentListType | FeaturedContentType | InquiryFormType
+import { CTA } from "@/components/sections/CTA/CTA";
+import { ContentPTType, PageContentType } from "@/helpers/types";
 
 function ContentPresentationMapping({ data }: { data: ContentPTType }) {
   switch (data.appearanceVariant) {
@@ -37,7 +29,7 @@ function ContentPresentationMapping({ data }: { data: ContentPTType }) {
   }
 }
 
-function SectionComponentMapping({ data }: { data: ComponentType }) {
+function SectionComponentMapping({ data }: { data: PageContentType }) {
   switch (data.contentType) {
     case "hero":
       if (
@@ -60,13 +52,15 @@ function SectionComponentMapping({ data }: { data: ComponentType }) {
       return <ContentList data={data} />;
     case "inquiryform":
       return <InquiryForm data={data} />;
+    case "cta":
+      return <CTA data={data} />
     default:
       return null;
   }
 }
 
 export const SectionMapping: React.FC<{
-  data: Array<ComponentType>;
+  data: Array<PageContentType>;
 }> = ({ data }) => {
   return (
     <main className="flex flex-col">
