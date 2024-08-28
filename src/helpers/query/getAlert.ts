@@ -28,9 +28,7 @@ export default async function getAlert(id: string) {
               height
               contentType
             }
-            message {
-              json
-            }
+            message
             backgroundColor
             darkMode
             
