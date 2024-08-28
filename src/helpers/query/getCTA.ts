@@ -26,7 +26,7 @@ export default async function getCTA(id: string) {
                     id
                   }
                   title
-                  htmlId
+                  htmlid
                   displayTitle
                   eyebrow
                   description
