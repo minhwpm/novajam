@@ -1,18 +1,14 @@
 import classNames from "classnames";
 import Image from "next/image";
 import { AlertType } from "@/helpers/types";
-import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
+import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer";
 
 export const Alert: React.FC<{ data: AlertType }> = ({ data }) => {
   const { icon, message, backgroundColor, darkMode } = data;
-  if (message === null) {
-    return null;
-  }
   return (
     <section
       className={classNames(
         "p-4 lg:py-5 flex justify-center gap-4 items-center",
-        { "text-white": darkMode },
       )}
       style={{ backgroundColor }}
     >
@@ -24,7 +20,7 @@ export const Alert: React.FC<{ data: AlertType }> = ({ data }) => {
           height={icon.height}
         />
       )}
-      <RichTextRenderer content={message} />
+      {message && <MarkdownRenderer className={classNames("prose", {"text-white prose-invert": darkMode})} content={message} />}
     </section>
   );
 };
