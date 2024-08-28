@@ -133,7 +133,7 @@ export type BlogType = {
   slug: string
   featured: boolean
   summary: string | null
-  content: Document
+  content: Document | null
   topics: Array<string>
   media: MediaType | null
   author: ExpertType
@@ -227,7 +227,7 @@ export type StatisticsType = {
 
 export type TestimonialType = {
   id: string
-  content: Document 
+  content: string | null 
   portrait: MediaType | null
   name: string | null
   role: string | null
@@ -253,7 +253,7 @@ export type PricingPlanType = {
   pricing: string
   pricingSuffix: string
   badge: string
-  description: Document | null
+  description: string | null
   ctaButton: ButtonType
   contentType: 'pricingplan'
 }
