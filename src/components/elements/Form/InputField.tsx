@@ -2,7 +2,7 @@ import classNames from "classnames"
 import { FormFieldType } from "@/helpers/types"
 import { getRegEx } from "@/helpers/utils";
 import { UseFormRegister } from "react-hook-form/dist/types/form";
-import { FormValues } from "./InquiryForm";
+import { FormValues } from "./Form";
 
 export const InputField: React.FC<{
   data: FormFieldType;

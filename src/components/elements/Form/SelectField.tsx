@@ -2,7 +2,7 @@ import ReactSelect from "react-select";
 import { useController } from "react-hook-form";
 import { FormFieldType } from "@/helpers/types";
 import { Control } from "react-hook-form/dist/types/form";
-import { FormValues } from "./InquiryForm";
+import { FormValues } from "./Form";
 import { useEffect, useState } from "react";
 
 export const SelectField: React.FC<{
