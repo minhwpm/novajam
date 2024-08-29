@@ -8,7 +8,6 @@ import { FeaturedContent } from "@/components/sections/FeaturedContent/FeaturedC
 import { TabPT } from "@/components/sections/TabPT/TabPT";
 import { CarouselPT } from "@/components/sections/CarouselPT/CarouselPT";
 import { SleekCarouselPT } from "@/components/sections/SleekCarouselPT/SleekCarouselPT";
-import { InquiryForm } from "@/components/sections/InquiryForm/InquiryForm";
 import { CTA } from "@/components/sections/CTA/CTA";
 import { ContentPTType, PageContentType } from "@/helpers/types";
 
@@ -50,8 +49,6 @@ function SectionComponentMapping({ data }: { data: PageContentType }) {
       return <FeaturedContent data={data} />;
     case "contentlist":
       return <ContentList data={data} />;
-    case "inquiryform":
-      return <InquiryForm data={data} />;
     case "cta":
       return <CTA data={data} />
     default:

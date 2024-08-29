@@ -105,7 +105,7 @@ export type SEOType = {
   }
 }
 
-export type PageContentType = HeroType | AlertType | ContentPTType | ContentListType | FeaturedContentType | InquiryFormType | CTAType
+export type PageContentType = HeroType | AlertType | ContentPTType | ContentListType | FeaturedContentType | CTAType
 
 export type PageType = {
   id: string
@@ -292,27 +292,6 @@ export type FormFieldType = {
   helpText: string
   uiWidth: "half-size" | "full-size"
 }
-
-export type InquiryFormType = {
-  id: string;
-  title: string;
-  eyebrow: string | null;
-  heading: Document | null;
-  summary: string | null;
-  description: Document | null;
-  fields: Array<FormFieldType>;
-  dateFormat: "DD/MM/YYYY" | "MM/DD/YYYY" | "YYYY/MM/DD";
-  submitButton: ButtonType | null;
-  successMessage: string | null;
-  errorMessage: string | null;
-  htmlid: string | null;
-  formType: string;
-  appearanceVariant: "horizontal" | "vertical";
-  backgroundColor: BackgroundColorType | null;
-  backgroundImage: MediaType | null;
-  darkMode: boolean;
-  contentType: "inquiryform";
-};
 
 export type CTAType = {
   id: string;

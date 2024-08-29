@@ -5,7 +5,7 @@ export type FormState = {
   message: string;
 };
 
-export async function createInquiryFormSubmission(
+export async function createFormSubmission(
   data: FormData
 ): Promise<FormState | Error> {
   const formData = Object.fromEntries(data);
@@ -43,11 +43,11 @@ export async function createInquiryFormSubmission(
     })
     .then(() => {
       return {
-        message: "SUCCESSFULLY CREATED AN ENTRY OF INQUIRY FORM SUBMISSION",
+        message: "SUCCESSFULLY CREATED AN ENTRY OF FORM SUBMISSION",
       };
     })
     .catch((error) => {
-      console.error("ERROR WHEN CREATING AN ENTRY OF INQUIRY FORM", error);
-      return new Error("ERROR WHEN CREATING AN ENTRY OF INQUIRY FORM", error);
+      console.error("ERROR WHEN CREATING AN ENTRY OF FORM SUBMISSION", error);
+      return new Error("ERROR WHEN CREATING AN ENTRY OF FORM SUBMISSION", error);
     });
 }

@@ -1,6 +1,6 @@
 import normalizeDataCollection from "./normalizeDataCollection";
 
-export default async function getInquiryForm(id: string) {
+export default async function getForm(id: string) {
   try {
     const res = await fetch(
       `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
