@@ -84,18 +84,18 @@ export const CTA: React.FC<{ data: CTAType }> = ({ data }) => {
                   }
                 )}
               >
-                <MarkdownRenderer content={displayTitle} />
+                <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
               </div>
             )}
             {description && (
               <div
-                className={classNames("prose xl:prose-lg mt-4", {
+                className={classNames("prose xl:prose-lg mt-8", {
                   "text-white/70 prose-invert": darkMode,
                   "text-slate-500": !darkMode,
                   "lg:text-start": layout === "side-by-side",
                 })}
               >
-                <MarkdownRenderer content={description} />
+                <MarkdownRenderer>{description}</MarkdownRenderer>
               </div>
             )}
           </div>

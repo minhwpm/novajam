@@ -79,7 +79,7 @@ export const PricingPlan: React.FC<{
             { "text-end": alignment === "end" }
           )}
         >
-          <MarkdownRenderer content={description} />
+          <MarkdownRenderer>{description}</MarkdownRenderer>
         </div>
       )}
     </div>

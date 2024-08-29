@@ -50,7 +50,7 @@ export const Testimonial: React.FC<{
             { "text-slate-300/20": darkMode }
           )}
         />
-        {content && <MarkdownRenderer content={content} /> }
+        {content && <MarkdownRenderer>{content}</MarkdownRenderer> }
       </div>
       {rating > 0 && (
         <div className="flex gap-2 mb-6">
