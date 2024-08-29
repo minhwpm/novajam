@@ -31,6 +31,18 @@
   --super-heading-font-size: clamp(3.5rem, 8vw, 4.75rem);
 }
 
+.slate-primary-color {
+  --primary-color-50: 248, 250, 252;
+  --primary-color-100: 241, 245, 249;
+  --primary-color-200: 226, 232, 240;
+  --primary-color-300: 203, 213, 225;
+  --primary-color-400: 148, 163, 184;
+  --primary-color-500: 100, 116, 139;
+  --primary-color-600: 71, 85, 105;
+  --primary-color-700: 51, 65, 85;
+  --primary-color-800: 30, 41, 59;
+  --primary-color-900: 15, 23, 42;
+}
 
 .red-primary-color {
   --primary-color-50: 254, 242, 242;
