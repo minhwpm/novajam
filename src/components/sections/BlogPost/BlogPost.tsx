@@ -16,7 +16,7 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
     <div>
       <Container>
         <article className="w-full my-10 flex flex-col pt-10">
-          {readingTimeStats?.minutes && readingTimeStats.minutes > 0 && (
+          {readingTimeStats?.minutes && (
             <div className="mx-auto text-neutral-500 text-sm font-medium uppercase mb-5">
               {readingTimeStats?.text}
             </div>
