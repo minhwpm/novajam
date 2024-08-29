@@ -10,9 +10,9 @@ import "@/app/styles/bg-color.css";
 export const DarkModeContext = createContext(false)
 export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
   const {
-    heading,
+    displayTitle,
     eyebrow,
-    summary,
+    summaryMd,
     buttons,
     content,
     appearanceVariant,
@@ -31,8 +31,8 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
       <Section
         id={htmlid}
         eyebrow={eyebrow}
-        heading={heading}
-        summary={summary}
+        heading={displayTitle}
+        summary={summaryMd}
         buttons={buttons}
         alignment={headingTextAlignment}
         framed={appearanceVariant !== "carousel"}

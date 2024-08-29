@@ -9,6 +9,7 @@ import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentM
 import { useInView } from "react-hook-inview";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import "@/app/styles/bg-color.css";
+import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer";
 
 
 const ArrowGroup = ({
@@ -51,7 +52,7 @@ const ArrowGroup = ({
 };
 
 export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
+  const { eyebrow, displayTitle, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
@@ -88,7 +89,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
               {eyebrow}
             </p>
           )}
-          {heading && (
+          {displayTitle && (
             <div
               className={classNames(
                 "font-heading text-heading leading-tight mb-3",
@@ -97,7 +98,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                 { "text-end": headingTextAlignment === "end" }
               )}
             >
-              <RichTextRenderer content={heading} />
+              <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
             </div>
           )}
           {summary && (
@@ -109,7 +110,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                 { "text-end": headingTextAlignment === "end" }
               )}
             >
-              <RichTextRenderer content={summary} />
+              <MarkdownRenderer>{summary}</MarkdownRenderer>
             </div>
           )}
           <div className={classNames("mt-8 hidden lg:flex gap-4",

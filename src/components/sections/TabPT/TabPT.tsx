@@ -6,14 +6,13 @@ import { Section } from '@/components/elements/Section/Section';
 import { ContentPTType } from '@/helpers/types';
 import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer"
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { useInView } from 'react-hook-inview';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import "@/app/styles/bg-color.css";
 import "./styles.css"
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
-  const { htmlid, eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, backgroundColor, backgroundImage, darkMode } = data
+  const { htmlid, eyebrow, displayTitle, summary, content, headingTextAlignment, contentTextAlignment, backgroundColor, backgroundImage, darkMode } = data
   const [justify, setJustify] = useState(headingTextAlignment)
   const wrapperRef = useRef(null) as unknown as React.MutableRefObject<HTMLDivElement>
   useEffect(() => {
@@ -29,7 +28,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
     <Section
       id={htmlid}
       eyebrow={eyebrow}
-      heading={heading}
+      heading={displayTitle}
       summary={summary}
       alignment={headingTextAlignment}
       framed={false}
@@ -52,7 +51,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
         >
           <RadixTabs.List
             className={classNames("group/list TabList flex")}
-            aria-label={heading ? documentToHtmlString(heading) : undefined}
+            aria-label={displayTitle ?? ""}
           >
             <div
               className={classNames(

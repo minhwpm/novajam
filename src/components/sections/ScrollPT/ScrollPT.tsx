@@ -46,13 +46,13 @@ const TextContent = ({
 };
 
 export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
+  const { eyebrow, displayTitle, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
   return (
     <Section
       id={htmlid}
       eyebrow={eyebrow}
-      heading={heading}
+      heading={displayTitle}
       summary={summary}
       alignment={headingTextAlignment}
       backgroundColor={backgroundColor}

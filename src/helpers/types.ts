@@ -205,8 +205,8 @@ export type AlertType = {
 export type ContentPTType = {
   id: string
   eyebrow: string | null
-  heading: Document | null
-  summary: Document | null
+  displayTitle: string | null
+  summary: string | null
   content: Array<FlexibleContentType>
   appearanceVariant: "carousel" | "sleek carousel" | "tab" | "accordion" | "scroll"
   headingTextAlignment: TextAlignmentType
@@ -264,9 +264,9 @@ export type ContentOrientationType = "horizontal" | "vertical"
 
 export type ContentListType = {
   id: string
-  heading: Document | null
   eyebrow: string | null
-  summary: Document | null
+  displayTitle: string | null
+  summary: string | null
   content: Array<Content>
   buttons: Array<ButtonType>
   appearanceVariant: "carousel" | "masonry" | "deck"

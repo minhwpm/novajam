@@ -24,13 +24,9 @@ export default async function getContentList(id: string) {
           }
         ) {
           items {
-            heading {
-              json
-            }
             eyebrow
-            summary {
-              json
-            }
+            displayTitle
+            summary
             buttonsCollection {
               items {
                 sys {
