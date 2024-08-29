@@ -12,7 +12,7 @@ import { FaChevronDown } from "react-icons/fa";
 import "@/app/styles/bg-color.css";
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, heading, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
+  const { eyebrow, displayTitle, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
     unobserveOnEnter: true,
@@ -21,7 +21,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
     <Section
       id={htmlid}
       eyebrow={eyebrow}
-      heading={heading}
+      heading={displayTitle}
       summary={summary}
       alignment={headingTextAlignment}
       backgroundColor={backgroundColor}

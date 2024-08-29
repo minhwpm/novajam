@@ -24,13 +24,9 @@ export default async function getContentList(id: string) {
           }
         ) {
           items {
-            heading {
-              json
-            }
             eyebrow
-            summary {
-              json
-            }
+            displayTitle
+            summary
             buttonsCollection {
               items {
                 sys {
@@ -68,27 +64,6 @@ export default async function getContentList(id: string) {
             contentCollection (limit: 20) {
               items {
                 __typename
-                ... on Blog {
-                  sys {
-                    id
-                    firstPublishedAt
-                    publishedAt
-                  }
-                  title
-                  slug
-                  summary
-                  content {
-                    json
-                  }
-                  topics
-                  media {
-                    url
-                    title
-                    width
-                    height
-                    contentType
-                  }
-                }
                 ... on Expert {
                   sys {
                     id
@@ -165,9 +140,7 @@ export default async function getContentList(id: string) {
                   pricing
                   pricingSuffix
                   badge
-                  description {
-                    json
-                  }
+                  description
                   ctaButton {
                     url
                     text
@@ -186,9 +159,7 @@ export default async function getContentList(id: string) {
                   sys {
                     id
                   }
-                  content {
-                    json
-                  }
+                  content
                   portrait {
                     url
                     title
@@ -199,6 +170,23 @@ export default async function getContentList(id: string) {
                   name
                   role
                   rating
+                }
+                ... on Blog {
+                  sys {
+                    id
+                    firstPublishedAt
+                    publishedAt
+                  }
+                  title
+                  slug
+                  topics
+                  media {
+                    url
+                    title
+                    width
+                    height
+                    contentType
+                  }
                 }
               }
             }

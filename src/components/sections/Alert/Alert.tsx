@@ -8,7 +8,7 @@ export const Alert: React.FC<{ data: AlertType }> = ({ data }) => {
   return (
     <section
       className={classNames(
-        "p-4 lg:py-5 flex justify-center gap-4 items-center",
+        "p-4 lg:py-5 flex justify-center gap-4 items-center"
       )}
       style={{ backgroundColor }}
     >
@@ -20,7 +20,15 @@ export const Alert: React.FC<{ data: AlertType }> = ({ data }) => {
           height={icon.height}
         />
       )}
-      {message && <MarkdownRenderer className={classNames("prose", {"text-white prose-invert": darkMode})} content={message} />}
+      {message && (
+        <MarkdownRenderer
+          className={classNames("prose", {
+            "text-white prose-invert": darkMode,
+          })}
+        >
+          {message}
+        </MarkdownRenderer>
+      )}
     </section>
   );
 };

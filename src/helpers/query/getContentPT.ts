@@ -24,13 +24,9 @@ export default async function getContentPT(id: string) {
           } 
         ) {
           items {
-            heading {
-              json
-            }
             eyebrow
-            summary {
-              json
-            }
+            displayTitle
+            summary
             appearanceVariant
             headingTextAlignment
             contentTextAlignment

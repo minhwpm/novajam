@@ -11,14 +11,14 @@ import readingTime from 'reading-time'
 
 export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
   const { title, summary, content, media, topics, author, firstPublishedAt } = data
-  const readingTimeStats = readingTime(documentToPlainTextString(content))
+  const readingTimeStats = content && readingTime(documentToPlainTextString(content))
   return (
     <div>
       <Container>
         <article className="w-full my-10 flex flex-col pt-10">
-          {readingTimeStats.minutes > 0 && (
+          {readingTimeStats?.minutes && readingTimeStats.minutes > 0 && (
             <div className="mx-auto text-neutral-500 text-sm font-medium uppercase mb-5">
-              {readingTimeStats.text}
+              {readingTimeStats?.text}
             </div>
           )}
           <h1 className="text-heading font-heading leading-tight font-bold text-5xl max-w-5xl text-center mx-auto">

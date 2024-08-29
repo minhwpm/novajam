@@ -1,13 +1,13 @@
 "use client"
 import classNames from "classnames";
 import { TextAlignmentType, TestimonialType } from "@/helpers/types";
-import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { AiFillStar } from "react-icons/ai";
 import { useInView } from "react-hook-inview";
 import { useContext } from "react";
 import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
 import { BiSolidQuoteAltLeft } from "react-icons/bi";
+import { MarkdownRenderer } from "../MarkdownRenderer/MarkdownRenderer";
 
 export const Testimonial: React.FC<{
   data: TestimonialType;
@@ -50,7 +50,7 @@ export const Testimonial: React.FC<{
             { "text-slate-300/20": darkMode }
           )}
         />
-        <RichTextRenderer content={content} />
+        {content && <MarkdownRenderer>{content}</MarkdownRenderer> }
       </div>
       {rating > 0 && (
         <div className="flex gap-2 mb-6">

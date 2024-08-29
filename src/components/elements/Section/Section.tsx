@@ -3,22 +3,21 @@
 import React from "react";
 import classNames from "classnames";
 import { Container } from "../Container/Container";
-import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
 import {
   MediaType,
   TextAlignmentType,
   BackgroundColorType,
   ButtonType,
 } from "@/helpers/types";
-import { Document } from "@contentful/rich-text-types";
 import { useInView } from "react-hook-inview";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
+import { MarkdownRenderer } from "../MarkdownRenderer/MarkdownRenderer";
 
 interface SectionProps {
   id?: string | null;
   eyebrow?: string | null;
-  heading?: Document | null;
-  summary?: Document | null;
+  heading?: string | null;
+  summary?: string | null;
   alignment?: TextAlignmentType;
   buttons?: Array<ButtonType>;
   className?: string;
@@ -74,7 +73,7 @@ export const Section: React.FC<SectionProps> = ({
           { "text-end": alignment === "end" }
         )}
       >
-        <RichTextRenderer content={heading} />
+        <MarkdownRenderer>{heading}</MarkdownRenderer>
       </div>
     );
 
@@ -89,7 +88,7 @@ export const Section: React.FC<SectionProps> = ({
           { "text-end": alignment === "end" }
         )}
       >
-        <RichTextRenderer content={summary} />
+        <MarkdownRenderer>{summary}</MarkdownRenderer>
       </div>
     );
 
@@ -114,9 +113,9 @@ export const Section: React.FC<SectionProps> = ({
       <section
         id={id ?? ""}
         className={classNames(
-          {"text-white": darkMode},
           `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
           {
+            "text-white": darkMode,
             "bg-center bg-no-repeat bg-cover bg-blend-multiply": backgroundImage,
             // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
           },

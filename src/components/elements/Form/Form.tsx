@@ -11,8 +11,8 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { IoCloseOutline } from "react-icons/io5";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { RiErrorWarningLine } from "react-icons/ri";
-import * as Toast from "@radix-ui/react-toast";
 import { createInquiryFormSubmission } from "@/helpers/server-actions/createInquiryFormSubmission";
+import * as Toast from "@radix-ui/react-toast";
 
 export type FormValues = {
   [x: string]: string | Date;
@@ -65,7 +65,7 @@ export const Form: React.FC<{data: FormType, darkMode: boolean}> = ({ data, dark
     <>
       <form
         className={classNames(
-          "w-fit px-4 pb-4 pt-2 lg:px-8 lg:pb-8 lg:pt-4 grid grid-cols-2 gap-x-5 gap-y-3 rounded-theme",
+          "w-full px-4 pb-4 pt-2 lg:px-8 lg:pb-8 lg:pt-4 grid grid-cols-2 gap-x-5 gap-y-3 rounded-theme",
           { "gap-x-0": fields?.length === 1 },
           { "bg-white": darkMode }
 
@@ -78,7 +78,7 @@ export const Form: React.FC<{data: FormType, darkMode: boolean}> = ({ data, dark
               key={fieldItem.id}
               className={classNames("relative flex flex-col", {
                 "col-span-2 sm:min-w-[384px]": fieldItem.uiWidth === "full-size",
-                "col-span-2 md:col-span-1": fieldItem.uiWidth === "half-size",
+                "col-span-2 md:col-span-1 lg:min-w-[208px]": fieldItem.uiWidth === "half-size",
               })}
             >
               <div className="text-xs text-red-500 h-6 pt-1 pl-4">

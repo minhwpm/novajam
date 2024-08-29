@@ -133,7 +133,7 @@ export type BlogType = {
   slug: string
   featured: boolean
   summary: string | null
-  content: Document
+  content: Document | null
   topics: Array<string>
   media: MediaType | null
   author: ExpertType
@@ -205,8 +205,8 @@ export type AlertType = {
 export type ContentPTType = {
   id: string
   eyebrow: string | null
-  heading: Document | null
-  summary: Document | null
+  displayTitle: string | null
+  summary: string | null
   content: Array<FlexibleContentType>
   appearanceVariant: "carousel" | "sleek carousel" | "tab" | "accordion" | "scroll"
   headingTextAlignment: TextAlignmentType
@@ -227,7 +227,7 @@ export type StatisticsType = {
 
 export type TestimonialType = {
   id: string
-  content: Document 
+  content: string | null 
   portrait: MediaType | null
   name: string | null
   role: string | null
@@ -253,7 +253,7 @@ export type PricingPlanType = {
   pricing: string
   pricingSuffix: string
   badge: string
-  description: Document | null
+  description: string | null
   ctaButton: ButtonType
   contentType: 'pricingplan'
 }
@@ -264,9 +264,9 @@ export type ContentOrientationType = "horizontal" | "vertical"
 
 export type ContentListType = {
   id: string
-  heading: Document | null
   eyebrow: string | null
-  summary: Document | null
+  displayTitle: string | null
+  summary: string | null
   content: Array<Content>
   buttons: Array<ButtonType>
   appearanceVariant: "carousel" | "masonry" | "deck"
