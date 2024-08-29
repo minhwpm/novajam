@@ -37,7 +37,7 @@ export const BlogPreview: React.FC<{
     threshold: 0.4,
     unobserveOnEnter: true,
   });
-  const readingTimeStats = readingTime(documentToPlainTextString(content));
+  const readingTimeStats = content && readingTime(documentToPlainTextString(content));
   const renderTopic = () => (
     <div
       className={classNames(
