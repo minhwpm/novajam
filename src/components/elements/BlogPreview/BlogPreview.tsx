@@ -82,7 +82,7 @@ export const BlogPreview: React.FC<{
             <div className="basis-2/3 flex-1 flex flex-col gap-y-1 pr-4">
               <div className="flex gap-x-4 justify-between items-center">
                 {topics && topics.length > 0 && renderTopic()}
-                {readingTimeStats.minutes > 0 && (
+                {readingTimeStats?.minutes && (
                   <div className="text-neutral-500 text-sm font-medium uppercase">
                     {readingTimeStats.text}
                   </div>
@@ -137,7 +137,7 @@ export const BlogPreview: React.FC<{
         >
           <div className="flex gap-x-4 justify-between items-center">
             {topics && topics.length > 0 && renderTopic()}
-            {readingTimeStats.minutes > 0 && (
+            {readingTimeStats?.minutes && (
               <div className="text-neutral-500 text-sm font-medium uppercase">
                 {readingTimeStats.text}
               </div>
