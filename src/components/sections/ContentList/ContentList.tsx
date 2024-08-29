@@ -12,7 +12,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
   const {
     displayTitle,
     eyebrow,
-    summaryMd,
+    summary,
     buttons,
     content,
     appearanceVariant,
@@ -32,7 +32,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         id={htmlid}
         eyebrow={eyebrow}
         heading={displayTitle}
-        summary={summaryMd}
+        summary={summary}
         buttons={buttons}
         alignment={headingTextAlignment}
         framed={appearanceVariant !== "carousel"}
