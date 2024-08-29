@@ -1,7 +1,6 @@
 import getContentList from "./getContentList";
 import getFeaturedContent from "./getFeaturedContent";
 import getHero from "./getHero";
-import getInquiryForm from "./getInquiryForm";
 import getContentPT from "./getContentPT";
 import normalizeDataCollection from "./normalizeDataCollection";
 import pages from "./static-data/pages.json";
@@ -71,11 +70,6 @@ export default async function getPage(url: string) {
                     id
                   }
                 }
-                ... on InquiryForm  {
-                  sys {
-                    id
-                  }
-                }
                 ... on Alert {
                   sys {
                     id
@@ -123,8 +117,6 @@ export default async function getPage(url: string) {
             return await getFeaturedContent(id);
           case "contentlist":
             return await getContentList(id);
-          case "inquiryform":
-            return await getInquiryForm(id);
           case "alert": 
             return await getAlert(id);
           case "cta": 

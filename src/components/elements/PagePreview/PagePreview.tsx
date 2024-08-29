@@ -67,7 +67,7 @@ export const PagePreview: React.FC<{
         <MediaItem data={metaImage} altText={metaImage?.title} aspectRatio="4/3" zoomInOverHover />
         <h4
           className={classNames(
-            "mt-4 text-lg xl:text-xl font-heading font-semibold group-hover:text-primary-600 transition-colors duration-300 ease-in-out",
+            "mt-4 text-lg xl:text-xl font-heading font-semibold transition-colors duration-300 ease-in-out",
             { "text-neutral-50": darkMode },
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }

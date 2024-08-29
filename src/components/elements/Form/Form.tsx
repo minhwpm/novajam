@@ -11,7 +11,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { IoCloseOutline } from "react-icons/io5";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { RiErrorWarningLine } from "react-icons/ri";
-import { createInquiryFormSubmission } from "@/helpers/server-actions/createInquiryFormSubmission";
+import { createFormSubmission } from "@/helpers/server-actions/createFormSubmission";
 import * as Toast from "@radix-ui/react-toast";
 
 export type FormValues = {
@@ -53,7 +53,7 @@ export const Form: React.FC<{data: FormType, darkMode: boolean}> = ({ data, dark
       }
       formData.append(prop, data[prop] as string);
     }
-    return createInquiryFormSubmission(formData)
+    return createFormSubmission(formData)
       .then((result) => result)
       .catch((e) => {
         console.error(e);
