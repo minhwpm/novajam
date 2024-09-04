@@ -1,16 +1,16 @@
 import classNames from "classnames";
-import { ContentMapping } from "./ContentMapping"
+import { ContentMapping } from "../Gallery/ContentMapping"
 import { TextAlignmentType, Content, ContentSize, ContentOrientationType } from "@/helpers/types";
 
-export const DeckList: React.FC<{
-  list: Array<Content>
+export const DeckLayout: React.FC<{
+  contentItems: Array<Content>
   size: ContentSize;
   alignment: TextAlignmentType;
   layout: ContentOrientationType;
-}> = ({ list, size, alignment, layout }) => {
+}> = ({ contentItems, size, alignment, layout }) => {
   return (
     <div className="flex flex-wrap justify-center -mx-4">
-      {list.map((item, idx) => (
+      {contentItems.map((item, idx) => (
         <div 
           key={idx} 
           className={classNames(

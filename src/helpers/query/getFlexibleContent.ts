@@ -14,61 +14,61 @@ export default async function getFlexibleContent(id: string) {
         // send the GraphQL query
         body: JSON.stringify({
           query: `
-      query($id: String) {
-        flexibleContentCollection(
-          where: {
-            sys: {
-              id: $id
-            }
-          } 
-        ) {
-          items {
-            sys {
-              id
-            }
-            heading {
-              json
-            }
-            eyebrow
-            embeddedMediaUrl
-            embeddedMediaTitle
-            description {
-              json
-            }
-            mediaCollection {
-              items {
-                sys {
-                  id
+            query($id: String) {
+              flexibleContentCollection(
+                where: {
+                  sys: {
+                    id: $id
+                  }
+                } 
+              ) {
+                items {
+                  sys {
+                    id
+                  }
+                  heading {
+                    json
+                  }
+                  eyebrow
+                  embeddedMediaUrl
+                  embeddedMediaTitle
+                  description {
+                    json
+                  }
+                  mediaCollection {
+                    items {
+                      sys {
+                        id
+                      }
+                      url
+                      title
+                      width
+                      height
+                      contentType
+                    }
+                  }
+                  buttonsCollection {
+                    items {
+                      sys {
+                        id
+                      }
+                      url
+                      text
+                      openNewTab
+                      buttonVariant
+                      withArrow
+                      icon {
+                        url
+                        title
+                        width
+                        height
+                      }
+                    }
+                  }
                 }
-                url
-                title
-                width
-                height
-                contentType
               }
             }
-            buttonsCollection {
-              items {
-                sys {
-                  id
-                }
-                url
-                text
-                openNewTab
-                buttonVariant
-                withArrow
-                icon {
-                  url
-                  title
-                  width
-                  height
-                }
-              }
-            }
-          }
-        }
-      }
-    `,
+          `,
           variables: {
             id,
           },

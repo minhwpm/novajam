@@ -3,7 +3,7 @@ import Link from "next/link";
 import { TextAlignmentType, PageType } from "@/helpers/types";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { useContext } from "react";
-import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
+import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
 import { useInView } from "react-hook-inview";
 
 export const PagePreview: React.FC<{

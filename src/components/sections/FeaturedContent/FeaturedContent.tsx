@@ -1,89 +1,28 @@
 "use client";
 import classNames from "classnames";
-import {
-  FlexibleContentType,
-  FeaturedContentType,
-  FeaturedContentVariantType,
-} from "@/helpers/types";
-import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
-import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
+import { FeaturedContentType } from "@/helpers/types";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { useInView } from "react-hook-inview";
+import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer";
+import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
+import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import "@/app/styles/bg-color.css";
 import "@/app/styles/padding.css";
-
-const TextPart: React.FC<{
-  data: FlexibleContentType;
-  appearanceVariant: FeaturedContentVariantType;
-  darkMode: boolean;
-}> = ({ data, appearanceVariant, darkMode }) => {
-  const { eyebrow, heading, description, buttons } = data;
-
-  return (
-    <div className="flex flex-wrap gap-4 items-center justify-between">
-      <div>
-        {eyebrow && (
-          <div
-            className={classNames(
-              "text-sm xl:text-base tracking-widest mb-2 max-w-5xl",
-              { "text-primary-500": !darkMode },
-              { "text-primary-400": darkMode }
-            )}
-          >
-            {eyebrow}
-          </div>
-        )}
-        {heading && (
-          <div
-            className={classNames(
-              "text-heading leading-snug font-heading max-w-3xl xl:max-w-4xl mb-4 lg:mb-8",
-              { "text-white": darkMode }
-            )}
-          >
-            <RichTextRenderer content={heading} />
-          </div>
-        )}
-        {description && (
-          <div
-            className={classNames(
-              "block prose xl:prose-lg leading-loose",
-              { "text-white/70": darkMode },
-              { "text-slate-500": !darkMode },
-              { "mb-4 lg:mb-8": buttons && buttons.length > 0 }
-            )}
-          >
-            <RichTextRenderer content={description} />
-          </div>
-        )}
-      </div>
-      <div>
-        {buttons && buttons.length > 0 && (
-          <ButtonGroup
-            data={buttons}
-            size="lg"
-            alignment={
-              ["Vertical (Text | Media)", "Vertical (Media | Text)"].includes(
-                appearanceVariant
-              )
-                ? "center"
-                : undefined
-            }
-          />
-        )}
-      </div>
-    </div>
-  );
-};
 
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
   data,
 }) => {
   const {
-    htmlid,
-    appearanceVariant,
-    size,
-    content,
+    eyebrow,
+    displayTitle,
+    description,
+    buttons,
+    items,
+    media,
+    mediaPosition,
     mediaAspectRatio,
+    htmlid,
+    size,
     backgroundColor,
     backgroundImage,
     darkMode,
@@ -92,60 +31,6 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
     threshold: 0.4,
     unobserveOnEnter: true,
   });
-
-  if (content === null) {
-    return null;
-  }
-  const renderMediaPart = () => (
-    <div
-      className={classNames("relative max-w-5xl w-full -bottom-10 opacity-0", {
-        "animate-slidingUpContent animation-delay-150": isIntersecting,
-        "lg:w-6/12": [
-          "Horizontal (Text | Media)",
-          "Horizontal (Media | Text)",
-        ].includes(appearanceVariant),
-      })}
-    >
-      <FlexibleContentMediaPart
-        data={content}
-        rounded={size === "extended" ? "none" : "theme"}
-        aspectRatio={mediaAspectRatio}
-      />
-    </div>
-  );
-
-  const renderTextPart = () => (
-    <div
-      className={classNames(
-        "relative -bottom-10 opacity-0 self-center w-full flex flex-col",
-        {
-          "animate-slidingUpContent animation-delay-500": isIntersecting,
-          "px-4 pb-12 md:pb-14 lg:pb-16 xl:pb-18 2xl:pb-20":
-            appearanceVariant === "Vertical (Media | Text)" &&
-            size === "extended",
-          "px-4 pt-12 md:pt-14 lg:pt-16 xl:pt-18 2xl:pt-20":
-            appearanceVariant === "Vertical (Text | Media)" &&
-            size === "extended",
-          "lg:w-1/2 pb-4 lg:pr-16 xl:pr-24":
-            appearanceVariant === "Horizontal (Text | Media)",
-          "custom-padding-left pr-4 py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24":
-            appearanceVariant === "Horizontal (Text | Media)" &&
-            size === "extended",
-          "lg:w-1/2 pt-4 lg:pl-16 xl:pl-24":
-            appearanceVariant === "Horizontal (Media | Text)",
-          "custom-padding-right pl-4 py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24":
-            appearanceVariant === "Horizontal (Media | Text)" &&
-            size === "extended",
-        }
-      )}
-    >
-      <TextPart
-        data={content}
-        appearanceVariant={appearanceVariant}
-        darkMode={darkMode}
-      />
-    </div>
-  );
 
   return (
     <section
@@ -169,15 +54,93 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
       <div
         className={classNames("w-full flex flex-wrap gap-4 lg:gap-0", {
           "container mx-auto px-4": size === "standard",
-          "flex-col items-center":
-            appearanceVariant === "Vertical (Media | Text)",
-          "flex-col-reverse": appearanceVariant === "Vertical (Text | Media)",
-          "flex-row-reverse flex-wrap-reverse":
-            appearanceVariant === "Horizontal (Text | Media)",
+          "flex-row-reverse flex-wrap-reverse": mediaPosition === "right",
         })}
       >
-        {renderMediaPart()}
-        {renderTextPart()}
+        <div
+          className={classNames("relative -bottom-10 opacity-0 lg:flex-1", {
+            "animate-slidingUpContent animation-delay-150 ": isIntersecting,
+          })}
+        >
+          {media && media.length === 1 && (
+            <MediaItem
+              data={media[0]}
+              aspectRatio={mediaAspectRatio}
+              videoControls
+            />
+          )}
+          {media && media.length > 1 && (
+            <MediaCarousel
+              data={media}
+              autoplay={{
+                delay: 3500,
+              }}
+              pagination={{
+                enabled: true,
+              }}
+              aspectRatio={mediaAspectRatio}
+            />
+          )}
+        </div>
+        {(eyebrow ||
+          displayTitle ||
+          description ||
+          items.length ||
+          buttons.length) && (
+          <div
+            className={classNames(
+              "relative -bottom-10 opacity-0 lg:flex-1",
+              {
+                "animate-slidingUpContent animation-delay-300 ": isIntersecting,
+              },
+              { "pt-4 lg:pl-16 xl:pl-24": mediaPosition === "left" },
+              {
+                "custom-padding-right pl-4 py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24":
+                  size === "extended" && mediaPosition === "left",
+              },
+              { "pb-4 lg:pr-16 xl:pr-24": mediaPosition === "right" }
+            )}
+          >
+            {eyebrow && (
+              <div
+                className={classNames(
+                  "text-sm xl:text-base tracking-widest mb-2 max-w-5xl",
+                  { "text-primary-500": !darkMode },
+                  { "text-primary-400": darkMode }
+                )}
+              >
+                {eyebrow}
+              </div>
+            )}
+            {displayTitle && (
+              <div
+                className={classNames(
+                  "text-heading leading-snug font-heading max-w-3xl xl:max-w-4xl mb-4 lg:mb-8",
+                  { "text-white": darkMode }
+                )}
+              >
+                <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
+              </div>
+            )}
+            {description && (
+              <div
+                className={classNames(
+                  "block prose xl:prose-lg leading-loose",
+                  { "text-white/70": darkMode },
+                  { "text-slate-500": !darkMode },
+                  { "mb-4 lg:mb-8": buttons && buttons.length > 0 }
+                )}
+              >
+                <MarkdownRenderer>{description}</MarkdownRenderer>
+              </div>
+            )}
+            <div>
+              {buttons && buttons.length > 0 && (
+                <ButtonGroup data={buttons} size="lg" alignment="start" />
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -24,15 +24,52 @@ export default async function getFeature(id: string) {
           } 
         ) {
           items {
-            content {
-              sys {
-                id
+            eyebrow
+            displayTitle
+            description
+            buttonsCollection {
+              items {
+                sys {
+                  id
+                }
+                url
+                text
+                openNewTab
+                buttonVariant
+                withArrow
+                icon {
+                  url
+                  title
+                  width
+                  height
+                }
               }
-              __typename
             }
-            htmlid
+            itemsCollection (limit: 5) {
+              items {
+                __typename
+                ... on FlexibleContent {
+                  sys {
+                    id
+                  }
+                }
+              }
+            }
+            mediaCollection (limit: 50) {
+              items {
+                sys {
+                  id
+                }
+                url
+                title
+                width
+                height
+                contentType
+              }
+            }
+            mediaPosition
             mediaAspectRatio
-            appearanceVariant
+            htmlid
             size
             backgroundColor
             backgroundImage {
@@ -71,6 +108,19 @@ export default async function getFeature(id: string) {
         ...(await getFlexibleContent(normalizedData[0].content.sys.id)),
       };
     }
+    
+    normalizedData[0]?.items && await Promise.all(
+      normalizedData[0]?.items.map(
+        async (
+          item: { contentType: string;  id: string },
+          index: string | number
+        ) => {
+          const sectionData = await getFlexibleContent(item.id);
+          normalizedData[0].content[index] = { ...item, ...sectionData };
+        }
+      )
+    )
+
     return normalizedData[0];
   } catch (error) {
     console.error(error);

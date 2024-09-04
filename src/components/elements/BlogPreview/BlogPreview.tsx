@@ -2,7 +2,7 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { useContext } from "react";
-import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
+import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
 import {
   TextAlignmentType,
   BlogType,

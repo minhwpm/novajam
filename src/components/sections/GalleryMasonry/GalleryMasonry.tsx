@@ -2,14 +2,14 @@
 import classNames from "classnames";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { TextAlignmentType, Content, ContentSize, ContentOrientationType } from "@/helpers/types";
-import { ContentMapping } from "./ContentMapping";
+import { ContentMapping } from "../Gallery/ContentMapping";
 
-export const MasonryList: React.FC<{
-  list: Content[];
+export const MasonryLayout: React.FC<{
+  contentItems: Content[];
   size: ContentSize;
   alignment: TextAlignmentType;
   layout: ContentOrientationType;
-}> = ({ list, size, alignment, layout }) => {
+}> = ({ contentItems, size, alignment, layout }) => {
   return (
     <ResponsiveMasonry
       className="pt-3.5"
@@ -63,7 +63,7 @@ export const MasonryList: React.FC<{
           { "48px": size === "XL" }
         )}
       >
-        {list.map((item, idx) => (
+        {contentItems.map((item, idx) => (
           <ContentMapping
             key={item.id}
             data={item}

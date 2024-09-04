@@ -159,20 +159,18 @@ export type ExpertType = {
 
 export type MediaAspectRatioType = "auto" | "square" | "16/9" | "4/3" | "3/4" | "3/2"
 
-export type FeaturedContentVariantType = "Horizontal (Media | Text)" | "Horizontal (Text | Media)" | "Vertical (Media | Text)" | "Vertical (Text | Media)"
-
 export type FeaturedContentType = {
   id: string
   title: string
-  heading: Document
-  label: string | null
-  description: Document | null 
+  eyebrow: string | null
+  displayTitle: string | null
+  description: string | null 
   media: Array<MediaType>
+  mediaPosition: "left" | "right"
   mediaAspectRatio: MediaAspectRatioType
   buttons: Array<ButtonType>
-  content: FlexibleContentType
+  items: Array<FlexibleContentType>
   htmlid: string
-  appearanceVariant: FeaturedContentVariantType
   size: "standard" | "extended"
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
@@ -267,7 +265,7 @@ export type ContentListType = {
   eyebrow: string | null
   displayTitle: string | null
   summary: string | null
-  content: Array<Content>
+  contentItems: Array<Content>
   buttons: Array<ButtonType>
   appearanceVariant: "carousel" | "masonry" | "deck"
   size: ContentSize

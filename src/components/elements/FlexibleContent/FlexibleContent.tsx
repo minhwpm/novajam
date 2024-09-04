@@ -4,7 +4,7 @@ import { TextAlignmentType, FlexibleContentType } from "@/helpers/types";
 import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
-import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
+import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
 import { useInView } from "react-hook-inview";
 
 const TextPart: React.FC<{
@@ -93,7 +93,7 @@ export const FlexibleContent: React.FC<{
             />
           )}
         </div>
-        {(heading || eyebrow || description || buttons?.length > 0) && (
+        {(heading || eyebrow || description || buttons?.length) && (
           <div
             className={classNames(
               "basis-7/12 flex-1 pl-4 xl:pl-6 flex flex-col",
@@ -126,7 +126,7 @@ export const FlexibleContent: React.FC<{
           aspectRatio="auto"
         />
       )}
-      {(heading || eyebrow || description || buttons?.length > 0) && (
+      {(heading || eyebrow || description || buttons?.length) && (
         <div
           className={classNames(
             "py-4 xl:pt-6 flex-1 flex flex-col",

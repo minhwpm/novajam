@@ -61,7 +61,7 @@ export default async function getContentList(id: string) {
             }
             darkMode
             sectionSeparator
-            contentCollection (limit: 20) {
+            contentItemsCollection (limit: 20) {
               items {
                 __typename
                 ... on Expert {
@@ -213,21 +213,21 @@ export default async function getContentList(id: string) {
     const data = await res.json();
     const normalizedData = normalizeDataCollection(data.data);
 
-    normalizedData[0]?.content &&
+    normalizedData[0]?.contentItems &&
       (await Promise.all(
-        normalizedData[0]?.content.map(
+        normalizedData[0]?.contentItems.map(
           async (
             contentItem: { contentType: string; id: string },
             index: string | number
           ) => {
             if (contentItem?.contentType === "flexiblecontent") {
               const sectionData = await getFlexibleContent(contentItem.id);
-              normalizedData[0].content[index] = {
+              normalizedData[0].contentItems[index] = {
                 ...contentItem,
                 ...sectionData,
               };
             } else {
-              normalizedData[0].content[index] = { ...contentItem };
+              normalizedData[0].contentItems[index] = { ...contentItem };
             }
           }
         )

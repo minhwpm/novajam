@@ -5,7 +5,7 @@ import { MediaItem } from "../MediaItem/MediaItem";
 import { AiFillStar } from "react-icons/ai";
 import { useInView } from "react-hook-inview";
 import { useContext } from "react";
-import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
+import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
 import { BiSolidQuoteAltLeft } from "react-icons/bi";
 import { MarkdownRenderer } from "../MarkdownRenderer/MarkdownRenderer";
 

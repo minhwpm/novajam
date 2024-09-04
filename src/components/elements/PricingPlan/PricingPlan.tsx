@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { useContext } from "react";
 import { useInView } from "react-hook-inview";
 import { Button } from "@/components/elements/Button/Button";
-import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
+import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
 import { TextAlignmentType, PricingPlanType } from "@/helpers/types";
 import { MarkdownRenderer } from "../MarkdownRenderer/MarkdownRenderer";
 

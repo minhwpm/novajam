@@ -4,23 +4,23 @@ import { useContext, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { TextAlignmentType, Content, ContentSize, ContentOrientationType } from "@/helpers/types";
-import { ContentMapping } from "./ContentMapping";
+import { ContentMapping } from "../Gallery/ContentMapping";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
-import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
+import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
 import { useInView } from "react-hook-inview";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "./carousel-list-styles.css"
+import "./styles.css"
 import "@/app/styles/custom-swiper.css"
 import "@/app/styles/padding.css"
 
-export const CarouselList: React.FC<{
-  list: Content[];
+export const CarouselLayout: React.FC<{
+  contentItems: Content[];
   size: ContentSize;
   alignment: TextAlignmentType;
   layout: ContentOrientationType;
-}> = ({ list, size, alignment, layout }) => {
+}> = ({ contentItems, size, alignment, layout }) => {
   const darkMode = useContext(DarkModeContext);
   const [carouselState, setState] = useState({
     isBeginning: true,
@@ -38,12 +38,12 @@ export const CarouselList: React.FC<{
       })}
     >
       <Swiper
-        className={classNames("CarouselList relative w-screen !pt-16 !pb-4")}
+        className={classNames("CarouselLayout relative w-screen !pt-16 !pb-4")}
         slidesPerView={"auto"}
         navigation={{
           enabled: true,
-          nextEl: ".carouselList-btn-next",
-          prevEl: ".carouselList-btn-prev",
+          nextEl: ".CarouselLayout-btn-next",
+          prevEl: ".CarouselLayout-btn-prev",
         }}
         modules={[Navigation, Autoplay]}
         onSlideChange={(swiper) => {
@@ -57,7 +57,7 @@ export const CarouselList: React.FC<{
           <GoArrowLeft
             size={50}
             className={classNames(
-              "carouselList-btn-prev cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
+              "CarouselLayout-btn-prev cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
               {
                 "opacity-10 pointer-events-none cursor-not-allowed":
                   carouselState.isBeginning,
@@ -69,7 +69,7 @@ export const CarouselList: React.FC<{
           <GoArrowRight
             size={50}
             className={classNames(
-              "carouselList-btn-next cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
+              "CarouselLayout-btn-next cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
               {
                 "opacity-10 pointer-events-none cursor-not-allowed":
                   carouselState.isEnd,
@@ -79,7 +79,7 @@ export const CarouselList: React.FC<{
             )}
           />
         </div>
-        {list.map((item, idx) => (
+        {contentItems.map((item, idx) => (
           <SwiperSlide
             key={item.id}
             className={classNames(

@@ -2,9 +2,9 @@
 import { createContext } from "react"
 import { Section } from "@/components/elements/Section/Section";
 import { ContentListType } from "@/helpers/types";
-import { CarouselList } from "./CarouselList";
-import { MasonryList } from "./MasonryList";
-import { DeckList } from "./DeckList";
+import { CarouselLayout } from "@/components/sections/GalleryCarousel/GalleryCarousel";
+import { MasonryLayout } from "@/components/sections/GalleryMasonry/GalleryMasonry";
+import { DeckLayout } from "@/components/sections/GalleryDeck/GalleryDeck";
 import "@/app/styles/bg-color.css";
 
 export const DarkModeContext = createContext(false)
@@ -14,7 +14,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     eyebrow,
     summary,
     buttons,
-    content,
+    contentItems,
     appearanceVariant,
     size,
     headingTextAlignment,
@@ -42,24 +42,24 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         darkMode={darkMode}
       >
         {appearanceVariant === "carousel" && (
-          <CarouselList
-            list={content}
+          <CarouselLayout
+            contentItems={contentItems}
             size={size}
             alignment={contentTextAlignment}
             layout={contentOrientation}
           />
         )}
         {appearanceVariant === "masonry" && (
-          <MasonryList
-            list={content}
+          <MasonryLayout
+            contentItems={contentItems}
             size={size}
             alignment={contentTextAlignment}
             layout={contentOrientation}
           />
         )}
         {appearanceVariant === "deck" && (
-          <DeckList
-            list={content}
+          <DeckLayout
+            contentItems={contentItems}
             size={size}
             alignment={contentTextAlignment}
             layout={contentOrientation}

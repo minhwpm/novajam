@@ -20,7 +20,7 @@ export const MediaItem: React.FC<{
   altText,
   aspectRatio = "auto",
   videoAutoplay = false,
-  videoControls = false,
+  videoControls = true,
   dimensionBase = "width",
   priority = false,
   rounded = "theme",

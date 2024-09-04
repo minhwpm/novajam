@@ -3,7 +3,7 @@ import { HeroOverlay } from "@/components/sections/HeroOverlay/HeroOverlay";
 import { Alert } from "@/components/sections/Alert/Alert";
 import { ScrollPT } from "@/components/sections/ScrollPT/ScrollPT";
 import { AccordionPT } from "@/components/sections/AccordionPT/AccordionPT";
-import { ContentList } from "@/components/sections/ContentList/ContentList";
+import { ContentList } from "@/components/sections/Gallery/Gallery";
 import { FeaturedContent } from "@/components/sections/FeaturedContent/FeaturedContent";
 import { TabPT } from "@/components/sections/TabPT/TabPT";
 import { CarouselPT } from "@/components/sections/CarouselPT/CarouselPT";

@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { useInView } from "react-hook-inview";
 import { TextAlignmentType, StatisticsType } from "@/helpers/types";
 import { useContext } from "react";
-import { DarkModeContext } from "@/components/sections/ContentList/ContentList";
+import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
 
 export const Statistics: React.FC<{
   data: StatisticsType;
