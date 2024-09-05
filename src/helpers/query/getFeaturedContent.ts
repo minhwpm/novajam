@@ -47,11 +47,8 @@ export default async function getFeature(id: string) {
             }
             itemsCollection (limit: 5) {
               items {
-                __typename
-                ... on FlexibleContent {
-                  sys {
-                    id
-                  }
+                sys {
+                  id
                 }
               }
             }
@@ -103,12 +100,6 @@ export default async function getFeature(id: string) {
     const data = await res.json();
     const normalizedData = normalizeDataCollection(data.data);
 
-    if (normalizedData[0].content) {
-      normalizedData[0].content = {
-        ...(await getFlexibleContent(normalizedData[0].content.sys.id)),
-      };
-    }
-    
     normalizedData[0]?.items && await Promise.all(
       normalizedData[0]?.items.map(
         async (
@@ -116,7 +107,7 @@ export default async function getFeature(id: string) {
           index: string | number
         ) => {
           const sectionData = await getFlexibleContent(item.id);
-          normalizedData[0].content[index] = { ...item, ...sectionData };
+          normalizedData[0].items[index] = { ...item, ...sectionData };
         }
       )
     )

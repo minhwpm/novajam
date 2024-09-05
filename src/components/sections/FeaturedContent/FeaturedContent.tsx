@@ -8,6 +8,7 @@ import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import "@/app/styles/bg-color.css";
 import "@/app/styles/padding.css";
+import { FlexibleContent } from "@/components/elements/FlexibleContent/FlexibleContent";
 
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
   data,
@@ -52,7 +53,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
       }
     >
       <div
-        className={classNames("w-full flex flex-wrap gap-4 lg:gap-0", {
+        className={classNames("w-full flex flex-wrap gap-4 lg:gap-0 items-center", {
           "container mx-auto px-4": size === "standard",
           "flex-row-reverse flex-wrap-reverse": mediaPosition === "right",
         })}
@@ -132,6 +133,13 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
                 )}
               >
                 <MarkdownRenderer>{description}</MarkdownRenderer>
+              </div>
+            )}
+            {!!items.length && (
+              <div className="flex flex-col gap-y-8 my-8">
+              {items.map((item, index) => (
+                <FlexibleContent key={index} data={item} layout="horizontal" alignment="start" />
+              ))}
               </div>
             )}
             <div>
