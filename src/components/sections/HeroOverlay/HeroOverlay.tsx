@@ -5,10 +5,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
-import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
 import { Container } from "@/components/elements/Container/Container";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
-import { HeroType, TextAlignmentType, FlexibleContentType } from "@/helpers/types";
+import {
+  HeroType,
+  TextAlignmentType,
+  FlexibleContentType,
+} from "@/helpers/types";
+import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -17,13 +21,19 @@ import "@/app/styles/custom-swiper.css";
 import "@/app/styles/bg-color.css";
 
 export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
-  const { content, contentTextAlignment, backgroundColor, backgroundImage, darkMode } = data;
+  const {
+    content,
+    contentTextAlignment,
+    backgroundColor,
+    backgroundImage,
+    darkMode,
+  } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
-    unobserveOnEnter: true
+    unobserveOnEnter: true,
   });
   if (content.length === 0) {
-    return null
+    return null;
   }
   return (
     <section
@@ -32,10 +42,8 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
         "relative",
         `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
         {
-          "bg-center bg-no-repeat bg-cover bg-blend-multiply":
-            backgroundImage,
+          "bg-center bg-no-repeat bg-cover bg-blend-multiply": backgroundImage,
           // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
-
         }
       )}
       style={
@@ -103,7 +111,7 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
       )}
     </section>
   );
-}
+};
 
 export const HeroOverlaySection: React.FC<{
   data: FlexibleContentType;
@@ -123,15 +131,12 @@ export const HeroOverlaySection: React.FC<{
           <HeroMediaPart data={data} />
         </div>
       )}
-      {(data.heading || data.description || data.buttons.length) && (
+      {(data.displayTitle || data.description || !!data.buttons.length) && (
         <div
-          className={classNames(
-            "w-full h-full px-4 py-36 overflow-hidden",
-            {
-              "lg:absolute lg:top-0 lg:left-0":
-                data.media.length > 0 || data.embeddedMediaUrl,
-            }
-          )}
+          className={classNames("w-full h-full px-4 py-36 overflow-hidden", {
+            "lg:absolute lg:top-0 lg:left-0":
+              data.media.length > 0 || data.embeddedMediaUrl,
+          })}
         >
           <Container
             className={classNames(
@@ -157,7 +162,7 @@ export const HeroOverlaySection: React.FC<{
                 {data.eyebrow}
               </div>
             )}
-            {data.heading && (
+            {data.displayTitle && (
               <div
                 className={classNames(
                   "relative text-super-heading leading-tight font-heading max-w-2xl mt-2 opacity-0",
@@ -165,27 +170,30 @@ export const HeroOverlaySection: React.FC<{
                   { "text-white drop-shadow-lg": darkMode }
                 )}
               >
-                <RichTextRenderer content={data.heading} />
+                <MarkdownRenderer>{data.displayTitle}</MarkdownRenderer>
               </div>
             )}
             {data.description && (
               <div
                 className={classNames(
                   "prose xl:prose-lg 2xl:prose-xl mt-6 lg:mt-10 max-w-xl opacity-0 !leading-loose",
-                  { "animate-slidingHeroContent animation-delay-200 ": isIntersecting },
+                  {
+                    "animate-slidingHeroContent animation-delay-200 ":
+                      isIntersecting,
+                  },
                   { "text-white/70 drop-shadow-lg": darkMode },
-                  { "text-slate-500": !darkMode },
+                  { "text-slate-500": !darkMode }
                 )}
               >
-                <RichTextRenderer content={data.description} />
+                <MarkdownRenderer>{data.description}</MarkdownRenderer>
               </div>
             )}
             {data.buttons.length > 0 && (
               <div
-                className={classNames(
-                  "mt-8 lg:mt-12 opacity-0",
-                  { "animate-slidingHeroContent animation-delay-400 ": isIntersecting },
-                )}
+                className={classNames("mt-8 lg:mt-12 opacity-0", {
+                  "animate-slidingHeroContent animation-delay-400 ":
+                    isIntersecting,
+                })}
               >
                 <ButtonGroup
                   data={data.buttons}
@@ -205,11 +213,7 @@ const HeroMediaPart: React.FC<{ data: FlexibleContentType }> = ({ data }) => {
   return (
     <>
       {data.embeddedMediaUrl && (
-        <div
-          className={classNames(
-            "overflow-hidden h-full lg:aspect-video",
-          )}
-        >
+        <div className={classNames("overflow-hidden h-full lg:aspect-video")}>
           <iframe
             src={data.embeddedMediaUrl}
             title={data.embeddedMediaTitle ?? ""}
@@ -238,7 +242,7 @@ const HeroMediaPart: React.FC<{ data: FlexibleContentType }> = ({ data }) => {
           }}
           pagination={{
             enabled: true,
-            type: 'fraction',
+            type: "fraction",
           }}
         />
       )}

@@ -236,8 +236,8 @@ export type TestimonialType = {
 export type FlexibleContentType = {
   id: string
   eyebrow: string | null
-  heading: Document | null
-  description: Document | null
+  displayTitle: string | null
+  description: string | null
   buttons: Array<ButtonType>
   media: Array<MediaType>
   embeddedMediaUrl: string | null

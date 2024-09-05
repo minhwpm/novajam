@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { useInView } from "react-hook-inview";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
+import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer";
 import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
 import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
@@ -159,7 +159,7 @@ const HeroSection: React.FC<{
             {data.eyebrow}
           </div>
         )}
-        {data.heading && (
+        {data.displayTitle && (
           <div
             className={classNames(
               "text-hero-heading leading-snug font-heading max-w-3xl opacity-0",
@@ -167,7 +167,7 @@ const HeroSection: React.FC<{
               { "text-white": darkMode }
             )}
           >
-            <RichTextRenderer content={data.heading} />
+            <MarkdownRenderer>{data.displayTitle}</MarkdownRenderer>
           </div>
         )}
         {data.description && (
@@ -182,7 +182,7 @@ const HeroSection: React.FC<{
               { "text-slate-500": !darkMode },
             )}
           >
-            <RichTextRenderer content={data.description} />
+            <MarkdownRenderer>{data.description}</MarkdownRenderer>
           </div>
         )}
         {data.buttons.length > 0 && (

@@ -26,15 +26,11 @@ export default async function getFlexibleContent(id: string) {
                   sys {
                     id
                   }
-                  heading {
-                    json
-                  }
                   eyebrow
+                  displayTitle
+                  description
                   embeddedMediaUrl
                   embeddedMediaTitle
-                  description {
-                    json
-                  }
                   mediaCollection {
                     items {
                       sys {

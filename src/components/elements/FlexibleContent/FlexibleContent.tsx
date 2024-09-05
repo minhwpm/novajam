@@ -1,18 +1,18 @@
 import classNames from "classnames";
 import { useContext } from "react";
 import { TextAlignmentType, FlexibleContentType } from "@/helpers/types";
-import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
 import { useInView } from "react-hook-inview";
+import { MarkdownRenderer } from "../MarkdownRenderer/MarkdownRenderer";
 
 const TextPart: React.FC<{
   data: FlexibleContentType;
   alignment?: TextAlignmentType;
   darkMode?: boolean
 }> = ({ data, alignment, darkMode }) => {
-  const { heading, eyebrow, description, buttons } = data;
+  const { eyebrow, displayTitle, description, buttons } = data;
   return (
     <>
       {eyebrow && (
@@ -26,7 +26,7 @@ const TextPart: React.FC<{
           {eyebrow}
         </div>
       )}
-      {heading && (
+      {displayTitle && (
         <div
           className={classNames(
             "not-prose font-heading text-lg lg:text-xl",
@@ -34,7 +34,7 @@ const TextPart: React.FC<{
             { "text-white": darkMode }
           )}
         >
-          <RichTextRenderer content={heading} />
+          <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
         </div>
       )}
       {description && (
@@ -48,7 +48,7 @@ const TextPart: React.FC<{
             { "text-slate-500": !darkMode },
           )}
         >
-          <RichTextRenderer content={description} />
+          <MarkdownRenderer>{description}</MarkdownRenderer>
         </div>
       )}
       {buttons && buttons.length > 0 && (
@@ -64,7 +64,7 @@ export const FlexibleContent: React.FC<{
   layout?: "vertical" | "horizontal";
   animate?: boolean;
 }> = ({ data, alignment = "center", layout = "vertical", animate }) => {
-  const { heading, eyebrow, description, media, embeddedMediaUrl, buttons } =
+  const { displayTitle, eyebrow, description, media, embeddedMediaUrl, buttons } =
     data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
@@ -93,7 +93,7 @@ export const FlexibleContent: React.FC<{
             />
           )}
         </div>
-        {(heading || eyebrow || description || buttons?.length) && (
+        {(displayTitle || eyebrow || description || !!buttons?.length) && (
           <div
             className={classNames(
               "basis-7/12 flex-1 pl-4 xl:pl-6 flex flex-col",
@@ -126,7 +126,7 @@ export const FlexibleContent: React.FC<{
           aspectRatio="auto"
         />
       )}
-      {(heading || eyebrow || description || buttons?.length) && (
+      {(displayTitle || eyebrow || description || !!buttons?.length) && (
         <div
           className={classNames(
             "py-4 xl:pt-6 flex-1 flex flex-col",
