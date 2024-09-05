@@ -4,7 +4,7 @@ import classNames from "classnames";
 import * as RadixAccordion from "@radix-ui/react-accordion";
 import { Section } from "@/components/elements/Section/Section";
 import { ContentPTType } from "@/helpers/types";
-import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
+import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { useInView } from "react-hook-inview";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
@@ -12,7 +12,18 @@ import { FaChevronDown } from "react-icons/fa";
 import "@/app/styles/bg-color.css";
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, displayTitle, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
+  const {
+    eyebrow,
+    displayTitle,
+    summary,
+    content,
+    headingTextAlignment,
+    contentTextAlignment,
+    htmlid,
+    backgroundColor,
+    backgroundImage,
+    darkMode,
+  } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
     unobserveOnEnter: true,
@@ -68,13 +79,15 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                           {section.eyebrow}
                         </div>
                       )}
-                      {section.heading && (
+                      {section.displayTitle && (
                         <div
                           className={classNames("text-xl xl:text-2xl", {
                             "text-neutral-50": darkMode,
                           })}
                         >
-                          <RichTextRenderer content={section.heading} />
+                          <MarkdownRenderer>
+                            {section.displayTitle}
+                          </MarkdownRenderer>
                         </div>
                       )}
                     </div>
@@ -105,11 +118,16 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     )}
                     {section.description && (
                       <div
-                        className={classNames("prose xl:prose-lg max-w-none group-data-[state=closed]:text-transparent", {
-                          "text-neutral-100": darkMode,
-                        })}
+                        className={classNames(
+                          "prose xl:prose-lg max-w-none group-data-[state=closed]:text-transparent",
+                          {
+                            "text-neutral-100": darkMode,
+                          }
+                        )}
                       >
-                        <RichTextRenderer content={section.description} />
+                        <MarkdownRenderer>
+                          {section.description}
+                        </MarkdownRenderer>
                       </div>
                     )}
                     {section.buttons && section.buttons.length > 0 && (
@@ -128,4 +146,4 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       </div>
     </Section>
   );
-}
+};

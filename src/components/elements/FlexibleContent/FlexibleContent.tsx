@@ -5,7 +5,7 @@ import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
 import { useInView } from "react-hook-inview";
-import { MarkdownRenderer } from "../MarkdownRenderer/MarkdownRenderer";
+import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer";
 
 const TextPart: React.FC<{
   data: FlexibleContentType;

@@ -56,7 +56,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   "h-full flex flex-col-reverse lg:flex-row lg:items-center gap-x-16 gap-y-5 rounded-theme px-4 lg:py-4 lg:px-14 xl:px-16"
                 )}
               >
-                {(item.heading || item.description || item.buttons) && (
+                {(item.displayTitle || item.description || item.buttons) && (
                   <div
                     className={classNames(
                       "flex flex-col",
@@ -75,9 +75,9 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   <div
                     className={classNames(
                       {
-                        "lg:w-1/2 shrink-0 ": item.heading || item.description,
+                        "lg:w-1/2 shrink-0 ": item.displayTitle || item.description,
                       },
-                      { "w-full": !item.heading && !item.description }
+                      { "w-full": !item.displayTitle && !item.description }
                     )}
                   >
                     <FlexibleContentMediaPart

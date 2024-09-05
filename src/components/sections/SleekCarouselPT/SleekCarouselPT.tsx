@@ -1,16 +1,14 @@
 "use client";
 import classNames from "classnames";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Section } from "@/components/elements/Section/Section";
 import { ContentPTType } from "@/helpers/types";
-import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
 import { useInView } from "react-hook-inview";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
-import "@/app/styles/bg-color.css";
 import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer";
-
+import "@/app/styles/bg-color.css";
 
 const ArrowGroup = ({
   visibleIdx,
@@ -51,8 +49,21 @@ const ArrowGroup = ({
   );
 };
 
-export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, displayTitle, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
+export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
+  data,
+}) => {
+  const {
+    eyebrow,
+    displayTitle,
+    summary,
+    content,
+    headingTextAlignment,
+    contentTextAlignment,
+    htmlid,
+    backgroundColor,
+    backgroundImage,
+    darkMode,
+  } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
@@ -61,9 +72,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
   return (
     <Section
       id={htmlid}
-      className={classNames(
-        "overflow-x-hidden",
-      )}
+      className={classNames("overflow-x-hidden")}
       backgroundColor={backgroundColor}
       backgroundImage={backgroundImage}
     >
@@ -113,9 +122,11 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
               <MarkdownRenderer>{summary}</MarkdownRenderer>
             </div>
           )}
-          <div className={classNames("mt-8 hidden lg:flex gap-4",
-            { "lg:justify-center": headingTextAlignment === "center" },
-          )}>
+          <div
+            className={classNames("mt-8 hidden lg:flex gap-4", {
+              "lg:justify-center": headingTextAlignment === "center",
+            })}
+          >
             <ArrowGroup
               visibleIdx={visibleIdx}
               setVisibleIdx={setVisibleIdx}
@@ -169,13 +180,13 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                     {section.eyebrow}
                   </div>
                 )}
-                {section.heading && (
+                {section.displayTitle && (
                   <div
                     className={classNames("text-2xl", {
                       "text-neutral-50": darkMode,
                     })}
                   >
-                    <RichTextRenderer content={section.heading} />
+                    <MarkdownRenderer>{section.displayTitle}</MarkdownRenderer>
                   </div>
                 )}
                 {section.description && (
@@ -184,7 +195,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
                       "text-neutral-50": darkMode,
                     })}
                   >
-                    <RichTextRenderer content={section.description} />
+                    <MarkdownRenderer>{section.description}</MarkdownRenderer>
                   </div>
                 )}
                 {section.buttons && section.buttons.length > 0 && (
@@ -210,4 +221,4 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => 
       </div>
     </Section>
   );
-}
+};

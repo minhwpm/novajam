@@ -1,14 +1,14 @@
 import classNames from "classnames";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { TextAlignmentType, FlexibleContentType } from "@/helpers/types";
-import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer";
+import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer";
 
 export const TextPartPT: React.FC<{
   data: FlexibleContentType;
   alignment?: TextAlignmentType;
   darkMode: boolean;
 }> = ({ data, alignment, darkMode }) => {
-  const { heading, eyebrow, description, buttons } = data;
+  const { displayTitle, eyebrow, description, buttons } = data;
   return (
     <>
       {eyebrow && (
@@ -22,18 +22,18 @@ export const TextPartPT: React.FC<{
           {eyebrow}
         </div>
       )}
-      {heading && (
+      {displayTitle && (
         <div className={classNames("mt-1 text-2xl xl:text-3xl max-w-4xl",
           { "text-neutral-50": darkMode },
         )}>
-          <RichTextRenderer content={heading} />
+          <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
         </div>
       )}
       {description && (
         <div className={classNames("mt-4 prose xl:prose-lg",
           { "text-neutral-100": darkMode },
         )}>
-          <RichTextRenderer content={description} />
+          <MarkdownRenderer>{description}</MarkdownRenderer>
         </div>
       )}
       {buttons && buttons.length > 0 && (

@@ -1,25 +1,38 @@
-"use client"
-import React, { useEffect, useRef, useState } from 'react';
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-import * as RadixTabs from '@radix-ui/react-tabs';
-import { Section } from '@/components/elements/Section/Section';
-import { ContentPTType } from '@/helpers/types';
-import { RichTextRenderer } from "@/components/elements/RichTextRenderer/RichTextRenderer"
-import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
-import { useInView } from 'react-hook-inview';
-import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
+import * as RadixTabs from "@radix-ui/react-tabs";
+import { Section } from "@/components/elements/Section/Section";
+import { ContentPTType } from "@/helpers/types";
+import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer";
+import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
+import { useInView } from "react-hook-inview";
+import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import "@/app/styles/bg-color.css";
-import "./styles.css"
+import "./styles.css";
 
-export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
-  const { htmlid, eyebrow, displayTitle, summary, content, headingTextAlignment, contentTextAlignment, backgroundColor, backgroundImage, darkMode } = data
-  const [justify, setJustify] = useState(headingTextAlignment)
-  const wrapperRef = useRef(null) as unknown as React.MutableRefObject<HTMLDivElement>
+export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
+  const {
+    htmlid,
+    eyebrow,
+    displayTitle,
+    summary,
+    content,
+    headingTextAlignment,
+    contentTextAlignment,
+    backgroundColor,
+    backgroundImage,
+    darkMode,
+  } = data;
+  const [justify, setJustify] = useState(headingTextAlignment);
+  const wrapperRef = useRef(
+    null
+  ) as unknown as React.MutableRefObject<HTMLDivElement>;
   useEffect(() => {
     if (wrapperRef.current.scrollWidth > wrapperRef.current.clientWidth) {
-      setJustify("start")
+      setJustify("start");
     }
-  }, [])
+  }, []);
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
     unobserveOnEnter: true,
@@ -80,7 +93,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                         {section.eyebrow}
                       </div>
                     )}
-                    {section.heading && (
+                    {section.displayTitle && (
                       <div
                         className={classNames(
                           "block font-semibold lg:text-lg group-hover/trigger:text-neutral-800 group-data-[state='active']/trigger:text-neutral-50",
@@ -88,7 +101,9 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                           { "text-neutral-50": darkMode }
                         )}
                       >
-                        <RichTextRenderer content={section.heading} />
+                        <MarkdownRenderer>
+                          {section.displayTitle}
+                        </MarkdownRenderer>
                       </div>
                     )}
                   </RadixTabs.Trigger>
@@ -115,7 +130,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
                         "text-neutral-100": darkMode,
                       })}
                     >
-                      <RichTextRenderer content={section.description} />
+                      <MarkdownRenderer>{section.description}</MarkdownRenderer>
                     </div>
                   )}
                   {section.buttons && section.buttons.length > 0 && (
@@ -142,4 +157,4 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({data}) => {
       </RadixTabs.Root>
     </Section>
   );
-}
+};
