@@ -1,5 +1,6 @@
 "use client";
 import classNames from "classnames";
+import readingTime from "reading-time";
 import Link from "next/link";
 import { useContext } from "react";
 import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
@@ -12,8 +13,7 @@ import { MediaItem } from "../MediaItem/MediaItem";
 import { usePathname } from "next/navigation";
 import { useInView } from "react-hook-inview";
 import { format } from "date-fns";
-import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
-import readingTime from "reading-time";
+import { MarkdownRenderer } from "../MarkdownRenderer/MarkdownRenderer";
 
 export const BlogPreview: React.FC<{
   data: BlogType;
@@ -30,14 +30,14 @@ export const BlogPreview: React.FC<{
   animate,
   featured,
 }) => {
-  const { title, slug, content, media, topics, firstPublishedAt } = data;
+  const { title, slug, summary, content, media, topics, firstPublishedAt } = data;
   const darkMode = useContext(DarkModeContext);
   const pathname = usePathname();
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
     unobserveOnEnter: true,
   });
-  const readingTimeStats = content && readingTime(documentToPlainTextString(content));
+  const readingTimeStats = readingTime(content ? content : "");
   const renderTopic = () => (
     <div
       className={classNames(
@@ -49,7 +49,7 @@ export const BlogPreview: React.FC<{
       {topics.map((topic, idx) => (
         <div
           key={idx}
-          className="rounded-theme px-2.5 py-1 text-xs bg-primary-50 border border-primary-50 text-neutral-600 tracking-wider"
+          className="rounded-theme px-2.5 py-1 text-xs bg-primary-50 border border-primary-50 text-primary-600 tracking-wider"
         >
           {topic}
         </div>
@@ -82,8 +82,8 @@ export const BlogPreview: React.FC<{
             <div className="basis-2/3 flex-1 flex flex-col gap-y-1 pr-4">
               <div className="flex gap-x-4 justify-between items-center">
                 {topics && topics.length > 0 && renderTopic()}
-                {readingTimeStats?.minutes && (
-                  <div className="text-neutral-500 text-sm font-medium uppercase">
+                {!!readingTimeStats?.minutes && (
+                  <div className="text-slate-400 text-xs font-medium uppercase">
                     {readingTimeStats.text}
                   </div>
                 )}
@@ -92,16 +92,21 @@ export const BlogPreview: React.FC<{
                 className={classNames(
                   "font-heading xl:text-lg font-semibold transition-colors duration-500",
                   { "group-hover:text-primary-600": !darkMode },
-                  { "text-neutral-100 group-hover:text-primary-300": darkMode }
+                  { "text-slate-100 group-hover:text-primary-300": darkMode }
                 )}
               >
                 {title}
               </h3>
+              {Boolean(featured && summary) && (
+                <div className="line-clamp-2 prose text-slate-500">
+                  <MarkdownRenderer>{summary ?? ""}</MarkdownRenderer>
+                </div>
+              )}
               <div
                 className={classNames(
                   "text-sm my-2",
-                  { "text-neutral-500": !darkMode },
-                  { "text-neutral-300": darkMode }
+                  { "text-slate-400": !darkMode },
+                  { "text-slate-200": darkMode }
                 )}
               >
                 {firstPublishedAt &&
@@ -133,12 +138,12 @@ export const BlogPreview: React.FC<{
           zoomInOverHover
         />
         <div
-          className={classNames("w-full px-4 pb-8 pt-4 flex flex-col gap-y-1")}
+          className={classNames("w-full px-4 pb-8 pt-4 flex flex-col gap-y-2")}
         >
           <div className="flex gap-x-4 justify-between items-center">
             {topics && topics.length > 0 && renderTopic()}
-            {readingTimeStats?.minutes && (
-              <div className="text-neutral-500 text-sm font-medium uppercase">
+            {!!readingTimeStats?.minutes && (
+              <div className="text-slate-400 text-xs font-medium uppercase">
                 {readingTimeStats.text}
               </div>
             )}
@@ -147,7 +152,7 @@ export const BlogPreview: React.FC<{
             className={classNames(
               "font-heading font-semibold transition-colors duration-500",
               { "group-hover:text-primary-600": !darkMode },
-              { "text-neutral-100 group-hover:text-primary-300": darkMode },
+              { "text-slate-100 group-hover:text-primary-300": darkMode },
               { "text-lg": !featured },
               { "text-xl xl:text-2xl": featured },
               { "text-center": alignment === "center" },
@@ -156,16 +161,16 @@ export const BlogPreview: React.FC<{
           >
             {title}
           </h3>
-          {featured && (
-            <div className="line-clamp-3 prose text-neutral-600">
-              {data.summary}
+          {Boolean(featured && summary) && (
+            <div className="line-clamp-3 prose text-slate-500">
+              <MarkdownRenderer>{summary ?? ""}</MarkdownRenderer>
             </div>
           )}
           <div
             className={classNames(
-              "text-smd my-2",
-              { "text-neutral-500": !darkMode },
-              { "text-neutral-300": darkMode }
+              "text-smd font-medium",
+              { "text-slate-400": !darkMode },
+              { "text-slate-200": darkMode }
             )}
           >
             {firstPublishedAt &&

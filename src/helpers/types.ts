@@ -133,7 +133,7 @@ export type BlogType = {
   slug: string
   featured: boolean
   summary: string | null
-  content: Document | null
+  content: string | null
   topics: Array<string>
   media: MediaType | null
   author: ExpertType

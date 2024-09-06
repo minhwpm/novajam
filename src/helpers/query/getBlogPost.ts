@@ -40,9 +40,7 @@ export default async function getBlogPost(slug: string) {
               contentType
             }
             summary
-            content {
-              json
-            }
+            content
             topics
             featured
             author {
@@ -85,24 +83,6 @@ export default async function getBlogPost(slug: string) {
       }
 
       const data = await res.json();
-      const RichTextRendererContent =
-        data.data.blogCollection.items[0]?.content.json.content;
-      for (let i = 0; i < RichTextRendererContent?.length; i++) {
-        if (RichTextRendererContent[i].nodeType === "embedded-asset-block") {
-          RichTextRendererContent[i].data = {
-            ...RichTextRendererContent[i].data,
-            ...(await getAsset(RichTextRendererContent[i].data.target.sys.id)),
-          };
-        }
-        if (RichTextRendererContent[i].nodeType === "embedded-entry-block") {
-          RichTextRendererContent[i].data = {
-            ...RichTextRendererContent[i].data,
-            ...(await getFlexibleContent(
-              RichTextRendererContent[i].data.target.sys.id
-            )),
-          };
-        }
-      }
       const normalizedData = normalizeDataCollection(data.data);
       return normalizedData[0];
     } catch (error) {

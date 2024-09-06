@@ -83,7 +83,7 @@ export const Testimonial: React.FC<{
           <div className="flex flex-col">
             <div
               className={classNames("font-semibold", {
-                "text-neutral-100": darkMode,
+                "text-slate-100": darkMode,
               })}
             >
               {name}
@@ -91,8 +91,8 @@ export const Testimonial: React.FC<{
             <div
               className={classNames(
                 "text-sm",
-                { "text-neutral-500": !darkMode },
-                { "text-neutral-200": darkMode }
+                { "text-slate-500": !darkMode },
+                { "text-slate-200": darkMode }
               )}
             >
               {role}

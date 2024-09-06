@@ -26,8 +26,8 @@ const ArrowGroup = ({
       <GoArrowLeft
         size={50}
         className={classNames(
-          "cursor-pointer flex justify-center items-center rounded-full p-2.5 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
-          { "text-neutral-50": darkMode }
+          "cursor-pointer flex justify-center items-center rounded-full p-2.5 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out",
+          { "text-slate-50": darkMode }
         )}
         onClick={() => {
           if (visibleIdx > 0) setVisibleIdx(visibleIdx - 1);
@@ -37,8 +37,8 @@ const ArrowGroup = ({
       <GoArrowRight
         size={50}
         className={classNames(
-          "cursor-pointer flex justify-center items-center rounded-full p-2.5 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
-          { "text-neutral-50": darkMode }
+          "cursor-pointer flex justify-center items-center rounded-full p-2.5 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out",
+          { "text-slate-50": darkMode }
         )}
         onClick={() => {
           if (visibleIdx < length - 1) setVisibleIdx(visibleIdx + 1);
@@ -102,7 +102,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
             <div
               className={classNames(
                 "font-heading text-heading leading-tight mb-3",
-                { "text-neutral-50": darkMode },
+                { "text-slate-50": darkMode },
                 { "text-center": headingTextAlignment === "center" },
                 { "text-end": headingTextAlignment === "end" }
               )}
@@ -114,7 +114,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
             <div
               className={classNames(
                 "prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl",
-                { "text-neutral-50": darkMode },
+                { "text-slate-50": darkMode },
                 { "text-center": headingTextAlignment === "center" },
                 { "text-end": headingTextAlignment === "end" }
               )}
@@ -173,8 +173,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
                   <div
                     className={classNames(
                       "text-sm font-semibold tracking-widest",
-                      { "text-neutral-500": !darkMode },
-                      { "text-neutral-200": darkMode }
+                      { "text-slate-500": !darkMode },
+                      { "text-slate-200": darkMode }
                     )}
                   >
                     {section.eyebrow}
@@ -183,7 +183,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
                 {section.displayTitle && (
                   <div
                     className={classNames("text-2xl", {
-                      "text-neutral-50": darkMode,
+                      "text-slate-50": darkMode,
                     })}
                   >
                     <MarkdownRenderer>{section.displayTitle}</MarkdownRenderer>
@@ -192,7 +192,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
                 {section.description && (
                   <div
                     className={classNames("mt-5 prose 2xl:prose-lg", {
-                      "text-neutral-50": darkMode,
+                      "text-slate-50": darkMode,
                     })}
                   >
                     <MarkdownRenderer>{section.description}</MarkdownRenderer>

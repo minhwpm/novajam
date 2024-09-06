@@ -40,7 +40,7 @@ export const PagePreview: React.FC<{
           <h4
             className={classNames(
               "text-lg xl:text-xl font-heading file:font-semibold",
-              { "text-neutral-50": darkMode },
+              { "text-slate-50": darkMode },
               { "text-center": alignment === "center" },
               { "text-end": alignment === "end" }
             )}
@@ -68,7 +68,7 @@ export const PagePreview: React.FC<{
         <h4
           className={classNames(
             "mt-4 text-lg xl:text-xl font-heading font-semibold transition-colors duration-300 ease-in-out",
-            { "text-neutral-50": darkMode },
+            { "text-slate-50": darkMode },
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }
           )}

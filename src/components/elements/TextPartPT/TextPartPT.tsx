@@ -15,8 +15,8 @@ export const TextPartPT: React.FC<{
         <div
           className={classNames(
             "text-sm font-medium tracking-widest",
-            { "text-neutral-500": !darkMode },
-            { "text-neutral-200": darkMode },
+            { "text-slate-500": !darkMode },
+            { "text-slate-200": darkMode },
           )}
         >
           {eyebrow}
@@ -24,14 +24,14 @@ export const TextPartPT: React.FC<{
       )}
       {displayTitle && (
         <div className={classNames("mt-1 text-2xl xl:text-3xl max-w-4xl",
-          { "text-neutral-50": darkMode },
+          { "text-slate-50": darkMode },
         )}>
           <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
         </div>
       )}
       {description && (
         <div className={classNames("mt-4 prose xl:prose-lg",
-          { "text-neutral-100": darkMode },
+          { "text-slate-100": darkMode },
         )}>
           <MarkdownRenderer>{description}</MarkdownRenderer>
         </div>

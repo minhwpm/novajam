@@ -19,8 +19,8 @@ const TextPart: React.FC<{
         <div
           className={classNames(
             "not-prose text-xs xl:text-sm font-medium tracking-widest mb-1",
-            { "text-neutral-400": !darkMode },
-            { "text-neutral-100": darkMode }
+            { "text-slate-400": !darkMode },
+            { "text-slate-100": darkMode }
           )}
         >
           {eyebrow}
@@ -130,7 +130,7 @@ export const FlexibleContent: React.FC<{
         <div
           className={classNames(
             "py-4 xl:pt-6 flex-1 flex flex-col",
-            {"text-neutral-100": darkMode},
+            {"text-slate-100": darkMode},
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }
           )}

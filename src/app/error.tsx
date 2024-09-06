@@ -17,7 +17,7 @@ export default function ErrorBoundary({
       <h2 className="font-bold text-4xl lg:text-6xl mb-8">
         Something went wrong
       </h2>
-      <div className="text-neutral-500 prose lg:prose-lg">
+      <div className="text-slate-500 prose lg:prose-lg">
         <p>
           We’re sorry, the page you were looking for couldn’t be found. The link
           you followed may either be broken or no longer exist.
@@ -39,7 +39,7 @@ export default function ErrorBoundary({
           onClick={() => reset()}
           size="lg"
         />
-        <span className="text-neutral-500 px-6">OR</span>
+        <span className="text-slate-500 px-6">OR</span>
         <Button
           data={{
             text: "Go to Home page",

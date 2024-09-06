@@ -11,7 +11,7 @@ export const InputField: React.FC<{
   return (
     <input
       className={classNames(
-        "block border border-neutral-300 rounded-theme-button w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-neutral-800 placeholder:text-neutral-500"
+        "block border border-neutral-300 rounded-theme-button w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-slate-800 placeholder:text-slate-500"
       )}
       type={data.fieldType}
       {...register(data.label, {

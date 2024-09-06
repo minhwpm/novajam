@@ -11,7 +11,7 @@ export const FeaturedBlogs: React.FC<{data: Array<BlogType>}> = ({data}) => {
         </div>
         <div className="lg:col-span-5 flex flex-col gap-y-10">
           {data.slice(1, 4).map(item => (
-            <BlogPreview key={item.id} data={item} layout="horizontal" aspectRatio="square" />
+            <BlogPreview key={item.id} data={item} layout="horizontal" featured={true} aspectRatio="square" />
           ))}
         </div>
       </Container>

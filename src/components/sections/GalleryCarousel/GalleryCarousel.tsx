@@ -57,25 +57,25 @@ export const CarouselLayout: React.FC<{
           <GoArrowLeft
             size={50}
             className={classNames(
-              "CarouselLayout-btn-prev cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
+              "CarouselLayout-btn-prev cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out",
               {
                 "opacity-10 pointer-events-none cursor-not-allowed":
                   carouselState.isBeginning,
               },
               { "text-primary-600": !darkMode },
-              { "text-neutral-50": darkMode }
+              { "text-slate-50": darkMode }
             )}
           />
           <GoArrowRight
             size={50}
             className={classNames(
-              "CarouselLayout-btn-next cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-neutral-100 transition-colors duration-300 ease-in-out",
+              "CarouselLayout-btn-next cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out",
               {
                 "opacity-10 pointer-events-none cursor-not-allowed":
                   carouselState.isEnd,
               },
               { "text-primary-600": !darkMode },
-              { "text-neutral-50": darkMode }
+              { "text-slate-50": darkMode }
             )}
           />
         </div>

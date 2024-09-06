@@ -7,7 +7,7 @@ export default function NotFound() {
     <Container className="flex flex-wrap-reverse min-h-fit items-center justify-center">
       <div className="w-full lg:w-1/2 py-10">
         <div className="font-bold text-4xl lg:text-6xl text-primary-600 mb-5">Page Not Found</div>
-        <div className="text-neutral-500 lg:text-lg">
+        <div className="text-slate-500 lg:text-lg">
           <p>We’re sorry, the page you requested could not be found.</p>
           <p>Please go back to the homepage.</p>
         </div>

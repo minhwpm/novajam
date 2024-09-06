@@ -35,7 +35,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
       <header className={classNames("relative z-[99999] tracking-wider")}>
         <div
           className={classNames("absolute w-screen flex justify-center", {
-            "text-neutral-50": darkMode,
+            "text-slate-50": darkMode,
           })}
         >
           <div className="px-4 pt-6 container flex items-center justify-between flex-1">
@@ -63,7 +63,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
         <div
           className={classNames(
             "absolute top-0 left-0 right-0 flex justify-center",
-            { "text-neutral-50": darkMode }
+            { "text-slate-50": darkMode }
           )}
         >
           <div className="container px-4 flex items-center">
@@ -92,7 +92,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
         { "sticky w-full z-50 top-0 animate-headerSlideIn": sticky },
         { "bg-white": !darkMode },
         { "border-b": sticky && !darkMode },
-        { "text-neutral-50 bg-neutral-900": darkMode }
+        { "text-slate-50 bg-neutral-900": darkMode }
       )}
     >
       <div

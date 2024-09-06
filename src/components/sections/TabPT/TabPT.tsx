@@ -85,9 +85,9 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     {section.eyebrow && (
                       <div
                         className={classNames(
-                          "text-sm tracking-widest font-medium group-hover/trigger:text-neutral-800 group-data-[state='active']/trigger:text-primary-100",
-                          { "text-neutral-500": !darkMode },
-                          { "text-neutral-200": darkMode }
+                          "text-sm tracking-widest font-medium group-hover/trigger:text-slate-800 group-data-[state='active']/trigger:text-primary-100",
+                          { "text-slate-500": !darkMode },
+                          { "text-slate-200": darkMode }
                         )}
                       >
                         {section.eyebrow}
@@ -96,9 +96,9 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     {section.displayTitle && (
                       <div
                         className={classNames(
-                          "block font-semibold lg:text-lg group-hover/trigger:text-neutral-800 group-data-[state='active']/trigger:text-neutral-50",
-                          { "text-neutral-600": !darkMode },
-                          { "text-neutral-50": darkMode }
+                          "block font-semibold lg:text-lg group-hover/trigger:text-slate-800 group-data-[state='active']/trigger:text-slate-50",
+                          { "text-slate-600": !darkMode },
+                          { "text-slate-50": darkMode }
                         )}
                       >
                         <MarkdownRenderer>
@@ -127,7 +127,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   {section.description && (
                     <div
                       className={classNames("prose xl:prose-lg", {
-                        "text-neutral-100": darkMode,
+                        "text-slate-100": darkMode,
                       })}
                     >
                       <MarkdownRenderer>{section.description}</MarkdownRenderer>

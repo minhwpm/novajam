@@ -44,8 +44,8 @@ export const Footer: React.FC<Props> = ({ data }) => {
           <p
             className={classNames(
               "mt-4",
-              { "text-neutral-500": !darkMode },
-              { "text-neutral-200": darkMode }
+              { "text-slate-500": !darkMode },
+              { "text-slate-200": darkMode }
             )}
           >
             {copyright}
@@ -61,14 +61,14 @@ export const Footer: React.FC<Props> = ({ data }) => {
               className={classNames(
                 "basis-40 flex flex-col gap-2",
                 { "xl:col-start-10": menu.length === 1 },
-                { "text-neutral-100": darkMode }
+                { "text-slate-100": darkMode }
               )}
             >
               <div
                 className={classNames(
                   "font-semibold mb-1",
-                  { "text-neutral-500": !darkMode },
-                  { "text-neutral-100/60": darkMode }
+                  { "text-slate-500": !darkMode },
+                  { "text-slate-100/60": darkMode }
                 )}
               >
                 {section.title}
@@ -79,7 +79,7 @@ export const Footer: React.FC<Props> = ({ data }) => {
                   href={link.url}
                   className={classNames(
                     "self-start select-none underline-hover-effect before:bg-primary-500",
-                    { "text-neutral-50": darkMode }
+                    { "text-slate-50": darkMode }
                   )}
                   target={link.openNewTab ? "_blank" : "_self"}
                 >

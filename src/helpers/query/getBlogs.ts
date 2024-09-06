@@ -50,9 +50,7 @@ export default async function getBlogs(
               contentType
             }
             summary
-            content {
-              json
-            }
+            content
             topics
             author {
               sys {

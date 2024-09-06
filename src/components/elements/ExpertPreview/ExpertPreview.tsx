@@ -46,7 +46,7 @@ export const ExpertPreview: React.FC<{
           <div
             className={classNames(
               "font-heading font-semibold text-2xl md:text-3xl text-center sm:text-start mb-2",
-              { "text-neutral-50": darkMode }
+              { "text-slate-50": darkMode }
             )}
           >
             {fullName}
@@ -55,8 +55,8 @@ export const ExpertPreview: React.FC<{
             <div
               className={classNames(
                 "font-semibold text-center sm:text-start",
-                { "text-neutral-500": !darkMode },
-                { "text-neutral-200": darkMode }
+                { "text-slate-500": !darkMode },
+                { "text-slate-200": darkMode }
               )}
             >
               {role}
@@ -66,8 +66,8 @@ export const ExpertPreview: React.FC<{
             <div
               className={classNames(
                 "flex flex-wrap items-center gap-2 justify-center sm:justify-start",
-                { "text-neutral-500": !darkMode },
-                { "text-neutral-200": darkMode }
+                { "text-slate-500": !darkMode },
+                { "text-slate-200": darkMode }
               )}
             >
               {specialization.map((item, index) => (
@@ -79,8 +79,8 @@ export const ExpertPreview: React.FC<{
             <div
               className={classNames(
                 "text-center sm:text-start",
-                { "text-neutral-500": !darkMode },
-                { "text-neutral-200": darkMode }
+                { "text-slate-500": !darkMode },
+                { "text-slate-200": darkMode }
               )}
             >
               {organization}
@@ -89,7 +89,7 @@ export const ExpertPreview: React.FC<{
           {summary && (
             <div
               className={classNames("my-4 prose 2xl:prose-lg max-w-none", {
-                "text-neutral-100": darkMode,
+                "text-slate-100": darkMode,
               })}
             >
               {summary}
@@ -120,7 +120,7 @@ export const ExpertPreview: React.FC<{
         {summary && (
           <div
             className={classNames(
-              "absolute bottom-0 opacity-0 group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-b-theme gr p-4 text-neutral-200 bg-primary-700 prose"
+              "absolute bottom-0 opacity-0 group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-b-theme gr p-4 text-slate-200 bg-primary-700 prose"
             )}
           >
             <div className="line-clamp-5">{summary}</div>
@@ -138,9 +138,9 @@ export const ExpertPreview: React.FC<{
           className={classNames(
             "font-heading font-semibold text-lg xl:text-xl",
             {
-              "text-neutral-800": !darkMode,
+              "text-slate-800": !darkMode,
             },
-            { "text-neutral-50": darkMode }
+            { "text-slate-50": darkMode }
           )}
         >
           {fullName}
@@ -148,8 +148,8 @@ export const ExpertPreview: React.FC<{
         {role && (
           <div
             className={classNames(
-              { "text-neutral-500": !darkMode },
-              { "text-neutral-200": darkMode }
+              { "text-slate-500": !darkMode },
+              { "text-slate-200": darkMode }
             )}
           >
             {role}
@@ -161,8 +161,8 @@ export const ExpertPreview: React.FC<{
               "flex flex-wrap gap-2",
               { "justify-center": alignment === "center" },
               { "justify-end": alignment === "end" },
-              { "text-neutral-500": !darkMode },
-              { "text-neutral-200": darkMode }
+              { "text-slate-500": !darkMode },
+              { "text-slate-200": darkMode }
             )}
           >
             {specialization.map((item, index) => (
@@ -173,8 +173,8 @@ export const ExpertPreview: React.FC<{
         {organization && (
           <div
             className={classNames(
-              { "text-neutral-500": !darkMode },
-              { "text-neutral-200": darkMode }
+              { "text-slate-500": !darkMode },
+              { "text-slate-200": darkMode }
             )}
           >
             {organization}

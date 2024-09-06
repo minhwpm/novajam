@@ -61,8 +61,8 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 key={section.id}
                 value={section.id}
                 className={classNames(
-                  "group w-full border-b border-neutral-200 data-[state=closed]:hover:text-neutral-100",
-                  { "text-neutral-50": darkMode }
+                  "group w-full border-b border-neutral-200 data-[state=closed]:hover:text-slate-100",
+                  { "text-slate-50": darkMode }
                 )}
               >
                 <RadixAccordion.Trigger asChild>
@@ -72,8 +72,8 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                         <div
                           className={classNames(
                             "text-sm font-medium tracking-widest",
-                            { "text-neutral-500": !darkMode },
-                            { "text-neutral-200": darkMode }
+                            { "text-slate-500": !darkMode },
+                            { "text-slate-200": darkMode }
                           )}
                         >
                           {section.eyebrow}
@@ -82,7 +82,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       {section.displayTitle && (
                         <div
                           className={classNames("text-xl xl:text-2xl", {
-                            "text-neutral-50": darkMode,
+                            "text-slate-50": darkMode,
                           })}
                         >
                           <MarkdownRenderer>
@@ -95,7 +95,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       size={20}
                       className={classNames(
                         "inline-block shrink-0 mt-1 transition-transform duration-500 group-data-[state=open]:rotate-180",
-                        { "text-neutral-50": darkMode }
+                        { "text-slate-50": darkMode }
                       )}
                     />
                   </div>
@@ -121,7 +121,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                         className={classNames(
                           "prose xl:prose-lg max-w-none group-data-[state=closed]:text-transparent",
                           {
-                            "text-neutral-100": darkMode,
+                            "text-slate-100": darkMode,
                           }
                         )}
                       >

@@ -29,7 +29,7 @@ export const PricingPlan: React.FC<{
       )}
     >
       {badge && (
-        <div className="absolute -top-5 rounded-theme-button text-center bg-primary-600 text-neutral-50 px-4 py-2 font-bold tracking-wider">
+        <div className="absolute -top-5 rounded-theme-button text-center bg-primary-600 text-slate-50 px-4 py-2 font-bold tracking-wider">
           {badge}
         </div>
       )}
@@ -45,7 +45,7 @@ export const PricingPlan: React.FC<{
         <div
           className={classNames(
             "text-4xl xl:text-5xl font-bold",
-            { "text-neutral-50": darkMode },
+            { "text-slate-50": darkMode },
           )}
         >
           {pricing}
@@ -53,8 +53,8 @@ export const PricingPlan: React.FC<{
         <div
           className={classNames(
             "text-sm tracking-wide",
-            { "text-neutral-300": darkMode },
-            { "text-neutral-500": !darkMode },
+            { "text-slate-300": darkMode },
+            { "text-slate-500": !darkMode },
           )}
         >
           {pricingSuffix}
