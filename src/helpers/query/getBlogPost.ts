@@ -1,5 +1,3 @@
-import getAsset from "./getAsset";
-import getFlexibleContent from "./getFlexibleContent";
 import normalizeDataCollection from "./normalizeDataCollection";
 import blogs from "./static-data/blogs.json";
 
