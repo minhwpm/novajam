@@ -1,5 +1,3 @@
-import { Document } from "@contentful/rich-text-types";
-
 export type MediaType = {
   id: string
   url: string

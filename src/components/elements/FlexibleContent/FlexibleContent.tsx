@@ -128,7 +128,7 @@ export const FlexibleContent: React.FC<{
       {(media || embeddedMediaUrl) && (
         <FlexibleContentMediaPart
           className={classNames({
-            "grow items-center": !Boolean(
+            "grow items-center": !(
               displayTitle || eyebrow || description || !!buttons?.length
             ),
           })}
@@ -137,7 +137,7 @@ export const FlexibleContent: React.FC<{
           aspectRatio="auto"
         />
       )}
-      {Boolean(displayTitle || eyebrow || description || !!buttons?.length) && (
+      {(displayTitle || eyebrow || description || !!buttons?.length) && (
         <div
           className={classNames(
             "py-4 xl:pt-6 flex-1 flex flex-col",
