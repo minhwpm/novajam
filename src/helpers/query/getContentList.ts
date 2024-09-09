@@ -105,21 +105,6 @@ export default async function getContentList(id: string) {
                     contentType
                   }
                 }
-                ... on Link {
-                  sys {
-                    id
-                  }
-                  text
-                  image {
-                    url
-                    title
-                    width
-                    height
-                    contentType
-                  }
-                  url
-                  openNewTab
-                }
                 ... on Statistics {
                   sys {
                     id
