@@ -68,7 +68,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
           >
             <div
               className={classNames(
-                "bg-neutral-200 lg:bg-opacity-0 flex gap-x-0 gap-y-2 lg:gap-x-2 overflow-x-auto overscroll-contain rounded-theme",
+                "bg-slate-200 lg:bg-opacity-0 flex gap-x-0 gap-y-2 lg:gap-x-2 overflow-x-auto overscroll-contain rounded-theme",
                 { "bg-opacity-50": !darkMode },
                 { "bg-opacity-20": darkMode }
               )}
@@ -79,13 +79,13 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     key={section.id}
                     value={section.id}
                     className={classNames(
-                      "group/trigger shrink-0 px-6 py-2 hover:bg-neutral-200 flex flex-col justify-center items-center cursor-pointer rounded-theme-button hover:bg-opacity-90 data-[state='active']:bg-primary-600"
+                      "group/trigger shrink-0 px-6 py-2 hover:bg-slate-200 flex flex-col justify-center items-center cursor-pointer rounded-theme-button hover:bg-opacity-90 data-[state='active']:bg-primary-600"
                     )}
                   >
                     {section.eyebrow && (
                       <div
                         className={classNames(
-                          "text-sm tracking-widest font-medium group-hover/trigger:text-slate-800 group-data-[state='active']/trigger:text-primary-100",
+                          "text-sm tracking-widest font-medium group-hover/trigger:text-inherit group-data-[state='active']/trigger:text-primary-600/50",
                           { "text-slate-500": !darkMode },
                           { "text-slate-200": darkMode }
                         )}
@@ -96,7 +96,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     {section.displayTitle && (
                       <div
                         className={classNames(
-                          "block font-semibold lg:text-lg group-hover/trigger:text-slate-800 group-data-[state='active']/trigger:text-slate-50",
+                          "block font-semibold lg:text-lg group-hover/trigger:text-inherit group-data-[state='active']/trigger:text-slate-50",
                           { "text-slate-600": !darkMode },
                           { "text-slate-50": darkMode }
                         )}

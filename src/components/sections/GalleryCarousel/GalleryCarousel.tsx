@@ -81,7 +81,7 @@ export const CarouselLayout: React.FC<{
         </div>
         {contentItems.map((item, idx) => (
           <SwiperSlide
-            key={item.id}
+            key={idx}
             className={classNames(
               "px-4 !w-11/12",
               { "lg:max-w-[50%] lg:px-5 xl:px-6": size === "XL" },

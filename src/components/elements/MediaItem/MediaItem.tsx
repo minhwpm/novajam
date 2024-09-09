@@ -155,7 +155,7 @@ const Video = ({
         Your browser does not support the video tag.
       </video>
       {!videoStarted && videoControls && (
-        <div className="p-5 absolute bottom-0 right-0 w-full h-full bg-neutral-900 bg-opacity-30 flex justify-center items-center transition-opacity duration-300 ease-linear group-hover:opacity-100">
+        <div className="p-5 absolute bottom-0 right-0 w-full h-full bg-slate-900 bg-opacity-30 flex justify-center items-center transition-opacity duration-300 ease-linear group-hover:opacity-100">
           <button
             onClick={() => {
               videoRef.current?.play();

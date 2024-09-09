@@ -56,8 +56,8 @@ export const Section: React.FC<SectionProps> = ({
           "text-sm xl:text-base tracking-widest mb-6 font-semibold",
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" },
-          { "text-secondary-500": !darkMode },
-          { "text-secondary-400": darkMode }
+          { "text-secondary-600": !darkMode },
+          { "text-secondary-500": darkMode }
         )}
       >
         {eyebrow}

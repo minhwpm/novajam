@@ -67,11 +67,11 @@ export const Button: React.FC<{
                 buttonVariant === "outline",
             },
             {
-              "text-slate-800 group-hover:text-white":
+              "text-inherit group-hover:text-white":
                 buttonVariant === "outline-black",
             },
             {
-              "text-white group-hover:text-slate-800":
+              "text-white group-hover:text-inherit":
                 buttonVariant === "outline-white",
             }
           )}
@@ -94,19 +94,19 @@ export const Button: React.FC<{
   const otherVariantClasses = classNames(
     "w-full relative border inline-flex justify-center items-center text-center rounded-theme-button transition-all duration-500 ease",
     {
-      "border-primary-600 bg-primary-600 hover:bg-primary-700 hover:border-primary-700 text-white":
+      "border-primary-600 bg-primary-600 hover:brightness-110 text-white":
         buttonVariant === "primary",
-      "border-secondary-400 bg-secondary-400 hover:bg-secondary-300 hover:border-secondary-300 text-slate-800":
+      "border-secondary-600 bg-secondary-600 hover:brightness-110 text-white":
         buttonVariant === "secondary",
       "border-slate-950 bg-slate-950 text-white hover:bg-slate-900 hover:border-slate-900":
         buttonVariant === "black",
-      "border-slate-50 bg-slate-50 hover:bg-white hover:border-white text-slate-800":
+      "border-slate-50 bg-slate-50 hover:bg-white hover:border-white text-inherit":
         buttonVariant === "white",
       "border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white":
         buttonVariant === "outline",
-      "border-slate-900 text-slate-800 hover:bg-slate-950 hover:text-white":
+      "border-slate-900 text-inherit hover:bg-slate-950 hover:text-white":
         buttonVariant === "outline-black",
-      "border-white text-white hover:bg-white hover:text-slate-800 drop-shadow-lg":
+      "border-white text-white hover:bg-white hover:text-inherit drop-shadow-lg":
         buttonVariant === "outline-white",
       "px-4 py-2 min-w-[100px] lg:min-w-[120px] text-sm font-medium":
         size === "sm",

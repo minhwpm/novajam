@@ -106,8 +106,8 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
               <div
                 className={classNames(
                   "text-sm xl:text-base tracking-widest mb-2 max-w-5xl",
-                  { "text-primary-500": !darkMode },
-                  { "text-primary-400": darkMode }
+                  { "text-primary-600": !darkMode },
+                  { "text-primary-600/50": darkMode }
                 )}
               >
                 {eyebrow}

@@ -59,7 +59,7 @@ export const Testimonial: React.FC<{
               key={idx}
               className={classNames(
                 { "text-primary-600": !darkMode },
-                { "text-primary-400": darkMode }
+                { "text-primary-600/50": darkMode }
               )}
               size={20}
             />

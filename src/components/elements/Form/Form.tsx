@@ -126,7 +126,7 @@ export const Form: React.FC<{data: FormType, darkMode: boolean}> = ({ data, dark
               {fieldItem.helpText && (
                 <div
                   className={classNames(
-                    "pl-2 pt-1 text-sm text-slate-800/50"
+                    "pl-2 pt-1 text-sm text-inherit/50"
                   )}
                 >
                   {fieldItem.helpText}
@@ -192,7 +192,7 @@ export const Form: React.FC<{data: FormType, darkMode: boolean}> = ({ data, dark
             }}
           >
             <Toast.Close className="absolute top-2 right-2">
-              <IoCloseOutline className="cursor-pointer ml-auto w-10 h-10 p-2 rounded-full text-primary-600 hover:bg-primary-100 transition-all duration-300 ease-in-out" />
+              <IoCloseOutline className="cursor-pointer ml-auto w-10 h-10 p-2 rounded-full text-primary-600 hover:bg-slate-200 transition-all duration-300 ease-in-out" />
             </Toast.Close>
             <IoMdCheckmarkCircleOutline
               className="text-green-600 m-auto"
@@ -207,9 +207,9 @@ export const Form: React.FC<{data: FormType, darkMode: boolean}> = ({ data, dark
       )}
       {isSubmitted && !isSubmitSuccessful && (
         <Toast.Provider swipeDirection="right" duration={5000}>
-          <Toast.Root className="relative bg-primary-50 rounded-theme border border-primary-300 shadow-lg p-8 data-[state=open]:animate-fadeIn">
+          <Toast.Root className="relative bg-slate-100 rounded-theme border border-slate-300 shadow-lg p-8 data-[state=open]:animate-fadeIn">
             <Toast.Close className="absolute top-2 right-2">
-              <IoCloseOutline className="cursor-pointer ml-auto w-10 h-10 p-2 rounded-full text-primary-600 hover:bg-primary-100 transition-all duration-300 ease-in-out" />
+              <IoCloseOutline className="cursor-pointer ml-auto w-10 h-10 p-2 rounded-full text-primary-600 hover:bg-slate-200 transition-all duration-300 ease-in-out" />
             </Toast.Close>
             <RiErrorWarningLine className="text-red-600 m-auto" size="50" />
             <Toast.Title className="mt-4 font-heading xl:text-lg text-center">

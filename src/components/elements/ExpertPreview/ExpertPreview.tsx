@@ -120,7 +120,7 @@ export const ExpertPreview: React.FC<{
         {summary && (
           <div
             className={classNames(
-              "absolute bottom-0 opacity-0 group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-b-theme gr p-4 text-slate-200 bg-primary-700 prose"
+              "absolute bottom-0 opacity-0 group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-b-theme gr p-4 text-white bg-primary-600 prose"
             )}
           >
             <div className="line-clamp-5">{summary}</div>
@@ -138,7 +138,7 @@ export const ExpertPreview: React.FC<{
           className={classNames(
             "font-heading font-semibold text-lg xl:text-xl",
             {
-              "text-slate-800": !darkMode,
+              "text-inherit": !darkMode,
             },
             { "text-slate-50": darkMode }
           )}

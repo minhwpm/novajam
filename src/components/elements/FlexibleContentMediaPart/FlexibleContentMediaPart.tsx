@@ -5,17 +5,19 @@ import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel
 
 export const FlexibleContentMediaPart: React.FC<{
   data: FlexibleContentType;
+  className?: string;
   alignment?: TextAlignmentType;
   aspectRatio?: MediaAspectRatioType,
   rounded?: "theme" | "full" | "none"
-}> = ({ data, alignment, aspectRatio = "4/3", rounded = "theme"}) => {
+}> = ({ data, className, alignment, aspectRatio = "4/3", rounded = "theme"}) => {
   const { media, embeddedMediaUrl, embeddedMediaTitle } = data;
   return (
     <div
       className={classNames(
         "flex",
         { "justify-center": alignment === "center" },
-        { "justify-end": alignment === "end" }
+        { "justify-end": alignment === "end" },
+        className
       )}
     >
       {embeddedMediaUrl && (
@@ -23,7 +25,7 @@ export const FlexibleContentMediaPart: React.FC<{
           className={classNames(
             "w-full overflow-hidden",
             `aspect-${aspectRatio === "auto" ? "video" : aspectRatio}`,
-            `rounded-${rounded}`,
+            `rounded-${rounded}`
           )}
         >
           <iframe
@@ -36,7 +38,12 @@ export const FlexibleContentMediaPart: React.FC<{
         </div>
       )}
       {!embeddedMediaUrl && media && media.length === 1 && (
-        <MediaItem data={media[0]} aspectRatio={aspectRatio} rounded={rounded} videoControls={true} />
+        <MediaItem
+          data={media[0]}
+          aspectRatio={aspectRatio}
+          rounded={rounded}
+          videoControls={true}
+        />
       )}
       {!embeddedMediaUrl && media && media.length > 1 && (
         <MediaCarousel
@@ -45,7 +52,7 @@ export const FlexibleContentMediaPart: React.FC<{
             delay: 3500,
           }}
           pagination={{
-            enabled: true
+            enabled: true,
           }}
           aspectRatio={aspectRatio}
           rounded={rounded}

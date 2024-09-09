@@ -78,7 +78,7 @@ export const Footer: React.FC<Props> = ({ data }) => {
                   key={link.text}
                   href={link.url}
                   className={classNames(
-                    "self-start select-none underline-hover-effect before:bg-primary-500",
+                    "self-start select-none underline-hover-effect before:bg-primary-600",
                     { "text-slate-50": darkMode }
                   )}
                   target={link.openNewTab ? "_blank" : "_self"}

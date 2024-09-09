@@ -52,7 +52,7 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
               data.menu.map((subItem) => (
                 <NavigationMenu.Item
                   key={subItem.id}
-                  className="py-1 border-b last:border-none border-neutral-100"
+                  className="py-1 border-b last:border-none border-slate-100"
                 >
                   {subItem.contentType === "link" && (
                     <NavLinkItem

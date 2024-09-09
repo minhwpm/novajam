@@ -152,8 +152,8 @@ const HeroSection: React.FC<{
                 "animate-slidingHeroContent animation-delay-500":
                   isIntersecting,
               },
-              { "text-secondary-500": !darkMode },
-              { "text-secondary-400": darkMode }
+              { "text-secondary-600": !darkMode },
+              { "text-secondary-500": darkMode }
             )}
           >
             {data.eyebrow}

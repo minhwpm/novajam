@@ -38,28 +38,6 @@ export default async function getHero(id: string) {
                 sys {
                   id
                 }
-                eyebrow
-                heading {
-                  json
-                }
-                buttonsCollection {
-                  items {
-                    sys {
-                      id
-                    }
-                    text
-                    url
-                    openNewTab
-                    buttonVariant
-                    withArrow
-                    icon {
-                      url
-                      title
-                      width
-                      height
-                    }
-                  }
-                }
               }
             }
           }

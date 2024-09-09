@@ -65,7 +65,7 @@ export const MasonryLayout: React.FC<{
       >
         {contentItems.map((item, idx) => (
           <ContentMapping
-            key={item.id}
+            key={idx}
             data={item}
             alignment={alignment}
             layout={layout}

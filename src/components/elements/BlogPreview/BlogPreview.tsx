@@ -49,7 +49,7 @@ export const BlogPreview: React.FC<{
       {topics.map((topic, idx) => (
         <div
           key={idx}
-          className="rounded-theme px-2.5 py-1 text-xs bg-primary-50 border border-primary-50 text-primary-600 tracking-wider"
+          className="rounded-theme px-2.5 py-1 text-xs bg-slate-100 border border-slate-100 text-primary-600 tracking-wider"
         >
           {topic}
         </div>
@@ -92,7 +92,7 @@ export const BlogPreview: React.FC<{
                 className={classNames(
                   "font-heading xl:text-lg font-semibold transition-colors duration-500",
                   { "group-hover:text-primary-600": !darkMode },
-                  { "text-slate-100 group-hover:text-primary-300": darkMode }
+                  { "text-white group-hover:text-primary-600/80": darkMode }
                 )}
               >
                 {title}
@@ -152,7 +152,7 @@ export const BlogPreview: React.FC<{
             className={classNames(
               "font-heading font-semibold transition-colors duration-500",
               { "group-hover:text-primary-600": !darkMode },
-              { "text-slate-100 group-hover:text-primary-300": darkMode },
+              { "text-white group-hover:text-primary-600/80": darkMode },
               { "text-lg": !featured },
               { "text-xl xl:text-2xl": featured },
               { "text-center": alignment === "center" },

@@ -61,12 +61,12 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 key={section.id}
                 value={section.id}
                 className={classNames(
-                  "group w-full border-b border-neutral-200 data-[state=closed]:hover:text-slate-100",
+                  "group w-full border-b border-slate-200 data-[state=closed]:hover:text-slate-100",
                   { "text-slate-50": darkMode }
                 )}
               >
                 <RadixAccordion.Trigger asChild>
-                  <div className="py-6 xl:py-8 cursor-pointer flex gap-3 data-[state=closed]:hover:text-primary-500 data-[state=open]:text-primary-600">
+                  <div className="py-6 xl:py-8 cursor-pointer flex gap-3 data-[state=closed]:hover:text-primary-600 data-[state=open]:text-primary-600">
                     <div className="flex-1 flex flex-col">
                       {section.eyebrow && (
                         <div

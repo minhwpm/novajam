@@ -43,7 +43,7 @@ export const Submenu: React.FC<{
       </NavigationMenu.Trigger>
       <NavigationMenu.Content
         className={classNames(
-          "text-slate-800",
+          "text-inherit",
           {
             "absolute top-full left-0 w-full bg-white border-t shadow-lg data-[state=open]:animate-slidingSubmenu":
               data.appearanceVariant === "mega" &&

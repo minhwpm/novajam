@@ -10,7 +10,7 @@ import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/Markdow
 const TextPart: React.FC<{
   data: FlexibleContentType;
   alignment?: TextAlignmentType;
-  darkMode?: boolean
+  darkMode?: boolean;
 }> = ({ data, alignment, darkMode }) => {
   const { eyebrow, displayTitle, description, buttons } = data;
   return (
@@ -45,7 +45,7 @@ const TextPart: React.FC<{
               "mb-4 lg:mb-6": buttons.length > 0,
             },
             { "text-white/70": darkMode },
-            { "text-slate-500": !darkMode },
+            { "text-slate-500": !darkMode }
           )}
         >
           <MarkdownRenderer>{description}</MarkdownRenderer>
@@ -64,8 +64,14 @@ export const FlexibleContent: React.FC<{
   layout?: "vertical" | "horizontal";
   animate?: boolean;
 }> = ({ data, alignment = "center", layout = "vertical", animate }) => {
-  const { displayTitle, eyebrow, description, media, embeddedMediaUrl, buttons } =
-    data;
+  const {
+    displayTitle,
+    eyebrow,
+    description,
+    media,
+    embeddedMediaUrl,
+    buttons,
+  } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
     unobserveOnEnter: true,
@@ -111,7 +117,7 @@ export const FlexibleContent: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "flex flex-col rounded-theme",
+        "flex flex-col rounded-theme h-full",
         { "relative -bottom-10 opacity-0": animate },
         {
           "animate-slidingUpContent animation-delay-150":
@@ -121,16 +127,21 @@ export const FlexibleContent: React.FC<{
     >
       {(media || embeddedMediaUrl) && (
         <FlexibleContentMediaPart
+          className={classNames({
+            "grow items-center": !Boolean(
+              displayTitle || eyebrow || description || !!buttons?.length
+            ),
+          })}
           data={data}
           alignment={alignment}
           aspectRatio="auto"
         />
       )}
-      {(displayTitle || eyebrow || description || !!buttons?.length) && (
+      {Boolean(displayTitle || eyebrow || description || !!buttons?.length) && (
         <div
           className={classNames(
             "py-4 xl:pt-6 flex-1 flex flex-col",
-            {"text-slate-100": darkMode},
+            { "text-slate-100": darkMode },
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }
           )}

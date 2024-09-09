@@ -36,7 +36,7 @@ export const PricingPlan: React.FC<{
       <h4
         className={classNames(" font-semibold tracking-wide", {
           "text-primary-600": !darkMode,
-          "text-primary-400": darkMode,
+          "text-primary-600/50": darkMode,
         })}
       >
         {title}

@@ -65,8 +65,8 @@ export const CTA: React.FC<{ data: CTAType }> = ({ data }) => {
                 className={classNames(
                   "text-sm lg:text-base tracking-widest text-center mb-2",
                   {
-                    "text-secondary-500": !darkMode,
-                    "text-secondary-400": darkMode,
+                    "text-secondary-600": !darkMode,
+                    "text-secondary-500": darkMode,
                     "lg:text-start": layout === "side-by-side",
                   }
                 )}

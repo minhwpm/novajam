@@ -71,7 +71,7 @@
   @apply bg-sky-800;
 }
 .blue-section-bg-color {
-  @apply bg-blue-50;
+  @apply bg-slate-100;
 }
 .blue-dark-section-bg-color {
   @apply bg-blue-800;

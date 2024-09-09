@@ -20,10 +20,10 @@ export const NavLinkItem = ({
 }) => {
   const pathname = usePathname();
   const classes = classNames(
-    { "inline-block select-none before:bg-primary-500 underline-hover-effect": variant === "underlined"},
+    { "inline-block select-none before:bg-primary-600 underline-hover-effect": variant === "underlined"},
     { "before:w-full": variant === "underlined" && href === pathname },
-    { "block w-full px-3 rounded-theme hover:bg-primary-50 hover:text-slate-800 transition duration-500": variant === "highlighted" },
-    { "bg-primary-100 text-slate-800": variant === "highlighted" && href === pathname },
+    { "block w-full px-3 rounded-theme hover:bg-slate-100 hover:text-inherit transition duration-500": variant === "highlighted" },
+    { "bg-primary-600/50 text-inherit": variant === "highlighted" && href === pathname },
     className
   )
   return (

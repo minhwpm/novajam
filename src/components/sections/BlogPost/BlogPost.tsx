@@ -45,7 +45,7 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
                     {topics.map((topic, idx) => (
                       <Link
                         key={idx}
-                        className="px-3 py-1.5 text-xs bg-primary-50 border border-primary-50 text-primary-500 tracking-wider rounded-theme hover:border-primary-500 transition-all duration-500 ease"
+                        className="px-3 py-1.5 text-xs bg-slate-100 border border-slate-100 text-primary-600 tracking-wider rounded-theme hover:border-primary-600 transition-all duration-500 ease"
                         href={`/blog?topic=${topic}`}
                       >
                         {topic}

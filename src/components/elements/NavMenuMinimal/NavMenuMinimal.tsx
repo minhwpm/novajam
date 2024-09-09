@@ -26,13 +26,13 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
       />
       <div
         className={classNames(
-          "absolute top-0 left-0 z-[99999] w-screen h-screen  bg-neutral-900/95 bg-text-slate-500 text-white overflow-auto",
+          "absolute top-0 left-0 z-[99999] w-screen h-screen  bg-slate-900/95 bg-text-slate-500 text-white overflow-auto",
           { hidden: !navMenuShowed }
         )}
       >
         <NavigationMenu.Root className={classNames("container mx-auto px-4")}>
           <IoCloseOutline
-            className="cursor-pointer ml-auto mt-6 lg:mt-10 w-14 h-14 p-3 rounded-full bg-transparent hover:bg-neutral-200 hover:text-slate-900 transition-all duration-300 ease-in-out"
+            className="cursor-pointer ml-auto mt-6 lg:mt-10 w-14 h-14 p-3 rounded-full bg-transparent hover:bg-slate-200 hover:text-slate-900 transition-all duration-300 ease-in-out"
             size={30}
             onClick={() => {
               setNavMenuShowed(false);
@@ -41,7 +41,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
           />
           <NavigationMenu.List className="flex flex-col items-center text-lg xl:text-xl py-20">
             {menu.map((item) => (
-              <NavigationMenu.Item key={item.id} className="py-2 border-b last:border-none border-neutral-800">
+              <NavigationMenu.Item key={item.id} className="py-2 border-b last:border-none border-slate-800">
                 {item.contentType === "link" && (
                   <NavLinkItem
                     href={item.url}

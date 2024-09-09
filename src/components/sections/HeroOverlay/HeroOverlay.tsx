@@ -95,14 +95,14 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
             <GoArrowLeft
               size={45}
               className={classNames(
-                "hero-prev cursor-pointer z-10 flex justify-center items-center rounded-full p-2.5 bg-neutral-500/20 hover:text-primary-600 hover:bg-neutral-200/80 transition-colors duration-300 ease-in-out",
+                "hero-prev cursor-pointer z-10 flex justify-center items-center rounded-full p-2.5 bg-slate-500/20 hover:text-primary-600 hover:bg-slate-200/80 transition-colors duration-300 ease-in-out",
                 { "text-slate-50": darkMode }
               )}
             />
             <GoArrowRight
               size={45}
               className={classNames(
-                "hero-next cursor-pointer z-10 flex justify-center items-center rounded-full p-2.5 bg-neutral-500/20 hover:text-primary-600 hover:bg-neutral-200/80 transition-colors duration-300 ease-in-out",
+                "hero-next cursor-pointer z-10 flex justify-center items-center rounded-full p-2.5 bg-slate-500/20 hover:text-primary-600 hover:bg-slate-200/80 transition-colors duration-300 ease-in-out",
                 { "text-slate-50": darkMode }
               )}
             />
@@ -155,8 +155,8 @@ export const HeroOverlaySection: React.FC<{
                     "animate-slidingHeroContent animation-delay-500":
                       isIntersecting,
                   },
-                  { "text-secondary-500": !darkMode },
-                  { "text-secondary-400 drop-shadow-lg": darkMode }
+                  { "text-secondary-600": !darkMode },
+                  { "text-secondary-500 drop-shadow-lg": darkMode }
                 )}
               >
                 {data.eyebrow}

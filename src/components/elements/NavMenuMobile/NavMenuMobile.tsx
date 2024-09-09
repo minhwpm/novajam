@@ -38,7 +38,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
                 <NavigationMenu.Item
                   key={item.id}
                   className={classNames(
-                    "py-2 border-b last:border-none border-neutral-200"
+                    "py-2 border-b last:border-none border-slate-200"
                   )}
                 >
                   {item.contentType === "link" && (

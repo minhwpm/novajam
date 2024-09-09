@@ -9,7 +9,7 @@ export const TextAreaField: React.FC<{
   return (
     <textarea
       key={data.id}
-      className="block border border-neutral-300 rounded-theme w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-slate-800 placeholder:text-slate-500"
+      className="block border border-slate-300 rounded-theme w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-inherit placeholder:text-slate-500"
       id={data.label}
       placeholder={
         (data.placeholder ? data.placeholder : data.label) + (data.required ? "*" : "")

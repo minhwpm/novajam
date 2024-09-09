@@ -16,13 +16,13 @@ export const SNS: React.FC<{
     <Link
       href={url}
       className={classNames("group/sns", {
-        "w-10 h-10 rounded-full flex justify-center items-center bg-neutral-100 hover:bg-neutral-200 transition-colors duration-300 ease-in-out":
+        "w-10 h-10 rounded-full flex justify-center items-center bg-slate-100 hover:bg-slate-200 transition-colors duration-300 ease-in-out":
           variant === "alternate",
       })}
     >
       {React.cloneElement(icon, {
         className: classNames("transition-colors duration-300 ease-in-out", {
-          "text-primary-500 group-hover/sns:text-primary-700": !darkMode,
+          "text-primary-600 group-hover/sns:text-primary-600": !darkMode,
           "text-slate-300 group-hover/sns:text-slate-50": darkMode,
         }),
       })}
