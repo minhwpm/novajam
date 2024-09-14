@@ -1,4 +1,5 @@
 "use client"
+import classNames from "classnames";
 import { createContext } from "react"
 import { Section } from "@/components/elements/Section/Section";
 import { ContentListType } from "@/helpers/types";
@@ -40,6 +41,9 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         backgroundImage={backgroundImage}
         sectionSeparator={sectionSeparator}
         darkMode={darkMode}
+        className={classNames({
+          dark: darkMode,
+        })}
       >
         {appearanceVariant === "carousel" && (
           <CarouselLayout

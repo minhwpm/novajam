@@ -38,7 +38,7 @@ export const SelectField: React.FC<{
         }),
       }}
       placeholder={(
-        <div className="text-opacity-70">
+        <div className="text-slate-500">
           {(data.placeholder ? data.placeholder : data.label) + (data.required ? "*" : "")}
         </div>
       )}

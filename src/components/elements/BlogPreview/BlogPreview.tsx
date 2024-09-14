@@ -92,7 +92,7 @@ export const BlogPreview: React.FC<{
                 className={classNames(
                   "font-heading xl:text-lg font-semibold transition-colors duration-500",
                   { "group-hover:text-primary-600": !darkMode },
-                  { "text-white group-hover:text-primary-600/80": darkMode }
+                  { "text-slate-100 group-hover:text-primary-600/80": darkMode }
                 )}
               >
                 {title}
@@ -152,7 +152,7 @@ export const BlogPreview: React.FC<{
             className={classNames(
               "font-heading font-semibold transition-colors duration-500",
               { "group-hover:text-primary-600": !darkMode },
-              { "text-white group-hover:text-primary-600/80": darkMode },
+              { "text-slate-100 group-hover:text-primary-600/80": darkMode },
               { "text-lg": !featured },
               { "text-xl xl:text-2xl": featured },
               { "text-center": alignment === "center" },

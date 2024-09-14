@@ -12,21 +12,18 @@ export const Footer: React.FC<Props> = ({ data }) => {
   const { logo, logoRedirect, copyright, sns, menu, backgroundColor, backgroundImage, darkMode } = data
   return (
     <footer
-      className={classNames(
-        "py-20",
-        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
-        {
-          "bg-center bg-no-repeat bg-cover bg-blend-multiply":
-            backgroundImage,
-        }
-      )}
-      style={
-        backgroundImage
-          ? {
-              backgroundImage: `url(${backgroundImage?.url})`,
-            }
-          : {}
-      }
+      className={classNames("py-20", {
+        [`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`]:
+          backgroundColor,
+        "bg-center bg-no-repeat bg-cover bg-blend-multiply":backgroundImage,
+        "dark:bg-opacity-10": !darkMode && backgroundColor,
+        "dark:bg-slate-900/90": !darkMode && backgroundImage,
+        "dark": darkMode
+        // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
+      })}
+      style={{
+        backgroundImage: `url(${backgroundImage?.url})`
+      }}
     >
       <div className="container mx-auto px-4 flex flex-wrap gap-x-5 gap-y-10">
         <div className="w-full lg:w-1/2 xl:w-1/3 flex flex-col items-center lg:items-start">
@@ -42,11 +39,7 @@ export const Footer: React.FC<Props> = ({ data }) => {
             </Link>
           )}
           <p
-            className={classNames(
-              "mt-4",
-              { "text-slate-500": !darkMode },
-              { "text-slate-200": darkMode }
-            )}
+            className={classNames("mt-4 text-slate-500 dark:text-slate-100/70")}
           >
             {copyright}
           </p>
@@ -59,17 +52,12 @@ export const Footer: React.FC<Props> = ({ data }) => {
             <div
               key={idx}
               className={classNames(
-                "basis-40 flex flex-col gap-2",
-                { "xl:col-start-10": menu.length === 1 },
-                { "text-slate-100": darkMode }
+                "basis-40 flex flex-col gap-2 dark:text-slate-100",
+                { "xl:col-start-10": menu.length === 1 }
               )}
             >
               <div
-                className={classNames(
-                  "font-semibold mb-1",
-                  { "text-slate-500": !darkMode },
-                  { "text-slate-100/60": darkMode }
-                )}
+                className={classNames("font-semibold mb-1 dark:text-slate-100")}
               >
                 {section.title}
               </div>
@@ -78,8 +66,7 @@ export const Footer: React.FC<Props> = ({ data }) => {
                   key={link.text}
                   href={link.url}
                   className={classNames(
-                    "self-start select-none underline-hover-effect before:bg-primary-600",
-                    { "text-slate-50": darkMode }
+                    "self-start select-none underline-hover-effect before:bg-primary-600 text-slate-500 dark:text-slate-100/70"
                   )}
                   target={link.openNewTab ? "_blank" : "_self"}
                 >

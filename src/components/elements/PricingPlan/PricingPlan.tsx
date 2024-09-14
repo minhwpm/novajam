@@ -1,8 +1,6 @@
 import classNames from "classnames";
-import { useContext } from "react";
 import { useInView } from "react-hook-inview";
 import { Button } from "@/components/elements/Button/Button";
-import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
 import { TextAlignmentType, PricingPlanType } from "@/helpers/types";
 import { MarkdownRenderer } from "../MarkdownRenderer/MarkdownRenderer";
 
@@ -11,7 +9,6 @@ export const PricingPlan: React.FC<{
   alignment?: TextAlignmentType;
   animate?: boolean;
 }> = ({ data, alignment, animate }) => {
-  const darkMode = useContext(DarkModeContext);
   const { title, pricing, pricingSuffix, badge, description, ctaButton } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
@@ -22,10 +19,12 @@ export const PricingPlan: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "relative flex flex-col gap-6 items-center rounded-theme bg-white py-10",
+        "relative flex flex-col gap-6 items-center rounded-theme bg-white dark:bg-opacity-10 py-10",
         { "-bottom-10 opacity-0": animate },
-        { "animate-slidingUpContent animation-delay-150": isIntersecting && animate },
-        { "bg-opacity-5": darkMode }
+        {
+          "animate-slidingUpContent animation-delay-150":
+            isIntersecting && animate,
+        }
       )}
     >
       {badge && (
@@ -34,27 +33,23 @@ export const PricingPlan: React.FC<{
         </div>
       )}
       <h4
-        className={classNames(" font-semibold tracking-wide", {
-          "text-primary-600": !darkMode,
-          "text-primary-600/50": darkMode,
-        })}
+        className={classNames(
+          "font-semibold tracking-wide text-primary-600 dark:text-primary-6000/50"
+        )}
       >
         {title}
       </h4>
       <div className="flex flex-col items-center">
         <div
           className={classNames(
-            "text-4xl xl:text-5xl font-bold",
-            { "text-slate-50": darkMode },
+            "text-4xl xl:text-5xl font-bold dark:text-slate-100"
           )}
         >
           {pricing}
         </div>
         <div
           className={classNames(
-            "text-sm tracking-wide",
-            { "text-slate-300": darkMode },
-            { "text-slate-500": !darkMode },
+            "text-sm tracking-wide text-slate-500 dark:text-slate-200",
           )}
         >
           {pricingSuffix}
@@ -62,10 +57,7 @@ export const PricingPlan: React.FC<{
       </div>
       {ctaButton && (
         <div>
-          <Button
-            data={ctaButton}
-            size="base"
-          >
+          <Button data={ctaButton} size="base">
             {ctaButton.text}
           </Button>
         </div>
@@ -73,8 +65,7 @@ export const PricingPlan: React.FC<{
       {description && (
         <div
           className={classNames(
-            "pt-6 px-6 border-t prose leading-loose",
-            { "text-white/70 border-slate-700": darkMode },
+            "pt-6 px-6 border-t prose leading-loose dark:text-slate-100/70 dark:border-slate-700",
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }
           )}

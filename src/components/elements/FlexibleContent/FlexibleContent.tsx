@@ -18,9 +18,7 @@ const TextPart: React.FC<{
       {eyebrow && (
         <div
           className={classNames(
-            "not-prose text-xs xl:text-sm font-medium tracking-widest mb-1",
-            { "text-slate-400": !darkMode },
-            { "text-slate-100": darkMode }
+            "not-prose text-xs xl:text-sm font-medium tracking-widest mb-1 text-slate-400 dark:text-slate-100/60",
           )}
         >
           {eyebrow}
@@ -31,7 +29,7 @@ const TextPart: React.FC<{
           className={classNames(
             "not-prose font-heading text-lg lg:text-xl",
             { "mb-2 lg:mb-4": description || buttons.length > 0 },
-            { "text-white": darkMode }
+            { "text-slate-100": darkMode }
           )}
         >
           <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
@@ -40,12 +38,10 @@ const TextPart: React.FC<{
       {description && (
         <div
           className={classNames(
-            "prose 2xl:prose-lg leading-loose",
+            "prose 2xl:prose-lg leading-loose text-slate-500 dark:text-slate-100/70",
             {
               "mb-4 lg:mb-6": buttons.length > 0,
             },
-            { "text-white/70": darkMode },
-            { "text-slate-500": !darkMode }
           )}
         >
           <MarkdownRenderer>{description}</MarkdownRenderer>
@@ -141,7 +137,6 @@ export const FlexibleContent: React.FC<{
         <div
           className={classNames(
             "py-4 xl:pt-6 flex-1 flex flex-col",
-            { "text-slate-100": darkMode },
             { "text-center": alignment === "center" },
             { "text-end": alignment === "end" }
           )}

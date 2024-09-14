@@ -40,11 +40,14 @@ export const HeroOverlay: React.FC<{ data: HeroType }> = ({ data }) => {
       ref={ref}
       className={classNames(
         "relative",
-        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
         {
-          "bg-center bg-no-repeat bg-cover bg-blend-multiply": backgroundImage,
+          [`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`]: backgroundColor,
+          "bg-center bg-no-repeat bg-cover bg-blend-multiply":backgroundImage,
+          "dark:bg-opacity-10": !darkMode && backgroundColor,
+          "dark:bg-slate-900/90": !darkMode && backgroundImage,
+          "dark": darkMode
           // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
-        }
+        },
       )}
       style={
         backgroundImage
@@ -165,9 +168,8 @@ export const HeroOverlaySection: React.FC<{
             {data.displayTitle && (
               <div
                 className={classNames(
-                  "relative text-super-heading leading-tight font-heading max-w-2xl mt-2 opacity-0",
+                  "relative text-super-heading leading-tight font-heading max-w-2xl mt-2 opacity-0 dark:text-slate-100",
                   { "animate-slidingHeroContent": isIntersecting },
-                  { "text-white drop-shadow-lg": darkMode }
                 )}
               >
                 <MarkdownRenderer>{data.displayTitle}</MarkdownRenderer>
@@ -176,13 +178,11 @@ export const HeroOverlaySection: React.FC<{
             {data.description && (
               <div
                 className={classNames(
-                  "prose xl:prose-lg 2xl:prose-xl mt-6 lg:mt-10 max-w-xl opacity-0 !leading-loose",
+                  "prose xl:prose-lg 2xl:prose-xl mt-6 lg:mt-10 max-w-xl opacity-0 !leading-loose text-slate-500 dark:text-slate-100/70",
                   {
                     "animate-slidingHeroContent animation-delay-200 ":
                       isIntersecting,
                   },
-                  { "text-white/70 drop-shadow-lg": darkMode },
-                  { "text-slate-500": !darkMode }
                 )}
               >
                 <MarkdownRenderer>{data.description}</MarkdownRenderer>

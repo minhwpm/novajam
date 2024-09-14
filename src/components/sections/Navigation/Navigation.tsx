@@ -9,6 +9,7 @@ import NavMenuMinimal from "@/components/elements/NavMenuMinimal/NavMenuMinimal"
 import { Button } from "@/components/elements/Button/Button";
 import { MediaType, NavigationType } from "@/helpers/types";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
+import DarkModeToggle from "@/components/elements/DarkModeToggle/DarkModeToggle";
 
 const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
   redirectUrl,
@@ -34,9 +35,9 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
     return (
       <header className={classNames("relative z-[99999] tracking-wider")}>
         <div
-          className={classNames("absolute w-screen flex justify-center", {
-            "text-slate-50": darkMode,
-          })}
+          className={classNames(
+            "absolute w-screen flex justify-center dark:text-slate-100"
+          )}
         >
           <div className="px-4 pt-6 container flex items-center justify-between flex-1">
             <div className="shrink-0">
@@ -48,6 +49,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
                   <ButtonGroup data={buttons} />
                 </div>
               )}
+              <DarkModeToggle />
               <NavMenuMinimal data={data} />
             </div>
           </div>
@@ -58,12 +60,11 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
   if (appearanceVariant === "overlay") {
     return (
       <header
-        className={classNames("relative z-[99999] w-screen tracking-wider")}
+        className={classNames("relative z-[99999] w-screen tracking-wider", {"dark": darkMode})}
       >
         <div
           className={classNames(
-            "absolute top-0 left-0 right-0 flex justify-center",
-            { "text-slate-50": darkMode }
+            "absolute top-0 left-0 right-0 flex justify-center dark:text-slate-100"
           )}
         >
           <div className="container px-4 flex items-center">
@@ -71,13 +72,16 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
               <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
             </div>
             <div className="flex-1 lg:text-lg">
-              {menu && <NavMenu menu={menu} appearanceVariant={appearanceVariant} />}
+              {menu && (
+                <NavMenu menu={menu} appearanceVariant={appearanceVariant} />
+              )}
             </div>
             {buttons && buttons.length > 0 && (
-              <div className="ml-4 shrink-0 hidden lg:block">
+              <div className="mx-4 shrink-0 hidden lg:block">
                 <ButtonGroup data={buttons} size="sm" />
               </div>
             )}
+            <DarkModeToggle />
             {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} />}
           </div>
         </div>
@@ -88,11 +92,11 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
     // Default style - standard
     <header
       className={classNames(
-        "relative z-[99999] tracking-wider",
-        { "sticky w-full z-50 top-0 animate-headerSlideIn": sticky },
-        { "bg-white": !darkMode },
-        { "border-b": sticky && !darkMode },
-        { "text-slate-50 bg-slate-900": darkMode }
+        "relative z-[99999] tracking-wider bg-white dark:bg-slate-900 dark:text-slate-100",
+        { 
+          "sticky w-full z-50 top-0 animate-headerSlideIn border-b dark:border-slate-800": sticky,
+          "dark": darkMode,
+        }
       )}
     >
       <div
@@ -107,10 +111,11 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
           {menu && <NavMenu menu={menu} appearanceVariant={appearanceVariant} />}
         </div>
         {buttons && buttons.length > 0 && (
-          <div className="ml-4 shrink-0 hidden lg:block">
+          <div className="mx-4 shrink-0 hidden lg:block">
             <ButtonGroup data={buttons} size="sm" />
           </div>
         )}
+        <DarkModeToggle />
         {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} />}
       </div>
     </header>

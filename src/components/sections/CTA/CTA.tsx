@@ -34,12 +34,14 @@ export const CTA: React.FC<{ data: CTAType }> = ({ data }) => {
       <section
         id={htmlid ?? ""}
         className={classNames({
-          "bg-center bg-no-repeat bg-cover bg-blend-multiply": backgroundImage,
+          "bg-center bg-no-repeat bg-cover bg-blend-multiply ": backgroundImage,
+          "dark:bg-opacity-10": !darkMode && backgroundColor,
+          "dark:bg-slate-900/90": !darkMode && backgroundImage,
+          "dark": darkMode
+          // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
         })}
         style={{
-          backgroundImage: backgroundImage
-            ? `url(${backgroundImage.url})`
-            : "none",
+          backgroundImage: `url(${backgroundImage?.url})`,
           backgroundColor: backgroundColor ?? "none",
         }}
       >
@@ -63,10 +65,8 @@ export const CTA: React.FC<{ data: CTAType }> = ({ data }) => {
             {eyebrow && (
               <div
                 className={classNames(
-                  "text-sm lg:text-base tracking-widest text-center mb-2",
+                  "text-sm lg:text-base tracking-widest text-center mb-2 text-secondary-600 dark:text-secondary-500",
                   {
-                    "text-secondary-600": !darkMode,
-                    "text-secondary-500": darkMode,
                     "lg:text-start": layout === "side-by-side",
                   }
                 )}
@@ -77,9 +77,8 @@ export const CTA: React.FC<{ data: CTAType }> = ({ data }) => {
             {displayTitle && (
               <div
                 className={classNames(
-                  "font-heading text-heading text-center leading-snug",
+                  "font-heading text-heading text-center leading-snug dark:text-slate-100",
                   {
-                    "text-white": darkMode,
                     "lg:text-start": layout === "side-by-side",
                   }
                 )}
@@ -89,9 +88,7 @@ export const CTA: React.FC<{ data: CTAType }> = ({ data }) => {
             )}
             {description && (
               <div
-                className={classNames("prose xl:prose-lg mt-8", {
-                  "text-white/70 prose-invert": darkMode,
-                  "text-slate-500": !darkMode,
+                className={classNames("prose xl:prose-lg mt-8 text-slate-500 dark:text-slate-100/70 dark:prose-invert", {
                   "lg:text-start": layout === "side-by-side",
                 })}
               >

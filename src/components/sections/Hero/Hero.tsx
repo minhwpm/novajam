@@ -41,20 +41,18 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
     <section
       ref={ref}
       className={classNames(
-        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
         {
-          "bg-center bg-no-repeat bg-cover bg-blend-multiply":
-            backgroundImage,
+          [`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`]: backgroundColor,
+          "bg-center bg-no-repeat bg-cover bg-blend-multiply":backgroundImage,
+          "dark:bg-opacity-10": !darkMode && backgroundColor,
+          "dark:bg-slate-900/90": !darkMode && backgroundImage,
+          "dark": darkMode
           // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
         }
       )}
-      style={
-        backgroundImage
-          ? {
-              backgroundImage: `url(${backgroundImage?.url})`,
-            }
-          : {}
-      }
+      style={{
+        backgroundImage: `url(${backgroundImage?.url})`
+      }}
     >
       {content.length === 1 && (
         <HeroSection
@@ -128,13 +126,11 @@ const HeroSection: React.FC<{
   return (
     <div
       key={data.id}
-      className={classNames(
-        "flex flex-col items-center",
-        {
-          "container mx-auto px-4 mt-12 mb-8": appearanceVariant === "vertical",
-        },
-        { "lg:flex-row ": appearanceVariant === "horizontal" }
-      )}
+      className={classNames("flex flex-col items-center", {
+        "container mx-auto px-4 mt-12 mb-8": appearanceVariant === "vertical",
+        "lg:flex-row ": appearanceVariant === "horizontal",
+        dark: darkMode,
+      })}
     >
       <div
         className={classNames(
@@ -147,13 +143,11 @@ const HeroSection: React.FC<{
         {data.eyebrow && (
           <div
             className={classNames(
-              "text-sm xl:text-base tracking-widest max-w-2xl opacity-0 font-semibold mb-6",
+              "text-sm xl:text-base tracking-widest max-w-2xl opacity-0 font-semibold mb-6 text-secondary-600 dark:text-secondary-500",
               {
                 "animate-slidingHeroContent animation-delay-500":
                   isIntersecting,
-              },
-              { "text-secondary-600": !darkMode },
-              { "text-secondary-500": darkMode }
+              }
             )}
           >
             {data.eyebrow}
@@ -162,9 +156,8 @@ const HeroSection: React.FC<{
         {data.displayTitle && (
           <div
             className={classNames(
-              "text-hero-heading leading-snug font-heading max-w-3xl opacity-0",
+              "text-hero-heading leading-snug font-heading max-w-3xl opacity-0 dark:text-slate-100",
               { "animate-slidingHeroContent": isIntersecting },
-              { "text-white": darkMode }
             )}
           >
             <MarkdownRenderer>{data.displayTitle}</MarkdownRenderer>
@@ -173,13 +166,11 @@ const HeroSection: React.FC<{
         {data.description && (
           <div
             className={classNames(
-              "prose xl:prose-lg 2xl:prose-xl mt-4 max-w-2xl opacity-0 !leading-loose",
+              "prose xl:prose-lg 2xl:prose-xl mt-4 max-w-2xl opacity-0 !leading-loose text-slate-500 dark:text-slate-100/70",
               {
                 "animate-slidingHeroContent animation-delay-200":
                   isIntersecting,
               },
-              { "text-white/70": darkMode },
-              { "text-slate-500": !darkMode },
             )}
           >
             <MarkdownRenderer>{data.description}</MarkdownRenderer>

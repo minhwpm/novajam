@@ -8,8 +8,8 @@ export default async function Layout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body>
+    <html lang="en" className="scroll-smooth dark">
+      <body className="dark:bg-slate-900 dark:text-slate-100">
         {children}
         <Analytics />
         <SpeedInsights />

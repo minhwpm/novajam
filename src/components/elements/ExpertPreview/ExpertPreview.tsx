@@ -120,7 +120,7 @@ export const ExpertPreview: React.FC<{
         {summary && (
           <div
             className={classNames(
-              "absolute bottom-0 opacity-0 group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-b-theme gr p-4 text-white bg-primary-600 prose"
+              "absolute bottom-0 opacity-0 group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-b-theme gr p-4 text-slate-100 bg-primary-600 prose"
             )}
           >
             <div className="line-clamp-5">{summary}</div>

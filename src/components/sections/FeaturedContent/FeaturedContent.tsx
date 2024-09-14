@@ -37,26 +37,27 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
     <section
       id={htmlid}
       ref={ref}
-      className={classNames(
-        `${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`,
-        {
-          "py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24": size === "standard",
-          "lg:bg-fixed bg-center bg-no-repeat bg-cover bg-blend-multiply":
-            backgroundImage,
-          // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
-        }
-      )}
-      style={
-        backgroundImage
-          ? { backgroundImage: `url(${backgroundImage.url})` }
-          : {}
-      }
+      className={classNames({
+        "py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24": size === "standard",
+        [`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`]: backgroundColor,
+        "bg-center bg-no-repeat bg-cover bg-blend-multiply": backgroundImage,
+        "dark:bg-opacity-10": !darkMode && backgroundColor,
+        "dark:bg-slate-900/90": !darkMode && backgroundImage,
+        "dark": darkMode
+        // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
+      })}
+      style={{
+        backgroundImage: `url(${backgroundImage?.url})`
+      }}
     >
       <div
-        className={classNames("w-full flex flex-wrap gap-4 lg:gap-0 items-center", {
-          "container mx-auto px-4": size === "standard",
-          "flex-row-reverse flex-wrap-reverse": mediaPosition === "right",
-        })}
+        className={classNames(
+          "w-full flex flex-wrap gap-4 lg:gap-0 items-center",
+          {
+            "container mx-auto px-4": size === "standard",
+            "flex-row-reverse flex-wrap-reverse": mediaPosition === "right",
+          }
+        )}
       >
         <div
           className={classNames("relative -bottom-10 opacity-0 lg:flex-1", {
@@ -83,11 +84,13 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
             />
           )}
         </div>
-        {(eyebrow ||
-          displayTitle ||
-          description ||
-          items.length ||
-          buttons.length) && (
+        {Boolean(
+          eyebrow ||
+            displayTitle ||
+            description ||
+            items.length ||
+            buttons.length
+        ) && (
           <div
             className={classNames(
               "relative -bottom-10 opacity-0 lg:flex-1",
@@ -105,9 +108,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
             {eyebrow && (
               <div
                 className={classNames(
-                  "text-sm xl:text-base tracking-widest mb-2 max-w-5xl",
-                  { "text-primary-600": !darkMode },
-                  { "text-primary-600/50": darkMode }
+                  "text-sm xl:text-base tracking-widest mb-2 max-w-5xl text-primary-600 dark:text-primary-600/50"
                 )}
               >
                 {eyebrow}
@@ -116,8 +117,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
             {displayTitle && (
               <div
                 className={classNames(
-                  "text-heading leading-snug font-heading max-w-3xl xl:max-w-4xl mb-4 lg:mb-8",
-                  { "text-white": darkMode }
+                  "text-heading leading-snug font-heading max-w-3xl xl:max-w-4xl mb-4 lg:mb-8 dark:text-slate-100"
                 )}
               >
                 <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
@@ -126,9 +126,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
             {description && (
               <div
                 className={classNames(
-                  "block prose xl:prose-lg leading-loose",
-                  { "text-white/70": darkMode },
-                  { "text-slate-500": !darkMode },
+                  "block prose xl:prose-lg leading-loose text-slate-500 dark:prose-invert dark:text-slate-100/70",
                   { "mb-4 lg:mb-8": buttons && buttons.length > 0 }
                 )}
               >
@@ -137,9 +135,14 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
             )}
             {!!items.length && (
               <div className="flex flex-col gap-y-8 my-8">
-              {items.map((item, index) => (
-                <FlexibleContent key={index} data={item} layout="horizontal" alignment="start" />
-              ))}
+                {items.map((item, index) => (
+                  <FlexibleContent
+                    key={index}
+                    data={item}
+                    layout="horizontal"
+                    alignment="start"
+                  />
+                ))}
               </div>
             )}
             <div>

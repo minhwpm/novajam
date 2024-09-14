@@ -193,7 +193,7 @@ export type AlertType = {
   id: string
   icon: MediaType | null
   message: string | null
-  backgroundColor: string
+  backgroundColor: string | null
   darkMode: boolean
   contentType: "alert"
 }

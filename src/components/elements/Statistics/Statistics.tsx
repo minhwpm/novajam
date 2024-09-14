@@ -2,8 +2,6 @@
 import classNames from "classnames";
 import { useInView } from "react-hook-inview";
 import { TextAlignmentType, StatisticsType } from "@/helpers/types";
-import { useContext } from "react";
-import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
 
 export const Statistics: React.FC<{
   data: StatisticsType;
@@ -12,7 +10,6 @@ export const Statistics: React.FC<{
   alignment?: TextAlignmentType;
 }> = ({ data, index, layout = "vertical", alignment }) => {
   const { number, text } = data;
-  const darkMode = useContext(DarkModeContext);
   const [ref, isIntersecting] = useInView({
     threshold: 1,
     unobserveOnEnter: true,
@@ -39,8 +36,7 @@ export const Statistics: React.FC<{
     >
       <div
         className={classNames(
-          "font-heading text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight",
-          { "text-slate-100": darkMode },
+          "font-heading text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight dark:text-slate-100",
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" }
         )}
@@ -49,9 +45,7 @@ export const Statistics: React.FC<{
       </div>
       <div
         className={classNames(
-          "tracking-wide leading-loose pb-4",
-          { "text-white/70": darkMode },
-          { "text-slate-500": !darkMode },
+          "tracking-wide leading-loose pb-4 text-slate-500 dark:text-slate-100/70",
           { "text-center": alignment === "center" },
           { "text-end": alignment === "end" }
         )}
