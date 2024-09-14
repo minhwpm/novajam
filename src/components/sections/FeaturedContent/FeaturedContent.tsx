@@ -1,14 +1,11 @@
 "use client";
 import classNames from "classnames";
 import { FeaturedContentType } from "@/helpers/types";
-import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { useInView } from "react-hook-inview";
-import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer";
-import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
-import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
+import { MediaSection } from "./MediaSection";
+import { ContentSection } from "./ContentSection";
 import "@/app/styles/bg-color.css";
 import "@/app/styles/padding.css";
-import { FlexibleContent } from "@/components/elements/FlexibleContent/FlexibleContent";
 
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
   data,
@@ -39,15 +36,16 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
       ref={ref}
       className={classNames({
         "py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24": size === "standard",
-        [`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`]: backgroundColor,
+        [`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`]:
+          backgroundColor,
         "bg-center bg-no-repeat bg-cover bg-blend-multiply": backgroundImage,
         "dark:bg-opacity-10": !darkMode && backgroundColor,
         "dark:bg-slate-900/90": !darkMode && backgroundImage,
-        "dark": darkMode
+        dark: darkMode,
         // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
       })}
       style={{
-        backgroundImage: `url(${backgroundImage?.url})`
+        backgroundImage: `url(${backgroundImage?.url})`,
       }}
     >
       <div
@@ -59,102 +57,22 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
           }
         )}
       >
-        <div
-          className={classNames("relative -bottom-10 opacity-0 lg:flex-1", {
-            "animate-slidingUpContent animation-delay-150 ": isIntersecting,
-          })}
-        >
-          {media && media.length === 1 && (
-            <MediaItem
-              data={media[0]}
-              aspectRatio={mediaAspectRatio}
-              videoControls
-            />
-          )}
-          {media && media.length > 1 && (
-            <MediaCarousel
-              data={media}
-              autoplay={{
-                delay: 3500,
-              }}
-              pagination={{
-                enabled: true,
-              }}
-              aspectRatio={mediaAspectRatio}
-            />
-          )}
-        </div>
-        {Boolean(
-          eyebrow ||
-            displayTitle ||
-            description ||
-            items.length ||
-            buttons.length
-        ) && (
-          <div
-            className={classNames(
-              "relative -bottom-10 opacity-0 lg:flex-1",
-              {
-                "animate-slidingUpContent animation-delay-300 ": isIntersecting,
-              },
-              { "pt-4 lg:pl-16 xl:pl-24": mediaPosition === "left" },
-              {
-                "custom-padding-right pl-4 py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24":
-                  size === "extended" && mediaPosition === "left",
-              },
-              { "pb-4 lg:pr-16 xl:pr-24": mediaPosition === "right" }
-            )}
-          >
-            {eyebrow && (
-              <div
-                className={classNames(
-                  "text-sm xl:text-base tracking-widest mb-2 max-w-5xl text-primary-600 dark:text-primary-600/50"
-                )}
-              >
-                {eyebrow}
-              </div>
-            )}
-            {displayTitle && (
-              <div
-                className={classNames(
-                  "text-heading leading-snug font-heading max-w-3xl xl:max-w-4xl mb-4 lg:mb-8 dark:text-slate-100"
-                )}
-              >
-                <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
-              </div>
-            )}
-            {description && (
-              <div
-                className={classNames(
-                  "block prose xl:prose-lg leading-loose text-slate-500 dark:prose-invert dark:text-slate-100/70",
-                  { "mb-4 lg:mb-8": buttons && buttons.length > 0 }
-                )}
-              >
-                <MarkdownRenderer>{description}</MarkdownRenderer>
-              </div>
-            )}
-            {!!items.length && (
-              <div className="flex flex-col gap-y-8 my-8">
-                {items.map((item, index) => (
-                  <FlexibleContent
-                    key={index}
-                    data={item}
-                    layout="horizontal"
-                    alignment="start"
-                  />
-                ))}
-              </div>
-            )}
-            <div>
-              {buttons && buttons.length > 0 && (
-                <ButtonGroup data={buttons} size="lg" alignment="start" />
-              )}
-            </div>
-          </div>
-        )}
+        <MediaSection
+          media={media}
+          mediaAspectRatio={mediaAspectRatio}
+          isIntersecting={isIntersecting}
+        />
+        <ContentSection
+          eyebrow={eyebrow}
+          displayTitle={displayTitle}
+          description={description}
+          items={items}
+          buttons={buttons}
+          mediaPosition={mediaPosition}
+          size={size}
+          isIntersecting={isIntersecting}
+        />
       </div>
     </section>
   );
 };
-
-export default FeaturedContent;

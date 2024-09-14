@@ -18,7 +18,7 @@ export type FormValues = {
   [x: string]: string | Date;
 };
 
-export const Form: React.FC<{data: FormType, darkMode: boolean}> = ({ data, darkMode }) => {
+export const Form: React.FC<{data: FormType, darkMode?: boolean}> = ({ data }) => {
   const {
     title,
     fields,
