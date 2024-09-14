@@ -41,6 +41,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
     <section
       ref={ref}
       className={classNames(
+        "py-16",
         {
           [`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`]: backgroundColor,
           "bg-center bg-no-repeat bg-cover bg-blend-multiply":backgroundImage,
