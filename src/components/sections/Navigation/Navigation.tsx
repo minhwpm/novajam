@@ -17,7 +17,7 @@ const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
 }) => (
   <Link href={redirectUrl ?? "/"}>
     <Image
-      className="h-14 max-w-[12rem] object-contain object-left"
+      className="h-14 max-w-[12rem] object-contain object-left dark:invert dark:filter dark:brightness-0"
       src={logo.url}
       width={logo.width}
       height={logo.height}

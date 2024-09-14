@@ -30,7 +30,7 @@ export const Footer: React.FC<Props> = ({ data }) => {
           {logo?.url && (
             <Link href={logoRedirect ?? "/"}>
               <Image
-                className="w-40 h-14 object-contain object-top"
+                className="w-40 h-14 object-contain object-top dark:invert dark:filter dark:brightness-0"
                 src={logo.url}
                 width={160}
                 height={56}
