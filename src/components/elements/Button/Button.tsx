@@ -40,9 +40,9 @@ export const Button: React.FC<{
       <Image
         className={classNames(
           "object-contain",
-          { "w-5 h-5 mr-2": size === "sm" || size === "base" },
-          { "w-7 h-7 mr-2.5": size === "lg" },
-          {
+          { 
+            "w-5 h-5 mr-2": size === "sm" || size === "base",
+            "w-7 h-7 mr-2.5": size === "lg",
             "group-hover:brightness-100 group-hover:invert transition-all duration-500 ease":
               buttonVariant === "outline-white",
           }
@@ -98,13 +98,13 @@ export const Button: React.FC<{
         buttonVariant === "primary",
       "border-secondary-600 bg-secondary-600 hover:brightness-110 text-slate-100":
         buttonVariant === "secondary",
-      "border-slate-950 bg-slate-950 text-slate-100 hover:bg-slate-900 hover:border-slate-900":
+      "border-slate-950 bg-slate-950 text-slate-100 hover:bg-slate-900 hover:border-slate-900 dark:border-slate-700":
         buttonVariant === "black",
       "border-slate-50 bg-slate-50 hover:bg-white hover:border-white text-inherit":
         buttonVariant === "white",
       "border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-slate-100":
         buttonVariant === "outline",
-      "border-slate-900 text-inherit hover:bg-slate-950 hover:text-slate-100":
+      "border-slate-900 text-inherit hover:bg-slate-950 hover:text-slate-100 dark:border-slate-100":
         buttonVariant === "outline-black",
       "border-white text-slate-100 hover:bg-white hover:text-inherit drop-shadow-lg":
         buttonVariant === "outline-white",

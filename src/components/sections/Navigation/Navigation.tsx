@@ -60,11 +60,15 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
   if (appearanceVariant === "overlay") {
     return (
       <header
-        className={classNames("relative z-[99999] w-screen tracking-wider", {"dark": darkMode})}
+        className={classNames("relative z-[99999] w-screen tracking-wider", {
+          "sticky w-full z-50 top-0 animate-headerSlideIn": sticky,
+          dark: darkMode,
+        })}
       >
         <div
           className={classNames(
-            "absolute top-0 left-0 right-0 flex justify-center dark:text-slate-100"
+            "absolute top-0 left-0 right-0 flex justify-center  dark:text-slate-100",
+            {"bg-white dark:bg-slate-900/60 dark:backdrop-blur-2xl shadow-sm": sticky}
           )}
         >
           <div className="container px-4 flex items-center">
@@ -92,9 +96,9 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
     // Default style - standard
     <header
       className={classNames(
-        "relative z-[99999] tracking-wider bg-white dark:bg-slate-900 dark:text-slate-100",
+        "relative z-[99999] tracking-wider bg-white dark:text-slate-100 dark:bg-slate-900/60 dark:backdrop-blur-2xl",
         { 
-          "sticky w-full z-50 top-0 animate-headerSlideIn border-b dark:border-slate-800": sticky,
+          "sticky w-full z-50 top-0 animate-headerSlideIn shadow-sm": sticky,
           "dark": darkMode,
         }
       )}
