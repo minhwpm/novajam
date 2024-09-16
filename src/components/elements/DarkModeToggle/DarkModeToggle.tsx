@@ -31,7 +31,7 @@ export default function DarkModeToggle() {
       onClick={toggleDarkMode}
       className="bg-slate-100 dark:bg-opacity-10 dark:text-slate-100 p-2 rounded-full"
     >
-      {isDarkMode ? <GoSun /> : <GoMoon />}
+      {isDarkMode ? <GoMoon /> : <GoSun />}
     </button>
   );
 }

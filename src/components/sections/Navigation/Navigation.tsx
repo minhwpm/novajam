@@ -71,7 +71,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
             {"bg-white dark:bg-slate-900/60 dark:backdrop-blur-2xl shadow-sm": sticky}
           )}
         >
-          <div className="container px-4 flex items-center">
+          <div className="container px-4 flex items-center gap-x-4">
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
             </div>
@@ -81,7 +81,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
               )}
             </div>
             {buttons && buttons.length > 0 && (
-              <div className="mx-4 shrink-0 hidden lg:block">
+              <div className="shrink-0 hidden lg:block">
                 <ButtonGroup data={buttons} size="sm" />
               </div>
             )}
@@ -105,7 +105,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
     >
       <div
         className={classNames(
-          "container px-4 mx-auto flex items-center"
+          "container px-4 mx-auto flex items-center gap-x-4"
         )}
       >
         <div className="shrink-0">
@@ -115,7 +115,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
           {menu && <NavMenu menu={menu} appearanceVariant={appearanceVariant} />}
         </div>
         {buttons && buttons.length > 0 && (
-          <div className="mx-4 shrink-0 hidden lg:block">
+          <div className="shrink-0 hidden lg:block">
             <ButtonGroup data={buttons} size="sm" />
           </div>
         )}
