@@ -29,6 +29,7 @@ export default async function getFooter(url: string) {
               title
             }
             logoRedirect
+            description
             copyright
             sns {
               linkedInUrl

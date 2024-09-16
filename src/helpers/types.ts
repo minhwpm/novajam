@@ -84,6 +84,7 @@ export interface FooterType {
     title: string
   }
   logoRedirect: string | null
+  description: string | null
   copyright: string | null
   sns: SNSType | null
   menu: Array<LinkGroupType>

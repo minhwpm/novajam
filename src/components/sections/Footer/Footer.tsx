@@ -1,3 +1,4 @@
+import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer"
 import { SNS } from "@/components/elements/SNS/SNS"
 import { FooterType } from "@/helpers/types"
 import classNames from "classnames"
@@ -9,20 +10,20 @@ interface Props {
 }
 
 export const Footer: React.FC<Props> = ({ data }) => {
-  const { logo, logoRedirect, copyright, sns, menu, backgroundColor, backgroundImage, darkMode } = data
+  const { logo, logoRedirect, description, copyright, sns, menu, backgroundColor, backgroundImage, darkMode } = data
   return (
     <footer
       className={classNames("py-20", {
         [`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`]:
           backgroundColor,
-        "bg-center bg-no-repeat bg-cover bg-blend-multiply":backgroundImage,
+        "bg-center bg-no-repeat bg-cover bg-blend-multiply": backgroundImage,
         "dark:bg-opacity-10": !darkMode && backgroundColor,
         "dark:bg-slate-900/90": !darkMode && backgroundImage,
-        "dark": darkMode
+        dark: darkMode,
         // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
       })}
       style={{
-        backgroundImage: `url(${backgroundImage?.url})`
+        backgroundImage: `url(${backgroundImage?.url})`,
       }}
     >
       <div className="container mx-auto px-4 flex flex-wrap gap-x-5 gap-y-10">
@@ -38,14 +39,25 @@ export const Footer: React.FC<Props> = ({ data }) => {
               />
             </Link>
           )}
-          <p
-            className={classNames("mt-4 text-slate-500 dark:text-slate-100/70")}
-          >
-            {copyright}
-          </p>
-          <div className="flex gap-2 mt-2">
-            {sns && <SNS darkMode={darkMode} data={sns} />}
-          </div>
+          {description && (
+            <div className="prose text-slate-500 dark:text-slate-100/70">
+              <MarkdownRenderer>{description}</MarkdownRenderer>
+            </div>
+          )}
+          {sns && (
+            <div className="flex gap-2 mt-8">
+              <SNS darkMode={darkMode} data={sns} />
+            </div>
+          )}
+          {copyright && (
+            <p
+              className={classNames(
+                "mt-8 text-slate-500 dark:text-slate-100/70"
+              )}
+            >
+              {copyright}
+            </p>
+          )}
         </div>
         <div className="grow flex flex-wrap gap-8 justify-center lg:justify-end">
           {menu.map((section, idx) => (
