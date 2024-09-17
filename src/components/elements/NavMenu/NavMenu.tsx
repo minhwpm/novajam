@@ -1,6 +1,6 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import classNames from "classnames";
-import { LinkType, NavigationVariant, SubmenuType } from "@/helpers/types";
+import { LinkType, NavigationLayout, SubmenuType } from "@/helpers/types";
 import { Submenu } from "./Submenu/Submenu";
 import { NavLinkItem } from "../NavLinkItem/NavLinkItem";
 
@@ -11,8 +11,8 @@ export function getMenuItemText(item: LinkType | SubmenuType): string {
 
 const NavMenu: React.FC<{
   menu: Array<LinkType | SubmenuType>;
-  appearanceVariant?: NavigationVariant
-}> = ({ menu, appearanceVariant }) => {
+  layout?: NavigationLayout
+}> = ({ menu, layout }) => {
   return (
     <NavigationMenu.Root
       className={classNames("NavMenu hidden lg:flex justify-end")}
@@ -29,7 +29,7 @@ const NavMenu: React.FC<{
                 key={item.id}
                 className={classNames("text-smd", {
                   relative:
-                    "menu" in item && item.appearanceVariant === "dropdown",
+                    "menu" in item && item.layout === "dropdown",
                 })}
               >
                 {item.contentType === "link" && (
@@ -48,7 +48,7 @@ const NavMenu: React.FC<{
                   <Submenu
                     key={item.id}
                     data={item}
-                    appearanceVariant={appearanceVariant}
+                    layout={layout}
                   />
                 )}
               </NavigationMenu.Item>

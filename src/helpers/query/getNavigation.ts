@@ -87,7 +87,7 @@ export default async function getNavigation(url: string) {
                 }
               }
             }
-            appearanceVariant
+            layout
             darkMode
           }
         }

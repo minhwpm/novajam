@@ -1,7 +1,7 @@
 "use client";
 import classNames from "classnames";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { NavigationVariant, SubmenuType } from "@/helpers/types";
+import { NavigationLayout, SubmenuType } from "@/helpers/types";
 import { usePathname } from "next/navigation";
 import { Dropdown } from "./Dropdown";
 import { Mega } from "./Mega";
@@ -9,8 +9,8 @@ import { FaChevronDown } from "react-icons/fa";
 
 export const Submenu: React.FC<{
   data: SubmenuType;
-  appearanceVariant?: NavigationVariant;
-}> = ({ data, appearanceVariant }) => {
+  layout?: NavigationLayout;
+}> = ({ data, layout }) => {
   const pathname = usePathname();
   return (
     <>
@@ -46,22 +46,22 @@ export const Submenu: React.FC<{
           "text-inherit",
           {
             "absolute top-full left-0 w-full bg-white border-t shadow-lg data-[state=open]:animate-slidingSubmenu":
-              data.appearanceVariant === "mega" &&
-              appearanceVariant === "standard",
+              data.layout === "mega" &&
+              layout === "standard",
           },
           {
             "absolute top-full left-0 w-full bg-white shadow-radiant rounded-md data-[state=open]:animate-slidingSubmenu":
-              data.appearanceVariant === "mega" &&
-              appearanceVariant === "overlay",
+              data.layout === "mega" &&
+              layout === "overlay",
           },
           {
             "absolute top-full left-0 w-64 px-6 py-4 -mt-2 bg-white shadow-radiant rounded-md data-[state=open]:animate-slidingSubmenu":
-              data.appearanceVariant === "dropdown",
+              data.layout === "dropdown",
           }
         )}
       >
-        {data.appearanceVariant === "mega" && <Mega data={data} />}
-        {data.appearanceVariant === "dropdown" && <Dropdown data={data} />}
+        {data.layout === "mega" && <Mega data={data} />}
+        {data.layout === "dropdown" && <Dropdown data={data} />}
       </NavigationMenu.Content>
     </>
   );

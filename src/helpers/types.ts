@@ -61,11 +61,11 @@ export interface SubmenuType {
   title: string
   menu: Array<LinkType | LinkGroupType>
   featuredContent: Array<BlogType | PageType>
-  appearanceVariant: 'dropdown' | 'mega'
+  layout: 'dropdown' | 'mega'
   contentType: "submenu"
 }
 
-export type NavigationVariant = "standard" | "minimal" | "overlay"
+export type NavigationLayout = "standard" | "minimal" | "overlay"
 export interface NavigationType {
   url: string
   logo: MediaType,
@@ -73,7 +73,7 @@ export interface NavigationType {
   menu: Array<LinkType | SubmenuType>
   buttons: Array<ButtonType>
   hotButtons: Array<ButtonType>
-  appearanceVariant: NavigationVariant
+  layout: "standard" | "minimal" | "overlay"
   darkMode: boolean
 }
 

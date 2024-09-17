@@ -30,11 +30,13 @@ export default async function RootLayout({
   return (
     <div 
       className={classNames(
+        "flex flex-col justify-between min-h-screen",
         fontTheme,
         styles[borderRadiusTheme ?? ""],
         styles[headingFontSizeTheme ?? ""],
         styles[colorTheme?.primaryColor ?? ""],
-        styles[colorTheme?.secondaryColor ?? ""]
+        styles[colorTheme?.secondaryColor ?? ""],
+        {"overlay-nav": navigation?.layout === "overlay"},
       )}
     >
       {navigation && <Navigation data={navigation} /> }

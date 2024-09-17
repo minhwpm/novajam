@@ -27,10 +27,10 @@ function ContentPresentationMapping({ data }: { data: ContentPTType }) {
   }
 }
 
-function SectionComponentMapping({ data }: { data: PageContentType }) {
+function SectionComponentMapping({ order, data }: { order: number, data: PageContentType }) {
   switch (data.contentType) {
     case "hero":
-      return <Hero data={data} />;
+      return <Hero data={data} order={order} />;
     case "alert":
       return <Alert data={data} />;
     case "contentpresentation":
@@ -49,10 +49,11 @@ function SectionComponentMapping({ data }: { data: PageContentType }) {
 export const SectionMapping: React.FC<{
   data: Array<PageContentType>;
 }> = ({ data }) => {
+  // console.log("SECTION MAPPING", data)
   return (
-    <main className="flex flex-col">
-      {data?.map((section) => (
-        <SectionComponentMapping key={section.id} data={section} />
+    <main className="flex flex-col min-h-screen">
+      {data?.map((section, idx) => (
+        <SectionComponentMapping key={idx} data={section} order={idx+1} />
       ))}
     </main>
   )

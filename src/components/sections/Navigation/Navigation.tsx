@@ -28,10 +28,10 @@ const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
 );
 
 const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
-  const { logo, logoRedirect, menu, buttons, appearanceVariant, darkMode } = data;
+  const { logo, logoRedirect, menu, buttons, layout, darkMode } = data;
   const sticky = useStickyHeaderOnScrollUp();
 
-  if (appearanceVariant === "minimal") {
+  if (layout === "minimal") {
     return (
       <header className={classNames("relative z-[99999] tracking-wider")}>
         <div
@@ -57,7 +57,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
       </header>
     );
   }
-  if (appearanceVariant === "overlay") {
+  if (layout === "overlay") {
     return (
       <header
         className={classNames("relative z-[99999] w-screen tracking-wider", {
@@ -67,8 +67,8 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
       >
         <div
           className={classNames(
-            "absolute top-0 left-0 right-0 flex justify-center  dark:text-slate-100",
-            {"bg-white dark:bg-slate-900/60 dark:backdrop-blur-2xl shadow-sm": sticky}
+            "absolute top-0 left-0 right-0 flex justify-center dark:text-slate-100 transition-all duration-500",
+            {"bg-white dark:bg-slate-900/60 dark:backdrop-blur-2xl shadow-lg": sticky}
           )}
         >
           <div className="container px-4 flex items-center gap-x-4">
@@ -77,7 +77,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
             </div>
             <div className="flex-1 lg:text-lg">
               {menu && (
-                <NavMenu menu={menu} appearanceVariant={appearanceVariant} />
+                <NavMenu menu={menu} layout={layout} />
               )}
             </div>
             {buttons && buttons.length > 0 && (
@@ -95,32 +95,38 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
   return (
     // Default style - standard
     <header
-      className={classNames(
-        "relative z-[99999] tracking-wider bg-white dark:text-slate-100 dark:bg-slate-900/60 dark:backdrop-blur-2xl",
-        { 
-          "sticky w-full z-50 top-0 animate-headerSlideIn shadow-sm": sticky,
-          "dark": darkMode,
-        }
-      )}
+      className={classNames("relative z-[99999] tracking-wider", {
+        "sticky w-full z-50 top-0 animate-headerSlideIn shadow-lg": sticky,
+        dark: darkMode,
+      })}
     >
       <div
         className={classNames(
-          "container px-4 mx-auto flex items-center gap-x-4"
+          "bg-white dark:text-slate-100 dark:bg-slate-900 transition-all duration-500",
+          { "dark:bg-slate-900/60 dark:backdrop-blur-2xl": sticky }
         )}
       >
-        <div className="shrink-0">
-          <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
-        </div>
-        <div className="flex-1">
-          {menu && <NavMenu menu={menu} appearanceVariant={appearanceVariant} />}
-        </div>
-        {buttons && buttons.length > 0 && (
-          <div className="shrink-0 hidden lg:block">
-            <ButtonGroup data={buttons} size="sm" />
+        <div
+          className={classNames(
+            "container px-4 mx-auto flex items-center gap-x-4"
+          )}
+        >
+          <div className="shrink-0">
+            <Logo redirectUrl={logoRedirect ?? ""} logo={logo} />
           </div>
-        )}
-        <DarkModeToggle />
-        {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} />}
+          <div className="flex-1">
+            {menu && (
+              <NavMenu menu={menu} layout={layout} />
+            )}
+          </div>
+          {buttons && buttons.length > 0 && (
+            <div className="shrink-0 hidden lg:block">
+              <ButtonGroup data={buttons} size="sm" />
+            </div>
+          )}
+          <DarkModeToggle />
+          {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} />}
+        </div>
       </div>
     </header>
   );

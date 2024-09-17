@@ -27,6 +27,8 @@ export default async function RootLayout({
     headingFontSizeTheme= `${page.headingFontSize}-heading-font-size`;
   }
 
+  console.log("Nav", navigation);
+
   return (
     <div
       className={classNames(
@@ -34,7 +36,8 @@ export default async function RootLayout({
         styles[borderRadiusTheme ?? ""],
         styles[headingFontSizeTheme ?? ""],
         styles[colorTheme?.primaryColor ?? ""],
-        styles[colorTheme?.secondaryColor ?? ""]
+        styles[colorTheme?.secondaryColor ?? ""],
+        {"overlay-nav": navigation?.layout === "overlay"},
       )}
     >
       {navigation && <Navigation data={navigation} /> }

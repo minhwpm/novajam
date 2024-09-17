@@ -8,7 +8,7 @@ import { HeroType } from "@/helpers/types";
 import "@/app/styles/padding.css";
 import "@/app/styles/bg-color.css";
 
-export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
+export const Hero: React.FC<{order:number, data: HeroType }> = ({order, data }) => {
   const {
     htmlid,
     eyebrow,
@@ -26,34 +26,45 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
     threshold: 0.4,
     unobserveOnEnter: true,
   });
-  
+  console.log("HERO order", order)
   return (
     <section
       id={htmlid ?? ""}
       ref={ref}
-      className={classNames("pt-14 pb-6", {
-        [`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`]:
-          backgroundColor,
-        "bg-center bg-no-repeat bg-cover bg-blend-multiply": backgroundImage,
-        "dark:bg-opacity-10": !darkMode && backgroundColor,
-        "dark:bg-slate-900/90": !darkMode && backgroundImage,
-        dark: darkMode,
-        // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
-      })}
+      className={classNames(
+        "hero-section py-4 md:py-6 lg:py-8 xl:py-10 2xl:py-14",
+        {
+          "pt-10 pb-4 md:pb-6 lg:pb-8 xl:pb-10 2xl:pb-14":
+            order === 1,
+          [`${backgroundColor}-${darkMode ? "dark-" : ""}section-bg-color`]:
+            backgroundColor,
+          "bg-center bg-no-repeat bg-cover bg-blend-multiply": backgroundImage,
+          "dark:bg-opacity-10": !darkMode && backgroundColor,
+          "dark:bg-slate-900/90": !darkMode && backgroundImage,
+          dark: darkMode,
+          // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
+        }
+      )}
       style={{
         backgroundImage: `url(${backgroundImage?.url})`,
       }}
     >
       <div
-        className={classNames("flex flex-col items-center", {
-          "container mx-auto px-4 mt-12 mb-8": layout === "top-to-bottom",
-          "lg:flex-row": layout !== "top-to-bottom", //default layout = "side-by-side"
-        })}
+        className={classNames(
+          "flex flex-col gap-y-10 md:gap-y-12 lg:gap-y-14 xl:gap-y-16",
+          {
+            "container mx-auto px-4 py-8": layout === "top-to-bottom",
+            "lg:flex-row lg:items-center py-14": layout === "side-by-side",
+          }
+        )}
       >
         <div
           className={classNames(
-            "flex flex-col py-16 lg:py-20 xl:py-24",
-            { "px-4 custom-padding-left": layout !== "top-to-bottom" },
+            "flex flex-col",
+            {
+              "pr-4 lg:pr-8 xl:pr-10 custom-padding-left":
+                layout === "side-by-side",
+            },
             { "items-center text-center": textAlignment === "center" },
             { "items-end text-end": textAlignment === "end" }
           )}
@@ -113,7 +124,7 @@ export const Hero: React.FC<{ data: HeroType }> = ({ data }) => {
         </div>
         {media && (
           <div
-            className={classNames("w-full lg:basis-3/5 min-w-[55%] opacity-0", {
+            className={classNames("w-full basis-1/2 shrink-0 opacity-0", {
               "animate-slidingHeroContent animation-delay-300": isIntersecting,
             })}
           >

@@ -36,7 +36,6 @@ export default async function Layout({
     }
     params.slug!.pop();
   }
-  
 
   return (
     <div
@@ -46,7 +45,8 @@ export default async function Layout({
         styles[borderRadiusTheme ?? ""],
         styles[headingFontSizeTheme ?? ""],
         styles[colorTheme?.primaryColor ?? ""],
-        styles[colorTheme?.secondaryColor ?? ""]
+        styles[colorTheme?.secondaryColor ?? ""],
+        {"overlay-nav": navigation?.layout === "overlay"},
       )}
     >
       {navigation && <Navigation data={navigation} />}

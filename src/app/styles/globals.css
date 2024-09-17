@@ -49,6 +49,12 @@
   }
 }
 
+@layer utilities {
+  .overlay-nav .hero-section {
+    @apply xl:pt-20 lg:pt-18 md:pt-16 pt-14;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
 }
@@ -58,8 +64,6 @@ body {
     max-width: 1140px;
   }
 }
-
-
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .u-scroll-x::-webkit-scrollbar {
