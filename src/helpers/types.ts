@@ -181,9 +181,14 @@ export type HeroLayoutVariant = "overlay" | "vertical" | "horizontal"
 
 export type HeroType = {
   id: string
-  content: Array<FlexibleContentType>
-  appearanceVariant: HeroLayoutVariant
-  contentTextAlignment: TextAlignmentType
+  htmlid: string | null
+  eyebrow: string | null
+  displayTitle: string | null
+  description: string | null
+  buttons: Array<ButtonType>
+  media: MediaType | null
+  layout: "side-by-side" | "top-to-bottom"
+  textAlignment: TextAlignmentType
   backgroundColor: BackgroundColorType | null
   backgroundImage: MediaType | null
   darkMode: boolean

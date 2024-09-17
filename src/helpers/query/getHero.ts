@@ -21,8 +21,37 @@ export default async function getHero(id: string) {
           } 
         ) {
           items {
-            appearanceVariant
-            contentTextAlignment
+            htmlid
+            eyebrow  
+            displayTitle
+            description
+            buttonsCollection {
+              items {
+                sys {
+                  id
+                }
+                url
+                text
+                openNewTab
+                buttonVariant
+                withArrow
+                icon {
+                  url
+                  title
+                  width
+                  height
+                }
+              }
+            }
+            media {
+              url
+              title
+              width
+              height
+              contentType
+            }
+            layout
+            textAlignment
             backgroundColor
             backgroundImage {
               url
@@ -32,14 +61,6 @@ export default async function getHero(id: string) {
               contentType
             }
             darkMode
-            contentCollection {
-              items {
-                __typename
-                sys {
-                  id
-                }
-              }
-            }
           }
         }
       }

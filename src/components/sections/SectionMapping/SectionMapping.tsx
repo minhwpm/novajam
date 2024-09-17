@@ -1,5 +1,4 @@
 import { Hero } from "@/components/sections/Hero/Hero";
-import { HeroOverlay } from "@/components/sections/HeroOverlay/HeroOverlay";
 import { Alert } from "@/components/sections/Alert/Alert";
 import { ScrollPT } from "@/components/sections/ScrollPT/ScrollPT";
 import { AccordionPT } from "@/components/sections/AccordionPT/AccordionPT";
@@ -31,16 +30,7 @@ function ContentPresentationMapping({ data }: { data: ContentPTType }) {
 function SectionComponentMapping({ data }: { data: PageContentType }) {
   switch (data.contentType) {
     case "hero":
-      if (
-        data.appearanceVariant === "vertical" ||
-        data.appearanceVariant === "horizontal"
-      ) {
-        return <Hero data={data} />;
-      }
-      if (data.appearanceVariant === "overlay") {
-        return <HeroOverlay data={data} />;
-      }
-      return null;
+      return <Hero data={data} />;
     case "alert":
       return <Alert data={data} />;
     case "contentpresentation":
