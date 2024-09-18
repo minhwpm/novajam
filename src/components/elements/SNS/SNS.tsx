@@ -23,7 +23,7 @@ export const SNS: React.FC<{
       {React.cloneElement(icon, {
         className: classNames("transition-colors duration-300 ease-in-out", {
           "text-primary-600 group-hover/sns:text-primary-600": !darkMode,
-          "text-slate-300 group-hover/sns:text-slate-50": darkMode,
+          "text-slate-300 group-hover/sns:text-slate-100": darkMode,
         }),
       })}
     </Link>

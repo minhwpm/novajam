@@ -14,20 +14,17 @@ const ArrowGroup = ({
   visibleIdx,
   setVisibleIdx,
   length,
-  darkMode,
 }: {
   visibleIdx: number;
   setVisibleIdx: (idx: number) => void;
   length: number;
-  darkMode: boolean;
 }) => {
   return (
     <>
       <GoArrowLeft
         size={50}
         className={classNames(
-          "cursor-pointer flex justify-center items-center rounded-full p-2.5 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out",
-          { "text-slate-50": darkMode }
+          "cursor-pointer flex justify-center items-center rounded-full p-2.5 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out dark:text-slate-100"
         )}
         onClick={() => {
           if (visibleIdx > 0) setVisibleIdx(visibleIdx - 1);
@@ -37,8 +34,7 @@ const ArrowGroup = ({
       <GoArrowRight
         size={50}
         className={classNames(
-          "cursor-pointer flex justify-center items-center rounded-full p-2.5 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out",
-          { "text-slate-50": darkMode }
+          "cursor-pointer flex justify-center items-center rounded-full p-2.5 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out dark:text-slate-100"
         )}
         onClick={() => {
           if (visibleIdx < length - 1) setVisibleIdx(visibleIdx + 1);
@@ -101,10 +97,11 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
           {displayTitle && (
             <div
               className={classNames(
-                "font-heading text-heading leading-tight mb-3",
-                { "text-slate-50": darkMode },
-                { "text-center": headingTextAlignment === "center" },
-                { "text-end": headingTextAlignment === "end" }
+                "font-heading text-heading leading-tight mb-3 dark:text-slate-100",
+                {
+                  "text-center": headingTextAlignment === "center",
+                  "text-end": headingTextAlignment === "end",
+                }
               )}
             >
               <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
@@ -113,10 +110,11 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
           {summary && (
             <div
               className={classNames(
-                "prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl",
-                { "text-slate-50": darkMode },
-                { "text-center": headingTextAlignment === "center" },
-                { "text-end": headingTextAlignment === "end" }
+                "prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl dark:text-slate-100",
+                {
+                  "text-center": headingTextAlignment === "center",
+                  "text-end": headingTextAlignment === "end",
+                }
               )}
             >
               <MarkdownRenderer>{summary}</MarkdownRenderer>
@@ -131,7 +129,6 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
               visibleIdx={visibleIdx}
               setVisibleIdx={setVisibleIdx}
               length={content.length}
-              darkMode={darkMode}
             />
           </div>
         </div>
@@ -172,28 +169,22 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
                 {section.eyebrow && (
                   <div
                     className={classNames(
-                      "text-sm font-semibold tracking-widest",
-                      { "text-slate-500": !darkMode },
-                      { "text-slate-100/70": darkMode }
+                      "text-sm font-semibold tracking-widest text-slate-500 dark:text-slate-100/70"
                     )}
                   >
                     {section.eyebrow}
                   </div>
                 )}
                 {section.displayTitle && (
-                  <div
-                    className={classNames("text-2xl", {
-                      "text-slate-50": darkMode,
-                    })}
-                  >
+                  <div className={classNames("text-2xl dark:text-slate-100")}>
                     <MarkdownRenderer>{section.displayTitle}</MarkdownRenderer>
                   </div>
                 )}
                 {section.description && (
                   <div
-                    className={classNames("mt-5 prose 2xl:prose-lg", {
-                      "text-slate-50": darkMode,
-                    })}
+                    className={classNames(
+                      "mt-5 prose 2xl:prose-lg dark:text-slate-100/70"
+                    )}
                   >
                     <MarkdownRenderer>{section.description}</MarkdownRenderer>
                   </div>
@@ -215,7 +206,6 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
             visibleIdx={visibleIdx}
             setVisibleIdx={setVisibleIdx}
             length={content.length}
-            darkMode={darkMode}
           />
         </div>
       </div>

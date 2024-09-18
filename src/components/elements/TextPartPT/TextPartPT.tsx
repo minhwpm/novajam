@@ -23,8 +23,7 @@ export const TextPartPT: React.FC<{
         </div>
       )}
       {displayTitle && (
-        <div className={classNames("mt-1 text-2xl xl:text-3xl max-w-4xl",
-          { "text-slate-50": darkMode },
+        <div className={classNames("mt-1 text-2xl xl:text-3xl max-w-4xl dark:text-slate-100",
         )}>
           <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
         </div>

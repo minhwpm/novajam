@@ -2,8 +2,6 @@ import classNames from "classnames";
 import Link from "next/link";
 import { TextAlignmentType, PageType } from "@/helpers/types";
 import { MediaItem } from "../MediaItem/MediaItem";
-import { useContext } from "react";
-import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
 import { useInView } from "react-hook-inview";
 
 export const PagePreview: React.FC<{
@@ -14,7 +12,6 @@ export const PagePreview: React.FC<{
   animate?: boolean
 }> = ({ index, data, layout = "vertical", alignment, animate }) => {
   const { title, url, metaTitle, metaImage } = data;
-  const darkMode = useContext(DarkModeContext);
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
     unobserveOnEnter: true,
@@ -39,10 +36,11 @@ export const PagePreview: React.FC<{
         <div className="basis-2/3 flex-1 py-4 pr-4 lg:py-6 lg:pr-6">
           <h4
             className={classNames(
-              "text-lg xl:text-xl font-heading file:font-semibold",
-              { "text-slate-50": darkMode },
-              { "text-center": alignment === "center" },
-              { "text-end": alignment === "end" }
+              "text-lg xl:text-xl font-heading file:font-semibold dark:text-slate-100",
+              {
+                "text-center": alignment === "center",
+                "text-end": alignment === "end",
+              }
             )}
           >
             <Link href={url}>{metaTitle ?? title}</Link>
@@ -71,10 +69,11 @@ export const PagePreview: React.FC<{
         />
         <h4
           className={classNames(
-            "mt-4 text-lg xl:text-xl font-heading font-semibold transition-colors duration-300 ease-in-out",
-            { "text-slate-50": darkMode },
-            { "text-center": alignment === "center" },
-            { "text-end": alignment === "end" }
+            "mt-4 text-lg xl:text-xl font-heading font-semibold transition-colors duration-300 ease-in-out dark:text-slate-100",
+            {
+              "text-center": alignment === "center",
+              "text-end": alignment === "end",
+            }
           )}
         >
           {metaTitle ?? title}

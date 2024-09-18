@@ -1,4 +1,3 @@
-import classNames from "classnames"
 import { BlogPreview } from "@/components/elements/BlogPreview/BlogPreview"
 import { Container } from "@/components/elements/Container/Container"
 import { BlogType } from "@/helpers/types"

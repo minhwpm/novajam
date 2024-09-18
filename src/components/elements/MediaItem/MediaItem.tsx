@@ -163,7 +163,7 @@ const Video = ({
             }}
             aria-label="Play video"
           >
-            <FaPlay className="text-slate-50 w-16 h-16 transition-all duration-200 ease-linear hover:scale-110 hover:text-primary-600" />
+            <FaPlay className="text-slate-100 w-16 h-16 transition-all duration-200 ease-linear hover:scale-110 hover:text-primary-600" />
           </button>
         </div>
       )}

@@ -48,8 +48,7 @@ export const ExpertPreview: React.FC<{
         <div className="w-full sm:w-2/3 md:w-3/4 sm:pl-4 md:pl-6 lg:pl-8">
           <div
             className={classNames(
-              "font-heading font-semibold text-2xl md:text-3xl text-center sm:text-start mb-2",
-              { "text-slate-50": darkMode }
+              "font-heading font-semibold text-2xl md:text-3xl text-center sm:text-start mb-2 dark:text-slate-100"
             )}
           >
             {fullName}
@@ -135,11 +134,7 @@ export const ExpertPreview: React.FC<{
       >
         <div
           className={classNames(
-            "font-heading font-semibold text-lg xl:text-xl",
-            {
-              "text-inherit": !darkMode,
-              "text-slate-50": darkMode,
-            }
+            "font-heading font-semibold text-lg xl:text-xl dark:text-slate-100",
           )}
         >
           {fullName}

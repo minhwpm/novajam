@@ -31,7 +31,7 @@ export const PricingPlan: React.FC<{
       }}
     >
       {badge && (
-        <div className="absolute -top-5 rounded-theme-button text-center bg-primary-600 text-slate-50 px-4 py-2 font-bold tracking-wider">
+        <div className="absolute -top-5 rounded-theme-button text-center bg-primary-600 text-slate-100 px-4 py-2 font-bold tracking-wider">
           {badge}
         </div>
       )}

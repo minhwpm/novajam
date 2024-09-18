@@ -61,8 +61,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 key={section.id}
                 value={section.id}
                 className={classNames(
-                  "group w-full border-b border-slate-200 data-[state=closed]:hover:text-slate-100",
-                  { "text-slate-50": darkMode }
+                  "group w-full border-b border-slate-200 data-[state=closed]:hover:text-slate-100 dark:text-slate-100"
                 )}
               >
                 <RadixAccordion.Trigger asChild>
@@ -71,9 +70,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       {section.eyebrow && (
                         <div
                           className={classNames(
-                            "text-sm font-medium tracking-widest",
-                            { "text-slate-500": !darkMode },
-                            { "text-slate-100/70": darkMode }
+                            "text-sm font-medium tracking-widest text-slate-500 dark:text-slate-100/70"
                           )}
                         >
                           {section.eyebrow}
@@ -81,9 +78,9 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       )}
                       {section.displayTitle && (
                         <div
-                          className={classNames("text-xl xl:text-2xl", {
-                            "text-slate-50": darkMode,
-                          })}
+                          className={classNames(
+                            "text-xl xl:text-2xl dark:text-slate-100"
+                          )}
                         >
                           <MarkdownRenderer>
                             {section.displayTitle}
@@ -94,8 +91,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     <FaChevronDown
                       size={20}
                       className={classNames(
-                        "inline-block shrink-0 mt-1 transition-transform duration-500 group-data-[state=open]:rotate-180",
-                        { "text-slate-50": darkMode }
+                        "inline-block shrink-0 mt-1 transition-transform duration-500 group-data-[state=open]:rotate-180 dark:text-slate-100"
                       )}
                     />
                   </div>

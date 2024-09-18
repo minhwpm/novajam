@@ -1,9 +1,14 @@
-"use client"
+"use client";
 import classNames from "classnames";
 import { useContext, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
-import { TextAlignmentType, Content, ContentSize, ContentOrientationType } from "@/helpers/types";
+import {
+  TextAlignmentType,
+  Content,
+  ContentSize,
+  ContentOrientationType,
+} from "@/helpers/types";
 import { ContentMapping } from "../Gallery/ContentMapping";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
@@ -11,9 +16,9 @@ import { useInView } from "react-hook-inview";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "./styles.css"
-import "@/app/styles/custom-swiper.css"
-import "@/app/styles/padding.css"
+import "./styles.css";
+import "@/app/styles/custom-swiper.css";
+import "@/app/styles/padding.css";
 
 export const CarouselLayout: React.FC<{
   contentItems: Content[];
@@ -57,43 +62,36 @@ export const CarouselLayout: React.FC<{
           <GoArrowLeft
             size={50}
             className={classNames(
-              "CarouselLayout-btn-prev cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out",
+              "CarouselLayout-btn-prev cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out dark:text-slate-100",
               {
                 "opacity-10 pointer-events-none cursor-not-allowed":
                   carouselState.isBeginning,
-              },
-              { "text-primary-600": !darkMode },
-              { "text-slate-50": darkMode }
+                "text-primary-600": !darkMode,
+              }
             )}
           />
           <GoArrowRight
             size={50}
             className={classNames(
-              "CarouselLayout-btn-next cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out",
+              "CarouselLayout-btn-next cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out dark:text-slate-100",
               {
                 "opacity-10 pointer-events-none cursor-not-allowed":
                   carouselState.isEnd,
-              },
-              { "text-primary-600": !darkMode },
-              { "text-slate-50": darkMode }
+                "text-primary-600": !darkMode,
+              }
             )}
           />
         </div>
         {contentItems.map((item, idx) => (
           <SwiperSlide
             key={idx}
-            className={classNames(
-              "px-4 !w-11/12",
-              { "lg:max-w-[50%] lg:px-5 xl:px-6": size === "XL" },
-              { "md:max-w-[50%] xl:max-w-[33.33%] lg:px-5": size === "L" },
-              {
-                "sm:max-w-[50%] lg:max-w-[33.33%] xl:max-w-[25%]": size === "M",
-              },
-              {
-                "max-w-[50%] sm:max-w-[33.33%] md:max-w-[25%] xl:max-w-[20%]":
-                  size === "S",
-              }
-            )}
+            className={classNames("px-4 !w-11/12", {
+              "lg:max-w-[50%] lg:px-5 xl:px-6": size === "XL",
+              "md:max-w-[50%] xl:max-w-[33.33%] lg:px-5": size === "L",
+              "sm:max-w-[50%] lg:max-w-[33.33%] xl:max-w-[25%]": size === "M",
+              "max-w-[50%] sm:max-w-[33.33%] md:max-w-[25%] xl:max-w-[20%]":
+                size === "S",
+            })}
           >
             <ContentMapping
               data={item}

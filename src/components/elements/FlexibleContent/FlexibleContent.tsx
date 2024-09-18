@@ -1,9 +1,7 @@
 import classNames from "classnames";
-import { useContext } from "react";
 import { TextAlignmentType, FlexibleContentType } from "@/helpers/types";
 import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
 import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
-import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
 import { useInView } from "react-hook-inview";
 import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer";
 
@@ -26,107 +24,83 @@ export const FlexibleContent: React.FC<{
     threshold: 0.4,
     unobserveOnEnter: true,
   });
-  const darkMode = useContext(DarkModeContext);
-  if (layout === "horizontal") {
-    return (
-      <div
-        ref={ref}
-        className={classNames("flex rounded-theme", {
-          "relative -bottom-10 opacity-0": animate,
-          "animate-slidingUpContent": isIntersecting && animate,
-        })}
-        style={{
-          animationDelay: (index && animate) ? `${(index + 1) * 0.15}s` : "0s",
-        }}
-      >
-        <div className="max-w-fit basis-5/12">
-          {(media || embeddedMediaUrl) && (
-            <FlexibleContentMediaPart
-              data={data}
-              alignment={alignment}
-              aspectRatio="auto"
-            />
-          )}
-        </div>
-        {(displayTitle || eyebrow || description || !!buttons?.length) && (
-          <div
-            className={classNames(
-              "basis-7/12 flex-1 pl-4 xl:pl-6 flex flex-col",
-              {
-                "text-center": alignment === "center",
-                "text-end": alignment === "end",
-              }
-            )}
-          >
-            <TextPart data={data} alignment={alignment} darkMode={darkMode} />
-          </div>
-        )}
-      </div>
-    );
-  }
+
+  const hasMedia = media || embeddedMediaUrl;
+  const hasText = displayTitle || eyebrow || description || buttons?.length > 0;
+
+  const animationClass = classNames({
+    "relative -bottom-10 opacity-0": animate,
+    "animate-slidingUpContent": isIntersecting && animate,
+  });
+
+  const animationDelay = index && animate ? `${(index + 1) * 0.15}s` : "0s";
+
+  const renderTextPart = () => <TextPart data={data} alignment={alignment} />;
+
   return (
     <div
       ref={ref}
-      className={classNames("flex flex-col rounded-theme h-full", {
-        "relative -bottom-10 opacity-0": animate,
-        "animate-slidingUpContent": isIntersecting && animate,
-      })}
-      style={{
-        animationDelay: (index && animate) ? `${(index + 1) * 0.15}s` : "0s",
-      }}
+      className={classNames(
+        layout === "horizontal"
+          ? "flex rounded-theme"
+          : "flex flex-col rounded-theme h-full",
+        animationClass
+      )}
+      style={{ animationDelay }}
     >
-      {(media || embeddedMediaUrl) && (
+      {hasMedia && (
         <FlexibleContentMediaPart
           className={classNames({
-            "grow items-center": !(
-              displayTitle ||
-              eyebrow ||
-              description ||
-              !!buttons?.length
-            ),
+            "max-w-fit basis-5/12": layout === "horizontal",
+            "grow items-center": !hasText && layout !== "horizontal",
           })}
           data={data}
           alignment={alignment}
           aspectRatio="auto"
         />
       )}
-      {(displayTitle || eyebrow || description || !!buttons?.length) && (
+      {hasText && (
         <div
-          className={classNames("py-4 xl:pt-6 flex-1 flex flex-col", {
-            "text-center": alignment === "center",
-            "text-end": alignment === "end",
-          })}
+          className={classNames(
+            layout === "horizontal"
+              ? "basis-7/12 flex-1 pl-4 xl:pl-6"
+              : "py-4 xl:pt-6 flex-1",
+            "flex flex-col",
+            {
+              "text-center": alignment === "center",
+              "text-end": alignment === "end",
+            }
+          )}
         >
-          <TextPart data={data} alignment={alignment} darkMode={darkMode} />
+          {renderTextPart()}
         </div>
       )}
     </div>
   );
 };
 
+// TextPart component
 const TextPart: React.FC<{
   data: FlexibleContentType;
   alignment?: TextAlignmentType;
-  darkMode?: boolean;
-}> = ({ data, alignment, darkMode }) => {
+}> = ({ data, alignment }) => {
   const { eyebrow, displayTitle, description, buttons } = data;
+
   return (
     <>
       {eyebrow && (
-        <div
-          className={classNames(
-            "not-prose text-xs xl:text-sm font-medium tracking-widest mb-1 text-slate-400 dark:text-slate-100/60"
-          )}
-        >
+        <div className="not-prose text-xs xl:text-sm font-medium tracking-widest mb-1 text-slate-400 dark:text-slate-100/60">
           {eyebrow}
         </div>
       )}
       {displayTitle && (
         <div
-          className={classNames("not-prose font-heading text-lg lg:text-xl", {
-            "mb-2 lg:mb-4": description || buttons.length > 0,
-            "text-slate-100": darkMode,
-          })}
+          className={classNames(
+            "not-prose font-heading text-lg lg:text-xl dark:text-slate-100",
+            {
+              "mb-2 lg:mb-4": description || buttons.length > 0,
+            }
+          )}
         >
           <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
         </div>
@@ -143,7 +117,7 @@ const TextPart: React.FC<{
           <MarkdownRenderer>{description}</MarkdownRenderer>
         </div>
       )}
-      {buttons && buttons.length > 0 && (
+      {buttons?.length > 0 && (
         <ButtonGroup data={buttons} alignment={alignment} />
       )}
     </>

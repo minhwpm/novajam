@@ -40,7 +40,7 @@ export const Footer: React.FC<Props> = ({ data }) => {
             </Link>
           )}
           {description && (
-            <div className="prose text-slate-500 dark:text-slate-100/70">
+            <div className="prose text-slate-500 dark:text-slate-100/70 dark:prose-invert">
               <MarkdownRenderer>{description}</MarkdownRenderer>
             </div>
           )}

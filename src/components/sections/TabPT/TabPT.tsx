@@ -68,9 +68,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
           >
             <div
               className={classNames(
-                "bg-slate-200 lg:bg-opacity-0 flex gap-x-0 gap-y-2 lg:gap-x-2 overflow-x-auto overscroll-contain rounded-theme",
-                { "bg-opacity-50": !darkMode },
-                { "bg-opacity-20": darkMode }
+                "bg-slate-200 lg:bg-opacity-0 flex gap-x-0 gap-y-2 lg:gap-x-2 overflow-x-auto overscroll-contain rounded-theme bg-opacity-50 dark:bg-opacity-20"
               )}
             >
               {content.length > 0 &&
@@ -85,9 +83,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     {section.eyebrow && (
                       <div
                         className={classNames(
-                          "text-sm tracking-widest font-medium group-hover/trigger:text-inherit group-data-[state='active']/trigger:text-primary-600/50",
-                          { "text-slate-500": !darkMode },
-                          { "text-slate-100/70": darkMode }
+                          "text-sm tracking-widest font-medium group-hover/trigger:text-inherit group-data-[state='active']/trigger:text-primary-600/50 text-slate-500 dark:text-slate-100/70"
                         )}
                       >
                         {section.eyebrow}
@@ -96,9 +92,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     {section.displayTitle && (
                       <div
                         className={classNames(
-                          "block font-semibold lg:text-lg group-hover/trigger:text-inherit group-data-[state='active']/trigger:text-slate-50",
-                          { "text-slate-600": !darkMode },
-                          { "text-slate-50": darkMode }
+                          "block font-semibold lg:text-lg group-hover/trigger:text-inherit group-data-[state='active']/trigger:text-slate-100 dark:text-slate-100"
                         )}
                       >
                         <MarkdownRenderer>
@@ -118,17 +112,19 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               value={section.id}
               className={classNames(
                 "col-start-1 row-start-1 relative data-[state='active']:animate-fadeInSlideLeft",
-                { "text-center": contentTextAlignment === "center" },
-                { "text-end": contentTextAlignment === "end" }
+                {
+                  "text-center": contentTextAlignment === "center",
+                  "text-end": contentTextAlignment === "end",
+                }
               )}
             >
               <div className="flex flex-col-reverse lg:flex-row lg:items-center rounded-theme p-4 lg:p-8 -mx-4 lg:-mx-8">
                 <div className="py-4 lg:pr-10 xl:pr-14">
                   {section.description && (
                     <div
-                      className={classNames("prose xl:prose-lg", {
-                        "text-slate-100": darkMode,
-                      })}
+                      className={classNames(
+                        "prose xl:prose-lg dark:text-slate-100"
+                      )}
                     >
                       <MarkdownRenderer>{section.description}</MarkdownRenderer>
                     </div>

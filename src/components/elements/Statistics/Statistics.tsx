@@ -37,8 +37,10 @@ export const Statistics: React.FC<{
       <div
         className={classNames(
           "font-heading text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight dark:text-slate-100",
-          { "text-center": alignment === "center" },
-          { "text-end": alignment === "end" }
+          {
+            "text-center": alignment === "center",
+            "text-end": alignment === "end",
+          }
         )}
       >
         {number}
@@ -46,8 +48,10 @@ export const Statistics: React.FC<{
       <div
         className={classNames(
           "tracking-wide leading-loose pb-4 text-slate-500 dark:text-slate-100/70",
-          { "text-center": alignment === "center" },
-          { "text-end": alignment === "end" }
+          {
+            "text-center": alignment === "center",
+            "text-end": alignment === "end",
+          }
         )}
       >
         {text}
