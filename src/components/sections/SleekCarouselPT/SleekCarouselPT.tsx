@@ -174,7 +174,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
                     className={classNames(
                       "text-sm font-semibold tracking-widest",
                       { "text-slate-500": !darkMode },
-                      { "text-slate-200": darkMode }
+                      { "text-slate-100/70": darkMode }
                     )}
                   >
                     {section.eyebrow}

@@ -87,7 +87,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                         className={classNames(
                           "text-sm tracking-widest font-medium group-hover/trigger:text-inherit group-data-[state='active']/trigger:text-primary-600/50",
                           { "text-slate-500": !darkMode },
-                          { "text-slate-200": darkMode }
+                          { "text-slate-100/70": darkMode }
                         )}
                       >
                         {section.eyebrow}

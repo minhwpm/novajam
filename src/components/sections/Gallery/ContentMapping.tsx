@@ -6,31 +6,82 @@ import { FlexibleContent } from "@/components/elements/FlexibleContent/FlexibleC
 import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan";
 import { TextAlignmentType, Content } from "@/helpers/types";
 import { Testimonial } from "@/components/elements/Testimonial/Testimonial";
-import { ImageLink } from "@/components/elements/ImageLink/ImageLink";
 
 export const ContentMapping: React.FC<{
   data: Content;
   alignment: TextAlignmentType;
-  layout?: "horizontal" | "vertical"
-  index: number
-  animate?: boolean
+  layout?: "horizontal" | "vertical";
+  index: number;
+  animate?: boolean;
 }> = ({ data, alignment, layout = "vertical", index, animate = true }) => {
   switch (data.contentType) {
     case "blog":
-      return <BlogPreview data={data} layout={layout} aspectRatio={layout === "horizontal" ? "square" : undefined} alignment={alignment} animate={animate} />;
+      return (
+        <BlogPreview
+          index={index}
+          data={data}
+          layout={layout}
+          aspectRatio={layout === "horizontal" ? "square" : undefined}
+          alignment={alignment}
+          animate={animate}
+        />
+      );
     case "page":
-      return <PagePreview data={data} layout={layout} alignment={alignment} animate={animate}/>;
+      return (
+        <PagePreview
+          index={index}
+          data={data}
+          layout={layout}
+          alignment={alignment}
+          animate={animate}
+        />
+      );
     case "expert":
-      return <ExpertPreview data={data} layout={layout} alignment={alignment} animate={animate} />;
+      return (
+        <ExpertPreview
+          index={index}
+          data={data}
+          layout={layout}
+          alignment={alignment}
+          animate={animate}
+        />
+      );
     case "statistics":
-      return <Statistics index={index} layout={layout} data={data} alignment={alignment} />;
+      return (
+        <Statistics
+          index={index}
+          layout={layout}
+          data={data}
+          alignment={alignment}
+        />
+      );
     case "flexiblecontent":
-      return <FlexibleContent data={data} alignment={alignment} layout={layout} animate={animate} />;
+      return (
+        <FlexibleContent
+          index={index}
+          data={data}
+          alignment={alignment}
+          layout={layout}
+          animate={animate}
+        />
+      );
     case "pricingplan":
-      return <PricingPlan data={data} alignment={alignment} animate={animate} />;
+      return (
+        <PricingPlan
+          index={index}
+          data={data}
+          alignment={alignment}
+          animate={animate}
+        />
+      );
     case "testimonial":
-      return <Testimonial data={data} alignment={alignment} animate={animate} />;
-    case "link":
-      return <ImageLink data={data} animate={animate} />;
+      return (
+        <Testimonial
+          index={index}
+          data={data}
+          alignment={alignment}
+          animate={animate}
+        />
+      );
   }
 };

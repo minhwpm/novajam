@@ -16,7 +16,7 @@ export const TextPartPT: React.FC<{
           className={classNames(
             "text-sm font-medium tracking-widest",
             { "text-slate-500": !darkMode },
-            { "text-slate-200": darkMode },
+            { "text-slate-100/70": darkMode },
           )}
         >
           {eyebrow}

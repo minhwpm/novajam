@@ -260,7 +260,7 @@ export type PricingPlanType = {
   contentType: 'pricingplan'
 }
 
-export type Content = BlogType | PageType | LinkType | ExpertType | StatisticsType | FlexibleContentType | PricingPlanType | TestimonialType
+export type Content = BlogType | PageType | ExpertType | StatisticsType | FlexibleContentType | PricingPlanType | TestimonialType
 export type ContentSize =  "S" | "M" | "L" | "XL"
 export type ContentOrientationType = "horizontal" | "vertical"
 

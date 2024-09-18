@@ -16,6 +16,7 @@ import { format } from "date-fns";
 import { MarkdownRenderer } from "../MarkdownRenderer/MarkdownRenderer";
 
 export const BlogPreview: React.FC<{
+  index?: number;
   data: BlogType;
   aspectRatio?: MediaAspectRatioType;
   layout?: "vertical" | "horizontal" | "featured";
@@ -23,6 +24,7 @@ export const BlogPreview: React.FC<{
   animate?: boolean;
   featured?: boolean;
 }> = ({
+  index,
   data,
   aspectRatio = "4/3",
   layout = "vertical",
@@ -30,7 +32,8 @@ export const BlogPreview: React.FC<{
   animate,
   featured,
 }) => {
-  const { title, slug, summary, content, media, topics, firstPublishedAt } = data;
+  const { title, slug, summary, content, media, topics, firstPublishedAt } =
+    data;
   const darkMode = useContext(DarkModeContext);
   const pathname = usePathname();
   const [ref, isIntersecting] = useInView({
@@ -60,14 +63,13 @@ export const BlogPreview: React.FC<{
     return (
       <div
         ref={ref}
-        className={classNames(
-          "group rounded-theme relative",
-          { "relative -bottom-10 opacity-0": animate },
-          {
-            "animate-slidingUpContent animation-delay-150":
-              isIntersecting && animate,
-          }
-        )}
+        className={classNames("group rounded-theme relative", {
+          "relative -bottom-10 opacity-0": animate,
+          "animate-slidingUpContent": isIntersecting && animate,
+        })}
+        style={{
+          animationDelay: (index && animate) ? `${(index + 1) * 0.15}s` : "0s",
+        }}
       >
         <Link href={`${pathname.replace(/\/blog\/?(.*)$/, "")}/blog/${slug}`}>
           <div className="flex gap-4">
@@ -106,7 +108,7 @@ export const BlogPreview: React.FC<{
                 className={classNames(
                   "text-sm my-2",
                   { "text-slate-400": !darkMode },
-                  { "text-slate-200": darkMode }
+                  { "text-slate-100/70": darkMode }
                 )}
               >
                 {firstPublishedAt &&
@@ -121,14 +123,13 @@ export const BlogPreview: React.FC<{
   return (
     <div
       ref={ref}
-      className={classNames(
-        "group rounded-theme",
-        { "relative -bottom-10 opacity-0": animate },
-        {
-          "animate-slidingUpContent animation-delay-150":
-            isIntersecting && animate,
-        }
-      )}
+      className={classNames("group rounded-theme", {
+        "relative -bottom-10 opacity-0": animate,
+        "animate-slidingUpContent": isIntersecting && animate,
+      })}
+      style={{
+        animationDelay: (index && animate) ? `${(index + 1) * 0.15}s` : "0s",
+      }}
     >
       <Link href={`${pathname.replace(/\/blog\/?(.*)$/, "")}/blog/${slug}`}>
         <MediaItem
@@ -151,12 +152,14 @@ export const BlogPreview: React.FC<{
           <h3
             className={classNames(
               "font-heading font-semibold transition-colors duration-500",
-              { "group-hover:text-primary-600": !darkMode },
-              { "text-slate-100 group-hover:text-primary-600/80": darkMode },
-              { "text-lg": !featured },
-              { "text-xl xl:text-2xl": featured },
-              { "text-center": alignment === "center" },
-              { "text-end": alignment === "end" }
+              {
+                "group-hover:text-primary-600": !darkMode,
+                "text-slate-100 group-hover:text-primary-600/80": darkMode,
+                "text-lg": !featured,
+                "text-xl xl:text-2xl": featured,
+                "text-center": alignment === "center",
+                "text-end": alignment === "end",
+              }
             )}
           >
             {title}
@@ -167,11 +170,10 @@ export const BlogPreview: React.FC<{
             </div>
           )}
           <div
-            className={classNames(
-              "text-smd font-medium",
-              { "text-slate-400": !darkMode },
-              { "text-slate-200": darkMode }
-            )}
+            className={classNames("text-smd font-medium", {
+              "text-slate-400": !darkMode,
+              "text-slate-100/70": darkMode,
+            })}
           >
             {firstPublishedAt &&
               format(Date.parse(firstPublishedAt), "MMMM dd, yyyy")}

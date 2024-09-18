@@ -7,11 +7,12 @@ import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
 import { useInView } from "react-hook-inview";
 
 export const PagePreview: React.FC<{
+  index?: number;
   data: PageType;
   layout?: "vertical" | "horizontal";
   alignment?: TextAlignmentType;
   animate?: boolean
-}> = ({ data, layout = "vertical", alignment, animate }) => {
+}> = ({ index, data, layout = "vertical", alignment, animate }) => {
   const { title, url, metaTitle, metaImage } = data;
   const darkMode = useContext(DarkModeContext);
   const [ref, isIntersecting] = useInView({
@@ -22,14 +23,13 @@ export const PagePreview: React.FC<{
     return (
       <div
         ref={ref}
-        className={classNames(
-          "rounded-theme flex gap-5",
-          { "relative -bottom-10 opacity-0": animate },
-          {
-            "animate-slidingUpContent animation-delay-150":
-              isIntersecting && animate,
-          }
-        )}
+        className={classNames("rounded-theme flex gap-5", {
+          "relative -bottom-10 opacity-0": animate,
+          "animate-slidingUpContent": isIntersecting && animate,
+        })}
+        style={{
+          animationDelay: index && animate ? `${(index + 1) * 0.15}s` : "0s",
+        }}
       >
         <div className="basis-1/3 flex-1">
           <Link href={url}>
@@ -54,17 +54,21 @@ export const PagePreview: React.FC<{
   return (
     <div
       ref={ref}
-      className={classNames(
-        "group rounded-theme flex flex-col pb-4 lg:pb-6",
-        { "relative -bottom-10 opacity-0": animate },
-        {
-          "animate-slidingUpContent animation-delay-150":
-            isIntersecting && animate,
-        }
-      )}
+      className={classNames("group rounded-theme flex flex-col pb-4 lg:pb-6", {
+        "relative -bottom-10 opacity-0": animate,
+        "animate-slidingUpContent": isIntersecting && animate,
+      })}
+      style={{
+        animationDelay: index && animate ? `${(index + 1) * 0.15}s` : "0s",
+      }}
     >
       <Link href={url}>
-        <MediaItem data={metaImage} altText={metaImage?.title} aspectRatio="4/3" zoomInOverHover />
+        <MediaItem
+          data={metaImage}
+          altText={metaImage?.title}
+          aspectRatio="4/3"
+          zoomInOverHover
+        />
         <h4
           className={classNames(
             "mt-4 text-lg xl:text-xl font-heading font-semibold transition-colors duration-300 ease-in-out",

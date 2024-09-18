@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import classNames from "classnames";
 import { TextAlignmentType, TestimonialType } from "@/helpers/types";
 import { MediaItem } from "../MediaItem/MediaItem";
@@ -8,10 +8,11 @@ import { BiSolidQuoteAltLeft } from "react-icons/bi";
 import { MarkdownRenderer } from "../MarkdownRenderer/MarkdownRenderer";
 
 export const Testimonial: React.FC<{
+  index?: number;
   data: TestimonialType;
   alignment?: TextAlignmentType;
   animate?: boolean;
-}> = ({ data, alignment = "center", animate }) => {
+}> = ({ index, data, alignment = "center", animate }) => {
   const { content, portrait, name, role, rating } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
@@ -20,22 +21,23 @@ export const Testimonial: React.FC<{
   return (
     <div
       ref={ref}
-      className={classNames(
-        "px-4 flex flex-col rounded-theme",
-        { "relative -bottom-10 opacity-0": animate },
-        {
-          "animate-slidingUpContent animation-delay-150":
-            isIntersecting && animate,
-        },
-        { "items-center": alignment === "center" },
-        { "items-end": alignment === "end" }
-      )}
+      className={classNames("px-4 flex flex-col rounded-theme", {
+        "relative -bottom-10 opacity-0": animate,
+        "animate-slidingUpContent": isIntersecting && animate,
+        "items-center": alignment === "center",
+        "items-end": alignment === "end",
+      })}
+      style={{
+        animationDelay: (index && animate) ? `${(index + 1) * 0.15}s` : "0s",
+      }}
     >
       <div
         className={classNames(
           "relative prose 2xl:prose-lg mb-6 leading-loose dark:text-slate-100",
-          { "text-center": alignment === "center" },
-          { "text-end": alignment === "end" }
+          {
+            "text-center": alignment === "center",
+            "text-end": alignment === "end",
+          }
         )}
       >
         <BiSolidQuoteAltLeft
@@ -60,11 +62,10 @@ export const Testimonial: React.FC<{
         </div>
       )}
       <div
-        className={classNames(
-          "flex flex-wrap items-center gap-4",
-          { "justify-center": alignment === "center" },
-          { "justify-end": alignment === "end" }
-        )}
+        className={classNames("flex flex-wrap items-center gap-4", {
+          "justify-center": alignment === "center",
+          "justify-end": alignment === "end",
+        })}
       >
         {portrait && (
           <div className="w-12 h-12">
