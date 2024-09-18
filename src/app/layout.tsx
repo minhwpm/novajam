@@ -9,7 +9,7 @@ export default async function Layout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="dark:bg-slate-900 dark:text-slate-100">
+      <body className="dark:bg-slate-900 dark:text-slate-100 transition-colors duration-500">
         {children}
         <Analytics />
         <SpeedInsights />

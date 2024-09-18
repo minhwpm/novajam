@@ -68,7 +68,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
         <div
           className={classNames(
             "absolute top-0 left-0 right-0 flex justify-center dark:text-slate-100 transition-all duration-500",
-            {"bg-white dark:bg-slate-900/60 dark:backdrop-blur-2xl shadow-lg": sticky}
+            {"bg-white dark:bg-slate-900/60 dark:backdrop-blur-2xl shadow": sticky}
           )}
         >
           <div className="container px-4 flex items-center gap-x-4">
@@ -96,7 +96,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
     // Default style - standard
     <header
       className={classNames("relative z-[99999] tracking-wider", {
-        "sticky w-full z-50 top-0 animate-headerSlideIn shadow-lg": sticky,
+        "sticky w-full z-50 top-0 animate-headerSlideIn shadow": sticky,
         dark: darkMode,
       })}
     >
