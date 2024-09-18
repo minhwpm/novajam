@@ -1,15 +1,15 @@
-import normalizeDataCollection from "./normalizeDataCollection";
-import footers from "./static-data/footers.json";
+import normalizeDataCollection from './normalizeDataCollection';
+import footers from './static-data/footers.json';
 
 export default async function getFooter(url: string) {
-  if (process.env.DATA_SOURCE === "CONTENTFUL") {
+  if (process.env.DATA_SOURCE === 'CONTENTFUL') {
     try {
       const res = await fetch(
         `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
             // Authenticate the request
             Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
           },
@@ -70,7 +70,7 @@ export default async function getFooter(url: string) {
               url,
             },
           }),
-        }
+        },
       );
 
       if (!res.ok) {
@@ -78,7 +78,7 @@ export default async function getFooter(url: string) {
         throw new Error(
           `Failed to fetch Footer data: ${
             errorData.errors?.[0]?.message || res.statusText
-          }`
+          }`,
         );
       }
 

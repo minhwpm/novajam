@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import { useInView } from "react-hook-inview";
-import { Button } from "@/components/elements/Button/Button";
-import { TextAlignmentType, PricingPlanType } from "@/helpers/types";
-import { MarkdownRenderer } from "../MarkdownRenderer/MarkdownRenderer";
+import classNames from 'classnames';
+import { useInView } from 'react-hook-inview';
+import { Button } from '@/components/elements/Button/Button';
+import { TextAlignmentType, PricingPlanType } from '@/helpers/types';
+import { MarkdownRenderer } from '../MarkdownRenderer/MarkdownRenderer';
 
 export const PricingPlan: React.FC<{
   index?: number;
@@ -20,14 +20,14 @@ export const PricingPlan: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "relative flex flex-col gap-6 items-center rounded-theme bg-white dark:bg-opacity-10 py-10",
+        'relative flex flex-col gap-6 items-center rounded-theme bg-white dark:bg-opacity-10 py-10',
         {
-          "-bottom-10 opacity-0": animate,
-          "animate-slidingUpContent": isIntersecting && animate,
-        }
+          '-bottom-10 opacity-0': animate,
+          'animate-slidingUpContent': isIntersecting && animate,
+        },
       )}
       style={{
-        animationDelay: (index && animate) ? `${(index + 1) * 0.15}s` : "0s",
+        animationDelay: index && animate ? `${(index + 1) * 0.15}s` : '0s',
       }}
     >
       {badge && (
@@ -37,7 +37,7 @@ export const PricingPlan: React.FC<{
       )}
       <h4
         className={classNames(
-          "font-semibold tracking-wide text-primary-600 dark:text-primary-6000/50"
+          'font-semibold tracking-wide text-primary-600 dark:text-primary-6000/50',
         )}
       >
         {title}
@@ -45,14 +45,14 @@ export const PricingPlan: React.FC<{
       <div className="flex flex-col items-center">
         <div
           className={classNames(
-            "text-4xl xl:text-5xl font-bold dark:text-slate-100"
+            'text-4xl xl:text-5xl font-bold dark:text-slate-100',
           )}
         >
           {pricing}
         </div>
         <div
           className={classNames(
-            "text-sm tracking-wide text-slate-500 dark:text-slate-100/70"
+            'text-sm tracking-wide text-slate-500 dark:text-slate-100/70',
           )}
         >
           {pricingSuffix}
@@ -68,11 +68,11 @@ export const PricingPlan: React.FC<{
       {description && (
         <div
           className={classNames(
-            "pt-6 px-6 border-t prose leading-loose dark:text-slate-100/70 dark:border-slate-700",
+            'pt-6 px-6 border-t prose leading-loose dark:text-slate-100/70 dark:border-slate-700',
             {
-              "text-center": alignment === "center",
-              "text-end": alignment === "end",
-            }
+              'text-center': alignment === 'center',
+              'text-end': alignment === 'end',
+            },
           )}
         >
           <MarkdownRenderer>{description}</MarkdownRenderer>

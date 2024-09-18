@@ -1,16 +1,16 @@
-import getSubmenu from "./getSubmenu";
-import normalizeDataCollection from "./normalizeDataCollection";
-import navigations from "./static-data/navigations.json";
+import getSubmenu from './getSubmenu';
+import normalizeDataCollection from './normalizeDataCollection';
+import navigations from './static-data/navigations.json';
 
 export default async function getNavigation(url: string) {
-  if (process.env.DATA_SOURCE === "CONTENTFUL") {
+  if (process.env.DATA_SOURCE === 'CONTENTFUL') {
     try {
       const res = await fetch(
         `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
             // Authenticate the request
             Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
           },
@@ -97,7 +97,7 @@ export default async function getNavigation(url: string) {
               url,
             },
           }),
-        }
+        },
       );
 
       if (!res.ok) {
@@ -105,7 +105,7 @@ export default async function getNavigation(url: string) {
         throw new Error(
           `Failed to fetch Navigation data: ${
             errorData.errors?.[0]?.message || res.statusText
-          }`
+          }`,
         );
       }
 
@@ -117,21 +117,21 @@ export default async function getNavigation(url: string) {
           normalizedData[0]?.menu.map(
             async (
               menuItem: { contentType: string; id: string },
-              index: string | number
+              index: string | number,
             ) => {
-              if (menuItem.contentType === "submenu") {
+              if (menuItem.contentType === 'submenu') {
                 const submenuData = await getSubmenu(menuItem.id);
                 normalizedData[0].menu[index] = { ...menuItem, ...submenuData };
               }
-            }
-          )
+            },
+          ),
         ));
 
       return normalizedData[0];
     } catch (error) {
       console.error(error);
       throw new Error(
-        `An error occurred while fetching navigation data: ${error}`
+        `An error occurred while fetching navigation data: ${error}`,
       );
     }
   }

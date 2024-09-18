@@ -1,15 +1,15 @@
-"use client";
-import React from "react";
-import classNames from "classnames";
-import * as RadixAccordion from "@radix-ui/react-accordion";
-import { Section } from "@/components/elements/Section/Section";
-import { ContentPTType } from "@/helpers/types";
-import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer";
-import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
-import { useInView } from "react-hook-inview";
-import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
-import { FaChevronDown } from "react-icons/fa";
-import "@/app/styles/bg-color.css";
+'use client';
+import React from 'react';
+import classNames from 'classnames';
+import * as RadixAccordion from '@radix-ui/react-accordion';
+import { Section } from '@/components/elements/Section/Section';
+import { ContentPTType } from '@/helpers/types';
+import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
+import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
+import { useInView } from 'react-hook-inview';
+import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
+import { FaChevronDown } from 'react-icons/fa';
+import '@/app/styles/bg-color.css';
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const {
@@ -42,16 +42,16 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       <div
         ref={ref}
         className={classNames(
-          "w-full flex flex-col gap-10 relative -bottom-10 opacity-0",
+          'w-full flex flex-col gap-10 relative -bottom-10 opacity-0',
           {
-            "animate-slidingUpContent animation-delay-300": isIntersecting,
-          }
+            'animate-slidingUpContent animation-delay-300': isIntersecting,
+          },
         )}
       >
         <RadixAccordion.Root
           type="multiple"
           className={classNames(
-            "w-full lg:w-[800px] mx-auto flex flex-col items-start justify-center"
+            'w-full lg:w-[800px] mx-auto flex flex-col items-start justify-center',
           )}
         >
           {content &&
@@ -61,7 +61,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 key={section.id}
                 value={section.id}
                 className={classNames(
-                  "group w-full border-b border-slate-200 data-[state=closed]:hover:text-slate-100 dark:text-slate-100"
+                  'group w-full border-b border-slate-200 data-[state=closed]:hover:text-slate-100 dark:text-slate-100',
                 )}
               >
                 <RadixAccordion.Trigger asChild>
@@ -70,7 +70,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       {section.eyebrow && (
                         <div
                           className={classNames(
-                            "text-sm font-medium tracking-widest text-slate-500 dark:text-slate-100/70"
+                            'text-sm font-medium tracking-widest text-slate-500 dark:text-slate-100/70',
                           )}
                         >
                           {section.eyebrow}
@@ -79,7 +79,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       {section.displayTitle && (
                         <div
                           className={classNames(
-                            "text-xl xl:text-2xl dark:text-slate-100"
+                            'text-xl xl:text-2xl dark:text-slate-100',
                           )}
                         >
                           <MarkdownRenderer>
@@ -91,16 +91,16 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     <FaChevronDown
                       size={20}
                       className={classNames(
-                        "inline-block shrink-0 mt-1 transition-transform duration-500 group-data-[state=open]:rotate-180 dark:text-slate-100"
+                        'inline-block shrink-0 mt-1 transition-transform duration-500 group-data-[state=open]:rotate-180 dark:text-slate-100',
                       )}
                     />
                   </div>
                 </RadixAccordion.Trigger>
                 <RadixAccordion.Content
                   className={classNames(
-                    "overflow-hidden data-[state=closed]:animate-accordionSlideUp data-[state=open]:animate-accordionSlideDown",
-                    { "text-center": contentTextAlignment === "center" },
-                    { "text-end": contentTextAlignment === "end" }
+                    'overflow-hidden data-[state=closed]:animate-accordionSlideUp data-[state=open]:animate-accordionSlideDown',
+                    { 'text-center': contentTextAlignment === 'center' },
+                    { 'text-end': contentTextAlignment === 'end' },
                   )}
                 >
                   <div className="pb-8 xl:pb-10">
@@ -115,10 +115,10 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     {section.description && (
                       <div
                         className={classNames(
-                          "prose xl:prose-lg max-w-none group-data-[state=closed]:text-transparent",
+                          'prose xl:prose-lg max-w-none group-data-[state=closed]:text-transparent',
                           {
-                            "text-slate-100": darkMode,
-                          }
+                            'text-slate-100': darkMode,
+                          },
                         )}
                       >
                         <MarkdownRenderer>
@@ -127,7 +127,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       </div>
                     )}
                     {section.buttons && section.buttons.length > 0 && (
-                      <div className={classNames("mt-8")}>
+                      <div className={classNames('mt-8')}>
                         <ButtonGroup
                           data={section.buttons}
                           alignment={contentTextAlignment}

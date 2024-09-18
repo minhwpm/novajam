@@ -1,14 +1,14 @@
-"use client";
-import classNames from "classnames";
-import { useInView } from "react-hook-inview";
-import { TextAlignmentType, StatisticsType } from "@/helpers/types";
+'use client';
+import classNames from 'classnames';
+import { useInView } from 'react-hook-inview';
+import { TextAlignmentType, StatisticsType } from '@/helpers/types';
 
 export const Statistics: React.FC<{
   data: StatisticsType;
-  layout: "horizontal" | "vertical";
+  layout: 'horizontal' | 'vertical';
   index: number;
   alignment?: TextAlignmentType;
-}> = ({ data, index, layout = "vertical", alignment }) => {
+}> = ({ data, index, layout = 'vertical', alignment }) => {
   const { number, text } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 1,
@@ -19,16 +19,16 @@ export const Statistics: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        "flex gap-6 rounded-theme",
-        { "flex-col": layout === "vertical" },
-        { "flex-row": layout === "vertical" },
-        { "perspective-2500 backface-hidden -rotate-y-90": !isIntersecting },
+        'flex gap-6 rounded-theme',
+        { 'flex-col': layout === 'vertical' },
+        { 'flex-row': layout === 'vertical' },
+        { 'perspective-2500 backface-hidden -rotate-y-90': !isIntersecting },
         {
-          "perspective-none backface-hidden rotate-y-0 transition-transform ease duration-1000 ":
+          'perspective-none backface-hidden rotate-y-0 transition-transform ease duration-1000 ':
             isIntersecting,
         },
-        { "items-center": alignment === "center" },
-        { "items-end": alignment === "end" }
+        { 'items-center': alignment === 'center' },
+        { 'items-end': alignment === 'end' },
       )}
       style={{
         transitionDelay: `${(index + 1) * 0.2}s`,
@@ -36,22 +36,22 @@ export const Statistics: React.FC<{
     >
       <div
         className={classNames(
-          "font-heading text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight dark:text-slate-100",
+          'font-heading text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight dark:text-slate-100',
           {
-            "text-center": alignment === "center",
-            "text-end": alignment === "end",
-          }
+            'text-center': alignment === 'center',
+            'text-end': alignment === 'end',
+          },
         )}
       >
         {number}
       </div>
       <div
         className={classNames(
-          "tracking-wide leading-loose pb-4 text-slate-500 dark:text-slate-100/70",
+          'tracking-wide leading-loose pb-4 text-slate-500 dark:text-slate-100/70',
           {
-            "text-center": alignment === "center",
-            "text-end": alignment === "end",
-          }
+            'text-center': alignment === 'center',
+            'text-end': alignment === 'end',
+          },
         )}
       >
         {text}

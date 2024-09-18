@@ -6,41 +6,41 @@
 }
 @media (min-width: 640px) {
   .custom-padding-right {
-    padding-right: calc((100vw + 2rem - 640px)/2) !important;
+    padding-right: calc((100vw + 2rem - 640px) / 2) !important;
   }
   .custom-padding-left {
-    padding-left: calc((100vw + 2rem - 640px)/2) !important;
+    padding-left: calc((100vw + 2rem - 640px) / 2) !important;
   }
 }
 @media (min-width: 768px) {
   .custom-padding-right {
-    padding-right: calc((100vw + 2rem - 768px)/2) !important;
+    padding-right: calc((100vw + 2rem - 768px) / 2) !important;
   }
   .custom-padding-left {
-    padding-left: calc((100vw + 2rem - 768px)/2) !important;
+    padding-left: calc((100vw + 2rem - 768px) / 2) !important;
   }
 }
 @media (min-width: 1024px) {
   .custom-padding-right {
-    padding-right: calc((100vw + 2rem - 1024px)/2) !important;
+    padding-right: calc((100vw + 2rem - 1024px) / 2) !important;
   }
   .custom-padding-left {
-    padding-left: calc((100vw + 2rem - 1024px)/2) !important;
+    padding-left: calc((100vw + 2rem - 1024px) / 2) !important;
   }
 }
 @media (min-width: 1280px) {
   .custom-padding-right {
-    padding-right: calc((100vw + 2rem - 1140px)/2) !important;
+    padding-right: calc((100vw + 2rem - 1140px) / 2) !important;
   }
   .custom-padding-left {
-    padding-left: calc((100vw + 2rem - 1140px)/2) !important;
+    padding-left: calc((100vw + 2rem - 1140px) / 2) !important;
   }
 }
 @media (min-width: 1536px) {
   .custom-padding-right {
-    padding-right: calc((100vw + 2rem - 1400px)/2) !important;
+    padding-right: calc((100vw + 2rem - 1400px) / 2) !important;
   }
   .custom-padding-left {
-    padding-left: calc((100vw + 2rem - 1400px)/2) !important;
+    padding-left: calc((100vw + 2rem - 1400px) / 2) !important;
   }
 }

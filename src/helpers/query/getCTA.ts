@@ -1,14 +1,14 @@
-import getForm from "./getForm";
-import normalizeDataCollection from "./normalizeDataCollection";
+import getForm from './getForm';
+import normalizeDataCollection from './normalizeDataCollection';
 
 export default async function getCTA(id: string) {
   try {
     const res = await fetch(
       `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
         },
         body: JSON.stringify({
@@ -70,7 +70,7 @@ export default async function getCTA(id: string) {
             id,
           },
         }),
-      }
+      },
     );
 
     if (!res.ok) {
@@ -78,21 +78,20 @@ export default async function getCTA(id: string) {
       throw new Error(
         `Failed to fetch section CTA data: ${
           errorData.errors?.[0]?.message || res.statusText
-        }`
+        }`,
       );
     }
 
     const data = await res.json();
     const normalizedData = normalizeDataCollection(data.data);
     if (normalizedData[0].form) {
-      normalizedData[0].form = await getForm(normalizedData[0].form.sys.id)
+      normalizedData[0].form = await getForm(normalizedData[0].form.sys.id);
     }
     return normalizedData[0];
-
   } catch (error) {
     console.error(error);
     throw new Error(
-      `An error occurred while fetching section CTA data: ${error}`
+      `An error occurred while fetching section CTA data: ${error}`,
     );
   }
 }

@@ -1,9 +1,9 @@
-import ReactSelect from "react-select";
-import { useController } from "react-hook-form";
-import { FormFieldType } from "@/helpers/types";
-import { Control } from "react-hook-form/dist/types/form";
-import { FormValues } from "./Form";
-import { useEffect, useState } from "react";
+import ReactSelect from 'react-select';
+import { useController } from 'react-hook-form';
+import { FormFieldType } from '@/helpers/types';
+import { Control } from 'react-hook-form/dist/types/form';
+import { FormValues } from './Form';
+import { useEffect, useState } from 'react';
 
 export const SelectField: React.FC<{
   data: FormFieldType;
@@ -14,37 +14,39 @@ export const SelectField: React.FC<{
     control,
     rules: { required: data.required },
   });
-  const [isClient, setIsClient] = useState(false)
-  useEffect(() => { // for fixing hydration warnings and errors
-    setIsClient(true)
-  }, [])
-  
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    // for fixing hydration warnings and errors
+    setIsClient(true);
+  }, []);
+
   return isClient ? (
     <ReactSelect
       className="w-full"
       name={data.label}
-      options={data.options?.map(option => {
+      options={data.options?.map((option) => {
         return {
           label: option,
-          value: option
-        }
+          value: option,
+        };
       })}
       styles={{
         control: (baseStyles) => ({
           ...baseStyles,
-          padding: "8px 6px",
-          borderColor: "rgb(212 212 212)",
-          borderRadius: "var(--border-radius-theme-button)",
+          padding: '8px 6px',
+          borderColor: 'rgb(212 212 212)',
+          borderRadius: 'var(--border-radius-theme-button)',
         }),
       }}
-      placeholder={(
+      placeholder={
         <div className="text-slate-500">
-          {(data.placeholder ? data.placeholder : data.label) + (data.required ? "*" : "")}
+          {(data.placeholder ? data.placeholder : data.label) +
+            (data.required ? '*' : '')}
         </div>
-      )}
+      }
       onChange={(selectedOption) => {
-        field.onChange(selectedOption?.value)
+        field.onChange(selectedOption?.value);
       }}
     />
-  ) : null
-}
+  ) : null;
+};

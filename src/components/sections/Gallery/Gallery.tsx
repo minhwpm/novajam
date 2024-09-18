@@ -1,14 +1,14 @@
-"use client"
-import classNames from "classnames";
-import { createContext } from "react"
-import { Section } from "@/components/elements/Section/Section";
-import { ContentListType } from "@/helpers/types";
-import { CarouselLayout } from "@/components/sections/GalleryCarousel/GalleryCarousel";
-import { MasonryLayout } from "@/components/sections/GalleryMasonry/GalleryMasonry";
-import { DeckLayout } from "@/components/sections/GalleryDeck/GalleryDeck";
-import "@/app/styles/bg-color.css";
+'use client';
+import classNames from 'classnames';
+import { createContext } from 'react';
+import { Section } from '@/components/elements/Section/Section';
+import { ContentListType } from '@/helpers/types';
+import { CarouselLayout } from '@/components/sections/GalleryCarousel/GalleryCarousel';
+import { MasonryLayout } from '@/components/sections/GalleryMasonry/GalleryMasonry';
+import { DeckLayout } from '@/components/sections/GalleryDeck/GalleryDeck';
+import '@/app/styles/bg-color.css';
 
-export const DarkModeContext = createContext(false)
+export const DarkModeContext = createContext(false);
 export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
   const {
     displayTitle,
@@ -25,7 +25,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     backgroundColor,
     backgroundImage,
     darkMode,
-    sectionSeparator
+    sectionSeparator,
   } = data;
   return (
     <DarkModeContext.Provider value={darkMode}>
@@ -36,7 +36,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         summary={summary}
         buttons={buttons}
         alignment={headingTextAlignment}
-        framed={appearanceVariant !== "carousel"}
+        framed={appearanceVariant !== 'carousel'}
         backgroundColor={backgroundColor}
         backgroundImage={backgroundImage}
         sectionSeparator={sectionSeparator}
@@ -45,7 +45,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
           dark: darkMode,
         })}
       >
-        {appearanceVariant === "carousel" && (
+        {appearanceVariant === 'carousel' && (
           <CarouselLayout
             contentItems={contentItems}
             size={size}
@@ -53,7 +53,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
             layout={contentOrientation}
           />
         )}
-        {appearanceVariant === "masonry" && (
+        {appearanceVariant === 'masonry' && (
           <MasonryLayout
             contentItems={contentItems}
             size={size}
@@ -61,7 +61,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
             layout={contentOrientation}
           />
         )}
-        {appearanceVariant === "deck" && (
+        {appearanceVariant === 'deck' && (
           <DeckLayout
             contentItems={contentItems}
             size={size}
@@ -72,4 +72,4 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
       </Section>
     </DarkModeContext.Provider>
   );
-}
+};

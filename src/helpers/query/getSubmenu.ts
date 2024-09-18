@@ -1,14 +1,14 @@
-import getLinkGroup from "./getLinkGroup";
-import normalizeDataCollection from "./normalizeDataCollection";
+import getLinkGroup from './getLinkGroup';
+import normalizeDataCollection from './normalizeDataCollection';
 
 export default async function getSubmenu(id: string) {
   try {
     const res = await fetch(
       `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           // Authenticate the request
           Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
         },
@@ -86,7 +86,7 @@ export default async function getSubmenu(id: string) {
             id,
           },
         }),
-      }
+      },
     );
 
     if (!res.ok) {
@@ -94,7 +94,7 @@ export default async function getSubmenu(id: string) {
       throw new Error(
         `Failed to fetch Submenu data: ${
           errorData.errors?.[0]?.message || res.statusText
-        }`
+        }`,
       );
     }
 
@@ -102,7 +102,7 @@ export default async function getSubmenu(id: string) {
     const normalizedData = normalizeDataCollection(data.data);
 
     for (let i = 0; i < normalizedData[0].menu.length; i++) {
-      if (normalizedData[0].menu[i]?.contentType === "linkgroup") {
+      if (normalizedData[0].menu[i]?.contentType === 'linkgroup') {
         normalizedData[0].menu[i] = {
           ...normalizedData[0].menu[i],
           ...(await getLinkGroup(normalizedData[0].menu[i].id)),
@@ -112,8 +112,6 @@ export default async function getSubmenu(id: string) {
     return normalizedData[0];
   } catch (error) {
     console.error(error);
-    throw new Error(
-      `An error occurred while fetching submenu data: ${error}`
-    );
+    throw new Error(`An error occurred while fetching submenu data: ${error}`);
   }
 }

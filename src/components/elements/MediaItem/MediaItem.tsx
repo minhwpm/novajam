@@ -1,9 +1,9 @@
-"use client";
-import Image from "next/image";
-import classNames from "classnames";
-import { useRef, useState } from "react";
-import { MediaAspectRatioType, MediaType } from "@/helpers/types";
-import { FaPlay } from "react-icons/fa";
+'use client';
+import Image from 'next/image';
+import classNames from 'classnames';
+import { useRef, useState } from 'react';
+import { MediaAspectRatioType, MediaType } from '@/helpers/types';
+import { FaPlay } from 'react-icons/fa';
 
 export const MediaItem: React.FC<{
   data: MediaType | null;
@@ -11,47 +11,47 @@ export const MediaItem: React.FC<{
   aspectRatio?: MediaAspectRatioType;
   videoAutoplay?: boolean;
   videoControls?: boolean;
-  dimensionBase?: "width" | "height";
+  dimensionBase?: 'width' | 'height';
   priority?: boolean;
-  rounded?: "theme" | "full" | "none";
-  zoomInOverHover?: boolean
+  rounded?: 'theme' | 'full' | 'none';
+  zoomInOverHover?: boolean;
 }> = ({
   data,
   altText,
-  aspectRatio = "auto",
+  aspectRatio = 'auto',
   videoAutoplay = false,
   videoControls = true,
-  dimensionBase = "width",
+  dimensionBase = 'width',
   priority = false,
-  rounded = "theme",
-  zoomInOverHover = false
+  rounded = 'theme',
+  zoomInOverHover = false,
 }) => {
   const aspectRatioClass = classNames(
-    {"aspect-square": aspectRatio === "square"},
-    {"aspect-video": aspectRatio === "16/9"},
-    {"aspect-4/3": aspectRatio === "4/3"},
-    {"aspect-3/2": aspectRatio === "3/2"},
-    {"aspect-3/4": aspectRatio === "3/4"},
-  )
+    { 'aspect-square': aspectRatio === 'square' },
+    { 'aspect-video': aspectRatio === '16/9' },
+    { 'aspect-4/3': aspectRatio === '4/3' },
+    { 'aspect-3/2': aspectRatio === '3/2' },
+    { 'aspect-3/4': aspectRatio === '3/4' },
+  );
   if (!data) {
     return (
       <div
         className={classNames(
-          "overflow-hidden",
+          'overflow-hidden',
           [aspectRatioClass],
-          { "w-full": dimensionBase === "width" },
-          { "h-full": dimensionBase === "height" },
-          `rounded-${rounded}`
+          { 'w-full': dimensionBase === 'width' },
+          { 'h-full': dimensionBase === 'height' },
+          `rounded-${rounded}`,
         )}
       >
         <Image
-          className={classNames("object-cover w-full h-full",
-            {"hover:scale-110 transition-all duration-500": zoomInOverHover}
-          )}
+          className={classNames('object-cover w-full h-full', {
+            'hover:scale-110 transition-all duration-500': zoomInOverHover,
+          })}
           src="/fallback-image.webp"
           width={500}
           height={500}
-          alt={altText ?? "No image"}
+          alt={altText ?? 'No image'}
           priority={priority}
         />
       </div>
@@ -62,45 +62,45 @@ export const MediaItem: React.FC<{
   return (
     <div
       className={classNames(
-        "overflow-hidden relative",
+        'overflow-hidden relative',
         {
-          [aspectRatioClass]: width >= 200 || contentType.includes("video"),
+          [aspectRatioClass]: width >= 200 || contentType.includes('video'),
         },
         {
-          "w-full":
-            dimensionBase === "width" &&
-            (contentType.includes("video") ||
+          'w-full':
+            dimensionBase === 'width' &&
+            (contentType.includes('video') ||
               width >= 200 ||
-              contentType.includes("video")),
+              contentType.includes('video')),
         },
         {
-          "h-full":
-            dimensionBase === "height" &&
-            (contentType.includes("video") ||
+          'h-full':
+            dimensionBase === 'height' &&
+            (contentType.includes('video') ||
               width >= 200 ||
-              contentType.includes("video")),
+              contentType.includes('video')),
         },
-        {[`rounded-${rounded}`]: width >= 200}
+        { [`rounded-${rounded}`]: width >= 200 },
       )}
     >
-      {contentType.includes("image") && (
+      {contentType.includes('image') && (
         <Image
           className={classNames(
-            "not-prose",
-            { "object-cover w-full h-full": width >= 200 },
-            { "object-contain": width < 200 },
+            'not-prose',
+            { 'object-cover w-full h-full': width >= 200 },
+            { 'object-contain': width < 200 },
             {
-              "hover:scale-110 transition-all duration-500": zoomInOverHover,
-            }
+              'hover:scale-110 transition-all duration-500': zoomInOverHover,
+            },
           )}
-          src={url ?? "/fallback-image.webp"}
+          src={url ?? '/fallback-image.webp'}
           alt={altText ?? title}
           width={width}
           height={height}
           priority={priority}
         />
       )}
-      {contentType.includes("video") && (
+      {contentType.includes('video') && (
         <Video
           url={url}
           title={title}
@@ -127,15 +127,15 @@ const Video = ({
   videoAutoplay: boolean;
   videoControls: boolean;
   type: string;
-  zoomInOnHover: boolean
+  zoomInOnHover: boolean;
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoStarted, setVideoStarted] = useState(false);
   return (
     <>
       <video
-        className={classNames("not-prose object-cover w-full h-full", {
-          "hover:scale-110 transition-all duration-500": zoomInOnHover,
+        className={classNames('not-prose object-cover w-full h-full', {
+          'hover:scale-110 transition-all duration-500': zoomInOnHover,
         })}
         src={url}
         autoPlay={videoAutoplay}

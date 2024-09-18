@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-export const MarkdownRenderer: React.FC<{children: string, className?: string}> = ({ children, className }) => {
+export const MarkdownRenderer: React.FC<{
+  children: string;
+  className?: string;
+}> = ({ children, className }) => {
   return <ReactMarkdown className={className}>{children}</ReactMarkdown>;
 };

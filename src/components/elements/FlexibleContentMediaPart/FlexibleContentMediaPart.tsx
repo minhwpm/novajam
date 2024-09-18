@@ -1,37 +1,47 @@
-import { TextAlignmentType, FlexibleContentType, MediaAspectRatioType } from "@/helpers/types";
-import classNames from "classnames";
-import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
-import { MediaCarousel } from "@/components/elements/MediaCarousel/MediaCarousel";
+import {
+  TextAlignmentType,
+  FlexibleContentType,
+  MediaAspectRatioType,
+} from '@/helpers/types';
+import classNames from 'classnames';
+import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
+import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
 
 export const FlexibleContentMediaPart: React.FC<{
   data: FlexibleContentType;
   className?: string;
   alignment?: TextAlignmentType;
-  aspectRatio?: MediaAspectRatioType,
-  rounded?: "theme" | "full" | "none"
-}> = ({ data, className, alignment, aspectRatio = "4/3", rounded = "theme"}) => {
+  aspectRatio?: MediaAspectRatioType;
+  rounded?: 'theme' | 'full' | 'none';
+}> = ({
+  data,
+  className,
+  alignment,
+  aspectRatio = '4/3',
+  rounded = 'theme',
+}) => {
   const { media, embeddedMediaUrl, embeddedMediaTitle } = data;
   return (
     <div
       className={classNames(
-        "flex",
-        { "justify-center": alignment === "center" },
-        { "justify-end": alignment === "end" },
-        className
+        'flex',
+        { 'justify-center': alignment === 'center' },
+        { 'justify-end': alignment === 'end' },
+        className,
       )}
     >
       {embeddedMediaUrl && (
         <div
           className={classNames(
-            "w-full overflow-hidden",
-            `aspect-${aspectRatio === "auto" ? "video" : aspectRatio}`,
-            `rounded-${rounded}`
+            'w-full overflow-hidden',
+            `aspect-${aspectRatio === 'auto' ? 'video' : aspectRatio}`,
+            `rounded-${rounded}`,
           )}
         >
           <iframe
             src={embeddedMediaUrl}
             width="100%"
-            title={embeddedMediaTitle ?? ""}
+            title={embeddedMediaTitle ?? ''}
             className="w-full h-full object-cover"
             allowFullScreen={true}
           />

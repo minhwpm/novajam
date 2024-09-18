@@ -1,16 +1,17 @@
-"use client"
-import Link from "next/link"
-import readingTime from 'reading-time'
-import { Container }from "@/components/elements/Container/Container"
-import { ExpertPreview } from "@/components/elements/ExpertPreview/ExpertPreview"
-import { BlogType } from "@/helpers/types"
-import { format } from 'date-fns'
-import { MediaItem } from "@/components/elements/MediaItem/MediaItem"
-import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer"
+'use client';
+import Link from 'next/link';
+import readingTime from 'reading-time';
+import { Container } from '@/components/elements/Container/Container';
+import { ExpertPreview } from '@/components/elements/ExpertPreview/ExpertPreview';
+import { BlogType } from '@/helpers/types';
+import { format } from 'date-fns';
+import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
+import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 
-export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
-  const { title, summary, content, media, topics, author, firstPublishedAt } = data
-  const readingTimeStats = readingTime(content ?? "")
+export const BlogPost: React.FC<{ data: BlogType }> = ({ data }) => {
+  const { title, summary, content, media, topics, author, firstPublishedAt } =
+    data;
+  const readingTimeStats = readingTime(content ?? '');
   return (
     <div>
       <Container>
@@ -27,7 +28,7 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
             <div className="lg:w-3/4 xl:w-2/3">
               <div className="flex flex-wrap justify-between items-center mb-4">
                 <div className="text-slate-500">
-                  {format(Date.parse(firstPublishedAt), "MMMM dd, yyyy")}
+                  {format(Date.parse(firstPublishedAt), 'MMMM dd, yyyy')}
                 </div>
                 {!!readingTimeStats?.minutes && (
                   <div className="text-slate-400 text-sm font-medium uppercase mb-5">
@@ -35,7 +36,7 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
                   </div>
                 )}
               </div>
-              
+
               {topics && topics?.length > 0 && (
                 <div className="flex items-center gap-4">
                   <div className="text-sm tracking-wide text-slate-400">
@@ -63,7 +64,7 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
           </div>
           <div className="mt-10 flex flex-col items-center gap-10 text-lg">
             <div className="lg:w-3/4 xl:w-2/3 mb-10 prose xl:prose-lg max-w-none overflow-x-hidden text-slate-500">
-              <MarkdownRenderer>{content ?? ""}</MarkdownRenderer>
+              <MarkdownRenderer>{content ?? ''}</MarkdownRenderer>
             </div>
             {author && (
               <div className="lg:w-3/4 xl:w-2/3 text-lg">
@@ -78,4 +79,4 @@ export const BlogPost: React.FC<{data: BlogType}> = ({ data }) => {
       </Container>
     </div>
   );
-}
+};

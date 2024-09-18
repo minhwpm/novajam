@@ -1,21 +1,21 @@
-import getContentList from "./getContentList";
-import getFeaturedContent from "./getFeaturedContent";
-import getHero from "./getHero";
-import getContentPT from "./getContentPT";
-import normalizeDataCollection from "./normalizeDataCollection";
-import pages from "./static-data/pages.json";
-import getAlert from "./getAlert";
-import getCTA from "./getCTA";
+import getContentList from './getContentList';
+import getFeaturedContent from './getFeaturedContent';
+import getHero from './getHero';
+import getContentPT from './getContentPT';
+import normalizeDataCollection from './normalizeDataCollection';
+import pages from './static-data/pages.json';
+import getAlert from './getAlert';
+import getCTA from './getCTA';
 
 export default async function getPage(url: string) {
-  if (process.env.DATA_SOURCE === "CONTENTFUL") {
+  if (process.env.DATA_SOURCE === 'CONTENTFUL') {
     try {
       const res = await fetch(
         `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
             // Authenticate the request
             Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
           },
@@ -93,7 +93,7 @@ export default async function getPage(url: string) {
           next: {
             revalidate: 10,
           },
-        }
+        },
       );
 
       if (!res.ok) {
@@ -101,7 +101,7 @@ export default async function getPage(url: string) {
         throw new Error(
           `Failed to fetch Page data: ${
             errorData.errors?.[0]?.message || res.statusText
-          }`
+          }`,
         );
       }
       const data = await res.json();
@@ -109,17 +109,17 @@ export default async function getPage(url: string) {
 
       const getSectionData = async (contentType: string, id: string) => {
         switch (contentType) {
-          case "hero":
+          case 'hero':
             return await getHero(id);
-          case "contentpresentation":
+          case 'contentpresentation':
             return await getContentPT(id);
-          case "featuredcontent":
+          case 'featuredcontent':
             return await getFeaturedContent(id);
-          case "contentlist":
+          case 'contentlist':
             return await getContentList(id);
-          case "alert": 
+          case 'alert':
             return await getAlert(id);
-          case "cta": 
+          case 'cta':
             return await getCTA(id);
           default:
             return null;
@@ -131,18 +131,18 @@ export default async function getPage(url: string) {
           normalizedData[0]?.content.map(
             async (
               contentItem: { contentType: string; id: string },
-              index: string | number
+              index: string | number,
             ) => {
               const sectionData = await getSectionData(
                 contentItem?.contentType,
-                contentItem?.id
+                contentItem?.id,
               );
               normalizedData[0].content[index] = {
                 ...(contentItem ? contentItem : {}),
                 ...(sectionData ? sectionData : {}),
               };
-            }
-          )
+            },
+          ),
         ));
 
       return normalizedData[0];

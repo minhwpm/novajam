@@ -1,17 +1,17 @@
-import classNames from "classnames";
-import { TextAlignmentType, FlexibleContentType } from "@/helpers/types";
-import { ButtonGroup } from "@/components/elements/ButtonGroup/ButtonGroup";
-import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
-import { useInView } from "react-hook-inview";
-import { MarkdownRenderer } from "@/components/elements/MarkdownRenderer/MarkdownRenderer";
+import classNames from 'classnames';
+import { TextAlignmentType, FlexibleContentType } from '@/helpers/types';
+import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
+import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
+import { useInView } from 'react-hook-inview';
+import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 
 export const FlexibleContent: React.FC<{
   index?: number;
   data: FlexibleContentType;
   alignment?: TextAlignmentType;
-  layout?: "vertical" | "horizontal";
+  layout?: 'vertical' | 'horizontal';
   animate?: boolean;
-}> = ({ index, data, alignment = "center", layout = "vertical", animate }) => {
+}> = ({ index, data, alignment = 'center', layout = 'vertical', animate }) => {
   const {
     displayTitle,
     eyebrow,
@@ -29,11 +29,11 @@ export const FlexibleContent: React.FC<{
   const hasText = displayTitle || eyebrow || description || buttons?.length > 0;
 
   const animationClass = classNames({
-    "relative -bottom-10 opacity-0": animate,
-    "animate-slidingUpContent": isIntersecting && animate,
+    'relative -bottom-10 opacity-0': animate,
+    'animate-slidingUpContent': isIntersecting && animate,
   });
 
-  const animationDelay = index && animate ? `${(index + 1) * 0.15}s` : "0s";
+  const animationDelay = index && animate ? `${(index + 1) * 0.15}s` : '0s';
 
   const renderTextPart = () => <TextPart data={data} alignment={alignment} />;
 
@@ -41,18 +41,18 @@ export const FlexibleContent: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        layout === "horizontal"
-          ? "flex rounded-theme"
-          : "flex flex-col rounded-theme h-full",
-        animationClass
+        layout === 'horizontal'
+          ? 'flex rounded-theme'
+          : 'flex flex-col rounded-theme h-full',
+        animationClass,
       )}
       style={{ animationDelay }}
     >
       {hasMedia && (
         <FlexibleContentMediaPart
           className={classNames({
-            "max-w-fit basis-5/12": layout === "horizontal",
-            "grow items-center": !hasText && layout !== "horizontal",
+            'max-w-fit basis-5/12': layout === 'horizontal',
+            'grow items-center': !hasText && layout !== 'horizontal',
           })}
           data={data}
           alignment={alignment}
@@ -62,14 +62,14 @@ export const FlexibleContent: React.FC<{
       {hasText && (
         <div
           className={classNames(
-            layout === "horizontal"
-              ? "basis-7/12 flex-1 pl-4 xl:pl-6"
-              : "py-4 xl:pt-6 flex-1",
-            "flex flex-col",
+            layout === 'horizontal'
+              ? 'basis-7/12 flex-1 pl-4 xl:pl-6'
+              : 'py-4 xl:pt-6 flex-1',
+            'flex flex-col',
             {
-              "text-center": alignment === "center",
-              "text-end": alignment === "end",
-            }
+              'text-center': alignment === 'center',
+              'text-end': alignment === 'end',
+            },
           )}
         >
           {renderTextPart()}
@@ -96,10 +96,10 @@ const TextPart: React.FC<{
       {displayTitle && (
         <div
           className={classNames(
-            "not-prose font-heading text-lg lg:text-xl dark:text-slate-100",
+            'not-prose font-heading text-lg lg:text-xl dark:text-slate-100',
             {
-              "mb-2 lg:mb-4": description || buttons.length > 0,
-            }
+              'mb-2 lg:mb-4': description || buttons.length > 0,
+            },
           )}
         >
           <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
@@ -108,10 +108,10 @@ const TextPart: React.FC<{
       {description && (
         <div
           className={classNames(
-            "prose 2xl:prose-lg leading-loose text-slate-500 dark:text-slate-100/70",
+            'prose 2xl:prose-lg leading-loose text-slate-500 dark:text-slate-100/70',
             {
-              "mb-4 lg:mb-6": buttons.length > 0,
-            }
+              'mb-4 lg:mb-6': buttons.length > 0,
+            },
           )}
         >
           <MarkdownRenderer>{description}</MarkdownRenderer>

@@ -1,13 +1,12 @@
-import { SubmenuType } from "@/helpers/types";
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import classNames from "classnames";
-import { FaChevronRight } from "react-icons/fa";
-import { NavFeaturedContent } from "@/components/elements/NavFeaturedContent/NavFeaturedContent";
-import { usePathname } from "next/navigation";
-import { NavLinkItem } from "../../NavLinkItem/NavLinkItem";
+import { SubmenuType } from '@/helpers/types';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import classNames from 'classnames';
+import { FaChevronRight } from 'react-icons/fa';
+import { NavFeaturedContent } from '@/components/elements/NavFeaturedContent/NavFeaturedContent';
+import { usePathname } from 'next/navigation';
+import { NavLinkItem } from '../../NavLinkItem/NavLinkItem';
 
-export const Dropdown: React.FC<{data: SubmenuType}> = 
-({ data }) => {
+export const Dropdown: React.FC<{ data: SubmenuType }> = ({ data }) => {
   const pathname = usePathname();
   return (
     <NavigationMenu.Root aria-label="Sub" orientation="vertical">
@@ -19,19 +18,19 @@ export const Dropdown: React.FC<{data: SubmenuType}> =
               value={subItem.id}
               className="relative py-2 first:pt-0 last:pb-0"
             >
-              {subItem.contentType === "link" && (
+              {subItem.contentType === 'link' && (
                 <NavLinkItem href={subItem.url}>{subItem.text}</NavLinkItem>
               )}
-              {subItem.contentType === "linkgroup" && (
+              {subItem.contentType === 'linkgroup' && (
                 <>
                   <NavigationMenu.Trigger
                     className={classNames(
-                      "w-full select-none text-left pb-2 rounded-theme data-[state=open]:text-primary-600 group",
+                      'w-full select-none text-left pb-2 rounded-theme data-[state=open]:text-primary-600 group',
                       {
-                        "bg-slate-100": subItem.links.find(
-                          (link) => link.url === pathname
+                        'bg-slate-100': subItem.links.find(
+                          (link) => link.url === pathname,
                         ),
-                      }
+                      },
                     )}
                   >
                     {subItem.title}
@@ -44,7 +43,10 @@ export const Dropdown: React.FC<{data: SubmenuType}> =
                     <ul className="px-6 py-4 bg-white rounded-md shadow-radiant w-64 flex flex-col">
                       {subItem.links.length > 0 &&
                         subItem.links.map((link) => (
-                          <li key={link.id} className="py-2 first:pt-0 last:pb-0">
+                          <li
+                            key={link.id}
+                            className="py-2 first:pt-0 last:pb-0"
+                          >
                             <NavLinkItem href={link.url}>
                               {link.text}
                             </NavLinkItem>
@@ -68,4 +70,4 @@ export const Dropdown: React.FC<{data: SubmenuType}> =
       )}
     </NavigationMenu.Root>
   );
-}
+};

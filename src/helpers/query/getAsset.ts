@@ -1,13 +1,13 @@
-import normalizeDataCollection from "./normalizeDataCollection";
+import normalizeDataCollection from './normalizeDataCollection';
 
 export default async function getAsset(id: string) {
   try {
     const res = await fetch(
       `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           // Authenticate the request
           Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
         },
@@ -36,14 +36,14 @@ export default async function getAsset(id: string) {
             id,
           },
         }),
-      }
+      },
     );
     if (!res.ok) {
       const errorData = await res.json();
       throw new Error(
         `Failed to fetch Asset data: ${
           errorData.errors?.[0]?.message || res.statusText
-        }`
+        }`,
       );
     }
 
@@ -53,8 +53,6 @@ export default async function getAsset(id: string) {
     return normalizedData[0];
   } catch (error) {
     console.error(error);
-    throw new Error(
-      `An error occurred while fetching asset data: ${error}`
-    );
+    throw new Error(`An error occurred while fetching asset data: ${error}`);
   }
 }

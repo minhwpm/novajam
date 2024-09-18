@@ -1,17 +1,17 @@
-"use client";
-import classNames from "classnames";
-import readingTime from "reading-time";
-import Link from "next/link";
+'use client';
+import classNames from 'classnames';
+import readingTime from 'reading-time';
+import Link from 'next/link';
 import {
   TextAlignmentType,
   BlogType,
   MediaAspectRatioType,
-} from "@/helpers/types";
-import { MediaItem } from "../MediaItem/MediaItem";
-import { usePathname } from "next/navigation";
-import { useInView } from "react-hook-inview";
-import { format } from "date-fns";
-import { MarkdownRenderer } from "../MarkdownRenderer/MarkdownRenderer";
+} from '@/helpers/types';
+import { MediaItem } from '../MediaItem/MediaItem';
+import { usePathname } from 'next/navigation';
+import { useInView } from 'react-hook-inview';
+import { format } from 'date-fns';
+import { MarkdownRenderer } from '../MarkdownRenderer/MarkdownRenderer';
 
 const Topics: React.FC<{ topics: string[]; alignment?: TextAlignmentType }> = ({
   topics,
@@ -19,9 +19,9 @@ const Topics: React.FC<{ topics: string[]; alignment?: TextAlignmentType }> = ({
 }) => (
   <div
     className={classNames(
-      "text-xs uppercase tracking-widest flex flex-wrap gap-x-2 gap-y-1",
-      { "justify-center": alignment === "center" },
-      { "justify-end": alignment === "end" }
+      'text-xs uppercase tracking-widest flex flex-wrap gap-x-2 gap-y-1',
+      { 'justify-center': alignment === 'center' },
+      { 'justify-end': alignment === 'end' },
     )}
   >
     {topics.map((topic, idx) => (
@@ -49,7 +49,7 @@ interface BlogPreviewProps {
   index?: number;
   data: BlogType;
   aspectRatio?: MediaAspectRatioType;
-  layout?: "vertical" | "horizontal" | "featured";
+  layout?: 'vertical' | 'horizontal' | 'featured';
   alignment?: TextAlignmentType;
   animate?: boolean;
   featured?: boolean;
@@ -58,8 +58,8 @@ interface BlogPreviewProps {
 export const BlogPreview: React.FC<BlogPreviewProps> = ({
   index,
   data,
-  aspectRatio = "4/3",
-  layout = "vertical",
+  aspectRatio = '4/3',
+  layout = 'vertical',
   alignment,
   animate,
   featured,
@@ -71,12 +71,12 @@ export const BlogPreview: React.FC<BlogPreviewProps> = ({
     threshold: 0.4,
     unobserveOnEnter: true,
   });
-  const readingTimeStats = readingTime(content || "");
-  const animationDelay = index && animate ? `${(index + 1) * 0.15}s` : "0s";
+  const readingTimeStats = readingTime(content || '');
+  const animationDelay = index && animate ? `${(index + 1) * 0.15}s` : '0s';
 
   // Shared content layout
   const renderContent = (
-    <div className={classNames("flex gap-x-4 justify-between items-center")}>
+    <div className={classNames('flex gap-x-4 justify-between items-center')}>
       {topics?.length > 0 && <Topics topics={topics} alignment={alignment} />}
       <ReadingTime readingTimeStats={readingTimeStats} />
     </div>
@@ -85,13 +85,13 @@ export const BlogPreview: React.FC<BlogPreviewProps> = ({
   const renderTitle = (
     <h3
       className={classNames(
-        "font-heading font-semibold transition-colors duration-500 group-hover:text-primary-600 dark:text-slate-100 dark:group-hover:text-primary-600/80",
+        'font-heading font-semibold transition-colors duration-500 group-hover:text-primary-600 dark:text-slate-100 dark:group-hover:text-primary-600/80',
         {
-          "text-lg": !featured || layout === "horizontal",
-          "text-xl xl:text-2xl": featured && layout==="vertical",
-          "text-center": alignment === "center",
-          "text-end": alignment === "end",
-        }
+          'text-lg': !featured || layout === 'horizontal',
+          'text-xl xl:text-2xl': featured && layout === 'vertical',
+          'text-center': alignment === 'center',
+          'text-end': alignment === 'end',
+        },
       )}
     >
       {title}
@@ -100,29 +100,27 @@ export const BlogPreview: React.FC<BlogPreviewProps> = ({
 
   const renderSummary = featured && summary && (
     <div className="line-clamp-3 prose text-slate-500 dark:text-slate-100/70">
-      <MarkdownRenderer>{summary || ""}</MarkdownRenderer>
+      <MarkdownRenderer>{summary || ''}</MarkdownRenderer>
     </div>
   );
 
   const renderDate = firstPublishedAt && (
     <div
-      className={classNames(
-        "text-sm text-slate-400 dark:text-slate-100/50"
-      )}
+      className={classNames('text-sm text-slate-400 dark:text-slate-100/50')}
     >
-      {format(Date.parse(firstPublishedAt), "MMMM dd, yyyy")}
+      {format(Date.parse(firstPublishedAt), 'MMMM dd, yyyy')}
     </div>
   );
 
-  const contentWrapperClass = classNames("group rounded-theme", {
-    "relative -bottom-10 opacity-0": animate,
-    "animate-slidingUpContent": isIntersecting && animate,
+  const contentWrapperClass = classNames('group rounded-theme', {
+    'relative -bottom-10 opacity-0': animate,
+    'animate-slidingUpContent': isIntersecting && animate,
   });
 
-  if (layout === "horizontal") {
+  if (layout === 'horizontal') {
     return (
       <div ref={ref} className={contentWrapperClass} style={{ animationDelay }}>
-        <Link href={`${pathname.replace(/\/blog\/?(.*)$/, "")}/blog/${slug}`}>
+        <Link href={`${pathname.replace(/\/blog\/?(.*)$/, '')}/blog/${slug}`}>
           <div className="flex gap-4">
             <div className="basis-1/3 flex-1">
               <MediaItem
@@ -146,7 +144,7 @@ export const BlogPreview: React.FC<BlogPreviewProps> = ({
 
   return (
     <div ref={ref} className={contentWrapperClass} style={{ animationDelay }}>
-      <Link href={`${pathname.replace(/\/blog\/?(.*)$/, "")}/blog/${slug}`}>
+      <Link href={`${pathname.replace(/\/blog\/?(.*)$/, '')}/blog/${slug}`}>
         <MediaItem
           data={media}
           altText={title}

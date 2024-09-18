@@ -1,25 +1,29 @@
-"use client";
-import React, { useState } from "react";
-import classNames from "classnames";
-import { Section } from "@/components/elements/Section/Section";
-import { TextAlignmentType, ContentPTType, FlexibleContentType } from "@/helpers/types";
-import { FlexibleContentMediaPart } from "@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart";
-import { useInView } from "react-hook-inview";
-import { TextPartPT } from "@/components/elements/TextPartPT/TextPartPT";
-import "@/app/styles/bg-color.css";
+'use client';
+import React, { useState } from 'react';
+import classNames from 'classnames';
+import { Section } from '@/components/elements/Section/Section';
+import {
+  TextAlignmentType,
+  ContentPTType,
+  FlexibleContentType,
+} from '@/helpers/types';
+import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
+import { useInView } from 'react-hook-inview';
+import { TextPartPT } from '@/components/elements/TextPartPT/TextPartPT';
+import '@/app/styles/bg-color.css';
 
 const TextContent = ({
   data,
   idx,
   setVisibleIdx,
   alignment,
-  darkMode
+  darkMode,
 }: {
   data: FlexibleContentType;
   idx: number;
   setVisibleIdx: (idx: number) => void;
   alignment: TextAlignmentType;
-  darkMode: boolean
+  darkMode: boolean;
 }) => {
   const [ref, isVisible] = useInView({
     threshold: 0.9,
@@ -29,24 +33,31 @@ const TextContent = ({
     <div
       ref={ref}
       className={classNames(
-        "py-[20vh] px-10 transition-opacity duration-300 flex flex-col",
-        { "is-visible opacity-100": isVisible },
-        { "is-invisible opacity-10": !isVisible },
-        { "text-center": alignment === "center" },
-        { "text-end": alignment === "end" }
+        'py-[20vh] px-10 transition-opacity duration-300 flex flex-col',
+        { 'is-visible opacity-100': isVisible },
+        { 'is-invisible opacity-10': !isVisible },
+        { 'text-center': alignment === 'center' },
+        { 'text-end': alignment === 'end' },
       )}
     >
-      <TextPartPT 
-        data={data}
-        alignment={alignment}
-        darkMode={darkMode}
-      />
+      <TextPartPT data={data} alignment={alignment} darkMode={darkMode} />
     </div>
   );
 };
 
 export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { eyebrow, displayTitle, summary, content, headingTextAlignment, contentTextAlignment, htmlid, backgroundColor, backgroundImage, darkMode } = data;
+  const {
+    eyebrow,
+    displayTitle,
+    summary,
+    content,
+    headingTextAlignment,
+    contentTextAlignment,
+    htmlid,
+    backgroundColor,
+    backgroundImage,
+    darkMode,
+  } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
   return (
     <Section
@@ -65,9 +76,9 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
           <div key={section.id} className="mb-20">
             <div
               className={classNames(
-                "flex flex-col mb-10",
-                { "text-center": contentTextAlignment === "center" },
-                { "text-end": contentTextAlignment === "end" }
+                'flex flex-col mb-10',
+                { 'text-center': contentTextAlignment === 'center' },
+                { 'text-end': contentTextAlignment === 'end' },
               )}
             >
               <TextPartPT
@@ -97,15 +108,15 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 <div
                   key={section.id}
                   className={classNames(
-                    "transition-opacity duration-300",
+                    'transition-opacity duration-300',
                     {
-                      "is-visible opacity-100 h-full overflow-visible ":
+                      'is-visible opacity-100 h-full overflow-visible ':
                         visibleIdx === idx,
                     },
                     {
-                      "is-invisible h-0 opacity-10 max-h-full relative overflow-hidden":
+                      'is-invisible h-0 opacity-10 max-h-full relative overflow-hidden':
                         visibleIdx !== idx,
-                    }
+                    },
                   )}
                 >
                   {(section.media.length > 0 || section.embeddedMediaUrl) && (
@@ -135,4 +146,4 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       </div>
     </Section>
   );
-}
+};

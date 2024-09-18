@@ -1,32 +1,36 @@
-import { Dispatch, SetStateAction } from "react";
-import classNames from "classnames";
-import * as NavigationMenu from "@radix-ui/react-navigation-menu"
-import { usePathname } from "next/navigation";
-import { FaChevronDown } from "react-icons/fa";
-import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
-import { NavFeaturedContent } from "@/components/elements/NavFeaturedContent/NavFeaturedContent";
-import { SubmenuType } from "@/helpers/types";
+import { Dispatch, SetStateAction } from 'react';
+import classNames from 'classnames';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { usePathname } from 'next/navigation';
+import { FaChevronDown } from 'react-icons/fa';
+import { NavLinkItem } from '@/components/elements/NavLinkItem/NavLinkItem';
+import { NavFeaturedContent } from '@/components/elements/NavFeaturedContent/NavFeaturedContent';
+import { SubmenuType } from '@/helpers/types';
 
-export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  Dispatch<SetStateAction<boolean>>}> = ({data, setMobileMenuShowed}) => {
+export const SubmenuMobile: React.FC<{
+  data: SubmenuType;
+  setMobileMenuShowed: Dispatch<SetStateAction<boolean>>;
+}> = ({ data, setMobileMenuShowed }) => {
   const pathname = usePathname();
   return (
     <>
       <NavigationMenu.Trigger
         className={classNames(
-          "select-none font-semibold text-start w-full group rounded-theme data-[state=open]:text-primary-600",
+          'select-none font-semibold text-start w-full group rounded-theme data-[state=open]:text-primary-600',
           {
-            "text-primary-600":
+            'text-primary-600':
               data.featuredContent?.find(
-                (content) => content && "url" in content && content.url === pathname
+                (content) =>
+                  content && 'url' in content && content.url === pathname,
               ) ||
               data.menu?.find(
                 (subItem) =>
-                  (subItem.contentType === "link" &&
+                  (subItem.contentType === 'link' &&
                     subItem.url === pathname) ||
-                  (subItem.contentType === "linkgroup" &&
-                    subItem.links.find((link) => link.url === pathname))
+                  (subItem.contentType === 'linkgroup' &&
+                    subItem.links.find((link) => link.url === pathname)),
               ),
-          }
+          },
         )}
         onPointerEnter={(e) => e.preventDefault()}
         onPointerMove={(e) => e.preventDefault()}
@@ -54,27 +58,27 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
                   key={subItem.id}
                   className="py-1 border-b last:border-none border-slate-100"
                 >
-                  {subItem.contentType === "link" && (
+                  {subItem.contentType === 'link' && (
                     <NavLinkItem
                       href={subItem.url}
                       onClick={() => {
                         setMobileMenuShowed(false);
-                        document.body.style.overflow = "auto";
+                        document.body.style.overflow = 'auto';
                       }}
                     >
                       {subItem.text}
                     </NavLinkItem>
                   )}
-                  {subItem.contentType === "linkgroup" && (
+                  {subItem.contentType === 'linkgroup' && (
                     <>
                       <NavigationMenu.Trigger
                         className={classNames(
-                          "-mx-2 w-full select-none text-left py-2 px-2 rounded-theme data-[state=open]:text-primary-600 group",
+                          '-mx-2 w-full select-none text-left py-2 px-2 rounded-theme data-[state=open]:text-primary-600 group',
                           {
-                            "text-primary-600": subItem.links.find(
-                              (link) => link.url === pathname
+                            'text-primary-600': subItem.links.find(
+                              (link) => link.url === pathname,
                             ),
-                          }
+                          },
                         )}
                         onPointerEnter={(e) => e.preventDefault()}
                         onPointerMove={(e) => e.preventDefault()}
@@ -98,7 +102,7 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
                                   href={link.url}
                                   onClick={() => {
                                     setMobileMenuShowed(false);
-                                    document.body.style.overflow = "auto";
+                                    document.body.style.overflow = 'auto';
                                   }}
                                 >
                                   {link.text}
@@ -114,24 +118,27 @@ export const SubmenuMobile: React.FC<{data: SubmenuType, setMobileMenuShowed:  D
           </NavigationMenu.List>
           {data.featuredContent?.length > 0 && (
             <div className="mt-4 flex gap-4 overflow-y-auto overscroll-y-contain">
-              {data.featuredContent.map((content) => content && (
-                <div
-                  key={content.id}
-                  className="w-11/12 md:basis-72 shrink-0 grow max-w-xs"
-                >
-                  <NavFeaturedContent
-                    data={content}
-                    onClick={() => {
-                      setMobileMenuShowed(false);
-                      document.body.style.overflow = "auto";
-                    }}
-                  />
-                </div>
-              ))}
+              {data.featuredContent.map(
+                (content) =>
+                  content && (
+                    <div
+                      key={content.id}
+                      className="w-11/12 md:basis-72 shrink-0 grow max-w-xs"
+                    >
+                      <NavFeaturedContent
+                        data={content}
+                        onClick={() => {
+                          setMobileMenuShowed(false);
+                          document.body.style.overflow = 'auto';
+                        }}
+                      />
+                    </div>
+                  ),
+              )}
             </div>
           )}
         </NavigationMenu.Root>
       </NavigationMenu.Content>
     </>
   );
-}
+};

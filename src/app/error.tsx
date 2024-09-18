@@ -1,13 +1,13 @@
-"use client"
-import { Button } from '@/components/elements/Button/Button'
-import { useEffect } from 'react'
- 
+'use client';
+import { Button } from '@/components/elements/Button/Button';
+import { useEffect } from 'react';
+
 export default function ErrorBoundary({
   error,
   reset,
 }: {
-  error: Error & { digest?: string }
-  reset: () => void
+  error: Error & { digest?: string };
+  reset: () => void;
 }) {
   useEffect(() => {
     console.error(error);
@@ -30,10 +30,10 @@ export default function ErrorBoundary({
       <div className="mt-6 flex flex-wrap justify-center items-center gap-4">
         <Button
           data={{
-            text: "Try again",
+            text: 'Try again',
             url: null,
             withArrow: false,
-            buttonVariant: "primary",
+            buttonVariant: 'primary',
             openNewTab: false,
           }}
           onClick={() => reset()}
@@ -42,15 +42,15 @@ export default function ErrorBoundary({
         <span className="text-slate-500 px-6">OR</span>
         <Button
           data={{
-            text: "Go to Home page",
-            url: "/",
+            text: 'Go to Home page',
+            url: '/',
             withArrow: true,
-            buttonVariant: "ghost",
+            buttonVariant: 'ghost',
             openNewTab: false,
           }}
           size="lg"
         />
       </div>
     </div>
-  )
+  );
 }

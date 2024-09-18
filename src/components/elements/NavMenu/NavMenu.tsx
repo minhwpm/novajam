@@ -1,25 +1,25 @@
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import classNames from "classnames";
-import { LinkType, NavigationLayout, SubmenuType } from "@/helpers/types";
-import { Submenu } from "./Submenu/Submenu";
-import { NavLinkItem } from "../NavLinkItem/NavLinkItem";
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import classNames from 'classnames';
+import { LinkType, NavigationLayout, SubmenuType } from '@/helpers/types';
+import { Submenu } from './Submenu/Submenu';
+import { NavLinkItem } from '../NavLinkItem/NavLinkItem';
 
 export function getMenuItemText(item: LinkType | SubmenuType): string {
-  if ("text" in item) return item.text;
+  if ('text' in item) return item.text;
   return item.title;
 }
 
 const NavMenu: React.FC<{
   menu: Array<LinkType | SubmenuType>;
-  layout?: NavigationLayout
+  layout?: NavigationLayout;
 }> = ({ menu, layout }) => {
   return (
     <NavigationMenu.Root
-      className={classNames("NavMenu hidden lg:flex justify-end")}
+      className={classNames('NavMenu hidden lg:flex justify-end')}
     >
       <NavigationMenu.List
         className={classNames(
-          "flex justify-center items-start px-5 list-none m-0"
+          'flex justify-center items-start px-5 list-none m-0',
         )}
       >
         {menu.map(
@@ -27,12 +27,11 @@ const NavMenu: React.FC<{
             item && (
               <NavigationMenu.Item
                 key={item.id}
-                className={classNames("text-smd", {
-                  relative:
-                    "menu" in item && item.layout === "dropdown",
+                className={classNames('text-smd', {
+                  relative: 'menu' in item && item.layout === 'dropdown',
                 })}
               >
-                {item.contentType === "link" && (
+                {item.contentType === 'link' && (
                   <div className="py-7 px-5">
                     <NavLinkItem
                       key={item.id}
@@ -44,19 +43,15 @@ const NavMenu: React.FC<{
                     </NavLinkItem>
                   </div>
                 )}
-                {item.contentType === "submenu" && (
-                  <Submenu
-                    key={item.id}
-                    data={item}
-                    layout={layout}
-                  />
+                {item.contentType === 'submenu' && (
+                  <Submenu key={item.id} data={item} layout={layout} />
                 )}
               </NavigationMenu.Item>
-            )
+            ),
         )}
       </NavigationMenu.List>
     </NavigationMenu.Root>
   );
 };
 
-export default NavMenu
+export default NavMenu;

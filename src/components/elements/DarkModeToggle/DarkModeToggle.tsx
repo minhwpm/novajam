@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { GoSun, GoMoon } from "react-icons/go";
+import { GoSun, GoMoon } from 'react-icons/go';
 
 export default function DarkModeToggle() {
   const [isDarkMode, setIsDarkMode] = useState(false);

@@ -1,25 +1,25 @@
-import { Metadata } from 'next'
-import { SectionMapping } from "@/components/sections/SectionMapping/SectionMapping"
-import { PageType } from "@/helpers/types"
-import getPage from "@/helpers/query/getPage"
-import { notFound } from 'next/navigation'
+import { Metadata } from 'next';
+import { SectionMapping } from '@/components/sections/SectionMapping/SectionMapping';
+import { PageType } from '@/helpers/types';
+import getPage from '@/helpers/query/getPage';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const data: PageType = await getPage("/")
+  const data: PageType = await getPage('/');
   return {
     title: data?.metaTitle,
     description: data?.metaDescription,
     keywords: data?.metaKeywords,
     openGraph: {
-      images: [data?.metaImage ?? "" ]
-    }
-  }
+      images: [data?.metaImage ?? ''],
+    },
+  };
 }
 
 export default async function Home() {
-  const data = await getPage("/")
+  const data = await getPage('/');
   if (!data) {
-    notFound()
+    notFound();
   }
-  return <SectionMapping data={data.content} />
+  return <SectionMapping data={data.content} />;
 }

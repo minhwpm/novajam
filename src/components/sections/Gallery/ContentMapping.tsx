@@ -1,32 +1,32 @@
-import { BlogPreview } from "@/components/elements/BlogPreview/BlogPreview";
-import { PagePreview } from "@/components/elements/PagePreview/PagePreview";
-import { ExpertPreview } from "@/components/elements/ExpertPreview/ExpertPreview";
-import { Statistics } from "@/components/elements/Statistics/Statistics";
-import { FlexibleContent } from "@/components/elements/FlexibleContent/FlexibleContent";
-import { PricingPlan } from "@/components/elements/PricingPlan/PricingPlan";
-import { TextAlignmentType, Content } from "@/helpers/types";
-import { Testimonial } from "@/components/elements/Testimonial/Testimonial";
+import { BlogPreview } from '@/components/elements/BlogPreview/BlogPreview';
+import { PagePreview } from '@/components/elements/PagePreview/PagePreview';
+import { ExpertPreview } from '@/components/elements/ExpertPreview/ExpertPreview';
+import { Statistics } from '@/components/elements/Statistics/Statistics';
+import { FlexibleContent } from '@/components/elements/FlexibleContent/FlexibleContent';
+import { PricingPlan } from '@/components/elements/PricingPlan/PricingPlan';
+import { TextAlignmentType, Content } from '@/helpers/types';
+import { Testimonial } from '@/components/elements/Testimonial/Testimonial';
 
 export const ContentMapping: React.FC<{
   data: Content;
   alignment: TextAlignmentType;
-  layout?: "horizontal" | "vertical";
+  layout?: 'horizontal' | 'vertical';
   index: number;
   animate?: boolean;
-}> = ({ data, alignment, layout = "vertical", index, animate = true }) => {
+}> = ({ data, alignment, layout = 'vertical', index, animate = true }) => {
   switch (data.contentType) {
-    case "blog":
+    case 'blog':
       return (
         <BlogPreview
           index={index}
           data={data}
           layout={layout}
-          aspectRatio={layout === "horizontal" ? "square" : undefined}
+          aspectRatio={layout === 'horizontal' ? 'square' : undefined}
           alignment={alignment}
           animate={animate}
         />
       );
-    case "page":
+    case 'page':
       return (
         <PagePreview
           index={index}
@@ -36,7 +36,7 @@ export const ContentMapping: React.FC<{
           animate={animate}
         />
       );
-    case "expert":
+    case 'expert':
       return (
         <ExpertPreview
           index={index}
@@ -46,7 +46,7 @@ export const ContentMapping: React.FC<{
           animate={animate}
         />
       );
-    case "statistics":
+    case 'statistics':
       return (
         <Statistics
           index={index}
@@ -55,7 +55,7 @@ export const ContentMapping: React.FC<{
           alignment={alignment}
         />
       );
-    case "flexiblecontent":
+    case 'flexiblecontent':
       return (
         <FlexibleContent
           index={index}
@@ -65,7 +65,7 @@ export const ContentMapping: React.FC<{
           animate={animate}
         />
       );
-    case "pricingplan":
+    case 'pricingplan':
       return (
         <PricingPlan
           index={index}
@@ -74,7 +74,7 @@ export const ContentMapping: React.FC<{
           animate={animate}
         />
       );
-    case "testimonial":
+    case 'testimonial':
       return (
         <Testimonial
           index={index}

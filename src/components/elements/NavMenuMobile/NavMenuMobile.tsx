@@ -1,23 +1,26 @@
-"use client"
+'use client';
 import { useState } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
 import { ButtonType, LinkType, SubmenuType } from '@/helpers/types';
-import { IoCloseOutline } from "react-icons/io5";
-import { CiMenuBurger } from "react-icons/ci";
+import { IoCloseOutline } from 'react-icons/io5';
+import { CiMenuBurger } from 'react-icons/ci';
 import { Button } from '../Button/Button';
 import { SubmenuMobile } from './SubmenuMobile/SubmenuMobile';
 import { NavLinkItem } from '../NavLinkItem/NavLinkItem';
 
-const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: Array<ButtonType> }> = ({ menu, buttons }) => {
-  const [ mobileMenuShowed, setMobileMenuShowed ] = useState(false)
+const NavMenuMobile: React.FC<{
+  menu: Array<LinkType | SubmenuType>;
+  buttons?: Array<ButtonType>;
+}> = ({ menu, buttons }) => {
+  const [mobileMenuShowed, setMobileMenuShowed] = useState(false);
 
   return (
     <>
       <NavigationMenu.Root
         className={classNames(
-          "lg:hidden absolute top-0 left-0 z-[99999] bg-white text-slate-900 font-lg w-screen h-screen px-4 pt-20 pb-36 overflow-y-auto",
-          { hidden: !mobileMenuShowed }
+          'lg:hidden absolute top-0 left-0 z-[99999] bg-white text-slate-900 font-lg w-screen h-screen px-4 pt-20 pb-36 overflow-y-auto',
+          { hidden: !mobileMenuShowed },
         )}
         orientation="vertical"
       >
@@ -27,7 +30,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
             size={30}
             onClick={() => {
               setMobileMenuShowed(false);
-              document.body.style.overflow = "auto";
+              document.body.style.overflow = 'auto';
             }}
           />
         )}
@@ -38,29 +41,29 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
                 <NavigationMenu.Item
                   key={item.id}
                   className={classNames(
-                    "py-2 border-b last:border-none border-slate-200"
+                    'py-2 border-b last:border-none border-slate-200',
                   )}
                 >
-                  {item.contentType === "link" && (
+                  {item.contentType === 'link' && (
                     <NavLinkItem
-                      className={classNames("font-semibold")}
+                      className={classNames('font-semibold')}
                       href={item.url}
                       onClick={() => {
                         setMobileMenuShowed(false);
-                        document.body.style.overflow = "auto";
+                        document.body.style.overflow = 'auto';
                       }}
                     >
                       {item.text}
                     </NavLinkItem>
                   )}
-                  {item.contentType === "submenu" && (
+                  {item.contentType === 'submenu' && (
                     <SubmenuMobile
                       data={item}
                       setMobileMenuShowed={setMobileMenuShowed}
                     />
                   )}
                 </NavigationMenu.Item>
-              )
+              ),
           )}
         </NavigationMenu.List>
         {buttons && buttons.length > 0 && (
@@ -71,7 +74,7 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
                 data={button}
                 onClick={() => {
                   setMobileMenuShowed(false);
-                  document.body.style.overflow = "auto";
+                  document.body.style.overflow = 'auto';
                 }}
                 size="base"
               >
@@ -89,13 +92,13 @@ const NavMenuMobile: React.FC<{ menu: Array<LinkType | SubmenuType>, buttons?: A
             size={30}
             onClick={() => {
               setMobileMenuShowed(true);
-              document.body.style.overflow = "hidden";
+              document.body.style.overflow = 'hidden';
             }}
           />
         )}
       </div>
     </>
   );
-}
+};
 
-export default NavMenuMobile
+export default NavMenuMobile;

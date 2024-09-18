@@ -1,14 +1,14 @@
-import getFlexibleContent from "./getFlexibleContent"
-import normalizeDataCollection from "./normalizeDataCollection"
+import getFlexibleContent from './getFlexibleContent';
+import normalizeDataCollection from './normalizeDataCollection';
 
 export default async function getContentPT(id: string) {
   try {
     const res = await fetch(
       `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           // Authenticate the request
           Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
         },
@@ -58,7 +58,7 @@ export default async function getContentPT(id: string) {
             id,
           },
         }),
-      }
+      },
     );
 
     if (!res.ok) {
@@ -66,28 +66,34 @@ export default async function getContentPT(id: string) {
       throw new Error(
         `Failed to fetch ContentPT data: ${
           errorData.errors?.[0]?.message || res.statusText
-        }`
+        }`,
       );
     }
 
     const data = await res.json();
     const normalizedData = normalizeDataCollection(data.data);
 
-    normalizedData[0]?.content && await Promise.all(
-      normalizedData[0]?.content.map(
-        async (
-          contentItem: { contentType: string;  id: string },
-          index: string | number
-        ) => {
-          const sectionData = await getFlexibleContent(contentItem.id);
-          normalizedData[0].content[index] = { ...contentItem, ...sectionData };
-        }
-      )
-    )
+    normalizedData[0]?.content &&
+      (await Promise.all(
+        normalizedData[0]?.content.map(
+          async (
+            contentItem: { contentType: string; id: string },
+            index: string | number,
+          ) => {
+            const sectionData = await getFlexibleContent(contentItem.id);
+            normalizedData[0].content[index] = {
+              ...contentItem,
+              ...sectionData,
+            };
+          },
+        ),
+      ));
 
     return normalizedData[0];
   } catch (error) {
     console.error(error);
-    throw new Error(`An error occurred while fetching contentPT data: ${error}`);
+    throw new Error(
+      `An error occurred while fetching contentPT data: ${error}`,
+    );
   }
 }

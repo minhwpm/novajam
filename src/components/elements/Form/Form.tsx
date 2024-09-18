@@ -1,24 +1,26 @@
-"use client";
-import classNames from "classnames";
-import { useForm } from "react-hook-form";
-import { Button } from "@/components/elements/Button/Button";
-import { FormType } from "@/helpers/types";
-import { InputField } from "./InputField";
-import { TextAreaField } from "./TextAreaField";
-import { SelectField } from "./SelectField";
-import { DatePickerField } from "@/components/elements/DatePickerField/DatePickerField";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { IoCloseOutline } from "react-icons/io5";
-import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import { RiErrorWarningLine } from "react-icons/ri";
-import { createFormSubmission } from "@/helpers/server-actions/createFormSubmission";
-import * as Toast from "@radix-ui/react-toast";
+'use client';
+import classNames from 'classnames';
+import { useForm } from 'react-hook-form';
+import { Button } from '@/components/elements/Button/Button';
+import { FormType } from '@/helpers/types';
+import { InputField } from './InputField';
+import { TextAreaField } from './TextAreaField';
+import { SelectField } from './SelectField';
+import { DatePickerField } from '@/components/elements/DatePickerField/DatePickerField';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import { IoCloseOutline } from 'react-icons/io5';
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
+import { RiErrorWarningLine } from 'react-icons/ri';
+import { createFormSubmission } from '@/helpers/server-actions/createFormSubmission';
+import * as Toast from '@radix-ui/react-toast';
 
 export type FormValues = {
   [x: string]: string | Date;
 };
 
-export const Form: React.FC<{data: FormType, darkMode?: boolean}> = ({ data }) => {
+export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
+  data,
+}) => {
   const {
     title,
     fields,
@@ -43,11 +45,11 @@ export const Form: React.FC<{data: FormType, darkMode?: boolean}> = ({ data }) =
       if (data[prop] instanceof Date) {
         data[prop] = data[prop]
           ?.toLocaleString(undefined, {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "numeric",
-            minute: "numeric",
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
           })
           .toString();
       }
@@ -60,13 +62,13 @@ export const Form: React.FC<{data: FormType, darkMode?: boolean}> = ({ data }) =
         return e;
       });
   }
-  
+
   return (
     <>
       <form
         className={classNames(
-          "w-full px-4 pb-4 pt-2 lg:px-8 lg:pb-8 lg:pt-4 grid grid-cols-2 gap-x-5 gap-y-3 rounded-theme dark:bg-white dark:text-slate-700",
-          { "gap-x-0": fields?.length === 1 },
+          'w-full px-4 pb-4 pt-2 lg:px-8 lg:pb-8 lg:pt-4 grid grid-cols-2 gap-x-5 gap-y-3 rounded-theme dark:bg-white dark:text-slate-700',
+          { 'gap-x-0': fields?.length === 1 },
         )}
         onSubmit={handleSubmit(onSubmit)}
       >
@@ -74,35 +76,37 @@ export const Form: React.FC<{data: FormType, darkMode?: boolean}> = ({ data }) =
           fields.map((fieldItem) => (
             <div
               key={fieldItem.id}
-              className={classNames("relative flex flex-col", {
-                "col-span-2 sm:min-w-[384px]": fieldItem.uiWidth === "full-size",
-                "col-span-2 md:col-span-1 lg:min-w-[208px]": fieldItem.uiWidth === "half-size",
+              className={classNames('relative flex flex-col', {
+                'col-span-2 sm:min-w-[384px]':
+                  fieldItem.uiWidth === 'full-size',
+                'col-span-2 md:col-span-1 lg:min-w-[208px]':
+                  fieldItem.uiWidth === 'half-size',
               })}
             >
               <div className="text-xs text-red-500 h-6 pt-1 pl-4">
-                {errors[fieldItem.label]?.type === "required" && (
+                {errors[fieldItem.label]?.type === 'required' && (
                   <p>required * </p>
                 )}
-                {errors[fieldItem.label]?.type === "pattern" && (
+                {errors[fieldItem.label]?.type === 'pattern' && (
                   <p>Wrong format. Please try again. </p>
                 )}
               </div>
               {fieldItem.placeholder && (
-                <div className={classNames("pb-2 text-smd")}>
+                <div className={classNames('pb-2 text-smd')}>
                   {fieldItem.label}
                 </div>
               )}
-              {fieldItem.fieldType === "select" && (
+              {fieldItem.fieldType === 'select' && (
                 <SelectField data={fieldItem} control={control} />
               )}
-              {fieldItem.fieldType === "date" && (
+              {fieldItem.fieldType === 'date' && (
                 <DatePickerField
                   data={fieldItem}
                   control={control}
                   dateFormat={dateFormat}
                 />
               )}
-              {fieldItem.fieldType === "datetime" && (
+              {fieldItem.fieldType === 'datetime' && (
                 <>
                   <DatePickerField
                     data={fieldItem}
@@ -112,37 +116,30 @@ export const Form: React.FC<{data: FormType, darkMode?: boolean}> = ({ data }) =
                   />
                 </>
               )}
-              {fieldItem.fieldType === "textarea" && (
+              {fieldItem.fieldType === 'textarea' && (
                 <TextAreaField data={fieldItem} register={register} />
               )}
-              {fieldItem.fieldType !== "textarea" &&
-                fieldItem.fieldType !== "select" &&
-                fieldItem.fieldType !== "date" &&
-                fieldItem.fieldType !== "datetime" && (
+              {fieldItem.fieldType !== 'textarea' &&
+                fieldItem.fieldType !== 'select' &&
+                fieldItem.fieldType !== 'date' &&
+                fieldItem.fieldType !== 'datetime' && (
                   <InputField data={fieldItem} register={register} />
                 )}
               {fieldItem.helpText && (
                 <div
-                  className={classNames(
-                    "pl-2 pt-1 text-sm text-inherit/50"
-                  )}
+                  className={classNames('pl-2 pt-1 text-sm text-inherit/50')}
                 >
                   {fieldItem.helpText}
                 </div>
               )}
             </div>
           ))}
-        <input hidden readOnly value={title} {...register("title")} />
-        <input
-          hidden
-          readOnly
-          value={formType}
-          {...register("formType")}
-        />
+        <input hidden readOnly value={title} {...register('title')} />
+        <input hidden readOnly value={formType} {...register('formType')} />
 
         <div
-          className={classNames("col-span-2", {
-            "mt-6": formType !== "subscription",
+          className={classNames('col-span-2', {
+            'mt-6': formType !== 'subscription',
           })}
         >
           {submitButton ? (
@@ -155,10 +152,10 @@ export const Form: React.FC<{data: FormType, darkMode?: boolean}> = ({ data }) =
           ) : (
             <Button
               data={{
-                text: "Submit",
+                text: 'Submit',
                 url: null,
                 withArrow: false,
-                buttonVariant: "black",
+                buttonVariant: 'black',
                 openNewTab: false,
               }}
               size="lg"

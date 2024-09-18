@@ -7,10 +7,11 @@
   --swiper-pagination-color: rgb(var(--primary-color-600));
   transform: scale(1.5);
   background: transparent;
-  border: 2px solid var(--swiper-pagination-color, var(--swiper-theme-color))
+  border: 2px solid var(--swiper-pagination-color, var(--swiper-theme-color));
 }
 
-.swiper-button-prev, .swiper-button-next {
+.swiper-button-prev,
+.swiper-button-next {
   --swiper-navigation-color: rgb(var(--primary-color-500));
   --swiper-navigation-size: 20px;
   --swiper-navigation-sides-offset: 0px;

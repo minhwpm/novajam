@@ -1,14 +1,14 @@
-import getFlexibleContent from "./getFlexibleContent";
-import normalizeDataCollection from "./normalizeDataCollection";
+import getFlexibleContent from './getFlexibleContent';
+import normalizeDataCollection from './normalizeDataCollection';
 
 export default async function getContentList(id: string) {
   try {
     const res = await fetch(
       `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           // Authenticate the request
           Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
         },
@@ -183,7 +183,7 @@ export default async function getContentList(id: string) {
             id,
           },
         }),
-      }
+      },
     );
 
     if (!res.ok) {
@@ -191,7 +191,7 @@ export default async function getContentList(id: string) {
       throw new Error(
         `Failed to fetch ContentList data: ${
           errorData.errors?.[0]?.message || res.statusText
-        }`
+        }`,
       );
     }
 
@@ -203,9 +203,9 @@ export default async function getContentList(id: string) {
         normalizedData[0]?.contentItems.map(
           async (
             contentItem: { contentType: string; id: string },
-            index: string | number
+            index: string | number,
           ) => {
-            if (contentItem?.contentType === "flexiblecontent") {
+            if (contentItem?.contentType === 'flexiblecontent') {
               const sectionData = await getFlexibleContent(contentItem.id);
               normalizedData[0].contentItems[index] = {
                 ...contentItem,
@@ -214,14 +214,14 @@ export default async function getContentList(id: string) {
             } else {
               normalizedData[0].contentItems[index] = { ...contentItem };
             }
-          }
-        )
+          },
+        ),
       ));
     return normalizedData[0];
   } catch (error) {
     console.error(error);
     throw new Error(
-      `An error occurred while fetching contentList data: ${error}`
+      `An error occurred while fetching contentList data: ${error}`,
     );
   }
 }

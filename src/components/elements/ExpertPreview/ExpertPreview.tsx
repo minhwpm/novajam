@@ -1,15 +1,15 @@
-import classNames from "classnames";
-import { ExpertType, TextAlignmentType } from "@/helpers/types";
-import { SNS } from "@/components/elements/SNS/SNS";
-import { MediaItem } from "@/components/elements/MediaItem/MediaItem";
-import { DarkModeContext } from "@/components/sections/Gallery/Gallery";
-import { useContext } from "react";
-import { useInView } from "react-hook-inview";
+import classNames from 'classnames';
+import { ExpertType, TextAlignmentType } from '@/helpers/types';
+import { SNS } from '@/components/elements/SNS/SNS';
+import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
+import { DarkModeContext } from '@/components/sections/Gallery/Gallery';
+import { useContext } from 'react';
+import { useInView } from 'react-hook-inview';
 
 export const ExpertPreview: React.FC<{
   index?: number;
   data: ExpertType;
-  layout: "horizontal" | "vertical";
+  layout: 'horizontal' | 'vertical';
   alignment?: TextAlignmentType;
   animate?: boolean;
 }> = ({ index, data, layout, alignment, animate }) => {
@@ -27,19 +27,19 @@ export const ExpertPreview: React.FC<{
     unobserveOnEnter: true,
   });
   const darkMode = useContext(DarkModeContext);
-  if (layout === "horizontal") {
+  if (layout === 'horizontal') {
     return (
       <div
         ref={ref}
         className={classNames(
-          "flex flex-wrap gap-y-4 justify-center rounded-theme",
+          'flex flex-wrap gap-y-4 justify-center rounded-theme',
           {
-            "relative -bottom-10 opacity-0": animate,
-            "animate-slidingUpContent": isIntersecting && animate,
-          }
+            'relative -bottom-10 opacity-0': animate,
+            'animate-slidingUpContent': isIntersecting && animate,
+          },
         )}
         style={{
-          animationDelay: index && animate ? `${(index + 1) * 0.15}s` : "0s",
+          animationDelay: index && animate ? `${(index + 1) * 0.15}s` : '0s',
         }}
       >
         <div className="w-1/2 sm:w-1/3 md:w-1/4">
@@ -48,16 +48,16 @@ export const ExpertPreview: React.FC<{
         <div className="w-full sm:w-2/3 md:w-3/4 sm:pl-4 md:pl-6 lg:pl-8">
           <div
             className={classNames(
-              "font-heading font-semibold text-2xl md:text-3xl text-center sm:text-start mb-2 dark:text-slate-100"
+              'font-heading font-semibold text-2xl md:text-3xl text-center sm:text-start mb-2 dark:text-slate-100',
             )}
           >
             {fullName}
           </div>
           {role && (
             <div
-              className={classNames("font-semibold text-center sm:text-start", {
-                "text-slate-500": !darkMode,
-                "text-slate-100/70": darkMode,
+              className={classNames('font-semibold text-center sm:text-start', {
+                'text-slate-500': !darkMode,
+                'text-slate-100/70': darkMode,
               })}
             >
               {role}
@@ -66,8 +66,8 @@ export const ExpertPreview: React.FC<{
           {specialization && (
             <div
               className={classNames(
-                "flex flex-wrap items-center gap-2 justify-center sm:justify-start",
-                { "text-slate-500": !darkMode, "text-slate-100/70": darkMode }
+                'flex flex-wrap items-center gap-2 justify-center sm:justify-start',
+                { 'text-slate-500': !darkMode, 'text-slate-100/70': darkMode },
               )}
             >
               {specialization.map((item, index) => (
@@ -77,9 +77,9 @@ export const ExpertPreview: React.FC<{
           )}
           {organization && (
             <div
-              className={classNames("text-center sm:text-start", {
-                "text-slate-500": !darkMode,
-                "text-slate-100/70": darkMode,
+              className={classNames('text-center sm:text-start', {
+                'text-slate-500': !darkMode,
+                'text-slate-100/70': darkMode,
               })}
             >
               {organization}
@@ -87,8 +87,8 @@ export const ExpertPreview: React.FC<{
           )}
           {summary && (
             <div
-              className={classNames("my-4 prose 2xl:prose-lg max-w-none", {
-                "text-slate-100": darkMode,
+              className={classNames('my-4 prose 2xl:prose-lg max-w-none', {
+                'text-slate-100': darkMode,
               })}
             >
               {summary}
@@ -102,13 +102,13 @@ export const ExpertPreview: React.FC<{
   return (
     <div
       ref={ref}
-      className={classNames("group rounded-theme", {
-        "relative -bottom-10 opacity-0": animate,
-        "animate-slidingUpContent": isIntersecting && animate,
-        "bg-white": !darkMode,
+      className={classNames('group rounded-theme', {
+        'relative -bottom-10 opacity-0': animate,
+        'animate-slidingUpContent': isIntersecting && animate,
+        'bg-white': !darkMode,
       })}
       style={{
-        animationDelay: index && animate ? `${(index + 1) * 0.15}s` : "0s",
+        animationDelay: index && animate ? `${(index + 1) * 0.15}s` : '0s',
       }}
     >
       <div className="relative">
@@ -116,7 +116,7 @@ export const ExpertPreview: React.FC<{
         {summary && (
           <div
             className={classNames(
-              "absolute bottom-0 opacity-0 group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-b-theme gr p-4 text-slate-100 bg-primary-600 prose"
+              'absolute bottom-0 opacity-0 group-hover:opacity-90 transition-opacity duration-500 ease-in-out rounded-b-theme gr p-4 text-slate-100 bg-primary-600 prose',
             )}
           >
             <div className="line-clamp-5">{summary}</div>
@@ -125,16 +125,16 @@ export const ExpertPreview: React.FC<{
       </div>
       <div
         className={classNames(
-          "w-full px-4 pt-4 pb-6 flex flex-col gap-1 rounded-b-theme",
+          'w-full px-4 pt-4 pb-6 flex flex-col gap-1 rounded-b-theme',
           {
-            "text-center": alignment === "center",
-            "text-end": alignment === "end",
-          }
+            'text-center': alignment === 'center',
+            'text-end': alignment === 'end',
+          },
         )}
       >
         <div
           className={classNames(
-            "font-heading font-semibold text-lg xl:text-xl dark:text-slate-100",
+            'font-heading font-semibold text-lg xl:text-xl dark:text-slate-100',
           )}
         >
           {fullName}
@@ -142,8 +142,8 @@ export const ExpertPreview: React.FC<{
         {role && (
           <div
             className={classNames(
-              { "text-slate-500": !darkMode },
-              { "text-slate-100/70": darkMode }
+              { 'text-slate-500': !darkMode },
+              { 'text-slate-100/70': darkMode },
             )}
           >
             {role}
@@ -151,11 +151,11 @@ export const ExpertPreview: React.FC<{
         )}
         {specialization && (
           <div
-            className={classNames("flex flex-wrap gap-2", {
-              "justify-center": alignment === "center",
-              "justify-end": alignment === "end",
-              "text-slate-500": !darkMode,
-              "text-slate-100/70": darkMode,
+            className={classNames('flex flex-wrap gap-2', {
+              'justify-center': alignment === 'center',
+              'justify-end': alignment === 'end',
+              'text-slate-500': !darkMode,
+              'text-slate-100/70': darkMode,
             })}
           >
             {specialization.map((item, index) => (
@@ -166,8 +166,8 @@ export const ExpertPreview: React.FC<{
         {organization && (
           <div
             className={classNames({
-              "text-slate-500": !darkMode,
-              "text-slate-100/70": darkMode,
+              'text-slate-500': !darkMode,
+              'text-slate-100/70': darkMode,
             })}
           >
             {organization}
@@ -175,9 +175,9 @@ export const ExpertPreview: React.FC<{
         )}
         {sns && (
           <div
-            className={classNames("flex", {
-              "justify-center": alignment === "center",
-              "justify-end": alignment === "end",
+            className={classNames('flex', {
+              'justify-center': alignment === 'center',
+              'justify-end': alignment === 'end',
             })}
           >
             <SNS data={sns} darkMode={darkMode} />

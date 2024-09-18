@@ -1,15 +1,15 @@
-import normalizeDataCollection from "./normalizeDataCollection";
-import blogs from "./static-data/blogs.json";
+import normalizeDataCollection from './normalizeDataCollection';
+import blogs from './static-data/blogs.json';
 
 export default async function getBlogPost(slug: string) {
-  if (process.env.DATA_SOURCE === "CONTENTFUL") {
+  if (process.env.DATA_SOURCE === 'CONTENTFUL') {
     try {
       const res = await fetch(
         `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
             // Authenticate the request
             Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
           },
@@ -68,7 +68,7 @@ export default async function getBlogPost(slug: string) {
               slug,
             },
           }),
-        }
+        },
       );
 
       if (!res.ok) {
@@ -76,7 +76,7 @@ export default async function getBlogPost(slug: string) {
         throw new Error(
           `Failed to fetch BlogPost data: ${
             errorData.errors?.[0]?.message || res.statusText
-          }`
+          }`,
         );
       }
 
@@ -86,7 +86,7 @@ export default async function getBlogPost(slug: string) {
     } catch (error) {
       console.error(error);
       throw new Error(
-        `An error occurred while fetching blogPost data: ${error}`
+        `An error occurred while fetching blogPost data: ${error}`,
       );
     }
   }

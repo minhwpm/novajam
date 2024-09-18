@@ -1,13 +1,13 @@
-import normalizeDataCollection from "./normalizeDataCollection";
+import normalizeDataCollection from './normalizeDataCollection';
 
 export default async function getForm(id: string) {
   try {
     const res = await fetch(
       `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           // Authenticate the request
           Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
         },
@@ -65,7 +65,7 @@ export default async function getForm(id: string) {
             id,
           },
         }),
-      }
+      },
     );
 
     if (!res.ok) {
@@ -73,7 +73,7 @@ export default async function getForm(id: string) {
       throw new Error(
         `Failed to fetch Form data: ${
           errorData.errors?.[0]?.message || res.statusText
-        }`
+        }`,
       );
     }
 
@@ -82,8 +82,6 @@ export default async function getForm(id: string) {
     return normalizedData[0];
   } catch (error) {
     console.error(error);
-    throw new Error(
-      `An error occurred while fetching Form data: ${error}`
-    );
+    throw new Error(`An error occurred while fetching Form data: ${error}`);
   }
 }

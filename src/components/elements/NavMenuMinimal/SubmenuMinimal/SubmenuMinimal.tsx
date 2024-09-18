@@ -1,13 +1,16 @@
-import { Dispatch, SetStateAction } from "react";
-import classNames from "classnames";
-import * as NavigationMenu from "@radix-ui/react-navigation-menu"
-import { SubmenuType } from "@/helpers/types";
-import { NavLinkItem } from "@/components/elements/NavLinkItem/NavLinkItem";
-import { usePathname } from "next/navigation";
-import { FaChevronDown } from "react-icons/fa";
-import { NavFeaturedContent } from "@/components/elements/NavFeaturedContent/NavFeaturedContent";
+import { Dispatch, SetStateAction } from 'react';
+import classNames from 'classnames';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { SubmenuType } from '@/helpers/types';
+import { NavLinkItem } from '@/components/elements/NavLinkItem/NavLinkItem';
+import { usePathname } from 'next/navigation';
+import { FaChevronDown } from 'react-icons/fa';
+import { NavFeaturedContent } from '@/components/elements/NavFeaturedContent/NavFeaturedContent';
 
-export const SubmenuMinimal: React.FC<{data: SubmenuType, setNavMenuShowed: Dispatch<SetStateAction<boolean>>}> = ({ data, setNavMenuShowed }) => {
+export const SubmenuMinimal: React.FC<{
+  data: SubmenuType;
+  setNavMenuShowed: Dispatch<SetStateAction<boolean>>;
+}> = ({ data, setNavMenuShowed }) => {
   const pathname = usePathname();
   return (
     <>
@@ -19,20 +22,20 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType, setNavMenuShowed: Disp
       >
         <div
           className={classNames(
-            "text-center font-medium select-none rounded-theme before:bg-primary-600 underline-hover-effect group-data-[state=open]:before:w-full",
+            'text-center font-medium select-none rounded-theme before:bg-primary-600 underline-hover-effect group-data-[state=open]:before:w-full',
             {
-              "before:w-full":
+              'before:w-full':
                 data.featuredContent.find(
-                  (content) => "url" in content && content.url === pathname
+                  (content) => 'url' in content && content.url === pathname,
                 ) ||
                 data.menu.find(
                   (subItem) =>
-                    (subItem.contentType === "link" &&
+                    (subItem.contentType === 'link' &&
                       subItem.url === pathname) ||
-                    (subItem.contentType === "linkgroup" &&
-                      subItem.links.find((link) => link.url === pathname))
+                    (subItem.contentType === 'linkgroup' &&
+                      subItem.links.find((link) => link.url === pathname)),
                 ),
-            }
+            },
           )}
         >
           {data.title}
@@ -50,29 +53,29 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType, setNavMenuShowed: Disp
           <NavigationMenu.List>
             {data.menu.length > 0 &&
               data.menu.map((subItem) => (
-                <div key={subItem.id} className={classNames("py-1")}>
-                  {subItem.contentType === "link" && (
+                <div key={subItem.id} className={classNames('py-1')}>
+                  {subItem.contentType === 'link' && (
                     <NavLinkItem
                       variant="underlined"
                       href={subItem.url}
                       onClick={() => {
                         setNavMenuShowed(false);
-                        document.body.style.overflow = "auto";
+                        document.body.style.overflow = 'auto';
                       }}
                     >
                       {subItem.text}
                     </NavLinkItem>
                   )}
-                  {subItem.contentType === "linkgroup" && (
+                  {subItem.contentType === 'linkgroup' && (
                     <NavigationMenu.Item>
                       <NavigationMenu.Trigger
                         className={classNames(
-                          "font-medium select-none text-left py-2 rounded-theme before:bg-primary-600 underline-hover-effect data-[state=open]:before:w-full group",
+                          'font-medium select-none text-left py-2 rounded-theme before:bg-primary-600 underline-hover-effect data-[state=open]:before:w-full group',
                           {
-                            "before:w-full": subItem.links.find(
-                              (link) => link.url === pathname
+                            'before:w-full': subItem.links.find(
+                              (link) => link.url === pathname,
                             ),
-                          }
+                          },
                         )}
                         onPointerEnter={(e) => e.preventDefault()}
                         onPointerMove={(e) => e.preventDefault()}
@@ -84,7 +87,9 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType, setNavMenuShowed: Disp
                           className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
                         />
                       </NavigationMenu.Trigger>
-                      <NavigationMenu.Content onPointerLeave={(e) => e.preventDefault()}>
+                      <NavigationMenu.Content
+                        onPointerLeave={(e) => e.preventDefault()}
+                      >
                         <ul className="pl-4 py-3 flex flex-col gap-y-2">
                           {subItem.links.length > 0 &&
                             subItem.links.map((link) => (
@@ -94,7 +99,7 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType, setNavMenuShowed: Disp
                                 variant="underlined"
                                 onClick={() => {
                                   setNavMenuShowed(false);
-                                  document.body.style.overflow = "auto";
+                                  document.body.style.overflow = 'auto';
                                 }}
                               >
                                 {link.text}
@@ -123,4 +128,4 @@ export const SubmenuMinimal: React.FC<{data: SubmenuType, setNavMenuShowed: Disp
       </NavigationMenu.Content>
     </>
   );
-}
+};

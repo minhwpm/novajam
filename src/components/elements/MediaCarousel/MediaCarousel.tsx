@@ -1,37 +1,49 @@
-"use client"
-import classNames from "classnames";
-import { MediaAspectRatioType, MediaType } from "@/helpers/types";
-import { MediaItem } from "../MediaItem/MediaItem";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade, EffectCoverflow, FreeMode, Navigation, Pagination } from "swiper/modules";
-import { AutoplayOptions, PaginationOptions, NavigationOptions, FreeModeOptions } from "swiper/types";
+'use client';
+import classNames from 'classnames';
+import { MediaAspectRatioType, MediaType } from '@/helpers/types';
+import { MediaItem } from '../MediaItem/MediaItem';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import {
+  Autoplay,
+  EffectFade,
+  EffectCoverflow,
+  FreeMode,
+  Navigation,
+  Pagination,
+} from 'swiper/modules';
+import {
+  AutoplayOptions,
+  PaginationOptions,
+  NavigationOptions,
+  FreeModeOptions,
+} from 'swiper/types';
 import 'swiper/css';
-import "swiper/css/effect-fade";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "@/app/styles/custom-swiper.css"
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import '@/app/styles/custom-swiper.css';
 
 export const MediaCarousel: React.FC<{
   data: Array<MediaType>;
   aspectRatio?: MediaAspectRatioType;
   videoAutoplay?: boolean;
-  dimensionBase?: "width" | "height";
+  dimensionBase?: 'width' | 'height';
   priority?: boolean;
-  rounded?: "theme" | "full" | "none";
-  loop?: boolean
-  effect?: "fade" | "coverflow" | "cube"
-  freeMode?: FreeModeOptions
-  pagination?: PaginationOptions
-  navigation?: NavigationOptions
-  slidesPerView?: number
-  autoplay?: AutoplayOptions
+  rounded?: 'theme' | 'full' | 'none';
+  loop?: boolean;
+  effect?: 'fade' | 'coverflow' | 'cube';
+  freeMode?: FreeModeOptions;
+  pagination?: PaginationOptions;
+  navigation?: NavigationOptions;
+  slidesPerView?: number;
+  autoplay?: AutoplayOptions;
 }> = ({
   data,
-  aspectRatio = "auto",
+  aspectRatio = 'auto',
   videoAutoplay = false,
-  dimensionBase = "width",
+  dimensionBase = 'width',
   priority = false,
-  rounded = "theme",
+  rounded = 'theme',
   loop,
   effect,
   freeMode,
@@ -42,14 +54,14 @@ export const MediaCarousel: React.FC<{
 }) => {
   return (
     <Swiper
-      className={classNames("w-full")}
+      className={classNames('w-full')}
       spaceBetween={30}
       loop={loop}
       navigation={navigation}
       pagination={pagination}
-      slidesPerView={slidesPerView ?? "auto"}
+      slidesPerView={slidesPerView ?? 'auto'}
       autoplay={autoplay}
-      effect={effect ?? "fade"}
+      effect={effect ?? 'fade'}
       fadeEffect={{
         crossFade: true,
       }}
@@ -76,5 +88,5 @@ export const MediaCarousel: React.FC<{
         </SwiperSlide>
       ))}
     </Swiper>
-  )
+  );
 };

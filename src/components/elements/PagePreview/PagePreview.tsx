@@ -1,31 +1,31 @@
-import classNames from "classnames";
-import Link from "next/link";
-import { TextAlignmentType, PageType } from "@/helpers/types";
-import { MediaItem } from "../MediaItem/MediaItem";
-import { useInView } from "react-hook-inview";
+import classNames from 'classnames';
+import Link from 'next/link';
+import { TextAlignmentType, PageType } from '@/helpers/types';
+import { MediaItem } from '../MediaItem/MediaItem';
+import { useInView } from 'react-hook-inview';
 
 export const PagePreview: React.FC<{
   index?: number;
   data: PageType;
-  layout?: "vertical" | "horizontal";
+  layout?: 'vertical' | 'horizontal';
   alignment?: TextAlignmentType;
-  animate?: boolean
-}> = ({ index, data, layout = "vertical", alignment, animate }) => {
+  animate?: boolean;
+}> = ({ index, data, layout = 'vertical', alignment, animate }) => {
   const { title, url, metaTitle, metaImage } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
     unobserveOnEnter: true,
   });
-  if (layout === "horizontal") {
+  if (layout === 'horizontal') {
     return (
       <div
         ref={ref}
-        className={classNames("rounded-theme flex gap-5", {
-          "relative -bottom-10 opacity-0": animate,
-          "animate-slidingUpContent": isIntersecting && animate,
+        className={classNames('rounded-theme flex gap-5', {
+          'relative -bottom-10 opacity-0': animate,
+          'animate-slidingUpContent': isIntersecting && animate,
         })}
         style={{
-          animationDelay: index && animate ? `${(index + 1) * 0.15}s` : "0s",
+          animationDelay: index && animate ? `${(index + 1) * 0.15}s` : '0s',
         }}
       >
         <div className="basis-1/3 flex-1">
@@ -36,11 +36,11 @@ export const PagePreview: React.FC<{
         <div className="basis-2/3 flex-1 py-4 pr-4 lg:py-6 lg:pr-6">
           <h4
             className={classNames(
-              "text-lg xl:text-xl font-heading file:font-semibold dark:text-slate-100",
+              'text-lg xl:text-xl font-heading file:font-semibold dark:text-slate-100',
               {
-                "text-center": alignment === "center",
-                "text-end": alignment === "end",
-              }
+                'text-center': alignment === 'center',
+                'text-end': alignment === 'end',
+              },
             )}
           >
             <Link href={url}>{metaTitle ?? title}</Link>
@@ -52,12 +52,12 @@ export const PagePreview: React.FC<{
   return (
     <div
       ref={ref}
-      className={classNames("group rounded-theme flex flex-col pb-4 lg:pb-6", {
-        "relative -bottom-10 opacity-0": animate,
-        "animate-slidingUpContent": isIntersecting && animate,
+      className={classNames('group rounded-theme flex flex-col pb-4 lg:pb-6', {
+        'relative -bottom-10 opacity-0': animate,
+        'animate-slidingUpContent': isIntersecting && animate,
       })}
       style={{
-        animationDelay: index && animate ? `${(index + 1) * 0.15}s` : "0s",
+        animationDelay: index && animate ? `${(index + 1) * 0.15}s` : '0s',
       }}
     >
       <Link href={url}>
@@ -69,11 +69,11 @@ export const PagePreview: React.FC<{
         />
         <h4
           className={classNames(
-            "mt-4 text-lg xl:text-xl font-heading font-semibold transition-colors duration-300 ease-in-out dark:text-slate-100",
+            'mt-4 text-lg xl:text-xl font-heading font-semibold transition-colors duration-300 ease-in-out dark:text-slate-100',
             {
-              "text-center": alignment === "center",
-              "text-end": alignment === "end",
-            }
+              'text-center': alignment === 'center',
+              'text-end': alignment === 'end',
+            },
           )}
         >
           {metaTitle ?? title}
