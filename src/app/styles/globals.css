@@ -50,7 +50,7 @@
 }
 
 @layer utilities {
-  .overlay-nav .hero-section {
+  .overlay-nav section:first-of-type {
     @apply xl:pt-20 lg:pt-18 md:pt-16 pt-14;
   }
 }

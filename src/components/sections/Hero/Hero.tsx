@@ -32,7 +32,7 @@ export const Hero: React.FC<{order:number, data: HeroType }> = ({order, data }) 
       id={htmlid ?? ""}
       ref={ref}
       className={classNames(
-        "hero-section py-4 md:py-6 lg:py-8 xl:py-10 2xl:py-14",
+        "py-4 md:py-6 lg:py-8 xl:py-10 2xl:py-14",
         {
           "pt-10 pb-4 md:pb-6 lg:pb-8 xl:pb-10 2xl:pb-14":
             order === 1,
