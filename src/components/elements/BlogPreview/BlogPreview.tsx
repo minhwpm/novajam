@@ -27,7 +27,7 @@ const Topics: React.FC<{ topics: string[]; alignment?: TextAlignmentType }> = ({
     {topics.map((topic, idx) => (
       <div
         key={idx}
-        className="rounded-theme px-2.5 py-1 text-xs text-primary-400 bg-slate-100 dark:text-slate-400 dark:bg-slate-100/10 tracking-wider"
+        className="rounded-theme px-2.5 py-1 text-xs text-slate-500 bg-slate-100 dark:bg-slate-100/10 tracking-wider"
       >
         {topic}
       </div>
