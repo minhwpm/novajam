@@ -80,6 +80,7 @@ export const ContentMapping: React.FC<{
           index={index}
           data={data}
           alignment={alignment}
+          layout={layout}
           animate={animate}
         />
       );
