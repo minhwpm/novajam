@@ -132,7 +132,7 @@ export const Section: React.FC<SectionProps> = ({
         <div
           ref={ref}
           className={classNames(
-            'container mx-auto px-4 mb-6 relative flex flex-col -bottom-10 opacity-0',
+            'container mx-auto px-4 relative flex flex-col -bottom-10 opacity-0',
             {
               'animate-slidingUpContent animation-delay-150': isIntersecting,
             },
@@ -148,7 +148,7 @@ export const Section: React.FC<SectionProps> = ({
         {framed ? (
           <Container
             className={classNames({
-              'mt-4': heading || eyebrow || summary,
+              'mt-10': heading || eyebrow || summary,
             })}
           >
             {children}
