@@ -59,17 +59,15 @@ export const CTA: React.FC<{ data: CTAType }> = ({ data }) => {
         >
           <div
             className={classNames('flex flex-col items-center basis-5/12', {
-              'lg:items-start': layout === 'side-by-side',
+              'text-start lg:items-start': layout === 'side-by-side',
+              'text-center': layout === 'top-to-bottom',
               'flex-grow': buttons && !form,
             })}
           >
             {eyebrow && (
               <div
                 className={classNames(
-                  'text-sm lg:text-base tracking-widest text-center mb-2 text-secondary-600 dark:text-secondary-500',
-                  {
-                    'lg:text-start': layout === 'side-by-side',
-                  },
+                  'text-sm lg:text-base tracking-widest mb-2 text-secondary-600 dark:text-secondary-500',
                 )}
               >
                 {eyebrow}
@@ -78,10 +76,7 @@ export const CTA: React.FC<{ data: CTAType }> = ({ data }) => {
             {displayTitle && (
               <div
                 className={classNames(
-                  'font-heading text-heading text-center leading-snug dark:text-slate-100',
-                  {
-                    'lg:text-start': layout === 'side-by-side',
-                  },
+                  'font-heading text-heading leading-snug dark:text-slate-100',
                 )}
               >
                 <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
@@ -91,9 +86,6 @@ export const CTA: React.FC<{ data: CTAType }> = ({ data }) => {
               <div
                 className={classNames(
                   'prose xl:prose-lg mt-8 text-slate-500 dark:text-slate-100/70 dark:prose-invert',
-                  {
-                    'lg:text-start': layout === 'side-by-side',
-                  },
                 )}
               >
                 <MarkdownRenderer>{description}</MarkdownRenderer>
