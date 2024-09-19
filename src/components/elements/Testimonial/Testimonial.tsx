@@ -39,13 +39,10 @@ export const Testimonial: React.FC<{
         </div>
       )}
       <div
-        className={classNames(
-          'relative',
-          {
-            'text-center': alignment === 'center',
-            'text-end': alignment === 'end',
-          },
-        )}
+        className={classNames('relative', {
+          'text-center': alignment === 'center',
+          'text-end': alignment === 'end',
+        })}
       >
         <BiSolidQuoteAltLeft
           size={40}
@@ -53,7 +50,11 @@ export const Testimonial: React.FC<{
             'absolute -top-6 -left-6 -z-10 text-slate-300/70 dark:text-slate-300/20',
           )}
         />
-        {content && <MarkdownRenderer className='prose 2xl:prose-lg leading-loose dark:text-slate-100 dark:prose-invert'>{content}</MarkdownRenderer>}
+        {content && (
+          <MarkdownRenderer className="prose 2xl:prose-lg leading-loose dark:text-slate-100 dark:prose-invert">
+            {content}
+          </MarkdownRenderer>
+        )}
         {rating > 0 && (
           <div className="flex gap-2 mb-6">
             {new Array(rating).fill(0).map((_item, idx) => (

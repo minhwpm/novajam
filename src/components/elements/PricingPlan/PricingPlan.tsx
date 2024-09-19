@@ -9,7 +9,7 @@ export const PricingPlan: React.FC<{
   data: PricingPlanType;
   alignment?: TextAlignmentType;
   animate?: boolean;
-}> = ({ index, data, alignment, animate }) => {
+}> = ({ index, data, alignment = 'center', animate }) => {
   const { title, pricing, pricingSuffix, badge, description, ctaButton } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
@@ -20,7 +20,7 @@ export const PricingPlan: React.FC<{
     <div
       ref={ref}
       className={classNames(
-        'relative flex flex-col gap-6 items-center rounded-theme bg-white dark:bg-opacity-10 py-10',
+        'relative flex flex-col rounded-theme bg-white dark:bg-opacity-10',
         {
           '-bottom-10 opacity-0': animate,
           'animate-slidingUpContent': isIntersecting && animate,
@@ -30,19 +30,23 @@ export const PricingPlan: React.FC<{
         animationDelay: index && animate ? `${(index + 1) * 0.15}s` : '0s',
       }}
     >
-      {badge && (
-        <div className="absolute -top-5 rounded-theme-button text-center bg-primary-600 text-slate-100 px-4 py-2 font-bold tracking-wider">
-          {badge}
-        </div>
-      )}
-      <h4
-        className={classNames(
-          'font-semibold tracking-wide text-primary-600 dark:text-primary-6000/50',
-        )}
+      <div
+        className={classNames('flex flex-col px-4 lg:px-6 xl:px-8 py-8', {
+          'items-center': alignment === 'center',
+        })}
       >
-        {title}
-      </h4>
-      <div className="flex flex-col items-center">
+        {badge && (
+          <div className="absolute -top-5 rounded-theme-button text-center bg-primary-600 text-slate-100 px-4 py-2 font-bold tracking-wider">
+            {badge}
+          </div>
+        )}
+        <h4
+          className={classNames(
+            'font-semibold tracking-wide text-primary-600 dark:text-primary-500 mb-10',
+          )}
+        >
+          {title}
+        </h4>
         <div
           className={classNames(
             'text-4xl xl:text-5xl font-bold dark:text-slate-100',
@@ -52,23 +56,24 @@ export const PricingPlan: React.FC<{
         </div>
         <div
           className={classNames(
-            'text-sm tracking-wide text-slate-500 dark:text-slate-100/70',
+            'mt-3 text-sm tracking-wide text-slate-400 dark:text-slate-100/50',
           )}
         >
           {pricingSuffix}
         </div>
+        {ctaButton && (
+          <div className="mt-6">
+            <Button data={ctaButton} size="base">
+              {ctaButton.text}
+            </Button>
+          </div>
+        )}
       </div>
-      {ctaButton && (
-        <div>
-          <Button data={ctaButton} size="base">
-            {ctaButton.text}
-          </Button>
-        </div>
-      )}
+
       {description && (
         <div
           className={classNames(
-            'pt-6 px-6 border-t prose leading-loose dark:text-slate-100/70 dark:border-slate-700',
+            'py-8 px-4 lg:px-6 xl:px-8 border-t prose leading-loose dark:text-slate-100/70 dark:border-slate-700',
             {
               'text-center': alignment === 'center',
               'text-end': alignment === 'end',
