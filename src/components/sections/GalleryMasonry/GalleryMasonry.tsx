@@ -15,53 +15,50 @@ export const MasonryLayout: React.FC<{
       className="pt-3.5"
       columnsCountBreakPoints={{
         320: parseInt(
-          classNames(
-            { 2: size === 'S' },
-            { 1: size === 'M' },
-            { 1: size === 'L' },
-            { 1: size === 'XL' },
-          ),
+          classNames({
+            2: size === 'S',
+            1: size === 'M' || 'L' || 'XL' || '2XL',
+          }),
         ),
         640: parseInt(
-          classNames(
-            { 3: size === 'S' },
-            { 2: size === 'M' },
-            { 1: size === 'L' },
-            { 1: size === 'XL' },
-          ),
+          classNames({
+            3: size === 'S',
+            2: size === 'M',
+            1: size === 'L' || 'XL' || '2XL',
+          }),
         ),
         768: parseInt(
-          classNames(
-            { 4: size === 'S' },
-            { 2: size === 'M' },
-            { 2: size === 'L' },
-            { 1: size === 'XL' },
-          ),
+          classNames({
+            4: size === 'S',
+            2: size === 'M' || 'L',
+            1: size === 'XL' || '2XL',
+          }),
         ),
         1024: parseInt(
-          classNames(
-            { 4: size === 'S' },
-            { 3: size === 'M' },
-            { 2: size === 'L' },
-            { 2: size === 'XL' },
-          ),
+          classNames({
+            4: size === 'S',
+            3: size === 'M',
+            2: size === 'L' || 'XL',
+            1: size === '2XL',
+          }),
         ),
         1280: parseInt(
-          classNames(
-            { 5: size === 'S' },
-            { 4: size === 'M' },
-            { 3: size === 'L' },
-            { 2: size === 'XL' },
-          ),
+          classNames({
+            5: size === 'S',
+            4: size === 'M',
+            3: size === 'L',
+            2: size === 'XL',
+            1: size === '2XL',
+          }),
         ),
       }}
     >
       <Masonry
-        gutter={classNames(
-          { '32px': size === 'S' || size === 'M' },
-          { '40px': size === 'L' },
-          { '48px': size === 'XL' },
-        )}
+        gutter={classNames({
+          '32px': size === 'S' || size === 'M',
+          '40px': size === 'L',
+          '48px': size === 'XL',
+        })}
       >
         {contentItems.map((item, idx) => (
           <ContentMapping

@@ -8,8 +8,9 @@ export const PricingPlan: React.FC<{
   index?: number;
   data: PricingPlanType;
   alignment?: TextAlignmentType;
+  layout?: 'horizontal' | 'vertical';
   animate?: boolean;
-}> = ({ index, data, alignment = 'center', animate }) => {
+}> = ({ index, data, alignment = 'center', layout = 'vertical', animate }) => {
   const { title, pricing, pricingSuffix, badge, description, ctaButton } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
@@ -22,6 +23,7 @@ export const PricingPlan: React.FC<{
       className={classNames(
         'relative flex flex-col rounded-theme bg-white dark:bg-opacity-10',
         {
+          'lg:flex-row': layout === 'horizontal',
           '-bottom-10 opacity-0': animate,
           'animate-slidingUpContent': isIntersecting && animate,
         },
@@ -73,8 +75,10 @@ export const PricingPlan: React.FC<{
       {description && (
         <div
           className={classNames(
-            'py-8 px-4 lg:px-6 xl:px-8 border-t prose leading-loose dark:text-slate-100/70 dark:border-slate-700',
+            'px-4 lg:px-6 xl:px-8 prose leading-loose dark:text-slate-100/70',
             {
+              'py-8': layout === 'horizontal',
+              'pt-4 py-8': layout === 'vertical',
               'text-center': alignment === 'center',
               'text-end': alignment === 'end',
             },

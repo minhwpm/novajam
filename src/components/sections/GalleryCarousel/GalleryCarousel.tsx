@@ -80,11 +80,12 @@ export const CarouselLayout: React.FC<{
         {contentItems.map((item, idx) => (
           <SwiperSlide
             key={idx}
-            className={classNames('px-4 !w-11/12', {
-              'lg:max-w-[50%] lg:px-5 xl:px-6': size === 'XL',
-              'md:max-w-[50%] xl:max-w-[33.33%] lg:px-5': size === 'L',
-              'sm:max-w-[50%] lg:max-w-[33.33%] xl:max-w-[25%]': size === 'M',
-              'max-w-[50%] sm:max-w-[33.33%] md:max-w-[25%] xl:max-w-[20%]':
+            className={classNames('px-4 basis-11/12', {
+              'xl:basis-4/5 2xl:basis-3/4 lg:px-5 xl:px-6': size === '2XL',
+              'lg:basis-[50%] lg:px-5 xl:px-6': size === 'XL',
+              'md:basis-[50%] xl:basis-[33.33%] lg:px-5': size === 'L',
+              'sm:basis-[50%] lg:basis-[33.33%] xl:basis-[25%]': size === 'M',
+              'basis-[50%] sm:basis-[33.33%] md:basis-[25%] xl:basis-[20%]':
                 size === 'S',
             })}
           >

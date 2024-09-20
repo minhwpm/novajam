@@ -307,7 +307,7 @@ export type Content =
   | PricingPlanType
   | TestimonialType;
 
-export type ItemSize = 'S' | 'M' | 'L' | 'XL';
+export type ItemSize = 'S' | 'M' | 'L' | 'XL' | '2XL';
 
 export type ContentListType = {
   id: string;

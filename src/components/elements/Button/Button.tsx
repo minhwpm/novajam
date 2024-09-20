@@ -1,11 +1,8 @@
-import React from 'react';
-import Link from 'next/link';
 import classNames from 'classnames';
-import { ButtonType } from '@/helpers/types';
-// import { GoArrowRight } from "react-icons/go";
-import { IoIosArrowRoundForward } from 'react-icons/io';
-
+import Link from 'next/link';
 import Image from 'next/image';
+import { ButtonType } from '@/helpers/types';
+import { IoIosArrowRoundForward } from 'react-icons/io';
 
 export const Button: React.FC<{
   data: ButtonType;
@@ -62,34 +59,32 @@ export const Button: React.FC<{
             {
               'text-primary-600 group-hover:text-slate-100':
                 buttonVariant === 'outline',
-            },
-            {
               'text-inherit group-hover:text-slate-100':
                 buttonVariant === 'outline-black',
-            },
-            {
               'text-slate-100 group-hover:text-inherit':
                 buttonVariant === 'outline-white',
             },
           )}
-          size={classNames(
-            { 20: size === 'sm' || size === 'base' },
-            { 30: size === 'lg' },
-          )}
+          size={classNames({
+            20: size === 'sm' || size === 'base',
+            30: size === 'lg',
+          })}
         />
       )}
     </>
   );
   const ghostVariantClasses = classNames(
     'w-full relative left-0 inline-block font-medium hover:left-1 transition-all duration-500 ease dark:text-slate-100',
-    { 'px-2 text-sm': size === 'sm' },
-    { 'px-3 text-base': size === 'base' },
-    { 'px-4 xl:text-lg': size === 'lg' },
-    { 'opacity-20 pointer-events-none cursor-not-allowed': disabled },
+    {
+      'px-2 text-sm': size === 'sm',
+      'px-3 text-base': size === 'base',
+      'px-4 xl:text-lg': size === 'lg',
+      'opacity-20 pointer-events-none cursor-not-allowed': disabled,
+    },
     className,
   );
   const otherVariantClasses = classNames(
-    'w-full relative border inline-flex justify-center items-center text-center rounded-theme-button transition-all duration-500 ease',
+    'w-full whitespace-nowrap relative border inline-flex justify-center items-center text-center rounded-theme-button transition-all duration-500 ease',
     {
       'border-primary-600 bg-primary-600 hover:brightness-110 text-slate-100':
         buttonVariant === 'primary',
