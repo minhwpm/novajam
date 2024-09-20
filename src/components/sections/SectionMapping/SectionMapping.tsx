@@ -11,7 +11,7 @@ import { CTA } from '@/components/sections/CTA/CTA';
 import { ContentPTType, PageContentType } from '@/helpers/types';
 
 function ContentPresentationMapping({ data }: { data: ContentPTType }) {
-  switch (data.appearanceVariant) {
+  switch (data.layout) {
     case 'scroll':
       return <ScrollPT key={data.id} data={data} />;
     case 'accordion':
@@ -55,7 +55,6 @@ function SectionComponentMapping({
 export const SectionMapping: React.FC<{
   data: Array<PageContentType>;
 }> = ({ data }) => {
-  // console.log("SECTION MAPPING", data)
   return (
     <main className="flex flex-col min-h-screen">
       {data?.map((section, idx) => (

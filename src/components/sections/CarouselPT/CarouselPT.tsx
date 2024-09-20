@@ -19,8 +19,8 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
     eyebrow,
     displayTitle,
     summary,
-    content,
-    contentTextAlignment,
+    contentItems,
+    itemTextAlignment,
     headingTextAlignment,
     backgroundColor,
     backgroundImage,
@@ -59,7 +59,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
           loop={true}
           modules={[Navigation, Autoplay]}
         >
-          {content.map((item) => (
+          {contentItems.map((item) => (
             <SwiperSlide key={item.id}>
               <div
                 className={classNames(
@@ -70,18 +70,18 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   <div
                     className={classNames(
                       'flex flex-col',
-                      { 'text-center': contentTextAlignment === 'center' },
-                      { 'text-end': contentTextAlignment === 'end' },
+                      { 'text-center': itemTextAlignment === 'center' },
+                      { 'text-end': itemTextAlignment === 'end' },
                     )}
                   >
                     <TextPartPT
                       data={item}
-                      alignment={contentTextAlignment}
+                      alignment={itemTextAlignment}
                       darkMode={darkMode}
                     />
                   </div>
                 )}
-                {(item.media.length > 0 || item.embeddedMediaUrl) && (
+                {(item.media?.length > 0 || item.embeddedMediaUrl) && (
                   <div
                     className={classNames(
                       {
@@ -93,7 +93,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   >
                     <FlexibleContentMediaPart
                       data={item}
-                      alignment={contentTextAlignment}
+                      alignment={itemTextAlignment}
                     />
                   </div>
                 )}

@@ -16,9 +16,9 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
     eyebrow,
     displayTitle,
     summary,
-    content,
+    contentItems,
     headingTextAlignment,
-    contentTextAlignment,
+    itemTextAlignment,
     htmlid,
     backgroundColor,
     backgroundImage,
@@ -54,9 +54,9 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             'w-full lg:w-[800px] mx-auto flex flex-col items-start justify-center',
           )}
         >
-          {content &&
-            content.length > 0 &&
-            content.map((section) => (
+          {contentItems &&
+            contentItems.length > 0 &&
+            contentItems.map((section) => (
               <RadixAccordion.Item
                 key={section.id}
                 value={section.id}
@@ -99,16 +99,17 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 <RadixAccordion.Content
                   className={classNames(
                     'overflow-hidden data-[state=closed]:animate-accordionSlideUp data-[state=open]:animate-accordionSlideDown',
-                    { 'text-center': contentTextAlignment === 'center' },
-                    { 'text-end': contentTextAlignment === 'end' },
+                    { 'text-center': itemTextAlignment === 'center' },
+                    { 'text-end': itemTextAlignment === 'end' },
                   )}
                 >
                   <div className="pb-8 xl:pb-10">
-                    {(section.media.length > 0 || section.embeddedMediaUrl) && (
+                    {(section.media?.length > 0 ||
+                      section.embeddedMediaUrl) && (
                       <div className="max-w-xl mx-auto mt-10">
                         <FlexibleContentMediaPart
                           data={section}
-                          alignment={contentTextAlignment}
+                          alignment={itemTextAlignment}
                         />
                       </div>
                     )}
@@ -130,7 +131,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       <div className={classNames('mt-8')}>
                         <ButtonGroup
                           data={section.buttons}
-                          alignment={contentTextAlignment}
+                          alignment={itemTextAlignment}
                         />
                       </div>
                     )}

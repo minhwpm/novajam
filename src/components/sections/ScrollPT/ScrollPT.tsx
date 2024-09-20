@@ -50,9 +50,9 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
     eyebrow,
     displayTitle,
     summary,
-    content,
+    contentItems,
     headingTextAlignment,
-    contentTextAlignment,
+    itemTextAlignment,
     htmlid,
     backgroundColor,
     backgroundImage,
@@ -72,18 +72,18 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
     >
       {/* FOR MOBILE, TABLETS */}
       <div className="lg:hidden">
-        {content?.map((section) => (
+        {contentItems?.map((section) => (
           <div key={section.id} className="mb-20">
             <div
               className={classNames(
                 'flex flex-col mb-10',
-                { 'text-center': contentTextAlignment === 'center' },
-                { 'text-end': contentTextAlignment === 'end' },
+                { 'text-center': itemTextAlignment === 'center' },
+                { 'text-end': itemTextAlignment === 'end' },
               )}
             >
               <TextPartPT
                 data={section}
-                alignment={contentTextAlignment}
+                alignment={itemTextAlignment}
                 darkMode={darkMode}
               />
             </div>
@@ -91,7 +91,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               {section.media?.length > 0 && (
                 <FlexibleContentMediaPart
                   data={section}
-                  alignment={contentTextAlignment}
+                  alignment={itemTextAlignment}
                 />
               )}
             </div>
@@ -104,7 +104,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
         <div className="relative w-3/5">
           <div className="sticky top-20">
             <div className="relative h-[80vh]">
-              {content?.map((section, idx) => (
+              {contentItems?.map((section, idx) => (
                 <div
                   key={section.id}
                   className={classNames(
@@ -119,10 +119,10 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     },
                   )}
                 >
-                  {(section.media.length > 0 || section.embeddedMediaUrl) && (
+                  {(section.media?.length > 0 || section.embeddedMediaUrl) && (
                     <FlexibleContentMediaPart
                       data={section}
-                      alignment={contentTextAlignment}
+                      alignment={itemTextAlignment}
                     />
                   )}
                 </div>
@@ -132,13 +132,13 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
         </div>
 
         <div className="w-2/5 flex flex-col">
-          {content?.map((section, idx) => (
+          {contentItems?.map((section, idx) => (
             <TextContent
               key={section.id}
               data={section}
               idx={idx}
               setVisibleIdx={setVisibleIdx}
-              alignment={contentTextAlignment}
+              alignment={itemTextAlignment}
               darkMode={darkMode}
             />
           ))}

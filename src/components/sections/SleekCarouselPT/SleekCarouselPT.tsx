@@ -52,9 +52,9 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
     eyebrow,
     displayTitle,
     summary,
-    content,
+    contentItems,
     headingTextAlignment,
-    contentTextAlignment,
+    itemTextAlignment,
     htmlid,
     backgroundColor,
     backgroundImage,
@@ -128,7 +128,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
             <ArrowGroup
               visibleIdx={visibleIdx}
               setVisibleIdx={setVisibleIdx}
-              length={content.length}
+              length={contentItems.length}
             />
           </div>
         </div>
@@ -141,29 +141,29 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
             },
           )}
         >
-          {content.map((section, idx) => (
+          {contentItems.map((section, idx) => (
             <div
               key={section.id}
               className={classNames(
                 'col-start-1 row-start-1 flex flex-col gap-6 p-8 lg:p-12 shadow-lg bg-white rounded-theme transition-all ease-in-out duration-500 relative',
-                { 'items-center': contentTextAlignment === 'center' },
-                { 'items-end': contentTextAlignment === 'end' },
+                { 'items-center': itemTextAlignment === 'center' },
+                { 'items-end': itemTextAlignment === 'end' },
                 { 'opacity-100 right-0': visibleIdx === idx },
                 { 'opacity-0 -right-24': visibleIdx !== idx },
                 { 'bg-opacity-5': darkMode },
               )}
             >
-              {(section.media.length > 0 || section.embeddedMediaUrl) && (
+              {(section.media?.length > 0 || section.embeddedMediaUrl) && (
                 <FlexibleContentMediaPart
                   data={section}
-                  alignment={contentTextAlignment}
+                  alignment={itemTextAlignment}
                 />
               )}
               <div
                 className={classNames(
                   'grow flex flex-col justify-center',
-                  { 'text-center': contentTextAlignment === 'center' },
-                  { 'text-end': contentTextAlignment === 'end' },
+                  { 'text-center': itemTextAlignment === 'center' },
+                  { 'text-end': itemTextAlignment === 'end' },
                 )}
               >
                 {section.eyebrow && (
@@ -193,7 +193,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
                   <div className={classNames('mt-8')}>
                     <ButtonGroup
                       data={section.buttons}
-                      alignment={contentTextAlignment}
+                      alignment={itemTextAlignment}
                     />
                   </div>
                 )}
@@ -205,7 +205,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
           <ArrowGroup
             visibleIdx={visibleIdx}
             setVisibleIdx={setVisibleIdx}
-            length={content.length}
+            length={contentItems.length}
           />
         </div>
       </div>

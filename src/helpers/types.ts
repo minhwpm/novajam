@@ -244,19 +244,14 @@ export type AlertType = {
 
 export type ContentPTType = {
   id: string;
+  htmlid: string | null;
   eyebrow: string | null;
   displayTitle: string | null;
   summary: string | null;
-  content: Array<FlexibleContentType>;
-  appearanceVariant:
-    | 'carousel'
-    | 'sleek carousel'
-    | 'tab'
-    | 'accordion'
-    | 'scroll';
   headingTextAlignment: TextAlignmentType;
-  contentTextAlignment: TextAlignmentType;
-  htmlid: string | null;
+  contentItems: Array<FlexibleContentType>;
+  itemTextAlignment: TextAlignmentType;
+  layout: 'carousel' | 'sleek carousel' | 'tab' | 'accordion' | 'scroll';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   darkMode: boolean;

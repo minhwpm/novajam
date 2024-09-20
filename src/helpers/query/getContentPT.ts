@@ -27,9 +27,9 @@ export default async function getContentPT(id: string) {
             eyebrow
             displayTitle
             summary
-            appearanceVariant
+            layout
             headingTextAlignment
-            contentTextAlignment
+            itemTextAlignment
             htmlid
             backgroundColor
             backgroundImage {
@@ -40,7 +40,7 @@ export default async function getContentPT(id: string) {
               contentType
             }
             darkMode
-            contentCollection (limit: 20) {
+            contentItemsCollection (limit: 20) {
               items {
                 __typename
                 ... on FlexibleContent {
@@ -75,13 +75,13 @@ export default async function getContentPT(id: string) {
 
     normalizedData[0]?.content &&
       (await Promise.all(
-        normalizedData[0]?.content.map(
+        normalizedData[0]?.contentItems.map(
           async (
             contentItem: { contentType: string; id: string },
             index: string | number,
           ) => {
             const sectionData = await getFlexibleContent(contentItem.id);
-            normalizedData[0].content[index] = {
+            normalizedData[0].contentItems[index] = {
               ...contentItem,
               ...sectionData,
             };

@@ -17,9 +17,9 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
     eyebrow,
     displayTitle,
     summary,
-    content,
+    contentItems,
     headingTextAlignment,
-    contentTextAlignment,
+    itemTextAlignment,
     backgroundColor,
     backgroundImage,
     darkMode,
@@ -54,7 +54,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
         className={classNames('w-full mt-6', 'relative -bottom-10 opacity-0', {
           'animate-slidingUpContent animation-delay-300': isIntersecting,
         })}
-        defaultValue={content.length > 0 ? content[0].id : ''}
+        defaultValue={contentItems.length > 0 ? contentItems[0].id : ''}
       >
         <div
           ref={wrapperRef}
@@ -71,8 +71,8 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 'bg-slate-200 lg:bg-opacity-0 flex gap-x-0 gap-y-2 lg:gap-x-2 overflow-x-auto overscroll-contain rounded-theme bg-opacity-50 dark:bg-opacity-20',
               )}
             >
-              {content.length > 0 &&
-                content.map((section) => (
+              {contentItems.length > 0 &&
+                contentItems.map((section) => (
                   <RadixTabs.Trigger
                     key={section.id}
                     value={section.id}
@@ -106,15 +106,15 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
           </RadixTabs.List>
         </div>
         <div className="mt-2 container px-4 mx-auto grid">
-          {content.map((section) => (
+          {contentItems.map((section) => (
             <RadixTabs.Content
               key={section.id}
               value={section.id}
               className={classNames(
                 "col-start-1 row-start-1 relative data-[state='active']:animate-fadeInSlideLeft",
                 {
-                  'text-center': contentTextAlignment === 'center',
-                  'text-end': contentTextAlignment === 'end',
+                  'text-center': itemTextAlignment === 'center',
+                  'text-end': itemTextAlignment === 'end',
                 },
               )}
             >
@@ -133,16 +133,16 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     <div className={classNames('mt-8')}>
                       <ButtonGroup
                         data={section.buttons}
-                        alignment={contentTextAlignment}
+                        alignment={itemTextAlignment}
                       />
                     </div>
                   )}
                 </div>
-                {(section.media.length > 0 || section.embeddedMediaUrl) && (
+                {(section.media?.length > 0 || section.embeddedMediaUrl) && (
                   <div className="lg:w-7/12 shrink-0">
                     <FlexibleContentMediaPart
                       data={section}
-                      alignment={contentTextAlignment}
+                      alignment={itemTextAlignment}
                     />
                   </div>
                 )}
