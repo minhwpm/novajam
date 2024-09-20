@@ -1,19 +1,14 @@
 'use client';
 import classNames from 'classnames';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-import {
-  TextAlignmentType,
-  Content,
-  ContentSize,
-  ContentOrientationType,
-} from '@/helpers/types';
+import { TextAlignmentType, Content, ItemSize } from '@/helpers/types';
 import { ContentMapping } from '../Gallery/ContentMapping';
 
 export const MasonryLayout: React.FC<{
   contentItems: Content[];
-  size: ContentSize;
+  size: ItemSize;
   alignment: TextAlignmentType;
-  layout: ContentOrientationType;
+  layout: 'horizontal' | 'vertical';
 }> = ({ contentItems, size, alignment, layout }) => {
   return (
     <ResponsiveMasonry

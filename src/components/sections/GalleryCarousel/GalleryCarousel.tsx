@@ -3,12 +3,7 @@ import classNames from 'classnames';
 import { useContext, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
-import {
-  TextAlignmentType,
-  Content,
-  ContentSize,
-  ContentOrientationType,
-} from '@/helpers/types';
+import { TextAlignmentType, Content, ItemSize } from '@/helpers/types';
 import { ContentMapping } from '../Gallery/ContentMapping';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import { DarkModeContext } from '@/components/sections/Gallery/Gallery';
@@ -22,9 +17,9 @@ import '@/app/styles/padding.css';
 
 export const CarouselLayout: React.FC<{
   contentItems: Content[];
-  size: ContentSize;
+  size: ItemSize;
   alignment: TextAlignmentType;
-  layout: ContentOrientationType;
+  layout: 'horizontal' | 'vertical';
 }> = ({ contentItems, size, alignment, layout }) => {
   const darkMode = useContext(DarkModeContext);
   const [carouselState, setState] = useState({

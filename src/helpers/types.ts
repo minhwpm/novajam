@@ -311,26 +311,26 @@ export type Content =
   | FlexibleContentType
   | PricingPlanType
   | TestimonialType;
-export type ContentSize = 'S' | 'M' | 'L' | 'XL';
-export type ContentOrientationType = 'horizontal' | 'vertical';
+
+export type ItemSize = 'S' | 'M' | 'L' | 'XL';
 
 export type ContentListType = {
   id: string;
   eyebrow: string | null;
   displayTitle: string | null;
   summary: string | null;
-  contentItems: Array<Content>;
   buttons: Array<ButtonType>;
-  appearanceVariant: 'carousel' | 'masonry' | 'deck';
-  size: ContentSize;
   headingTextAlignment: TextAlignmentType;
-  contentTextAlignment: TextAlignmentType;
-  contentOrientation: ContentOrientationType;
-  htmlid: string | null;
+  contentItems: Array<Content>;
+  itemTextAlignment: TextAlignmentType;
+  itemLayout: 'horizontal' | 'vertical';
+  itemSize: ItemSize;
+  layout: 'carousel' | 'masonry' | 'deck';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   darkMode: boolean;
   sectionSeparator: Array<string> | null;
+  htmlid: string | null;
   contentType: 'contentlist';
 };
 

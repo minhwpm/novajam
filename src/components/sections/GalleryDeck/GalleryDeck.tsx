@@ -1,17 +1,12 @@
 import classNames from 'classnames';
 import { ContentMapping } from '../Gallery/ContentMapping';
-import {
-  TextAlignmentType,
-  Content,
-  ContentSize,
-  ContentOrientationType,
-} from '@/helpers/types';
+import { TextAlignmentType, Content, ItemSize } from '@/helpers/types';
 
 export const DeckLayout: React.FC<{
   contentItems: Array<Content>;
-  size: ContentSize;
+  size: ItemSize;
   alignment: TextAlignmentType;
-  layout: ContentOrientationType;
+  layout: 'horizontal' | 'vertical';
 }> = ({ contentItems, size, alignment, layout }) => {
   return (
     <div className="flex flex-wrap justify-center -mx-4">

@@ -104,7 +104,7 @@ h1 u,
 h2 u,
 h1 code,
 h2 code {
-  @apply font-heading bg-gradient-to-br from-primary-600/50 via-primary-600/80 to-primary-600 bg-clip-text text-transparent;
+  @apply font-heading bg-gradient-to-br from-primary-300 via-primary-500 to-primary-600 bg-clip-text text-transparent;
   text-decoration: unset;
 }
 h3 u,

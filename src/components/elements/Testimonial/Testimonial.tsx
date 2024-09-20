@@ -22,7 +22,7 @@ export const Testimonial: React.FC<{
   return (
     <div
       ref={ref}
-      className={classNames('px-4 py-8 flex gap-4 rounded-theme', {
+      className={classNames('p-4 flex gap-4 rounded-theme', {
         'flex-col': layout === 'vertical',
         'relative -bottom-10 opacity-0': animate,
         'animate-slidingUpContent': isIntersecting && animate,

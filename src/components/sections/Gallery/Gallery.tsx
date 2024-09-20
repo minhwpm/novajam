@@ -16,11 +16,11 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     summary,
     buttons,
     contentItems,
-    appearanceVariant,
-    size,
+    layout,
+    itemSize,
     headingTextAlignment,
-    contentTextAlignment,
-    contentOrientation,
+    itemTextAlignment,
+    itemLayout,
     htmlid,
     backgroundColor,
     backgroundImage,
@@ -36,7 +36,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         summary={summary}
         buttons={buttons}
         alignment={headingTextAlignment}
-        framed={appearanceVariant !== 'carousel'}
+        framed={layout !== 'carousel'}
         backgroundColor={backgroundColor}
         backgroundImage={backgroundImage}
         sectionSeparator={sectionSeparator}
@@ -45,28 +45,28 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
           dark: darkMode,
         })}
       >
-        {appearanceVariant === 'carousel' && (
+        {layout === 'carousel' && (
           <CarouselLayout
             contentItems={contentItems}
-            size={size}
-            alignment={contentTextAlignment}
-            layout={contentOrientation}
+            size={itemSize}
+            alignment={itemTextAlignment}
+            layout={itemLayout}
           />
         )}
-        {appearanceVariant === 'masonry' && (
+        {layout === 'masonry' && (
           <MasonryLayout
             contentItems={contentItems}
-            size={size}
-            alignment={contentTextAlignment}
-            layout={contentOrientation}
+            size={itemSize}
+            alignment={itemTextAlignment}
+            layout={itemLayout}
           />
         )}
-        {appearanceVariant === 'deck' && (
+        {layout === 'deck' && (
           <DeckLayout
             contentItems={contentItems}
-            size={size}
-            alignment={contentTextAlignment}
-            layout={contentOrientation}
+            size={itemSize}
+            alignment={itemTextAlignment}
+            layout={itemLayout}
           />
         )}
       </Section>
