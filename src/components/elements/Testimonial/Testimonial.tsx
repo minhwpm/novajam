@@ -4,7 +4,7 @@ import { TextAlignmentType, TestimonialType } from '@/helpers/types';
 import { MediaItem } from '../MediaItem/MediaItem';
 import { AiFillStar } from 'react-icons/ai';
 import { useInView } from 'react-hook-inview';
-import { BiSolidQuoteAltLeft } from 'react-icons/bi';
+import { RiDoubleQuotesL } from "react-icons/ri";
 import { MarkdownRenderer } from '../MarkdownRenderer/MarkdownRenderer';
 
 export const Testimonial: React.FC<{
@@ -44,7 +44,7 @@ export const Testimonial: React.FC<{
           'text-end': alignment === 'end',
         })}
       >
-        <BiSolidQuoteAltLeft
+        <RiDoubleQuotesL
           size={40}
           className={classNames(
             'absolute -top-6 -left-6 -z-10 text-slate-300/70 dark:text-slate-300/20',
