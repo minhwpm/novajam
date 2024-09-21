@@ -10,7 +10,7 @@ export const ButtonGroup: React.FC<{
   return (
     <div
       className={classNames(
-        'flex flex-row flex-wrap gap-4',
+        'flex flex-row flex-wrap gap-6 lg:gap-8',
         { 'justify-center': alignment === 'center' },
         { 'justify-end': alignment === 'end' },
       )}

@@ -4,7 +4,7 @@ import { TextAlignmentType, TestimonialType } from '@/helpers/types';
 import { MediaItem } from '../MediaItem/MediaItem';
 import { AiFillStar } from 'react-icons/ai';
 import { useInView } from 'react-hook-inview';
-import { RiDoubleQuotesL } from "react-icons/ri";
+import { RiDoubleQuotesL } from 'react-icons/ri';
 import { MarkdownRenderer } from '../MarkdownRenderer/MarkdownRenderer';
 
 export const Testimonial: React.FC<{

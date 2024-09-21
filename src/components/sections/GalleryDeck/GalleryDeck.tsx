@@ -14,7 +14,8 @@ export const DeckLayout: React.FC<{
         <div
           key={idx}
           className={classNames('p-4 w-full', {
-            'lg:basis-11/12 xl:basis-4/5 2xl:basis-3/4 lg:p-5 xl:p-6': size === '2XL',
+            'lg:basis-11/12 xl:basis-4/5 2xl:basis-3/4 lg:p-5 xl:p-6':
+              size === '2XL',
             'lg:basis-1/2 lg:p-5 xl:p-6': size === 'XL',
             'md:basis-1/2 xl:basis-1/3 lg:p-5': size === 'L',
             'sm:basis-1/2 lg:basis-1/3 xl:basis-1/4': size === 'M',
