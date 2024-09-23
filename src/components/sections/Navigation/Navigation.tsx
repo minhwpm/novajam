@@ -69,7 +69,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
           className={classNames(
             'absolute top-0 left-0 right-0 flex justify-center dark:text-slate-100 transition-all duration-500',
             {
-              'bg-white dark:bg-slate-900/60 dark:backdrop-blur-2xl shadow':
+              'bg-white/60 backdrop-blur-2xl dark:bg-slate-900/60 shadow':
                 sticky,
             },
           )}
@@ -103,8 +103,8 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
     >
       <div
         className={classNames(
-          'bg-white dark:text-slate-100 dark:bg-slate-900 transition-all duration-500',
-          { 'dark:bg-slate-900/60 dark:backdrop-blur-2xl': sticky },
+          'bg-white/60 dark:text-slate-100 dark:bg-slate-900 transition-all duration-500',
+          { 'backdrop-blur-2xl dark:bg-slate-900/60': sticky },
         )}
       >
         <div
