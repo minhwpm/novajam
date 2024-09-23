@@ -26,9 +26,27 @@ export default async function getContentPT(id: string) {
           items {
             eyebrow
             displayTitle
-            summary
+            description
             layout
             headingTextAlignment
+            buttonsCollection {
+              items {
+                sys {
+                  id
+                }
+                url
+                text
+                openNewTab
+                buttonVariant
+                withArrow
+                icon {
+                  url
+                  title
+                  width
+                  height
+                }
+              }
+            }
             itemTextAlignment
             htmlid
             backgroundColor
@@ -40,6 +58,7 @@ export default async function getContentPT(id: string) {
               contentType
             }
             darkMode
+            sectionSeparator
             contentItemsCollection (limit: 20) {
               items {
                 __typename

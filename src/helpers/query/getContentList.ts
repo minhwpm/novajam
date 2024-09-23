@@ -26,7 +26,7 @@ export default async function getContentList(id: string) {
           items {
             eyebrow
             displayTitle
-            summary
+            description
             buttonsCollection {
               items {
                 sys {

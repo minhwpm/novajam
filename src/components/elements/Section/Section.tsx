@@ -1,49 +1,39 @@
-// Denotes a section of page content.
 'use client';
 import React from 'react';
 import classNames from 'classnames';
-import { Container } from '../Container/Container';
-import {
-  MediaType,
-  TextAlignmentType,
-  BackgroundColorType,
-  ButtonType,
-} from '@/helpers/types';
+import { ContentListType, ContentPTType, CTAType } from '@/helpers/types';
 import { useInView } from 'react-hook-inview';
-import { ButtonGroup } from '../ButtonGroup/ButtonGroup';
-import { MarkdownRenderer } from '../MarkdownRenderer/MarkdownRenderer';
+import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
+import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
+import { SectionSeparator } from '@/components/elements/SectionSeparator/SectionSeparator';
 
 interface SectionProps {
-  id?: string | null;
-  eyebrow?: string | null;
-  heading?: string | null;
-  summary?: string | null;
-  alignment?: TextAlignmentType;
-  buttons?: Array<ButtonType>;
   className?: string;
   framed?: boolean;
-  backgroundColor?: BackgroundColorType | null;
-  backgroundImage?: MediaType | null;
-  darkMode?: boolean;
-  sectionSeparator?: Array<string> | null;
+  layout?: 'side-by-side' | 'top-to-bottom';
+  data: ContentListType | ContentPTType | CTAType;
   children: React.ReactNode;
 }
 
 export const Section: React.FC<SectionProps> = ({
-  id,
-  heading,
-  eyebrow,
-  summary,
-  buttons,
-  alignment,
   className,
   framed = true,
-  backgroundColor,
-  backgroundImage,
-  darkMode,
-  sectionSeparator,
+  layout = 'top-to-bottom',
+  data,
   children,
 }) => {
+  const {
+    htmlid,
+    displayTitle,
+    eyebrow,
+    description,
+    buttons,
+    headingTextAlignment,
+    backgroundColor,
+    backgroundImage,
+    darkMode,
+    sectionSeparator,
+  } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.5,
     unobserveOnEnter: true,
@@ -54,37 +44,43 @@ export const Section: React.FC<SectionProps> = ({
       <div
         className={classNames(
           'text-sm xl:text-base tracking-widest mb-6 font-semibold text-secondary-600 dark:text-secondary-500',
-          { 'text-center': alignment === 'center' },
-          { 'text-end': alignment === 'end' },
+          {
+            'text-center': headingTextAlignment === 'center',
+            'text-end': headingTextAlignment === 'end',
+          },
         )}
       >
         {eyebrow}
       </div>
     );
 
-  const renderHeading = () =>
-    heading && (
+  const renderTitle = () =>
+    displayTitle && (
       <div
         className={classNames(
           'font-heading text-heading leading-snug max-w-3xl mb-4 dark:text-slate-100',
-          { 'text-center': alignment === 'center' },
-          { 'text-end': alignment === 'end' },
+          {
+            'text-center': headingTextAlignment === 'center',
+            'text-end': headingTextAlignment === 'end',
+          },
         )}
       >
-        <MarkdownRenderer>{heading}</MarkdownRenderer>
+        <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
       </div>
     );
 
-  const renderSummary = () =>
-    summary && (
+  const renderDescription = () =>
+    description && (
       <div
         className={classNames(
-          'prose lg:prose-lg 2xl:prose-xl max-w-xl lg:max-w-3xl mb-4 text-slate-500 dark:text-slate-100/70',
-          { 'text-center': alignment === 'center' },
-          { 'text-end': alignment === 'end' },
+          'prose lg:prose-lg 2xl:prose-xl max-w-xl lg:max-w-3xl mb-4 text-slate-500 dark:prose-invert dark:text-slate-100/70',
+          {
+            'text-center': headingTextAlignment === 'center',
+            'text-end': headingTextAlignment === 'end',
+          },
         )}
       >
-        <MarkdownRenderer>{summary}</MarkdownRenderer>
+        <MarkdownRenderer>{description}</MarkdownRenderer>
       </div>
     );
 
@@ -94,23 +90,14 @@ export const Section: React.FC<SectionProps> = ({
       <ButtonGroup
         className="mt-4"
         data={buttons}
-        alignment={alignment}
+        alignment={headingTextAlignment}
         size="base"
       />
     );
 
-  const Separator = () => (
-    <div
-      role="separator"
-      className={classNames(
-        'container mx-auto border-t border-slate-200 dark:border-slate-800',
-      )}
-    />
-  );
-
   return (
     <section
-      id={id ?? ''}
+      id={htmlid ?? ''}
       className={classNames(
         {
           [`${backgroundColor}-${darkMode ? 'dark-' : ''}section-bg-color`]:
@@ -124,45 +111,44 @@ export const Section: React.FC<SectionProps> = ({
         className,
       )}
       style={{
+        // backgroundColor: backgroundColor ?? 'none',
         backgroundImage: `url(${backgroundImage?.url})`,
       }}
     >
-      {sectionSeparator && sectionSeparator.includes('top') && <Separator />}
+      {sectionSeparator && sectionSeparator.includes('top') && (
+        <SectionSeparator />
+      )}
+
       <div
-        className={classNames({
-          'py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24': heading,
-          'py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10': !heading,
+        className={classNames('flex gap-x-10 gap-y-6', {
+          'py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24': displayTitle,
+          'py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10': !displayTitle,
+          'container mx-auto px-4': framed,
+          'flex-col lg:flex-row lg:justify-between': layout === 'side-by-side',
+          'flex-col': layout === 'top-to-bottom',
         })}
       >
         <div
           ref={ref}
           className={classNames(
-            'container mx-auto px-4 relative flex flex-col -bottom-10 opacity-0',
+            'relative -bottom-10 opacity-0 container mx-auto flex flex-col',
             {
               'animate-slidingUpContent animation-delay-150': isIntersecting,
+              'items-center': headingTextAlignment === 'center',
+              'items-end': headingTextAlignment === 'end',
             },
-            { 'items-center': alignment === 'center' },
-            { 'items-end': alignment === 'end' },
           )}
         >
           {renderEyebrow()}
-          {renderHeading()}
-          {renderSummary()}
-          {renderButtons()}
+          {renderTitle()}
+          {renderDescription()}
+          {data.contentType !== 'cta' && renderButtons()}
         </div>
-        {framed ? (
-          <Container
-            className={classNames({
-              'mt-10': heading || eyebrow || summary,
-            })}
-          >
-            {children}
-          </Container>
-        ) : (
-          <div>{children}</div>
-        )}
+        {children}
       </div>
-      {sectionSeparator && sectionSeparator.includes('bottom') && <Separator />}
+      {sectionSeparator && sectionSeparator.includes('bottom') && (
+        <SectionSeparator />
+      )}
     </section>
   );
 };

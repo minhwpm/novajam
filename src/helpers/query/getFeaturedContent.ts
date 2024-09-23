@@ -77,6 +77,7 @@ export default async function getFeature(id: string) {
               contentType
             }
             darkMode
+            sectionSeparator
           }
         }
       }

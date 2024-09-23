@@ -46,30 +46,10 @@ const TextContent = ({
 };
 
 export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const {
-    eyebrow,
-    displayTitle,
-    summary,
-    contentItems,
-    headingTextAlignment,
-    itemTextAlignment,
-    htmlid,
-    backgroundColor,
-    backgroundImage,
-    darkMode,
-  } = data;
+  const { contentItems, itemTextAlignment, darkMode } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
   return (
-    <Section
-      id={htmlid}
-      eyebrow={eyebrow}
-      heading={displayTitle}
-      summary={summary}
-      alignment={headingTextAlignment}
-      backgroundColor={backgroundColor}
-      backgroundImage={backgroundImage}
-      darkMode={darkMode}
-    >
+    <Section data={data}>
       {/* FOR MOBILE, TABLETS */}
       <div className="lg:hidden">
         {contentItems?.map((section) => (

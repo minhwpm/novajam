@@ -67,7 +67,7 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
     <>
       <form
         className={classNames(
-          'w-full px-4 pb-4 pt-2 lg:px-8 lg:pb-8 lg:pt-4 flex rounded-theme dark:bg-white dark:text-slate-700',
+          'w-full p-4 lg:p-8 flex rounded-theme dark:bg-white dark:text-slate-700',
           { 'flex-col gap-4': fields.length > 1 },
           { 'flex-row gap-4 items-center': fields?.length === 1 },
         )}

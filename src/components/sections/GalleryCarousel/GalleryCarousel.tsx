@@ -1,12 +1,11 @@
 'use client';
 import classNames from 'classnames';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { TextAlignmentType, Content, ItemSize } from '@/helpers/types';
 import { ContentMapping } from '../Gallery/ContentMapping';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
-import { DarkModeContext } from '@/components/sections/Gallery/Gallery';
 import { useInView } from 'react-hook-inview';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -21,7 +20,6 @@ export const CarouselLayout: React.FC<{
   alignment: TextAlignmentType;
   layout: 'horizontal' | 'vertical';
 }> = ({ contentItems, size, alignment, layout }) => {
-  const darkMode = useContext(DarkModeContext);
   const [carouselState, setState] = useState({
     isBeginning: true,
     isEnd: false,
@@ -57,22 +55,20 @@ export const CarouselLayout: React.FC<{
           <GoArrowLeft
             size={50}
             className={classNames(
-              'CarouselLayout-btn-prev cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out dark:text-slate-100',
+              'CarouselLayout-btn-prev cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out dark:text-slate-100 dark:text-primary-600',
               {
                 'opacity-10 pointer-events-none cursor-not-allowed':
                   carouselState.isBeginning,
-                'text-primary-600': !darkMode,
               },
             )}
           />
           <GoArrowRight
             size={50}
             className={classNames(
-              'CarouselLayout-btn-next cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out dark:text-slate-100',
+              'CarouselLayout-btn-next cursor-pointer flex justify-center items-center rounded-full p-2.5 bg-opacity-20 hover:bg-primary-600 hover:text-slate-100 transition-colors duration-300 ease-in-out dark:text-slate-100 dark:text-primary-600',
               {
                 'opacity-10 pointer-events-none cursor-not-allowed':
                   carouselState.isEnd,
-                'text-primary-600': !darkMode,
               },
             )}
           />

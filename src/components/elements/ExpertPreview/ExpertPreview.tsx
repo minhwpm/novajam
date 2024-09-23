@@ -2,8 +2,6 @@ import classNames from 'classnames';
 import { ExpertType, TextAlignmentType } from '@/helpers/types';
 import { SNS } from '@/components/elements/SNS/SNS';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
-import { DarkModeContext } from '@/components/sections/Gallery/Gallery';
-import { useContext } from 'react';
 import { useInView } from 'react-hook-inview';
 
 export const ExpertPreview: React.FC<{
@@ -26,7 +24,6 @@ export const ExpertPreview: React.FC<{
     threshold: 0.4,
     unobserveOnEnter: true,
   });
-  const darkMode = useContext(DarkModeContext);
   if (layout === 'horizontal') {
     return (
       <div
@@ -55,10 +52,9 @@ export const ExpertPreview: React.FC<{
           </div>
           {role && (
             <div
-              className={classNames('font-semibold text-center sm:text-start', {
-                'text-slate-500': !darkMode,
-                'text-slate-100/70': darkMode,
-              })}
+              className={classNames(
+                'font-semibold text-center sm:text-start text-slate-500 dark:text-slate-100/70',
+              )}
             >
               {role}
             </div>
@@ -66,8 +62,7 @@ export const ExpertPreview: React.FC<{
           {specialization && (
             <div
               className={classNames(
-                'flex flex-wrap items-center gap-2 justify-center sm:justify-start',
-                { 'text-slate-500': !darkMode, 'text-slate-100/70': darkMode },
+                'flex flex-wrap items-center gap-2 justify-center sm:justify-start text-slate-500 dark:text-slate-100/70',
               )}
             >
               {specialization.map((item, index) => (
@@ -77,19 +72,18 @@ export const ExpertPreview: React.FC<{
           )}
           {organization && (
             <div
-              className={classNames('text-center sm:text-start', {
-                'text-slate-500': !darkMode,
-                'text-slate-100/70': darkMode,
-              })}
+              className={classNames(
+                'text-center sm:text-start text-slate-500 dark:text-slate-100/70',
+              )}
             >
               {organization}
             </div>
           )}
           {summary && (
             <div
-              className={classNames('my-4 prose 2xl:prose-lg max-w-none', {
-                'text-slate-100': darkMode,
-              })}
+              className={classNames(
+                'my-4 prose 2xl:prose-lg max-w-none dark:text-slate-100',
+              )}
             >
               {summary}
             </div>
@@ -102,10 +96,9 @@ export const ExpertPreview: React.FC<{
   return (
     <div
       ref={ref}
-      className={classNames('group rounded-theme', {
+      className={classNames('group rounded-theme dark:bg-white', {
         'relative -bottom-10 opacity-0': animate,
         'animate-slidingUpContent': isIntersecting && animate,
-        'bg-white': !darkMode,
       })}
       style={{
         animationDelay: index && animate ? `${(index + 1) * 0.15}s` : '0s',
@@ -140,23 +133,19 @@ export const ExpertPreview: React.FC<{
           {fullName}
         </div>
         {role && (
-          <div
-            className={classNames(
-              { 'text-slate-500': !darkMode },
-              { 'text-slate-100/70': darkMode },
-            )}
-          >
+          <div className={classNames('text-slate-500 dark:text-slate-100/70')}>
             {role}
           </div>
         )}
         {specialization && (
           <div
-            className={classNames('flex flex-wrap gap-2', {
-              'justify-center': alignment === 'center',
-              'justify-end': alignment === 'end',
-              'text-slate-500': !darkMode,
-              'text-slate-100/70': darkMode,
-            })}
+            className={classNames(
+              'flex flex-wrap gap-2 text-slate-500 dark:text-slate-100/70',
+              {
+                'justify-center': alignment === 'center',
+                'justify-end': alignment === 'end',
+              },
+            )}
           >
             {specialization.map((item, index) => (
               <span key={index}>{item}</span>
@@ -164,12 +153,7 @@ export const ExpertPreview: React.FC<{
           </div>
         )}
         {organization && (
-          <div
-            className={classNames({
-              'text-slate-500': !darkMode,
-              'text-slate-100/70': darkMode,
-            })}
-          >
+          <div className={classNames('text-slate-500 dark:text-slate-100/70')}>
             {organization}
           </div>
         )}
@@ -180,7 +164,7 @@ export const ExpertPreview: React.FC<{
               'justify-end': alignment === 'end',
             })}
           >
-            <SNS data={sns} darkMode={darkMode} />
+            <SNS data={sns} />
           </div>
         )}
       </div>

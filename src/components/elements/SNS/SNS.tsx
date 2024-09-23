@@ -9,8 +9,7 @@ import React from 'react';
 export const SNS: React.FC<{
   data: SNSType;
   variant?: 'standard' | 'alternate';
-  darkMode?: boolean;
-}> = ({ data, variant, darkMode = false }) => {
+}> = ({ data, variant }) => {
   const { linkedInUrl, facebookUrl, twitterUrl, youtubeUrl, instagramUrl } =
     data;
   const renderIconLink = (url: string, icon: JSX.Element) => (
@@ -22,10 +21,10 @@ export const SNS: React.FC<{
       })}
     >
       {React.cloneElement(icon, {
-        className: classNames('transition-colors duration-300 ease-in-out', {
-          'text-primary-600 group-hover/sns:text-primary-600': !darkMode,
-          'text-slate-300 group-hover/sns:text-slate-100': darkMode,
-        }),
+        className: classNames(
+          'transition-colors duration-300 ease-in-out text-primary-600 group-hover/sns:text-primary-600 dark:text-slate-300 dark:group-hover/sns:text-slate-100',
+          {},
+        ),
       })}
     </Link>
   );

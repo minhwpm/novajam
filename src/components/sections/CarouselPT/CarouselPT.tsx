@@ -15,31 +15,13 @@ import '@/app/styles/custom-swiper.css';
 import '@/app/styles/padding.css';
 
 export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const {
-    eyebrow,
-    displayTitle,
-    summary,
-    contentItems,
-    itemTextAlignment,
-    headingTextAlignment,
-    backgroundColor,
-    backgroundImage,
-    darkMode,
-  } = data;
+  const { contentItems, itemTextAlignment, darkMode } = data;
   const [ref, isIntersecting] = useInView({
     threshold: 0.4,
     unobserveOnEnter: true,
   });
   return (
-    <Section
-      eyebrow={eyebrow}
-      heading={displayTitle}
-      summary={summary}
-      alignment={headingTextAlignment}
-      backgroundColor={backgroundColor}
-      backgroundImage={backgroundImage}
-      darkMode={darkMode}
-    >
+    <Section data={data}>
       <div
         ref={ref}
         className={classNames('relative -bottom-10 opacity-0', {

@@ -13,16 +13,10 @@ import './styles.css';
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const {
-    htmlid,
-    eyebrow,
     displayTitle,
-    summary,
     contentItems,
     headingTextAlignment,
     itemTextAlignment,
-    backgroundColor,
-    backgroundImage,
-    darkMode,
   } = data;
   const [justify, setJustify] = useState(headingTextAlignment);
   const wrapperRef = useRef(
@@ -38,17 +32,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
     unobserveOnEnter: true,
   });
   return (
-    <Section
-      id={htmlid}
-      eyebrow={eyebrow}
-      heading={displayTitle}
-      summary={summary}
-      alignment={headingTextAlignment}
-      framed={false}
-      backgroundColor={backgroundColor}
-      backgroundImage={backgroundImage}
-      darkMode={darkMode}
-    >
+    <Section framed={false} data={data}>
       <RadixTabs.Root
         ref={ref}
         className={classNames('w-full mt-6', 'relative -bottom-10 opacity-0', {

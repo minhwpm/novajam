@@ -56,7 +56,7 @@ export const Footer: React.FC<Props> = ({ data }) => {
           )}
           {sns && (
             <div className="flex gap-2 mt-8">
-              <SNS darkMode={darkMode} data={sns} />
+              <SNS data={sns} />
             </div>
           )}
           {copyright && (

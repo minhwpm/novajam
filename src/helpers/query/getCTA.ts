@@ -62,6 +62,7 @@ export default async function getCTA(id: string) {
                     height
                   }
                   darkMode
+                  sectionSeparator
                 }
               }
             }

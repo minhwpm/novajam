@@ -51,13 +51,10 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
   const {
     eyebrow,
     displayTitle,
-    summary,
+    description,
     contentItems,
     headingTextAlignment,
     itemTextAlignment,
-    htmlid,
-    backgroundColor,
-    backgroundImage,
     darkMode,
   } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
@@ -66,12 +63,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
     unobserveOnEnter: true,
   });
   return (
-    <Section
-      id={htmlid}
-      className={classNames('overflow-x-hidden')}
-      backgroundColor={backgroundColor}
-      backgroundImage={backgroundImage}
-    >
+    <Section className={classNames('overflow-x-hidden')} data={data}>
       <div
         ref={ref}
         className={classNames(
@@ -107,7 +99,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
               <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
             </div>
           )}
-          {summary && (
+          {description && (
             <div
               className={classNames(
                 'prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl dark:text-slate-100',
@@ -117,7 +109,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
                 },
               )}
             >
-              <MarkdownRenderer>{summary}</MarkdownRenderer>
+              <MarkdownRenderer>{description}</MarkdownRenderer>
             </div>
           )}
           <div

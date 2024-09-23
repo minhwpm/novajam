@@ -212,6 +212,7 @@ export type FeaturedContentType = {
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   darkMode: boolean;
+  sectionSeparator: Array<string> | null;
   contentType: 'featuredcontent';
 };
 
@@ -247,7 +248,8 @@ export type ContentPTType = {
   htmlid: string | null;
   eyebrow: string | null;
   displayTitle: string | null;
-  summary: string | null;
+  description: string | null;
+  buttons: Array<ButtonType>;
   headingTextAlignment: TextAlignmentType;
   contentItems: Array<FlexibleContentType>;
   itemTextAlignment: TextAlignmentType;
@@ -255,6 +257,7 @@ export type ContentPTType = {
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   darkMode: boolean;
+  sectionSeparator: Array<string> | null;
   contentType: 'contentpresentation';
 };
 
@@ -313,7 +316,7 @@ export type ContentListType = {
   id: string;
   eyebrow: string | null;
   displayTitle: string | null;
-  summary: string | null;
+  description: string | null;
   buttons: Array<ButtonType>;
   headingTextAlignment: TextAlignmentType;
   contentItems: Array<Content>;
@@ -352,15 +355,17 @@ export type CTAType = {
   id: string;
   title: string;
   htmlid: string | null;
-  displayTitle: string | null;
   eyebrow: string | null;
+  displayTitle: string | null;
   description: string | null;
+  headingTextAlignment: TextAlignmentType;
   buttons: Array<ButtonType> | null;
   form: FormType | null;
   layout: 'side-by-side' | 'top-to-bottom';
   backgroundColor: string | null;
   backgroundImage: MediaType | null;
   darkMode: boolean;
+  sectionSeparator: Array<string> | null;
   contentType: 'cta';
 };
 
