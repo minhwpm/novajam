@@ -37,17 +37,26 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
     <section
       id={htmlid}
       ref={ref}
-      className={classNames({
-        [`${backgroundColor}-${darkMode ? 'dark-' : ''}section-bg-color`]:
-          backgroundColor,
-        'bg-center bg-no-repeat bg-cover bg-blend-multiply': backgroundImage,
-        'dark:bg-opacity-10': !darkMode && backgroundColor,
-        'dark:bg-slate-900/90': !darkMode && backgroundImage,
-        dark: darkMode,
-        // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
-      })}
+      className={classNames(
+        'bg-opacity-100', // to set --tw-bg-opacity: 100
+        {
+          'bg-center bg-no-repeat bg-cover bg-blend-multiply': backgroundImage,
+          'dark:bg-opacity-5': !darkMode && backgroundColor,
+          'dark:bg-slate-900/90': !darkMode && backgroundImage,
+          dark: darkMode,
+          // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
+        },
+      )}
       style={{
-        backgroundImage: `url(${backgroundImage?.url})`,
+        backgroundColor: backgroundColor
+          ? `rgba(${parseInt(backgroundColor.slice(1, 3), 16)}, 
+                  ${parseInt(backgroundColor.slice(3, 5), 16)}, 
+                  ${parseInt(backgroundColor.slice(5, 7), 16)}, 
+                  var(--tw-bg-opacity))`
+          : 'none',
+        backgroundImage: backgroundImage
+          ? `url(${backgroundImage.url})`
+          : 'none',
       }}
     >
       {sectionSeparator && sectionSeparator.includes('top') && (

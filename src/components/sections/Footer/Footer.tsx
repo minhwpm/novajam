@@ -23,20 +23,29 @@ export const Footer: React.FC<Props> = ({ data }) => {
   } = data;
   return (
     <footer
-      className={classNames('py-20', {
-        [`${backgroundColor}-${darkMode ? 'dark-' : ''}section-bg-color`]:
-          backgroundColor,
-        'bg-center bg-no-repeat bg-cover bg-blend-multiply': backgroundImage,
-        'dark:bg-opacity-10': !darkMode && backgroundColor,
-        'dark:bg-slate-900/90': !darkMode && backgroundImage,
-        dark: darkMode,
-        // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
-      })}
+      className={classNames(
+        'bg-opacity-100', // to set --tw-bg-opacity: 100
+        {
+          'bg-center bg-no-repeat bg-cover bg-blend-multiply': backgroundImage,
+          'dark:bg-opacity-10': !darkMode && backgroundColor,
+          'dark:bg-slate-900/90': !darkMode && backgroundImage,
+          dark: darkMode,
+          // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
+        },
+      )}
       style={{
-        backgroundImage: `url(${backgroundImage?.url})`,
+        backgroundColor: backgroundColor
+          ? `rgba(${parseInt(backgroundColor.slice(1, 3), 16)}, 
+                  ${parseInt(backgroundColor.slice(3, 5), 16)}, 
+                  ${parseInt(backgroundColor.slice(5, 7), 16)}, 
+                  var(--tw-bg-opacity))`
+          : 'none',
+        backgroundImage: backgroundImage
+          ? `url(${backgroundImage.url})`
+          : 'none',
       }}
     >
-      <div className="container mx-auto px-4 flex flex-wrap gap-x-5 gap-y-10">
+      <div className="container mx-auto px-4 py-20 flex flex-wrap gap-x-5 gap-y-10">
         <div className="w-full lg:w-1/2 xl:w-1/3 flex flex-col items-center lg:items-start">
           {logo?.url && (
             <Link href={logoRedirect ?? '/'}>

@@ -99,11 +99,10 @@ export const Section: React.FC<SectionProps> = ({
     <section
       id={htmlid ?? ''}
       className={classNames(
+        'bg-opacity-100', // to set --tw-bg-opacity: 100
         {
-          [`${backgroundColor}-${darkMode ? 'dark-' : ''}section-bg-color`]:
-            backgroundColor,
           'bg-center bg-no-repeat bg-cover bg-blend-multiply': backgroundImage,
-          'dark:bg-opacity-10': !darkMode && backgroundColor,
+          'dark:bg-opacity-5': !darkMode && backgroundColor,
           'dark:bg-slate-900/90': !darkMode && backgroundImage,
           dark: darkMode,
           // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
@@ -111,14 +110,20 @@ export const Section: React.FC<SectionProps> = ({
         className,
       )}
       style={{
-        // backgroundColor: backgroundColor ?? 'none',
-        backgroundImage: `url(${backgroundImage?.url})`,
+        backgroundColor: backgroundColor
+          ? `rgba(${parseInt(backgroundColor.slice(1, 3), 16)}, 
+                  ${parseInt(backgroundColor.slice(3, 5), 16)}, 
+                  ${parseInt(backgroundColor.slice(5, 7), 16)}, 
+                  var(--tw-bg-opacity))`
+          : 'none',
+        backgroundImage: backgroundImage
+          ? `url(${backgroundImage.url})`
+          : 'none',
       }}
     >
       {sectionSeparator && sectionSeparator.includes('top') && (
         <SectionSeparator />
       )}
-
       <div
         className={classNames('flex gap-x-10 gap-y-6', {
           'py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24': displayTitle,

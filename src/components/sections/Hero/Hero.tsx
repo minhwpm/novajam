@@ -29,28 +29,36 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
     threshold: 0.4,
     unobserveOnEnter: true,
   });
-  console.log('HERO order', order);
   return (
     <section
       id={htmlid ?? ''}
       ref={ref}
-      className={classNames('py-4 md:py-6 lg:py-8 xl:py-10 2xl:py-14', {
-        'pt-10 pb-4 md:pb-6 lg:pb-8 xl:pb-10 2xl:pb-14': order === 1,
-        [`${backgroundColor}-${darkMode ? 'dark-' : ''}section-bg-color`]:
-          backgroundColor,
-        'bg-center bg-no-repeat bg-cover bg-blend-multiply': backgroundImage,
-        'dark:bg-opacity-10': !darkMode && backgroundColor,
-        'dark:bg-slate-900/90': !darkMode && backgroundImage,
-        dark: darkMode,
-        // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
-      })}
+      className={classNames(
+        'bg-opacity-100', // to set --tw-bg-opacity: 100
+        {
+          'pt-10 pb-4 md:pb-6 lg:pb-8 xl:pb-10 2xl:pb-14': order === 1,
+          'bg-center bg-no-repeat bg-cover bg-blend-multiply': backgroundImage,
+          'bg-opacity-100 dark:bg-opacity-10': !darkMode && backgroundColor,
+          'dark:bg-slate-900/90': !darkMode && backgroundImage,
+          dark: darkMode,
+          // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
+        },
+      )}
       style={{
-        backgroundImage: `url(${backgroundImage?.url})`,
+        backgroundColor: backgroundColor
+          ? `rgba(${parseInt(backgroundColor.slice(1, 3), 16)}, 
+                  ${parseInt(backgroundColor.slice(3, 5), 16)}, 
+                  ${parseInt(backgroundColor.slice(5, 7), 16)}, 
+                  var(--tw-bg-opacity))`
+          : 'none',
+        backgroundImage: backgroundImage
+          ? `url(${backgroundImage.url})`
+          : 'none',
       }}
     >
       <div
         className={classNames(
-          'flex flex-col gap-y-10 md:gap-y-12 lg:gap-y-14 xl:gap-y-16',
+          'py-4 md:py-6 lg:py-8 xl:py-10 2xl:py-14 flex flex-col gap-y-10 md:gap-y-12 lg:gap-y-14 xl:gap-y-16',
           {
             'container mx-auto px-4 py-8': layout === 'top-to-bottom',
             'lg:flex-row lg:items-center py-14': layout === 'side-by-side',
