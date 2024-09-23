@@ -91,7 +91,12 @@ export const Section: React.FC<SectionProps> = ({
   const renderButtons = () =>
     buttons &&
     buttons.length > 0 && (
-      <ButtonGroup data={buttons} alignment={alignment} size="base" />
+      <ButtonGroup
+        className="mt-4"
+        data={buttons}
+        alignment={alignment}
+        size="base"
+      />
     );
 
   const Separator = () => (

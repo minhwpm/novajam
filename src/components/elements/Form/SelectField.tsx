@@ -34,12 +34,12 @@ export const SelectField: React.FC<{
         control: (baseStyles) => ({
           ...baseStyles,
           padding: '8px 6px',
-          borderColor: 'rgb(212 212 212)',
+          borderColor: '@apply border-slate-200',
           borderRadius: 'var(--border-radius-theme-button)',
         }),
       }}
       placeholder={
-        <div className="text-slate-500">
+        <div className="text-slate-400">
           {(data.placeholder ? data.placeholder : data.label) +
             (data.required ? '*' : '')}
         </div>

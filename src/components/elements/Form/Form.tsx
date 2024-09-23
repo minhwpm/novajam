@@ -67,8 +67,9 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
     <>
       <form
         className={classNames(
-          'w-full px-4 pb-4 pt-2 lg:px-8 lg:pb-8 lg:pt-4 grid grid-cols-2 gap-x-5 gap-y-3 rounded-theme dark:bg-white dark:text-slate-700',
-          { 'gap-x-0': fields?.length === 1 },
+          'w-full px-4 pb-4 pt-2 lg:px-8 lg:pb-8 lg:pt-4 flex rounded-theme dark:bg-white dark:text-slate-700',
+          { 'flex-col gap-4': fields.length > 1 },
+          { 'flex-row gap-4 items-center': fields?.length === 1 },
         )}
         onSubmit={handleSubmit(onSubmit)}
       >
@@ -76,26 +77,26 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
           fields.map((fieldItem) => (
             <div
               key={fieldItem.id}
-              className={classNames('relative flex flex-col', {
-                'col-span-2 sm:min-w-[384px]':
-                  fieldItem.uiWidth === 'full-size',
-                'col-span-2 md:col-span-1 lg:min-w-[208px]':
-                  fieldItem.uiWidth === 'half-size',
+              className={classNames('relative flex flex-col gap-2', {
+                'sm:min-w-[384px]': fieldItem.uiWidth === 'full-size',
+                'lg:basis-1/2': fieldItem.uiWidth === 'half-size',
               })}
             >
-              <div className="text-xs text-red-500 h-6 pt-1 pl-4">
-                {errors[fieldItem.label]?.type === 'required' && (
-                  <p>required * </p>
+              <div className="flex gap-2 items-center">
+                {fieldItem.placeholder && (
+                  <div className={classNames('text-smd')}>
+                    {fieldItem.label}
+                  </div>
                 )}
-                {errors[fieldItem.label]?.type === 'pattern' && (
-                  <p>Wrong format. Please try again. </p>
-                )}
-              </div>
-              {fieldItem.placeholder && (
-                <div className={classNames('pb-2 text-smd')}>
-                  {fieldItem.label}
+                <div className="text-xs text-red-500">
+                  {errors[fieldItem.label]?.type === 'required' && (
+                    <p>required * </p>
+                  )}
+                  {errors[fieldItem.label]?.type === 'pattern' && (
+                    <p>Wrong format. Please try again. </p>
+                  )}
                 </div>
-              )}
+              </div>
               {fieldItem.fieldType === 'select' && (
                 <SelectField data={fieldItem} control={control} />
               )}
@@ -137,11 +138,7 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
         <input hidden readOnly value={title} {...register('title')} />
         <input hidden readOnly value={formType} {...register('formType')} />
 
-        <div
-          className={classNames('col-span-2', {
-            'mt-6': formType !== 'subscription',
-          })}
-        >
+        <div className="mt-2">
           {submitButton ? (
             <Button
               data={submitButton}

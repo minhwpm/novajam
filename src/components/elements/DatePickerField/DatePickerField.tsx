@@ -29,7 +29,7 @@ export function DatePickerField({
   });
   return (
     <DatePicker
-      className="w-full border border-slate-300 rounded-theme-button px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-inherit placeholder:text-slate-500"
+      className="w-full border border-slate-200 rounded-theme-button px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-inherit placeholder:text-slate-400"
       placeholderText={
         (data.placeholder ? data.placeholder : data.label) +
         (data.required ? '*' : '')

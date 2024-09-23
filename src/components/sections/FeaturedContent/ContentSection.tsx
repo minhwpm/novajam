@@ -39,26 +39,31 @@ export const ContentSection: React.FC<{
         'pb-4 lg:pr-16 xl:pr-24': mediaPosition === 'right',
       })}
     >
-      {eyebrow && (
-        <div className="text-sm xl:text-base tracking-widest mb-2 max-w-5xl text-primary-600 dark:text-primary-600/50">
-          {eyebrow}
-        </div>
-      )}
-      {displayTitle && (
-        <div className="text-heading leading-snug font-heading max-w-3xl xl:max-w-4xl mb-4 lg:mb-8 dark:text-slate-100">
-          <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
-        </div>
-      )}
-      {description && (
-        <div
-          className={classNames(
-            'block prose xl:prose-lg leading-loose text-slate-500 dark:prose-invert dark:text-slate-100/70',
-            { 'mb-4 lg:mb-8': buttons && buttons.length > 0 },
+      {items.length < 3 && (
+        <>
+          {eyebrow && (
+            <div className="text-sm xl:text-base tracking-widest mb-2 max-w-5xl text-primary-600 dark:text-primary-600/50">
+              {eyebrow}
+            </div>
           )}
-        >
-          <MarkdownRenderer>{description}</MarkdownRenderer>
-        </div>
+          {displayTitle && (
+            <div className="text-heading leading-snug font-heading max-w-3xl xl:max-w-4xl mb-4 dark:text-slate-100">
+              <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
+            </div>
+          )}
+          {description && (
+            <div
+              className={classNames(
+                'block prose xl:prose-lg leading-loose text-slate-500 dark:prose-invert dark:text-slate-100/70',
+                { 'mb-4 lg:mb-8': buttons && buttons.length > 0 },
+              )}
+            >
+              <MarkdownRenderer>{description}</MarkdownRenderer>
+            </div>
+          )}
+        </>
       )}
+
       {!!items.length && (
         <div className="flex flex-col gap-y-8 my-8">
           {items.map((item, index) => (

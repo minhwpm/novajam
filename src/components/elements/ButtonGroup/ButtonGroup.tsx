@@ -6,13 +6,15 @@ export const ButtonGroup: React.FC<{
   data: Array<ButtonType>;
   alignment?: TextAlignmentType;
   size?: 'sm' | 'base' | 'lg';
-}> = ({ data, alignment, size }) => {
+  className?: string;
+}> = ({ data, alignment, size, className }) => {
   return (
     <div
       className={classNames(
         'flex flex-row flex-wrap gap-6 lg:gap-8',
         { 'justify-center': alignment === 'center' },
         { 'justify-end': alignment === 'end' },
+        className,
       )}
     >
       {data.map((button) => (
