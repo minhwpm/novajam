@@ -211,6 +211,7 @@ export type FeaturedContentType = {
   layout: 'flex-row' | 'full-top';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
+  enableParallaxEffect: boolean;
   darkMode: boolean;
   sectionSeparator: Array<string> | null;
   contentType: 'featuredcontent';
@@ -230,6 +231,7 @@ export type HeroType = {
   textAlignment: TextAlignmentType;
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
+  enableParallaxEffect: boolean;
   darkMode: boolean;
   contentType: 'hero';
 };
@@ -256,6 +258,7 @@ export type ContentPTType = {
   layout: 'carousel' | 'sleek carousel' | 'tab' | 'accordion' | 'scroll';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
+  enableParallaxEffect: boolean;
   darkMode: boolean;
   sectionSeparator: Array<string> | null;
   contentType: 'contentpresentation';
@@ -326,6 +329,7 @@ export type ContentListType = {
   layout: 'carousel' | 'masonry' | 'deck';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
+  enableParallaxEffect: boolean;
   darkMode: boolean;
   sectionSeparator: Array<string> | null;
   htmlid: string | null;
@@ -364,6 +368,7 @@ export type CTAType = {
   layout: 'flex-row' | 'full-top';
   backgroundColor: string | null;
   backgroundImage: MediaType | null;
+  enableParallaxEffect: boolean;
   darkMode: boolean;
   sectionSeparator: Array<string> | null;
   contentType: 'cta';

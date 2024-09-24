@@ -56,6 +56,7 @@ export default async function getContentList(id: string) {
               height
               contentType
             }
+            enableParallaxEffect
             darkMode
             sectionSeparator
             itemSize

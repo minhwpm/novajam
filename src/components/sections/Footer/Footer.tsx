@@ -30,7 +30,6 @@ export const Footer: React.FC<Props> = ({ data }) => {
           'dark:bg-opacity-10': !darkMode && backgroundColor,
           'dark:bg-slate-900/90': !darkMode && backgroundImage,
           dark: darkMode,
-          // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
         },
       )}
       style={{

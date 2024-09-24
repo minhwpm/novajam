@@ -61,6 +61,7 @@ export default async function getCTA(id: string) {
                     width
                     height
                   }
+                  enableParallaxEffect
                   darkMode
                   sectionSeparator
                 }

@@ -23,6 +23,7 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
     textAlignment,
     backgroundColor,
     backgroundImage,
+    enableParallaxEffect,
     darkMode,
   } = data;
   const [ref, isIntersecting] = useIntersecting();
@@ -39,7 +40,7 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
           'bg-opacity-100 dark:bg-opacity-10': !darkMode && backgroundColor,
           'dark:bg-slate-900/90': !darkMode && backgroundImage,
           dark: darkMode,
-          // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
+          'lg:bg-fixed': backgroundImage && enableParallaxEffect,
         },
       )}
       style={{

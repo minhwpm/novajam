@@ -35,6 +35,7 @@ export const Section: React.FC<SectionProps> = ({
     buttons,
     backgroundColor,
     backgroundImage,
+    enableParallaxEffect,
     darkMode,
     sectionSeparator,
   } = data;
@@ -108,7 +109,7 @@ export const Section: React.FC<SectionProps> = ({
           'dark:bg-opacity-5': !darkMode && backgroundColor,
           'dark:bg-slate-900/90': !darkMode && backgroundImage,
           dark: darkMode,
-          // "lg:bg-fixed": backgroundImage && parallaxBackground @TODO
+          'lg:bg-fixed': backgroundImage && enableParallaxEffect,
         },
         className,
       )}

@@ -76,6 +76,7 @@ export default async function getFeature(id: string) {
               height
               contentType
             }
+            enableParallaxEffect
             darkMode
             sectionSeparator
           }

@@ -57,6 +57,7 @@ export default async function getContentPT(id: string) {
               height
               contentType
             }
+            enableParallaxEffect
             darkMode
             sectionSeparator
             contentItemsCollection (limit: 20) {
