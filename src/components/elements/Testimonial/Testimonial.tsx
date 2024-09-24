@@ -3,9 +3,9 @@ import classNames from 'classnames';
 import { TextAlignmentType, TestimonialType } from '@/helpers/types';
 import { MediaItem } from '../MediaItem/MediaItem';
 import { AiFillStar } from 'react-icons/ai';
-import { useInView } from 'react-hook-inview';
 import { RiDoubleQuotesL } from 'react-icons/ri';
 import { MarkdownRenderer } from '../MarkdownRenderer/MarkdownRenderer';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
 export const Testimonial: React.FC<{
   index?: number;
@@ -15,10 +15,7 @@ export const Testimonial: React.FC<{
   animate?: boolean;
 }> = ({ index, data, alignment = 'center', layout, animate }) => {
   const { content, portrait, name, role, rating } = data;
-  const [ref, isIntersecting] = useInView({
-    threshold: 0.4,
-    unobserveOnEnter: true,
-  });
+  const [ref, isIntersecting] = useIntersecting();
   return (
     <div
       ref={ref}

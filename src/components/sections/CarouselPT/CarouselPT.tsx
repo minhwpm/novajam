@@ -6,8 +6,8 @@ import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentM
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
-import { useInView } from 'react-hook-inview';
 import { TextPartPT } from '@/components/elements/TextPartPT/TextPartPT';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -16,10 +16,8 @@ import '@/app/styles/padding.css';
 
 export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { contentItems, itemTextAlignment, darkMode } = data;
-  const [ref, isIntersecting] = useInView({
-    threshold: 0.4,
-    unobserveOnEnter: true,
-  });
+  const [ref, isIntersecting] = useIntersecting();
+
   return (
     <Section data={data}>
       <div

@@ -6,17 +6,14 @@ import { Section } from '@/components/elements/Section/Section';
 import { ContentPTType } from '@/helpers/types';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
-import { useInView } from 'react-hook-inview';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import { FaChevronDown } from 'react-icons/fa';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import '@/app/styles/bg-color.css';
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { contentItems, itemTextAlignment, darkMode } = data;
-  const [ref, isIntersecting] = useInView({
-    threshold: 0.4,
-    unobserveOnEnter: true,
-  });
+  const [ref, isIntersecting] = useIntersecting();
   return (
     <Section data={data}>
       <div

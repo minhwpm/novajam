@@ -1,8 +1,9 @@
+'use client';
 import classNames from 'classnames';
-import { useInView } from 'react-hook-inview';
 import { Button } from '@/components/elements/Button/Button';
 import { TextAlignmentType, PricingPlanType } from '@/helpers/types';
 import { MarkdownRenderer } from '../MarkdownRenderer/MarkdownRenderer';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
 export const PricingPlan: React.FC<{
   index?: number;
@@ -12,10 +13,7 @@ export const PricingPlan: React.FC<{
   animate?: boolean;
 }> = ({ index, data, alignment = 'center', layout = 'vertical', animate }) => {
   const { title, pricing, pricingSuffix, badge, description, ctaButton } = data;
-  const [ref, isIntersecting] = useInView({
-    threshold: 0.4,
-    unobserveOnEnter: true,
-  });
+  const [ref, isIntersecting] = useIntersecting();
 
   return (
     <div

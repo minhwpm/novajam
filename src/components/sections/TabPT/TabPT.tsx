@@ -6,8 +6,8 @@ import { Section } from '@/components/elements/Section/Section';
 import { ContentPTType } from '@/helpers/types';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
-import { useInView } from 'react-hook-inview';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import '@/app/styles/bg-color.css';
 import './styles.css';
 
@@ -27,10 +27,8 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
       setJustify('start');
     }
   }, []);
-  const [ref, isIntersecting] = useInView({
-    threshold: 0.4,
-    unobserveOnEnter: true,
-  });
+  const [ref, isIntersecting] = useIntersecting();
+
   return (
     <Section framed={false} data={data}>
       <RadixTabs.Root

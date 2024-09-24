@@ -5,9 +5,9 @@ import { Section } from '@/components/elements/Section/Section';
 import { ContentPTType } from '@/helpers/types';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
-import { useInView } from 'react-hook-inview';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import '@/app/styles/bg-color.css';
 
 const ArrowGroup = ({
@@ -58,10 +58,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
     darkMode,
   } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
-  const [ref, isIntersecting] = useInView({
-    threshold: 0.4,
-    unobserveOnEnter: true,
-  });
+  const [ref, isIntersecting] = useIntersecting();
+
   return (
     <Section className={classNames('overflow-x-hidden')} data={data}>
       <div

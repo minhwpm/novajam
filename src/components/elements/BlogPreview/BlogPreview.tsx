@@ -9,9 +9,9 @@ import {
 } from '@/helpers/types';
 import { MediaItem } from '../MediaItem/MediaItem';
 import { usePathname } from 'next/navigation';
-import { useInView } from 'react-hook-inview';
 import { format } from 'date-fns';
 import { MarkdownRenderer } from '../MarkdownRenderer/MarkdownRenderer';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
 const Topics: React.FC<{ topics: string[]; alignment?: TextAlignmentType }> = ({
   topics,
@@ -67,10 +67,7 @@ export const BlogPreview: React.FC<BlogPreviewProps> = ({
   const { title, slug, summary, content, media, topics, firstPublishedAt } =
     data;
   const pathname = usePathname();
-  const [ref, isIntersecting] = useInView({
-    threshold: 0.4,
-    unobserveOnEnter: true,
-  });
+  const [ref, isIntersecting] = useIntersecting();
   const readingTimeStats = readingTime(content || '');
   const animationDelay = index && animate ? `${(index + 1) * 0.15}s` : '0s';
 

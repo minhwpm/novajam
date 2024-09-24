@@ -1,8 +1,9 @@
+'use client';
 import classNames from 'classnames';
 import { TextAlignmentType, FlexibleContentType } from '@/helpers/types';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
-import { useInView } from 'react-hook-inview';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 
 export const FlexibleContent: React.FC<{
@@ -20,10 +21,7 @@ export const FlexibleContent: React.FC<{
     embeddedMediaUrl,
     buttons,
   } = data;
-  const [ref, isIntersecting] = useInView({
-    threshold: 0.4,
-    unobserveOnEnter: true,
-  });
+  const [ref, isIntersecting] = useIntersecting();
 
   const hasMedia = media || embeddedMediaUrl;
   const hasText = displayTitle || eyebrow || description || buttons?.length > 0;

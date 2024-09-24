@@ -1,10 +1,10 @@
 'use client';
 import classNames from 'classnames';
-import { useInView } from 'react-hook-inview';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import { HeroType } from '@/helpers/types';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import '@/app/styles/padding.css';
 import '@/app/styles/bg-color.css';
 
@@ -25,10 +25,8 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
     backgroundImage,
     darkMode,
   } = data;
-  const [ref, isIntersecting] = useInView({
-    threshold: 0.4,
-    unobserveOnEnter: true,
-  });
+  const [ref, isIntersecting] = useIntersecting();
+
   return (
     <section
       id={htmlid ?? ''}

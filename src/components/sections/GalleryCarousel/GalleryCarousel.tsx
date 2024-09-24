@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { TextAlignmentType, Content, ItemSize } from '@/helpers/types';
-import { ContentMapping } from '../Gallery/ContentMapping';
+import { ContentMapping } from '@/components/sections/Gallery/ContentMapping';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
-import { useInView } from 'react-hook-inview';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -24,10 +24,8 @@ export const CarouselLayout: React.FC<{
     isBeginning: true,
     isEnd: false,
   });
-  const [ref, isIntersecting] = useInView({
-    threshold: 0.4,
-    unobserveOnEnter: true,
-  });
+  const [ref, isIntersecting] = useIntersecting();
+
   return (
     <div
       ref={ref}

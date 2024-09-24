@@ -208,7 +208,7 @@ export type FeaturedContentType = {
   buttons: Array<ButtonType>;
   items: Array<FlexibleContentType>;
   htmlid: string;
-  size: 'standard' | 'extended';
+  layout: 'flex-row' | 'full-top';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   darkMode: boolean;
@@ -361,7 +361,7 @@ export type CTAType = {
   headingTextAlignment: TextAlignmentType;
   buttons: Array<ButtonType> | null;
   form: FormType | null;
-  layout: 'side-by-side' | 'top-to-bottom';
+  layout: 'flex-row' | 'full-top';
   backgroundColor: string | null;
   backgroundImage: MediaType | null;
   darkMode: boolean;

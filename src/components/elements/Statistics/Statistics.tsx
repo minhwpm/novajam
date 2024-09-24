@@ -1,7 +1,7 @@
 'use client';
 import classNames from 'classnames';
-import { useInView } from 'react-hook-inview';
 import { TextAlignmentType, StatisticsType } from '@/helpers/types';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
 export const Statistics: React.FC<{
   data: StatisticsType;
@@ -10,10 +10,7 @@ export const Statistics: React.FC<{
   alignment?: TextAlignmentType;
 }> = ({ data, index, layout = 'vertical', alignment }) => {
   const { number, text } = data;
-  const [ref, isIntersecting] = useInView({
-    threshold: 1,
-    unobserveOnEnter: true,
-  });
+  const [ref, isIntersecting] = useIntersecting(1);
 
   return (
     <div

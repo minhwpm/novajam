@@ -1,4 +1,3 @@
-'use client';
 import classNames from 'classnames';
 import { Section } from '@/components/elements/Section/Section';
 import { ContentListType } from '@/helpers/types';
@@ -23,30 +22,32 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
       })}
       data={data}
     >
-      {layout === 'carousel' && (
-        <CarouselLayout
-          contentItems={contentItems}
-          size={itemSize}
-          alignment={itemTextAlignment}
-          layout={itemLayout}
-        />
-      )}
-      {layout === 'masonry' && (
-        <MasonryLayout
-          contentItems={contentItems}
-          size={itemSize}
-          alignment={itemTextAlignment}
-          layout={itemLayout}
-        />
-      )}
-      {layout === 'deck' && (
-        <DeckLayout
-          contentItems={contentItems}
-          size={itemSize}
-          alignment={itemTextAlignment}
-          layout={itemLayout}
-        />
-      )}
+      <div className="basis-2/3 grow shrink">
+        {layout === 'carousel' && (
+          <CarouselLayout
+            contentItems={contentItems}
+            size={itemSize}
+            alignment={itemTextAlignment}
+            layout={itemLayout}
+          />
+        )}
+        {layout === 'masonry' && (
+          <MasonryLayout
+            contentItems={contentItems}
+            size={itemSize}
+            alignment={itemTextAlignment}
+            layout={itemLayout}
+          />
+        )}
+        {layout === 'deck' && (
+          <DeckLayout
+            contentItems={contentItems}
+            size={itemSize}
+            alignment={itemTextAlignment}
+            layout={itemLayout}
+          />
+        )}
+      </div>
     </Section>
   );
 };

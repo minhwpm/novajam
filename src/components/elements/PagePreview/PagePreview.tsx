@@ -1,8 +1,9 @@
+'use client';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { TextAlignmentType, PageType } from '@/helpers/types';
 import { MediaItem } from '../MediaItem/MediaItem';
-import { useInView } from 'react-hook-inview';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
 export const PagePreview: React.FC<{
   index?: number;
@@ -12,10 +13,8 @@ export const PagePreview: React.FC<{
   animate?: boolean;
 }> = ({ index, data, layout = 'vertical', alignment, animate }) => {
   const { title, url, metaTitle, metaImage } = data;
-  const [ref, isIntersecting] = useInView({
-    threshold: 0.4,
-    unobserveOnEnter: true,
-  });
+  const [ref, isIntersecting] = useIntersecting();
+
   if (layout === 'horizontal') {
     return (
       <div

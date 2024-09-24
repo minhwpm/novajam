@@ -8,8 +8,8 @@ import {
   FlexibleContentType,
 } from '@/helpers/types';
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
-import { useInView } from 'react-hook-inview';
 import { TextPartPT } from '@/components/elements/TextPartPT/TextPartPT';
+import { useInView } from 'react-hook-inview';
 import '@/app/styles/bg-color.css';
 
 const TextContent = ({

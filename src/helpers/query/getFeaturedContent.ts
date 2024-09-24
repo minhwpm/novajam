@@ -67,7 +67,7 @@ export default async function getFeature(id: string) {
             mediaPosition
             mediaAspectRatio
             htmlid
-            size
+            layout
             backgroundColor
             backgroundImage {
               url

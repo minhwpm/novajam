@@ -1,8 +1,9 @@
+'use client';
 import classNames from 'classnames';
 import { ExpertType, TextAlignmentType } from '@/helpers/types';
 import { SNS } from '@/components/elements/SNS/SNS';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
-import { useInView } from 'react-hook-inview';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
 export const ExpertPreview: React.FC<{
   index?: number;
@@ -20,10 +21,7 @@ export const ExpertPreview: React.FC<{
     summary,
     sns,
   } = data;
-  const [ref, isIntersecting] = useInView({
-    threshold: 0.4,
-    unobserveOnEnter: true,
-  });
+  const [ref, isIntersecting] = useIntersecting();
   if (layout === 'horizontal') {
     return (
       <div

@@ -1,24 +1,29 @@
 'use client';
 import React from 'react';
 import classNames from 'classnames';
-import { ContentListType, ContentPTType, CTAType } from '@/helpers/types';
-import { useInView } from 'react-hook-inview';
+import {
+  ContentListType,
+  ContentPTType,
+  CTAType,
+  FeaturedContentType,
+} from '@/helpers/types';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 import { SectionSeparator } from '@/components/elements/SectionSeparator/SectionSeparator';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
 interface SectionProps {
   className?: string;
   framed?: boolean;
-  layout?: 'side-by-side' | 'top-to-bottom';
-  data: ContentListType | ContentPTType | CTAType;
+  layout?: 'flex-row' | 'full-top';
+  data: ContentListType | ContentPTType | CTAType | FeaturedContentType;
   children: React.ReactNode;
 }
 
 export const Section: React.FC<SectionProps> = ({
   className,
   framed = true,
-  layout = 'top-to-bottom',
+  layout = 'full-top',
   data,
   children,
 }) => {
@@ -28,16 +33,14 @@ export const Section: React.FC<SectionProps> = ({
     eyebrow,
     description,
     buttons,
-    headingTextAlignment,
     backgroundColor,
     backgroundImage,
     darkMode,
     sectionSeparator,
   } = data;
-  const [ref, isIntersecting] = useInView({
-    threshold: 0.5,
-    unobserveOnEnter: true,
-  });
+  const textAlignment =
+    'headingTextAlignment' in data ? data.headingTextAlignment : 'start';
+  const [ref, isIntersecting] = useIntersecting(0.5);
 
   const renderEyebrow = () =>
     eyebrow && (
@@ -45,8 +48,8 @@ export const Section: React.FC<SectionProps> = ({
         className={classNames(
           'text-sm xl:text-base tracking-widest mb-6 font-semibold text-secondary-600 dark:text-secondary-500',
           {
-            'text-center': headingTextAlignment === 'center',
-            'text-end': headingTextAlignment === 'end',
+            'text-center': textAlignment === 'center',
+            'text-end': textAlignment === 'end',
           },
         )}
       >
@@ -60,8 +63,8 @@ export const Section: React.FC<SectionProps> = ({
         className={classNames(
           'font-heading text-heading leading-snug max-w-3xl mb-4 dark:text-slate-100',
           {
-            'text-center': headingTextAlignment === 'center',
-            'text-end': headingTextAlignment === 'end',
+            'text-center': textAlignment === 'center',
+            'text-end': textAlignment === 'end',
           },
         )}
       >
@@ -75,8 +78,8 @@ export const Section: React.FC<SectionProps> = ({
         className={classNames(
           'prose lg:prose-lg 2xl:prose-xl max-w-xl lg:max-w-3xl mb-4 text-slate-500 dark:prose-invert dark:text-slate-100/70',
           {
-            'text-center': headingTextAlignment === 'center',
-            'text-end': headingTextAlignment === 'end',
+            'text-center': textAlignment === 'center',
+            'text-end': textAlignment === 'end',
           },
         )}
       >
@@ -90,7 +93,7 @@ export const Section: React.FC<SectionProps> = ({
       <ButtonGroup
         className="mt-4"
         data={buttons}
-        alignment={headingTextAlignment}
+        alignment={textAlignment}
         size="base"
       />
     );
@@ -125,30 +128,36 @@ export const Section: React.FC<SectionProps> = ({
         <SectionSeparator />
       )}
       <div
-        className={classNames('flex gap-x-10 gap-y-6', {
-          'py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24': displayTitle,
-          'py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10': !displayTitle,
-          'container mx-auto px-4': framed,
-          'flex-col lg:flex-row lg:justify-between': layout === 'side-by-side',
-          'flex-col': layout === 'top-to-bottom',
-        })}
+        className={classNames(
+          'flex flex-col lg:flex-row lg:justify-between lg:items-center gap-x-10 gap-y-6',
+          {
+            'py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24': displayTitle,
+            'py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10': !displayTitle,
+            'container mx-auto px-4': framed,
+            'flex-wrap': layout === 'full-top',
+          },
+        )}
       >
-        <div
-          ref={ref}
-          className={classNames(
-            'relative -bottom-10 opacity-0 container mx-auto flex flex-col',
-            {
-              'animate-slidingUpContent animation-delay-150': isIntersecting,
-              'items-center': headingTextAlignment === 'center',
-              'items-end': headingTextAlignment === 'end',
-            },
-          )}
-        >
-          {renderEyebrow()}
-          {renderTitle()}
-          {renderDescription()}
-          {data.contentType !== 'cta' && renderButtons()}
-        </div>
+        {displayTitle && (
+          <div
+            ref={ref}
+            className={classNames(
+              'relative -bottom-10 opacity-0 container mx-auto flex flex-col',
+              {
+                'basis-1/3 grow shrink-0': layout === 'flex-row',
+                'w-full': layout === 'full-top',
+                'animate-slidingUpContent animation-delay-150': isIntersecting,
+                'items-center': textAlignment === 'center',
+                'items-end': textAlignment === 'end',
+              },
+            )}
+          >
+            {renderEyebrow()}
+            {renderTitle()}
+            {renderDescription()}
+            {data.contentType !== 'cta' && renderButtons()}
+          </div>
+        )}
         {children}
       </div>
       {sectionSeparator && sectionSeparator.includes('bottom') && (

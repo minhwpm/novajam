@@ -1,17 +1,15 @@
+'use client';
 import classNames from 'classnames';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useInView } from 'react-hook-inview';
 import { LinkType } from '@/helpers/types';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
 export const ImageLink: React.FC<{
   data: LinkType;
   animate?: boolean;
 }> = ({ data, animate }) => {
-  const [ref, isIntersecting] = useInView({
-    threshold: 0.4,
-    unobserveOnEnter: true,
-  });
+  const [ref, isIntersecting] = useIntersecting();
   return (
     <div
       ref={ref}
