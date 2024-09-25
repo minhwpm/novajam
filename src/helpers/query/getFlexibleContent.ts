@@ -47,7 +47,7 @@ export default async function getFlexibleContent(id: string) {
                         id
                       }
                       url
-                      text
+                      buttonLabel
                       openNewTab
                       buttonVariant
                       withArrow

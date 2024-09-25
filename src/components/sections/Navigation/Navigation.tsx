@@ -151,7 +151,7 @@ export const Navigation: React.FC<{ data: NavigationType }> = ({ data }) => {
                   className="grow absolute lg:top-1/2 mx-1 lg:my-1"
                   size="base"
                 >
-                  {button.text}
+                  {button.buttonLabel}
                 </Button>
               </div>
             ))}

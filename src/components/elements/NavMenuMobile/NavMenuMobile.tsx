@@ -78,7 +78,7 @@ const NavMenuMobile: React.FC<{
                 }}
                 size="base"
               >
-                {button.text}
+                {button.buttonLabel}
               </Button>
             ))}
           </div>

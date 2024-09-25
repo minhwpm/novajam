@@ -56,7 +56,7 @@ export default async function getNavigation(url: string) {
                 sys {
                   id
                 }
-                text
+                buttonLabel
                 url
                 openNewTab
                 buttonVariant
@@ -74,7 +74,7 @@ export default async function getNavigation(url: string) {
                 sys {
                   id
                 }
-                text
+                buttonLabel
                 url
                 openNewTab
                 buttonVariant

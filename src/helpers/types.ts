@@ -48,17 +48,17 @@ export type ButtonVariant =
 
 export type ButtonType = {
   id?: string;
-  text: string;
+  buttonLabel: string;
   url: string | null;
-  buttonVariant: ButtonVariant;
   openNewTab: boolean;
-  withArrow: boolean;
   icon?: {
     url: string;
     title: string;
     width: number;
     height: number;
   } | null;
+  withArrow: boolean;
+  buttonVariant: ButtonVariant;
 };
 
 export type LinkType = {

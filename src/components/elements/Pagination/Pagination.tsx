@@ -16,7 +16,7 @@ export const Pagination: React.FC<{
       <div className="flex justify-center gap-5">
         <Button
           data={{
-            text: 'Back',
+            buttonLabel: 'Back',
             url: null,
             buttonVariant: 'primary',
             withArrow: false,
@@ -40,7 +40,7 @@ export const Pagination: React.FC<{
         </Button>
         <Button
           data={{
-            text: 'Next',
+            buttonLabel: 'Next',
             url: null,
             buttonVariant: 'primary',
             withArrow: false,

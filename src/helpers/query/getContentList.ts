@@ -33,7 +33,7 @@ export default async function getContentList(id: string) {
                   id
                 }
                 url
-                text
+                buttonLabel
                 openNewTab
                 buttonVariant
                 withArrow
@@ -129,7 +129,7 @@ export default async function getContentList(id: string) {
                   description
                   ctaButton {
                     url
-                    text
+                    buttonLabel
                     openNewTab
                     buttonVariant
                     withArrow

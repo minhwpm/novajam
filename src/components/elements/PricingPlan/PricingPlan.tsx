@@ -64,7 +64,7 @@ export const PricingPlan: React.FC<{
         {ctaButton && (
           <div className="mt-6">
             <Button data={ctaButton} size="base">
-              {ctaButton.text}
+              {ctaButton.buttonLabel}
             </Button>
           </div>
         )}

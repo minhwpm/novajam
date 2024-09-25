@@ -24,7 +24,7 @@ export const Button: React.FC<{
   fullWidth,
 }) => {
   const {
-    text,
+    buttonLabel,
     url,
     buttonVariant = 'primary',
     withArrow = false,
@@ -51,7 +51,7 @@ export const Button: React.FC<{
   const renderButtonContent = () => (
     <>
       {renderIcon()}
-      {children ? children : text}
+      {children ? children : buttonLabel}
       {withArrow && (
         <IoIosArrowRoundForward
           className={classNames(
@@ -116,7 +116,7 @@ export const Button: React.FC<{
       type={type}
       onClick={onClick}
       disabled={disabled}
-      aria-label={text}
+      aria-label={buttonLabel}
       className={classNames({ 'w-full': fullWidth })}
     >
       {url ? (

@@ -16,7 +16,7 @@ export default function NotFound() {
         <div className="mt-10">
           <Button
             data={{
-              text: 'Go to Home page',
+              buttonLabel: 'Go to Home page',
               url: '/',
               withArrow: false,
               buttonVariant: 'primary',

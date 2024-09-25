@@ -35,7 +35,7 @@ export default async function getContentPT(id: string) {
                   id
                 }
                 url
-                text
+                buttonLabel
                 openNewTab
                 buttonVariant
                 withArrow

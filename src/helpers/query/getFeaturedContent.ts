@@ -33,7 +33,7 @@ export default async function getFeature(id: string) {
                   id
                 }
                 url
-                text
+                buttonLabel
                 openNewTab
                 buttonVariant
                 withArrow

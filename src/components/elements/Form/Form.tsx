@@ -149,7 +149,7 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
           ) : (
             <Button
               data={{
-                text: 'Submit',
+                buttonLabel: 'Submit',
                 url: null,
                 withArrow: false,
                 buttonVariant: 'black',

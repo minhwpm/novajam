@@ -36,7 +36,7 @@ export default async function getCTA(id: string) {
                         id
                       }
                       url
-                      text
+                      buttonLabel
                       openNewTab
                       buttonVariant
                       withArrow

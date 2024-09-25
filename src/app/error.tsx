@@ -30,7 +30,7 @@ export default function ErrorBoundary({
       <div className="mt-6 flex flex-wrap justify-center items-center gap-4">
         <Button
           data={{
-            text: 'Try again',
+            buttonLabel: 'Try again',
             url: null,
             withArrow: false,
             buttonVariant: 'primary',
@@ -42,7 +42,7 @@ export default function ErrorBoundary({
         <span className="text-slate-500 px-6">OR</span>
         <Button
           data={{
-            text: 'Go to Home page',
+            buttonLabel: 'Go to Home page',
             url: '/',
             withArrow: true,
             buttonVariant: 'ghost',

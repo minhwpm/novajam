@@ -79,7 +79,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
                     document.body.style.overflow = 'auto';
                   }}
                 >
-                  {button.text}
+                  {button.buttonLabel}
                 </Button>
               ))}
           </div>
