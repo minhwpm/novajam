@@ -20,7 +20,7 @@ export const FlexibleContentMediaPart: React.FC<{
   aspectRatio = '4/3',
   rounded = 'theme',
 }) => {
-  const { media, embeddedMediaUrl, embeddedMediaTitle } = data;
+  const { media } = data;
   return (
     <div
       className={classNames(
@@ -30,24 +30,7 @@ export const FlexibleContentMediaPart: React.FC<{
         className,
       )}
     >
-      {embeddedMediaUrl && (
-        <div
-          className={classNames(
-            'w-full overflow-hidden',
-            `aspect-${aspectRatio === 'auto' ? 'video' : aspectRatio}`,
-            `rounded-${rounded}`,
-          )}
-        >
-          <iframe
-            src={embeddedMediaUrl}
-            width="100%"
-            title={embeddedMediaTitle ?? ''}
-            className="w-full h-full object-cover"
-            allowFullScreen={true}
-          />
-        </div>
-      )}
-      {!embeddedMediaUrl && media && media.length === 1 && (
+      {media.length === 1 && (
         <MediaItem
           data={media[0]}
           aspectRatio={aspectRatio}
@@ -55,7 +38,7 @@ export const FlexibleContentMediaPart: React.FC<{
           videoControls={true}
         />
       )}
-      {!embeddedMediaUrl && media && media.length > 1 && (
+      {media.length > 1 && (
         <MediaCarousel
           data={media}
           autoplay={{

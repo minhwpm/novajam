@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 import { Section } from '@/components/elements/Section/Section';
 import {
@@ -52,8 +52,8 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
     <Section data={data}>
       {/* FOR MOBILE, TABLETS */}
       <div className="lg:hidden">
-        {contentItems?.map((section) => (
-          <div key={section.id} className="mb-20">
+        {contentItems?.map((item) => (
+          <div key={item.id} className="mb-20">
             <div
               className={classNames(
                 'flex flex-col mb-10',
@@ -62,15 +62,15 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               )}
             >
               <TextPartPT
-                data={section}
+                data={item}
                 alignment={itemTextAlignment}
                 darkMode={darkMode}
               />
             </div>
             <div className="md:w-3/5 mx-auto">
-              {section.media?.length > 0 && (
+              {item.media?.length > 0 && (
                 <FlexibleContentMediaPart
-                  data={section}
+                  data={item}
                   alignment={itemTextAlignment}
                 />
               )}
@@ -84,9 +84,9 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
         <div className="relative w-3/5">
           <div className="sticky top-20">
             <div className="relative h-[80vh]">
-              {contentItems?.map((section, idx) => (
+              {contentItems?.map((item, idx) => (
                 <div
-                  key={section.id}
+                  key={item.id}
                   className={classNames(
                     'transition-opacity duration-300',
                     {
@@ -99,9 +99,9 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     },
                   )}
                 >
-                  {(section.media?.length > 0 || section.embeddedMediaUrl) && (
+                  {item.media.length > 0 && (
                     <FlexibleContentMediaPart
-                      data={section}
+                      data={item}
                       alignment={itemTextAlignment}
                     />
                   )}
@@ -112,10 +112,10 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
         </div>
 
         <div className="w-2/5 flex flex-col">
-          {contentItems?.map((section, idx) => (
+          {contentItems?.map((item, idx) => (
             <TextContent
-              key={section.id}
-              data={section}
+              key={item.id}
+              data={item}
               idx={idx}
               setVisibleIdx={setVisibleIdx}
               alignment={itemTextAlignment}

@@ -1,5 +1,5 @@
 declare module 'react-responsive-masonry' {
-  import React, { CSSProperties } from 'react';
+  import { CSSProperties } from 'react';
 
   const Masonry: React.FC<{
     columnsCount?: number;

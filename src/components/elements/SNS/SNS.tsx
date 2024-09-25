@@ -1,10 +1,10 @@
+import React from 'react';
+import Link from 'next/link';
 import classNames from 'classnames';
 import { SNSType } from '@/helpers/types';
 import { RiFacebookFill } from 'react-icons/ri';
 import { FaXTwitter } from 'react-icons/fa6';
 import { FaInstagram, FaYoutube, FaLinkedinIn } from 'react-icons/fa';
-import Link from 'next/link';
-import React from 'react';
 
 export const SNS: React.FC<{
   data: SNSType;
@@ -21,10 +21,8 @@ export const SNS: React.FC<{
       })}
     >
       {React.cloneElement(icon, {
-        className: classNames(
+        className:
           'transition-colors duration-300 ease-in-out text-primary-600 group-hover/sns:text-primary-600 dark:text-slate-300 dark:group-hover/sns:text-slate-100',
-          {},
-        ),
       })}
     </Link>
   );

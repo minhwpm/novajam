@@ -288,8 +288,6 @@ export type FlexibleContentType = {
   description: string | null;
   buttons: Array<ButtonType>;
   media: Array<MediaType>;
-  embeddedMediaUrl: string | null;
-  embeddedMediaTitle: string | null;
   contentType: 'flexiblecontent';
 };
 

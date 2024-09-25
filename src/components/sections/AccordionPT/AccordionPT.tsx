@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import classNames from 'classnames';
 import * as RadixAccordion from '@radix-ui/react-accordion';
 import { Section } from '@/components/elements/Section/Section';
@@ -33,10 +32,10 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
         >
           {contentItems &&
             contentItems.length > 0 &&
-            contentItems.map((section) => (
+            contentItems.map((item) => (
               <RadixAccordion.Item
-                key={section.id}
-                value={section.id}
+                key={item.id}
+                value={item.id}
                 className={classNames(
                   'group w-full border-b border-slate-200 data-[state=closed]:hover:text-slate-100 dark:text-slate-100',
                 )}
@@ -44,23 +43,23 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 <RadixAccordion.Trigger asChild>
                   <div className="py-6 xl:py-8 cursor-pointer flex gap-3 data-[state=closed]:hover:text-primary-600 data-[state=open]:text-primary-600">
                     <div className="flex-1 flex flex-col">
-                      {section.eyebrow && (
+                      {item.eyebrow && (
                         <div
                           className={classNames(
                             'text-sm font-medium tracking-widest text-slate-500 dark:text-slate-100/70',
                           )}
                         >
-                          {section.eyebrow}
+                          {item.eyebrow}
                         </div>
                       )}
-                      {section.displayTitle && (
+                      {item.displayTitle && (
                         <div
                           className={classNames(
                             'text-xl xl:text-2xl dark:text-slate-100',
                           )}
                         >
                           <MarkdownRenderer>
-                            {section.displayTitle}
+                            {item.displayTitle}
                           </MarkdownRenderer>
                         </div>
                       )}
@@ -81,16 +80,15 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   )}
                 >
                   <div className="pb-8 xl:pb-10">
-                    {(section.media?.length > 0 ||
-                      section.embeddedMediaUrl) && (
+                    {item.media.length > 0 && (
                       <div className="max-w-xl mx-auto mt-10">
                         <FlexibleContentMediaPart
-                          data={section}
+                          data={item}
                           alignment={itemTextAlignment}
                         />
                       </div>
                     )}
-                    {section.description && (
+                    {item.description && (
                       <div
                         className={classNames(
                           'prose xl:prose-lg max-w-none group-data-[state=closed]:text-transparent',
@@ -99,15 +97,13 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                           },
                         )}
                       >
-                        <MarkdownRenderer>
-                          {section.description}
-                        </MarkdownRenderer>
+                        <MarkdownRenderer>{item.description}</MarkdownRenderer>
                       </div>
                     )}
-                    {section.buttons && section.buttons.length > 0 && (
+                    {item.buttons && item.buttons.length > 0 && (
                       <div className={classNames('mt-8')}>
                         <ButtonGroup
-                          data={section.buttons}
+                          data={item.buttons}
                           alignment={itemTextAlignment}
                         />
                       </div>

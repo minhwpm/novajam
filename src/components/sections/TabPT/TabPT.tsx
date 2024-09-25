@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import * as RadixTabs from '@radix-ui/react-tabs';
 import { Section } from '@/components/elements/Section/Section';
@@ -54,32 +54,30 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               )}
             >
               {contentItems.length > 0 &&
-                contentItems.map((section) => (
+                contentItems.map((item) => (
                   <RadixTabs.Trigger
-                    key={section.id}
-                    value={section.id}
+                    key={item.id}
+                    value={item.id}
                     className={classNames(
                       "group/trigger shrink-0 px-6 py-2 hover:bg-slate-200 flex flex-col justify-center items-center cursor-pointer rounded-theme-button hover:bg-opacity-90 data-[state='active']:bg-primary-600",
                     )}
                   >
-                    {section.eyebrow && (
+                    {item.eyebrow && (
                       <div
                         className={classNames(
                           "text-sm tracking-widest font-medium group-hover/trigger:text-inherit group-data-[state='active']/trigger:text-primary-600/50 text-slate-500 dark:text-slate-100/70",
                         )}
                       >
-                        {section.eyebrow}
+                        {item.eyebrow}
                       </div>
                     )}
-                    {section.displayTitle && (
+                    {item.displayTitle && (
                       <div
                         className={classNames(
                           "block font-semibold lg:text-lg group-hover/trigger:text-inherit group-data-[state='active']/trigger:text-slate-100 dark:text-slate-100",
                         )}
                       >
-                        <MarkdownRenderer>
-                          {section.displayTitle}
-                        </MarkdownRenderer>
+                        <MarkdownRenderer>{item.displayTitle}</MarkdownRenderer>
                       </div>
                     )}
                   </RadixTabs.Trigger>
@@ -88,10 +86,10 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
           </RadixTabs.List>
         </div>
         <div className="mt-2 container px-4 mx-auto grid">
-          {contentItems.map((section) => (
+          {contentItems.map((item) => (
             <RadixTabs.Content
-              key={section.id}
-              value={section.id}
+              key={item.id}
+              value={item.id}
               className={classNames(
                 "col-start-1 row-start-1 relative data-[state='active']:animate-fadeInSlideLeft",
                 {
@@ -102,28 +100,28 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             >
               <div className="flex flex-col-reverse lg:flex-row lg:items-center rounded-theme p-4 lg:p-8 -mx-4 lg:-mx-8">
                 <div className="py-4 lg:pr-10 xl:pr-14">
-                  {section.description && (
+                  {item.description && (
                     <div
                       className={classNames(
                         'prose xl:prose-lg dark:text-slate-100',
                       )}
                     >
-                      <MarkdownRenderer>{section.description}</MarkdownRenderer>
+                      <MarkdownRenderer>{item.description}</MarkdownRenderer>
                     </div>
                   )}
-                  {section.buttons && section.buttons.length > 0 && (
+                  {item.buttons && item.buttons.length > 0 && (
                     <div className={classNames('mt-8')}>
                       <ButtonGroup
-                        data={section.buttons}
+                        data={item.buttons}
                         alignment={itemTextAlignment}
                       />
                     </div>
                   )}
                 </div>
-                {(section.media?.length > 0 || section.embeddedMediaUrl) && (
+                {item.media.length > 0 && (
                   <div className="lg:w-7/12 shrink-0">
                     <FlexibleContentMediaPart
-                      data={section}
+                      data={item}
                       alignment={itemTextAlignment}
                     />
                   </div>

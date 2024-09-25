@@ -29,8 +29,6 @@ export default async function getFlexibleContent(id: string) {
                   eyebrow
                   displayTitle
                   description
-                  embeddedMediaUrl
-                  embeddedMediaTitle
                   mediaCollection {
                     items {
                       sys {

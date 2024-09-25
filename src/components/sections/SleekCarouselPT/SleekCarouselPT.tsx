@@ -131,9 +131,9 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
             },
           )}
         >
-          {contentItems.map((section, idx) => (
+          {contentItems.map((item, idx) => (
             <div
-              key={section.id}
+              key={item.id}
               className={classNames(
                 'col-start-1 row-start-1 flex flex-col gap-6 p-8 lg:p-12 shadow-lg bg-white rounded-theme transition-all ease-in-out duration-500 relative',
                 { 'items-center': itemTextAlignment === 'center' },
@@ -143,9 +143,9 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
                 { 'bg-opacity-5': darkMode },
               )}
             >
-              {(section.media?.length > 0 || section.embeddedMediaUrl) && (
+              {item.media.length > 0 && (
                 <FlexibleContentMediaPart
-                  data={section}
+                  data={item}
                   alignment={itemTextAlignment}
                 />
               )}
@@ -156,33 +156,33 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
                   { 'text-end': itemTextAlignment === 'end' },
                 )}
               >
-                {section.eyebrow && (
+                {item.eyebrow && (
                   <div
                     className={classNames(
                       'text-sm font-semibold tracking-widest text-slate-500 dark:text-slate-100/70',
                     )}
                   >
-                    {section.eyebrow}
+                    {item.eyebrow}
                   </div>
                 )}
-                {section.displayTitle && (
+                {item.displayTitle && (
                   <div className={classNames('text-2xl dark:text-slate-100')}>
-                    <MarkdownRenderer>{section.displayTitle}</MarkdownRenderer>
+                    <MarkdownRenderer>{item.displayTitle}</MarkdownRenderer>
                   </div>
                 )}
-                {section.description && (
+                {item.description && (
                   <div
                     className={classNames(
                       'mt-5 prose 2xl:prose-lg dark:text-slate-100/70',
                     )}
                   >
-                    <MarkdownRenderer>{section.description}</MarkdownRenderer>
+                    <MarkdownRenderer>{item.description}</MarkdownRenderer>
                   </div>
                 )}
-                {section.buttons && section.buttons.length > 0 && (
+                {item.buttons && item.buttons.length > 0 && (
                   <div className={classNames('mt-8')}>
                     <ButtonGroup
-                      data={section.buttons}
+                      data={item.buttons}
                       alignment={itemTextAlignment}
                     />
                   </div>

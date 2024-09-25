@@ -61,7 +61,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     />
                   </div>
                 )}
-                {(item.media?.length > 0 || item.embeddedMediaUrl) && (
+                {item.media.length > 0 && (
                   <div
                     className={classNames(
                       {
