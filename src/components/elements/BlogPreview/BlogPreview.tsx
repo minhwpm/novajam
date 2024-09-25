@@ -2,18 +2,14 @@
 import classNames from 'classnames';
 import readingTime from 'reading-time';
 import Link from 'next/link';
-import {
-  TextAlignmentType,
-  BlogType,
-  MediaAspectRatioType,
-} from '@/helpers/types';
+import { AlignmentType, BlogType, MediaAspectRatioType } from '@/helpers/types';
 import { MediaItem } from '../MediaItem/MediaItem';
 import { usePathname } from 'next/navigation';
 import { format } from 'date-fns';
 import { MarkdownRenderer } from '../MarkdownRenderer/MarkdownRenderer';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
-const Topics: React.FC<{ topics: string[]; alignment?: TextAlignmentType }> = ({
+const Topics: React.FC<{ topics: string[]; alignment?: AlignmentType }> = ({
   topics,
   alignment,
 }) => (
@@ -50,7 +46,7 @@ interface BlogPreviewProps {
   data: BlogType;
   aspectRatio?: MediaAspectRatioType;
   layout?: 'vertical' | 'horizontal' | 'featured';
-  alignment?: TextAlignmentType;
+  alignment?: AlignmentType;
   animate?: boolean;
   featured?: boolean;
 }

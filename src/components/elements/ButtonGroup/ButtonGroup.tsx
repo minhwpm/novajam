@@ -1,10 +1,10 @@
-import { TextAlignmentType, ButtonType } from '@/helpers/types';
+import { AlignmentType, ButtonType } from '@/helpers/types';
 import classNames from 'classnames';
 import { Button } from '../Button/Button';
 
 export const ButtonGroup: React.FC<{
   data: Array<ButtonType>;
-  alignment?: TextAlignmentType;
+  alignment?: AlignmentType;
   size?: 'sm' | 'base' | 'lg';
   className?: string;
 }> = ({ data, alignment, size, className }) => {

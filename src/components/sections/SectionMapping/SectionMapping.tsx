@@ -2,7 +2,7 @@ import { Hero } from '@/components/sections/Hero/Hero';
 import { Alert } from '@/components/sections/Alert/Alert';
 import { ScrollPT } from '@/components/sections/ScrollPT/ScrollPT';
 import { AccordionPT } from '@/components/sections/AccordionPT/AccordionPT';
-import { ContentList } from '@/components/sections/Gallery/Gallery';
+import { ContentList } from '@/components/sections/ContentList/ContentList';
 import { FeaturedContent } from '@/components/sections/FeaturedContent/FeaturedContent';
 import { TabPT } from '@/components/sections/TabPT/TabPT';
 import { CarouselPT } from '@/components/sections/CarouselPT/CarouselPT';
@@ -11,7 +11,7 @@ import { CTA } from '@/components/sections/CTA/CTA';
 import { ContentPTType, PageContentType } from '@/helpers/types';
 
 function ContentPresentationMapping({ data }: { data: ContentPTType }) {
-  switch (data.layout) {
+  switch (data.presentationVariant) {
     case 'scroll':
       return <ScrollPT key={data.id} data={data} />;
     case 'accordion':

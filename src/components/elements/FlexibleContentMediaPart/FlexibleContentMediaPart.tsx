@@ -1,5 +1,5 @@
 import {
-  TextAlignmentType,
+  AlignmentType,
   FlexibleContentType,
   MediaAspectRatioType,
 } from '@/helpers/types';
@@ -10,7 +10,7 @@ import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel
 export const FlexibleContentMediaPart: React.FC<{
   data: FlexibleContentType;
   className?: string;
-  alignment?: TextAlignmentType;
+  alignment?: AlignmentType;
   aspectRatio?: MediaAspectRatioType;
   rounded?: 'theme' | 'full' | 'none';
 }> = ({

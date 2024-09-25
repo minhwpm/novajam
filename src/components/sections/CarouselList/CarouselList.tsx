@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
-import { TextAlignmentType, Content, ItemSize } from '@/helpers/types';
-import { ContentMapping } from '@/components/sections/Gallery/ContentMapping';
+import { AlignmentType, Content, ItemSize } from '@/helpers/types';
+import { ContentMapping } from '@/components/sections/ContentList/ContentMapping';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import 'swiper/css';
@@ -14,12 +14,12 @@ import './styles.css';
 import '@/app/styles/custom-swiper.css';
 import '@/app/styles/padding.css';
 
-export const CarouselLayout: React.FC<{
+export const CarouselList: React.FC<{
   contentItems: Content[];
-  size: ItemSize;
-  alignment: TextAlignmentType;
-  layout: 'horizontal' | 'vertical';
-}> = ({ contentItems, size, alignment, layout }) => {
+  itemSize: ItemSize;
+  itemAlignment: AlignmentType;
+  itemLayout: 'horizontal' | 'vertical';
+}> = ({ contentItems, itemSize, itemAlignment, itemLayout }) => {
   const [carouselState, setState] = useState({
     isBeginning: true,
     isEnd: false,
@@ -75,18 +75,19 @@ export const CarouselLayout: React.FC<{
           <SwiperSlide
             key={idx}
             className={classNames('px-4 basis-11/12', {
-              'xl:basis-4/5 2xl:basis-3/4 lg:px-5 xl:px-6': size === '2XL',
-              'lg:basis-[50%] lg:px-5 xl:px-6': size === 'XL',
-              'md:basis-[50%] xl:basis-[33.33%] lg:px-5': size === 'L',
-              'sm:basis-[50%] lg:basis-[33.33%] xl:basis-[25%]': size === 'M',
+              'xl:basis-4/5 2xl:basis-3/4 lg:px-5 xl:px-6': itemSize === '2XL',
+              'lg:basis-[50%] lg:px-5 xl:px-6': itemSize === 'XL',
+              'md:basis-[50%] xl:basis-[33.33%] lg:px-5': itemSize === 'L',
+              'sm:basis-[50%] lg:basis-[33.33%] xl:basis-[25%]':
+                itemSize === 'M',
               'basis-[50%] sm:basis-[33.33%] md:basis-[25%] xl:basis-[20%]':
-                size === 'S',
+                itemSize === 'S',
             })}
           >
             <ContentMapping
               data={item}
-              alignment={alignment}
-              layout={layout}
+              alignment={itemAlignment}
+              layout={itemLayout}
               index={idx}
               animate={false}
             />

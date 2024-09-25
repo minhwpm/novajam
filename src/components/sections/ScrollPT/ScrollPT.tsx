@@ -3,7 +3,7 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import { Section } from '@/components/elements/Section/Section';
 import {
-  TextAlignmentType,
+  AlignmentType,
   ContentPTType,
   FlexibleContentType,
 } from '@/helpers/types';
@@ -22,7 +22,7 @@ const TextContent = ({
   data: FlexibleContentType;
   idx: number;
   setVisibleIdx: (idx: number) => void;
-  alignment: TextAlignmentType;
+  alignment: AlignmentType;
   darkMode: boolean;
 }) => {
   const [ref, isVisible] = useInView({
@@ -46,7 +46,7 @@ const TextContent = ({
 };
 
 export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { contentItems, itemTextAlignment, darkMode } = data;
+  const { contentItems, itemAlignment, darkMode } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
   return (
     <Section data={data}>
@@ -57,13 +57,13 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             <div
               className={classNames(
                 'flex flex-col mb-10',
-                { 'text-center': itemTextAlignment === 'center' },
-                { 'text-end': itemTextAlignment === 'end' },
+                { 'text-center': itemAlignment === 'center' },
+                { 'text-end': itemAlignment === 'end' },
               )}
             >
               <TextPartPT
                 data={item}
-                alignment={itemTextAlignment}
+                alignment={itemAlignment}
                 darkMode={darkMode}
               />
             </div>
@@ -71,7 +71,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               {item.media?.length > 0 && (
                 <FlexibleContentMediaPart
                   data={item}
-                  alignment={itemTextAlignment}
+                  alignment={itemAlignment}
                 />
               )}
             </div>
@@ -102,7 +102,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   {item.media.length > 0 && (
                     <FlexibleContentMediaPart
                       data={item}
-                      alignment={itemTextAlignment}
+                      alignment={itemAlignment}
                     />
                   )}
                 </div>
@@ -118,7 +118,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               data={item}
               idx={idx}
               setVisibleIdx={setVisibleIdx}
-              alignment={itemTextAlignment}
+              alignment={itemAlignment}
               darkMode={darkMode}
             />
           ))}

@@ -1048,7 +1048,7 @@
           "omitted": false
         },
         {
-          "id": "headingTextAlignment",
+          "id": "headingAlignment",
           "name": "Heading Text Alignment",
           "type": "Symbol",
           "localized": false,
@@ -2950,7 +2950,7 @@
           "omitted": false
         },
         {
-          "id": "headingTextAlignment",
+          "id": "headingAlignment",
           "name": "Heading Text Alignment",
           "type": "Symbol",
           "localized": false,
@@ -4972,7 +4972,7 @@
           "widgetNamespace": "builtin"
         },
         {
-          "fieldId": "headingTextAlignment",
+          "fieldId": "headingAlignment",
           "widgetId": "dropdown",
           "widgetNamespace": "builtin"
         },
@@ -5023,7 +5023,7 @@
               "name": "Styling settings",
               "items": [
                 {
-                  "fieldId": "headingTextAlignment"
+                  "fieldId": "headingAlignment"
                 },
                 {
                   "fieldId": "contentTextAlignment"
@@ -6144,7 +6144,7 @@
           "widgetNamespace": "builtin"
         },
         {
-          "fieldId": "headingTextAlignment",
+          "fieldId": "headingAlignment",
           "widgetId": "dropdown",
           "widgetNamespace": "builtin"
         },
@@ -6203,7 +6203,7 @@
               "name": "Styling settings",
               "items": [
                 {
-                  "fieldId": "headingTextAlignment"
+                  "fieldId": "headingAlignment"
                 },
                 {
                   "fieldId": "contentTextAlignment"
@@ -23221,7 +23221,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -23367,7 +23367,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -23847,7 +23847,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -24757,7 +24757,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -25249,7 +25249,7 @@
         "appearanceVariant": {
           "en-US": "tab"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -25957,7 +25957,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -26640,7 +26640,7 @@
         "appearanceVariant": {
           "en-US": "scroll"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -27251,7 +27251,7 @@
         "appearanceVariant": {
           "en-US": "sleek carousel"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "start"
         },
         "contentTextAlignment": {
@@ -27805,7 +27805,7 @@
         "appearanceVariant": {
           "en-US": "carousel"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -28641,7 +28641,7 @@
         "appearanceVariant": {
           "en-US": "accordion"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -31254,7 +31254,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -31754,7 +31754,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "start"
         },
         "contentTextAlignment": {
@@ -32493,7 +32493,7 @@
         "appearanceVariant": {
           "en-US": "tab"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "start"
         },
         "contentTextAlignment": {
@@ -33168,7 +33168,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "start"
         },
         "contentTextAlignment": {
@@ -33322,7 +33322,7 @@
         "appearanceVariant": {
           "en-US": "carousel"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -33971,7 +33971,7 @@
         "appearanceVariant": {
           "en-US": "masonry"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -34698,7 +34698,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -35501,7 +35501,7 @@
         "appearanceVariant": {
           "en-US": "carousel"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -36054,7 +36054,7 @@
         "appearanceVariant": {
           "en-US": "carousel"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -36670,7 +36670,7 @@
         "appearanceVariant": {
           "en-US": "masonry"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -37779,7 +37779,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -38446,7 +38446,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "start"
         },
         "contentTextAlignment": {
@@ -39005,7 +39005,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -39311,7 +39311,7 @@
         "appearanceVariant": {
           "en-US": "carousel"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "start"
         },
         "contentTextAlignment": {
@@ -39734,7 +39734,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -40058,7 +40058,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "start"
         },
         "contentTextAlignment": {
@@ -40678,7 +40678,7 @@
         "appearanceVariant": {
           "en-US": "scroll"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -42110,7 +42110,7 @@
         "appearanceVariant": {
           "en-US": "masonry"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -44296,7 +44296,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -44972,7 +44972,7 @@
         "appearanceVariant": {
           "en-US": "deck"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -45490,7 +45490,7 @@
         "appearanceVariant": {
           "en-US": "carousel"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {
@@ -46282,7 +46282,7 @@
         "appearanceVariant": {
           "en-US": "carousel"
         },
-        "headingTextAlignment": {
+        "headingAlignment": {
           "en-US": "center"
         },
         "contentTextAlignment": {

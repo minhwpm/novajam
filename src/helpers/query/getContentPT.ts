@@ -24,11 +24,11 @@ export default async function getContentPT(id: string) {
           } 
         ) {
           items {
+            htmlid
             eyebrow
             displayTitle
             description
-            layout
-            headingTextAlignment
+            headingAlignment
             buttonsCollection {
               items {
                 sys {
@@ -47,8 +47,9 @@ export default async function getContentPT(id: string) {
                 }
               }
             }
-            itemTextAlignment
-            htmlid
+            itemAlignment
+            presentationVariant
+            layout
             backgroundColor
             backgroundImage {
               url

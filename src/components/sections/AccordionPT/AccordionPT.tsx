@@ -11,7 +11,7 @@ import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import '@/app/styles/bg-color.css';
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { contentItems, itemTextAlignment, darkMode } = data;
+  const { contentItems, itemAlignment, darkMode } = data;
   const [ref, isIntersecting] = useIntersecting();
   return (
     <Section data={data}>
@@ -75,8 +75,8 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 <RadixAccordion.Content
                   className={classNames(
                     'overflow-hidden data-[state=closed]:animate-accordionSlideUp data-[state=open]:animate-accordionSlideDown',
-                    { 'text-center': itemTextAlignment === 'center' },
-                    { 'text-end': itemTextAlignment === 'end' },
+                    { 'text-center': itemAlignment === 'center' },
+                    { 'text-end': itemAlignment === 'end' },
                   )}
                 >
                   <div className="pb-8 xl:pb-10">
@@ -84,7 +84,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       <div className="max-w-xl mx-auto mt-10">
                         <FlexibleContentMediaPart
                           data={item}
-                          alignment={itemTextAlignment}
+                          alignment={itemAlignment}
                         />
                       </div>
                     )}
@@ -104,7 +104,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                       <div className={classNames('mt-8')}>
                         <ButtonGroup
                           data={item.buttons}
-                          alignment={itemTextAlignment}
+                          alignment={itemAlignment}
                         />
                       </div>
                     )}

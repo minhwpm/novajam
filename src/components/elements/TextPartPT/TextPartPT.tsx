@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
-import { TextAlignmentType, FlexibleContentType } from '@/helpers/types';
+import { AlignmentType, FlexibleContentType } from '@/helpers/types';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 
 export const TextPartPT: React.FC<{
   data: FlexibleContentType;
-  alignment?: TextAlignmentType;
+  alignment?: AlignmentType;
   darkMode: boolean;
 }> = ({ data, alignment, darkMode }) => {
   const { displayTitle, eyebrow, description, buttons } = data;

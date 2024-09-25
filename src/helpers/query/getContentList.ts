@@ -46,7 +46,8 @@ export default async function getContentList(id: string) {
               }
             }
             htmlid
-            headingTextAlignment
+            headingAlignment
+            listVariant
             layout
             backgroundColor
             backgroundImage {
@@ -60,7 +61,7 @@ export default async function getContentList(id: string) {
             darkMode
             sectionSeparator
             itemSize
-            itemTextAlignment
+            itemAlignment
             itemLayout
             contentItemsCollection (limit: 20) {
               items {

@@ -1,6 +1,6 @@
 'use client';
 import classNames from 'classnames';
-import { TextAlignmentType, FlexibleContentType } from '@/helpers/types';
+import { AlignmentType, FlexibleContentType } from '@/helpers/types';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
@@ -9,7 +9,7 @@ import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/Markdow
 export const FlexibleContent: React.FC<{
   index?: number;
   data: FlexibleContentType;
-  alignment?: TextAlignmentType;
+  alignment?: AlignmentType;
   layout?: 'vertical' | 'horizontal';
   animate?: boolean;
 }> = ({ index, data, alignment = 'center', layout = 'vertical', animate }) => {

@@ -53,8 +53,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
     displayTitle,
     description,
     contentItems,
-    headingTextAlignment,
-    itemTextAlignment,
+    headingAlignment,
+    itemAlignment,
     darkMode,
   } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
@@ -77,8 +77,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
             <p
               className={classNames(
                 'uppercase text-sm lg:text-base tracking-widest text-secondary-600 font-medium mb-2',
-                { 'text-center': headingTextAlignment === 'center' },
-                { 'text-end': headingTextAlignment === 'end' },
+                { 'text-center': headingAlignment === 'center' },
+                { 'text-end': headingAlignment === 'end' },
               )}
             >
               {eyebrow}
@@ -89,8 +89,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
               className={classNames(
                 'font-heading text-heading leading-tight mb-3 dark:text-slate-100',
                 {
-                  'text-center': headingTextAlignment === 'center',
-                  'text-end': headingTextAlignment === 'end',
+                  'text-center': headingAlignment === 'center',
+                  'text-end': headingAlignment === 'end',
                 },
               )}
             >
@@ -102,8 +102,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
               className={classNames(
                 'prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl dark:text-slate-100',
                 {
-                  'text-center': headingTextAlignment === 'center',
-                  'text-end': headingTextAlignment === 'end',
+                  'text-center': headingAlignment === 'center',
+                  'text-end': headingAlignment === 'end',
                 },
               )}
             >
@@ -112,7 +112,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
           )}
           <div
             className={classNames('mt-8 hidden lg:flex gap-4', {
-              'lg:justify-center': headingTextAlignment === 'center',
+              'lg:justify-center': headingAlignment === 'center',
             })}
           >
             <ArrowGroup
@@ -136,8 +136,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
               key={item.id}
               className={classNames(
                 'col-start-1 row-start-1 flex flex-col gap-6 p-8 lg:p-12 shadow-lg bg-white rounded-theme transition-all ease-in-out duration-500 relative',
-                { 'items-center': itemTextAlignment === 'center' },
-                { 'items-end': itemTextAlignment === 'end' },
+                { 'items-center': itemAlignment === 'center' },
+                { 'items-end': itemAlignment === 'end' },
                 { 'opacity-100 right-0': visibleIdx === idx },
                 { 'opacity-0 -right-24': visibleIdx !== idx },
                 { 'bg-opacity-5': darkMode },
@@ -146,14 +146,14 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
               {item.media.length > 0 && (
                 <FlexibleContentMediaPart
                   data={item}
-                  alignment={itemTextAlignment}
+                  alignment={itemAlignment}
                 />
               )}
               <div
                 className={classNames(
                   'grow flex flex-col justify-center',
-                  { 'text-center': itemTextAlignment === 'center' },
-                  { 'text-end': itemTextAlignment === 'end' },
+                  { 'text-center': itemAlignment === 'center' },
+                  { 'text-end': itemAlignment === 'end' },
                 )}
               >
                 {item.eyebrow && (
@@ -183,7 +183,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
                   <div className={classNames('mt-8')}>
                     <ButtonGroup
                       data={item.buttons}
-                      alignment={itemTextAlignment}
+                      alignment={itemAlignment}
                     />
                   </div>
                 )}

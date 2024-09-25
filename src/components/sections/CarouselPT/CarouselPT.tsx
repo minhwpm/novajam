@@ -15,7 +15,7 @@ import '@/app/styles/custom-swiper.css';
 import '@/app/styles/padding.css';
 
 export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { contentItems, itemTextAlignment, darkMode } = data;
+  const { contentItems, itemAlignment, darkMode } = data;
   const [ref, isIntersecting] = useIntersecting();
 
   return (
@@ -50,13 +50,13 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   <div
                     className={classNames(
                       'flex flex-col',
-                      { 'text-center': itemTextAlignment === 'center' },
-                      { 'text-end': itemTextAlignment === 'end' },
+                      { 'text-center': itemAlignment === 'center' },
+                      { 'text-end': itemAlignment === 'end' },
                     )}
                   >
                     <TextPartPT
                       data={item}
-                      alignment={itemTextAlignment}
+                      alignment={itemAlignment}
                       darkMode={darkMode}
                     />
                   </div>
@@ -73,7 +73,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   >
                     <FlexibleContentMediaPart
                       data={item}
-                      alignment={itemTextAlignment}
+                      alignment={itemAlignment}
                     />
                   </div>
                 )}

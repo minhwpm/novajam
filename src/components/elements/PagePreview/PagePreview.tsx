@@ -1,7 +1,7 @@
 'use client';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { TextAlignmentType, PageType } from '@/helpers/types';
+import { AlignmentType, PageType } from '@/helpers/types';
 import { MediaItem } from '../MediaItem/MediaItem';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
@@ -9,7 +9,7 @@ export const PagePreview: React.FC<{
   index?: number;
   data: PageType;
   layout?: 'vertical' | 'horizontal';
-  alignment?: TextAlignmentType;
+  alignment?: AlignmentType;
   animate?: boolean;
 }> = ({ index, data, layout = 'vertical', alignment, animate }) => {
   const { title, url, metaTitle, metaImage } = data;

@@ -42,7 +42,7 @@ export default async function getForm(id: string) {
               }
             }
             submitButton {
-              text
+              buttonLabel
               url
               buttonVariant
               withArrow
@@ -84,4 +84,6 @@ export default async function getForm(id: string) {
     console.error(error);
     throw new Error(`An error occurred while fetching Form data: ${error}`);
   }
+
+  //@TODO something wrong with error catching in this file - when button field 'text' - 'buttonLabel' changing it doesn't show error
 }

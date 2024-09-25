@@ -12,13 +12,8 @@ import '@/app/styles/bg-color.css';
 import './styles.css';
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const {
-    displayTitle,
-    contentItems,
-    headingTextAlignment,
-    itemTextAlignment,
-  } = data;
-  const [justify, setJustify] = useState(headingTextAlignment);
+  const { displayTitle, contentItems, headingAlignment, itemAlignment } = data;
+  const [justify, setJustify] = useState(headingAlignment);
   const wrapperRef = useRef(
     null,
   ) as unknown as React.MutableRefObject<HTMLDivElement>;
@@ -93,8 +88,8 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
               className={classNames(
                 "col-start-1 row-start-1 relative data-[state='active']:animate-fadeInSlideLeft",
                 {
-                  'text-center': itemTextAlignment === 'center',
-                  'text-end': itemTextAlignment === 'end',
+                  'text-center': itemAlignment === 'center',
+                  'text-end': itemAlignment === 'end',
                 },
               )}
             >
@@ -113,7 +108,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                     <div className={classNames('mt-8')}>
                       <ButtonGroup
                         data={item.buttons}
-                        alignment={itemTextAlignment}
+                        alignment={itemAlignment}
                       />
                     </div>
                   )}
@@ -122,7 +117,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                   <div className="lg:w-7/12 shrink-0">
                     <FlexibleContentMediaPart
                       data={item}
-                      alignment={itemTextAlignment}
+                      alignment={itemAlignment}
                     />
                   </div>
                 )}

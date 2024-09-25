@@ -1,6 +1,6 @@
 'use client';
 import classNames from 'classnames';
-import { TextAlignmentType, TestimonialType } from '@/helpers/types';
+import { AlignmentType, TestimonialType } from '@/helpers/types';
 import { MediaItem } from '../MediaItem/MediaItem';
 import { AiFillStar } from 'react-icons/ai';
 import { RiDoubleQuotesL } from 'react-icons/ri';
@@ -10,7 +10,7 @@ import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 export const Testimonial: React.FC<{
   index?: number;
   data: TestimonialType;
-  alignment?: TextAlignmentType;
+  alignment?: AlignmentType;
   layout?: 'vertical' | 'horizontal';
   animate?: boolean;
 }> = ({ index, data, alignment = 'center', layout, animate }) => {

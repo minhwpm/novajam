@@ -52,6 +52,7 @@ export default async function getFeature(id: string) {
                 }
               }
             }
+            contentAlignment
             mediaCollection (limit: 50) {
               items {
                 sys {

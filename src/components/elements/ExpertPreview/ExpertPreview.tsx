@@ -1,6 +1,6 @@
 'use client';
 import classNames from 'classnames';
-import { ExpertType, TextAlignmentType } from '@/helpers/types';
+import { ExpertType, AlignmentType } from '@/helpers/types';
 import { SNS } from '@/components/elements/SNS/SNS';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
@@ -9,7 +9,7 @@ export const ExpertPreview: React.FC<{
   index?: number;
   data: ExpertType;
   layout: 'horizontal' | 'vertical';
-  alignment?: TextAlignmentType;
+  alignment?: AlignmentType;
   animate?: boolean;
 }> = ({ index, data, layout, alignment, animate }) => {
   const {

@@ -1,14 +1,14 @@
 'use client';
 import classNames from 'classnames';
 import { Button } from '@/components/elements/Button/Button';
-import { TextAlignmentType, PricingPlanType } from '@/helpers/types';
+import { AlignmentType, PricingPlanType } from '@/helpers/types';
 import { MarkdownRenderer } from '../MarkdownRenderer/MarkdownRenderer';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
 export const PricingPlan: React.FC<{
   index?: number;
   data: PricingPlanType;
-  alignment?: TextAlignmentType;
+  alignment?: AlignmentType;
   layout?: 'horizontal' | 'vertical';
   animate?: boolean;
 }> = ({ index, data, alignment = 'center', layout = 'vertical', animate }) => {

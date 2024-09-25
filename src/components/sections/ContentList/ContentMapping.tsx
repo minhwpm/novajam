@@ -4,12 +4,12 @@ import { ExpertPreview } from '@/components/elements/ExpertPreview/ExpertPreview
 import { Statistics } from '@/components/elements/Statistics/Statistics';
 import { FlexibleContent } from '@/components/elements/FlexibleContent/FlexibleContent';
 import { PricingPlan } from '@/components/elements/PricingPlan/PricingPlan';
-import { TextAlignmentType, Content } from '@/helpers/types';
+import { AlignmentType, Content } from '@/helpers/types';
 import { Testimonial } from '@/components/elements/Testimonial/Testimonial';
 
 export const ContentMapping: React.FC<{
   data: Content;
-  alignment: TextAlignmentType;
+  alignment: AlignmentType;
   layout?: 'horizontal' | 'vertical';
   index: number;
   animate?: boolean;

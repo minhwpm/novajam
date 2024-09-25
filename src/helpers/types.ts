@@ -34,7 +34,7 @@ export type BackgroundColorType =
   | 'pink'
   | 'rose';
 
-export type TextAlignmentType = 'start' | 'center' | 'end';
+export type AlignmentType = 'start' | 'center' | 'end';
 
 export type ButtonVariant =
   | 'primary'
@@ -199,15 +199,16 @@ export type MediaAspectRatioType =
 export type FeaturedContentType = {
   id: string;
   title: string;
+  htmlid: string;
   eyebrow: string | null;
   displayTitle: string | null;
   description: string | null;
   media: Array<MediaType>;
   mediaPosition: 'left' | 'right';
   mediaAspectRatio: MediaAspectRatioType;
-  buttons: Array<ButtonType>;
   items: Array<FlexibleContentType>;
-  htmlid: string;
+  buttons: Array<ButtonType>;
+  contentAlignment: AlignmentType;
   layout: 'flex-row' | 'full-top';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
@@ -228,7 +229,7 @@ export type HeroType = {
   buttons: Array<ButtonType>;
   media: MediaType | null;
   layout: 'side-by-side' | 'top-to-bottom';
-  textAlignment: TextAlignmentType;
+  textAlignment: AlignmentType;
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
@@ -252,10 +253,16 @@ export type ContentPTType = {
   displayTitle: string | null;
   description: string | null;
   buttons: Array<ButtonType>;
-  headingTextAlignment: TextAlignmentType;
+  headingAlignment: AlignmentType;
   contentItems: Array<FlexibleContentType>;
-  itemTextAlignment: TextAlignmentType;
-  layout: 'carousel' | 'sleek carousel' | 'tab' | 'accordion' | 'scroll';
+  itemAlignment: AlignmentType;
+  presentationVariant:
+    | 'carousel'
+    | 'sleek carousel'
+    | 'tab'
+    | 'accordion'
+    | 'scroll';
+  layout: 'flex-row' | 'full-top';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
@@ -319,12 +326,13 @@ export type ContentListType = {
   displayTitle: string | null;
   description: string | null;
   buttons: Array<ButtonType>;
-  headingTextAlignment: TextAlignmentType;
+  headingAlignment: AlignmentType;
   contentItems: Array<Content>;
-  itemTextAlignment: TextAlignmentType;
+  itemAlignment: AlignmentType;
   itemLayout: 'horizontal' | 'vertical';
   itemSize: ItemSize;
-  layout: 'carousel' | 'masonry' | 'deck';
+  listVariant: 'carousel' | 'masonry' | 'deck';
+  layout: 'flex-row' | 'full-top';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
@@ -360,7 +368,7 @@ export type CTAType = {
   eyebrow: string | null;
   displayTitle: string | null;
   description: string | null;
-  headingTextAlignment: TextAlignmentType;
+  headingAlignment: AlignmentType;
   buttons: Array<ButtonType> | null;
   form: FormType | null;
   layout: 'flex-row' | 'full-top';
