@@ -46,13 +46,13 @@ const TextContent = ({
 };
 
 export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { contentItems, itemAlignment, darkMode } = data;
+  const { presentationItems, itemAlignment, darkMode } = data;
   const [visibleIdx, setVisibleIdx] = useState(0);
   return (
     <Section data={data}>
       {/* FOR MOBILE, TABLETS */}
       <div className="lg:hidden">
-        {contentItems?.map((item) => (
+        {presentationItems?.map((item) => (
           <div key={item.id} className="mb-20">
             <div
               className={classNames(
@@ -84,7 +84,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
         <div className="relative w-3/5">
           <div className="sticky top-20">
             <div className="relative h-[80vh]">
-              {contentItems?.map((item, idx) => (
+              {presentationItems?.map((item, idx) => (
                 <div
                   key={item.id}
                   className={classNames(
@@ -112,7 +112,7 @@ export const ScrollPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
         </div>
 
         <div className="w-2/5 flex flex-col">
-          {contentItems?.map((item, idx) => (
+          {presentationItems?.map((item, idx) => (
             <TextContent
               key={item.id}
               data={item}

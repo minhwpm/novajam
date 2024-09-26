@@ -5,11 +5,11 @@ import { AlignmentType, Content, ItemSize } from '@/helpers/types';
 import { ContentMapping } from '../ContentList/ContentMapping';
 
 export const MasonryList: React.FC<{
-  contentItems: Content[];
+  listItems: Content[];
   itemSize: ItemSize;
   itemAlignment: AlignmentType;
   itemLayout: 'horizontal' | 'vertical';
-}> = ({ contentItems, itemSize, itemAlignment, itemLayout }) => {
+}> = ({ listItems, itemSize, itemAlignment, itemLayout }) => {
   return (
     <ResponsiveMasonry
       className="pt-3.5"
@@ -60,7 +60,7 @@ export const MasonryList: React.FC<{
           '48px': itemSize === 'XL',
         })}
       >
-        {contentItems.map((item, idx) => (
+        {listItems.map((item, idx) => (
           <ContentMapping
             key={idx}
             data={item}

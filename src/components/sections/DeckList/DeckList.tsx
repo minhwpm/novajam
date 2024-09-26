@@ -3,14 +3,14 @@ import { ContentMapping } from '../ContentList/ContentMapping';
 import { AlignmentType, Content, ItemSize } from '@/helpers/types';
 
 export const DeckList: React.FC<{
-  contentItems: Array<Content>;
+  listItems: Array<Content>;
   itemSize: ItemSize;
   itemAlignment: AlignmentType;
   itemLayout: 'horizontal' | 'vertical';
-}> = ({ contentItems, itemSize, itemAlignment, itemLayout }) => {
+}> = ({ listItems, itemSize, itemAlignment, itemLayout }) => {
   return (
     <div className="flex flex-wrap justify-center -mx-4">
-      {contentItems.map((item, idx) => (
+      {listItems.map((item, idx) => (
         <div
           key={idx}
           className={classNames('p-4 w-full', {

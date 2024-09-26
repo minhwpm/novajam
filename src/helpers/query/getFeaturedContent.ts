@@ -26,7 +26,7 @@ export default async function getFeature(id: string) {
           items {
             eyebrow
             displayTitle
-            description
+            summary
             buttonsCollection {
               items {
                 sys {
@@ -45,14 +45,14 @@ export default async function getFeature(id: string) {
                 }
               }
             }
-            itemsCollection (limit: 5) {
+            supportingItemsCollection (limit: 5) {
               items {
                 sys {
                   id
                 }
               }
             }
-            contentAlignment
+            introAlignment
             mediaCollection (limit: 50) {
               items {
                 sys {
@@ -103,15 +103,18 @@ export default async function getFeature(id: string) {
     const data = await res.json();
     const normalizedData = normalizeDataCollection(data.data);
 
-    normalizedData[0]?.items &&
+    normalizedData[0]?.supportingItems &&
       (await Promise.all(
-        normalizedData[0]?.items.map(
+        normalizedData[0]?.supportingItems.map(
           async (
             item: { contentType: string; id: string },
             index: string | number,
           ) => {
             const sectionData = await getFlexibleContent(item.id);
-            normalizedData[0].items[index] = { ...item, ...sectionData };
+            normalizedData[0].supportingItems[index] = {
+              ...item,
+              ...sectionData,
+            };
           },
         ),
       ));

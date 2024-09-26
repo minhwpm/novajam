@@ -29,7 +29,8 @@ export default async function getCTA(id: string) {
                   htmlid
                   displayTitle
                   eyebrow
-                  description
+                  summary
+                  introAlignment
                   buttonsCollection {
                     items {
                       sys {

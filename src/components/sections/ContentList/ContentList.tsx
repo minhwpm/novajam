@@ -8,7 +8,7 @@ import '@/app/styles/bg-color.css';
 
 export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
   const {
-    contentItems,
+    listItems,
     listVariant,
     itemSize,
     itemAlignment,
@@ -27,7 +27,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
       <div className="basis-2/3 grow shrink">
         {listVariant === 'carousel' && (
           <CarouselList
-            contentItems={contentItems}
+            listItems={listItems}
             itemSize={itemSize}
             itemAlignment={itemAlignment}
             itemLayout={itemLayout}
@@ -35,7 +35,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         )}
         {listVariant === 'masonry' && (
           <MasonryList
-            contentItems={contentItems}
+            listItems={listItems}
             itemSize={itemSize}
             itemAlignment={itemAlignment}
             itemLayout={itemLayout}
@@ -43,7 +43,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
         )}
         {listVariant === 'deck' && (
           <DeckList
-            contentItems={contentItems}
+            listItems={listItems}
             itemSize={itemSize}
             itemAlignment={itemAlignment}
             itemLayout={itemLayout}

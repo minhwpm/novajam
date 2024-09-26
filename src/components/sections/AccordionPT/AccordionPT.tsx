@@ -11,7 +11,7 @@ import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import '@/app/styles/bg-color.css';
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { contentItems, itemAlignment, darkMode } = data;
+  const { presentationItems, itemAlignment, darkMode } = data;
   const [ref, isIntersecting] = useIntersecting();
   return (
     <Section data={data}>
@@ -30,9 +30,9 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             'w-full lg:w-[800px] mx-auto flex flex-col items-start justify-center',
           )}
         >
-          {contentItems &&
-            contentItems.length > 0 &&
-            contentItems.map((item) => (
+          {presentationItems &&
+            presentationItems.length > 0 &&
+            presentationItems.map((item) => (
               <RadixAccordion.Item
                 key={item.id}
                 value={item.id}

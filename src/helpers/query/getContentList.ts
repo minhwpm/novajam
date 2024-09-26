@@ -26,7 +26,7 @@ export default async function getContentList(id: string) {
           items {
             eyebrow
             displayTitle
-            description
+            summary
             buttonsCollection {
               items {
                 sys {
@@ -46,7 +46,7 @@ export default async function getContentList(id: string) {
               }
             }
             htmlid
-            headingAlignment
+            introAlignment
             listVariant
             layout
             backgroundColor
@@ -63,7 +63,7 @@ export default async function getContentList(id: string) {
             itemSize
             itemAlignment
             itemLayout
-            contentItemsCollection (limit: 20) {
+            listItemsCollection (limit: 20) {
               items {
                 __typename
                 ... on Expert {
@@ -200,21 +200,21 @@ export default async function getContentList(id: string) {
     const data = await res.json();
     const normalizedData = normalizeDataCollection(data.data);
 
-    normalizedData[0]?.contentItems &&
+    normalizedData[0]?.listItems &&
       (await Promise.all(
-        normalizedData[0]?.contentItems.map(
+        normalizedData[0]?.listItems.map(
           async (
             contentItem: { contentType: string; id: string },
             index: string | number,
           ) => {
             if (contentItem?.contentType === 'flexiblecontent') {
               const sectionData = await getFlexibleContent(contentItem.id);
-              normalizedData[0].contentItems[index] = {
+              normalizedData[0].listItems[index] = {
                 ...contentItem,
                 ...sectionData,
               };
             } else {
-              normalizedData[0].contentItems[index] = { ...contentItem };
+              normalizedData[0].listItems[index] = { ...contentItem };
             }
           },
         ),

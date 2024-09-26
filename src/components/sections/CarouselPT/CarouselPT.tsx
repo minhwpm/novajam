@@ -15,7 +15,7 @@ import '@/app/styles/custom-swiper.css';
 import '@/app/styles/padding.css';
 
 export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { contentItems, itemAlignment, darkMode } = data;
+  const { presentationItems, itemAlignment, darkMode } = data;
   const [ref, isIntersecting] = useIntersecting();
 
   return (
@@ -39,7 +39,7 @@ export const CarouselPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
           loop={true}
           modules={[Navigation, Autoplay]}
         >
-          {contentItems.map((item) => (
+          {presentationItems.map((item) => (
             <SwiperSlide key={item.id}>
               <div
                 className={classNames(

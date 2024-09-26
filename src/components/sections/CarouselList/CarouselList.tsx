@@ -15,11 +15,11 @@ import '@/app/styles/custom-swiper.css';
 import '@/app/styles/padding.css';
 
 export const CarouselList: React.FC<{
-  contentItems: Content[];
+  listItems: Content[];
   itemSize: ItemSize;
   itemAlignment: AlignmentType;
   itemLayout: 'horizontal' | 'vertical';
-}> = ({ contentItems, itemSize, itemAlignment, itemLayout }) => {
+}> = ({ listItems, itemSize, itemAlignment, itemLayout }) => {
   const [carouselState, setState] = useState({
     isBeginning: true,
     isEnd: false,
@@ -71,7 +71,7 @@ export const CarouselList: React.FC<{
             )}
           />
         </div>
-        {contentItems.map((item, idx) => (
+        {listItems.map((item, idx) => (
           <SwiperSlide
             key={idx}
             className={classNames('px-4 basis-11/12', {

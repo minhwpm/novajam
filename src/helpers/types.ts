@@ -202,13 +202,13 @@ export type FeaturedContentType = {
   htmlid: string;
   eyebrow: string | null;
   displayTitle: string | null;
-  description: string | null;
+  summary: string | null;
   media: Array<MediaType>;
   mediaPosition: 'left' | 'right';
   mediaAspectRatio: MediaAspectRatioType;
-  items: Array<FlexibleContentType>;
+  supportingItems: Array<FlexibleContentType>;
   buttons: Array<ButtonType>;
-  contentAlignment: AlignmentType;
+  introAlignment: AlignmentType;
   layout: 'flex-row' | 'full-top';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
@@ -251,10 +251,10 @@ export type ContentPTType = {
   htmlid: string | null;
   eyebrow: string | null;
   displayTitle: string | null;
-  description: string | null;
+  summary: string | null;
   buttons: Array<ButtonType>;
-  headingAlignment: AlignmentType;
-  contentItems: Array<FlexibleContentType>;
+  introAlignment: AlignmentType;
+  presentationItems: Array<FlexibleContentType>;
   itemAlignment: AlignmentType;
   presentationVariant:
     | 'carousel'
@@ -324,10 +324,10 @@ export type ContentListType = {
   id: string;
   eyebrow: string | null;
   displayTitle: string | null;
-  description: string | null;
+  summary: string | null;
   buttons: Array<ButtonType>;
-  headingAlignment: AlignmentType;
-  contentItems: Array<Content>;
+  introAlignment: AlignmentType;
+  listItems: Array<Content>;
   itemAlignment: AlignmentType;
   itemLayout: 'horizontal' | 'vertical';
   itemSize: ItemSize;
@@ -367,8 +367,8 @@ export type CTAType = {
   htmlid: string | null;
   eyebrow: string | null;
   displayTitle: string | null;
-  description: string | null;
-  headingAlignment: AlignmentType;
+  summary: string | null;
+  introAlignment: AlignmentType;
   buttons: Array<ButtonType> | null;
   form: FormType | null;
   layout: 'flex-row' | 'full-top';

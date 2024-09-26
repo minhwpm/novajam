@@ -12,8 +12,9 @@ import '@/app/styles/bg-color.css';
 import './styles.css';
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { displayTitle, contentItems, headingAlignment, itemAlignment } = data;
-  const [justify, setJustify] = useState(headingAlignment);
+  const { displayTitle, presentationItems, introAlignment, itemAlignment } =
+    data;
+  const [justify, setJustify] = useState(introAlignment);
   const wrapperRef = useRef(
     null,
   ) as unknown as React.MutableRefObject<HTMLDivElement>;
@@ -31,7 +32,9 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
         className={classNames('w-full mt-6', 'relative -bottom-10 opacity-0', {
           'animate-slidingUpContent animation-delay-300': isIntersecting,
         })}
-        defaultValue={contentItems.length > 0 ? contentItems[0].id : ''}
+        defaultValue={
+          presentationItems.length > 0 ? presentationItems[0].id : ''
+        }
       >
         <div
           ref={wrapperRef}
@@ -48,8 +51,8 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                 'bg-slate-200 lg:bg-opacity-0 flex gap-x-0 gap-y-2 lg:gap-x-2 overflow-x-auto overscroll-contain rounded-theme bg-opacity-50 dark:bg-opacity-20',
               )}
             >
-              {contentItems.length > 0 &&
-                contentItems.map((item) => (
+              {presentationItems.length > 0 &&
+                presentationItems.map((item) => (
                   <RadixTabs.Trigger
                     key={item.id}
                     value={item.id}
@@ -81,7 +84,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
           </RadixTabs.List>
         </div>
         <div className="mt-2 container px-4 mx-auto grid">
-          {contentItems.map((item) => (
+          {presentationItems.map((item) => (
             <RadixTabs.Content
               key={item.id}
               value={item.id}

@@ -12,7 +12,7 @@ import '@/app/styles/padding.css';
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
   data,
 }) => {
-  const { items, media, mediaPosition, mediaAspectRatio } = data;
+  const { supportingItems, media, mediaPosition, mediaAspectRatio } = data;
   const layout = data.layout ?? 'flex-row';
 
   const [mediaRef, isMediaIntersecting] = useIntersecting();
@@ -49,7 +49,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
           )}
         </div>
       )}
-      {!!items.length && (
+      {!!supportingItems.length && (
         <div
           ref={itemsListRef}
           className={classNames(
@@ -60,7 +60,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
             },
           )}
         >
-          {items.map((item, index) => (
+          {supportingItems.map((item, index) => (
             <FlexibleContent
               key={index}
               data={item}

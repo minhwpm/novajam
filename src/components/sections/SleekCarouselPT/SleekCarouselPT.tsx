@@ -51,9 +51,9 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
   const {
     eyebrow,
     displayTitle,
-    description,
-    contentItems,
-    headingAlignment,
+    summary,
+    presentationItems,
+    introAlignment,
     itemAlignment,
     darkMode,
   } = data;
@@ -77,8 +77,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
             <p
               className={classNames(
                 'uppercase text-sm lg:text-base tracking-widest text-secondary-600 font-medium mb-2',
-                { 'text-center': headingAlignment === 'center' },
-                { 'text-end': headingAlignment === 'end' },
+                { 'text-center': introAlignment === 'center' },
+                { 'text-end': introAlignment === 'end' },
               )}
             >
               {eyebrow}
@@ -89,36 +89,36 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
               className={classNames(
                 'font-heading text-heading leading-tight mb-3 dark:text-slate-100',
                 {
-                  'text-center': headingAlignment === 'center',
-                  'text-end': headingAlignment === 'end',
+                  'text-center': introAlignment === 'center',
+                  'text-end': introAlignment === 'end',
                 },
               )}
             >
               <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
             </div>
           )}
-          {description && (
+          {summary && (
             <div
               className={classNames(
                 'prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl dark:text-slate-100',
                 {
-                  'text-center': headingAlignment === 'center',
-                  'text-end': headingAlignment === 'end',
+                  'text-center': introAlignment === 'center',
+                  'text-end': introAlignment === 'end',
                 },
               )}
             >
-              <MarkdownRenderer>{description}</MarkdownRenderer>
+              <MarkdownRenderer>{summary}</MarkdownRenderer>
             </div>
           )}
           <div
             className={classNames('mt-8 hidden lg:flex gap-4', {
-              'lg:justify-center': headingAlignment === 'center',
+              'lg:justify-center': introAlignment === 'center',
             })}
           >
             <ArrowGroup
               visibleIdx={visibleIdx}
               setVisibleIdx={setVisibleIdx}
-              length={contentItems.length}
+              length={presentationItems.length}
             />
           </div>
         </div>
@@ -131,7 +131,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
             },
           )}
         >
-          {contentItems.map((item, idx) => (
+          {presentationItems.map((item, idx) => (
             <div
               key={item.id}
               className={classNames(
@@ -195,7 +195,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
           <ArrowGroup
             visibleIdx={visibleIdx}
             setVisibleIdx={setVisibleIdx}
-            length={contentItems.length}
+            length={presentationItems.length}
           />
         </div>
       </div>

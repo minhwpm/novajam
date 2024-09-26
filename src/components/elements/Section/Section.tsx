@@ -1,7 +1,6 @@
 'use client';
 import classNames from 'classnames';
 import {
-  AlignmentType,
   ContentListType,
   ContentPTType,
   CTAType,
@@ -31,20 +30,15 @@ export const Section: React.FC<SectionProps> = ({
     htmlid,
     displayTitle,
     eyebrow,
-    description,
+    summary,
     buttons,
+    introAlignment,
     backgroundColor,
     backgroundImage,
     enableParallaxEffect,
     darkMode,
     sectionSeparator,
   } = data;
-
-  let alignment: AlignmentType = 'start';
-  if ('headingAlignment' in data && data.headingAlignment)
-    alignment = data.headingAlignment;
-  if ('contentAlignment' in data && data.contentAlignment)
-    alignment = data.contentAlignment;
 
   const [ref, isIntersecting] = useIntersecting(0.5);
 
@@ -54,8 +48,8 @@ export const Section: React.FC<SectionProps> = ({
         className={classNames(
           'text-sm xl:text-base tracking-widest mb-6 font-semibold text-secondary-600 dark:text-secondary-500',
           {
-            'text-center': alignment === 'center',
-            'text-end': alignment === 'end',
+            'text-center': introAlignment === 'center',
+            'text-end': introAlignment === 'end',
           },
         )}
       >
@@ -69,8 +63,8 @@ export const Section: React.FC<SectionProps> = ({
         className={classNames(
           'font-heading text-heading leading-snug max-w-3xl mb-4 dark:text-slate-100',
           {
-            'text-center': alignment === 'center',
-            'text-end': alignment === 'end',
+            'text-center': introAlignment === 'center',
+            'text-end': introAlignment === 'end',
           },
         )}
       >
@@ -78,18 +72,18 @@ export const Section: React.FC<SectionProps> = ({
       </div>
     );
 
-  const renderDescription = () =>
-    description && (
+  const renderSummary = () =>
+    summary && (
       <div
         className={classNames(
           'prose lg:prose-lg 2xl:prose-xl max-w-xl lg:max-w-3xl mb-4 text-slate-500 dark:prose-invert dark:text-slate-100/70',
           {
-            'text-center': alignment === 'center',
-            'text-end': alignment === 'end',
+            'text-center': introAlignment === 'center',
+            'text-end': introAlignment === 'end',
           },
         )}
       >
-        <MarkdownRenderer>{description}</MarkdownRenderer>
+        <MarkdownRenderer>{summary}</MarkdownRenderer>
       </div>
     );
 
@@ -99,7 +93,7 @@ export const Section: React.FC<SectionProps> = ({
       <ButtonGroup
         className="mt-4"
         data={buttons}
-        alignment={alignment}
+        alignment={introAlignment}
         size="base"
       />
     );
@@ -153,14 +147,14 @@ export const Section: React.FC<SectionProps> = ({
                 'basis-1/3 grow shrink-0': layout === 'flex-row',
                 'w-full': layout === 'full-top',
                 'animate-slidingUpContent animation-delay-150': isIntersecting,
-                'items-center': alignment === 'center',
-                'items-end': alignment === 'end',
+                'items-center': introAlignment === 'center',
+                'items-end': introAlignment === 'end',
               },
             )}
           >
             {renderEyebrow()}
             {renderTitle()}
-            {renderDescription()}
+            {renderSummary()}
             {data.contentType !== 'cta' && renderButtons()}
           </div>
         )}

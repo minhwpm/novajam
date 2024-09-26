@@ -16,7 +16,7 @@ export const FlexibleContent: React.FC<{
   const { displayTitle, eyebrow, description, media, buttons } = data;
   const [ref, isIntersecting] = useIntersecting();
 
-  const hasMedia = media.length > 0;
+  const hasMedia = media?.length > 0;
   const hasText = displayTitle || eyebrow || description || buttons?.length > 0;
 
   const animationClass = classNames({

@@ -27,8 +27,8 @@ export default async function getContentPT(id: string) {
             htmlid
             eyebrow
             displayTitle
-            description
-            headingAlignment
+            summary
+            introAlignment
             buttonsCollection {
               items {
                 sys {
@@ -61,7 +61,7 @@ export default async function getContentPT(id: string) {
             enableParallaxEffect
             darkMode
             sectionSeparator
-            contentItemsCollection (limit: 20) {
+            presentationItemsCollection (limit: 20) {
               items {
                 __typename
                 ... on FlexibleContent {
