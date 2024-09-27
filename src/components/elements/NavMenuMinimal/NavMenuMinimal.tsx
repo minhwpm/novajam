@@ -30,7 +30,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
           { hidden: !navMenuShowed },
         )}
       >
-        <NavigationMenu.Root className={classNames('container mx-auto px-4')}>
+        <NavigationMenu.Root className={classNames('container')}>
           <IoCloseOutline
             className="cursor-pointer ml-auto mt-6 lg:mt-10 w-14 h-14 p-3 rounded-full bg-transparent hover:bg-neutral-200 hover:text-neutral-900 transition-all duration-300 ease-in-out"
             size={30}

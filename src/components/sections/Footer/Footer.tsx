@@ -44,7 +44,7 @@ export const Footer: React.FC<Props> = ({ data }) => {
           : 'none',
       }}
     >
-      <div className="container mx-auto px-4 py-20 flex flex-wrap gap-x-5 gap-y-10">
+      <div className="container py-20 flex flex-wrap gap-x-5 gap-y-10">
         <div className="w-full lg:w-1/2 xl:w-1/3 flex flex-col items-center lg:items-start">
           {logo?.url && (
             <Link href={logoRedirect ?? '/'}>

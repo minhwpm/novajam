@@ -8,6 +8,10 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true,
+      padding: 'var(--container-horizontal-padding)',
+    },
     perspective: {
       2500: '2500px',
     },

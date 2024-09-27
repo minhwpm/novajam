@@ -67,9 +67,9 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
     <>
       <form
         className={classNames(
-          'w-full p-4 lg:p-8 flex rounded-theme dark:bg-white dark:text-slate-700',
-          { 'flex-col gap-4': fields.length > 1 },
-          { 'flex-row gap-4 items-center': fields?.length === 1 },
+          'w-full p-4 lg:p-8 flex flex-col rounded-theme dark:bg-white dark:text-slate-700',
+          { 'gap-4': fields.length > 1 },
+          { 'gap-1': fields?.length === 1 },
         )}
         onSubmit={handleSubmit(onSubmit)}
       >

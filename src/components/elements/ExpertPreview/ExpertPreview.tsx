@@ -94,7 +94,7 @@ export const ExpertPreview: React.FC<{
   return (
     <div
       ref={ref}
-      className={classNames('group rounded-theme dark:bg-white', {
+      className={classNames('group rounded-theme', {
         'relative -bottom-10 opacity-0': animate,
         'animate-slidingUpContent': isIntersecting && animate,
       })}
@@ -102,7 +102,12 @@ export const ExpertPreview: React.FC<{
         animationDelay: index && animate ? `${(index + 1) * 0.15}s` : '0s',
       }}
     >
-      <div className="relative">
+      <div
+        className={classNames('relative flex', {
+          'justify-center': alignment === 'center',
+          'justify-end': alignment === 'end',
+        })}
+      >
         <MediaItem data={portrait} aspectRatio="square" />
         {summary && (
           <div

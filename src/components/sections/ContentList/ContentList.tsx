@@ -23,6 +23,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
       })}
       data={data}
       layout={layout}
+      framed={listVariant !== 'carousel'}
     >
       <div className="basis-2/3 grow shrink">
         {listVariant === 'carousel' && (

@@ -5,7 +5,7 @@ import { NavLinkItem } from '@/components/elements/NavLinkItem/NavLinkItem';
 
 export const Mega: React.FC<{ data: SubmenuType }> = ({ data }) => {
   return (
-    <div className="container px-4 mx-auto">
+    <div className="container">
       <div className="py-10 flex flex-wrap gap-8">
         {data.menu.length > 0 && (
           <div

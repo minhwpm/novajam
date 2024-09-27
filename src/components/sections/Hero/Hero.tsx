@@ -16,11 +16,11 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
     htmlid,
     eyebrow,
     displayTitle,
-    description,
+    summary,
     buttons,
     media,
     layout,
-    textAlignment,
+    introAlignment,
     backgroundColor,
     backgroundImage,
     enableParallaxEffect,
@@ -35,7 +35,7 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
       className={classNames(
         'bg-opacity-100', // to set --tw-bg-opacity: 100
         {
-          'pt-10 pb-4 md:pb-6 lg:pb-8 xl:pb-10 2xl:pb-14': order === 1,
+          'pt-10 pb-4 md:pb-6 lg:pb-10 xl:pb-14 2xl:pb-18': order === 1,
           'bg-center bg-no-repeat bg-cover bg-blend-multiply': backgroundImage,
           'bg-opacity-100 dark:bg-opacity-10': !darkMode && backgroundColor,
           'dark:bg-slate-900/90': !darkMode && backgroundImage,
@@ -59,21 +59,18 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
         className={classNames(
           'py-4 md:py-6 lg:py-8 xl:py-10 2xl:py-14 flex flex-col gap-y-10 md:gap-y-12 lg:gap-y-14 xl:gap-y-16',
           {
-            'container mx-auto px-4 py-8': layout === 'top-to-bottom',
+            'container py-8': layout === 'top-to-bottom',
             'lg:flex-row lg:items-center py-14': layout === 'side-by-side',
           },
         )}
       >
         <div
-          className={classNames(
-            'flex flex-col',
-            {
-              'pr-4 lg:pr-8 xl:pr-10 custom-padding-left':
-                layout === 'side-by-side',
-            },
-            { 'items-center text-center': textAlignment === 'center' },
-            { 'items-end text-end': textAlignment === 'end' },
-          )}
+          className={classNames('flex flex-col', {
+            'pr-4 lg:pr-8 xl:pr-10 custom-padding-left':
+              layout === 'side-by-side',
+            'items-center text-center': introAlignment === 'center',
+            'items-end text-end': introAlignment === 'end',
+          })}
         >
           {eyebrow && (
             <div
@@ -91,24 +88,24 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
           {displayTitle && (
             <div
               className={classNames(
-                'text-hero-heading leading-snug font-heading max-w-3xl opacity-0 dark:text-slate-100',
+                'basis-1/2 shrink grow text-hero-heading leading-snug font-heading max-w-2xl opacity-0 dark:text-slate-100',
                 { 'animate-slidingHeroContent': isIntersecting },
               )}
             >
               <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
             </div>
           )}
-          {description && (
+          {summary && (
             <div
               className={classNames(
-                'prose xl:prose-lg 2xl:prose-xl mt-4 max-w-2xl opacity-0 !leading-loose text-slate-500 dark:text-slate-100/70',
+                'prose lg:prose-lg 2xl:prose-xl mt-4 max-w-lg opacity-0 !leading-loose text-slate-500 dark:text-slate-100/70',
                 {
                   'animate-slidingHeroContent animation-delay-200':
                     isIntersecting,
                 },
               )}
             >
-              <MarkdownRenderer>{description}</MarkdownRenderer>
+              <MarkdownRenderer>{summary}</MarkdownRenderer>
             </div>
           )}
           {buttons.length > 0 && (
@@ -121,7 +118,7 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
               {buttons.length > 0 && (
                 <ButtonGroup
                   data={buttons}
-                  alignment={textAlignment}
+                  alignment={introAlignment}
                   size="lg"
                 />
               )}
@@ -130,7 +127,7 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
         </div>
         {media && (
           <div
-            className={classNames('w-full basis-1/2 shrink-0 opacity-0', {
+            className={classNames('w-full basis-1/2 shrink grow opacity-0', {
               'animate-slidingHeroContent animation-delay-300': isIntersecting,
             })}
           >

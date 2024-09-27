@@ -48,23 +48,28 @@
     --heading-font-size: clamp(1.75rem, 6vw, 2.125rem);
     --hero-heading-font-size: clamp(2rem, 7vw, 3.125rem);
     --super-heading-font-size: clamp(2.5rem, 8vw, 3.75rem);
+    --container-horizontal-padding: 1rem;
+  }
+  @media (min-width: 1280px) {
+    :root {
+      --container-horizontal-padding: 5rem;
+    }
+  }
+  @media (min-width: 1536px) {
+    :root {
+      --container-horizontal-padding: 6rem;
+    }
   }
 }
 
 @layer utilities {
   .overlay-nav section:first-of-type {
-    @apply xl:pt-20 lg:pt-18 md:pt-16 pt-14;
+    @apply xl:pt-24 lg:pt-20 md:pt-18 pt-16;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1140px;
-  }
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

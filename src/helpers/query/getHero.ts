@@ -27,7 +27,7 @@ export default async function getHero(id: string) {
             htmlid
             eyebrow  
             displayTitle
-            description
+            summary
             buttonsCollection {
               items {
                 sys {
@@ -54,7 +54,7 @@ export default async function getHero(id: string) {
               contentType
             }
             layout
-            textAlignment
+            introAlignment
             backgroundColor
             backgroundImage {
               url

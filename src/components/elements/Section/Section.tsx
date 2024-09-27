@@ -76,7 +76,7 @@ export const Section: React.FC<SectionProps> = ({
     summary && (
       <div
         className={classNames(
-          'prose lg:prose-lg 2xl:prose-xl max-w-xl lg:max-w-3xl mb-4 text-slate-500 dark:prose-invert dark:text-slate-100/70',
+          'prose lg:prose-lg 2xl:prose-xl max-w-xl lg:max-w-xl mb-4 text-slate-500 dark:prose-invert dark:text-slate-100/70',
           {
             'text-center': introAlignment === 'center',
             'text-end': introAlignment === 'end',
@@ -85,17 +85,6 @@ export const Section: React.FC<SectionProps> = ({
       >
         <MarkdownRenderer>{summary}</MarkdownRenderer>
       </div>
-    );
-
-  const renderButtons = () =>
-    buttons &&
-    buttons.length > 0 && (
-      <ButtonGroup
-        className="mt-4"
-        data={buttons}
-        alignment={introAlignment}
-        size="base"
-      />
     );
 
   return (
@@ -129,11 +118,11 @@ export const Section: React.FC<SectionProps> = ({
       )}
       <div
         className={classNames(
-          'flex flex-col lg:flex-row lg:justify-between lg:items-center gap-x-10 gap-y-6',
+          'flex flex-col lg:flex-row lg:justify-between lg:items-center gap-x-10 gap-y-6 lg:gap-y-10',
           {
             'py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24': displayTitle,
             'py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10': !displayTitle,
-            'container mx-auto px-4': framed,
+            container: framed,
             'flex-wrap': layout === 'full-top',
           },
         )}
@@ -142,7 +131,7 @@ export const Section: React.FC<SectionProps> = ({
           <div
             ref={ref}
             className={classNames(
-              'relative -bottom-10 opacity-0 container mx-auto flex flex-col',
+              'relative -bottom-10 opacity-0 flex flex-col',
               {
                 'basis-1/3 grow shrink-0': layout === 'flex-row',
                 'w-full': layout === 'full-top',
@@ -155,10 +144,29 @@ export const Section: React.FC<SectionProps> = ({
             {renderEyebrow()}
             {renderTitle()}
             {renderSummary()}
-            {data.contentType !== 'cta' && renderButtons()}
+            {!!buttons?.length && data.contentType === 'featuredcontent' && (
+              <ButtonGroup
+                className="mt-6"
+                data={buttons}
+                alignment={introAlignment}
+                size="lg"
+              />
+            )}
           </div>
         )}
         {children}
+        {!!buttons?.length &&
+          (data.contentType === 'contentlist' ||
+            data.contentType === 'contentpresentation') && (
+            <div className="w-full">
+              <ButtonGroup data={buttons} alignment={introAlignment} />
+            </div>
+          )}
+        {!!buttons?.length && data.contentType === 'cta' && (
+          <div className="">
+            <ButtonGroup data={buttons} alignment={introAlignment} size="lg" />
+          </div>
+        )}
       </div>
       {sectionSeparator && sectionSeparator.includes('bottom') && (
         <SectionSeparator />

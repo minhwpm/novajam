@@ -225,11 +225,11 @@ export type HeroType = {
   htmlid: string | null;
   eyebrow: string | null;
   displayTitle: string | null;
-  description: string | null;
+  summary: string | null;
   buttons: Array<ButtonType>;
   media: MediaType | null;
   layout: 'side-by-side' | 'top-to-bottom';
-  textAlignment: AlignmentType;
+  introAlignment: AlignmentType;
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
@@ -369,7 +369,7 @@ export type CTAType = {
   displayTitle: string | null;
   summary: string | null;
   introAlignment: AlignmentType;
-  buttons: Array<ButtonType> | null;
+  buttons: Array<ButtonType>;
   form: FormType | null;
   layout: 'flex-row' | 'full-top';
   backgroundColor: string | null;

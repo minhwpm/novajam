@@ -83,7 +83,7 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             </div>
           </RadixTabs.List>
         </div>
-        <div className="mt-2 container px-4 mx-auto grid">
+        <div className="mt-2 container grid">
           {presentationItems.map((item) => (
             <RadixTabs.Content
               key={item.id}

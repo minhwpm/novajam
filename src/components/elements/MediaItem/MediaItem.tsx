@@ -80,7 +80,9 @@ export const MediaItem: React.FC<{
               width >= 200 ||
               contentType.includes('video')),
         },
-        { [`rounded-${rounded}`]: width >= 200 },
+        {
+          [`rounded-${rounded}`]: width >= 200 || contentType.includes('video'),
+        },
       )}
     >
       {contentType.includes('image') && (
@@ -157,13 +159,14 @@ const Video = ({
       {!videoStarted && videoControls && (
         <div className="p-5 absolute bottom-0 right-0 w-full h-full bg-slate-900 bg-opacity-30 flex justify-center items-center transition-opacity duration-300 ease-linear group-hover:opacity-100">
           <button
+            className="w-20 h-20 flex justify-center items-center bg-slate-100 rounded-full"
             onClick={() => {
               videoRef.current?.play();
               setVideoStarted(true);
             }}
             aria-label="Play video"
           >
-            <FaPlay className="text-slate-100 w-16 h-16 transition-all duration-200 ease-linear hover:scale-110 hover:text-primary-600" />
+            <FaPlay className="text-primary-600 w-4 h-4 transition-all duration-200 ease-linear hover:scale-110 hover:text-primary-600" />
           </button>
         </div>
       )}

@@ -138,7 +138,7 @@ export const generateFontClassnames = (
     [Lato_Font.className]: fontMain === 'Lato',
     [Libre_Franklin_Font.className]: fontMain === 'Libre Franklin',
     [Lora_Font.className]: fontMain === 'Lora',
-    [Merriweather_Font.className]: fontHeading === 'Merriweather',
+    [Merriweather_Font.className]: fontMain === 'Merriweather',
     [Montserrat_Font.className]: fontMain === 'Montserrat',
     [Noto_Sans_Font.className]: fontMain === 'Noto Sans',
     [Nunito_Font.className]: fontMain === 'Nunito',

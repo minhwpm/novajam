@@ -44,7 +44,7 @@ export const Statistics: React.FC<{
       </div>
       <div
         className={classNames(
-          'tracking-wide leading-loose pb-4 text-slate-500 dark:text-slate-100/70',
+          'tracking-wide leading-loose text-slate-500 dark:text-slate-100/70',
           {
             'text-center': alignment === 'center',
             'text-end': alignment === 'end',

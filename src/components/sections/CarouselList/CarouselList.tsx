@@ -10,9 +10,9 @@ import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import './styles.css';
 import '@/app/styles/custom-swiper.css';
 import '@/app/styles/padding.css';
+import './styles.css';
 
 export const CarouselList: React.FC<{
   listItems: Content[];

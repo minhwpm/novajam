@@ -39,7 +39,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
             'absolute w-screen flex justify-center dark:text-slate-100',
           )}
         >
-          <div className="px-4 pt-6 container flex items-center justify-between flex-1">
+          <div className="container pt-6 flex items-center justify-between flex-1">
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect ?? ''} logo={logo} />
             </div>
@@ -74,7 +74,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
             },
           )}
         >
-          <div className="container px-4 flex items-center gap-x-4">
+          <div className="container flex items-center gap-x-4">
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect ?? ''} logo={logo} />
             </div>
@@ -107,11 +107,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
           { 'backdrop-blur-2xl dark:bg-slate-900/60': sticky },
         )}
       >
-        <div
-          className={classNames(
-            'container px-4 mx-auto flex items-center gap-x-4',
-          )}
-        >
+        <div className={classNames('container flex items-center gap-x-4')}>
           <div className="shrink-0">
             <Logo redirectUrl={logoRedirect ?? ''} logo={logo} />
           </div>

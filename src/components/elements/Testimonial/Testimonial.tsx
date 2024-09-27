@@ -19,7 +19,7 @@ export const Testimonial: React.FC<{
   return (
     <div
       ref={ref}
-      className={classNames('p-4 flex gap-4 rounded-theme', {
+      className={classNames('flex gap-4 rounded-theme', {
         'flex-col': layout === 'vertical',
         'relative -bottom-10 opacity-0': animate,
         'animate-slidingUpContent': isIntersecting && animate,
@@ -48,7 +48,7 @@ export const Testimonial: React.FC<{
           )}
         />
         {content && (
-          <MarkdownRenderer className="prose 2xl:prose-lg leading-loose dark:text-slate-100 dark:prose-invert">
+          <MarkdownRenderer className="prose 2xl:prose-lg leading-loos text-slate-500 dark:text-slate-100/70 dark:prose-invert">
             {content}
           </MarkdownRenderer>
         )}
