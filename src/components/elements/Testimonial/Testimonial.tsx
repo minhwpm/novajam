@@ -48,7 +48,7 @@ export const Testimonial: React.FC<{
           )}
         />
         {content && (
-          <MarkdownRenderer className="prose 2xl:prose-lg leading-loos text-slate-500 dark:text-slate-100/70 dark:prose-invert">
+          <MarkdownRenderer className="prose xl:prose-lg leading-loos text-slate-500 dark:text-slate-100/70 dark:prose-invert">
             {content}
           </MarkdownRenderer>
         )}
@@ -67,13 +67,15 @@ export const Testimonial: React.FC<{
         )}
         {(name || role) && (
           <div className="flex flex-col mt-4">
-            <div className={classNames('font-semibold dark:text-slate-100')}>
+            <div
+              className={classNames(
+                'font-semibold font-heading text-lg dark:text-slate-100',
+              )}
+            >
               {name}
             </div>
             <div
-              className={classNames(
-                'text-sm text-slate-500 dark:text-slate-100/70',
-              )}
+              className={classNames('text-slate-500 dark:text-slate-100/70')}
             >
               {role}
             </div>

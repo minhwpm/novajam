@@ -10,7 +10,7 @@ export const Statistics: React.FC<{
   alignment?: AlignmentType;
 }> = ({ data, index, layout = 'vertical', alignment }) => {
   const { number, text } = data;
-  const [ref, isIntersecting] = useIntersecting(1);
+  const [ref, isIntersecting] = useIntersecting();
 
   return (
     <div
