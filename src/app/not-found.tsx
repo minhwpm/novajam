@@ -1,10 +1,9 @@
 import { Button } from '@/components/elements/Button/Button';
-import { Container } from '@/components/elements/Container/Container';
 import Image from 'next/image';
 
 export default function NotFound() {
   return (
-    <Container className="flex flex-wrap-reverse min-h-fit items-center justify-center">
+    <div className="container flex flex-wrap-reverse min-h-fit items-center justify-center">
       <div className="w-full lg:w-1/2 py-10">
         <div className="font-bold text-4xl lg:text-6xl text-primary-600 mb-5">
           Page Not Found
@@ -35,6 +34,6 @@ export default function NotFound() {
           height="300"
         />
       </div>
-    </Container>
+    </div>
   );
 }

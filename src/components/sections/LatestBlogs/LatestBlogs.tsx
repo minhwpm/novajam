@@ -1,5 +1,4 @@
 import { BlogPreview } from '@/components/elements/BlogPreview/BlogPreview';
-import { Container } from '@/components/elements/Container/Container';
 import { BlogType } from '@/helpers/types';
 
 export const LatestBlogs: React.FC<{
@@ -8,7 +7,7 @@ export const LatestBlogs: React.FC<{
 }> = ({ title, data }) => {
   return (
     <section className="py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24">
-      <Container>
+      <div className="container">
         <h2 className="text-3xl font-heading font-semibold text-primary-600 tracking-wide mb-8">
           {title ?? 'Latest articles'}
         </h2>
@@ -17,7 +16,7 @@ export const LatestBlogs: React.FC<{
             <BlogPreview key={item.id} data={item} aspectRatio="3/2" />
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 };

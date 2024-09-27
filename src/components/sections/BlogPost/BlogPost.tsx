@@ -1,7 +1,6 @@
 'use client';
 import Link from 'next/link';
 import readingTime from 'reading-time';
-import { Container } from '@/components/elements/Container/Container';
 import { ExpertPreview } from '@/components/elements/ExpertPreview/ExpertPreview';
 import { BlogType } from '@/helpers/types';
 import { format } from 'date-fns';
@@ -14,7 +13,7 @@ export const BlogPost: React.FC<{ data: BlogType }> = ({ data }) => {
   const readingTimeStats = readingTime(content ?? '');
   return (
     <div>
-      <Container>
+      <div className="container">
         <article className="w-full my-10 flex flex-col pt-10">
           <h1 className="text-heading font-heading leading-tight font-bold text-5xl max-w-5xl text-center mx-auto">
             {title}
@@ -76,7 +75,7 @@ export const BlogPost: React.FC<{ data: BlogType }> = ({ data }) => {
             )}
           </div>
         </article>
-      </Container>
+      </div>
     </div>
   );
 };

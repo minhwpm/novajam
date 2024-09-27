@@ -5,7 +5,6 @@ import { BLOG_PAGE_SIZE, BlogType, PageType } from '@/helpers/types';
 import { BlogPost } from '@/components/sections/BlogPost/BlogPost';
 import { FeaturedBlogs } from '@/components/sections/FeaturedBlogs/FeaturedBlogs';
 import { LatestBlogs } from '@/components/sections/LatestBlogs/LatestBlogs';
-import { Container } from '@/components/elements/Container/Container';
 import { Pagination } from '@/components/elements/Pagination/Pagination';
 import getPage from '@/helpers/query/getPage';
 import getBlogPost from '@/helpers/query/getBlogPost';
@@ -49,9 +48,9 @@ export default async function Page({
       <main className="flex flex-col min-h-screen">
         <FeaturedBlogs data={featuredBlogs} />
         <LatestBlogs data={latestBlogs} />
-        <Container>
+        <div className="container">
           <Pagination />
-        </Container>
+        </div>
       </main>
     );
   }
@@ -72,9 +71,9 @@ export default async function Page({
     return (
       <main className="flex flex-col min-h-screen">
         <LatestBlogs data={latestBlogs} />
-        <Container>
+        <div className="container">
           <Pagination currentPageNumber={pageNumber} />
-        </Container>
+        </div>
       </main>
     );
   }

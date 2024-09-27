@@ -1,8 +1,7 @@
-import { Container } from '@/components/elements/Container/Container';
+import getBlogs from '@/helpers/query/getBlogs';
 import { Pagination } from '@/components/elements/Pagination/Pagination';
 import { LatestBlogs } from '@/components/sections/LatestBlogs/LatestBlogs';
 import { BlogType, BLOG_PAGE_SIZE } from '@/helpers/types';
-import getBlogs from '@/helpers/query/getBlogs';
 import { notFound } from 'next/navigation';
 
 type Props = {
@@ -26,9 +25,9 @@ export default async function Page({ params, searchParams }: Props) {
     <main className="flex flex-col min-h-screen">
       {latestBlogs.length > 0 && <LatestBlogs data={latestBlogs} />}
       {latestBlogs.length >= BLOG_PAGE_SIZE && (
-        <Container>
+        <div className="container">
           <Pagination currentPageNumber={number} />
-        </Container>
+        </div>
       )}
     </main>
   );

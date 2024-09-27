@@ -1,5 +1,4 @@
 import { Metadata, ResolvingMetadata } from 'next';
-import { Container } from '@/components/elements/Container/Container';
 import { Pagination } from '@/components/elements/Pagination/Pagination';
 import { FeaturedBlogs } from '@/components/sections/FeaturedBlogs/FeaturedBlogs';
 import { LatestBlogs } from '@/components/sections/LatestBlogs/LatestBlogs';
@@ -51,9 +50,9 @@ export default async function Page({ searchParams }: PageProps) {
       {featuredBlogs.length > 0 && <FeaturedBlogs data={featuredBlogs} />}
       {latestBlogs.length > 0 && <LatestBlogs data={latestBlogs} />}
       {latestBlogs.length >= BLOG_PAGE_SIZE && (
-        <Container>
+        <div className="container">
           <Pagination />
-        </Container>
+        </div>
       )}
     </main>
   );

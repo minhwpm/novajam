@@ -21,9 +21,7 @@
     --font-heading: unset;
     --border-radius-theme: 0.125rem; /* 0.125rem / 0.375rem / 1rem */
     --border-radius-theme-button: 0.125rem; /* 0.125rem / 0.375rem / 1.75rem */
-    --primary-color-50: var(
-      --foreground-rgb
-    ); /* Default Primary Color & Secondary Color: #161C2D */
+    --primary-color-50: var(--foreground-rgb);
     --primary-color-100: var(--foreground-rgb);
     --primary-color-200: var(--foreground-rgb);
     --primary-color-300: var(--foreground-rgb);
