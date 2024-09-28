@@ -74,19 +74,19 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
             },
           )}
         >
-          <div className="container flex items-center gap-x-4">
+          <div className="w-full px-4 md:px-6 lg:px-8 xl:px-10 flex items-center gap-x-4">
             <div className="shrink-0">
               <Logo redirectUrl={logoRedirect ?? ''} logo={logo} />
             </div>
             <div className="flex-1 lg:text-lg">
               {menu && <NavMenu menu={menu} layout={layout} />}
             </div>
+            <DarkModeToggle />
             {buttons && buttons.length > 0 && (
               <div className="shrink-0 hidden lg:block">
                 <ButtonGroup data={buttons} size="sm" />
               </div>
             )}
-            <DarkModeToggle />
             {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} />}
           </div>
         </div>
@@ -107,19 +107,23 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
           { 'backdrop-blur-2xl dark:bg-slate-900/60': sticky },
         )}
       >
-        <div className={classNames('container flex items-center gap-x-4')}>
+        <div
+          className={classNames(
+            'w-full px-4 md:px-6 lg:px-8 xl:px-10 flex items-center gap-x-4',
+          )}
+        >
           <div className="shrink-0">
             <Logo redirectUrl={logoRedirect ?? ''} logo={logo} />
           </div>
           <div className="flex-1">
             {menu && <NavMenu menu={menu} layout={layout} />}
           </div>
+          <DarkModeToggle />
           {buttons && buttons.length > 0 && (
             <div className="shrink-0 hidden lg:block">
               <ButtonGroup data={buttons} size="sm" />
             </div>
           )}
-          <DarkModeToggle />
           {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} />}
         </div>
       </div>
