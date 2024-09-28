@@ -28,7 +28,6 @@ module.exports = {
         ],
         heading: 'var(--heading-font-size)',
         'hero-heading': 'var(--hero-heading-font-size)',
-        'super-heading': 'var(--super-heading-font-size)',
       },
       colors: {
         primary: {

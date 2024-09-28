@@ -27,9 +27,9 @@
     --secondary-color-500: var(--foreground-rgb);
     --secondary-color-600: var(--foreground-rgb);
 
-    --heading-font-size: clamp(1.75rem, 6vw, 2.125rem);
-    --hero-heading-font-size: clamp(2rem, 7vw, 3.125rem);
-    --super-heading-font-size: clamp(2.5rem, 8vw, 3.75rem);
+    --heading-font-size: clamp(1.75rem, 6vw, 2.5rem);
+    --hero-heading-font-size: clamp(2.25rem, 7vw, 3.25rem);
+
     --container-horizontal-padding: 1rem;
   }
   @media (min-width: 1280px) {
@@ -42,11 +42,9 @@
       --container-horizontal-padding: 6rem;
     }
   }
+
   .dark {
-    --primary-color-500: 241 245 249;
-    --primary-color-600: 241 245 249;
-    --secondary-color-500: 241 245 249;
-    --secondary-color-600: 241 245 249;
+    --foreground-rgb: 241 245 249;
   }
 }
 
@@ -96,7 +94,7 @@ h1 u,
 h2 u,
 h1 code,
 h2 code {
-  @apply font-heading bg-gradient-to-br from-primary-300 via-primary-500 to-primary-600 bg-clip-text text-transparent;
+  @apply font-heading bg-gradient-to-br from-white via-primary-500 to-primary-600 bg-clip-text text-transparent;
   text-decoration: unset;
 }
 h3 u,
