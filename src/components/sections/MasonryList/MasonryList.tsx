@@ -12,7 +12,6 @@ export const MasonryList: React.FC<{
 }> = ({ listItems, itemSize, itemAlignment, itemLayout }) => {
   return (
     <ResponsiveMasonry
-      className="pt-3.5"
       columnsCountBreakPoints={{
         320: parseInt(
           classNames({

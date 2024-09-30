@@ -119,9 +119,8 @@ export const Section: React.FC<SectionProps> = ({
       <div
         className={classNames(
           'flex flex-col lg:flex-row lg:justify-between lg:items-center gap-x-10 gap-y-6 lg:gap-y-10',
+          'py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24',
           {
-            'py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24': displayTitle,
-            'py-6 md:py-7 lg:py-8 xl:py-9 2xl:py-10': !displayTitle,
             container: framed,
             'flex-wrap': layout === 'full-top',
           },
