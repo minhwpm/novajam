@@ -1,3 +1,4 @@
+/* eslint-disable complexity */ //@TODO eslint
 'use client';
 import classNames from 'classnames';
 import Image from 'next/image';
@@ -28,7 +29,15 @@ const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
 );
 
 const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
-  const { logo, logoRedirect, menu, buttons, layout, darkMode } = data;
+  const {
+    logo,
+    logoRedirect,
+    menu,
+    showModeSelector,
+    buttons,
+    layout,
+    darkMode,
+  } = data;
   const sticky = useStickyHeaderOnScrollUp();
 
   if (layout === 'minimal') {
@@ -49,7 +58,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
                   <ButtonGroup data={buttons} />
                 </div>
               )}
-              <DarkModeToggle />
+              {showModeSelector && <DarkModeToggle />}
               <NavMenuMinimal data={data} />
             </div>
           </div>
@@ -81,7 +90,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
             <div className="flex-1 lg:text-lg">
               {menu && <NavMenu menu={menu} layout={layout} />}
             </div>
-            <DarkModeToggle />
+            {showModeSelector && <DarkModeToggle />}
             {buttons && buttons.length > 0 && (
               <div className="shrink-0 hidden lg:block">
                 <ButtonGroup data={buttons} size="sm" />
@@ -118,7 +127,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
           <div className="flex-1">
             {menu && <NavMenu menu={menu} layout={layout} />}
           </div>
-          <DarkModeToggle />
+          {showModeSelector && <DarkModeToggle />}
           {buttons && buttons.length > 0 && (
             <div className="shrink-0 hidden lg:block">
               <ButtonGroup data={buttons} size="sm" />

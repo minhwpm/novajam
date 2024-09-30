@@ -97,6 +97,7 @@ export interface NavigationType {
   logo: MediaType;
   logoRedirect: string | null;
   menu: Array<LinkType | SubmenuType>;
+  showModeSelector: boolean;
   buttons: Array<ButtonType>;
   hotButtons: Array<ButtonType>;
   layout: 'standard' | 'minimal' | 'overlay';
