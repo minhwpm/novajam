@@ -37,7 +37,7 @@ export const Section: React.FC<SectionProps> = ({
     backgroundImage,
     enableParallaxEffect,
     darkMode,
-    sectionSeparator,
+    showBottomSeparator,
   } = data;
 
   const [ref, isIntersecting] = useIntersecting(0.5);
@@ -113,9 +113,6 @@ export const Section: React.FC<SectionProps> = ({
           : 'none',
       }}
     >
-      {sectionSeparator && sectionSeparator.includes('top') && (
-        <SectionSeparator />
-      )}
       <div
         className={classNames(
           'flex flex-col lg:flex-row lg:justify-between lg:items-center gap-x-10 gap-y-6 lg:gap-y-10',
@@ -167,9 +164,7 @@ export const Section: React.FC<SectionProps> = ({
           </div>
         )}
       </div>
-      {sectionSeparator && sectionSeparator.includes('bottom') && (
-        <SectionSeparator />
-      )}
+      {showBottomSeparator && <SectionSeparator />}
     </section>
   );
 };

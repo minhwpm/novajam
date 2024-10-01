@@ -215,7 +215,7 @@ export type FeaturedContentType = {
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
   darkMode: boolean;
-  sectionSeparator: Array<string> | null;
+  showBottomSeparator: boolean;
   contentType: 'featuredcontent';
 };
 
@@ -235,6 +235,7 @@ export type HeroType = {
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
   darkMode: boolean;
+  showBottomSeparator: boolean;
   contentType: 'hero';
 };
 
@@ -268,7 +269,7 @@ export type ContentPTType = {
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
   darkMode: boolean;
-  sectionSeparator: Array<string> | null;
+  showBottomSeparator: boolean;
   contentType: 'contentpresentation';
 };
 
@@ -338,7 +339,7 @@ export type ContentListType = {
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
   darkMode: boolean;
-  sectionSeparator: Array<string> | null;
+  showBottomSeparator: boolean;
   htmlid: string | null;
   contentType: 'contentlist';
 };
@@ -377,7 +378,7 @@ export type CTAType = {
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
   darkMode: boolean;
-  sectionSeparator: Array<string> | null;
+  showBottomSeparator: boolean;
   contentType: 'cta';
 };
 

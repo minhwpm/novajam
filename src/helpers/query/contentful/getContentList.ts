@@ -59,7 +59,7 @@ export default async function getContentList(id: string) {
             }
             enableParallaxEffect
             darkMode
-            sectionSeparator
+            showBottomSeparator
             itemSize
             itemAlignment
             itemLayout

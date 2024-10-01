@@ -79,7 +79,7 @@ export default async function getFeature(id: string) {
             }
             enableParallaxEffect
             darkMode
-            sectionSeparator
+            showBottomSeparator
           }
         }
       }

@@ -64,7 +64,7 @@ export default async function getCTA(id: string) {
                   }
                   enableParallaxEffect
                   darkMode
-                  sectionSeparator
+                  showBottomSeparator
                 }
               }
             }

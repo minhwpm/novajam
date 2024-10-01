@@ -60,7 +60,7 @@ export default async function getContentPT(id: string) {
             }
             enableParallaxEffect
             darkMode
-            sectionSeparator
+            showBottomSeparator
             presentationItemsCollection (limit: 20) {
               items {
                 __typename

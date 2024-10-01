@@ -3,8 +3,9 @@ import classNames from 'classnames';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
-import { HeroType } from '@/helpers/types';
+import { SectionSeparator } from '@/components/elements/SectionSeparator/SectionSeparator';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
+import { HeroType } from '@/helpers/types';
 import '@/app/styles/padding.css';
 import '@/app/styles/bg-color.css';
 
@@ -25,6 +26,7 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
     backgroundImage,
     enableParallaxEffect,
     darkMode,
+    showBottomSeparator
   } = data;
   const [ref, isIntersecting] = useIntersecting();
 
@@ -134,6 +136,7 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
           </div>
         )}
       </div>
+      {showBottomSeparator && <SectionSeparator />}
     </section>
   );
 };
