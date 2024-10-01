@@ -15,7 +15,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     itemLayout,
     darkMode,
   } = data;
-  const layout = data.layout ?? 'full-top';
+  const layout = data.layout ?? 'full top';
   return (
     <Section
       className={classNames({

@@ -59,15 +59,15 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
         className={classNames(
           'py-4 md:py-6 lg:py-8 xl:py-10 2xl:py-14 flex flex-col gap-y-10 md:gap-y-12 lg:gap-y-14 xl:gap-y-16',
           {
-            'container py-8': layout === 'top-to-bottom',
-            'lg:flex-row lg:items-center py-14': layout === 'side-by-side',
+            'container py-8': layout === 'vertical',
+            'lg:flex-row lg:items-center py-14': layout !== 'vertical',
           },
         )}
       >
         <div
           className={classNames('flex flex-col', {
             'pr-4 lg:pr-8 xl:pr-10 custom-padding-left':
-              layout === 'side-by-side',
+              layout !== 'vertical',
             'items-center text-center': introAlignment === 'center',
             'items-end text-end': introAlignment === 'end',
           })}

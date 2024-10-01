@@ -13,7 +13,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
   data,
 }) => {
   const { supportingItems, media, mediaPosition, mediaAspectRatio } = data;
-  const layout = data.layout ?? 'flex-row';
+  const layout = data.layout ?? 'flex row';
 
   const [mediaRef, isMediaIntersecting] = useIntersecting();
   const [itemsListRef, isItemsListIntersecting] = useIntersecting();
@@ -26,7 +26,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
           className={classNames(
             'relative -bottom-10 opacity-0 basis-1/3 grow shrink',
             {
-              '-order-1': mediaPosition === 'left' && layout === 'flex-row',
+              '-order-1': mediaPosition === 'left' && layout === 'flex row',
               'order-3': mediaPosition === 'right',
               'animate-slidingUpContent animation-delay-300':
                 isMediaIntersecting,

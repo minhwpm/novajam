@@ -11,7 +11,7 @@ export type FormValues = {
 
 export const CTA: React.FC<{ data: CTAType }> = ({ data }) => {
   const { form, darkMode } = data;
-  const layout = data.layout ?? 'flex-row';
+  const layout = data.layout ?? 'flex row';
 
   const [ref, isIntersecting] = useIntersecting();
 
@@ -23,8 +23,8 @@ export const CTA: React.FC<{ data: CTAType }> = ({ data }) => {
           className={classNames(
             'relative -bottom-10 opacity-0 flex items-center',
             {
-              'lg:pl-10 xl:pl-20': layout === 'flex-row',
-              'items-center self-start': layout === 'full-top',
+              'lg:pl-10 xl:pl-20': layout === 'flex row',
+              'items-center self-start': layout === 'full top',
               'animate-slidingUpContent animation-delay-300': isIntersecting,
             },
           )}

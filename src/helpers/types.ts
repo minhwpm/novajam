@@ -210,7 +210,7 @@ export type FeaturedContentType = {
   supportingItems: Array<FlexibleContentType>;
   buttons: Array<ButtonType>;
   introAlignment: AlignmentType;
-  layout: 'flex-row' | 'full-top';
+  layout: 'flex row' | 'full top';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
@@ -229,7 +229,7 @@ export type HeroType = {
   summary: string | null;
   buttons: Array<ButtonType>;
   media: MediaType | null;
-  layout: 'side-by-side' | 'top-to-bottom';
+  layout: 'horizontal' | 'vertical';
   introAlignment: AlignmentType;
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
@@ -263,7 +263,7 @@ export type ContentPTType = {
     | 'tab'
     | 'accordion'
     | 'scroll';
-  layout: 'flex-row' | 'full-top';
+  layout: 'flex row' | 'full top';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
@@ -333,7 +333,7 @@ export type ContentListType = {
   itemLayout: 'horizontal' | 'vertical';
   itemSize: ItemSize;
   listVariant: 'carousel' | 'masonry' | 'deck';
-  layout: 'flex-row' | 'full-top';
+  layout: 'flex row' | 'full top';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
@@ -372,7 +372,7 @@ export type CTAType = {
   introAlignment: AlignmentType;
   buttons: Array<ButtonType>;
   form: FormType | null;
-  layout: 'flex-row' | 'full-top';
+  layout: 'flex row' | 'full top';
   backgroundColor: string | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;

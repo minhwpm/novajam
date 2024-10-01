@@ -14,7 +14,7 @@ import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 interface SectionProps {
   className?: string;
   framed?: boolean;
-  layout?: 'flex-row' | 'full-top';
+  layout?: 'flex row' | 'full top';
   data: ContentListType | ContentPTType | CTAType | FeaturedContentType;
   children: React.ReactNode;
 }
@@ -22,7 +22,7 @@ interface SectionProps {
 export const Section: React.FC<SectionProps> = ({
   className,
   framed = true,
-  layout = 'full-top',
+  layout = 'full top',
   data,
   children,
 }) => {
@@ -122,7 +122,7 @@ export const Section: React.FC<SectionProps> = ({
           'py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24',
           {
             container: framed,
-            'flex-wrap': layout === 'full-top',
+            'flex-wrap': layout === 'full top',
           },
         )}
       >
@@ -132,8 +132,8 @@ export const Section: React.FC<SectionProps> = ({
             className={classNames(
               'relative -bottom-10 opacity-0 flex flex-col',
               {
-                'basis-1/3 grow shrink-0': layout === 'flex-row',
-                'w-full': layout === 'full-top',
+                'basis-1/3 grow shrink-0': layout === 'flex row',
+                'w-full': layout === 'full top',
                 'animate-slidingUpContent animation-delay-150': isIntersecting,
                 'items-center': introAlignment === 'center',
                 'items-end': introAlignment === 'end',
