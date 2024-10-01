@@ -1,6 +1,6 @@
-import normalizeDataCollection from './normalizeDataCollection';
+import normalizeContentfulData from './normalizeContentfulData';
 
-export default async function getAsset(id: string) {
+export default async function getAlert(id: string) {
   try {
     const res = await fetch(
       `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
@@ -15,7 +15,7 @@ export default async function getAsset(id: string) {
         body: JSON.stringify({
           query: `
       query($id: String) {
-        assetCollection(
+        alertCollection(
           where: {
             sys: {
               id: $id
@@ -24,10 +24,17 @@ export default async function getAsset(id: string) {
         ) {
           items {
             title
-            url
-            width
-            height
-            contentType
+            icon {
+              url
+              title
+              width
+              height
+              contentType
+            }
+            message
+            backgroundColor
+            darkMode
+            
           }
         }
       }
@@ -41,18 +48,17 @@ export default async function getAsset(id: string) {
     if (!res.ok) {
       const errorData = await res.json();
       throw new Error(
-        `Failed to fetch Asset data: ${
+        `Failed to fetch Alert data: ${
           errorData.errors?.[0]?.message || res.statusText
         }`,
       );
     }
 
     const data = await res.json();
-    const normalizedData = normalizeDataCollection(data.data);
-
+    const normalizedData = normalizeContentfulData(data.data);
     return normalizedData[0];
   } catch (error) {
     console.error(error);
-    throw new Error(`An error occurred while fetching asset data: ${error}`);
+    throw new Error(`An error occurred while fetching hero data: ${error}`);
   }
 }

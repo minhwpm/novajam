@@ -1,5 +1,5 @@
-import normalizeDataCollection from './normalizeDataCollection';
-import footers from './static-data/footers.json';
+import normalizeContentfulData from './normalizeContentfulData';
+import footers from '../static-data/footers.json';
 
 export default async function getFooter(url: string) {
   if (process.env.DATA_SOURCE === 'CONTENTFUL') {
@@ -83,7 +83,7 @@ export default async function getFooter(url: string) {
       }
 
       const data = await res.json();
-      const normalizedData = normalizeDataCollection(data.data);
+      const normalizedData = normalizeContentfulData(data.data);
 
       return normalizedData[0];
     } catch (error) {

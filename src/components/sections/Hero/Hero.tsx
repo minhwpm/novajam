@@ -66,8 +66,7 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
       >
         <div
           className={classNames('flex flex-col', {
-            'pr-4 lg:pr-8 xl:pr-10 custom-padding-left':
-              layout !== 'vertical',
+            'pr-4 lg:pr-8 xl:pr-10 custom-padding-left': layout !== 'vertical',
             'items-center text-center': introAlignment === 'center',
             'items-end text-end': introAlignment === 'end',
           })}

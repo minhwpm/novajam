@@ -1,5 +1,5 @@
 import getFlexibleContent from './getFlexibleContent';
-import normalizeDataCollection from './normalizeDataCollection';
+import normalizeContentfulData from './normalizeContentfulData';
 
 export default async function getContentList(id: string) {
   try {
@@ -198,7 +198,7 @@ export default async function getContentList(id: string) {
     }
 
     const data = await res.json();
-    const normalizedData = normalizeDataCollection(data.data);
+    const normalizedData = normalizeContentfulData(data.data);
 
     normalizedData[0]?.listItems &&
       (await Promise.all(

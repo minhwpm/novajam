@@ -1,11 +1,11 @@
-export default function normalizeDataCollection(data: { [x: string]: any }) {
+export default function normalizeContentfulData(data: { [x: string]: any }) {
   for (const key in data) {
     if (key.includes('Collection')) {
       const normalizedKey = key.replace('Collection', '');
       data[normalizedKey] = data[key].items;
       delete data[key];
       for (let i = 0; i < data[normalizedKey].length; i++) {
-        normalizeDataCollection(data[normalizedKey][i]);
+        normalizeContentfulData(data[normalizedKey][i]);
       }
     }
     if (key === 'sys') {

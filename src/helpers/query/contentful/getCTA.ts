@@ -1,6 +1,7 @@
-import normalizeDataCollection from './normalizeDataCollection';
+import getForm from './getForm';
+import normalizeContentfulData from './normalizeContentfulData';
 
-export default async function getFlexibleContent(id: string) {
+export default async function getCTA(id: string) {
   try {
     const res = await fetch(
       `${process.env.CONTENTFUL_GRAPHQL_ENDPOINT}/${process.env.CONTENTFUL_SPACE_ID}/`,
@@ -8,14 +9,12 @@ export default async function getFlexibleContent(id: string) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // Authenticate the request
           Authorization: `Bearer ${process.env.CONTENTFUL_DELIVERY_API_ACCESS_TOKEN}`,
         },
-        // send the GraphQL query
         body: JSON.stringify({
           query: `
             query($id: String) {
-              flexibleContentCollection(
+              ctaCollection(
                 where: {
                   sys: {
                     id: $id
@@ -26,21 +25,12 @@ export default async function getFlexibleContent(id: string) {
                   sys {
                     id
                   }
-                  eyebrow
+                  title
+                  htmlid
                   displayTitle
-                  description
-                  mediaCollection {
-                    items {
-                      sys {
-                        id
-                      }
-                      url
-                      title
-                      width
-                      height
-                      contentType
-                    }
-                  }
+                  eyebrow
+                  summary
+                  introAlignment
                   buttonsCollection {
                     items {
                       sys {
@@ -59,6 +49,22 @@ export default async function getFlexibleContent(id: string) {
                       }
                     }
                   }
+                  form {
+                    sys {
+                      id
+                    }
+                  }
+                  layout
+                  backgroundColor
+                  backgroundImage {
+                    url
+                    title
+                    width
+                    height
+                  }
+                  enableParallaxEffect
+                  darkMode
+                  sectionSeparator
                 }
               }
             }
@@ -67,28 +73,28 @@ export default async function getFlexibleContent(id: string) {
             id,
           },
         }),
-        next: {
-          revalidate: 10,
-        },
       },
     );
 
     if (!res.ok) {
       const errorData = await res.json();
       throw new Error(
-        `Failed to fetch FlexibleContent data: ${
+        `Failed to fetch section CTA data: ${
           errorData.errors?.[0]?.message || res.statusText
         }`,
       );
     }
 
     const data = await res.json();
-    const normalizedData = normalizeDataCollection(data.data);
+    const normalizedData = normalizeContentfulData(data.data);
+    if (normalizedData[0].form) {
+      normalizedData[0].form = await getForm(normalizedData[0].form.sys.id);
+    }
     return normalizedData[0];
   } catch (error) {
     console.error(error);
     throw new Error(
-      `An error occurred while fetching flexibleContent data: ${error}`,
+      `An error occurred while fetching section CTA data: ${error}`,
     );
   }
 }

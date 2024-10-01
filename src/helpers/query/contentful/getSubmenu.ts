@@ -1,5 +1,5 @@
 import getLinkGroup from './getLinkGroup';
-import normalizeDataCollection from './normalizeDataCollection';
+import normalizeContentfulData from './normalizeContentfulData';
 
 export default async function getSubmenu(id: string) {
   try {
@@ -99,7 +99,7 @@ export default async function getSubmenu(id: string) {
     }
 
     const data = await res.json();
-    const normalizedData = normalizeDataCollection(data.data);
+    const normalizedData = normalizeContentfulData(data.data);
 
     for (let i = 0; i < normalizedData[0].menu.length; i++) {
       if (normalizedData[0].menu[i]?.contentType === 'linkgroup') {

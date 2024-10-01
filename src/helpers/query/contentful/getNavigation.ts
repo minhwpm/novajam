@@ -1,6 +1,6 @@
 import getSubmenu from './getSubmenu';
-import normalizeDataCollection from './normalizeDataCollection';
-import navigations from './static-data/navigations.json';
+import normalizeContentfulData from './normalizeContentfulData';
+import navigations from '../static-data/navigations.json';
 
 export default async function getNavigation(url: string) {
   if (process.env.DATA_SOURCE === 'CONTENTFUL') {
@@ -111,7 +111,7 @@ export default async function getNavigation(url: string) {
       }
 
       const data = await res.json();
-      const normalizedData = normalizeDataCollection(data.data);
+      const normalizedData = normalizeContentfulData(data.data);
 
       normalizedData[0]?.menu &&
         (await Promise.all(

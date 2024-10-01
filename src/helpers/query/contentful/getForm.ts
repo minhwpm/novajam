@@ -1,4 +1,4 @@
-import normalizeDataCollection from './normalizeDataCollection';
+import normalizeContentfulData from './normalizeContentfulData';
 
 export default async function getForm(id: string) {
   try {
@@ -78,7 +78,7 @@ export default async function getForm(id: string) {
     }
 
     const data = await res.json();
-    const normalizedData = normalizeDataCollection(data.data);
+    const normalizedData = normalizeContentfulData(data.data);
     return normalizedData[0];
   } catch (error) {
     console.error(error);
