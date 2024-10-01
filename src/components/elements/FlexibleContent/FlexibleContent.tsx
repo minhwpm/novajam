@@ -1,5 +1,6 @@
 'use client';
 import classNames from 'classnames';
+import Link from 'next/link';
 import { AlignmentType, FlexibleContentType } from '@/helpers/types';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
@@ -13,7 +14,15 @@ export const FlexibleContent: React.FC<{
   layout?: 'vertical' | 'horizontal';
   animate?: boolean;
 }> = ({ index, data, alignment = 'center', layout = 'vertical', animate }) => {
-  const { displayTitle, eyebrow, description, media, buttons } = data;
+  const {
+    displayTitle,
+    eyebrow,
+    description,
+    media,
+    mediaAspectRatio,
+    buttons,
+    redirectUrl,
+  } = data;
   const [ref, isIntersecting] = useIntersecting();
 
   const hasMedia = media?.length > 0;
@@ -26,7 +35,7 @@ export const FlexibleContent: React.FC<{
 
   const animationDelay = index && animate ? `${(index + 1) * 0.15}s` : '0s';
 
-  return (
+  const content = (
     <div
       ref={ref}
       className={classNames(
@@ -45,7 +54,7 @@ export const FlexibleContent: React.FC<{
           })}
           data={data}
           alignment={alignment}
-          aspectRatio="auto"
+          aspectRatio={mediaAspectRatio ?? 'auto'}
         />
       )}
       {hasText && (
@@ -62,7 +71,7 @@ export const FlexibleContent: React.FC<{
           )}
         >
           {eyebrow && (
-            <div className="not-prose text-xs xl:text-sm font-medium tracking-widest mb-1 text-slate-400 dark:text-slate-100/60">
+            <div className="not-prose text-xs xl:text-sm tracking-wide mb-1 text-slate-400 dark:text-slate-100/60">
               {eyebrow}
             </div>
           )}
@@ -96,5 +105,13 @@ export const FlexibleContent: React.FC<{
         </div>
       )}
     </div>
+  );
+
+  return redirectUrl ? (
+    <Link href={redirectUrl} className="hover:pointer">
+      {content}
+    </Link>
+  ) : (
+    content
   );
 };

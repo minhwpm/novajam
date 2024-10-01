@@ -35,7 +35,8 @@ export const FlexibleContentMediaPart: React.FC<{
           data={media[0]}
           aspectRatio={aspectRatio}
           rounded={rounded}
-          videoControls={true}
+          videoControls
+          zoomInOverHover
         />
       )}
       {media.length > 1 && (

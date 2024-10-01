@@ -26,7 +26,7 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
     backgroundImage,
     enableParallaxEffect,
     darkMode,
-    showBottomSeparator
+    showBottomSeparator,
   } = data;
   const [ref, isIntersecting] = useIntersecting();
 

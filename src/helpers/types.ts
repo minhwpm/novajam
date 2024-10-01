@@ -296,7 +296,9 @@ export type FlexibleContentType = {
   displayTitle: string | null;
   description: string | null;
   buttons: Array<ButtonType>;
+  redirectUrl: string | null;
   media: Array<MediaType>;
+  mediaAspectRatio: MediaAspectRatioType;
   contentType: 'flexiblecontent';
 };
 

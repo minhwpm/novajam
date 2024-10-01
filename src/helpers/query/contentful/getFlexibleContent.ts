@@ -29,6 +29,7 @@ export default async function getFlexibleContent(id: string) {
                   eyebrow
                   displayTitle
                   description
+                  redirectUrl
                   mediaCollection {
                     items {
                       sys {
@@ -41,6 +42,7 @@ export default async function getFlexibleContent(id: string) {
                       contentType
                     }
                   }
+                  mediaAspectRatio
                   buttonsCollection {
                     items {
                       sys {
