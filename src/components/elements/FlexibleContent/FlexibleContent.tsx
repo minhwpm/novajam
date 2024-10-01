@@ -3,9 +3,10 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { AlignmentType, FlexibleContentType } from '@/helpers/types';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
-import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
+import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
+import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
 
 export const FlexibleContent: React.FC<{
   index?: number;
@@ -47,15 +48,35 @@ export const FlexibleContent: React.FC<{
       style={{ animationDelay }}
     >
       {hasMedia && (
-        <FlexibleContentMediaPart
-          className={classNames({
+        <div
+          className={classNames('flex', {
+            'justify-center': alignment === 'center',
+            'justify-end': alignment === 'end',
             'max-w-fit basis-5/12': layout === 'horizontal',
             'grow items-center': !hasText && layout !== 'horizontal',
           })}
-          data={data}
-          alignment={alignment}
-          aspectRatio={mediaAspectRatio ?? 'auto'}
-        />
+        >
+          {media.length === 1 && (
+            <MediaItem
+              data={media[0]}
+              aspectRatio={mediaAspectRatio}
+              videoControls
+              zoomInOverHover={!!redirectUrl}
+            />
+          )}
+          {media.length > 1 && (
+            <MediaCarousel
+              data={media}
+              autoplay={{
+                delay: 3500,
+              }}
+              pagination={{
+                enabled: true,
+              }}
+              aspectRatio={mediaAspectRatio}
+            />
+          )}
+        </div>
       )}
       {hasText && (
         <div

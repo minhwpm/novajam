@@ -48,7 +48,7 @@ export const Testimonial: React.FC<{
           )}
         />
         {content && (
-          <MarkdownRenderer className="prose xl:prose-lg leading-loos text-slate-500 dark:text-slate-100/70 dark:prose-invert">
+          <MarkdownRenderer className="prose leading-loos text-slate-500 dark:text-slate-100/70 dark:prose-invert">
             {content}
           </MarkdownRenderer>
         )}
@@ -75,7 +75,9 @@ export const Testimonial: React.FC<{
               {name}
             </div>
             <div
-              className={classNames('text-slate-500 dark:text-slate-100/70')}
+              className={classNames(
+                'text-smd text-slate-500 dark:text-slate-100/70',
+              )}
             >
               {role}
             </div>

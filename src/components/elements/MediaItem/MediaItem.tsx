@@ -26,21 +26,23 @@ export const MediaItem: React.FC<{
   rounded = 'theme',
   zoomInOverHover = false,
 }) => {
-  const aspectRatioClass = classNames(
-    { 'aspect-square': aspectRatio === 'square' },
-    { 'aspect-video': aspectRatio === '16/9' },
-    { 'aspect-4/3': aspectRatio === '4/3' },
-    { 'aspect-3/2': aspectRatio === '3/2' },
-    { 'aspect-3/4': aspectRatio === '3/4' },
-  );
+  const aspectRatioClass = classNames({
+    'aspect-square': aspectRatio === 'square',
+    'aspect-video': aspectRatio === '16/9',
+    'aspect-4/3': aspectRatio === '4/3',
+    'aspect-3/2': aspectRatio === '3/2',
+    'aspect-3/4': aspectRatio === '3/4',
+  });
   if (!data) {
     return (
       <div
         className={classNames(
           'overflow-hidden',
           [aspectRatioClass],
-          { 'w-full': dimensionBase === 'width' },
-          { 'h-full': dimensionBase === 'height' },
+          {
+            'w-full': dimensionBase === 'width',
+            'h-full': dimensionBase === 'height',
+          },
           `rounded-${rounded}`,
         )}
       >
@@ -61,40 +63,29 @@ export const MediaItem: React.FC<{
   const { url, width, height, title, contentType } = data;
   return (
     <div
-      className={classNames(
-        'overflow-hidden relative',
-        {
-          [aspectRatioClass]: width >= 200 || contentType.includes('video'),
-        },
-        {
-          'w-full':
-            dimensionBase === 'width' &&
-            (contentType.includes('video') ||
-              width >= 200 ||
-              contentType.includes('video')),
-        },
-        {
-          'h-full':
-            dimensionBase === 'height' &&
-            (contentType.includes('video') ||
-              width >= 200 ||
-              contentType.includes('video')),
-        },
-        {
-          [`rounded-${rounded}`]: width >= 200 || contentType.includes('video'),
-        },
-      )}
+      className={classNames('overflow-hidden relative', {
+        [aspectRatioClass]: width >= 200 || contentType.includes('video'),
+        'w-full':
+          dimensionBase === 'width' &&
+          (contentType.includes('video') ||
+            width >= 200 ||
+            contentType.includes('video')),
+        'h-full':
+          dimensionBase === 'height' &&
+          (contentType.includes('video') ||
+            width >= 200 ||
+            contentType.includes('video')),
+        [`rounded-${rounded}`]: width >= 200 || contentType.includes('video'),
+      })}
     >
       {contentType.includes('image') && (
         <Image
-          className={classNames(
-            'not-prose',
-            { 'object-cover w-full h-full': width >= 200 },
-            { 'object-contain': width < 200 },
-            {
-              'hover:scale-110 transition-all duration-500': zoomInOverHover,
-            },
-          )}
+          className={classNames('not-prose', {
+            'object-cover w-full h-full': width >= 200,
+            'object-contain': width < 200,
+            'hover:scale-110 transition-all duration-500':
+              width >= 200 && zoomInOverHover,
+          })}
           src={url ?? '/fallback-image.webp'}
           alt={altText ?? title}
           width={width}

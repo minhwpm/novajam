@@ -15,18 +15,15 @@ export const Statistics: React.FC<{
   return (
     <div
       ref={ref}
-      className={classNames(
-        'flex gap-6 rounded-theme',
-        { 'flex-col': layout === 'vertical' },
-        { 'flex-row': layout === 'vertical' },
-        { 'perspective-2500 backface-hidden -rotate-y-90': !isIntersecting },
-        {
-          'perspective-none backface-hidden rotate-y-0 transition-transform ease duration-1000 ':
-            isIntersecting,
-        },
-        { 'items-center': alignment === 'center' },
-        { 'items-end': alignment === 'end' },
-      )}
+      className={classNames('flex gap-6 rounded-theme', {
+        'flex-col': layout === 'vertical',
+        'flex-row items-center': layout === 'horizontal',
+        'perspective-2500 backface-hidden -rotate-y-90': !isIntersecting,
+        'perspective-none backface-hidden rotate-y-0 transition-transform ease duration-1000 ':
+          isIntersecting,
+        'items-center': alignment === 'center',
+        'items-end': alignment === 'end',
+      })}
       style={{
         transitionDelay: `${(index + 1) * 0.2}s`,
       }}

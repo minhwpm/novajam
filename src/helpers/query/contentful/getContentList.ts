@@ -15,172 +15,138 @@ export default async function getContentList(id: string) {
         // send the GraphQL query
         body: JSON.stringify({
           query: `
-      query($id: String) {
-        contentListCollection(
-          where: {
-            sys: {
-              id: $id
-            }
-          }
-        ) {
-          items {
-            eyebrow
-            displayTitle
-            summary
-            buttonsCollection {
-              items {
-                sys {
-                  id
-                }
-                url
-                buttonLabel
-                openNewTab
-                buttonVariant
-                withArrow
-                icon {
-                  url
-                  title
-                  width
-                  height
-                }
-              }
-            }
-            htmlid
-            introAlignment
-            listVariant
-            layout
-            backgroundColor
-            backgroundImage {
-              url
-              title
-              width
-              height
-              contentType
-            }
-            enableParallaxEffect
-            darkMode
-            showBottomSeparator
-            itemSize
-            itemAlignment
-            itemLayout
-            listItemsCollection (limit: 20) {
-              items {
-                __typename
-                ... on Expert {
-                  sys {
-                    id
+            query($id: String) {
+              contentListCollection(
+                where: {
+                  sys: {
+                    id: $id
                   }
-                  fullName
-                  role
-                  organization
-                  specialization
+                }
+              ) {
+                items {
+                  eyebrow
+                  displayTitle
                   summary
-                  sns {
-                    linkedInUrl
-                    facebookUrl
-                    twitterUrl
-                    youtubeUrl
-                    instagramUrl
-                  }
-                  portrait {
-                    url
-                    title
-                    width
-                    height
-                    contentType
-                  }
-                }
-                ... on Page {
-                  sys {
-                    id
-                  }
-                  title
-                  url
-                  metaTitle
-                  metaDescription
-                  metaKeywords
-                  metaImage {
-                    url
-                    title
-                    width
-                    height
-                    contentType
-                  }
-                }
-                ... on Statistics {
-                  sys {
-                    id
-                  }
-                  number
-                  text
-                }
-                ... on FlexibleContent {
-                  sys {
-                    id
-                  }
-                }
-                ... on PricingPlan {
-                  sys {
-                    id
-                  }
-                  title
-                  pricing
-                  pricingSuffix
-                  badge
-                  description
-                  ctaButton {
-                    url
-                    buttonLabel
-                    openNewTab
-                    buttonVariant
-                    withArrow
-                    icon {
+                  buttonsCollection {
+                    items {
+                      sys {
+                        id
+                      }
                       url
-                      title
-                      width
-                      height
+                      buttonLabel
+                      openNewTab
+                      buttonVariant
+                      withArrow
+                      icon {
+                        url
+                        title
+                        width
+                        height
+                      }
+                    }
+                  }
+                  htmlid
+                  introAlignment
+                  listVariant
+                  layout
+                  backgroundColor
+                  backgroundImage {
+                    url
+                    title
+                    width
+                    height
+                    contentType
+                  }
+                  enableParallaxEffect
+                  darkMode
+                  showBottomSeparator
+                  itemSize
+                  itemAlignment
+                  itemLayout
+                  listItemsCollection (limit: 20) {
+                    items {
+                      __typename
+                      ... on Expert {
+                        sys {
+                          id
+                        }
+                        fullName
+                        role
+                        organization
+                        specialization
+                        summary
+                        sns {
+                          linkedInUrl
+                          facebookUrl
+                          twitterUrl
+                          youtubeUrl
+                          instagramUrl
+                        }
+                        portrait {
+                          url
+                          title
+                          width
+                          height
+                          contentType
+                        }
+                      }
+                      ... on Statistics {
+                        sys {
+                          id
+                        }
+                        number
+                        text
+                      }
+                      ... on FlexibleContent {
+                        sys {
+                          id
+                        }
+                      }
+                      ... on PricingPlan {
+                        sys {
+                          id
+                        }
+                        title
+                        pricing
+                        pricingSuffix
+                        badge
+                        description
+                        ctaButton {
+                          url
+                          buttonLabel
+                          openNewTab
+                          buttonVariant
+                          withArrow
+                          icon {
+                            url
+                            title
+                            width
+                            height
+                          }
+                        }
+                      }
+                      ... on Testimonial {
+                        sys {
+                          id
+                        }
+                        content
+                        portrait {
+                          url
+                          title
+                          width
+                          height
+                          contentType
+                        }
+                        name
+                        role
+                        rating
+                      }
                     }
                   }
                 }
-                ... on Testimonial {
-                  sys {
-                    id
-                  }
-                  content
-                  portrait {
-                    url
-                    title
-                    width
-                    height
-                    contentType
-                  }
-                  name
-                  role
-                  rating
-                }
-                ... on Blog {
-                  sys {
-                    id
-                    firstPublishedAt
-                    publishedAt
-                  }
-                  title
-                  slug
-                  topics
-                  media {
-                    url
-                    title
-                    width
-                    height
-                    contentType
-                  }
-                }
               }
             }
-          }
-        }
-      }
-    `,
+          `,
           variables: {
             id,
           },
