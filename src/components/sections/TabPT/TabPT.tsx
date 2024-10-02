@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import * as RadixTabs from '@radix-ui/react-tabs';
-import { Section } from '@/components/elements/Section/Section';
+import { Section } from '@/components/sections/Section/Section';
 import { ContentPTType } from '@/helpers/types';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';

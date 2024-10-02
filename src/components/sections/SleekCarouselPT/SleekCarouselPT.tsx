@@ -1,7 +1,7 @@
 'use client';
 import classNames from 'classnames';
 import React, { useState } from 'react';
-import { Section } from '@/components/elements/Section/Section';
+import { Section } from '@/components/sections/Section/Section';
 import { ContentPTType } from '@/helpers/types';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';

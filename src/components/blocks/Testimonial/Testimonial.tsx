@@ -1,11 +1,11 @@
 'use client';
 import classNames from 'classnames';
+import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import { TestimonialType } from '@/helpers/types';
-import { MediaItem } from '../MediaItem/MediaItem';
+import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
+import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 import { AiFillStar } from 'react-icons/ai';
 import { RiDoubleQuotesL } from 'react-icons/ri';
-import { MarkdownRenderer } from '../MarkdownRenderer/MarkdownRenderer';
-import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
 export const Testimonial: React.FC<{
   index?: number;

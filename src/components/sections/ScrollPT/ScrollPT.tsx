@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import classNames from 'classnames';
-import { Section } from '@/components/elements/Section/Section';
+import { Section } from '@/components/sections/Section/Section';
 import {
   AlignmentType,
   ContentPTType,

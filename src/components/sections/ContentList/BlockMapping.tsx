@@ -1,10 +1,10 @@
-import { Expert } from '@/components/elements/Expert/Expert';
-import { Statistics } from '@/components/elements/Statistics/Statistics';
-import { FlexibleContent } from '@/components/elements/FlexibleContent/FlexibleContent';
-import { PricingPlan } from '@/components/elements/PricingPlan/PricingPlan';
+import { Expert } from '@/components/blocks/Expert/Expert';
+import { Statistics } from '@/components/blocks/Statistics/Statistics';
+import { FlexibleContent } from '@/components/blocks/FlexibleContent/FlexibleContent';
+import { PricingPlan } from '@/components/blocks/PricingPlan/PricingPlan';
+import { Testimonial } from '@/components/blocks/Testimonial/Testimonial';
+import { Form } from '@/components/blocks/Form/Form';
 import { BlockType } from '@/helpers/types';
-import { Testimonial } from '@/components/elements/Testimonial/Testimonial';
-import { Form } from '@/components/elements/Form/Form';
 
 export const BlockMapping: React.FC<{
   data: BlockType;

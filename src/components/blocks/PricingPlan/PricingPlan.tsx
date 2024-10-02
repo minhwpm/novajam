@@ -2,7 +2,7 @@
 import classNames from 'classnames';
 import { Button } from '@/components/elements/Button/Button';
 import { PricingPlanType } from '@/helpers/types';
-import { MarkdownRenderer } from '../MarkdownRenderer/MarkdownRenderer';
+import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
 export const PricingPlan: React.FC<{

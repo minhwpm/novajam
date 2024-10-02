@@ -1,7 +1,7 @@
 'use client';
 import classNames from 'classnames';
 import * as RadixAccordion from '@radix-ui/react-accordion';
-import { Section } from '@/components/elements/Section/Section';
+import { Section } from '@/components/sections/Section/Section';
 import { ContentPTType } from '@/helpers/types';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';

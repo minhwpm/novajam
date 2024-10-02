@@ -2,7 +2,7 @@
 import classNames from 'classnames';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import { FeaturedContentType } from '@/helpers/types';
-import { Section } from '@/components/elements/Section/Section';
+import { Section } from '@/components/sections/Section/Section';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
 import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
 import { BlockMapping } from '../ContentList/BlockMapping';

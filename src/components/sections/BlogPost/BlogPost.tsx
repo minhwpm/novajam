@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import readingTime from 'reading-time';
-import { Expert } from '@/components/elements/Expert/Expert';
+import { Expert } from '@/components/blocks/Expert/Expert';
 import { BlogType } from '@/helpers/types';
 import { format } from 'date-fns';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';

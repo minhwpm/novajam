@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Section } from '@/components/elements/Section/Section';
+import { Section } from '@/components/sections/Section/Section';
 import { ContentListType } from '@/helpers/types';
 import { CarouselList } from '@/components/sections/CarouselList/CarouselList';
 import { MasonryList } from '@/components/sections/MasonryList/MasonryList';
