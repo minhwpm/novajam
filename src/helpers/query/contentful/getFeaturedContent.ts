@@ -1,3 +1,4 @@
+import getForm from './getForm';
 import getFlexibleContent from './getFlexibleContent';
 import normalizeContentfulData from './normalizeContentfulData';
 
@@ -48,7 +49,6 @@ export default async function getFeature(id: string) {
             blocksCollection (limit: 5) {
               items {
                 __typename
-                
                 ... on Statistics {
                   sys {
                     id
@@ -124,8 +124,12 @@ export default async function getFeature(id: string) {
                     contentType
                   }
                 }
+                ... on Form {
+                  sys {
+                    id
+                  }
+                }
               }
-              
             }
             alignment
             mediaCollection (limit: 50) {
@@ -186,10 +190,14 @@ export default async function getFeature(id: string) {
             index: string | number,
           ) => {
             if (contentItem?.contentType === 'flexiblecontent') {
-              const sectionData = await getFlexibleContent(contentItem.id);
               normalizedData[0].blocks[index] = {
                 ...contentItem,
-                ...sectionData,
+                ...(await getFlexibleContent(contentItem.id)),
+              };
+            } else if (contentItem?.contentType === 'form') {
+              normalizedData[0].blocks[index] = {
+                ...contentItem,
+                ...(await getForm(contentItem.id)),
               };
             } else {
               normalizedData[0].blocks[index] = { ...contentItem };

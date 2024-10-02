@@ -329,7 +329,8 @@ export type BlockType =
   | StatisticsType
   | FlexibleContentType
   | PricingPlanType
-  | TestimonialType;
+  | TestimonialType
+  | FormType;
 
 export type ItemSize = 'S' | 'M' | 'L' | 'XL' | '2XL';
 
@@ -400,4 +401,5 @@ export type FormType = {
   dateFormat: 'DD/MM/YYYY' | 'MM/DD/YYYY' | 'YYYY/MM/DD';
   successMessage: string | null;
   errorMessage: string | null;
+  contentType: 'form';
 };

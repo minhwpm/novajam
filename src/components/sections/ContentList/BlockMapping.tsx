@@ -4,6 +4,7 @@ import { FlexibleContent } from '@/components/elements/FlexibleContent/FlexibleC
 import { PricingPlan } from '@/components/elements/PricingPlan/PricingPlan';
 import { BlockType } from '@/helpers/types';
 import { Testimonial } from '@/components/elements/Testimonial/Testimonial';
+import { Form } from '@/components/elements/Form/Form';
 
 export const BlockMapping: React.FC<{
   data: BlockType;
@@ -21,5 +22,7 @@ export const BlockMapping: React.FC<{
       return <PricingPlan index={index} data={data} animate={animate} />;
     case 'testimonial':
       return <Testimonial index={index} data={data} animate={animate} />;
+    case 'form':
+      return <Form data={data} />;
   }
 };

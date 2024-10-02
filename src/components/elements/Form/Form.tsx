@@ -67,7 +67,7 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
     <>
       <form
         className={classNames(
-          'w-full p-4 lg:p-8 flex flex-col rounded-theme dark:bg-white dark:text-slate-700',
+          'max-w-min p-4 lg:p-8 flex flex-col rounded-theme dark:bg-white dark:text-slate-700 self-end',
           { 'gap-4': fields.length > 1 },
           { 'gap-1': fields?.length === 1 },
         )}
@@ -77,7 +77,7 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
           fields.map((fieldItem) => (
             <div
               key={fieldItem.id}
-              className={classNames('relative flex flex-col gap-2', {
+              className={classNames('relative flex flex-col gap-2 max-w-md', {
                 'sm:min-w-[384px]': fieldItem.uiWidth === 'full-size',
                 'lg:basis-1/2': fieldItem.uiWidth === 'half-size',
               })}
@@ -162,6 +162,7 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
           )}
         </div>
       </form>
+      {/* @TODO move these Toasts below into a Portal  */}
       {isSubmitting && (
         <Toast.Provider swipeDirection="right">
           <Toast.Root className="data-[state=open]:animate-fadeIn">
