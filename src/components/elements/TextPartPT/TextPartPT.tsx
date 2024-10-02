@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from 'classnames';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import { AlignmentType, FlexibleContentType } from '@/helpers/types';
@@ -8,7 +9,7 @@ export const TextPartPT: React.FC<{
   alignment?: AlignmentType;
   darkMode: boolean;
 }> = ({ data, alignment, darkMode }) => {
-  const { displayTitle, eyebrow, description, buttons } = data;
+  const { displayTitle, eyebrow, summary, buttons } = data;
   return (
     <>
       {eyebrow && (
@@ -31,13 +32,13 @@ export const TextPartPT: React.FC<{
           <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
         </div>
       )}
-      {description && (
+      {summary && (
         <div
           className={classNames('mt-4 prose xl:prose-lg', {
             'text-slate-100': darkMode,
           })}
         >
-          <MarkdownRenderer>{description}</MarkdownRenderer>
+          <MarkdownRenderer>{summary}</MarkdownRenderer>
         </div>
       )}
       {buttons && buttons.length > 0 && (

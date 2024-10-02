@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import readingTime from 'reading-time';
-import { ExpertPreview } from '@/components/elements/ExpertPreview/ExpertPreview';
+import { Expert } from '@/components/elements/Expert/Expert';
 import { BlogType } from '@/helpers/types';
 import { format } from 'date-fns';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
@@ -69,7 +69,7 @@ export const BlogPost: React.FC<{ data: BlogType }> = ({ data }) => {
               <p className="text-slate-400 font-semibold tracking-wider text-sm md:text-base mb-8 text-center sm:text-start">
                 ABOUT THE AUTHOR
               </p>
-              <ExpertPreview data={author} layout="horizontal" />
+              <Expert data={author} customLayout="horizontal" />
             </div>
           )}
         </div>

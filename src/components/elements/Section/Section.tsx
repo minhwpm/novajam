@@ -32,7 +32,7 @@ export const Section: React.FC<SectionProps> = ({
     eyebrow,
     summary,
     buttons,
-    introAlignment,
+    alignment,
     backgroundColor,
     backgroundImage,
     enableParallaxEffect,
@@ -48,8 +48,8 @@ export const Section: React.FC<SectionProps> = ({
         className={classNames(
           'text-sm xl:text-base tracking-widest mb-6 font-semibold text-secondary-600 dark:text-secondary-500',
           {
-            'text-center': introAlignment === 'center',
-            'text-end': introAlignment === 'end',
+            'text-center': alignment === 'center',
+            'text-end': alignment === 'end',
           },
         )}
       >
@@ -63,8 +63,8 @@ export const Section: React.FC<SectionProps> = ({
         className={classNames(
           'font-heading text-heading leading-snug max-w-3xl mb-4 dark:text-slate-100',
           {
-            'text-center': introAlignment === 'center',
-            'text-end': introAlignment === 'end',
+            'text-center': alignment === 'center',
+            'text-end': alignment === 'end',
           },
         )}
       >
@@ -78,8 +78,8 @@ export const Section: React.FC<SectionProps> = ({
         className={classNames(
           'prose lg:prose-lg 2xl:prose-xl max-w-xl lg:max-w-xl mb-4 text-slate-500 dark:prose-invert dark:text-slate-100/70',
           {
-            'text-center': introAlignment === 'center',
-            'text-end': introAlignment === 'end',
+            'text-center': alignment === 'center',
+            'text-end': alignment === 'end',
           },
         )}
       >
@@ -132,8 +132,8 @@ export const Section: React.FC<SectionProps> = ({
                 'basis-1/3 grow shrink-0': layout === 'flex row',
                 'w-full': layout === 'full top',
                 'animate-slidingUpContent animation-delay-150': isIntersecting,
-                'items-center': introAlignment === 'center',
-                'items-end': introAlignment === 'end',
+                'items-center': alignment === 'center',
+                'items-end': alignment === 'end',
               },
             )}
           >
@@ -144,7 +144,7 @@ export const Section: React.FC<SectionProps> = ({
               <ButtonGroup
                 className="mt-6"
                 data={buttons}
-                alignment={introAlignment}
+                alignment={alignment}
                 size="lg"
               />
             )}
@@ -155,12 +155,12 @@ export const Section: React.FC<SectionProps> = ({
           (data.contentType === 'contentlist' ||
             data.contentType === 'contentpresentation') && (
             <div className="w-full">
-              <ButtonGroup data={buttons} alignment={introAlignment} />
+              <ButtonGroup data={buttons} alignment={alignment} />
             </div>
           )}
         {!!buttons?.length && data.contentType === 'cta' && (
           <div className="">
-            <ButtonGroup data={buttons} alignment={introAlignment} size="lg" />
+            <ButtonGroup data={buttons} alignment={alignment} size="lg" />
           </div>
         )}
       </div>

@@ -12,9 +12,8 @@ import '@/app/styles/bg-color.css';
 import './styles.css';
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
-  const { displayTitle, presentationItems, introAlignment, itemAlignment } =
-    data;
-  const [justify, setJustify] = useState(introAlignment);
+  const { displayTitle, presentationItems, alignment, itemAlignment } = data;
+  const [justify, setJustify] = useState(alignment);
   const wrapperRef = useRef(
     null,
   ) as unknown as React.MutableRefObject<HTMLDivElement>;
@@ -98,13 +97,13 @@ export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
             >
               <div className="flex flex-col-reverse lg:flex-row lg:items-center rounded-theme p-4 lg:p-8 -mx-4 lg:-mx-8">
                 <div className="py-4 lg:pr-10 xl:pr-14">
-                  {item.description && (
+                  {item.summary && (
                     <div
                       className={classNames(
                         'prose xl:prose-lg dark:text-slate-100',
                       )}
                     >
-                      <MarkdownRenderer>{item.description}</MarkdownRenderer>
+                      <MarkdownRenderer>{item.summary}</MarkdownRenderer>
                     </div>
                   )}
                   {item.buttons && item.buttons.length > 0 && (

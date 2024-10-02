@@ -21,7 +21,7 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
     buttons,
     media,
     layout,
-    introAlignment,
+    alignment,
     backgroundColor,
     backgroundImage,
     enableParallaxEffect,
@@ -69,8 +69,8 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
         <div
           className={classNames('flex flex-col', {
             'pr-4 lg:pr-8 xl:pr-10 custom-padding-left': layout !== 'vertical',
-            'items-center text-center': introAlignment === 'center',
-            'items-end text-end': introAlignment === 'end',
+            'items-center text-center': alignment === 'center',
+            'items-end text-end': alignment === 'end',
           })}
         >
           {eyebrow && (
@@ -117,11 +117,7 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
               })}
             >
               {buttons.length > 0 && (
-                <ButtonGroup
-                  data={buttons}
-                  alignment={introAlignment}
-                  size="lg"
-                />
+                <ButtonGroup data={buttons} alignment={alignment} size="lg" />
               )}
             </div>
           )}

@@ -88,7 +88,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                         />
                       </div>
                     )}
-                    {item.description && (
+                    {item.summary && (
                       <div
                         className={classNames(
                           'prose xl:prose-lg max-w-none group-data-[state=closed]:text-transparent',
@@ -97,7 +97,7 @@ export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
                           },
                         )}
                       >
-                        <MarkdownRenderer>{item.description}</MarkdownRenderer>
+                        <MarkdownRenderer>{item.summary}</MarkdownRenderer>
                       </div>
                     )}
                     {item.buttons && item.buttons.length > 0 && (

@@ -54,7 +54,7 @@ export default async function getHero(id: string) {
               contentType
             }
             layout
-            introAlignment
+            alignment
             backgroundColor
             backgroundImage {
               url

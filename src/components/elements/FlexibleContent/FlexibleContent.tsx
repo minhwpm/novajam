@@ -1,7 +1,8 @@
+/* eslint-disable complexity */ //@TODO eslint
 'use client';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { AlignmentType, FlexibleContentType } from '@/helpers/types';
+import { FlexibleContentType } from '@/helpers/types';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
@@ -11,23 +12,26 @@ import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel
 export const FlexibleContent: React.FC<{
   index?: number;
   data: FlexibleContentType;
-  alignment?: AlignmentType;
-  layout?: 'vertical' | 'horizontal';
   animate?: boolean;
-}> = ({ index, data, alignment = 'center', layout = 'vertical', animate }) => {
+}> = ({ index, data, animate }) => {
   const {
-    displayTitle,
     eyebrow,
-    description,
+    displayTitle,
+    tags,
+    summary,
     media,
     mediaAspectRatio,
     buttons,
     redirectUrl,
   } = data;
+  const layout = data.layout ?? 'vertical';
+  const alignment = data.alignment ?? 'center';
+
   const [ref, isIntersecting] = useIntersecting();
 
   const hasMedia = media?.length > 0;
-  const hasText = displayTitle || eyebrow || description || buttons?.length > 0;
+  const hasText =
+    displayTitle || eyebrow || summary || tags || buttons?.length > 0;
 
   const animationClass = classNames({
     'relative -bottom-10 opacity-0': animate,
@@ -81,7 +85,7 @@ export const FlexibleContent: React.FC<{
       {hasText && (
         <div
           className={classNames(
-            'flex flex-col',
+            'flex flex-col gap-y-1',
             layout === 'horizontal'
               ? 'basis-7/12 flex-1 pl-4 xl:pl-6'
               : 'py-4 xl:pt-6 flex-1',
@@ -92,32 +96,42 @@ export const FlexibleContent: React.FC<{
           )}
         >
           {eyebrow && (
-            <div className="not-prose text-xs xl:text-sm tracking-wide mb-1 text-slate-400 dark:text-slate-100/60">
+            <div className="text-xs xl:text-sm tracking-wide text-slate-500 dark:text-slate-100/70">
               {eyebrow}
             </div>
           )}
           {displayTitle && (
             <div
               className={classNames(
-                'not-prose font-heading text-lg lg:text-xl dark:text-slate-100',
-                {
-                  'mb-2 lg:mb-4': description || buttons.length > 0,
-                },
+                'text-lg xl:text-xl font-heading font-medium dark:text-slate-100',
               )}
             >
               <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
             </div>
           )}
-          {description && (
+          {!!tags?.length && (
+            <div
+              className={classNames(
+                'text-xs xl:text-sm tracking-wide text-slate-500 dark:text-slate-100/70',
+                {
+                  'mt-1': displayTitle,
+                },
+              )}
+            >
+              {tags.join(', ')}
+            </div>
+          )}
+          {summary && (
             <div
               className={classNames(
                 'prose 2xl:prose-lg leading-loose text-slate-500 dark:text-slate-100/70',
                 {
-                  'mb-4 lg:mb-6': buttons.length > 0,
+                  'mt-1 lg:mt-2': displayTitle || !!tags?.length,
+                  'mb-3 lg:mb-5': buttons.length > 0,
                 },
               )}
             >
-              <MarkdownRenderer>{description}</MarkdownRenderer>
+              <MarkdownRenderer>{summary}</MarkdownRenderer>
             </div>
           )}
           {buttons?.length > 0 && (

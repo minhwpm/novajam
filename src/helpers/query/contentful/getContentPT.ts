@@ -28,7 +28,7 @@ export default async function getContentPT(id: string) {
             eyebrow
             displayTitle
             summary
-            introAlignment
+            alignment
             buttonsCollection {
               items {
                 sys {

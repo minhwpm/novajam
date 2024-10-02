@@ -30,7 +30,7 @@ export default async function getCTA(id: string) {
                   displayTitle
                   eyebrow
                   summary
-                  introAlignment
+                  alignment
                   buttonsCollection {
                     items {
                       sys {

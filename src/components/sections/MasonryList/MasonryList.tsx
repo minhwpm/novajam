@@ -1,15 +1,13 @@
 'use client';
 import classNames from 'classnames';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-import { AlignmentType, Content, ItemSize } from '@/helpers/types';
-import { ContentMapping } from '../ContentList/ContentMapping';
+import { BlockType, ItemSize } from '@/helpers/types';
+import { BlockMapping } from '../ContentList/BlockMapping';
 
 export const MasonryList: React.FC<{
-  listItems: Content[];
+  blocks: BlockType[];
   itemSize: ItemSize;
-  itemAlignment: AlignmentType;
-  itemLayout: 'horizontal' | 'vertical';
-}> = ({ listItems, itemSize, itemAlignment, itemLayout }) => {
+}> = ({ blocks, itemSize }) => {
   return (
     <ResponsiveMasonry
       columnsCountBreakPoints={{
@@ -59,14 +57,8 @@ export const MasonryList: React.FC<{
           '48px': itemSize === 'XL',
         })}
       >
-        {listItems.map((item, idx) => (
-          <ContentMapping
-            key={idx}
-            data={item}
-            alignment={itemAlignment}
-            layout={itemLayout}
-            index={idx}
-          />
+        {blocks.map((item, idx) => (
+          <BlockMapping key={idx} index={idx} data={item} />
         ))}
       </Masonry>
     </ResponsiveMasonry>

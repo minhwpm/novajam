@@ -46,7 +46,7 @@ export default async function getContentList(id: string) {
                     }
                   }
                   htmlid
-                  introAlignment
+                  alignment
                   listVariant
                   layout
                   backgroundColor
@@ -61,9 +61,7 @@ export default async function getContentList(id: string) {
                   darkMode
                   showBottomSeparator
                   itemSize
-                  itemAlignment
-                  itemLayout
-                  listItemsCollection (limit: 20) {
+                  blocksCollection (limit: 20) {
                     items {
                       __typename
                       ... on Expert {
@@ -89,6 +87,8 @@ export default async function getContentList(id: string) {
                           height
                           contentType
                         }
+                        alignment
+                        layout
                       }
                       ... on Statistics {
                         sys {
@@ -96,6 +96,8 @@ export default async function getContentList(id: string) {
                         }
                         number
                         text
+                        alignment
+                        layout
                       }
                       ... on FlexibleContent {
                         sys {
@@ -124,6 +126,8 @@ export default async function getContentList(id: string) {
                             height
                           }
                         }
+                        alignment
+                        layout
                       }
                       ... on Testimonial {
                         sys {
@@ -140,6 +144,8 @@ export default async function getContentList(id: string) {
                         name
                         role
                         rating
+                        alignment
+                        layout
                       }
                     }
                   }
@@ -166,21 +172,21 @@ export default async function getContentList(id: string) {
     const data = await res.json();
     const normalizedData = normalizeContentfulData(data.data);
 
-    normalizedData[0]?.listItems &&
+    normalizedData[0]?.blocks &&
       (await Promise.all(
-        normalizedData[0]?.listItems.map(
+        normalizedData[0]?.blocks.map(
           async (
             contentItem: { contentType: string; id: string },
             index: string | number,
           ) => {
             if (contentItem?.contentType === 'flexiblecontent') {
               const sectionData = await getFlexibleContent(contentItem.id);
-              normalizedData[0].listItems[index] = {
+              normalizedData[0].blocks[index] = {
                 ...contentItem,
                 ...sectionData,
               };
             } else {
-              normalizedData[0].listItems[index] = { ...contentItem };
+              normalizedData[0].blocks[index] = { ...contentItem };
             }
           },
         ),

@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
-import { AlignmentType, Content, ItemSize } from '@/helpers/types';
-import { ContentMapping } from '@/components/sections/ContentList/ContentMapping';
+import { BlockType, ItemSize } from '@/helpers/types';
+import { BlockMapping } from '@/components/sections/ContentList/BlockMapping';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import 'swiper/css';
@@ -15,11 +15,9 @@ import '@/app/styles/padding.css';
 import './styles.css';
 
 export const CarouselList: React.FC<{
-  listItems: Content[];
+  blocks: BlockType[];
   itemSize: ItemSize;
-  itemAlignment: AlignmentType;
-  itemLayout: 'horizontal' | 'vertical';
-}> = ({ listItems, itemSize, itemAlignment, itemLayout }) => {
+}> = ({ blocks, itemSize }) => {
   const [carouselState, setState] = useState({
     isBeginning: true,
     isEnd: false,
@@ -71,7 +69,7 @@ export const CarouselList: React.FC<{
             )}
           />
         </div>
-        {listItems.map((item, idx) => (
+        {blocks.map((item, idx) => (
           <SwiperSlide
             key={idx}
             className={classNames('px-4 basis-11/12', {
@@ -84,13 +82,7 @@ export const CarouselList: React.FC<{
                 itemSize === 'S',
             })}
           >
-            <ContentMapping
-              data={item}
-              alignment={itemAlignment}
-              layout={itemLayout}
-              index={idx}
-              animate={false}
-            />
+            <BlockMapping data={item} index={idx} animate={false} />
           </SwiperSlide>
         ))}
       </Swiper>

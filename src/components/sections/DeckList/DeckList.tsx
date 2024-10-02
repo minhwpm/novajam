@@ -1,15 +1,13 @@
 import classNames from 'classnames';
-import { ContentMapping } from '../ContentList/ContentMapping';
-import { AlignmentType, Content, ItemSize } from '@/helpers/types';
+import { BlockMapping } from '../ContentList/BlockMapping';
+import { BlockType, ItemSize } from '@/helpers/types';
 
 export const DeckList: React.FC<{
-  listItems: Array<Content>;
+  blocks: Array<BlockType>;
   itemSize: ItemSize;
-  itemAlignment: AlignmentType;
-  itemLayout: 'horizontal' | 'vertical';
-}> = ({ listItems, itemSize, itemAlignment, itemLayout }) => {
+}> = ({ blocks, itemSize }) => {
   return (
-    <div
+    <ul
       className={classNames(
         'flex flex-wrap gap-y-8 justify-center -mx-4',
         {
@@ -19,8 +17,8 @@ export const DeckList: React.FC<{
         { 'xl:gap-y-12': itemSize === 'XL' || itemSize === '2XL' },
       )}
     >
-      {listItems.map((item, idx) => (
-        <div
+      {blocks.map((item, idx) => (
+        <li
           key={idx}
           className={classNames('px-4 w-full', {
             'lg:basis-11/12 xl:basis-4/5 2xl:basis-3/4 lg:px-5 xl:px-6':
@@ -32,14 +30,9 @@ export const DeckList: React.FC<{
               itemSize === 'S',
           })}
         >
-          <ContentMapping
-            data={item}
-            alignment={itemAlignment}
-            layout={itemLayout}
-            index={idx}
-          />
-        </div>
+          <BlockMapping data={item} index={idx} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };

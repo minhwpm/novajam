@@ -1,6 +1,6 @@
 'use client';
 import classNames from 'classnames';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Section } from '@/components/elements/Section/Section';
 import { ContentPTType } from '@/helpers/types';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
@@ -53,7 +53,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
     displayTitle,
     summary,
     presentationItems,
-    introAlignment,
+    alignment,
     itemAlignment,
     darkMode,
   } = data;
@@ -77,8 +77,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
             <p
               className={classNames(
                 'uppercase text-sm lg:text-base tracking-widest text-secondary-600 font-medium mb-2',
-                { 'text-center': introAlignment === 'center' },
-                { 'text-end': introAlignment === 'end' },
+                { 'text-center': alignment === 'center' },
+                { 'text-end': alignment === 'end' },
               )}
             >
               {eyebrow}
@@ -89,8 +89,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
               className={classNames(
                 'font-heading text-heading leading-tight mb-3 dark:text-slate-100',
                 {
-                  'text-center': introAlignment === 'center',
-                  'text-end': introAlignment === 'end',
+                  'text-center': alignment === 'center',
+                  'text-end': alignment === 'end',
                 },
               )}
             >
@@ -102,8 +102,8 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
               className={classNames(
                 'prose md:prose-lg lg:prose-xl mb-3 max-w-xl lg:max-w-3xl dark:text-slate-100',
                 {
-                  'text-center': introAlignment === 'center',
-                  'text-end': introAlignment === 'end',
+                  'text-center': alignment === 'center',
+                  'text-end': alignment === 'end',
                 },
               )}
             >
@@ -112,7 +112,7 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
           )}
           <div
             className={classNames('mt-8 hidden lg:flex gap-4', {
-              'lg:justify-center': introAlignment === 'center',
+              'lg:justify-center': alignment === 'center',
             })}
           >
             <ArrowGroup
@@ -170,13 +170,13 @@ export const SleekCarouselPT: React.FC<{ data: ContentPTType }> = ({
                     <MarkdownRenderer>{item.displayTitle}</MarkdownRenderer>
                   </div>
                 )}
-                {item.description && (
+                {item.summary && (
                   <div
                     className={classNames(
                       'mt-5 prose 2xl:prose-lg dark:text-slate-100/70',
                     )}
                   >
-                    <MarkdownRenderer>{item.description}</MarkdownRenderer>
+                    <MarkdownRenderer>{item.summary}</MarkdownRenderer>
                   </div>
                 )}
                 {item.buttons && item.buttons.length > 0 && (

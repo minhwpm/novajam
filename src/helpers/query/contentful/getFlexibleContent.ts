@@ -28,7 +28,8 @@ export default async function getFlexibleContent(id: string) {
                   }
                   eyebrow
                   displayTitle
-                  description
+                  tags
+                  summary
                   redirectUrl
                   mediaCollection {
                     items {
@@ -61,6 +62,8 @@ export default async function getFlexibleContent(id: string) {
                       }
                     }
                   }
+                  alignment
+                  layout
                 }
               }
             }

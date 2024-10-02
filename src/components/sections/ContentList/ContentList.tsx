@@ -7,14 +7,7 @@ import { DeckList } from '@/components/sections/DeckList/DeckList';
 import '@/app/styles/bg-color.css';
 
 export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
-  const {
-    listItems,
-    listVariant,
-    itemSize,
-    itemAlignment,
-    itemLayout,
-    darkMode,
-  } = data;
+  const { blocks, listVariant, itemSize, darkMode } = data;
   const layout = data.layout ?? 'full top';
   return (
     <Section
@@ -27,28 +20,13 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
     >
       <div className="basis-2/3 grow shrink">
         {listVariant === 'carousel' && (
-          <CarouselList
-            listItems={listItems}
-            itemSize={itemSize}
-            itemAlignment={itemAlignment}
-            itemLayout={itemLayout}
-          />
+          <CarouselList blocks={blocks} itemSize={itemSize} />
         )}
         {listVariant === 'masonry' && (
-          <MasonryList
-            listItems={listItems}
-            itemSize={itemSize}
-            itemAlignment={itemAlignment}
-            itemLayout={itemLayout}
-          />
+          <MasonryList blocks={blocks} itemSize={itemSize} />
         )}
         {listVariant === 'deck' && (
-          <DeckList
-            listItems={listItems}
-            itemSize={itemSize}
-            itemAlignment={itemAlignment}
-            itemLayout={itemLayout}
-          />
+          <DeckList blocks={blocks} itemSize={itemSize} />
         )}
       </div>
     </Section>

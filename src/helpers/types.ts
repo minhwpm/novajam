@@ -186,6 +186,8 @@ export type ExpertType = {
   organization: string | null;
   summary: string | null;
   sns: SNSType | null;
+  alignment: AlignmentType;
+  layout: 'horizontal' | 'vertical';
   contentType: 'expert';
 };
 
@@ -207,9 +209,9 @@ export type FeaturedContentType = {
   media: Array<MediaType>;
   mediaPosition: 'left' | 'right';
   mediaAspectRatio: MediaAspectRatioType;
-  supportingItems: Array<FlexibleContentType>;
+  blocks: Array<BlockType>;
   buttons: Array<ButtonType>;
-  introAlignment: AlignmentType;
+  alignment: AlignmentType;
   layout: 'flex row' | 'full top';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
@@ -230,7 +232,7 @@ export type HeroType = {
   buttons: Array<ButtonType>;
   media: MediaType | null;
   layout: 'horizontal' | 'vertical';
-  introAlignment: AlignmentType;
+  alignment: AlignmentType;
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
@@ -255,7 +257,7 @@ export type ContentPTType = {
   displayTitle: string | null;
   summary: string | null;
   buttons: Array<ButtonType>;
-  introAlignment: AlignmentType;
+  alignment: AlignmentType;
   presentationItems: Array<FlexibleContentType>;
   itemAlignment: AlignmentType;
   presentationVariant:
@@ -277,6 +279,8 @@ export type StatisticsType = {
   id: string;
   number: string;
   text: string;
+  alignment: AlignmentType;
+  layout: 'horizontal' | 'vertical';
   contentType: 'statistics';
 };
 
@@ -287,6 +291,8 @@ export type TestimonialType = {
   name: string | null;
   role: string | null;
   rating: 0 | 1 | 2 | 3 | 4 | 5;
+  alignment: AlignmentType;
+  layout: 'horizontal' | 'vertical';
   contentType: 'testimonial';
 };
 
@@ -294,11 +300,14 @@ export type FlexibleContentType = {
   id: string;
   eyebrow: string | null;
   displayTitle: string | null;
-  description: string | null;
+  tags: Array<string> | null;
+  summary: string | null;
   buttons: Array<ButtonType>;
   redirectUrl: string | null;
   media: Array<MediaType>;
   mediaAspectRatio: MediaAspectRatioType;
+  alignment: AlignmentType;
+  layout: 'horizontal' | 'vertical';
   contentType: 'flexiblecontent';
 };
 
@@ -310,12 +319,12 @@ export type PricingPlanType = {
   badge: string;
   description: string | null;
   ctaButton: ButtonType;
+  alignment: AlignmentType;
+  layout: 'horizontal' | 'vertical';
   contentType: 'pricingplan';
 };
 
-export type Content =
-  | BlogType
-  | PageType
+export type BlockType =
   | ExpertType
   | StatisticsType
   | FlexibleContentType
@@ -330,10 +339,8 @@ export type ContentListType = {
   displayTitle: string | null;
   summary: string | null;
   buttons: Array<ButtonType>;
-  introAlignment: AlignmentType;
-  listItems: Array<Content>;
-  itemAlignment: AlignmentType;
-  itemLayout: 'horizontal' | 'vertical';
+  alignment: AlignmentType;
+  blocks: Array<BlockType>;
   itemSize: ItemSize;
   listVariant: 'carousel' | 'masonry' | 'deck';
   layout: 'flex row' | 'full top';
@@ -372,7 +379,7 @@ export type CTAType = {
   eyebrow: string | null;
   displayTitle: string | null;
   summary: string | null;
-  introAlignment: AlignmentType;
+  alignment: AlignmentType;
   buttons: Array<ButtonType>;
   form: FormType | null;
   layout: 'flex row' | 'full top';

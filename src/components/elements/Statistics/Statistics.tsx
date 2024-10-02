@@ -1,15 +1,16 @@
 'use client';
 import classNames from 'classnames';
-import { AlignmentType, StatisticsType } from '@/helpers/types';
+import { StatisticsType } from '@/helpers/types';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
 export const Statistics: React.FC<{
   data: StatisticsType;
-  layout: 'horizontal' | 'vertical';
   index: number;
-  alignment?: AlignmentType;
-}> = ({ data, index, layout = 'vertical', alignment }) => {
+}> = ({ data, index }) => {
   const { number, text } = data;
+  const layout = data.layout ?? 'vertical';
+  const alignment = data.alignment ?? 'center';
+
   const [ref, isIntersecting] = useIntersecting();
 
   return (

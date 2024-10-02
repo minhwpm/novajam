@@ -3,16 +3,16 @@ import classNames from 'classnames';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import { FeaturedContentType } from '@/helpers/types';
 import { Section } from '@/components/elements/Section/Section';
-import { FlexibleContent } from '@/components/elements/FlexibleContent/FlexibleContent';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
 import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
+import { BlockMapping } from '../ContentList/BlockMapping';
 import '@/app/styles/bg-color.css';
 import '@/app/styles/padding.css';
 
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
   data,
 }) => {
-  const { supportingItems, media, mediaPosition, mediaAspectRatio } = data;
+  const { blocks, media, mediaPosition, mediaAspectRatio } = data;
   const layout = data.layout ?? 'flex row';
 
   const [mediaRef, isMediaIntersecting] = useIntersecting();
@@ -49,7 +49,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
           )}
         </div>
       )}
-      {!!supportingItems.length && (
+      {!!blocks.length && (
         <div
           ref={itemsListRef}
           className={classNames(
@@ -60,13 +60,8 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
             },
           )}
         >
-          {supportingItems.map((item, index) => (
-            <FlexibleContent
-              key={index}
-              data={item}
-              layout="horizontal"
-              alignment="start"
-            />
+          {blocks.map((item, index) => (
+            <BlockMapping key={index} index={index} data={item} />
           ))}
         </div>
       )}

@@ -1,17 +1,17 @@
+/* eslint-disable complexity */ //@TODO eslint
 'use client';
 import classNames from 'classnames';
-import { ExpertType, AlignmentType } from '@/helpers/types';
+import { ExpertType } from '@/helpers/types';
 import { SNS } from '@/components/elements/SNS/SNS';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 
-export const ExpertPreview: React.FC<{
+export const Expert: React.FC<{
   index?: number;
   data: ExpertType;
-  layout: 'horizontal' | 'vertical';
-  alignment?: AlignmentType;
   animate?: boolean;
-}> = ({ index, data, layout, alignment, animate }) => {
+  customLayout?: 'vertical' | 'horizontal';
+}> = ({ index, data, animate, customLayout }) => {
   const {
     fullName,
     portrait,
@@ -21,7 +21,11 @@ export const ExpertPreview: React.FC<{
     summary,
     sns,
   } = data;
+  const layout = customLayout ?? data.layout ?? 'vertical';
+  const alignment = data.alignment ?? 'center';
+
   const [ref, isIntersecting] = useIntersecting();
+
   if (layout === 'horizontal') {
     return (
       <div

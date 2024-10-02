@@ -45,14 +45,89 @@ export default async function getFeature(id: string) {
                 }
               }
             }
-            supportingItemsCollection (limit: 5) {
+            blocksCollection (limit: 5) {
               items {
-                sys {
-                  id
+                __typename
+                
+                ... on Statistics {
+                  sys {
+                    id
+                  }
+                  number
+                  text
+                }
+                ... on FlexibleContent {
+                  sys {
+                    id
+                  }
+                }
+                ... on PricingPlan {
+                  sys {
+                    id
+                  }
+                  title
+                  pricing
+                  pricingSuffix
+                  badge
+                  description
+                  ctaButton {
+                    url
+                    buttonLabel
+                    openNewTab
+                    buttonVariant
+                    withArrow
+                    icon {
+                      url
+                      title
+                      width
+                      height
+                    }
+                  }
+                }
+                ... on Testimonial {
+                  sys {
+                    id
+                  }
+                  content
+                  portrait {
+                    url
+                    title
+                    width
+                    height
+                    contentType
+                  }
+                  name
+                  role
+                  rating
+                }
+                ... on Expert {
+                  sys {
+                    id
+                  }
+                  fullName
+                  role
+                  organization
+                  specialization
+                  summary
+                  sns {
+                    linkedInUrl
+                    facebookUrl
+                    twitterUrl
+                    youtubeUrl
+                    instagramUrl
+                  }
+                  portrait {
+                    url
+                    title
+                    width
+                    height
+                    contentType
+                  }
                 }
               }
+              
             }
-            introAlignment
+            alignment
             mediaCollection (limit: 50) {
               items {
                 sys {
@@ -103,18 +178,22 @@ export default async function getFeature(id: string) {
     const data = await res.json();
     const normalizedData = normalizeContentfulData(data.data);
 
-    normalizedData[0]?.supportingItems &&
+    normalizedData[0]?.blocks &&
       (await Promise.all(
-        normalizedData[0]?.supportingItems.map(
+        normalizedData[0]?.blocks.map(
           async (
-            item: { contentType: string; id: string },
+            contentItem: { contentType: string; id: string },
             index: string | number,
           ) => {
-            const sectionData = await getFlexibleContent(item.id);
-            normalizedData[0].supportingItems[index] = {
-              ...item,
-              ...sectionData,
-            };
+            if (contentItem?.contentType === 'flexiblecontent') {
+              const sectionData = await getFlexibleContent(contentItem.id);
+              normalizedData[0].blocks[index] = {
+                ...contentItem,
+                ...sectionData,
+              };
+            } else {
+              normalizedData[0].blocks[index] = { ...contentItem };
+            }
           },
         ),
       ));
