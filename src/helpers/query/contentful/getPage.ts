@@ -4,7 +4,6 @@ import getHero from './getHero';
 import getContentPT from './getContentPT';
 import normalizeContentfulData from './normalizeContentfulData';
 import getAlert from './getAlert';
-import getCTA from './getCTA';
 
 export async function getPage(url: string) {
   try {
@@ -117,8 +116,6 @@ export async function getPage(url: string) {
           return await getContentList(id);
         case 'alert':
           return await getAlert(id);
-        case 'cta':
-          return await getCTA(id);
         default:
           return null;
       }

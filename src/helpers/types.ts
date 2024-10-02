@@ -136,8 +136,7 @@ export type PageContentType =
   | AlertType
   | ContentPTType
   | ContentListType
-  | FeaturedContentType
-  | CTAType;
+  | FeaturedContentType;
 
 export type PageType = {
   id: string;
@@ -371,25 +370,6 @@ export type FormFieldType = {
   placeholder: string;
   helpText: string;
   uiWidth: 'half-size' | 'full-size';
-};
-
-export type CTAType = {
-  id: string;
-  title: string;
-  htmlid: string | null;
-  eyebrow: string | null;
-  displayTitle: string | null;
-  summary: string | null;
-  alignment: AlignmentType;
-  buttons: Array<ButtonType>;
-  form: FormType | null;
-  layout: 'flex row' | 'full top';
-  backgroundColor: string | null;
-  backgroundImage: MediaType | null;
-  enableParallaxEffect: boolean;
-  darkMode: boolean;
-  showBottomSeparator: boolean;
-  contentType: 'cta';
 };
 
 export type FormType = {

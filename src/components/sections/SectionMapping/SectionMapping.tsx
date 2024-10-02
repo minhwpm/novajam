@@ -7,7 +7,6 @@ import { FeaturedContent } from '@/components/sections/FeaturedContent/FeaturedC
 import { TabPT } from '@/components/sections/TabPT/TabPT';
 import { CarouselPT } from '@/components/sections/CarouselPT/CarouselPT';
 import { SleekCarouselPT } from '@/components/sections/SleekCarouselPT/SleekCarouselPT';
-import { CTA } from '@/components/sections/CTA/CTA';
 import { ContentPTType, PageContentType } from '@/helpers/types';
 
 function ContentPresentationMapping({ data }: { data: ContentPTType }) {
@@ -45,8 +44,6 @@ function SectionComponentMapping({
       return <FeaturedContent data={data} />;
     case 'contentlist':
       return <ContentList data={data} />;
-    case 'cta':
-      return <CTA data={data} />;
     default:
       return null;
   }

@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import {
   ContentListType,
   ContentPTType,
-  CTAType,
   FeaturedContentType,
 } from '@/helpers/types';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
@@ -15,7 +14,7 @@ interface SectionProps {
   className?: string;
   framed?: boolean;
   layout?: 'flex row' | 'full top';
-  data: ContentListType | ContentPTType | CTAType | FeaturedContentType;
+  data: ContentListType | ContentPTType | FeaturedContentType;
   children: React.ReactNode;
 }
 
@@ -158,11 +157,6 @@ export const Section: React.FC<SectionProps> = ({
               <ButtonGroup data={buttons} alignment={alignment} />
             </div>
           )}
-        {!!buttons?.length && data.contentType === 'cta' && (
-          <div className="">
-            <ButtonGroup data={buttons} alignment={alignment} size="lg" />
-          </div>
-        )}
       </div>
       {showBottomSeparator && <SectionSeparator />}
     </section>
