@@ -72,11 +72,6 @@ export async function getPage(url: string) {
                     id
                   }
                 }
-                ... on Cta {
-                  sys {
-                    id
-                  }
-                }
               }
             }
           }

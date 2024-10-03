@@ -323,13 +323,22 @@ export type PricingPlanType = {
   contentType: 'pricingplan';
 };
 
+export type QAType = {
+  id: string;
+  question: string;
+  answer: string;
+  isExpanded: boolean;
+  contentType: 'qa';
+};
+
 export type BlockType =
   | ExpertType
   | StatisticsType
   | FlexibleContentType
   | PricingPlanType
   | TestimonialType
-  | FormType;
+  | FormType
+  | QAType;
 
 export type ItemSize = 'S' | 'M' | 'L' | 'XL' | '2XL';
 

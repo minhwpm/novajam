@@ -53,7 +53,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
         <div
           ref={itemsListRef}
           className={classNames(
-            'relative -bottom-10 opacity-0 basis-1/3 grow shrink flex flex-col gap-y-8 my-8',
+            'relative -bottom-10 opacity-0 basis-1/3 grow shrink flex flex-col gap-y-8',
             {
               'animate-slidingUpContent animation-delay-450':
                 isItemsListIntersecting,

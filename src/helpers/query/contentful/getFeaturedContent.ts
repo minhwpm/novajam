@@ -129,6 +129,14 @@ export default async function getFeature(id: string) {
                     id
                   }
                 }
+                ... on Qa {
+                  sys {
+                    id
+                  }
+                  question
+                  answer
+                  isExpanded
+                }
               }
             }
             alignment

@@ -1,4 +1,5 @@
 import getFlexibleContent from './getFlexibleContent';
+import getForm from './getForm';
 import normalizeContentfulData from './normalizeContentfulData';
 
 export default async function getContentList(id: string) {
@@ -147,6 +148,19 @@ export default async function getContentList(id: string) {
                         alignment
                         layout
                       }
+                      ... on Form {
+                        sys {
+                          id
+                        }
+                      }
+                      ... on Qa {
+                        sys {
+                          id
+                        }
+                        question
+                        answer
+                        isExpanded
+                      }
                     }
                   }
                 }
@@ -180,10 +194,14 @@ export default async function getContentList(id: string) {
             index: string | number,
           ) => {
             if (contentItem?.contentType === 'flexiblecontent') {
-              const sectionData = await getFlexibleContent(contentItem.id);
               normalizedData[0].blocks[index] = {
                 ...contentItem,
-                ...sectionData,
+                ...(await getFlexibleContent(contentItem.id)),
+              };
+            } else if (contentItem?.contentType === 'form') {
+              normalizedData[0].blocks[index] = {
+                ...contentItem,
+                ...(await getForm(contentItem.id)),
               };
             } else {
               normalizedData[0].blocks[index] = { ...contentItem };
