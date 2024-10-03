@@ -19,9 +19,10 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
       framed={listVariant !== 'carousel'}
     >
       <div
-        className={classNames('basis-1/2 grow shrink flex', {
-          'justify-center': alignment === 'center',
-          'justify-end': alignment === 'end',
+        className={classNames('basis-1/2 grow shrink', {
+          flex: listVariant === 'deck',
+          'justify-center': listVariant === 'deck' && alignment === 'center',
+          'justify-end': listVariant === 'deck' && alignment === 'end',
         })}
       >
         {listVariant === 'carousel' && (

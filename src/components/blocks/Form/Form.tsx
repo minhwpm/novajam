@@ -68,7 +68,7 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
     <>
       <form
         className={classNames(
-          'max-w-min p-4 lg:p-8 flex flex-col rounded-theme dark:bg-white dark:text-slate-700 self-end',
+          'p-4 lg:p-8 flex flex-wrap rounded-theme dark:bg-white dark:text-slate-700 self-end',
           { 'gap-4': fields.length > 1 },
           { 'gap-1': fields?.length === 1 },
         )}
@@ -78,10 +78,13 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
           fields.map((fieldItem) => (
             <div
               key={fieldItem.id}
-              className={classNames('relative flex flex-col gap-2 max-w-md', {
-                'sm:min-w-[384px]': fieldItem.uiWidth === 'full-size',
-                'lg:basis-1/2': fieldItem.uiWidth === 'half-size',
-              })}
+              className={classNames(
+                'relative flex flex-col gap-2 w-full max-w-xl',
+                {
+                  'sm:basis-1/3 sm:grow sm:shrink':
+                    fieldItem.uiWidth === 'half-size',
+                },
+              )}
             >
               <div className="flex gap-2 items-center">
                 {fieldItem.placeholder && (
@@ -139,7 +142,7 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
         <input hidden readOnly value={title} {...register('title')} />
         <input hidden readOnly value={formType} {...register('formType')} />
 
-        <div className="mt-2">
+        <div className="mt-2 w-full">
           {submitButton ? (
             <Button
               data={submitButton}
