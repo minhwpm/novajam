@@ -8,19 +8,16 @@ export const DeckList: React.FC<{
 }> = ({ blocks, itemSize }) => {
   return (
     <ul
-      className={classNames(
-        'flex flex-wrap gap-y-8 justify-center -mx-4 max-w-fit',
-        {
-          'lg:gap-y-10':
-            itemSize === 'L' || itemSize === 'XL' || itemSize === '2XL',
-        },
-        { 'xl:gap-y-12': itemSize === 'XL' || itemSize === '2XL' },
-      )}
+      className={classNames('flex flex-wrap -mx-4 max-w-fit', {
+        'lg:gap-y-8':
+          itemSize === 'L' || itemSize === 'XL' || itemSize === '2XL',
+        'xl:gap-y-10': itemSize === 'XL' || itemSize === '2XL',
+      })}
     >
       {blocks.map((item, idx) => (
         <li
           key={idx}
-          className={classNames('px-4 w-full', {
+          className={classNames('px-4', {
             'lg:px-5 xl:px-6': itemSize === '2XL',
             'lg:basis-1/2 lg:px-5 xl:px-6': itemSize === 'XL',
             'md:basis-1/2 xl:basis-1/3 lg:px-5': itemSize === 'L',

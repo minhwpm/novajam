@@ -7,7 +7,7 @@ import { DeckList } from '@/components/sections/DeckList/DeckList';
 import '@/app/styles/bg-color.css';
 
 export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
-  const { blocks, listVariant, itemSize, darkMode } = data;
+  const { blocks, listVariant, itemSize, darkMode, alignment } = data;
   const layout = data.layout ?? 'full top';
   return (
     <Section
@@ -18,7 +18,12 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
       layout={layout}
       framed={listVariant !== 'carousel'}
     >
-      <div className="basis-2/3 grow shrink">
+      <div
+        className={classNames('basis-1/2 grow shrink flex', {
+          'justify-center': alignment === 'center',
+          'justify-end': alignment === 'end',
+        })}
+      >
         {listVariant === 'carousel' && (
           <CarouselList blocks={blocks} itemSize={itemSize} />
         )}

@@ -5,18 +5,16 @@ import { FeaturedContentType } from '@/helpers/types';
 import { Section } from '@/components/sections/Section/Section';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
 import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
-import { BlockMapping } from '../ContentList/BlockMapping';
+import { DeckList } from '../DeckList/DeckList';
 import '@/app/styles/bg-color.css';
 import '@/app/styles/padding.css';
 
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
   data,
 }) => {
-  const { blocks, media, mediaPosition, mediaAspectRatio } = data;
+  const { blocks, media, mediaPosition, mediaAspectRatio, alignment } = data;
   const layout = data.layout ?? 'flex row';
-
   const [mediaRef, isMediaIntersecting] = useIntersecting();
-  const [itemsListRef, isItemsListIntersecting] = useIntersecting();
 
   return (
     <Section data={data} layout={layout}>
@@ -24,7 +22,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
         <div
           ref={mediaRef}
           className={classNames(
-            'relative -bottom-10 opacity-0 basis-1/3 grow shrink',
+            'relative -bottom-10 opacity-0 basis-1/3 shrink grow',
             {
               '-order-1': mediaPosition === 'left' && layout === 'flex row',
               'order-3': mediaPosition === 'right',
@@ -51,18 +49,12 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
       )}
       {!!blocks.length && (
         <div
-          ref={itemsListRef}
-          className={classNames(
-            'relative -bottom-10 opacity-0 basis-1/3 grow shrink flex flex-col gap-y-8',
-            {
-              'animate-slidingUpContent animation-delay-450':
-                isItemsListIntersecting,
-            },
-          )}
+          className={classNames('basis-1/3 grow shrink max-w-fit flex', {
+            'justify-center': alignment === 'center',
+            'justify-end': alignment === 'end',
+          })}
         >
-          {blocks.map((item, index) => (
-            <BlockMapping key={index} index={index} data={item} />
-          ))}
+          {!!blocks.length && <DeckList blocks={blocks} itemSize={'2XL'} />}
         </div>
       )}
     </Section>

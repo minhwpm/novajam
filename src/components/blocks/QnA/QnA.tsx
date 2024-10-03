@@ -23,7 +23,7 @@ export const QnA: React.FC<{ data: QAType }> = ({ data }) => {
   };
 
   return (
-    <div className="max-w-2xl rounded-theme bg-white dark:bg-white/5">
+    <div className="rounded-theme bg-white dark:bg-white/5">
       <button
         className="p-4 lg:p-6 w-full flex justify-between items-center"
         onClick={toggleAccordion}
