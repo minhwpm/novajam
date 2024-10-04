@@ -50,7 +50,7 @@
 
 @layer utilities {
   .overlay-nav section:first-of-type {
-    @apply xl:pt-24 lg:pt-20 md:pt-18 pt-16;
+    @apply 2xl:py-28 xl:pt-24 lg:pt-20 md:pt-16 pt-14;
   }
 }
 

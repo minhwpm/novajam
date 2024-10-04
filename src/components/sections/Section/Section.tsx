@@ -39,6 +39,9 @@ export const Section: React.FC<SectionProps> = ({
     showBottomSeparator,
   } = data;
 
+  const marginTop = 'marginTop' in data ? data.marginTop : 'none';
+  const marginBottom = 'marginBottom' in data ? data.marginBottom : 'none';
+
   const [ref, isIntersecting] = useIntersecting(0.5);
 
   const renderEyebrow = () =>
@@ -115,14 +118,30 @@ export const Section: React.FC<SectionProps> = ({
       <div
         className={classNames(
           'flex flex-col lg:flex-row lg:justify-between lg:items-center gap-x-10 gap-y-6 lg:gap-y-10',
-          'py-14 md:py-16 lg:py-18 xl:py-20 2xl:py-24',
+          'py-14 md:py-16 lg:py-20 xl:py-24 2xl:py-28',
           {
             container: framed,
             'flex-wrap': layout === 'full top',
+            'mt-0': marginTop === 'none',
+            'mt-2 md:-mt-4 2xl:-mt-6': marginTop === '-sm',
+            '-mt-4 md:-mt-6 lg:-mt-8 xl:-mt-10 2xl:-mt-14': marginTop === '-md',
+            '-mt-14 md:-mt-16 lg:-mt-20 xl:-mt-24 2xl:-mt-28':
+              marginTop === '-lg',
+            'mt-2 md:mt-4 2xl:mt-6': marginTop === 'sm',
+            'mt-4 md:mt-6 lg:mt-8 xl:mt-10 2xl:mt-14': marginTop === 'md',
+            'mt-14 md:mt-16 lg:mt-20 xl:mt-24 2xl:mt-28': marginTop === 'lg',
+            'mb-0': marginBottom === 'none',
+            '-mb-2 md:-mb-4 2xl:-mb-6': marginTop === '-sm',
+            '-mb-4 md:-mb-6 lg:-mb-8 xl:-mb-10 2xl:-mb-14': marginTop === '-md',
+            '-mb-14 md:-mb-16 lg:-mb-20 xl:-mb-24 2xl:-mb-28':
+              marginBottom === '-lg',
+            'mb-2 md:mb-4 2xl:mb-6': marginBottom === 'sm',
+            'mb-4 md:mb-6 lg:mb-8 xl:mb-10 2xl:mb-14': marginBottom === 'md',
+            'mb-14 md:mb-16 lg:mb-20 xl:mb-24 2xl:mb-28': marginBottom === 'lg',
           },
         )}
       >
-        {displayTitle && (
+        {(eyebrow || displayTitle || summary) && (
           <div
             ref={ref}
             className={classNames(

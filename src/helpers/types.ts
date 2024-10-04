@@ -357,6 +357,8 @@ export type ContentListType = {
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
   darkMode: boolean;
+  marginTop: '-lg' | '-md' | '-sm' | 'none' | 'sm' | 'md' | 'lg' | null;
+  marginBottom: '-lg' | '-md' | '-sm' | 'none' | 'sm' | 'md' | 'lg' | null;
   showBottomSeparator: boolean;
   htmlid: string | null;
   contentType: 'contentlist';

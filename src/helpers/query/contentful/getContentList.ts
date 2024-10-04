@@ -61,6 +61,8 @@ export default async function getContentList(id: string) {
                   enableParallaxEffect
                   darkMode
                   showBottomSeparator
+                  marginTop
+                  marginBottom
                   itemSize
                   blocksCollection (limit: 20) {
                     items {
