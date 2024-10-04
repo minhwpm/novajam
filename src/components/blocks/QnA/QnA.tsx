@@ -23,12 +23,12 @@ export const QnA: React.FC<{ data: QAType }> = ({ data }) => {
   };
 
   return (
-    <div className="rounded-theme bg-white dark:bg-white/5">
+    <div className="max-w-2xl rounded-theme bg-white dark:bg-white/5">
       <button
-        className="p-4 lg:p-6 w-full flex justify-between items-center"
+        className="p-4 lg:p-6 w-full flex justify-between gap-10 items-center"
         onClick={toggleAccordion}
       >
-        <div className="prose prose-lg 2xl:prose-xl font-medium dark:text-slate-100">
+        <div className="max-w-none prose prose-lg 2xl:prose-xl font-medium dark:text-slate-100">
           {question}
         </div>
         <FaChevronRight
@@ -47,7 +47,7 @@ export const QnA: React.FC<{ data: QAType }> = ({ data }) => {
         }}
         className={classNames('transition-all duration-300 ease')}
       >
-        <MarkdownRenderer className="prose px-4 lg:px-6 pb-4 lg:pb-6 2xl:prose-lg text-slate-500 dark:text-slate-100/70">
+        <MarkdownRenderer className="max-w-none prose px-4 lg:px-6 pb-4 lg:pb-6 2xl:prose-lg text-slate-500 dark:text-slate-100/70">
           {answer}
         </MarkdownRenderer>
       </div>

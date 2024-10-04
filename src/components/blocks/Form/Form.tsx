@@ -68,7 +68,7 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
     <>
       <form
         className={classNames(
-          'p-4 lg:p-8 flex flex-wrap rounded-theme dark:bg-white dark:text-slate-700 self-end',
+          'max-w-md p-4 sm:p-6 flex flex-wrap rounded-theme dark:bg-white dark:text-slate-700',
           { 'gap-4': fields.length > 1 },
           { 'gap-1': fields?.length === 1 },
         )}
@@ -78,13 +78,10 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
           fields.map((fieldItem) => (
             <div
               key={fieldItem.id}
-              className={classNames(
-                'relative flex flex-col gap-2 w-full max-w-xl',
-                {
-                  'sm:basis-1/3 sm:grow sm:shrink':
-                    fieldItem.uiWidth === 'half-size',
-                },
-              )}
+              className={classNames('relative flex flex-col gap-2 w-full', {
+                'sm:basis-1/3 sm:grow sm:shrink':
+                  fieldItem.uiWidth === 'half-size',
+              })}
             >
               <div className="flex gap-2 items-center">
                 {fieldItem.placeholder && (

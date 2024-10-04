@@ -22,7 +22,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
         <div
           ref={mediaRef}
           className={classNames(
-            'relative -bottom-10 opacity-0 basis-1/3 shrink grow',
+            'relative -bottom-10 opacity-0 lg:basis-1/3 shrink grow',
             {
               '-order-1': mediaPosition === 'left' && layout === 'flex row',
               'order-3': mediaPosition === 'right',
@@ -49,12 +49,13 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
       )}
       {!!blocks.length && (
         <div
-          className={classNames('basis-1/3 grow shrink max-w-fit flex', {
-            'justify-center': alignment === 'center',
-            'justify-end': alignment === 'end',
+          className={classNames('lg:basis-1/3 grow shrink', {
+            'lg:max-w-fit': layout === 'flex row',
           })}
         >
-          {!!blocks.length && <DeckList blocks={blocks} itemSize={'2XL'} />}
+          {!!blocks.length && (
+            <DeckList blocks={blocks} itemSize={'2XL'} alignment={alignment} />
+          )}
         </div>
       )}
     </Section>

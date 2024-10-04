@@ -117,13 +117,12 @@ export const Section: React.FC<SectionProps> = ({
     >
       <div
         className={classNames(
-          'flex flex-col lg:flex-row lg:justify-between lg:items-center gap-x-10 gap-y-6 lg:gap-y-10',
+          'flex flex-wrap justify-between items-center gap-x-10 gap-y-6 lg:gap-y-10',
           'py-14 md:py-16 lg:py-20 xl:py-24 2xl:py-28',
           {
             container: framed,
-            'flex-wrap': layout === 'full top',
             'mt-0': marginTop === 'none',
-            'mt-2 md:-mt-4 2xl:-mt-6': marginTop === '-sm',
+            '-mt-2 md:-mt-4 2xl:-mt-6': marginTop === '-sm',
             '-mt-4 md:-mt-6 lg:-mt-8 xl:-mt-10 2xl:-mt-14': marginTop === '-md',
             '-mt-14 md:-mt-16 lg:-mt-20 xl:-mt-24 2xl:-mt-28':
               marginTop === '-lg',
@@ -145,10 +144,9 @@ export const Section: React.FC<SectionProps> = ({
           <div
             ref={ref}
             className={classNames(
-              'relative -bottom-10 opacity-0 flex flex-col',
+              'w-full relative -bottom-10 opacity-0 flex flex-col',
               {
-                'basis-1/3 grow shrink-0': layout === 'flex row',
-                'w-full': layout === 'full top',
+                'lg:basis-1/3 grow shrink-0 max-w-lg': layout === 'flex row',
                 'animate-slidingUpContent animation-delay-150': isIntersecting,
                 'items-center': alignment === 'center',
                 'items-end': alignment === 'end',

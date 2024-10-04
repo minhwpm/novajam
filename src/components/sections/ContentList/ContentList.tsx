@@ -19,10 +19,8 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
       framed={listVariant !== 'carousel'}
     >
       <div
-        className={classNames('basis-1/2 grow shrink', {
-          flex: listVariant === 'deck',
-          'justify-center': listVariant === 'deck' && alignment === 'center',
-          'justify-end': listVariant === 'deck' && alignment === 'end',
+        className={classNames('basis-1/3 grow shrink', {
+          'lg:max-w-fit': layout === 'flex row',
         })}
       >
         {listVariant === 'carousel' && (
@@ -32,7 +30,7 @@ export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
           <MasonryList blocks={blocks} itemSize={itemSize} />
         )}
         {listVariant === 'deck' && (
-          <DeckList blocks={blocks} itemSize={itemSize} />
+          <DeckList blocks={blocks} itemSize={itemSize} alignment={alignment} />
         )}
       </div>
     </Section>
