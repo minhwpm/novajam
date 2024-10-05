@@ -117,7 +117,7 @@ export const Section: React.FC<SectionProps> = ({
     >
       <div
         className={classNames(
-          'flex flex-wrap justify-between items-center gap-x-10 gap-y-6 lg:gap-y-10',
+          'flex flex-wrap justify-between items-center gap-6 lg:gap-10',
           'py-14 md:py-16 lg:py-20 xl:py-24 2xl:py-28',
           {
             container: framed,
@@ -146,7 +146,7 @@ export const Section: React.FC<SectionProps> = ({
             className={classNames(
               'w-full relative -bottom-10 opacity-0 flex flex-col',
               {
-                'lg:basis-1/3 grow shrink-0 max-w-lg': layout === 'flex row',
+                'lg:basis-1/4 grow shrink-0 max-w-lg': layout === 'flex row',
                 'animate-slidingUpContent animation-delay-150': isIntersecting,
                 'items-center': alignment === 'center',
                 'items-end': alignment === 'end',

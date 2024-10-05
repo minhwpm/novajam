@@ -15,6 +15,7 @@ export const MediaItem: React.FC<{
   priority?: boolean;
   rounded?: 'theme' | 'full' | 'none';
   zoomInOverHover?: boolean;
+  className?: string;
 }> = ({
   data,
   altText,
@@ -25,6 +26,7 @@ export const MediaItem: React.FC<{
   priority = false,
   rounded = 'theme',
   zoomInOverHover = false,
+  className,
 }) => {
   const aspectRatioClass = classNames({
     'aspect-square': aspectRatio === 'square',
@@ -76,6 +78,7 @@ export const MediaItem: React.FC<{
             width >= 200 ||
             contentType.includes('video')),
         [`rounded-${rounded}`]: width >= 200 || contentType.includes('video'),
+        className,
       })}
     >
       {contentType.includes('image') && (

@@ -9,8 +9,7 @@ import { HeroType } from '@/helpers/types';
 import '@/app/styles/padding.css';
 import '@/app/styles/bg-color.css';
 
-export const Hero: React.FC<{ order: number; data: HeroType }> = ({
-  order,
+export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
   data,
 }) => {
   const {
@@ -20,8 +19,6 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
     summary,
     buttons,
     media,
-    layout,
-    alignment,
     backgroundColor,
     backgroundImage,
     enableParallaxEffect,
@@ -29,6 +26,8 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
     showBottomSeparator,
   } = data;
   const [ref, isIntersecting] = useIntersecting();
+  const layout = data.layout ?? 'horizontal';
+  const alignment = data.alignment ?? 'start';
 
   return (
     <section
@@ -37,7 +36,6 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
       className={classNames(
         'bg-opacity-100', // to set --tw-bg-opacity: 100
         {
-          'pt-10 pb-4 md:pb-6 lg:pb-10 xl:pb-14 2xl:pb-18': order === 1,
           'bg-center bg-no-repeat bg-cover bg-blend-multiply': backgroundImage,
           'bg-opacity-100 dark:bg-opacity-10': !darkMode && backgroundColor,
           'dark:bg-slate-900/90': !darkMode && backgroundImage,
@@ -59,19 +57,23 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
     >
       <div
         className={classNames(
-          'py-4 md:py-6 lg:py-8 xl:py-10 2xl:py-14 flex flex-col gap-y-10 md:gap-y-12 lg:gap-y-14 xl:gap-y-16',
+          'flex flex-col gap-y-10 md:gap-y-12 lg:gap-y-14 xl:gap-y-16',
           {
-            'container py-8': layout === 'vertical',
-            'lg:flex-row lg:items-center py-14': layout !== 'vertical',
+            container: layout === 'vertical',
+            'lg:flex-row lg:items-center': layout === 'horizontal',
           },
         )}
       >
         <div
-          className={classNames('flex flex-col', {
-            'pr-4 lg:pr-8 xl:pr-10 custom-padding-left': layout !== 'vertical',
-            'items-center text-center': alignment === 'center',
-            'items-end text-end': alignment === 'end',
-          })}
+          className={classNames(
+            'basic-5/12 shrink grow flex flex-col py-14 md:py-16 lg:py-20 xl:py-24 2xl:py-28',
+            {
+              'pr-4 lg:pr-8 xl:pr-10 custom-padding-left':
+                layout === 'horizontal',
+              'items-center text-center': alignment === 'center',
+              'items-end text-end': alignment === 'end',
+            },
+          )}
         >
           {eyebrow && (
             <div
@@ -89,7 +91,7 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
           {displayTitle && (
             <div
               className={classNames(
-                'basis-1/2 shrink grow text-hero-heading leading-snug font-heading max-w-2xl opacity-0 dark:text-slate-100',
+                'text-hero-heading leading-snug font-heading max-w-2xl opacity-0 dark:text-slate-100',
                 { 'animate-slidingHeroContent': isIntersecting },
               )}
             >
@@ -124,7 +126,7 @@ export const Hero: React.FC<{ order: number; data: HeroType }> = ({
         </div>
         {media && (
           <div
-            className={classNames('w-full basis-1/2 shrink grow opacity-0', {
+            className={classNames('basis-7/12 shrink grow opacity-0', {
               'animate-slidingHeroContent animation-delay-300': isIntersecting,
             })}
           >

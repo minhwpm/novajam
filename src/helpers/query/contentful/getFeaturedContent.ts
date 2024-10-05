@@ -55,6 +55,8 @@ export default async function getFeature(id: string) {
                   }
                   number
                   text
+                  layout
+                  alignment
                 }
                 ... on FlexibleContent {
                   sys {
@@ -83,6 +85,8 @@ export default async function getFeature(id: string) {
                       height
                     }
                   }
+                  layout
+                  alignment
                 }
                 ... on Testimonial {
                   sys {
@@ -99,6 +103,8 @@ export default async function getFeature(id: string) {
                   name
                   role
                   rating
+                  layout
+                  alignment
                 }
                 ... on Expert {
                   sys {
@@ -123,6 +129,8 @@ export default async function getFeature(id: string) {
                     height
                     contentType
                   }
+                  layout
+                  alignment
                 }
                 ... on Form {
                   sys {

@@ -8,7 +8,7 @@ export const DeckList: React.FC<{
   alignment?: AlignmentType;
 }> = ({ blocks, itemSize, alignment }) => {
   return (
-    <div
+    <ul
       className={classNames('flex flex-wrap gap-y-8 -mx-4', {
         'justify-center': alignment === 'center',
         'justify-end': alignment === 'end',
@@ -18,7 +18,7 @@ export const DeckList: React.FC<{
       })}
     >
       {blocks.map((item, idx) => (
-        <div
+        <li
           key={idx}
           className={classNames('px-4 w-full', {
             'lg:px-5 xl:px-6 lg:max-w-fit': itemSize === '2XL',
@@ -30,8 +30,8 @@ export const DeckList: React.FC<{
           })}
         >
           <BlockMapping data={item} index={idx} />
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };

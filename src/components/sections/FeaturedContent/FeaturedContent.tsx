@@ -22,9 +22,9 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
         <div
           ref={mediaRef}
           className={classNames(
-            'relative -bottom-10 opacity-0 lg:basis-1/3 shrink grow',
+            'relative -bottom-10 opacity-0 lg:basis-1/4 shrink grow',
             {
-              '-order-1': mediaPosition === 'left' && layout === 'flex row',
+              // '-order-1': mediaPosition === 'left' && layout === 'flex row',
               'order-3': mediaPosition === 'right',
               'animate-slidingUpContent animation-delay-300':
                 isMediaIntersecting,
@@ -49,7 +49,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
       )}
       {!!blocks.length && (
         <div
-          className={classNames('lg:basis-1/3 grow shrink', {
+          className={classNames('lg:basis-1/4 grow shrink', {
             'lg:max-w-fit': layout === 'flex row',
           })}
         >
