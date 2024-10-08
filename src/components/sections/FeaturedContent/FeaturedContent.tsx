@@ -12,7 +12,7 @@ import '@/app/styles/padding.css';
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
   data,
 }) => {
-  const { blocks, media, mediaPosition, mediaAspectRatio, alignment } = data;
+  const { blocks, media, mediaAspectRatio, alignment } = data;
   const layout = data.layout ?? 'flex row';
   const [mediaRef, isMediaIntersecting] = useIntersecting();
 
@@ -24,8 +24,6 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
           className={classNames(
             'relative -bottom-10 opacity-0 lg:basis-1/4 shrink grow',
             {
-              // '-order-1': mediaPosition === 'left' && layout === 'flex row',
-              'order-3': mediaPosition === 'right',
               'animate-slidingUpContent animation-delay-300':
                 isMediaIntersecting,
             },

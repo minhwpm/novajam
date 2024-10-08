@@ -160,7 +160,6 @@ export default async function getFeature(id: string) {
                 contentType
               }
             }
-            mediaPosition
             mediaAspectRatio
             htmlid
             layout
