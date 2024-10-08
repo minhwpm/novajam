@@ -56,20 +56,18 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
       }}
     >
       <div
-        className={classNames(
-          'flex flex-col gap-y-10 md:gap-y-12 lg:gap-y-14 xl:gap-y-16',
-          {
-            container: layout === 'vertical',
-            'lg:flex-row lg:items-center': layout === 'horizontal',
-          },
-        )}
+        className={classNames('flex flex-col', {
+          container: layout === 'vertical',
+          'lg:flex-row lg:items-center': layout === 'horizontal',
+        })}
       >
         <div
           className={classNames(
-            'basic-5/12 shrink grow flex flex-col py-14 md:py-16 lg:py-20 xl:py-24 2xl:py-28',
+            'basis-1/2 shrink grow flex flex-col py-14 md:py-16 lg:py-20 xl:py-24 2xl:py-28',
             {
-              'pr-4 lg:pr-8 xl:pr-10 custom-padding-left':
+              'max-w-3xl pr-4 lg:pr-8 xl:pr-10 custom-padding-left':
                 layout === 'horizontal',
+              'max-w-4xl self-center': layout === 'vertical',
               'items-center text-center': alignment === 'center',
               'items-end text-end': alignment === 'end',
             },
@@ -91,7 +89,7 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
           {displayTitle && (
             <div
               className={classNames(
-                'text-hero-heading leading-snug font-heading max-w-2xl opacity-0 dark:text-slate-100',
+                'text-hero-heading leading-snug font-heading opacity-0 dark:text-slate-100',
                 { 'animate-slidingHeroContent': isIntersecting },
               )}
             >
@@ -101,7 +99,7 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
           {summary && (
             <div
               className={classNames(
-                'prose lg:prose-lg 2xl:prose-xl mt-4 max-w-lg opacity-0 !leading-loose text-slate-500 dark:text-slate-100/70',
+                'prose lg:prose-lg 2xl:prose-xl mt-4 max-w-xl opacity-0 !leading-loose text-slate-500 dark:text-slate-100/70',
                 {
                   'animate-slidingHeroContent animation-delay-200':
                     isIntersecting,
@@ -126,7 +124,7 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
         </div>
         {media && (
           <div
-            className={classNames('basis-7/12 shrink grow opacity-0', {
+            className={classNames('basis-1/2 shrink grow opacity-0', {
               'animate-slidingHeroContent animation-delay-300': isIntersecting,
             })}
           >
