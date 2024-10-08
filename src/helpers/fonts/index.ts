@@ -13,9 +13,6 @@ import {
   Merriweather,
   Oswald,
   Cormorant_Garamond,
-  Nunito,
-  Nunito_Sans,
-  Noto_Sans,
   Quicksand,
   Familjen_Grotesk,
 } from 'next/font/google';
@@ -91,21 +88,6 @@ const Cormorant_Garamond_Font = Cormorant_Garamond({
   variable: '--font-heading',
 });
 
-const Nunito_Font = Nunito({
-  subsets: ['latin', 'latin-ext', 'vietnamese'],
-  weight: ['200', '300', '400', '500', '600', '700', '800'],
-});
-
-const Nunito_Sans_Font = Nunito_Sans({
-  subsets: ['latin', 'latin-ext', 'vietnamese'],
-  weight: ['200', '300', '400', '500', '600', '700', '800'],
-});
-
-const Noto_Sans_Font = Noto_Sans({
-  subsets: ['latin', 'latin-ext', 'vietnamese'],
-  weight: ['200', '300', '400', '500', '600', '700', '800'],
-});
-
 const Quicksand_Font = Quicksand({
   subsets: ['latin', 'latin-ext', 'vietnamese'],
   weight: ['300', '400', '500', '600', '700'],
@@ -123,16 +105,13 @@ export const generateFontClassnames = (
   fontHeading: string | null,
 ) =>
   classNames({
-    // 12 main fonts
+    // 9 main fonts
     [Inter_Font.className]: fontMain === 'Inter',
     [Lato_Font.className]: fontMain === 'Lato',
     [Libre_Franklin_Font.className]: fontMain === 'Libre Franklin',
     [Lora_Font.className]: fontMain === 'Lora',
     [Merriweather_Font.className]: fontMain === 'Merriweather',
     [Montserrat_Font.className]: fontMain === 'Montserrat',
-    [Noto_Sans_Font.className]: fontMain === 'Noto Sans',
-    [Nunito_Font.className]: fontMain === 'Nunito',
-    [Nunito_Sans_Font.className]: fontMain === 'Nunito Sans',
     [Open_Sans_Font.className]: fontMain === 'Open Sans',
     [Poppins_Font.className]: fontMain === 'Poppins',
     [Roboto_Font.className]: fontMain === 'Roboto',
