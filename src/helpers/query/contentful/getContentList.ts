@@ -148,6 +148,7 @@ export default async function getContentList(id: string) {
                         rating
                         alignment
                         layout
+                        size
                       }
                       ... on Form {
                         sys {

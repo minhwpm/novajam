@@ -104,6 +104,7 @@ export default async function getFeature(id: string) {
                   rating
                   layout
                   alignment
+                  size
                 }
                 ... on Expert {
                   sys {
