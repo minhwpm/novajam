@@ -318,7 +318,6 @@ export type PricingPlanType = {
   description: string | null;
   ctaButton: ButtonType;
   alignment: AlignmentType;
-  layout: 'horizontal' | 'vertical';
   contentType: 'pricingplan';
 };
 

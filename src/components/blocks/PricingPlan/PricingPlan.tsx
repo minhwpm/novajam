@@ -11,7 +11,6 @@ export const PricingPlan: React.FC<{
   animate?: boolean;
 }> = ({ index, data, animate }) => {
   const { title, pricing, pricingSuffix, badge, description, ctaButton } = data;
-  const layout = data.layout ?? 'vertical';
   const alignment = data.alignment ?? 'center';
 
   const [ref, isIntersecting] = useIntersecting();
@@ -22,7 +21,6 @@ export const PricingPlan: React.FC<{
       className={classNames(
         'relative flex flex-col rounded-theme bg-white dark:bg-opacity-10',
         {
-          'lg:flex-row': layout === 'horizontal',
           '-bottom-10 opacity-0': animate,
           'animate-slidingUpContent': isIntersecting && animate,
         },
@@ -74,10 +72,8 @@ export const PricingPlan: React.FC<{
       {description && (
         <div
           className={classNames(
-            'px-4 lg:px-6 xl:px-8 prose leading-loose dark:text-slate-100/70',
+            'px-4 pt-4 py-8 first-line:marker:lg:px-6 xl:px-8 prose leading-loose dark:text-slate-100/70',
             {
-              'py-8': layout === 'horizontal',
-              'pt-4 py-8': layout === 'vertical',
               'text-center': alignment === 'center',
               'text-end': alignment === 'end',
             },

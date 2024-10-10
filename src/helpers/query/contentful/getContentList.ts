@@ -130,7 +130,6 @@ export default async function getContentList(id: string) {
                           }
                         }
                         alignment
-                        layout
                       }
                       ... on Testimonial {
                         sys {

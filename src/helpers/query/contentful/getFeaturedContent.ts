@@ -85,7 +85,6 @@ export default async function getFeature(id: string) {
                       height
                     }
                   }
-                  layout
                   alignment
                 }
                 ... on Testimonial {
