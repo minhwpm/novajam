@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
-import { BlockType, ItemSize } from '@/helpers/types';
+import { BlockType, ItemsPerViewType } from '@/helpers/types';
 import { BlockMapping } from '@/components/sections/ContentList/BlockMapping';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
@@ -16,8 +16,8 @@ import './styles.css';
 
 export const CarouselList: React.FC<{
   blocks: BlockType[];
-  itemSize: ItemSize;
-}> = ({ blocks, itemSize }) => {
+  itemsPerView: ItemsPerViewType;
+}> = ({ blocks, itemsPerView }) => {
   const [carouselState, setState] = useState({
     isBeginning: true,
     isEnd: false,
@@ -73,13 +73,14 @@ export const CarouselList: React.FC<{
           <SwiperSlide
             key={idx}
             className={classNames('px-4 basis-11/12', {
-              'xl:basis-4/5 2xl:basis-3/4 lg:px-5 xl:px-6': itemSize === '2XL',
-              'lg:basis-[50%] lg:px-5 xl:px-6': itemSize === 'XL',
-              'md:basis-[50%] xl:basis-[33.33%] lg:px-5': itemSize === 'L',
+              'xl:basis-4/5 2xl:basis-3/4 lg:px-5 xl:px-6':
+                itemsPerView === '1',
+              'lg:basis-[50%] lg:px-5 xl:px-6': itemsPerView === '2',
+              'md:basis-[50%] xl:basis-[33.33%] lg:px-5': itemsPerView === '3',
               'sm:basis-[50%] lg:basis-[33.33%] xl:basis-[25%]':
-                itemSize === 'M',
+                itemsPerView === '4',
               'basis-[50%] sm:basis-[33.33%] md:basis-[25%] xl:basis-[20%]':
-                itemSize === 'S',
+                itemsPerView === '5',
             })}
           >
             <BlockMapping data={item} index={idx} animate={false} />

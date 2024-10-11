@@ -52,7 +52,7 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
           })}
         >
           {!!blocks.length && (
-            <DeckList blocks={blocks} itemSize={'2XL'} alignment={alignment} />
+            <DeckList blocks={blocks} itemsPerView="1" alignment={alignment} />
           )}
         </div>
       )}

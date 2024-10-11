@@ -45,7 +45,7 @@ export const Testimonial: React.FC<{
         </div>
       )}
       <div className="flex flex-col gap-4 justify-between">
-        {rating > 0 && (
+        {rating && rating > 0 && (
           <div className="flex gap-2 ">
             {new Array(rating).fill(0).map((_item, idx) => (
               <AiFillStar

@@ -1,61 +1,60 @@
 'use client';
 import classNames from 'classnames';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-import { BlockType, ItemSize } from '@/helpers/types';
+import { BlockType, ItemsPerViewType } from '@/helpers/types';
 import { BlockMapping } from '../ContentList/BlockMapping';
 
 export const MasonryList: React.FC<{
   blocks: BlockType[];
-  itemSize: ItemSize;
-}> = ({ blocks, itemSize }) => {
+  itemsPerView: ItemsPerViewType;
+}> = ({ blocks, itemsPerView }) => {
   return (
     <ResponsiveMasonry
-      // className="w-full"
       columnsCountBreakPoints={{
         320: parseInt(
           classNames({
-            2: itemSize === 'S',
-            1: itemSize === 'M' || 'L' || 'XL' || '2XL',
+            2: itemsPerView === '5',
+            1: itemsPerView === '4' || 3 || 2 || 1,
           }),
         ),
         640: parseInt(
           classNames({
-            3: itemSize === 'S',
-            2: itemSize === 'M',
-            1: itemSize === 'L' || 'XL' || '2XL',
+            3: itemsPerView === '5',
+            2: itemsPerView === '4',
+            1: itemsPerView === '3' || 2 || 1,
           }),
         ),
         768: parseInt(
           classNames({
-            4: itemSize === 'S',
-            2: itemSize === 'M' || 'L',
-            1: itemSize === 'XL' || '2XL',
+            4: itemsPerView === '5',
+            2: itemsPerView === '4' || 3,
+            1: itemsPerView === '2' || 1,
           }),
         ),
         1024: parseInt(
           classNames({
-            4: itemSize === 'S',
-            3: itemSize === 'M',
-            2: itemSize === 'L' || 'XL',
-            1: itemSize === '2XL',
+            4: itemsPerView === '5',
+            3: itemsPerView === '4',
+            2: itemsPerView === '3' || 2,
+            1: itemsPerView === '1',
           }),
         ),
         1280: parseInt(
           classNames({
-            5: itemSize === 'S',
-            4: itemSize === 'M',
-            3: itemSize === 'L',
-            2: itemSize === 'XL',
-            1: itemSize === '2XL',
+            5: itemsPerView === '5',
+            4: itemsPerView === '4',
+            3: itemsPerView === '3',
+            2: itemsPerView === '2',
+            1: itemsPerView === '1',
           }),
         ),
       }}
     >
       <Masonry
         gutter={classNames({
-          '32px': itemSize === 'S' || itemSize === 'M',
-          '40px': itemSize === 'L',
-          '48px': itemSize === 'XL',
+          '32px': itemsPerView === '5' || itemsPerView === '4',
+          '40px': itemsPerView === '3',
+          '48px': itemsPerView === '2',
         })}
       >
         {blocks.map((item, idx) => (

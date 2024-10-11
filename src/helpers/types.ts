@@ -288,7 +288,7 @@ export type TestimonialType = {
   portrait: MediaType | null;
   name: string | null;
   role: string | null;
-  rating: 0 | 1 | 2 | 3 | 4 | 5;
+  rating: 0 | 1 | 2 | 3 | 4 | 5 | null;
   alignment: AlignmentType;
   layout: 'horizontal' | 'vertical';
   size: 'base' | 'lg' | 'xl';
@@ -339,7 +339,7 @@ export type BlockType =
   | FormType
   | QAType;
 
-export type ItemSize = 'S' | 'M' | 'L' | 'XL' | '2XL';
+export type ItemsPerViewType = '1' | '2' | '3' | '4' | '5' | 'auto';
 
 export type ContentListType = {
   id: string;
@@ -349,7 +349,7 @@ export type ContentListType = {
   buttons: Array<ButtonType>;
   alignment: AlignmentType;
   blocks: Array<BlockType>;
-  itemSize: ItemSize;
+  itemsPerView: ItemsPerViewType;
   listVariant: 'carousel' | 'masonry' | 'deck';
   layout: 'flex row' | 'full top';
   backgroundColor: BackgroundColorType | null;

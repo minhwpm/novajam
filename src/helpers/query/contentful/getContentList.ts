@@ -63,7 +63,7 @@ export default async function getContentList(id: string) {
                   showBottomSeparator
                   marginTop
                   marginBottom
-                  itemSize
+                  itemsPerView
                   blocksCollection (limit: 20) {
                     items {
                       __typename
