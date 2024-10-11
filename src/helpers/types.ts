@@ -339,7 +339,7 @@ export type BlockType =
   | FormType
   | QAType;
 
-export type ItemsPerViewType = '1' | '2' | '3' | '4' | '5' | 'auto';
+export type ItemsPerViewType = '1' | '2' | '3' | '4' | '5';
 
 export type ContentListType = {
   id: string;
@@ -350,7 +350,7 @@ export type ContentListType = {
   alignment: AlignmentType;
   blocks: Array<BlockType>;
   itemsPerView: ItemsPerViewType;
-  listVariant: 'carousel' | 'masonry' | 'deck';
+  displayMode: 'carousel' | 'masonry' | 'deck';
   layout: 'flex row' | 'full top';
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;

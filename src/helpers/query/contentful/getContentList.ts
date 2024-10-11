@@ -48,7 +48,7 @@ export default async function getContentList(id: string) {
                   }
                   htmlid
                   alignment
-                  listVariant
+                  displayMode
                   layout
                   backgroundColor
                   backgroundImage {
