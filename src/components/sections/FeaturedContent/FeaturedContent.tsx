@@ -12,7 +12,8 @@ import '@/app/styles/padding.css';
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
   data,
 }) => {
-  const { blocks, media, mediaAspectRatio, alignment } = data;
+  const { blocks, media, mediaAspectRatio, alignment, switchMediaPosition } =
+    data;
   const layout = data.layout ?? 'flex row';
   const [mediaRef, isMediaIntersecting] = useIntersecting();
 
@@ -26,6 +27,8 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
             {
               'animate-slidingUpContent animation-delay-300':
                 isMediaIntersecting,
+              '-order-1': switchMediaPosition === 'left',
+              'order-3': switchMediaPosition === 'right',
             },
           )}
         >

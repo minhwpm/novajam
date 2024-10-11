@@ -44,6 +44,16 @@ export const Section: React.FC<SectionProps> = ({
 
   const [ref, isIntersecting] = useIntersecting(0.5);
 
+  const backgroundStyle = {
+    backgroundColor: backgroundColor
+      ? `rgba(${parseInt(backgroundColor.slice(1, 3), 16)}, 
+            ${parseInt(backgroundColor.slice(3, 5), 16)}, 
+            ${parseInt(backgroundColor.slice(5, 7), 16)}, 
+            var(--tw-bg-opacity))`
+      : 'none',
+    backgroundImage: backgroundImage ? `url(${backgroundImage.url})` : 'none',
+  };
+
   const renderEyebrow = () =>
     eyebrow && (
       <div
@@ -59,11 +69,28 @@ export const Section: React.FC<SectionProps> = ({
       </div>
     );
 
+  const marginClass = classNames({
+    'mt-0': marginTop === 'none',
+    '-mt-2 md:-mt-4 2xl:-mt-6': marginTop === '-sm',
+    '-mt-4 md:-mt-6 lg:-mt-8 xl:-mt-10 2xl:-mt-14': marginTop === '-md',
+    '-mt-14 md:-mt-16 lg:-mt-20 xl:-mt-24 2xl:-mt-28': marginTop === '-lg',
+    'mt-2 md:mt-4 2xl:mt-6': marginTop === 'sm',
+    'mt-4 md:mt-6 lg:mt-8 xl:mt-10 2xl:mt-14': marginTop === 'md',
+    'mt-14 md:mt-16 lg:mt-20 xl:mt-24 2xl:mt-28': marginTop === 'lg',
+    'mb-0': marginBottom === 'none',
+    '-mb-2 md:-mb-4 2xl:-mb-6': marginTop === '-sm',
+    '-mb-4 md:-mb-6 lg:-mb-8 xl:-mb-10 2xl:-mb-14': marginTop === '-md',
+    '-mb-14 md:-mb-16 lg:-mb-20 xl:-mb-24 2xl:-mb-28': marginBottom === '-lg',
+    'mb-2 md:mb-4 2xl:mb-6': marginBottom === 'sm',
+    'mb-4 md:mb-6 lg:mb-8 xl:mb-10 2xl:mb-14': marginBottom === 'md',
+    'mb-14 md:mb-16 lg:mb-20 xl:mb-24 2xl:mb-28': marginBottom === 'lg',
+  });
+
   const renderTitle = () =>
     displayTitle && (
       <div
         className={classNames(
-          'font-heading text-heading leading-snug max-w-3xl mb-4 dark:text-slate-100',
+          'font-heading text-heading leading-snug max-w-3xl mb-8 dark:text-slate-100',
           {
             'text-center': alignment === 'center',
             'text-end': alignment === 'end',
@@ -103,41 +130,14 @@ export const Section: React.FC<SectionProps> = ({
         },
         className,
       )}
-      style={{
-        backgroundColor: backgroundColor
-          ? `rgba(${parseInt(backgroundColor.slice(1, 3), 16)}, 
-                  ${parseInt(backgroundColor.slice(3, 5), 16)}, 
-                  ${parseInt(backgroundColor.slice(5, 7), 16)}, 
-                  var(--tw-bg-opacity))`
-          : 'none',
-        backgroundImage: backgroundImage
-          ? `url(${backgroundImage.url})`
-          : 'none',
-      }}
+      style={backgroundStyle}
     >
       <div
         className={classNames(
           'flex flex-wrap justify-between items-center gap-6 lg:gap-10',
           'py-14 md:py-16 lg:py-20 xl:py-24 2xl:py-28',
-          {
-            container: framed,
-            'mt-0': marginTop === 'none',
-            '-mt-2 md:-mt-4 2xl:-mt-6': marginTop === '-sm',
-            '-mt-4 md:-mt-6 lg:-mt-8 xl:-mt-10 2xl:-mt-14': marginTop === '-md',
-            '-mt-14 md:-mt-16 lg:-mt-20 xl:-mt-24 2xl:-mt-28':
-              marginTop === '-lg',
-            'mt-2 md:mt-4 2xl:mt-6': marginTop === 'sm',
-            'mt-4 md:mt-6 lg:mt-8 xl:mt-10 2xl:mt-14': marginTop === 'md',
-            'mt-14 md:mt-16 lg:mt-20 xl:mt-24 2xl:mt-28': marginTop === 'lg',
-            'mb-0': marginBottom === 'none',
-            '-mb-2 md:-mb-4 2xl:-mb-6': marginTop === '-sm',
-            '-mb-4 md:-mb-6 lg:-mb-8 xl:-mb-10 2xl:-mb-14': marginTop === '-md',
-            '-mb-14 md:-mb-16 lg:-mb-20 xl:-mb-24 2xl:-mb-28':
-              marginBottom === '-lg',
-            'mb-2 md:mb-4 2xl:mb-6': marginBottom === 'sm',
-            'mb-4 md:mb-6 lg:mb-8 xl:mb-10 2xl:mb-14': marginBottom === 'md',
-            'mb-14 md:mb-16 lg:mb-20 xl:mb-24 2xl:mb-28': marginBottom === 'lg',
-          },
+          { container: framed },
+          marginClass,
         )}
       >
         {(eyebrow || displayTitle || summary) && (

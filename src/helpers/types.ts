@@ -207,6 +207,7 @@ export type FeaturedContentType = {
   summary: string | null;
   media: Array<MediaType>;
   mediaAspectRatio: MediaAspectRatioType;
+  switchMediaPosition: 'left' | 'right';
   blocks: Array<BlockType>;
   buttons: Array<ButtonType>;
   alignment: AlignmentType;
