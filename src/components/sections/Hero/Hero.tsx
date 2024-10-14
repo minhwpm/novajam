@@ -61,7 +61,7 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
           'lg:flex-row lg:items-center': layout === 'horizontal',
         })}
       >
-        {(eyebrow || displayTitle || summary || !!buttons.length) && (
+        {(eyebrow || displayTitle || summary || !!buttons?.length) && (
           <div
             className={classNames(
               'basis-1/2 shrink grow flex flex-col py-14 md:py-16 lg:py-20 xl:py-24 2xl:py-28',

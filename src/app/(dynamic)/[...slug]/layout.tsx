@@ -4,8 +4,8 @@ import { Footer } from '@/components/sections/Footer/Footer';
 import { generateColorClassnames } from '@/helpers/utils';
 import { generateFontClassnames } from '@/helpers/fonts';
 import getPage from '@/helpers/query/getPage';
-import getNavigation from '@/helpers/query/contentful/getNavigation';
-import getFooter from '@/helpers/query/contentful/getFooter';
+import getNavigation from '@/helpers/query/getNavigation';
+import getFooter from '@/helpers/query/getFooter';
 import styles from './styles.module.css';
 
 export default async function Layout({

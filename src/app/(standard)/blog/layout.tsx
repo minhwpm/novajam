@@ -1,7 +1,7 @@
 import { Navigation } from '@/components/sections/Navigation/Navigation';
 import { Footer } from '@/components/sections/Footer/Footer';
-import getNavigation from '@/helpers/query/contentful/getNavigation';
-import getFooter from '@/helpers/query/contentful/getFooter';
+import getNavigation from '@/helpers/query/getNavigation';
+import getFooter from '@/helpers/query/getFooter';
 import getPage from '@/helpers/query/getPage';
 import { generateFontClassnames } from '@/helpers/fonts';
 import { generateColorClassnames } from '@/helpers/utils';

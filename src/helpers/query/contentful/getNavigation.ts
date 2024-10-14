@@ -1,8 +1,7 @@
 import getSubmenu from './getSubmenu';
 import normalizeContentfulData from './normalizeContentfulData';
-import navigations from '../static-data/navigations.json';
 
-export default async function getNavigation(url: string) {
+export async function getNavigation(url: string) {
   if (process.env.DATA_SOURCE === 'CONTENTFUL') {
     try {
       const res = await fetch(
@@ -135,10 +134,5 @@ export default async function getNavigation(url: string) {
         `An error occurred while fetching navigation data: ${error}`,
       );
     }
-  }
-
-  if (process.env.DATA_SOURCE === 'STATIC' || !process.env.DATA_SOURCE) {
-    const result = navigations.find((item) => item.url === url);
-    return result;
   }
 }

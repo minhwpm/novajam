@@ -1,7 +1,6 @@
 import normalizeContentfulData from './normalizeContentfulData';
-import footers from '../static-data/footers.json';
 
-export default async function getFooter(url: string) {
+export async function getFooter(url: string) {
   if (process.env.DATA_SOURCE === 'CONTENTFUL') {
     try {
       const res = await fetch(
@@ -90,10 +89,5 @@ export default async function getFooter(url: string) {
       console.error(error);
       throw new Error(`An error occurred while fetching footer data: ${error}`);
     }
-  }
-
-  if (process.env.DATA_SOURCE === 'STATIC' || !process.env.DATA_SOURCE) {
-    const result = footers.find((item) => item.url === url);
-    return result;
   }
 }
