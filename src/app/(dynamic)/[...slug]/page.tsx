@@ -9,7 +9,9 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const previousImages = (await parent).openGraph?.images || [];
-  const data: PageType = await getPage(`/${params.slug!.join('/')}`);
+  const data: PageType = (await getPage(
+    `/${params.slug!.join('/')}`,
+  )) as unknown as PageType;
   return {
     title: data?.metaTitle,
     description: data?.metaDescription,
@@ -27,7 +29,9 @@ export default async function Page({
 }: {
   params: { slug: Array<string> };
 }) {
-  const data = await getPage(`/${params.slug!.join('/')}`);
+  const data = (await getPage(
+    `/${params.slug!.join('/')}`,
+  )) as unknown as PageType;
   if (!data) {
     notFound();
   }

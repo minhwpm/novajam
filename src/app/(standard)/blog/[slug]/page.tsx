@@ -11,7 +11,9 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const previousImages = (await parent).openGraph?.images || [];
-  const data: BlogType = await getBlogPost(params.slug);
+  const data: BlogType = (await getBlogPost(
+    params.slug,
+  )) as unknown as BlogType;
   return {
     title: data?.metaTitle ?? data?.title,
     description: data?.metaDescription ?? data.summary,

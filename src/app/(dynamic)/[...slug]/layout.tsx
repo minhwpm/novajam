@@ -6,6 +6,7 @@ import { generateFontClassnames } from '@/helpers/fonts';
 import getPage from '@/helpers/query/getPage';
 import getNavigation from '@/helpers/query/getNavigation';
 import getFooter from '@/helpers/query/getFooter';
+import { NavigationType, FooterType, PageType } from '@/helpers/types';
 import styles from '@/app/styles/theme.module.css';
 
 export default async function Layout({
@@ -21,10 +22,17 @@ export default async function Layout({
     (!navigation || !footer || !fontTheme || !colorTheme || !borderRadiusTheme)
   ) {
     if (!navigation)
-      navigation = await getNavigation(`/${params.slug!.join('/')}`);
-    if (!footer) footer = await getFooter(`/${params.slug!.join('/')}`);
+      navigation = (await getNavigation(
+        `/${params.slug!.join('/')}`,
+      )) as unknown as NavigationType;
+    if (!footer)
+      footer = (await getFooter(
+        `/${params.slug!.join('/')}`,
+      )) as unknown as FooterType;
     if (!fontTheme || !colorTheme || !borderRadiusTheme) {
-      page = await getPage(`/${params.slug!.join('/')}`);
+      page = (await getPage(
+        `/${params.slug!.join('/')}`,
+      )) as unknown as PageType;
       if (page) {
         fontTheme = generateFontClassnames(page.fontMain, page.fontHeading);
         colorTheme = generateColorClassnames(

@@ -139,7 +139,7 @@ export type PageType = {
   id: string;
   title: string;
   url: string;
-  content: PageContentType | null;
+  content: Array<PageContentType>;
   fontMain: string;
   fontHeading: string;
   colorPrimary: string;

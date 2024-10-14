@@ -231,3 +231,4 @@ export default async function getFeature(id: string) {
     );
   }
 }
+

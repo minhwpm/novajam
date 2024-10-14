@@ -137,3 +137,4 @@ export async function getPage(url: string) {
     throw new Error(`An error occurred while fetching page data: ${error}`);
   }
 }
+

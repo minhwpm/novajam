@@ -113,3 +113,4 @@ export default async function getHero(id: string) {
     throw new Error(`An error occurred while fetching hero data: ${error}`);
   }
 }
+

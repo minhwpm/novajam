@@ -3,6 +3,7 @@ import { Navigation } from '@/components/sections/Navigation/Navigation';
 import { Footer } from '@/components/sections/Footer/Footer';
 import { generateFontClassnames } from '@/helpers/fonts';
 import { generateColorClassnames } from '@/helpers/utils';
+import { NavigationType, FooterType, PageType } from '@/helpers/types';
 import getNavigation from '@/helpers/query/getNavigation';
 import getFooter from '@/helpers/query/getFooter';
 import getPage from '@/helpers/query/getPage';
@@ -13,10 +14,12 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const navigation = await getNavigation('/blog');
-  const footer = await getFooter('/blog');
+  const navigation = (await getNavigation(
+    '/blog',
+  )) as unknown as NavigationType;
+  const footer = (await getFooter('/blog')) as unknown as FooterType;
   let fontTheme, colorTheme, borderRadiusTheme, headingFontSizeTheme;
-  const page = await getPage('/blog');
+  const page = (await getPage('/blog')) as unknown as PageType;
   if (page) {
     fontTheme = generateFontClassnames(page.fontMain, page.fontHeading);
     colorTheme = generateColorClassnames(

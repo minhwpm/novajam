@@ -1,5 +1,4 @@
 import { BlogType } from '../types';
-import { getBlogs as getBlogsfromContentful } from './contentful/getBlogs';
 import blogs from './static-data/blogs.json';
 
 export default async function getBlogs(
@@ -7,12 +6,8 @@ export default async function getBlogs(
   skip?: number,
   featured?: boolean,
   topic?: string,
-  excludeSlug?: string,
+  _excludeSlug?: string,
 ) {
-  if (process.env.DATA_SOURCE === 'CONTENTFUL') {
-    return getBlogsfromContentful(limit, skip, featured, topic, excludeSlug);
-  }
-
   if (process.env.DATA_SOURCE === 'STATIC' || !process.env.DATA_SOURCE) {
     const result = blogs
       .filter((item: BlogType) => {
