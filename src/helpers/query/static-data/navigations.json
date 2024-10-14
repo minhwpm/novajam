@@ -1,1 +1,64 @@
-[]
+[
+  {
+    "url": "/demo",
+    "logoRedirect": "/",
+    "showModeSelector": true,
+    "layout": "overlay",
+    "darkMode": false,
+    "logo": {
+      "url": "https://images.ctfassets.net/ehmycbmc25mu/7vvCItsTwfA8tl0SyqlzWT/b8c89a775becaac933165795be38ef05/novajam_logo_black.webp",
+      "title": "novajam logo black",
+      "width": 1055,
+      "height": 160
+    },
+    "hotButtons": [],
+    "menu": [
+      {
+        "text": "Demos",
+        "openNewTab": false,
+        "url": "#",
+        "contentType": "link",
+        "id": "65W7NxA30f1uMZQYATh82F"
+      },
+      {
+        "text": "Pages",
+        "openNewTab": false,
+        "url": "#",
+        "contentType": "link",
+        "id": "7vk12KytZnBR9TmLRtJ7yP"
+      },
+      {
+        "text": "Support",
+        "openNewTab": false,
+        "url": "/contact",
+        "contentType": "link",
+        "id": "4ngKgcUDs2b5zsMGcuFzQY"
+      },
+      {
+        "text": "Contact",
+        "openNewTab": false,
+        "url": "/contact",
+        "contentType": "link",
+        "id": "kdsKP2AdvJXQrLLMXiAo8"
+      },
+      {
+        "text": "Blog",
+        "openNewTab": false,
+        "url": "/blog",
+        "contentType": "link",
+        "id": "7mdtqZenlZqnHJji1p5FGt"
+      }
+    ],
+    "buttons": [
+      {
+        "buttonLabel": "Get Started Now",
+        "url": "https://github.com/minhwpm/novajam",
+        "openNewTab": true,
+        "buttonVariant": "primary",
+        "withArrow": false,
+        "icon": null,
+        "id": "5ch7AWS9JLFOzlZ2HA35H5"
+      }
+    ]
+  }
+]

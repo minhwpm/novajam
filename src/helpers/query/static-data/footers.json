@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "url": "/demo",
+    "logoRedirect": "/",
+    "description": "With highly flexible blocks, you can easily build a page without coding.\nDesigned by [Seju](https://www.figma.com/@sejal_ui_ux)",
+    "copyright": "© NovaJAM 2024 | All rights reserved.",
+    "sns": null,
+    "backgroundColor": null,
+    "backgroundImage": null,
+    "darkMode": false,
+    "logo": {
+      "url": "https://images.ctfassets.net/ehmycbmc25mu/7vvCItsTwfA8tl0SyqlzWT/b8c89a775becaac933165795be38ef05/novajam_logo_black.webp",
+      "title": "novajam logo black"
+    },
+    "menu": [
+      {
+        "title": "Quick Links",
+        "links": [
+          {
+            "text": "Home",
+            "openNewTab": false,
+            "url": "/",
+            "id": "4jv0HeU7WbuYo2axDzRn3c"
+          },
+          {
+            "text": "Contact",
+            "openNewTab": false,
+            "url": "/contact",
+            "id": "OHZxGCWtdWxsobAaj7EVz"
+          },
+          {
+            "text": "Github",
+            "openNewTab": true,
+            "url": "https://github.com/minhwpm/novajam",
+            "id": "7grbuSkPuBtPQra8Z5TuDz"
+          }
+        ]
+      }
+    ]
+  }
+]
