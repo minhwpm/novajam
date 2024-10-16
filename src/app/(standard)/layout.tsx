@@ -6,7 +6,7 @@ import getFooter from '@/helpers/query/getFooter';
 import getPage from '@/helpers/query/getPage';
 import { generateFontClassnames } from '@/helpers/fonts';
 import { generateColorClassnames } from '@/helpers/utils';
-import styles from '@/app/(dynamic)/[...slug]/styles.module.css';
+import styles from '@/app/styles/theme.module.css';
 
 export default async function RootLayout({
   children,

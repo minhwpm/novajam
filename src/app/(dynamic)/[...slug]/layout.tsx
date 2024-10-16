@@ -6,7 +6,7 @@ import { generateFontClassnames } from '@/helpers/fonts';
 import getPage from '@/helpers/query/getPage';
 import getNavigation from '@/helpers/query/getNavigation';
 import getFooter from '@/helpers/query/getFooter';
-import styles from './styles.module.css';
+import styles from '@/app/styles/theme.module.css';
 
 export default async function Layout({
   children,

@@ -1,12 +1,12 @@
+import classNames from 'classnames';
 import { Navigation } from '@/components/sections/Navigation/Navigation';
 import { Footer } from '@/components/sections/Footer/Footer';
+import { generateFontClassnames } from '@/helpers/fonts';
+import { generateColorClassnames } from '@/helpers/utils';
 import getNavigation from '@/helpers/query/getNavigation';
 import getFooter from '@/helpers/query/getFooter';
 import getPage from '@/helpers/query/getPage';
-import { generateFontClassnames } from '@/helpers/fonts';
-import { generateColorClassnames } from '@/helpers/utils';
-import styles from '@/app/(dynamic)/[...slug]/styles.module.css';
-import classNames from 'classnames';
+import styles from '@/app/styles/theme.module.css';
 
 export default async function RootLayout({
   children,
@@ -26,8 +26,6 @@ export default async function RootLayout({
     borderRadiusTheme = `${page.borderRadius}-border-radius-theme`;
     headingFontSizeTheme = `${page.headingFontSize}-heading-font-size`;
   }
-
-  console.log('Nav', navigation);
 
   return (
     <div
