@@ -16,23 +16,9 @@
       {
         "text": "Demos",
         "openNewTab": false,
-        "url": "#",
+        "url": "/",
         "contentType": "link",
         "id": "65W7NxA30f1uMZQYATh82F"
-      },
-      {
-        "text": "Pages",
-        "openNewTab": false,
-        "url": "#",
-        "contentType": "link",
-        "id": "7vk12KytZnBR9TmLRtJ7yP"
-      },
-      {
-        "text": "Support",
-        "openNewTab": false,
-        "url": "/contact",
-        "contentType": "link",
-        "id": "4ngKgcUDs2b5zsMGcuFzQY"
       },
       {
         "text": "Contact",
@@ -40,13 +26,6 @@
         "url": "/contact",
         "contentType": "link",
         "id": "kdsKP2AdvJXQrLLMXiAo8"
-      },
-      {
-        "text": "Blog",
-        "openNewTab": false,
-        "url": "/blog",
-        "contentType": "link",
-        "id": "7mdtqZenlZqnHJji1p5FGt"
       }
     ],
     "buttons": [

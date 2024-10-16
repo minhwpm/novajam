@@ -87,7 +87,7 @@ export interface SubmenuType {
   id: string;
   title: string;
   menu: Array<LinkType | LinkGroupType>;
-  featuredContent: Array<BlogType | PageType>;
+  featuredContent: Array<PageType>;
   layout: 'dropdown' | 'mega';
   contentType: 'submenu';
 }
@@ -151,26 +151,6 @@ export type PageType = {
   metaImage: MediaType | null;
   contentType: 'page';
 };
-
-export type BlogType = {
-  id: string;
-  firstPublishedAt: string;
-  publishedAt: string;
-  title: string;
-  slug: string;
-  featured: boolean;
-  summary: string | null;
-  content: string | null;
-  topics: Array<string>;
-  media: MediaType | null;
-  author: ExpertType;
-  metaTitle: string;
-  metaDescription: string;
-  metaKeywords: Array<string>;
-  metaImage: MediaType;
-  contentType: 'blog';
-};
-export const BLOG_PAGE_SIZE = 9;
 
 export type ExpertType = {
   id: string;
