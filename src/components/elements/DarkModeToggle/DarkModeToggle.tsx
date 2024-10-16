@@ -29,6 +29,7 @@ export default function DarkModeToggle() {
   return (
     <button
       onClick={toggleDarkMode}
+      aria-label="Toggle Dark Mode"
       className="bg-slate-100 dark:bg-opacity-10 dark:text-slate-100 p-2 rounded-full"
     >
       {isDarkMode ? <GoMoon /> : <GoSun />}
