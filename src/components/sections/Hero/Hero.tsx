@@ -57,7 +57,6 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
     >
       <div
         className={classNames('flex flex-col', {
-          container: layout === 'vertical',
           'lg:flex-row lg:items-center': layout === 'horizontal',
         })}
       >
@@ -100,7 +99,7 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
             {summary && (
               <div
                 className={classNames(
-                  'prose lg:prose-lg 2xl:prose-xl mt-4 max-w-xl opacity-0 !leading-loose text-slate-500 dark:text-slate-100/70',
+                  'prose lg:prose-lg 2xl:prose-xl mt-4 lg:mt-6 max-w-xl opacity-0 !leading-loose text-slate-500 dark:text-slate-100/70',
                   {
                     'animate-slidingHeroContent animation-delay-200':
                       isIntersecting,
@@ -126,9 +125,14 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
         )}
         {media && (
           <div
-            className={classNames('basis-1/2 shrink grow opacity-0', {
-              'animate-slidingHeroContent animation-delay-300': isIntersecting,
-            })}
+            className={classNames(
+              'basis-1/2 shrink grow opacity-0 custom-padding-right',
+              {
+                'custom-padding-left': layout === 'vertical',
+                'animate-slidingHeroContent animation-delay-300':
+                  isIntersecting,
+              },
+            )}
           >
             <MediaItem data={media} videoAutoplay={false} priority={true} />
           </div>

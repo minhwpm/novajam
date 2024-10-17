@@ -90,7 +90,7 @@ export const Section: React.FC<SectionProps> = ({
     displayTitle && (
       <div
         className={classNames(
-          'font-heading text-heading leading-snug max-w-3xl mb-8 dark:text-slate-100',
+          'font-heading text-heading leading-snug max-w-3xl mb-4 lg:mb-6 dark:text-slate-100',
           {
             'text-center': alignment === 'center',
             'text-end': alignment === 'end',
