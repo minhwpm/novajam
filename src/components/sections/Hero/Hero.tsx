@@ -65,9 +65,9 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
             className={classNames(
               'basis-1/2 shrink grow flex flex-col py-14 md:py-16 lg:py-20 xl:py-24 2xl:py-28',
               {
-                'max-w-3xl pr-4 lg:pr-8 xl:pr-10 custom-padding-left':
+                'pr-4 lg:pr-8 xl:pr-10 custom-padding-left max-w-3xl':
                   layout === 'horizontal',
-                'max-w-4xl self-center': layout === 'vertical',
+                'px-4 max-w-4xl self-center': layout === 'vertical',
                 'items-center text-center': alignment === 'center',
                 'items-end text-end': alignment === 'end',
               },
