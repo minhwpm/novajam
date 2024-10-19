@@ -86,7 +86,7 @@ export interface SubmenuType {
   id: string;
   title: string;
   menu: Array<LinkType | LinkGroupType>;
-  featuredContent: Array<BlogType | PageType>;
+  featuredContent: Array<PageType>;
   layout: 'dropdown' | 'mega';
   contentType: 'submenu';
 }
@@ -131,7 +131,6 @@ export type SEOType = {
 export type PageContentType =
   | HeroType
   | AlertType
-  | ContentPTType
   | ContentListType
   | FeaturedContentType;
 
@@ -139,7 +138,7 @@ export type PageType = {
   id: string;
   title: string;
   url: string;
-  content: PageContentType | null;
+  content: Array<PageContentType>;
   fontMain: string;
   fontHeading: string;
   headingFontSize: 'standard' | 'standout' | 'impactful';
@@ -152,26 +151,6 @@ export type PageType = {
   metaImage: MediaType | null;
   contentType: 'page';
 };
-
-export type BlogType = {
-  id: string;
-  firstPublishedAt: string;
-  publishedAt: string;
-  title: string;
-  slug: string;
-  featured: boolean;
-  summary: string | null;
-  content: string | null;
-  topics: Array<string>;
-  media: MediaType | null;
-  author: ExpertType;
-  metaTitle: string;
-  metaDescription: string;
-  metaKeywords: Array<string>;
-  metaImage: MediaType;
-  contentType: 'blog';
-};
-export const BLOG_PAGE_SIZE = 9;
 
 export type ExpertType = {
   id: string;
@@ -244,31 +223,6 @@ export type AlertType = {
   backgroundColor: string | null;
   darkMode: boolean;
   contentType: 'alert';
-};
-
-export type ContentPTType = {
-  id: string;
-  htmlid: string | null;
-  eyebrow: string | null;
-  displayTitle: string | null;
-  summary: string | null;
-  buttons: Array<ButtonType>;
-  alignment: AlignmentType;
-  presentationItems: Array<FlexibleContentType>;
-  itemAlignment: AlignmentType;
-  presentationVariant:
-    | 'carousel'
-    | 'sleek carousel'
-    | 'tab'
-    | 'accordion'
-    | 'scroll';
-  layout: 'flex row' | 'full top';
-  backgroundColor: BackgroundColorType | null;
-  backgroundImage: MediaType | null;
-  enableParallaxEffect: boolean;
-  darkMode: boolean;
-  showBottomSeparator: boolean;
-  contentType: 'contentpresentation';
 };
 
 export type StatisticsType = {

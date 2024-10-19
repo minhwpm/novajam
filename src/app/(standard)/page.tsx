@@ -5,7 +5,7 @@ import getPage from '@/helpers/query/getPage';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const data: PageType = await getPage('/');
+  const data = (await getPage('/')) as unknown as PageType;
   return {
     title: data?.metaTitle,
     description: data?.metaDescription,
@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const data = await getPage('/');
+  const data = (await getPage('/')) as unknown as PageType;
   if (!data) {
     notFound();
   }

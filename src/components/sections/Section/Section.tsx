@@ -1,10 +1,6 @@
 'use client';
 import classNames from 'classnames';
-import {
-  ContentListType,
-  ContentPTType,
-  FeaturedContentType,
-} from '@/helpers/types';
+import { ContentListType, FeaturedContentType } from '@/helpers/types';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 import { SectionSeparator } from '@/components/elements/SectionSeparator/SectionSeparator';
@@ -14,7 +10,7 @@ interface SectionProps {
   className?: string;
   framed?: boolean;
   layout?: 'flex row' | 'full top';
-  data: ContentListType | ContentPTType | FeaturedContentType;
+  data: ContentListType | FeaturedContentType;
   children: React.ReactNode;
 }
 
@@ -169,13 +165,11 @@ export const Section: React.FC<SectionProps> = ({
           </div>
         )}
         {children}
-        {!!buttons?.length &&
-          (data.contentType === 'contentlist' ||
-            data.contentType === 'contentpresentation') && (
-            <div className="w-full">
-              <ButtonGroup data={buttons} alignment={alignment} />
-            </div>
-          )}
+        {!!buttons?.length && data.contentType === 'contentlist' && (
+          <div className="w-full">
+            <ButtonGroup data={buttons} alignment={alignment} />
+          </div>
+        )}
       </div>
       {showBottomSeparator && <SectionSeparator />}
     </section>

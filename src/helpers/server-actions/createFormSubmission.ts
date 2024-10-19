@@ -1,5 +1,10 @@
 'use server';
-import { createClient } from 'contentful-management';
+import fs from 'fs';
+import path from 'path';
+import { promisify } from 'util';
+
+const writeFileAsync = promisify(fs.writeFile);
+const readFileAsync = promisify(fs.readFile);
 
 export type FormState = {
   message: string;
@@ -27,30 +32,31 @@ export async function createFormSubmission(
     },
   };
 
-  const client = createClient({
-    accessToken: process.env.CONTENTFUL_MANAGEMENT_PERSONAL_ACCESS_TOKEN ?? '',
-  });
+  const filePath = path.join(
+    process.cwd(),
+    'src/helpers/server-actions',
+    `form-submissions.json`,
+  );
 
-  return client
-    .getSpace(process.env.CONTENTFUL_SPACE_ID ?? '')
-    .then((space) =>
-      space.getEnvironment(process.env.CONTENTFUL_ENVIRONMENT ?? ''),
-    )
-    .then((environment) => {
-      return environment.createEntry('inquiryFormSubmission', {
-        fields: { ...standardizedData },
-      });
-    })
-    .then(() => {
+  try {
+    if (!fs.existsSync(filePath)) {
+      await writeFileAsync(
+        filePath,
+        JSON.stringify([standardizedData], null, 2),
+      );
       return {
         message: 'SUCCESSFULLY CREATED AN ENTRY OF FORM SUBMISSION',
       };
-    })
-    .catch((error) => {
-      console.error('ERROR WHEN CREATING AN ENTRY OF FORM SUBMISSION', error);
-      return new Error(
-        'ERROR WHEN CREATING AN ENTRY OF FORM SUBMISSION',
-        error,
-      );
-    });
+    }
+    const fileData = await readFileAsync(filePath, 'utf-8');
+    const jsonData = JSON.parse(fileData);
+    jsonData.push(standardizedData);
+    writeFileAsync(filePath, JSON.stringify(jsonData, null, 2));
+    return {
+      message: 'SUCCESSFULLY CREATED AN ENTRY OF FORM SUBMISSION',
+    };
+  } catch (err) {
+    console.error('Error writing file:', err);
+    return new Error(`ERROR WHEN CREATING AN ENTRY OF FORM SUBMISSION: ${err}`);
+  }
 }
