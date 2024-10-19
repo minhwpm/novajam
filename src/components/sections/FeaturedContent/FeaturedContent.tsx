@@ -6,7 +6,6 @@ import { Section } from '@/components/sections/Section/Section';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
 import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
 import { DeckList } from '../DeckList/DeckList';
-import '@/app/styles/bg-color.css';
 import '@/app/styles/padding.css';
 
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({

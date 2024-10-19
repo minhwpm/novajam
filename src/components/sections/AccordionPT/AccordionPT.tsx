@@ -8,7 +8,6 @@ import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentM
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import { FaChevronDown } from 'react-icons/fa';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
-import '@/app/styles/bg-color.css';
 
 export const AccordionPT: React.FC<{ data: ContentPTType }> = ({ data }) => {
   const { presentationItems, itemAlignment, darkMode } = data;

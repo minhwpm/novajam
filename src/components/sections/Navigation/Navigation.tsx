@@ -1,9 +1,8 @@
 /* eslint-disable complexity */ //@TODO eslint
 'use client';
+import Link from 'next/link';
 import React from 'react';
 import classNames from 'classnames';
-import Image from 'next/image';
-import Link from 'next/link';
 import useStickyHeaderOnScrollUp from '@/helpers/hooks/useStickyHeaderOnScrollUp';
 import NavMenu from '@/components/elements/NavMenu/NavMenu';
 import NavMenuMobile from '@/components/elements/NavMenuMobile/NavMenuMobile';
@@ -11,20 +10,24 @@ import NavMenuMinimal from '@/components/elements/NavMenuMinimal/NavMenuMinimal'
 import { Button } from '@/components/elements/Button/Button';
 import { MediaType, NavigationType } from '@/helpers/types';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
-import DarkModeToggle from '@/components/elements/DarkModeToggle/DarkModeToggle';
+import { Image } from '@/components/elements/Image/Image';
+import { DarkModeToggle } from '@/components/elements/DarkModeToggle/DarkModeToggle';
 
 const Logo: React.FC<{ redirectUrl?: string; logo: MediaType }> = ({
   redirectUrl,
   logo,
 }) => (
-  <Link href={redirectUrl ?? '/'}>
+  <Link
+    href={redirectUrl ?? '/'}
+    className="block max-h-14 max-w-[12rem] dark:invert dark:filter dark:brightness-0"
+  >
     <Image
-      className="h-14 max-w-[12rem] object-contain object-left dark:invert dark:filter dark:brightness-0"
-      src={logo.url}
-      width={logo.width}
-      height={logo.height}
-      alt={logo.title ?? ''}
+      className="dark:invert dark:filter dark:brightness-0"
+      data={logo}
+      alt={logo.title ?? 'Logo'}
       priority
+      fallbackSrc="/logo.webp"
+      rounded="none"
     />
   </Link>
 );

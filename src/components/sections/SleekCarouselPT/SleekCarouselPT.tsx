@@ -8,7 +8,6 @@ import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentM
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
-import '@/app/styles/bg-color.css';
 
 const ArrowGroup = ({
   visibleIdx,

@@ -51,7 +51,9 @@ export const Section: React.FC<SectionProps> = ({
             ${parseInt(backgroundColor.slice(5, 7), 16)}, 
             var(--tw-bg-opacity))`
       : 'none',
-    backgroundImage: backgroundImage ? `url(${backgroundImage.url})` : 'none',
+    backgroundImage: backgroundImage
+      ? `url(${backgroundImage.url}), url('/fallback.png)`
+      : 'none',
   };
 
   const renderEyebrow = () =>

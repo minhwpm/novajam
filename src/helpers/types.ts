@@ -106,10 +106,7 @@ export interface NavigationType {
 
 export interface FooterType {
   url: string;
-  logo: {
-    url: string;
-    title: string;
-  };
+  logo: MediaType | null;
   logoRedirect: string | null;
   description: string | null;
   copyright: string | null;

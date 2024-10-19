@@ -4,7 +4,6 @@ import { ContentListType } from '@/helpers/types';
 import { CarouselList } from '@/components/sections/CarouselList/CarouselList';
 import { MasonryList } from '@/components/sections/MasonryList/MasonryList';
 import { DeckList } from '@/components/sections/DeckList/DeckList';
-import '@/app/styles/bg-color.css';
 
 export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
   const { blocks, displayMode, itemsPerView, darkMode, alignment } = data;

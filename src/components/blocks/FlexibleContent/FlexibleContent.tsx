@@ -62,6 +62,7 @@ export const FlexibleContent: React.FC<{
         >
           {media.length === 1 && (
             <MediaItem
+              className="self-start"
               data={media[0]}
               aspectRatio={mediaAspectRatio}
               videoControls

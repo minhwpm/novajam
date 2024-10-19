@@ -8,7 +8,6 @@ import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/Markdow
 import { FlexibleContentMediaPart } from '@/components/elements/FlexibleContentMediaPart/FlexibleContentMediaPart';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
-import '@/app/styles/bg-color.css';
 import './styles.css';
 
 export const TabPT: React.FC<{ data: ContentPTType }> = ({ data }) => {

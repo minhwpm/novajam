@@ -7,7 +7,6 @@ import { SectionSeparator } from '@/components/elements/SectionSeparator/Section
 import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import { HeroType } from '@/helpers/types';
 import '@/app/styles/padding.css';
-import '@/app/styles/bg-color.css';
 
 export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
   data,
@@ -51,7 +50,7 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
                   var(--tw-bg-opacity))`
           : 'none',
         backgroundImage: backgroundImage
-          ? `url(${backgroundImage.url})`
+          ? `url(${backgroundImage.url}), url('/fallback.png)`
           : 'none',
       }}
     >
@@ -126,15 +125,20 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
         {media && (
           <div
             className={classNames(
-              'basis-1/2 shrink grow opacity-0 custom-padding-right',
+              'basis-1/2 shrink grow max-w-fit opacity-0 custom-padding-left custom-padding-right self-stretch flex items-center',
               {
-                'custom-padding-left': layout === 'vertical',
+                'lg:!pl-0': layout === 'horizontal',
                 'animate-slidingHeroContent animation-delay-300':
                   isIntersecting,
               },
             )}
           >
-            <MediaItem data={media} videoAutoplay={false} priority={true} />
+            <MediaItem
+              data={media}
+              videoAutoplay={false}
+              priority={true}
+              dimensionBase="height"
+            />
           </div>
         )}
       </div>

@@ -25,10 +25,14 @@ export async function getNavigation(url: string) {
           items {
             url
             logo {
+              sys {
+                id
+              }
               url
               title
               width
               height
+              contentType
             }
             logoRedirect
             menuCollection {

@@ -1,9 +1,9 @@
+import Link from 'next/link';
+import classNames from 'classnames';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 import { SNS } from '@/components/elements/SNS/SNS';
 import { FooterType } from '@/helpers/types';
-import classNames from 'classnames';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Image } from '@/components/elements/Image/Image';
 
 interface Props {
   data: FooterType;
@@ -40,20 +40,23 @@ export const Footer: React.FC<Props> = ({ data }) => {
                   var(--tw-bg-opacity))`
           : 'none',
         backgroundImage: backgroundImage
-          ? `url(${backgroundImage.url})`
+          ? `url(${backgroundImage.url}), url('/fallback.png)`
           : 'none',
       }}
     >
       <div className="container py-20 flex flex-wrap gap-x-5 gap-y-10">
-        <div className="w-full lg:w-1/2 xl:w-1/3 flex flex-col items-center lg:items-start">
+        <div className="w-full lg:w-1/2 xl:w-1/3 flex flex-col gap-4 lg:gap-8 items-center lg:items-start">
           {logo?.url && (
-            <Link href={logoRedirect ?? '/'}>
+            <Link
+              href={logoRedirect ?? '/'}
+              className="block max-h-14 max-w-[12rem]"
+            >
               <Image
-                className="w-40 h-14 object-contain object-top dark:invert dark:filter dark:brightness-0"
-                src={logo.url}
-                width={160}
-                height={56}
-                alt={logo.title}
+                className="dark:invert dark:filter dark:brightness-0"
+                data={logo}
+                alt={logo.title ?? 'Logo'}
+                fallbackSrc="/logo.webp"
+                rounded="none"
               />
             </Link>
           )}
@@ -63,16 +66,12 @@ export const Footer: React.FC<Props> = ({ data }) => {
             </div>
           )}
           {sns && (
-            <div className="flex gap-2 mt-8">
+            <div className="flex gap-2">
               <SNS data={sns} />
             </div>
           )}
           {copyright && (
-            <p
-              className={classNames(
-                'mt-8 text-slate-500 dark:text-slate-100/70',
-              )}
-            >
+            <p className={classNames('text-slate-500 dark:text-slate-100/70')}>
               {copyright}
             </p>
           )}

@@ -24,8 +24,14 @@ export async function getFooter(url: string) {
           items {
             url
             logo {
+              sys {
+                id
+              }
               url
               title
+              width
+              height
+              contentType
             }
             logoRedirect
             description

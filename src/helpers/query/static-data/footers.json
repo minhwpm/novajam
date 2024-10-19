@@ -10,7 +10,9 @@
     "darkMode": false,
     "logo": {
       "url": "https://images.ctfassets.net/ehmycbmc25mu/7vvCItsTwfA8tl0SyqlzWT/b8c89a775becaac933165795be38ef05/novajam_logo_black.webp",
-      "title": "novajam logo black"
+      "title": "novajam logo black",
+      "width": 1055,
+      "height": 160
     },
     "menu": [
       {
