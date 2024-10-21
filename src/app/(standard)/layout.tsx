@@ -15,7 +15,7 @@ export default async function RootLayout({
 }) {
   const navigation = await getNavigation('/');
   const footer = await getFooter('/');
-  let fontTheme, colorTheme, borderRadiusTheme, headingFontSizeTheme;
+  let fontTheme, colorTheme, borderRadiusTheme;
   const page = await getPage('/');
   if (page) {
     fontTheme = generateFontClassnames(page.fontMain, page.fontHeading);
@@ -24,7 +24,6 @@ export default async function RootLayout({
       page.colorSecondary,
     );
     borderRadiusTheme = `${page.borderRadius}-border-radius-theme`;
-    headingFontSizeTheme = `${page.headingFontSize}-heading-font-size`;
   }
 
   return (
@@ -33,7 +32,6 @@ export default async function RootLayout({
         'flex flex-col justify-between min-h-screen',
         fontTheme,
         styles[borderRadiusTheme ?? ''],
-        styles[headingFontSizeTheme ?? ''],
         styles[colorTheme?.primaryColor ?? ''],
         styles[colorTheme?.secondaryColor ?? ''],
         { 'overlay-nav': navigation?.layout === 'overlay' },

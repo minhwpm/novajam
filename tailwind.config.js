@@ -30,8 +30,6 @@ module.exports = {
         'lg-heading': 'var(--lg-heading-font-size)',
         'xl-heading': 'var(--xl-heading-font-size)',
         'xxl-heading': 'var(--xxl-heading-font-size)',
-        heading: 'var(--heading-font-size)',
-        'hero-heading': 'var(--hero-heading-font-size)',
       },
       colors: {
         primary: {

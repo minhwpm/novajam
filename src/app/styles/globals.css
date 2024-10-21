@@ -27,9 +27,6 @@
     --secondary-color-500: var(--foreground-rgb);
     --secondary-color-600: var(--foreground-rgb);
 
-    --heading-font-size: clamp(1.75rem, 6vw, 2.5rem);
-    --hero-heading-font-size: clamp(2.25rem, 7vw, 3.25rem);
-
     --base-heading-font-size: clamp(1.75rem, 6vw, 2.5rem);
     --lg-heading-font-size: clamp(2.25rem, 7vw, 3.125rem);
     --xl-heading-font-size: clamp(3.25rem, 7vw, 4rem);

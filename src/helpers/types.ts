@@ -142,7 +142,6 @@ export type PageType = {
   content: PageContentType | null;
   fontMain: string;
   fontHeading: string;
-  headingFontSize: 'standard' | 'standout' | 'impactful';
   colorPrimary: string;
   colorSecondary: string;
   borderRadius: string;

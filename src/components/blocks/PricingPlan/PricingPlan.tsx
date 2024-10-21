@@ -48,7 +48,7 @@ export const PricingPlan: React.FC<{
         </h4>
         <div
           className={classNames(
-            'text-4xl xl:text-5xl font-bold font-heading dark:text-slate-100',
+            'font-bold font-heading text-lg-heading dark:text-slate-100',
           )}
         >
           {pricing}

@@ -15,13 +15,7 @@ export default async function Layout({
   children: React.ReactNode;
   params: { slug: Array<string> };
 }) {
-  let navigation,
-    footer,
-    page,
-    fontTheme,
-    colorTheme,
-    borderRadiusTheme,
-    headingFontSizeTheme;
+  let navigation, footer, page, fontTheme, colorTheme, borderRadiusTheme;
   while (
     params.slug!.length >= 0 &&
     (!navigation || !footer || !fontTheme || !colorTheme || !borderRadiusTheme)
@@ -38,7 +32,6 @@ export default async function Layout({
           page.colorSecondary,
         );
         borderRadiusTheme = `${page.borderRadius}-border-radius-theme`;
-        headingFontSizeTheme = `${page.headingFontSize}-heading-font-size`;
       }
     }
     params.slug!.pop();
@@ -50,7 +43,6 @@ export default async function Layout({
         'flex flex-col justify-between',
         fontTheme,
         styles[borderRadiusTheme ?? ''],
-        styles[headingFontSizeTheme ?? ''],
         styles[colorTheme?.primaryColor ?? ''],
         styles[colorTheme?.secondaryColor ?? ''],
         { 'overlay-nav': navigation?.layout === 'overlay' },
