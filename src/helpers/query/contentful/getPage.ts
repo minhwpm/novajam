@@ -1,7 +1,6 @@
 import getContentList from './getContentList';
 import getFeaturedContent from './getFeaturedContent';
 import getHero from './getHero';
-import getContentPT from './getContentPT';
 import normalizeContentfulData from './normalizeContentfulData';
 import getAlert from './getAlert';
 
@@ -103,8 +102,6 @@ export async function getPage(url: string) {
       switch (contentType) {
         case 'hero':
           return await getHero(id);
-        case 'contentpresentation':
-          return await getContentPT(id);
         case 'featuredcontent':
           return await getFeaturedContent(id);
         case 'contentlist':

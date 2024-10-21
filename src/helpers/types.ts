@@ -14,6 +14,7 @@ export type SNSType = {
   instagramUrl: string | null;
 };
 
+// @TODO remove this
 export type BackgroundColorType =
   | 'neutral'
   | 'red'
@@ -131,7 +132,6 @@ export type SEOType = {
 export type PageContentType =
   | HeroType
   | AlertType
-  | ContentPTType
   | ContentListType
   | FeaturedContentType;
 
@@ -207,6 +207,7 @@ export type FeaturedContentType = {
   switchMediaPosition: 'left' | 'right';
   blocks: Array<BlockType>;
   buttons: Array<ButtonType>;
+  displayTitleFontSize: 'base' | 'lg' | 'xl' | 'xxl' | null;
   alignment: AlignmentType;
   layout: 'flex row' | 'full top';
   backgroundColor: BackgroundColorType | null;
@@ -227,6 +228,7 @@ export type HeroType = {
   summary: string | null;
   buttons: Array<ButtonType>;
   media: MediaType | null;
+  displayTitleFontSize: 'base' | 'lg' | 'xl' | 'xxl' | null;
   layout: 'horizontal' | 'vertical';
   alignment: AlignmentType;
   backgroundColor: BackgroundColorType | null;
@@ -244,31 +246,6 @@ export type AlertType = {
   backgroundColor: string | null;
   darkMode: boolean;
   contentType: 'alert';
-};
-
-export type ContentPTType = {
-  id: string;
-  htmlid: string | null;
-  eyebrow: string | null;
-  displayTitle: string | null;
-  summary: string | null;
-  buttons: Array<ButtonType>;
-  alignment: AlignmentType;
-  presentationItems: Array<FlexibleContentType>;
-  itemAlignment: AlignmentType;
-  presentationVariant:
-    | 'carousel'
-    | 'sleek carousel'
-    | 'tab'
-    | 'accordion'
-    | 'scroll';
-  layout: 'flex row' | 'full top';
-  backgroundColor: BackgroundColorType | null;
-  backgroundImage: MediaType | null;
-  enableParallaxEffect: boolean;
-  darkMode: boolean;
-  showBottomSeparator: boolean;
-  contentType: 'contentpresentation';
 };
 
 export type StatisticsType = {
@@ -345,6 +322,7 @@ export type ContentListType = {
   displayTitle: string | null;
   summary: string | null;
   buttons: Array<ButtonType>;
+  displayTitleFontSize: 'base' | 'lg' | 'xl' | 'xxl' | null;
   alignment: AlignmentType;
   blocks: Array<BlockType>;
   itemsPerView: ItemsPerViewType;

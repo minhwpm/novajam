@@ -1,10 +1,6 @@
 'use client';
 import classNames from 'classnames';
-import {
-  ContentListType,
-  ContentPTType,
-  FeaturedContentType,
-} from '@/helpers/types';
+import { ContentListType, FeaturedContentType } from '@/helpers/types';
 import { ButtonGroup } from '@/components/elements/ButtonGroup/ButtonGroup';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 import { SectionSeparator } from '@/components/elements/SectionSeparator/SectionSeparator';
@@ -14,7 +10,7 @@ interface SectionProps {
   className?: string;
   framed?: boolean;
   layout?: 'flex row' | 'full top';
-  data: ContentListType | ContentPTType | FeaturedContentType;
+  data: ContentListType | FeaturedContentType;
   children: React.ReactNode;
 }
 
@@ -41,6 +37,7 @@ export const Section: React.FC<SectionProps> = ({
 
   const marginTop = 'marginTop' in data ? data.marginTop : 'none';
   const marginBottom = 'marginBottom' in data ? data.marginBottom : 'none';
+  const displayTitleFontSize = data.displayTitleFontSize ?? 'base';
 
   const [ref, isIntersecting] = useIntersecting(0.5);
 
@@ -92,10 +89,14 @@ export const Section: React.FC<SectionProps> = ({
     displayTitle && (
       <div
         className={classNames(
-          'font-heading text-heading leading-snug max-w-3xl mb-4 lg:mb-6 dark:text-slate-100',
+          'font-heading leading-snug max-w-3xl mb-4 lg:mb-6 dark:text-slate-100',
           {
             'text-center': alignment === 'center',
             'text-end': alignment === 'end',
+            'text-base-heading': displayTitleFontSize === 'base',
+            'text-lg-heading': displayTitleFontSize === 'lg',
+            'text-xl-heading': displayTitleFontSize === 'xl',
+            'text-xxl-heading': displayTitleFontSize === 'xxl',
           },
         )}
       >
@@ -169,13 +170,11 @@ export const Section: React.FC<SectionProps> = ({
           </div>
         )}
         {children}
-        {!!buttons?.length &&
-          (data.contentType === 'contentlist' ||
-            data.contentType === 'contentpresentation') && (
-            <div className="w-full">
-              <ButtonGroup data={buttons} alignment={alignment} />
-            </div>
-          )}
+        {!!buttons?.length && data.contentType === 'contentlist' && (
+          <div className="w-full">
+            <ButtonGroup data={buttons} alignment={alignment} />
+          </div>
+        )}
       </div>
       {showBottomSeparator && <SectionSeparator />}
     </section>
