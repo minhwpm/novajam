@@ -14,26 +14,6 @@ export type SNSType = {
   instagramUrl: string | null;
 };
 
-export type BackgroundColorType =
-  | 'neutral'
-  | 'red'
-  | 'orange'
-  | 'amber'
-  | 'yellow'
-  | 'lime'
-  | 'green'
-  | 'emerald'
-  | 'teal'
-  | 'cyan'
-  | 'sky'
-  | 'blue'
-  | 'indigo'
-  | 'violet'
-  | 'purple'
-  | 'fuchsia'
-  | 'pink'
-  | 'rose';
-
 export type AlignmentType = 'start' | 'center' | 'end';
 
 export type ButtonVariant =
@@ -112,7 +92,7 @@ export interface FooterType {
   copyright: string | null;
   sns: SNSType | null;
   menu: Array<LinkGroupType>;
-  backgroundColor: BackgroundColorType | null;
+  backgroundColor: string | null;
   backgroundImage: MediaType | null;
   darkMode: boolean;
 }
@@ -142,8 +122,8 @@ export type PageType = {
   fontMain: string;
   fontHeading: string;
   headingFontSize: 'standard' | 'standout' | 'impactful';
-  colorPrimary: string;
-  colorSecondary: string;
+  colorPrimary: string | null;
+  colorSecondary: string | null;
   borderRadius: string;
   metaTitle: string | null;
   metaDescription: string | null;
@@ -188,7 +168,7 @@ export type FeaturedContentType = {
   buttons: Array<ButtonType>;
   alignment: AlignmentType;
   layout: 'flex row' | 'full top';
-  backgroundColor: BackgroundColorType | null;
+  backgroundColor: string | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
   darkMode: boolean;
@@ -208,7 +188,7 @@ export type HeroType = {
   media: MediaType | null;
   layout: 'horizontal' | 'vertical';
   alignment: AlignmentType;
-  backgroundColor: BackgroundColorType | null;
+  backgroundColor: string | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
   darkMode: boolean;
@@ -304,7 +284,7 @@ export type ContentListType = {
   itemsPerView: ItemsPerViewType;
   displayMode: 'carousel' | 'masonry' | 'deck';
   layout: 'flex row' | 'full top';
-  backgroundColor: BackgroundColorType | null;
+  backgroundColor: string | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
   darkMode: boolean;
