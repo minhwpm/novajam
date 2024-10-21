@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 'use client';
 import classNames from 'classnames';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
@@ -27,6 +28,7 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
   const [ref, isIntersecting] = useIntersecting();
   const layout = data.layout ?? 'horizontal';
   const alignment = data.alignment ?? 'start';
+  const displayTitleFontSize = data.displayTitleFontSize ?? 'lg';
 
   return (
     <section
@@ -88,8 +90,14 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
             {displayTitle && (
               <div
                 className={classNames(
-                  'text-hero-heading leading-snug font-heading opacity-0 dark:text-slate-100',
-                  { 'animate-slidingHeroContent': isIntersecting },
+                  'font-heading leading-snug opacity-0 dark:text-slate-100',
+                  {
+                    'animate-slidingHeroContent': isIntersecting,
+                    'text-base-heading': displayTitleFontSize === 'base',
+                    'text-lg-heading': displayTitleFontSize === 'lg',
+                    'text-xl-heading': displayTitleFontSize === 'xl',
+                    'text-xxl-heading': displayTitleFontSize === 'xxl',
+                  },
                 )}
               >
                 <MarkdownRenderer>{displayTitle}</MarkdownRenderer>

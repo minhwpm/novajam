@@ -163,6 +163,7 @@ export default async function getFeature(id: string) {
             mediaAspectRatio
             switchMediaPosition
             htmlid
+            displayTitleFontSize
             layout
             backgroundColor
             backgroundImage {

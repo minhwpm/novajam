@@ -47,6 +47,7 @@ export default async function getContentList(id: string) {
                     }
                   }
                   htmlid
+                  displayTitleFontSize
                   alignment
                   displayMode
                   layout

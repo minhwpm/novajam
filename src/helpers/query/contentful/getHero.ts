@@ -53,6 +53,7 @@ export default async function getHero(id: string) {
               height
               contentType
             }
+            displayTitleFontSize
             layout
             alignment
             backgroundColor
