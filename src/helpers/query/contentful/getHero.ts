@@ -53,6 +53,8 @@ export default async function getHero(id: string) {
               height
               contentType
             }
+            switchMediaPosition
+            mediaWidthExpanded
             displayTitleFontSize
             layout
             alignment

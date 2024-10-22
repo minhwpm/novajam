@@ -24,7 +24,9 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
     enableParallaxEffect,
     darkMode,
     showBottomSeparator,
+    mediaWidthExpanded,
   } = data;
+  const switchMediaPosition = data.switchMediaPosition ?? 'right';
   const [ref, isIntersecting] = useIntersecting();
   const layout = data.layout ?? 'horizontal';
   const alignment = data.alignment ?? 'start';
@@ -66,8 +68,11 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
             className={classNames(
               'basis-1/2 shrink grow flex flex-col py-14 md:py-16 lg:py-20 xl:py-24 2xl:py-28',
               {
-                'pr-4 lg:pr-8 xl:pr-10 custom-padding-left max-w-3xl':
-                  layout === 'horizontal',
+                // '': layout === 'horizontal',
+                'pr-4 lg:pr-8 xl:pr-10 max-w-3xl custom-padding-left':
+                  layout === 'horizontal' && switchMediaPosition === 'right',
+                'pl-4 lg:pl-8 xl:pl-10 max-w-3xl custom-padding-right':
+                  layout === 'horizontal' && switchMediaPosition === 'left',
                 'px-4 max-w-4xl self-center': layout === 'vertical',
                 'items-center text-center': alignment === 'center',
                 'items-end text-end': alignment === 'end',
@@ -133,11 +138,21 @@ export const Hero: React.FC<{ order?: number; data: HeroType }> = ({
         {media && (
           <div
             className={classNames(
-              'basis-1/2 shrink grow max-w-fit opacity-0 custom-padding-left custom-padding-right self-stretch flex items-center',
+              'basis-1/2 shrink grow max-w-fit opacity-0 self-stretch flex items-center',
               {
-                'lg:!pl-0': layout === 'horizontal',
+                'custom-padding-right':
+                  layout === 'horizontal' &&
+                  switchMediaPosition === 'right' &&
+                  !mediaWidthExpanded,
+                'custom-padding-left':
+                  layout === 'horizontal' &&
+                  switchMediaPosition === 'left' &&
+                  !mediaWidthExpanded,
+                'custom-padding-right custom-padding-left':
+                  layout === 'vertical' && !mediaWidthExpanded,
                 'animate-slidingHeroContent animation-delay-300':
                   isIntersecting,
+                '-order-1': switchMediaPosition === 'left',
               },
             )}
           >
