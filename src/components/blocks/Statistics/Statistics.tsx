@@ -33,6 +33,7 @@ export const Statistics: React.FC<{
         className={classNames(
           'font-heading text-lg-heading leading-none font-bold tracking-tight dark:text-slate-100',
           {
+            'self-start pt-1': layout === 'horizontal',
             'text-center': alignment === 'center',
             'text-end': alignment === 'end',
           },
