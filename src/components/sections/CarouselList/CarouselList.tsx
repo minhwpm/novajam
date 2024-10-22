@@ -74,15 +74,14 @@ export const CarouselList: React.FC<{
             key={idx}
             className={classNames('px-4', {
               'basis-11/12 xl:basis-4/5 2xl:basis-3/4 lg:px-5 xl:px-6':
-                itemsPerView === '1',
-              'basis-11/12 lg:basis-[50%] lg:px-5 xl:px-6':
-                itemsPerView === '2',
+                itemsPerView === 1,
+              'basis-11/12 lg:basis-[50%] lg:px-5 xl:px-6': itemsPerView === 2,
               'basis-11/12 md:basis-[50%] xl:basis-[33.33%] lg:px-5':
-                itemsPerView === '3',
+                itemsPerView === 3,
               'basis-11/12 sm:basis-[50%] lg:basis-[33.33%] xl:basis-[25%]':
-                itemsPerView === '4',
+                itemsPerView === 4,
               'basis-[50%] sm:basis-[33.33%] md:basis-[25%] xl:basis-[20%]':
-                itemsPerView === '5',
+                itemsPerView === 5,
             })}
           >
             <BlockMapping data={item} index={idx} animate={false} />

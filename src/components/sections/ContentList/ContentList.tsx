@@ -6,8 +6,10 @@ import { MasonryList } from '@/components/sections/MasonryList/MasonryList';
 import { DeckList } from '@/components/sections/DeckList/DeckList';
 
 export const ContentList: React.FC<{ data: ContentListType }> = ({ data }) => {
-  const { blocks, displayMode, itemsPerView, darkMode, alignment } = data;
+  const { blocks, displayMode, darkMode } = data;
   const layout = data.layout ?? 'full top';
+  const itemsPerView = data.itemsPerView ?? 3;
+  const alignment = data.alignment ?? 'start';
   return (
     <Section
       className={classNames({

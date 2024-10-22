@@ -27,7 +27,6 @@ export const Section: React.FC<SectionProps> = ({
     eyebrow,
     summary,
     buttons,
-    alignment,
     backgroundColor,
     backgroundImage,
     enableParallaxEffect,
@@ -38,6 +37,7 @@ export const Section: React.FC<SectionProps> = ({
   const marginTop = 'marginTop' in data ? data.marginTop : 'none';
   const marginBottom = 'marginBottom' in data ? data.marginBottom : 'none';
   const displayTitleFontSize = data.displayTitleFontSize ?? 'base';
+  const alignment = data.alignment ?? 'start';
 
   const [ref, isIntersecting] = useIntersecting(0.5);
 

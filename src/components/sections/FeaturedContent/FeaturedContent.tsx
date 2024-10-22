@@ -11,8 +11,8 @@ import '@/app/styles/padding.css';
 export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
   data,
 }) => {
-  const { blocks, media, mediaAspectRatio, alignment, switchMediaPosition } =
-    data;
+  const { blocks, media, mediaAspectRatio, switchMediaPosition } = data;
+  const alignment = data.alignment ?? 'start';
   const layout = data.layout ?? 'flex row';
   const [mediaRef, isMediaIntersecting] = useIntersecting();
 
@@ -47,15 +47,13 @@ export const FeaturedContent: React.FC<{ data: FeaturedContentType }> = ({
           )}
         </div>
       )}
-      {!!blocks.length && (
+      {!!blocks?.length && (
         <div
           className={classNames('lg:basis-1/4 grow shrink', {
             'lg:max-w-fit': layout === 'flex row',
           })}
         >
-          {!!blocks.length && (
-            <DeckList blocks={blocks} itemsPerView="1" alignment={alignment} />
-          )}
+          <DeckList blocks={blocks} itemsPerView={1} alignment={alignment} />
         </div>
       )}
     </Section>

@@ -181,8 +181,8 @@ export type ExpertType = {
   organization: string | null;
   summary: string | null;
   sns: SNSType | null;
-  alignment: AlignmentType;
-  layout: 'horizontal' | 'vertical';
+  alignment: AlignmentType | null;
+  layout: 'horizontal' | 'vertical' | null;
   contentType: 'expert';
 };
 
@@ -203,12 +203,12 @@ export type FeaturedContentType = {
   summary: string | null;
   media: Array<MediaType>;
   mediaAspectRatio: MediaAspectRatioType;
-  switchMediaPosition: 'left' | 'right';
-  blocks: Array<BlockType>;
-  buttons: Array<ButtonType>;
+  switchMediaPosition: 'left' | 'right' | null;
+  blocks: Array<BlockType> | null;
+  buttons: Array<ButtonType> | null;
   displayTitleFontSize: 'base' | 'lg' | 'xl' | 'xxl' | null;
-  alignment: AlignmentType;
-  layout: 'flex row' | 'full top';
+  alignment: AlignmentType | null;
+  layout: 'flex row' | 'full top' | null;
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
@@ -216,8 +216,6 @@ export type FeaturedContentType = {
   showBottomSeparator: boolean;
   contentType: 'featuredcontent';
 };
-
-export type HeroLayoutVariant = 'overlay' | 'vertical' | 'horizontal';
 
 export type HeroType = {
   id: string;
@@ -227,9 +225,11 @@ export type HeroType = {
   summary: string | null;
   buttons: Array<ButtonType>;
   media: MediaType | null;
+  switchMediaPosition: 'left' | 'right' | null;
+  mediaWidthExpanded: boolean;
   displayTitleFontSize: 'base' | 'lg' | 'xl' | 'xxl' | null;
-  layout: 'horizontal' | 'vertical';
-  alignment: AlignmentType;
+  layout: 'horizontal' | 'vertical' | null;
+  alignment: AlignmentType | null;
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
@@ -251,8 +251,8 @@ export type StatisticsType = {
   id: string;
   number: string;
   text: string;
-  alignment: AlignmentType;
-  layout: 'horizontal' | 'vertical';
+  alignment: AlignmentType | null;
+  layout: 'horizontal' | 'vertical' | null;
   contentType: 'statistics';
 };
 
@@ -263,8 +263,8 @@ export type TestimonialType = {
   name: string | null;
   role: string | null;
   rating: 0 | 1 | 2 | 3 | 4 | 5 | null;
-  alignment: AlignmentType;
-  layout: 'horizontal' | 'vertical';
+  alignment: AlignmentType | null;
+  layout: 'horizontal' | 'vertical' | null;
   size: 'base' | 'lg' | 'xl';
   contentType: 'testimonial';
 };
@@ -279,8 +279,8 @@ export type FlexibleContentType = {
   redirectUrl: string | null;
   media: Array<MediaType>;
   mediaAspectRatio: MediaAspectRatioType;
-  alignment: AlignmentType;
-  layout: 'horizontal' | 'vertical';
+  alignment: AlignmentType | null;
+  layout: 'horizontal' | 'vertical' | null;
   contentType: 'flexiblecontent';
 };
 
@@ -292,7 +292,7 @@ export type PricingPlanType = {
   badge: string;
   description: string | null;
   ctaButton: ButtonType;
-  alignment: AlignmentType;
+  alignment: AlignmentType | null;
   contentType: 'pricingplan';
 };
 
@@ -313,7 +313,7 @@ export type BlockType =
   | FormType
   | QAType;
 
-export type ItemsPerViewType = '1' | '2' | '3' | '4' | '5';
+export type ItemsPerViewType = 1 | 2 | 3 | 4 | 5;
 
 export type ContentListType = {
   id: string;
@@ -322,11 +322,11 @@ export type ContentListType = {
   summary: string | null;
   buttons: Array<ButtonType>;
   displayTitleFontSize: 'base' | 'lg' | 'xl' | 'xxl' | null;
-  alignment: AlignmentType;
+  alignment: AlignmentType | null;
   blocks: Array<BlockType>;
-  itemsPerView: ItemsPerViewType;
-  displayMode: 'carousel' | 'masonry' | 'deck';
-  layout: 'flex row' | 'full top';
+  itemsPerView: ItemsPerViewType | null;
+  displayMode: 'carousel' | 'masonry' | 'deck' | null;
+  layout: 'flex row' | 'full top' | null;
   backgroundColor: BackgroundColorType | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
