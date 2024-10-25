@@ -23,7 +23,7 @@
     "react": "^18.2.0",
     "react-datepicker": "^4.20.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.45.2",
+    "react-hook-form": "^7.53.0",
     "react-hook-inview": "^4.5.0",
     "react-icons": "^4.11.0",
     "react-markdown": "^9.0.1",
