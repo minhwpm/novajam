@@ -19,7 +19,7 @@ export const ButtonGroup: React.FC<{
     >
       {data.map((button) => (
         <Button key={button.id} data={button} size={size ?? 'base'}>
-          {button.buttonLabel}
+          {button.label}
         </Button>
       ))}
     </div>

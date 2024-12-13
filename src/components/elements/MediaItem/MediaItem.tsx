@@ -13,6 +13,7 @@ export const MediaItem: React.FC<{
   dimensionBase?: 'width' | 'height';
   priority?: boolean;
   rounded?: 'theme' | 'full' | 'none';
+  shadow?: boolean;
   zoomInOverHover?: boolean;
   className?: string;
   fallbackSrc?: string;
@@ -25,6 +26,7 @@ export const MediaItem: React.FC<{
   dimensionBase = 'width',
   priority = false,
   rounded = 'theme',
+  shadow = false,
   zoomInOverHover = false,
   className,
   fallbackSrc = '/fallback.png',
@@ -48,7 +50,7 @@ export const MediaItem: React.FC<{
           aspectRatio={aspectRatio}
           rounded={rounded}
           zoomInOverHover={zoomInOverHover}
-          alt={altText}
+          alt={altText ?? data?.description ?? undefined}
           priority={priority}
           fallbackSrc={fallbackSrc}
           dimensionBase={dimensionBase}
@@ -58,8 +60,16 @@ export const MediaItem: React.FC<{
     </>
   );
 
-  return zoomInOverHover ? (
-    <div className={classNames('overflow-hidden', `rounded-${rounded}`)}>
+  return shadow || zoomInOverHover ? (
+    <div
+      className={classNames(
+        `bg-slate-200 dark:bg-slate-700 rounded-${rounded}`,
+        {
+          'overflow-hidden': zoomInOverHover,
+          'shadow-radiant': shadow,
+        },
+      )}
+    >
       {media}
     </div>
   ) : (

@@ -1,43 +1,55 @@
 [
   {
-    "url": "/demo",
-    "logoRedirect": "/",
-    "description": "With highly flexible blocks, you can easily build a page without coding.\nDesigned by [Seju](https://www.figma.com/@sejal_ui_ux)",
-    "copyright": "© NovaJAM 2024 | All rights reserved.",
-    "sns": null,
-    "backgroundColor": null,
-    "backgroundImage": null,
-    "darkMode": false,
+    "url": "/",
     "logo": {
+      "id": "logo",
       "url": "https://images.ctfassets.net/ehmycbmc25mu/7vvCItsTwfA8tl0SyqlzWT/b8c89a775becaac933165795be38ef05/novajam_logo_black.webp",
       "title": "novajam logo black",
+      "description": null,
       "width": 1055,
-      "height": 160
+      "height": 160,
+      "contentType": "image/webp"
     },
-    "menu": [
+    "logoRedirect": "/",
+    "description": "Designed by [Seju](https://www.figma.com/@sejal_ui_ux)",
+    "copyright": "© NovaJAM 2024 | All rights reserved.",
+    "menuItems": [
       {
-        "title": "Quick Links",
+        "label": "Quick Links",
         "links": [
           {
-            "text": "Home",
+            "id": "home",
+            "label": "Home",
+            "href": "/",
             "openNewTab": false,
-            "url": "/",
-            "id": "4jv0HeU7WbuYo2axDzRn3c"
+            "contentType": "link"
           },
           {
-            "text": "Contact",
+            "id": "contact",
+            "label": "Contact",
+            "href": "/contact",
             "openNewTab": false,
-            "url": "/contact",
-            "id": "OHZxGCWtdWxsobAaj7EVz"
+            "contentType": "link"
           },
           {
-            "text": "Github",
+            "id": "faq",
+            "label": "FAQ",
+            "href": "/faq",
+            "openNewTab": false,
+            "contentType": "link"
+          },
+          {
+            "id": "github",
+            "label": "Github",
+            "href": "https://github.com/minhwpm/novajam",
             "openNewTab": true,
-            "url": "https://github.com/minhwpm/novajam",
-            "id": "7grbuSkPuBtPQra8Z5TuDz"
+            "contentType": "link"
           }
         ]
       }
-    ]
+    ],
+    "backgroundColor": "#0f172a",
+    "backgroundImage": null,
+    "darkMode": true
   }
 ]

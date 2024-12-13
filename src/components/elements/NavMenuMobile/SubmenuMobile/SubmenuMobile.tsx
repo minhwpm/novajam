@@ -15,35 +15,19 @@ export const SubmenuMobile: React.FC<{
   return (
     <>
       <NavigationMenu.Trigger
-        className={classNames(
-          'select-none font-semibold text-start w-full group rounded-theme data-[state=open]:text-primary-600',
-          {
-            'text-primary-600':
-              data.featuredContent?.find(
-                (content) =>
-                  content && 'url' in content && content.url === pathname,
-              ) ||
-              data.menu?.find(
-                (subItem) =>
-                  (subItem.contentType === 'link' &&
-                    subItem.url === pathname) ||
-                  (subItem.contentType === 'linkgroup' &&
-                    subItem.links.find((link) => link.url === pathname)),
-              ),
-          },
-        )}
+        className="group block w-full select-none text-start data-[state=open]:text-primary-600 dark:data-[state=open]:text-primary-500"
         onPointerEnter={(e) => e.preventDefault()}
         onPointerMove={(e) => e.preventDefault()}
         onPointerLeave={(e) => e.preventDefault()}
       >
-        {data.title}
+        {data.label}
         <FaChevronDown
           size={10}
           className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
         />
       </NavigationMenu.Trigger>
       <NavigationMenu.Content
-        className="bg-white font-medium mt-2 rounded-theme"
+        className="bg-white dark:bg-slate-900 mt-2 rounded-theme"
         onPointerLeave={(e) => e.preventDefault()}
       >
         <NavigationMenu.Root
@@ -52,31 +36,31 @@ export const SubmenuMobile: React.FC<{
           className="py-2 px-4"
         >
           <NavigationMenu.List>
-            {data.menu?.length > 0 &&
-              data.menu.map((subItem) => (
+            {data.menuItems?.length > 0 &&
+              data.menuItems.map((item) => (
                 <NavigationMenu.Item
-                  key={subItem.id}
-                  className="py-1 border-b last:border-none border-slate-100"
+                  key={item.id}
+                  className="py-2 cursor-pointer"
                 >
-                  {subItem.contentType === 'link' && (
+                  {item.contentType === 'link' && (
                     <NavLinkItem
-                      href={subItem.url}
+                      href={item.href}
                       onClick={() => {
                         setMobileMenuShowed(false);
                         document.body.style.overflow = 'auto';
                       }}
                     >
-                      {subItem.text}
+                      {item.label}
                     </NavLinkItem>
                   )}
-                  {subItem.contentType === 'linkgroup' && (
+                  {item.contentType === 'linkgroup' && (
                     <>
                       <NavigationMenu.Trigger
                         className={classNames(
                           '-mx-2 w-full select-none text-left py-2 px-2 rounded-theme data-[state=open]:text-primary-600 group',
                           {
-                            'text-primary-600': subItem.links.find(
-                              (link) => link.url === pathname,
+                            'text-primary-600': item.links.find(
+                              (link) => link.href === pathname,
                             ),
                           },
                         )}
@@ -84,7 +68,7 @@ export const SubmenuMobile: React.FC<{
                         onPointerMove={(e) => e.preventDefault()}
                         onPointerLeave={(e) => e.preventDefault()}
                       >
-                        {subItem.title}
+                        {item.label}
                         <FaChevronDown
                           size={10}
                           className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
@@ -95,17 +79,17 @@ export const SubmenuMobile: React.FC<{
                         onPointerLeave={(e) => e.preventDefault()}
                       >
                         <ul className="pl-4 pb-2 flex flex-col gap-y-1">
-                          {subItem.links.length > 0 &&
-                            subItem.links.map((link) => (
+                          {item.links.length > 0 &&
+                            item.links.map((link) => (
                               <li key={link.id}>
                                 <NavLinkItem
-                                  href={link.url}
+                                  href={link.href}
                                   onClick={() => {
                                     setMobileMenuShowed(false);
                                     document.body.style.overflow = 'auto';
                                   }}
                                 >
-                                  {link.text}
+                                  {link.label}
                                 </NavLinkItem>
                               </li>
                             ))}

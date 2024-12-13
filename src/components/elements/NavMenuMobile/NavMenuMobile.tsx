@@ -10,16 +10,16 @@ import { SubmenuMobile } from './SubmenuMobile/SubmenuMobile';
 import { NavLinkItem } from '../NavLinkItem/NavLinkItem';
 
 const NavMenuMobile: React.FC<{
-  menu: Array<LinkType | SubmenuType>;
+  menuItems: Array<LinkType | SubmenuType>;
   buttons?: Array<ButtonType>;
-}> = ({ menu, buttons }) => {
+}> = ({ menuItems, buttons }) => {
   const [mobileMenuShowed, setMobileMenuShowed] = useState(false);
 
   return (
     <>
       <NavigationMenu.Root
         className={classNames(
-          'lg:hidden absolute top-0 left-0 z-[99999] bg-white text-slate-900 font-lg w-screen h-screen px-4 pt-20 pb-36 overflow-y-auto',
+          'lg:hidden absolute top-0 left-0 z-[99999] w-screen h-screen px-4 pt-20 pb-36 overflow-y-auto bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100 ',
           { hidden: !mobileMenuShowed },
         )}
         orientation="vertical"
@@ -35,25 +35,24 @@ const NavMenuMobile: React.FC<{
           />
         )}
         <NavigationMenu.List>
-          {menu.map(
+          {menuItems.map(
             (item) =>
               item && (
                 <NavigationMenu.Item
                   key={item.id}
                   className={classNames(
-                    'py-2 border-b last:border-none border-slate-200',
+                    'py-2.5 border-b last:border-none border-slate-100 dark:border-slate-800',
                   )}
                 >
                   {item.contentType === 'link' && (
                     <NavLinkItem
-                      className={classNames('font-semibold')}
-                      href={item.url}
+                      href={item.href}
                       onClick={() => {
                         setMobileMenuShowed(false);
                         document.body.style.overflow = 'auto';
                       }}
                     >
-                      {item.text}
+                      {item.label}
                     </NavLinkItem>
                   )}
                   {item.contentType === 'submenu' && (
@@ -78,7 +77,7 @@ const NavMenuMobile: React.FC<{
                 }}
                 size="base"
               >
-                {button.buttonLabel}
+                {button.label}
               </Button>
             ))}
           </div>

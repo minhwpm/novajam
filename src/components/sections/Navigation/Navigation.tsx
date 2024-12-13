@@ -1,7 +1,6 @@
 /* eslint-disable complexity */ //@TODO eslint
 'use client';
 import Link from 'next/link';
-import React from 'react';
 import classNames from 'classnames';
 import useStickyHeaderOnScrollUp from '@/helpers/hooks/useStickyHeaderOnScrollUp';
 import NavMenu from '@/components/elements/NavMenu/NavMenu';
@@ -36,7 +35,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
   const {
     logo,
     logoRedirect,
-    menu,
+    menuItems,
     showModeSelector,
     buttons,
     layout,
@@ -82,17 +81,17 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
           className={classNames(
             'absolute top-0 left-0 right-0 flex justify-center dark:text-slate-100 transition-all duration-500',
             {
-              'bg-white/60 backdrop-blur-2xl dark:bg-slate-900/60 shadow':
+              'bg-white/60 backdrop-blur-2xl dark:bg-slate-900/80 shadow':
                 sticky,
             },
           )}
         >
           <div className="w-full px-4 md:px-6 lg:px-8 xl:px-10 flex items-center gap-x-4">
-            <div className="shrink-0">
+            <div className="shrink-0 py-4">
               <Logo redirectUrl={logoRedirect ?? ''} logo={logo} />
             </div>
             <div className="flex-1 lg:text-lg">
-              {menu && <NavMenu menu={menu} layout={layout} />}
+              {menuItems && <NavMenu menuItems={menuItems} layout={layout} />}
             </div>
             {showModeSelector && <DarkModeToggle />}
             {buttons && buttons.length > 0 && (
@@ -100,7 +99,9 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
                 <ButtonGroup data={buttons} size="sm" />
               </div>
             )}
-            {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} />}
+            {menuItems && (
+              <NavMenuMobile menuItems={menuItems} buttons={buttons ?? []} />
+            )}
           </div>
         </div>
       </header>
@@ -117,7 +118,7 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
       <div
         className={classNames(
           'bg-white/60 dark:text-slate-100 dark:bg-slate-900 transition-all duration-500',
-          { 'backdrop-blur-2xl dark:bg-slate-900/60': sticky },
+          { 'backdrop-blur-2xl dark:bg-slate-900/80': sticky },
         )}
       >
         <div
@@ -125,11 +126,11 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
             'w-full px-4 md:px-6 lg:px-8 xl:px-10 flex items-center gap-x-4',
           )}
         >
-          <div className="shrink-0">
+          <div className="shrink-0 py-4">
             <Logo redirectUrl={logoRedirect ?? ''} logo={logo} />
           </div>
           <div className="flex-1">
-            {menu && <NavMenu menu={menu} layout={layout} />}
+            {menuItems && <NavMenu menuItems={menuItems} layout={layout} />}
           </div>
           {showModeSelector && <DarkModeToggle />}
           {buttons && buttons.length > 0 && (
@@ -137,18 +138,22 @@ const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
               <ButtonGroup data={buttons} size="sm" />
             </div>
           )}
-          {menu && <NavMenuMobile menu={menu} buttons={buttons ?? []} />}
+          {menuItems && (
+            <NavMenuMobile menuItems={menuItems} buttons={buttons ?? []} />
+          )}
         </div>
       </div>
     </header>
   );
 };
 
-export const Navigation: React.FC<{ data: NavigationType }> = ({ data }) => {
+export const Navigation: React.FC<{
+  data: NavigationType;
+}> = ({ data }) => {
   return (
     <>
       <Header data={data} />
-      {data.hotButtons && data.hotButtons.length > 0 && (
+      {data?.hotButtons && data.hotButtons.length > 0 && (
         <div
           className={classNames(
             'fixed z-[999999]',
@@ -164,7 +169,7 @@ export const Navigation: React.FC<{ data: NavigationType }> = ({ data }) => {
                   className="grow absolute lg:top-1/2 mx-1 lg:my-1"
                   size="base"
                 >
-                  {button.buttonLabel}
+                  {button.label}
                 </Button>
               </div>
             ))}

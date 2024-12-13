@@ -22,23 +22,22 @@ export const SubmenuMinimal: React.FC<{
       >
         <div
           className={classNames(
-            'text-center font-medium select-none rounded-theme before:bg-primary-600 underline-hover-effect group-data-[state=open]:before:w-full',
+            'text-center font-medium select-none rounded-theme before:bg-primary-500 dark:before:bg-white underline-hover-effect group-data-[state=open]:before:w-full',
             {
               'before:w-full':
                 data.featuredContent.find(
                   (content) => 'url' in content && content.url === pathname,
                 ) ||
-                data.menu.find(
-                  (subItem) =>
-                    (subItem.contentType === 'link' &&
-                      subItem.url === pathname) ||
-                    (subItem.contentType === 'linkgroup' &&
-                      subItem.links.find((link) => link.url === pathname)),
+                data.menuItems.find(
+                  (item) =>
+                    (item.contentType === 'link' && item.href === pathname) ||
+                    (item.contentType === 'linkgroup' &&
+                      item.links.find((link) => link.href === pathname)),
                 ),
             },
           )}
         >
-          {data.title}
+          {data.label}
           <FaChevronDown
             size={12}
             className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
@@ -51,29 +50,28 @@ export const SubmenuMinimal: React.FC<{
       >
         <NavigationMenu.Root aria-label="Sub" orientation="vertical">
           <NavigationMenu.List>
-            {data.menu.length > 0 &&
-              data.menu.map((subItem) => (
-                <div key={subItem.id} className={classNames('py-1')}>
-                  {subItem.contentType === 'link' && (
+            {data.menuItems.length > 0 &&
+              data.menuItems.map((item) => (
+                <div key={item.id} className={classNames('py-1')}>
+                  {item.contentType === 'link' && (
                     <NavLinkItem
-                      variant="underlined"
-                      href={subItem.url}
+                      href={item.href}
                       onClick={() => {
                         setNavMenuShowed(false);
                         document.body.style.overflow = 'auto';
                       }}
                     >
-                      {subItem.text}
+                      {item.label}
                     </NavLinkItem>
                   )}
-                  {subItem.contentType === 'linkgroup' && (
+                  {item.contentType === 'linkgroup' && (
                     <NavigationMenu.Item>
                       <NavigationMenu.Trigger
                         className={classNames(
-                          'font-medium select-none text-left py-2 rounded-theme before:bg-primary-600 underline-hover-effect data-[state=open]:before:w-full group',
+                          'font-medium select-none text-left py-2 rounded-theme before:bg-primary-500 dark:before:bg-white underline-hover-effect data-[state=open]:before:w-full group',
                           {
-                            'before:w-full': subItem.links.find(
-                              (link) => link.url === pathname,
+                            'before:w-full': item.links.find(
+                              (link) => link.href === pathname,
                             ),
                           },
                         )}
@@ -81,7 +79,7 @@ export const SubmenuMinimal: React.FC<{
                         onPointerMove={(e) => e.preventDefault()}
                         onPointerLeave={(e) => e.preventDefault()}
                       >
-                        {subItem.title}
+                        {item.label}
                         <FaChevronDown
                           size={12}
                           className="inline-block ml-2 transition-transform duration-500 group-data-[state=open]:rotate-180"
@@ -91,18 +89,17 @@ export const SubmenuMinimal: React.FC<{
                         onPointerLeave={(e) => e.preventDefault()}
                       >
                         <ul className="pl-4 py-3 flex flex-col gap-y-2">
-                          {subItem.links.length > 0 &&
-                            subItem.links.map((link) => (
+                          {item.links.length > 0 &&
+                            item.links.map((link) => (
                               <NavLinkItem
                                 key={link.id}
-                                href={link.url}
-                                variant="underlined"
+                                href={link.href}
                                 onClick={() => {
                                   setNavMenuShowed(false);
                                   document.body.style.overflow = 'auto';
                                 }}
                               >
-                                {link.text}
+                                {link.label}
                               </NavLinkItem>
                             ))}
                         </ul>

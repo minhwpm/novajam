@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import classNames from 'classnames';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
-import { SNS } from '@/components/elements/SNS/SNS';
 import { FooterType } from '@/helpers/types';
 import { Image } from '@/components/elements/Image/Image';
 
@@ -15,8 +14,7 @@ export const Footer: React.FC<Props> = ({ data }) => {
     logoRedirect,
     description,
     copyright,
-    sns,
-    menu,
+    menuItems,
     backgroundColor,
     backgroundImage,
     darkMode,
@@ -61,45 +59,40 @@ export const Footer: React.FC<Props> = ({ data }) => {
             </Link>
           )}
           {description && (
-            <div className="prose text-slate-500 dark:text-slate-100/70 dark:prose-invert">
+            <div className="prose text-slate-600 dark:text-white/80 dark:prose-invert">
               <MarkdownRenderer>{description}</MarkdownRenderer>
             </div>
           )}
-          {sns && (
-            <div className="flex gap-2">
-              <SNS data={sns} />
-            </div>
-          )}
           {copyright && (
-            <p className={classNames('text-slate-500 dark:text-slate-100/70')}>
+            <p className={classNames('text-slate-600 dark:text-white/80')}>
               {copyright}
             </p>
           )}
         </div>
         <div className="grow flex flex-wrap gap-8 justify-center lg:justify-end">
-          {menu.map((section, idx) => (
+          {menuItems.map((item, idx) => (
             <div
               key={idx}
               className={classNames(
                 'basis-40 flex flex-col gap-2 dark:text-slate-100',
-                { 'xl:col-start-10': menu.length === 1 },
+                { 'xl:col-start-10': menuItems.length === 1 },
               )}
             >
               <div
                 className={classNames('font-semibold mb-1 dark:text-slate-100')}
               >
-                {section.title}
+                {item.label}
               </div>
-              {section.links.map((link) => (
+              {item.links.map((link) => (
                 <Link
-                  key={link.text}
-                  href={link.url}
+                  key={link.label}
+                  href={link.href}
                   className={classNames(
-                    'self-start select-none text-slate-500 dark:text-slate-100/70 underline-hover-effect before:bg-primary-600',
+                    'self-start select-none text-slate-600 dark:text-white/80 before:bg-primary-500 dark:before:bg-white underline-hover-effect',
                   )}
                   target={link.openNewTab ? '_blank' : '_self'}
                 >
-                  {link.text}
+                  {link.label}
                 </Link>
               ))}
             </div>

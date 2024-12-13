@@ -2,79 +2,116 @@
   {
     "url": "/",
     "logoRedirect": "/",
-    "showModeSelector": null,
-    "layout": "standard",
-    "darkMode": true,
+    "showModeSelector": true,
+    "layout": "overlay",
+    "darkMode": false,
     "logo": {
-      "sys": {
-        "id": "7vvCItsTwfA8tl0SyqlzWT"
-      },
+      "id": "logo",
       "url": "https://images.ctfassets.net/ehmycbmc25mu/7vvCItsTwfA8tl0SyqlzWT/b8c89a775becaac933165795be38ef05/novajam_logo_black.webp",
       "title": "novajam logo black",
+      "description": null,
       "width": 1055,
       "height": 160,
       "contentType": "image/webp"
     },
     "hotButtons": [],
-    "menu": [
+    "menuItems": [
       {
-        "text": "Github",
+        "id": "home",
+        "label": "Home",
+        "href": "/",
         "openNewTab": false,
-        "url": "https://github.com/minhwpm/novajam",
-        "contentType": "link",
-        "id": "OHZxGCWtdWxsobAaj7EVz"
+        "contentType": "link"
+      },
+      {
+        "id": "contact",
+        "label": "Contact",
+        "href": "/contact",
+        "openNewTab": false,
+        "contentType": "link"
+      },
+      {
+        "id": "faq",
+        "label": "FAQ",
+        "href": "/faq",
+        "openNewTab": false,
+        "contentType": "link"
+      },
+      {
+        "id": "github",
+        "label": "Github",
+        "href": "https://github.com/minhwpm/novajam",
+        "openNewTab": true,
+        "contentType": "link"
       }
     ],
     "buttons": [
       {
-        "buttonLabel": "NovaJAM Pro",
-        "url": "https://novajam-pro.vercel.app",
+        "id": "5ch7AWS9JLFOzlZ2HA35H5",
+        "label": "Get PRO",
+        "href": "https://novajam.vercel.app",
         "openNewTab": true,
-        "buttonVariant": "primary",
-        "withArrow": true,
-        "icon": null,
-        "id": "2A0gdgsb8lKr9oU8xHLr7q"
+        "variant": "primary",
+        "withArrow": false,
+        "icon": null
       }
     ]
   },
   {
-    "url": "/demo",
+    "url": "/contact",
     "logoRedirect": "/",
-    "showModeSelector": true,
+    "showModeSelector": false,
     "layout": "overlay",
-    "darkMode": false,
+    "darkMode": true,
     "logo": {
+      "id": "logo",
       "url": "https://images.ctfassets.net/ehmycbmc25mu/7vvCItsTwfA8tl0SyqlzWT/b8c89a775becaac933165795be38ef05/novajam_logo_black.webp",
       "title": "novajam logo black",
+      "description": null,
       "width": 1055,
-      "height": 160
+      "height": 160,
+      "contentType": "image/webp"
     },
     "hotButtons": [],
-    "menu": [
+    "menuItems": [
       {
-        "text": "Demos",
+        "id": "home",
+        "label": "Home",
+        "href": "/",
         "openNewTab": false,
-        "url": "/",
-        "contentType": "link",
-        "id": "65W7NxA30f1uMZQYATh82F"
+        "contentType": "link"
       },
       {
-        "text": "Github",
+        "id": "contact",
+        "label": "Contact",
+        "href": "/contact",
         "openNewTab": false,
-        "url": "https://github.com/minhwpm/novajam",
-        "contentType": "link",
-        "id": "kdsKP2AdvJXQrLLMXiAo8"
+        "contentType": "link"
+      },
+      {
+        "id": "faq",
+        "label": "FAQ",
+        "href": "/faq",
+        "openNewTab": false,
+        "contentType": "link"
+      },
+      {
+        "id": "github",
+        "label": "Github",
+        "href": "https://github.com/minhwpm/novajam",
+        "openNewTab": true,
+        "contentType": "link"
       }
     ],
     "buttons": [
       {
-        "buttonLabel": "NovaJAM Pro",
-        "url": "https://novajam-pro.vercel.app",
+        "id": "5ch7AWS9JLFOzlZ2HA35H5",
+        "label": "Get PRO",
+        "href": "https://novajam.vercel.app",
         "openNewTab": true,
-        "buttonVariant": "primary",
-        "withArrow": true,
-        "icon": null,
-        "id": "5ch7AWS9JLFOzlZ2HA35H5"
+        "variant": "primary",
+        "withArrow": false,
+        "icon": null
       }
     ]
   }

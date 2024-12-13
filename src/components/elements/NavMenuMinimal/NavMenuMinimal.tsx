@@ -12,7 +12,7 @@ import { Button } from '../Button/Button';
 import { SubmenuMinimal } from './SubmenuMinimal/SubmenuMinimal';
 
 const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
-  const { menu, buttons } = data;
+  const { menuItems, buttons } = data;
   const [navMenuShowed, setNavMenuShowed] = useState(false);
 
   return (
@@ -40,21 +40,20 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
             }}
           />
           <NavigationMenu.List className="flex flex-col items-center text-lg xl:text-xl py-20">
-            {menu.map((item) => (
+            {menuItems.map((item) => (
               <NavigationMenu.Item
                 key={item.id}
                 className="py-2 border-b last:border-none border-neutral-800"
               >
                 {item.contentType === 'link' && (
                   <NavLinkItem
-                    href={item.url}
-                    variant="underlined"
+                    href={item.href}
                     onClick={() => {
                       setNavMenuShowed(false);
                       document.body.style.overflow = 'auto';
                     }}
                   >
-                    {item.text}
+                    {item.label}
                   </NavLinkItem>
                 )}
                 {item.contentType === 'submenu' && (
@@ -79,7 +78,7 @@ const NavMenuMinimal: React.FC<{ data: NavigationType }> = ({ data }) => {
                     document.body.style.overflow = 'auto';
                   }}
                 >
-                  {button.buttonLabel}
+                  {button.label}
                 </Button>
               ))}
           </div>

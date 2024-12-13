@@ -7,7 +7,7 @@ export const Statistics: React.FC<{
   data: StatisticsType;
   index: number;
 }> = ({ data, index }) => {
-  const { number, text } = data;
+  const { keyNumber, description } = data;
   const layout = data.layout ?? 'vertical';
   const alignment = data.alignment ?? 'center';
 
@@ -31,26 +31,26 @@ export const Statistics: React.FC<{
     >
       <div
         className={classNames(
-          // 'text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl',
-          'font-heading text-hero-heading leading-none font-bold tracking-tight dark:text-slate-100',
+          'font-heading text-lg-heading leading-none font-bold tracking-tight dark:text-slate-100',
           {
+            'self-start pt-1': layout === 'horizontal',
             'text-center': alignment === 'center',
             'text-end': alignment === 'end',
           },
         )}
       >
-        {number}
+        {keyNumber}
       </div>
       <div
         className={classNames(
-          'tracking-wide leading-loose text-slate-500 dark:text-slate-100/70',
+          'tracking-wide leading-loose text-slate-600 dark:text-white/80',
           {
             'text-center': alignment === 'center',
             'text-end': alignment === 'end',
           },
         )}
       >
-        {text}
+        {description}
       </div>
     </div>
   );

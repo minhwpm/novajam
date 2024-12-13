@@ -13,154 +13,173 @@
   --border-radius-theme-button: 2rem;
 }
 
-.standard-heading-font-size {
-  --heading-font-size: clamp(1.75rem, 6vw, 2.5rem);
-  --hero-heading-font-size: clamp(2.5rem, 7vw, 3.25rem);
-}
-
-.standout-heading-font-size {
-  --heading-font-size: clamp(2rem, 6vw, 3rem);
-  --hero-heading-font-size: clamp(3rem, 7vw, 4rem);
-}
-
-.impactful-heading-font-size {
-  --heading-font-size: clamp(2.5rem, 6vw, 3.75rem);
-  --hero-heading-font-size: clamp(3.75rem, 7vw, 5rem);
-}
-
 .red-primary-color {
+  --primary-color-200: 254, 202, 202;
   --primary-color-500: 239, 68, 68;
   --primary-color-600: 220, 38, 38;
 }
 .red-secondary-color {
+  --secondary-color-200: 254, 202, 202;
   --secondary-color-500: 239, 68, 68;
   --secondary-color-600: 220, 38, 38;
 }
 .orange-primary-color {
+  --primary-color-200: 254, 215, 170;
   --primary-color-500: 249, 115, 22;
   --primary-color-600: 234, 88, 12;
 }
 .orange-secondary-color {
+  --secondary-color-200: 254, 215, 170;
   --secondary-color-500: 249, 115, 22;
   --secondary-color-600: 234, 88, 12;
 }
 .emerald-primary-color {
+  --primary-color-200: 167, 243, 208;
   --primary-color-500: 16, 185, 129;
   --primary-color-600: 5, 150, 105;
 }
 .emerald-secondary-color {
+  --secondary-color-200: 167, 243, 208;
   --secondary-color-500: 16, 185, 129;
   --secondary-color-600: 5, 150, 105;
 }
 .teal-primary-color {
+  --primary-color-200: 153, 246, 228;
   --primary-color-500: 20, 184, 166;
   --primary-color-600: 13, 148, 136;
 }
 .teal-secondary-color {
+  --secondary-color-200: 153, 246, 228;
   --secondary-color-500: 20, 184, 166;
   --secondary-color-600: 13, 148, 136;
 }
 .sky-primary-color {
+  --primary-color-200: 186, 230, 253;
   --primary-color-500: 14, 165, 233;
   --primary-color-600: 2, 132, 199;
 }
 .sky-secondary-color {
+  --secondary-color-200: 186, 230, 253;
   --secondary-color-500: 14, 165, 233;
   --secondary-color-600: 2, 132, 199;
 }
 .blue-primary-color {
+  --primary-color-200: 191, 219, 254;
   --primary-color-500: 59, 130, 246;
   --primary-color-600: 37, 99, 235;
 }
 .blue-secondary-color {
+  --secondary-color-200: 191, 219, 254;
   --secondary-color-500: 59, 130, 246;
   --secondary-color-600: 37, 99, 235;
 }
 .violet-primary-color {
+  --primary-color-200: 221, 214, 254;
   --primary-color-500: 139, 92, 246;
   --primary-color-600: 124, 58, 237;
 }
 .violet-secondary-color {
+  --secondary-color-200: 221, 214, 254;
   --secondary-color-500: 139, 92, 246;
   --secondary-color-600: 124, 58, 237;
 }
 .purple-primary-color {
+  --primary-color-200: 233, 213, 255;
   --primary-color-500: 168, 85, 247;
   --primary-color-600: 147, 51, 234;
 }
 .purple-secondary-color {
+  --secondary-color-200: 233, 213, 255;
   --secondary-color-500: 168, 85, 247;
   --secondary-color-600: 147, 51, 234;
 }
 .fuchsia-primary-color {
+  --primary-color-200: 245, 208, 254;
   --primary-color-500: 217, 70, 239;
   --primary-color-600: 192, 38, 211;
 }
 .fuchsia-secondary-color {
+  --secondary-color-200: 245, 208, 254;
   --secondary-color-500: 217, 70, 239;
   --secondary-color-600: 192, 38, 211;
 }
 .pink-primary-color {
+  --primary-color-200: 251, 207, 232;
   --primary-color-500: 236, 72, 153;
   --primary-color-600: 219, 39, 119;
 }
 .pink-secondary-color {
+  --secondary-color-200: 251, 207, 232;
   --secondary-color-500: 236, 72, 153;
   --secondary-color-600: 219, 39, 119;
 }
 .rose-primary-color {
+  --primary-color-200: 254, 205, 211;
   --primary-color-500: 244, 63, 94;
   --primary-color-600: 225, 29, 72;
 }
 .rose-secondary-color {
+  --secondary-color-200: 254, 205, 211;
   --secondary-color-500: 244, 63, 94;
   --secondary-color-600: 225, 29, 72;
 }
 .green-primary-color {
+  --primary-color-200: 187, 247, 208;
   --primary-color-500: 16, 185, 129;
   --primary-color-600: 5, 150, 105;
 }
 .green-secondary-color {
+  --secondary-color-200: 187, 247, 208;
   --secondary-color-500: 16, 185, 129;
   --secondary-color-600: 5, 150, 105;
 }
 .amber-primary-color {
+  --primary-color-200: 253, 230, 138;
   --primary-color-500: 234, 179, 8;
   --primary-color-600: 202, 138, 4;
 }
 .amber-secondary-color {
+  --secondary-color-200: 253, 230, 138;
   --secondary-color-500: 234, 179, 8;
   --secondary-color-600: 202, 138, 4;
 }
 .indigo-primary-color {
+  --primary-color-200: 199, 210, 254;
   --primary-color-500: 99, 102, 241;
   --primary-color-600: 79, 70, 229;
 }
 .indigo-secondary-color {
+  --secondary-color-200: 199, 210, 254;
   --secondary-color-500: 99, 102, 241;
   --secondary-color-600: 79, 70, 229;
 }
 .lime-primary-color {
+  --primary-color-200: 217, 249, 157;
   --primary-color-500: 132, 204, 22;
   --primary-color-600: 101, 163, 13;
 }
 .lime-secondary-color {
+  --secondary-color-200: 217, 249, 157;
   --secondary-color-500: 132, 204, 22;
   --secondary-color-600: 101, 163, 13;
 }
 .cyan-primary-color {
+  --primary-color-200: 165, 243, 252;
   --primary-color-500: 6, 182, 212;
   --primary-color-600: 8, 145, 178;
 }
 .cyan-secondary-color {
+  --secondary-color-200: 165, 243, 252;
   --secondary-color-500: 6, 182, 212;
   --secondary-color-600: 8, 145, 178;
 }
 .yellow-primary-color {
+  --primary-color-200: 254, 240, 138;
   --primary-color-500: 234, 179, 8;
   --primary-color-600: 202, 138, 4;
 }
 .yellow-secondary-color {
+  --secondary-color-200: 254, 240, 138;
   --secondary-color-500: 234, 179, 8;
   --secondary-color-600: 202, 138, 4;
 }

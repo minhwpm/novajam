@@ -10,7 +10,7 @@ export const Video: React.FC<{
   dimensionBase?: 'width' | 'height';
   videoAutoplay: boolean;
   videoControls: boolean;
-  zoomInOnHover: boolean;
+  zoomInOnHover?: boolean;
   fallbackSrc?: string;
   className?: string;
 }> = ({
@@ -19,7 +19,7 @@ export const Video: React.FC<{
   dimensionBase,
   videoAutoplay,
   videoControls,
-  zoomInOnHover,
+  zoomInOnHover = false,
   fallbackSrc = '/fallback.png',
   className,
 }) => {

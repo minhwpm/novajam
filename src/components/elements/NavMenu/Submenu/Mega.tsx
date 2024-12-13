@@ -7,28 +7,28 @@ export const Mega: React.FC<{ data: SubmenuType }> = ({ data }) => {
   return (
     <div className="container">
       <div className="py-10 flex flex-wrap gap-8">
-        {data.menu.length > 0 && (
+        {data.menuItems.length > 0 && (
           <div
             className={classNames(
               'basis-52 shrink-0 grow flex flex-wrap gap-6',
             )}
           >
-            {data.menu.map((subItem) => (
-              <div key={subItem.id} className="basis-52">
-                {subItem.contentType === 'link' && (
-                  <NavLinkItem href={subItem.url}>{subItem.text}</NavLinkItem>
+            {data.menuItems.map((item) => (
+              <div key={item.id} className="basis-52">
+                {item.contentType === 'link' && (
+                  <NavLinkItem href={item.href}>{item.label}</NavLinkItem>
                 )}
-                {subItem.contentType === 'linkgroup' && (
-                  <p className="text-slate-500 uppercase text-sm tracking-wide font-medium mb-2">
-                    {subItem.title}
+                {item.contentType === 'linkgroup' && (
+                  <p className="text-slate-600 uppercase text-sm tracking-wide font-medium mb-2">
+                    {item.label}
                   </p>
                 )}
                 <ul>
-                  {subItem.contentType === 'linkgroup' &&
-                    subItem.links.length > 0 &&
-                    subItem.links.map((link) => (
+                  {item.contentType === 'linkgroup' &&
+                    item.links.length > 0 &&
+                    item.links.map((link) => (
                       <li key={link.id} className="py-1.5">
-                        <NavLinkItem href={link.url}>{link.text}</NavLinkItem>
+                        <NavLinkItem href={link.href}>{link.label}</NavLinkItem>
                       </li>
                     ))}
                 </ul>

@@ -8,30 +8,21 @@ import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
 import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';
+import { MdArrowOutward } from 'react-icons/md';
 
 export const FlexibleContent: React.FC<{
   index?: number;
   data: FlexibleContentType;
   animate?: boolean;
 }> = ({ index, data, animate }) => {
-  const {
-    eyebrow,
-    displayTitle,
-    tags,
-    summary,
-    media,
-    mediaAspectRatio,
-    buttons,
-    redirectUrl,
-  } = data;
+  const { eyebrow, title, body, tags, media, buttons, redirectUrl } = data;
   const layout = data.layout ?? 'vertical';
   const alignment = data.alignment ?? 'center';
 
   const [ref, isIntersecting] = useIntersecting();
 
   const hasMedia = media?.length > 0;
-  const hasText =
-    displayTitle || eyebrow || summary || tags || buttons?.length > 0;
+  const hasText = title || eyebrow || body || tags || buttons?.length > 0;
 
   const animationClass = classNames({
     'relative -bottom-10 opacity-0': animate,
@@ -44,9 +35,10 @@ export const FlexibleContent: React.FC<{
     <div
       ref={ref}
       className={classNames(
+        'group',
         layout === 'horizontal'
-          ? 'flex rounded-theme'
-          : 'flex flex-col rounded-theme h-full',
+          ? 'flex rounded-theme gap-4 lg:gap-6'
+          : 'flex flex-col rounded-theme h-full gap-4 lg:gap-6',
         animationClass,
       )}
       style={{ animationDelay }}
@@ -63,10 +55,11 @@ export const FlexibleContent: React.FC<{
           {media.length === 1 && (
             <MediaItem
               className="self-start"
+              altText={media[0].description ?? ''}
               data={media[0]}
-              aspectRatio={mediaAspectRatio}
               videoControls
               zoomInOverHover={!!redirectUrl}
+              shadow={!!redirectUrl}
             />
           )}
           {media.length > 1 && (
@@ -78,7 +71,6 @@ export const FlexibleContent: React.FC<{
               pagination={{
                 enabled: true,
               }}
-              aspectRatio={mediaAspectRatio}
             />
           )}
         </div>
@@ -87,9 +79,7 @@ export const FlexibleContent: React.FC<{
         <div
           className={classNames(
             'flex flex-col gap-y-1',
-            layout === 'horizontal'
-              ? 'basis-7/12 flex-1 pl-4 xl:pl-6'
-              : 'py-4 xl:pt-6 flex-1',
+            layout === 'horizontal' ? 'basis-7/12 flex-1' : 'flex-1',
             {
               'text-center': alignment === 'center',
               'text-end': alignment === 'end',
@@ -97,57 +87,66 @@ export const FlexibleContent: React.FC<{
           )}
         >
           {eyebrow && (
-            <div className="text-xs xl:text-sm tracking-wide text-slate-500 dark:text-slate-100/70">
+            <div className="text-xs xl:text-sm tracking-wide text-slate-600 dark:text-white/80">
               {eyebrow}
             </div>
           )}
-          {displayTitle && (
-            <div
+          {title && (
+            <MarkdownRenderer
               className={classNames(
-                'text-lg xl:text-xl font-heading font-medium dark:text-slate-100',
+                'text-lg xl:text-xl font-heading dark:text-slate-100',
+                { 'group-hover:text-primary-500': !!redirectUrl },
               )}
             >
-              <MarkdownRenderer>{displayTitle}</MarkdownRenderer>
-            </div>
+              {title}
+            </MarkdownRenderer>
           )}
           {!!tags?.length && (
             <div
               className={classNames(
-                'text-xs xl:text-sm tracking-wide text-slate-500 dark:text-slate-100/70',
+                'text-xs xl:text-sm tracking-wide text-slate-600 dark:text-white/80',
                 {
-                  'mt-1': displayTitle,
+                  'mt-1': title,
                 },
               )}
             >
               {tags.join(', ')}
             </div>
           )}
-          {summary && (
-            <div
+          {body && (
+            <MarkdownRenderer
               className={classNames(
-                'prose 2xl:prose-lg leading-loose text-slate-500 dark:text-slate-100/70',
+                'prose 2xl:prose-lg leading-loose text-slate-600 dark:text-white/80',
                 {
-                  'mt-1 lg:mt-2': displayTitle || !!tags?.length,
+                  'mt-1 lg:mt-2': title || !!tags?.length,
                   'mb-3 lg:mb-5': buttons.length > 0,
                 },
               )}
             >
-              <MarkdownRenderer>{summary}</MarkdownRenderer>
-            </div>
+              {body}
+            </MarkdownRenderer>
           )}
           {buttons?.length > 0 && (
             <ButtonGroup data={buttons} alignment={alignment} />
           )}
         </div>
       )}
+      {!!redirectUrl && (
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 invisible group-hover:visible rounded-full bg-primary-600 flex items-center justify-center p-3 shadow-radiant">
+          <MdArrowOutward className="text-white" size={25} />
+        </div>
+      )}
     </div>
   );
-
-  return redirectUrl ? (
-    <Link href={redirectUrl} className="hover:pointer">
-      {content}
-    </Link>
-  ) : (
-    content
-  );
+  if (redirectUrl) {
+    return (
+      <Link
+        href={redirectUrl}
+        className="hover:pointer relative group/flexible-box"
+      >
+        {content}
+      </Link>
+    );
+  }
+  return content;
 };

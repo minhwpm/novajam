@@ -14,6 +14,7 @@ import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import { RiErrorWarningLine } from 'react-icons/ri';
 import { createFormSubmission } from '@/helpers/server-actions/createFormSubmission';
 import * as Toast from '@radix-ui/react-toast';
+import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 
 export type FormValues = {
   [x: string]: string | Date;
@@ -23,9 +24,11 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
   data,
 }) => {
   const {
-    title,
+    internalName,
     fields,
-    submitButton,
+    submitButtonLabel,
+    submitButtonVariant,
+    disclaimer,
     formType,
     dateFormat,
     successMessage,
@@ -68,7 +71,7 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
     <>
       <form
         className={classNames(
-          'max-w-md p-4 sm:p-6 flex flex-wrap rounded-theme dark:bg-white dark:text-slate-700',
+          'mx-auto max-w-md p-4 sm:p-6 flex flex-wrap rounded-theme dark:bg-white dark:text-slate-700',
           { 'gap-4': fields.length > 1 },
           { 'gap-1': fields?.length === 1 },
         )}
@@ -84,8 +87,8 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
               })}
             >
               <div className="flex gap-2 items-center">
-                {fieldItem.placeholder && (
-                  <div className={classNames('text-smd')}>
+                {!fieldItem.hideLabel && fieldItem.placeholder && (
+                  <div className={classNames('text-base')}>
                     {fieldItem.label}
                   </div>
                 )}
@@ -136,30 +139,31 @@ export const Form: React.FC<{ data: FormType; darkMode?: boolean }> = ({
               )}
             </div>
           ))}
-        <input hidden readOnly value={title} {...register('title')} />
+        <input
+          hidden
+          readOnly
+          value={internalName}
+          {...register('internalName')}
+        />
         <input hidden readOnly value={formType} {...register('formType')} />
 
         <div className="mt-2 w-full">
-          {submitButton ? (
-            <Button
-              data={submitButton}
-              size="lg"
-              type="submit"
-              fullWidth={true}
-            />
-          ) : (
-            <Button
-              data={{
-                buttonLabel: 'Submit',
-                url: null,
-                withArrow: false,
-                buttonVariant: 'black',
-                openNewTab: false,
-              }}
-              size="lg"
-              type="submit"
-              fullWidth={true}
-            />
+          <Button
+            data={{
+              label: submitButtonLabel ?? 'Submit',
+              href: null,
+              withArrow: false,
+              variant: submitButtonVariant ?? 'black',
+              openNewTab: false,
+            }}
+            size="lg"
+            type="submit"
+            fullWidth={true}
+          />
+          {disclaimer && (
+            <MarkdownRenderer className="mt-4 prose text-smd text-slate-400">
+              {disclaimer}
+            </MarkdownRenderer>
           )}
         </div>
       </form>

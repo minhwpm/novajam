@@ -40,7 +40,8 @@ export const Image: React.FC<{
     return (
       <NextImage
         className={classNames('object-cover w-full h-full', aspectRatioClass, {
-          'hover:scale-110 transition-all duration-500': zoomInOverHover,
+          'group-hover:scale-110 hover:scale-110 transition-all duration-500':
+            zoomInOverHover,
         })}
         src={fallbackSrc}
         width={500}
@@ -62,7 +63,7 @@ export const Image: React.FC<{
           'h-full': dimensionBase === 'height' && width >= 200,
           'object-cover': width >= 200,
           'object-contain': width < 200,
-          'hover:scale-110 transition-all duration-500':
+          'group-hover:scale-110 hover:scale-110 transition-all duration-500':
             width >= 200 && zoomInOverHover,
           [`rounded-${rounded}`]: width >= 200,
         },

@@ -15,10 +15,10 @@ export default function NotFound() {
         <div className="mt-10">
           <Button
             data={{
-              buttonLabel: 'Go to Home page',
-              url: '/',
+              label: 'Go to Home page',
+              href: '/',
               withArrow: false,
-              buttonVariant: 'primary',
+              variant: 'primary',
               openNewTab: false,
             }}
             size="lg"
