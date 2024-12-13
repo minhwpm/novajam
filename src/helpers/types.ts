@@ -2,38 +2,11 @@ export type MediaType = {
   id: string;
   url: string;
   title: string;
+  description: string | null;
   width: number;
   height: number;
   contentType: string;
 };
-export type SNSType = {
-  linkedInUrl: string | null;
-  facebookUrl: string | null;
-  twitterUrl: string | null;
-  youtubeUrl: string | null;
-  instagramUrl: string | null;
-};
-
-// @TODO remove this
-export type BackgroundColorType =
-  | 'neutral'
-  | 'red'
-  | 'orange'
-  | 'amber'
-  | 'yellow'
-  | 'lime'
-  | 'green'
-  | 'emerald'
-  | 'teal'
-  | 'cyan'
-  | 'sky'
-  | 'blue'
-  | 'indigo'
-  | 'violet'
-  | 'purple'
-  | 'fuchsia'
-  | 'pink'
-  | 'rose';
 
 export type AlignmentType = 'start' | 'center' | 'end';
 
@@ -49,8 +22,8 @@ export type ButtonVariant =
 
 export type ButtonType = {
   id?: string;
-  buttonLabel: string;
-  url: string | null;
+  label: string;
+  href: string | null;
   openNewTab: boolean;
   icon?: {
     url: string;
@@ -59,34 +32,28 @@ export type ButtonType = {
     height: number;
   } | null;
   withArrow: boolean;
-  buttonVariant: ButtonVariant;
+  variant: ButtonVariant;
 };
 
 export type LinkType = {
   id: string;
-  text: string;
-  image: {
-    url: string;
-    title: string;
-    width: number;
-    height: number;
-  } | null;
-  url: string;
+  label: string;
+  href: string;
   openNewTab: boolean;
   contentType: 'link';
 };
 
 export interface LinkGroupType {
   id: string;
-  title: string;
+  label: string;
   links: Array<LinkType>;
   contentType: 'linkgroup';
 }
 
 export interface SubmenuType {
   id: string;
-  title: string;
-  menu: Array<LinkType | LinkGroupType>;
+  label: string;
+  menuItems: Array<LinkType | LinkGroupType>;
   featuredContent: Array<PageType>;
   layout: 'dropdown' | 'mega';
   contentType: 'submenu';
@@ -97,7 +64,7 @@ export interface NavigationType {
   url: string;
   logo: MediaType;
   logoRedirect: string | null;
-  menu: Array<LinkType | SubmenuType>;
+  menuItems: Array<LinkType | SubmenuType>;
   showModeSelector: boolean;
   buttons: Array<ButtonType>;
   hotButtons: Array<ButtonType>;
@@ -111,56 +78,50 @@ export interface FooterType {
   logoRedirect: string | null;
   description: string | null;
   copyright: string | null;
-  sns: SNSType | null;
-  menu: Array<LinkGroupType>;
-  backgroundColor: BackgroundColorType | null;
+  menuItems: Array<LinkGroupType>;
+  backgroundColor: string | null;
   backgroundImage: MediaType | null;
   darkMode: boolean;
 }
-
-export type SEOType = {
-  metaTitle: string;
-  metaDescription: string;
-  sharedImage: {
-    url: string;
-    title: string;
-    width: number;
-    height: number;
-  };
-};
-
-export type PageContentType =
-  | HeroType
-  | AlertType
-  | ContentListType
-  | FeaturedContentType;
 
 export type PageType = {
   id: string;
   title: string;
   url: string;
-  content: Array<PageContentType>;
+  content: Array<SmartSectionType>;
   fontMain: string;
   fontHeading: string;
   colorPrimary: string;
   colorSecondary: string;
   borderRadius: string;
-  metaTitle: string | null;
-  metaDescription: string | null;
-  metaKeywords: Array<string> | null;
-  metaImage: MediaType | null;
+  seo: SEOType;
   contentType: 'page';
+};
+
+export type SEOType = {
+  metaTitle: string;
+  metaDescription: string;
+  canonicalUrl: string | null;
+  focusKeywords: string | null;
+  ogImage: MediaType | null;
+  nofollow: boolean;
+  noindex: boolean;
+};
+
+export type CatogoryType = {
+  name: string;
+  slug: string;
+  description: string | null;
 };
 
 export type ExpertType = {
   id: string;
   fullName: string;
-  portrait: MediaType | null;
+  profilePicture: MediaType | null;
   role: string | null;
+  description: string | null;
   specialization: Array<string> | null;
   organization: string | null;
-  summary: string | null;
-  sns: SNSType | null;
   alignment: AlignmentType | null;
   layout: 'horizontal' | 'vertical' | null;
   contentType: 'expert';
@@ -174,63 +135,70 @@ export type MediaAspectRatioType =
   | '3/4'
   | '3/2';
 
-export type FeaturedContentType = {
-  id: string;
-  title: string;
-  htmlid: string;
+export type TitleFontSizeType = 'sm' | 'base' | 'lg' | 'xl' | '2xl';
+
+export type RichContentType = {
   eyebrow: string | null;
-  displayTitle: string | null;
-  summary: string | null;
-  media: Array<MediaType>;
-  mediaAspectRatio: MediaAspectRatioType;
-  switchMediaPosition: 'left' | 'right' | null;
-  blocks: Array<BlockType> | null;
-  buttons: Array<ButtonType> | null;
-  displayTitleFontSize: 'base' | 'lg' | 'xl' | 'xxl' | null;
-  alignment: AlignmentType | null;
-  layout: 'flex row' | 'full top' | null;
-  backgroundColor: BackgroundColorType | null;
-  backgroundImage: MediaType | null;
-  enableParallaxEffect: boolean;
-  darkMode: boolean;
-  showBottomSeparator: boolean;
-  contentType: 'featuredcontent';
+  title: string | null;
+  body: string | null;
+  ctas: Array<ButtonType> | null;
+  disclaimer: string | null;
+  titleFontSize: TitleFontSizeType;
+  alignment: AlignmentType;
+  paddingTop: PaddingType;
+  paddingLeft: PaddingType;
+  paddingBottom: PaddingType;
+  paddingRight: PaddingType;
+  contentType: 'richcontent';
 };
 
-export type HeroType = {
+export type FeaturedMediaType = {
+  file: MediaType;
+  aspectRatio: MediaAspectRatioType;
+  altText: string;
+  contentType: 'featuredmedia';
+};
+
+export type SmartSectionLayoutType =
+  | 'Classic'
+  | 'Classic R'
+  | 'Columns'
+  | 'Rows'
+  | 'Banner';
+
+export type PaddingType =
+  | 'none'
+  | 'xs'
+  | 'sm'
+  | 'base'
+  | 'lg'
+  | 'xl'
+  | '2xl'
+  | '3xl';
+
+export type SmartSectionType = {
   id: string;
   htmlid: string | null;
-  eyebrow: string | null;
-  displayTitle: string | null;
-  summary: string | null;
-  buttons: Array<ButtonType>;
-  media: MediaType | null;
-  switchMediaPosition: 'left' | 'right' | null;
-  mediaWidthExpanded: boolean;
-  displayTitleFontSize: 'base' | 'lg' | 'xl' | 'xxl' | null;
-  layout: 'horizontal' | 'vertical' | null;
-  alignment: AlignmentType | null;
-  backgroundColor: BackgroundColorType | null;
+  content: Array<
+    RichContentType | FeaturedMediaType | ContentListType | FormType
+  >;
+  layout: SmartSectionLayoutType;
+  gap: GapType;
+  backgroundColor: string | null;
   backgroundImage: MediaType | null;
   enableParallaxEffect: boolean;
   darkMode: boolean;
-  showBottomSeparator: boolean;
-  contentType: 'hero';
-};
-
-export type AlertType = {
-  id: string;
-  icon: MediaType | null;
-  message: string | null;
-  backgroundColor: string | null;
-  darkMode: boolean;
-  contentType: 'alert';
+  sectionSeparator: boolean;
+  paddingTop: PaddingType;
+  paddingBottom: PaddingType;
+  fullViewWidth: boolean;
+  contentType: 'smartsection';
 };
 
 export type StatisticsType = {
   id: string;
-  number: string;
-  text: string;
+  keyNumber: string;
+  description: string;
   alignment: AlignmentType | null;
   layout: 'horizontal' | 'vertical' | null;
   contentType: 'statistics';
@@ -239,48 +207,58 @@ export type StatisticsType = {
 export type TestimonialType = {
   id: string;
   content: string | null;
-  portrait: MediaType | null;
-  name: string | null;
-  role: string | null;
+  authorImage: MediaType | null;
+  authorName: string | null;
+  authorTitle: string | null;
   rating: 0 | 1 | 2 | 3 | 4 | 5 | null;
   alignment: AlignmentType | null;
   layout: 'horizontal' | 'vertical' | null;
-  size: 'base' | 'lg' | 'xl';
+  fontSize: 'base' | 'lg' | 'xl';
   contentType: 'testimonial';
 };
 
 export type FlexibleContentType = {
   id: string;
   eyebrow: string | null;
-  displayTitle: string | null;
+  title: string | null;
+  body: string | null;
   tags: Array<string> | null;
-  summary: string | null;
   buttons: Array<ButtonType>;
   redirectUrl: string | null;
   media: Array<MediaType>;
-  mediaAspectRatio: MediaAspectRatioType;
   alignment: AlignmentType | null;
   layout: 'horizontal' | 'vertical' | null;
   contentType: 'flexiblecontent';
 };
 
+export type PricingOptionType = {
+  billingCycle: 'Monthly' | 'Yearly' | 'One-Time';
+  price: string;
+  priceSuffix: string | null;
+};
+
 export type PricingPlanType = {
   id: string;
-  title: string;
+  planName: string;
   pricing: string;
   pricingSuffix: string;
+  pricingOptions: Array<PricingOptionType>;
   badge: string;
+  featured: boolean;
   description: string | null;
-  ctaButton: ButtonType;
+  features: Array<string>;
+  planLimitations: Array<string>;
+  cta: ButtonType | null;
+  disclaimer: string | null;
   alignment: AlignmentType | null;
   contentType: 'pricingplan';
 };
 
 export type QAType = {
   id: string;
-  question: string;
-  answer: string;
-  isExpanded: boolean;
+  heading: string;
+  body: string;
+  isCollapsed: boolean;
   contentType: 'qa';
 };
 
@@ -290,31 +268,19 @@ export type BlockType =
   | FlexibleContentType
   | PricingPlanType
   | TestimonialType
-  | FormType
   | QAType;
 
-export type ItemsPerViewType = 1 | 2 | 3 | 4 | 5;
+export type ColumnsType = 1 | 2 | 3 | 4 | 5;
+
+export type GapType = 'none' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl';
 
 export type ContentListType = {
   id: string;
-  eyebrow: string | null;
-  displayTitle: string | null;
-  summary: string | null;
-  buttons: Array<ButtonType>;
-  displayTitleFontSize: 'base' | 'lg' | 'xl' | 'xxl' | null;
-  alignment: AlignmentType | null;
-  blocks: Array<BlockType>;
-  itemsPerView: ItemsPerViewType | null;
-  displayMode: 'carousel' | 'masonry' | 'deck' | null;
-  layout: 'flex row' | 'full top' | null;
-  backgroundColor: BackgroundColorType | null;
-  backgroundImage: MediaType | null;
-  enableParallaxEffect: boolean;
-  darkMode: boolean;
-  marginTop: '-lg' | '-md' | '-sm' | 'none' | 'sm' | 'md' | 'lg' | null;
-  marginBottom: '-lg' | '-md' | '-sm' | 'none' | 'sm' | 'md' | 'lg' | null;
-  showBottomSeparator: boolean;
-  htmlid: string | null;
+  contentItems: Array<BlockType>;
+  ctas: Array<ButtonType>;
+  columns: ColumnsType | null;
+  gap: GapType;
+  layout: 'carousel' | 'masonry' | 'grid' | 'flex' | null;
   contentType: 'contentlist';
 };
 
@@ -335,13 +301,22 @@ export type FormFieldType = {
   placeholder: string;
   helpText: string;
   uiWidth: 'half-size' | 'full-size';
+  hideLabel: boolean | null;
 };
 
 export type FormType = {
   id: string;
-  title: string;
+  internalName: string;
   fields: Array<FormFieldType>;
-  submitButton: ButtonType | null;
+  submitButtonLabel: string | null;
+  submitButtonVariant:
+    | 'primary'
+    | 'secondary'
+    | 'black'
+    | 'outline'
+    | 'outline-black'
+    | null;
+  disclaimer: string | null;
   formType: string;
   dateFormat: 'DD/MM/YYYY' | 'MM/DD/YYYY' | 'YYYY/MM/DD';
   successMessage: string | null;

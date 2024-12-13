@@ -12,7 +12,7 @@ export const PagePreview: React.FC<{
   alignment?: AlignmentType;
   animate?: boolean;
 }> = ({ index, data, layout = 'vertical', alignment, animate }) => {
-  const { title, url, metaTitle, metaImage } = data;
+  const { title, url, seo } = data;
   const [ref, isIntersecting] = useIntersecting();
 
   if (layout === 'horizontal') {
@@ -29,7 +29,7 @@ export const PagePreview: React.FC<{
       >
         <div className="basis-1/3 flex-1">
           <Link href={url}>
-            <MediaItem data={metaImage} aspectRatio="square" />
+            <MediaItem data={seo?.ogImage} aspectRatio="square" />
           </Link>
         </div>
         <div className="basis-2/3 flex-1 py-4 pr-4 lg:py-6 lg:pr-6">
@@ -42,7 +42,7 @@ export const PagePreview: React.FC<{
               },
             )}
           >
-            <Link href={url}>{metaTitle ?? title}</Link>
+            <Link href={url}>{seo?.metaTitle ?? title}</Link>
           </h4>
         </div>
       </div>
@@ -61,8 +61,8 @@ export const PagePreview: React.FC<{
     >
       <Link href={url}>
         <MediaItem
-          data={metaImage}
-          altText={metaImage?.title}
+          data={seo?.ogImage}
+          altText={seo?.ogImage?.description ?? ''}
           aspectRatio="4/3"
           zoomInOverHover
         />
@@ -75,7 +75,7 @@ export const PagePreview: React.FC<{
             },
           )}
         >
-          {metaTitle ?? title}
+          {seo?.metaTitle ?? title}
         </h4>
       </Link>
     </div>

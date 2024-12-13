@@ -5,14 +5,13 @@ import { Submenu } from './Submenu/Submenu';
 import { NavLinkItem } from '../NavLinkItem/NavLinkItem';
 
 export function getMenuItemText(item: LinkType | SubmenuType): string {
-  if ('text' in item) return item.text;
-  return item.title;
+  return item.label;
 }
 
 const NavMenu: React.FC<{
-  menu: Array<LinkType | SubmenuType>;
+  menuItems: Array<LinkType | SubmenuType>;
   layout?: NavigationLayout;
-}> = ({ menu, layout }) => {
+}> = ({ menuItems, layout }) => {
   return (
     <NavigationMenu.Root
       className={classNames('NavMenu hidden lg:flex justify-end')}
@@ -22,26 +21,23 @@ const NavMenu: React.FC<{
           'flex justify-center items-start px-5 list-none m-0',
         )}
       >
-        {menu.map(
+        {menuItems.map(
           (item) =>
             item && (
               <NavigationMenu.Item
                 key={item.id}
-                className={classNames('text-smd', {
-                  relative: 'menu' in item && item.layout === 'dropdown',
+                className={classNames('text-smd py-7 px-5', {
+                  relative: 'menuItems' in item && item.layout === 'dropdown',
                 })}
               >
                 {item.contentType === 'link' && (
-                  <div className="py-7 px-5">
-                    <NavLinkItem
-                      key={item.id}
-                      href={item.url}
-                      variant="underlined"
-                      openNewTab={item.openNewTab}
-                    >
-                      {item.text}
-                    </NavLinkItem>
-                  </div>
+                  <NavLinkItem
+                    key={item.id}
+                    href={item.href}
+                    openNewTab={item.openNewTab}
+                  >
+                    {item.label}
+                  </NavLinkItem>
                 )}
                 {item.contentType === 'submenu' && (
                   <Submenu key={item.id} data={item} layout={layout} />

@@ -17,20 +17,21 @@
 @layer base {
   :root {
     /* THEME CONFIG STYLING VARIABLES */
-    --foreground-rgb: 22, 28, 45; /* Default text color: #161C2D */
+    --foreground-rgb: 30 41 59; /* Default text color text-slate-800 */
     --font-heading: unset;
-    --border-radius-theme: 0.125rem; /* 0.125rem / 0.375rem / 1rem */
-    --border-radius-theme-button: 0.125rem; /* 0.125rem / 0.375rem / 1.75rem */
+    --border-radius-theme: 0.375rem; /* 0.125rem / 0.375rem / 1rem */
+    --border-radius-theme-button: 0.375rem; /* 0.125rem / 0.375rem / 1.75rem */
 
     --primary-color-500: var(--foreground-rgb);
     --primary-color-600: var(--foreground-rgb);
     --secondary-color-500: var(--foreground-rgb);
     --secondary-color-600: var(--foreground-rgb);
 
-    --base-heading-font-size: clamp(1.75rem, 6vw, 2.5rem);
-    --lg-heading-font-size: clamp(2.25rem, 7vw, 3.125rem);
+    --sm-heading-font-size: clamp(1.5rem, 6vw, 2.25rem);
+    --base-heading-font-size: clamp(1.75rem, 6vw, 2.675rem);
+    --lg-heading-font-size: clamp(2.25rem, 7vw, 3.25rem);
     --xl-heading-font-size: clamp(3.25rem, 7vw, 4rem);
-    --xxl-heading-font-size: clamp(3.75rem, 7vw, 5rem);
+    --2xl-heading-font-size: clamp(3.75rem, 7vw, 5rem);
 
     --container-horizontal-padding: 1rem;
   }
@@ -46,13 +47,7 @@
   }
 
   .dark {
-    --foreground-rgb: 241 245 249;
-  }
-}
-
-@layer utilities {
-  .overlay-nav section:first-of-type {
-    @apply 2xl:py-28 xl:pt-24 lg:pt-20 md:pt-16 pt-14;
+    --foreground-rgb: 241 245 249; /* text-slate-100 */
   }
 }
 
@@ -96,7 +91,7 @@ h1 u,
 h2 u,
 h1 code,
 h2 code {
-  @apply font-heading bg-gradient-to-br from-white via-primary-500 to-primary-600 bg-clip-text text-transparent;
+  @apply font-heading bg-gradient-to-br from-primary-200 via-primary-500 to-primary-600 bg-clip-text text-transparent;
   text-decoration: unset;
 }
 h3 u,

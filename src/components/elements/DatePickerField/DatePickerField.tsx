@@ -2,7 +2,7 @@ import DatePicker from 'react-datepicker';
 import { useController } from 'react-hook-form';
 import { FormFieldType } from '@/helpers/types';
 import { Control } from 'react-hook-form/dist/types/form';
-import { FormValues } from '@/components/blocks/Form/Form';
+import { FormValues } from '@/components/compartments/Form/Form';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const dateFormatMatching = {

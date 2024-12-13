@@ -1,1 +1,1 @@
-yarn lint && yarn format && tsc
+npx lint-staged && yarn lint && tsc
