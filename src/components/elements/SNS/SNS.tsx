@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { JSX, useState } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 import { RiFacebookFill } from 'react-icons/ri';
