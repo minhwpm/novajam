@@ -5,7 +5,7 @@
     "fontMain": "Poppins",
     "fontHeading": "Poppins",
     "colorPrimary": "indigo",
-    "colorSecondary": null,
+    "colorSecondary": "fuchsia",
     "borderRadius": "large",
     "seo": {
       "metaTitle": "Build Faster with NovaJAM SaaS Demo",
@@ -45,7 +45,7 @@
         "content": [
           {
             "eyebrow": null,
-            "title": "# Make workflow your __competitive advantage__",
+            "title": "# __Make workflow your `competitive advantage`__",
             "body": "With highly flexible blocks, you can easily build a page without coding. Build your next landing page. Integer ut Oberyn massa. Sed feugiat vitae turpis a porta. Aliquam sagittis interdum Melisandre.",
             "disclaimer": null,
             "titleFontSize": "xl",
@@ -765,8 +765,8 @@
     "seo": null,
     "fontMain": "Poppins",
     "fontHeading": null,
-    "colorPrimary": "blue",
-    "colorSecondary": null,
+    "colorPrimary": "indigo",
+    "colorSecondary": "fuchsia",
     "borderRadius": "large",
     "content": [
       {
@@ -886,8 +886,8 @@
     },
     "fontMain": "Inter",
     "fontHeading": null,
-    "colorPrimary": null,
-    "colorSecondary": null,
+    "colorPrimary": "indigo",
+    "colorSecondary": "fuchsia",
     "borderRadius": "large",
     "content": [
       {
