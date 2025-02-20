@@ -49,7 +49,7 @@
       {
         "id": "5ch7AWS9JLFOzlZ2HA35H5",
         "label": "Get PRO",
-        "href": "https://novajam.vercel.app",
+        "href": "https://novajam-pro.vercel.app",
         "openNewTab": true,
         "variant": "primary",
         "withArrow": false,
