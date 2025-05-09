@@ -1,0 +1,1430 @@
+[
+  {
+    "title": "SaaS ",
+    "url": "/",
+    "fontMain": "Poppins",
+    "fontHeading": null,
+    "colorPrimary": "indigo",
+    "colorSecondary": "rose",
+    "borderRadius": "base",
+    "seo": {
+      "metaTitle": "Build Faster with NovaJAM SaaS Demo",
+      "metaDescription": "Experience NovaJAM SaaS, the ultimate platform for creating professional landing pages effortlessly. Try our free demo to explore powerful tools and CMS integration.",
+      "canonicalUrl": "https://novajam.vercel.app/demo/saas",
+      "focusKeywords": [
+        "NovaJAM SaaS demo",
+        "Landing page builder SaaS",
+        "Try NovaJAM SaaS",
+        "CMS integration SaaS"
+      ],
+      "nofollow": false,
+      "noindex": false,
+      "ogImage": {
+        "url": "https://images.ctfassets.net/ehmycbmc25mu/4uwb5J8TNJwyLoJRmhdQ56/c4be50f3b96f6131e15773b68b17cb7a/screencapture-saas.webp",
+        "width": 1000,
+        "height": 1333,
+        "contentType": "image/webp",
+        "description": null
+      }
+    },
+    "content": [
+      {
+        "contentType": "smartsection",
+        "id": "1qnUbh4OB4yNo3LJJ1ADp0",
+        "backgroundImage": null,
+        "htmlid": "saas-hero",
+        "layout": "Rows",
+        "gap": "sm",
+        "backgroundColor": null,
+        "enableParallaxEffect": false,
+        "inverse": null,
+        "sectionSeparator": false,
+        "paddingTop": "2xl",
+        "paddingBottom": "lg",
+        "width": null,
+        "content": [
+          {
+            "eyebrow": null,
+            "title": "# Make workflow your __`competitive advantage`__",
+            "body": "Build high-performance landing pages with flexible layouts and CMS support—designed for developers and content creators to thrive.",
+            "titleFontSize": "xl",
+            "layout": null,
+            "alignment": "center",
+            "paddingTop": "none",
+            "paddingLeft": "none",
+            "paddingBottom": "base",
+            "paddingRight": "none",
+            "backgroundColor": null,
+            "contentType": "richcontent",
+            "ctas": [
+              {
+                "icon": null,
+                "href": "https://getnovajam.com/blog/get-started-with-novajam",
+                "label": "Get started for free",
+                "eyebrow": null,
+                "openNewTab": false,
+                "variant": "primary",
+                "withArrow": false,
+                "disclaimer": null,
+                "id": "4jw1KgKF0C9vHH3Zym3m6w"
+              },
+              {
+                "icon": null,
+                "href": "https://getnovajam.com",
+                "label": "Explore PRO",
+                "eyebrow": null,
+                "openNewTab": false,
+                "variant": "ghost",
+                "withArrow": true,
+                "disclaimer": null,
+                "id": "6qJNP6mum4yxzvYD6kaBEN"
+              }
+            ]
+          },
+          {
+            "priority": null,
+            "file": {
+              "url": "https://images.ctfassets.net/ehmycbmc25mu/6C8WE9mpr1piWHKZdE1HGD/1818ba5f42ed9b60281445f92957672b/dashboard_hero.webp",
+              "width": 1824,
+              "height": 1270,
+              "contentType": "image/webp",
+              "title": "dashboard_hero.webp",
+              "description": null
+            },
+            "contentType": "featuredmedia"
+          }
+        ]
+      },
+      {
+        "contentType": "smartsection",
+        "id": "5KY9TtpWmo4ka9lqvGDuN3",
+        "backgroundImage": null,
+        "htmlid": "saas-logos",
+        "layout": "Rows",
+        "gap": "lg",
+        "backgroundColor": "#f4f7fa",
+        "enableParallaxEffect": false,
+        "inverse": null,
+        "sectionSeparator": false,
+        "paddingTop": "lg",
+        "paddingBottom": "lg",
+        "width": "standard",
+        "content": [
+          {
+            "contentType": "contentlist",
+            "id": "6blis37zuad0dDWNBzQcat",
+            "gap": "lg",
+            "layout": "flex",
+            "columns": 6,
+            "ctas": [],
+            "contentItems": [
+              {
+                "contentType": "flexiblecontent",
+                "id": "6kdyRHtsPakoZgpLtNLrud",
+                "title": null,
+                "eyebrow": null,
+                "body": null,
+                "redirectUrl": null,
+                "alignment": "center",
+                "layout": "vertical",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/4nx7bW3MiNzhy7Ca2bKtub/bbc7e8a9f58fcaf248632ed946b98291/MakeLess__1_.svg",
+                    "width": 140,
+                    "height": 24,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "4nx7bW3MiNzhy7Ca2bKtub"
+                  }
+                ]
+              },
+              {
+                "contentType": "flexiblecontent",
+                "id": "3tZYQLnTTBfiFkfdA6Z3g5",
+                "title": null,
+                "eyebrow": null,
+                "body": null,
+                "redirectUrl": null,
+                "alignment": "center",
+                "layout": "vertical",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/6kFTfXSF2yOVBgzQc6MU9U/b418c1f34f56408ccfab9b17e2eba9cd/coworks__1_.svg",
+                    "width": 148,
+                    "height": 30,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "6kFTfXSF2yOVBgzQc6MU9U"
+                  }
+                ]
+              },
+              {
+                "contentType": "flexiblecontent",
+                "id": "1dRayGmDcZyrl32juXJMcW",
+                "title": null,
+                "eyebrow": null,
+                "body": null,
+                "redirectUrl": null,
+                "alignment": "center",
+                "layout": "vertical",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/2BZ0rp7KSalRgJKYwx3j3h/92af9dcd3565c0234b27fbe77fa9e6b3/saas-today.svg",
+                    "width": 93,
+                    "height": 34,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "2BZ0rp7KSalRgJKYwx3j3h"
+                  }
+                ]
+              },
+              {
+                "contentType": "flexiblecontent",
+                "id": "4aIwXGwgIuR0JMXyGyXDCv",
+                "title": null,
+                "eyebrow": null,
+                "body": null,
+                "redirectUrl": null,
+                "alignment": "center",
+                "layout": "vertical",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/4Ps04UsH8mkixDw9AZDeTw/a732aeb3fc8d25382070467d7964de20/greener__1_.svg",
+                    "width": 147,
+                    "height": 28,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "4Ps04UsH8mkixDw9AZDeTw"
+                  }
+                ]
+              },
+              {
+                "contentType": "flexiblecontent",
+                "id": "66BYKszdtNXpu6YIkHfAqS",
+                "title": null,
+                "eyebrow": null,
+                "body": null,
+                "redirectUrl": null,
+                "alignment": "center",
+                "layout": "vertical",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/7g7c0BWQ1KRhwb7tUxc2Iv/dcff6173cb69de7f0e4cd8bf7e82701d/Dorfus.svg",
+                    "width": 101,
+                    "height": 26,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "7g7c0BWQ1KRhwb7tUxc2Iv"
+                  }
+                ]
+              },
+              {
+                "contentType": "flexiblecontent",
+                "id": "48dJUhObfVQDzhhcam9FYC",
+                "title": null,
+                "eyebrow": null,
+                "body": null,
+                "redirectUrl": null,
+                "alignment": "center",
+                "layout": "vertical",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/3Blr9gVSAn4nPAGaUJWnV0/e86b0ed3dbd6bc22b58b9ac26b898999/askimat.svg",
+                    "width": 110,
+                    "height": 30,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "3Blr9gVSAn4nPAGaUJWnV0"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "smartsection",
+        "id": "5eze6eOrxqvsRco1zmcgSS",
+        "backgroundImage": null,
+        "htmlid": "saas-features",
+        "layout": "Rows",
+        "gap": "xl",
+        "backgroundColor": null,
+        "enableParallaxEffect": false,
+        "inverse": null,
+        "sectionSeparator": false,
+        "paddingTop": "xl",
+        "paddingBottom": "2xl",
+        "width": "standard",
+        "content": [
+          {
+            "eyebrow": null,
+            "title": "## __Features with `Real Impact`__",
+            "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.\n",
+            "titleFontSize": "lg",
+            "layout": null,
+            "alignment": "center",
+            "paddingTop": "none",
+            "paddingLeft": "none",
+            "paddingBottom": "none",
+            "paddingRight": "none",
+            "backgroundColor": null,
+            "contentType": "richcontent",
+            "ctas": []
+          },
+          {
+            "contentType": "contentlist",
+            "id": "1lmfNZMBuqyMJ0lMhm7g7b",
+            "gap": "lg",
+            "layout": "grid",
+            "columns": 3,
+            "ctas": [],
+            "contentItems": [
+              {
+                "contentType": "flexiblecontent",
+                "id": "1X9EgKmiEcYCCPg54ORoyV",
+                "title": "#### __Unlimited Projects__",
+                "eyebrow": null,
+                "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+                "redirectUrl": null,
+                "alignment": "start",
+                "layout": "horizontal",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/1FEf0rGpqNhepyZmMV62XP/fae3e73a1dbce0822d663d2023d2bca7/roadmap_icon.svg",
+                    "width": 48,
+                    "height": 32,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "1FEf0rGpqNhepyZmMV62XP"
+                  }
+                ]
+              },
+              {
+                "contentType": "flexiblecontent",
+                "id": "7KiwCYL8jRwY8HrfH8mUoM",
+                "title": "#### __Team Management__",
+                "eyebrow": null,
+                "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+                "redirectUrl": null,
+                "alignment": "start",
+                "layout": "horizontal",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/hsJk5X277srF1eNvU2q6G/3a22813fb5762124358357d6c2a7d080/users-wm_icon.svg",
+                    "width": 42,
+                    "height": 36,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "hsJk5X277srF1eNvU2q6G"
+                  }
+                ]
+              },
+              {
+                "contentType": "flexiblecontent",
+                "id": "4Sn5dGWlf8rP9x8VO8VcYg",
+                "title": "#### __File Sharing__",
+                "eyebrow": null,
+                "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+                "redirectUrl": null,
+                "alignment": "start",
+                "layout": "horizontal",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/7mI8ozDv17tlvPeB1Im6bw/ff68000460948339ac8cbfaa71c1a831/share_icon.svg",
+                    "width": 41,
+                    "height": 40,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "7mI8ozDv17tlvPeB1Im6bw"
+                  }
+                ]
+              },
+              {
+                "contentType": "flexiblecontent",
+                "id": "26FyFU6IoZnol3oVS3OdQW",
+                "title": "#### __Video Meetings__",
+                "eyebrow": null,
+                "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+                "redirectUrl": null,
+                "alignment": "start",
+                "layout": "horizontal",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/49l45vJKQA0ToIPaMvAFtI/aa0a7c5dd8c89e7a680b95c846cc72f4/video_meetings_icon.svg",
+                    "width": 40,
+                    "height": 32,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "49l45vJKQA0ToIPaMvAFtI"
+                  }
+                ]
+              },
+              {
+                "contentType": "flexiblecontent",
+                "id": "2Sjo5ZIrOaVBBsIhCHB6Bf",
+                "title": "#### __Time Tracking__",
+                "eyebrow": null,
+                "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+                "redirectUrl": null,
+                "alignment": "start",
+                "layout": "horizontal",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/19FP567L897YBbffIUZhRu/64ced381f77dd6715843d5d880dec049/opening_times_icon.svg",
+                    "width": 41,
+                    "height": 42,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "19FP567L897YBbffIUZhRu"
+                  }
+                ]
+              },
+              {
+                "contentType": "flexiblecontent",
+                "id": "h7SneoyElXb088Q1TUPjS",
+                "title": "#### __Payment System__",
+                "eyebrow": null,
+                "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+                "redirectUrl": null,
+                "alignment": "start",
+                "layout": "horizontal",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/2EaZszrPHyrp4Fvd61TxH8/7396b1590470da01b64fdf7476f55bfd/card_favourite_icon.svg",
+                    "width": 38,
+                    "height": 35,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "2EaZszrPHyrp4Fvd61TxH8"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "smartsection",
+        "id": "7GnfgfMwy4Zp7cKQgx3OXs",
+        "backgroundImage": null,
+        "htmlid": "saas-manage-your-projects-fast",
+        "layout": "Columns",
+        "gap": "xl",
+        "backgroundColor": "#f1f5f9",
+        "enableParallaxEffect": false,
+        "inverse": null,
+        "sectionSeparator": false,
+        "paddingTop": "2xl",
+        "paddingBottom": "lg",
+        "width": null,
+        "content": [
+          {
+            "title": "## __Getting started is easier than ever__",
+            "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page so quickly with NovaJAM.",
+            "titleFontSize": "base",
+            "layout": null,
+            "alignment": "start",
+            "paddingTop": "none",
+            "paddingLeft": "none",
+            "paddingBottom": "none",
+            "paddingRight": "base",
+            "backgroundColor": null,
+            "contentType": "richcontent",
+            "ctas": [
+              {
+                "id": "4jw1KgKF0C9vHH3Zym3m6f",
+                "icon": null,
+                "href": "https://getnovajam.com/blog/get-started-with-novajam",
+                "label": "Get started for free",
+                "openNewTab": false,
+                "variant": "primary",
+                "withArrow": true
+              }
+            ]
+          },
+          {
+            "priority": null,
+            "file": {
+              "url": "https://images.ctfassets.net/ehmycbmc25mu/7tSlE8iMnaoSOqmVX1hOk0/e07508600ae52aa28813e19e98827d40/team_member_report.webp",
+              "width": 771,
+              "height": 731,
+              "contentType": "image/webp",
+              "title": "team_member_report.webp",
+              "description": null
+            },
+            "contentType": "featuredmedia"
+          }
+        ]
+      },
+      {
+        "contentType": "smartsection",
+        "id": "3HYjwddRnZKK894uA498Oj",
+        "backgroundImage": null,
+        "htmlid": "saas-statistics",
+        "layout": "Rows",
+        "gap": null,
+        "backgroundColor": null,
+        "enableParallaxEffect": false,
+        "inverse": null,
+        "sectionSeparator": true,
+        "paddingTop": "lg",
+        "paddingBottom": "lg",
+        "width": null,
+        "content": [
+          {
+            "contentType": "contentlist",
+            "id": "65hfrXOaeKnq9uoe2R4e5a",
+            "gap": "lg",
+            "layout": "grid",
+            "columns": 3,
+            "ctas": [],
+            "contentItems": [
+              {
+                "keyNumber": "100K+",
+                "description": "### __Active Users__\nWith lots of unique blocks, you can easily build a page without coding.",
+                "alignment": "start",
+                "layout": "vertical",
+                "keyNumberColor": "emerald",
+                "contentType": "statistics",
+                "id": "3rV6gX54yumAocUQ00d3WG"
+              },
+              {
+                "keyNumber": "2M+",
+                "description": "### __Downloads__\nWith lots of unique blocks, you can easily build a page without coding.",
+                "alignment": "start",
+                "layout": "vertical",
+                "keyNumberColor": "amber",
+                "contentType": "statistics",
+                "id": "3mvSMqGNFcCBDFtfr0ytDM"
+              },
+              {
+                "keyNumber": "99.99%",
+                "description": "### __Positive feedback__\nWith lots of unique blocks, you can easily build a page without coding.",
+                "alignment": "start",
+                "layout": "vertical",
+                "keyNumberColor": "rose",
+                "contentType": "statistics",
+                "id": "NsfXzph28iUDbw27KiHyk"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "smartsection",
+        "id": "3CLso88Ykx2zLrzgbdwZ2u",
+        "backgroundImage": null,
+        "htmlid": "saas-how-it-work",
+        "layout": "Banner",
+        "gap": "lg",
+        "backgroundColor": null,
+        "enableParallaxEffect": false,
+        "inverse": null,
+        "sectionSeparator": false,
+        "paddingTop": "xl",
+        "paddingBottom": "xl",
+        "width": null,
+        "content": [
+          {
+            "eyebrow": null,
+            "title": "# __How it Works?__",
+            "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+            "titleFontSize": "base",
+            "layout": null,
+            "alignment": "center",
+            "paddingTop": "none",
+            "paddingLeft": "none",
+            "paddingBottom": "none",
+            "paddingRight": null,
+            "backgroundColor": null,
+            "contentType": "richcontent",
+            "ctas": []
+          },
+          {
+            "priority": null,
+            "file": {
+              "url": "https://images.ctfassets.net/ehmycbmc25mu/2DWCNIOUEQJENahOzvpKdC/7929b098ceed2a8016c414d671aad2b4/management_settings.webp",
+              "width": 729,
+              "height": 572,
+              "contentType": "image/webp",
+              "title": "management_settings.webp",
+              "description": null
+            },
+            "contentType": "featuredmedia"
+          },
+          {
+            "contentType": "contentlist",
+            "id": "2bGWxyK3zwZgrwQ88IflZJ",
+            "gap": "sm",
+            "layout": "grid",
+            "columns": 1,
+            "ctas": [],
+            "contentItems": [
+              {
+                "contentType": "flexiblecontent",
+                "id": "4rHbE0KEyTCK9COViWw9rQ",
+                "title": "__Create a project__",
+                "eyebrow": null,
+                "body": "With lots of unique blocks, you can easily build a page without coding. ",
+                "redirectUrl": null,
+                "alignment": "start",
+                "layout": "horizontal",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/5XPaB9kgTyy56kRs4YXZ9M/ae4cd65e8582e1f9713e23d5256e58bb/1.svg",
+                    "width": 50,
+                    "height": 50,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "5XPaB9kgTyy56kRs4YXZ9M"
+                  }
+                ]
+              },
+              {
+                "contentType": "flexiblecontent",
+                "id": "1PM1ueJr0W9BOdPGsXpE0c",
+                "title": "__Assign related people__",
+                "eyebrow": null,
+                "body": "With lots of unique blocks, you can easily build a page without coding. ",
+                "redirectUrl": null,
+                "alignment": "start",
+                "layout": "horizontal",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/742XK3U4WZss9sx76AUTzD/381290530cfdd8b7e9794ab4cbd2b778/2.svg",
+                    "width": 50,
+                    "height": 50,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "742XK3U4WZss9sx76AUTzD"
+                  }
+                ]
+              },
+              {
+                "contentType": "flexiblecontent",
+                "id": "1Inkq6jpwMay22OnD1IPkb",
+                "title": "__Make it done on-time__",
+                "eyebrow": null,
+                "body": "With lots of unique blocks, you can easily build a page without coding. ",
+                "redirectUrl": null,
+                "alignment": "start",
+                "layout": "horizontal",
+                "buttons": [],
+                "media": [
+                  {
+                    "url": "https://images.ctfassets.net/ehmycbmc25mu/6VlKRgERvKgrzmBJoUU32y/c02ad412c0d336704621e215d15ddf5e/3.svg",
+                    "width": 50,
+                    "height": 50,
+                    "contentType": "image/svg+xml",
+                    "description": null,
+                    "id": "6VlKRgERvKgrzmBJoUU32y"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "smartsection",
+        "id": "6xG6U4YgzbztEemgDmq1cn",
+        "backgroundImage": null,
+        "htmlid": "saas-pricing-and-plans",
+        "layout": "Rows",
+        "gap": "lg",
+        "backgroundColor": "#f4f7fa",
+        "enableParallaxEffect": false,
+        "inverse": null,
+        "sectionSeparator": false,
+        "paddingTop": "xl",
+        "paddingBottom": "xl",
+        "width": "standard",
+        "content": [
+          {
+            "eyebrow": null,
+            "title": "## __Choose Your Plan__",
+            "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+            "titleFontSize": "base",
+            "layout": null,
+            "alignment": "center",
+            "paddingTop": "none",
+            "paddingLeft": "none",
+            "paddingBottom": "none",
+            "paddingRight": null,
+            "backgroundColor": null,
+            "contentType": "richcontent",
+            "ctas": []
+          },
+          {
+            "contentType": "contentlist",
+            "id": "4QAvfSOypii9YjGuv1QBaw",
+            "gap": "base",
+            "layout": "flex",
+            "columns": 3,
+            "ctas": [],
+            "contentItems": [
+              {
+                "contentType": "pricingplan",
+                "id": "3ZZ6X9gqjZWbpNH0i2DWNO",
+                "planName": "STARTER",
+                "badge": null,
+                "featured": false,
+                "description": null,
+                "features": [
+                  "Commercial License",
+                  "100+ HTML UI Elements",
+                  "01 Domain Support"
+                ],
+                "planLimitations": [
+                  "6 Month Premium Support",
+                  "Lifetime Updates"
+                ],
+                "alignment": "start",
+                "cta": {
+                  "icon": null,
+                  "href": "https://getnovajam.com/blog/get-started-with-novajam",
+                  "label": "Get started for free",
+                  "openNewTab": false,
+                  "variant": "primary",
+                  "withArrow": true,
+                  "disclaimer": "No credit card required"
+                },
+                "pricingOptions": [
+                  {
+                    "billingCycle": "Monthly",
+                    "price": "$19",
+                    "priceSuffix": "billed monthly"
+                  },
+                  {
+                    "billingCycle": "Yearly",
+                    "price": "$190",
+                    "priceSuffix": "billed yearly"
+                  }
+                ]
+              },
+              {
+                "contentType": "pricingplan",
+                "id": "4qLfOR4ykEUEeJp6cZ7g0Z",
+                "planName": "STANDARD",
+                "badge": "MOST POPULAR",
+                "featured": false,
+                "description": null,
+                "features": [
+                  "Commercial License",
+                  "100+ HTML UI Elements",
+                  "Unlimited Domain Support",
+                  "6 Month Premium Support"
+                ],
+                "planLimitations": ["Lifetime Updates"],
+                "alignment": "start",
+                "cta": {
+                  "icon": null,
+                  "href": "https://getnovajam.com/blog/get-started-with-novajam",
+                  "label": "Get started for free",
+                  "openNewTab": false,
+                  "variant": "primary",
+                  "withArrow": true,
+                  "disclaimer": "No credit card required"
+                },
+                "pricingOptions": [
+                  {
+                    "billingCycle": "Monthly",
+                    "price": "$49",
+                    "priceSuffix": "billed monthly"
+                  },
+                  {
+                    "billingCycle": "Yearly",
+                    "price": "$490",
+                    "priceSuffix": "billed yearly"
+                  }
+                ]
+              },
+              {
+                "contentType": "pricingplan",
+                "id": "77w6JruMungWRVfYDEI9UG",
+                "planName": "PREMIUM",
+                "badge": null,
+                "featured": false,
+                "description": null,
+                "features": [
+                  "Commercial License",
+                  "100+ HTML UI Elements",
+                  "Unlimited Domain Support",
+                  "6 Month Premium Support",
+                  "Lifetime Updates"
+                ],
+                "planLimitations": null,
+                "alignment": "start",
+                "cta": {
+                  "icon": null,
+                  "href": "https://getnovajam.com/blog/get-started-with-novajam",
+                  "label": "Get started for free",
+                  "openNewTab": false,
+                  "variant": "primary",
+                  "withArrow": true,
+                  "disclaimer": "No credit card required"
+                },
+                "pricingOptions": [
+                  {
+                    "billingCycle": "Monthly",
+                    "price": "$99",
+                    "priceSuffix": "billed monthly"
+                  },
+                  {
+                    "billingCycle": "Yearly",
+                    "price": "$990",
+                    "priceSuffix": "billed monthly"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "smartsection",
+        "id": "4jCYEQTHOSTC7SJl1VSwq2",
+        "backgroundImage": null,
+        "htmlid": "saas-testimonials",
+        "layout": "Rows",
+        "gap": "xl",
+        "backgroundColor": null,
+        "enableParallaxEffect": false,
+        "inverse": null,
+        "sectionSeparator": false,
+        "paddingTop": "xl",
+        "paddingBottom": "base",
+        "width": null,
+        "content": [
+          {
+            "eyebrow": null,
+            "title": "## __What Client's Say__",
+            "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+            "titleFontSize": "base",
+            "layout": null,
+            "alignment": "center",
+            "paddingTop": "none",
+            "paddingLeft": "none",
+            "paddingBottom": "none",
+            "paddingRight": "none",
+            "backgroundColor": null,
+            "contentType": "richcontent",
+            "ctas": []
+          },
+          {
+            "contentType": "contentlist",
+            "id": "8y6RXZqH9EVGQgdWLieel",
+            "gap": "lg",
+            "layout": "grid",
+            "columns": 2,
+            "ctas": [],
+            "contentItems": [
+              {
+                "content": "### Intuitive and flexible\n\"The components are intuitive and flexible, making development fast and enjoyable. The customization options helped me create a sleek, professional design effortlessly. It’s perfect for modern web projects.\"",
+                "authorName": "Alex Carter",
+                "authorTitle": "Digital Marketer",
+                "rating": 5,
+                "alignment": "start",
+                "layout": "horizontal",
+                "fontSize": "base",
+                "authorImage": {
+                  "url": "https://images.ctfassets.net/ehmycbmc25mu/5I8lHwPySOnO30MdB2iixx/1450253eec0f95fd1f0c4d6ee95816e8/Issac_Olson.webp",
+                  "width": 81,
+                  "height": 81,
+                  "contentType": "image/webp",
+                  "title": "Issac Olson.webp"
+                },
+                "contentType": "testimonial",
+                "id": "1GV2wbtNig8qwHoExp7mz1"
+              },
+              {
+                "content": "### Time saving\n\"This system streamlined my workflow with its reusable components and clear documentation. The design is responsive and visually stunning, saving me time while delivering excellent results. Highly recommend!\"",
+                "authorName": "Maria Lopez",
+                "authorTitle": "UX Designer",
+                "rating": 5,
+                "alignment": "start",
+                "layout": "horizontal",
+                "fontSize": "base",
+                "authorImage": {
+                  "url": "https://images.ctfassets.net/ehmycbmc25mu/2OoJ4WqEnsPDhAilzYX4qB/411fcda7bc68f86be0c98a6f4169ccfe/Rhoda_Brody.png",
+                  "width": 81,
+                  "height": 81,
+                  "contentType": "image/png",
+                  "title": "Rhoda Brody.png"
+                },
+                "contentType": "testimonial",
+                "id": "1DYnx6k8erO8X7lVbwRqsz"
+              },
+              {
+                "content": "### A true game-changer\n\"I was amazed by the simplicity and efficiency of the design. Integration with my tools was seamless, and the final output exceeded expectations. A true game-changer for developers!\"",
+                "authorName": "James Kim",
+                "authorTitle": "Software Engineer",
+                "rating": 5,
+                "alignment": "start",
+                "layout": "horizontal",
+                "fontSize": "base",
+                "authorImage": {
+                  "url": "https://images.ctfassets.net/ehmycbmc25mu/4CmCpqq2Pi2wP2pSGFwwId/9ef6648a34340074de5648457024f039/Barry_Young.webp",
+                  "width": 81,
+                  "height": 81,
+                  "contentType": "image/webp",
+                  "title": "Barry Young.webp"
+                },
+                "contentType": "testimonial",
+                "id": "AKU3xAy7lKK9DBQbCv9tV"
+              },
+              {
+                "content": "### __You made it so simple__\n\"My new site is so much faster and easier to work with than my old site. I’d recommend this product to beginners.\"",
+                "authorName": "Esther Allison",
+                "authorTitle": "UX Designer",
+                "rating": 5,
+                "alignment": "start",
+                "layout": "horizontal",
+                "fontSize": "base",
+                "authorImage": {
+                  "url": "https://images.ctfassets.net/ehmycbmc25mu/5zPx6xyC0550vei3PKZCH1/1336eb919ecd98c9a1beeac2ea434a22/Esther_Allison.webp",
+                  "width": 81,
+                  "height": 81,
+                  "contentType": "image/webp",
+                  "title": "Esther Allison.webp"
+                },
+                "contentType": "testimonial",
+                "id": "4loZqAJleOY85BMY2wy9RO"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "smartsection",
+        "id": "1GM2VLSxnz03GjgKxFJstu",
+        "backgroundImage": null,
+        "htmlid": "saas-cta",
+        "layout": "Rows",
+        "gap": "lg",
+        "backgroundColor": null,
+        "enableParallaxEffect": false,
+        "inverse": null,
+        "sectionSeparator": false,
+        "paddingTop": "base",
+        "paddingBottom": "xl",
+        "width": "standard",
+        "content": [
+          {
+            "eyebrow": null,
+            "title": "## __Join 100,000+ businesses accelerating their growth today.__\n",
+            "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+            "titleFontSize": "base",
+            "layout": "cta-side",
+            "alignment": "start",
+            "paddingTop": "lg",
+            "paddingLeft": "lg",
+            "paddingBottom": "lg",
+            "paddingRight": "lg",
+            "backgroundColor": "#cedbff",
+            "contentType": "richcontent",
+            "ctas": [
+              {
+                "icon": null,
+                "href": "https://getnovajam.com/blog/get-started-with-novajam",
+                "label": "Get started for free",
+                "eyebrow": null,
+                "openNewTab": false,
+                "variant": "primary",
+                "withArrow": true,
+                "disclaimer": "No credit card required",
+                "id": "3hNfPXj31NTWgGU0ulZS32"
+              },
+              {
+                "icon": null,
+                "href": "https://getnovajam.com",
+                "label": "Explore PRO",
+                "eyebrow": null,
+                "openNewTab": false,
+                "variant": "neutral",
+                "withArrow": false,
+                "disclaimer": null,
+                "id": "3CVVkpQk993MFKK06uptyT"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "smartsection",
+        "id": "tM7fpMEJ1UW4YKTOB0F81",
+        "backgroundImage": null,
+        "htmlid": "saas-latest-news-blogs",
+        "layout": "Rows",
+        "gap": "lg",
+        "backgroundColor": null,
+        "enableParallaxEffect": false,
+        "inverse": null,
+        "sectionSeparator": false,
+        "paddingTop": "base",
+        "paddingBottom": "xl",
+        "width": "standard",
+        "content": [
+          {
+            "eyebrow": null,
+            "title": "## __Latest News & Blogs__",
+            "body": "Blogging is a powerful addition in the NovaJAM Pro version, enabling you to create, publish, and manage content effortlessly.",
+            "titleFontSize": "base",
+            "layout": null,
+            "alignment": "center",
+            "paddingTop": "none",
+            "paddingLeft": "none",
+            "paddingBottom": "none",
+            "paddingRight": "none",
+            "backgroundColor": null,
+            "contentType": "richcontent",
+            "ctas": [
+              {
+                "icon": null,
+                "href": "https://getnovajam.com/blog",
+                "label": "Explore PRO",
+                "eyebrow": null,
+                "openNewTab": false,
+                "variant": "primary",
+                "withArrow": true,
+                "disclaimer": null,
+                "id": "7HFmx2HmtJDwRBRVoKlZnl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "smartsection",
+        "id": "4jYvoEnBikLaUPJ93IKbuf",
+        "backgroundImage": null,
+        "htmlid": "faq",
+        "layout": "Rows",
+        "gap": "lg",
+        "backgroundColor": "#f4f7fa",
+        "enableParallaxEffect": false,
+        "inverse": null,
+        "sectionSeparator": false,
+        "paddingTop": "xl",
+        "paddingBottom": "xl",
+        "width": null,
+        "content": [
+          {
+            "eyebrow": null,
+            "title": "# __Frequently Asked Questions__",
+            "body": "With lots of unique blocks, you can easily build a page without coding. Build your website within few minutes.",
+            "titleFontSize": "base",
+            "layout": null,
+            "alignment": "center",
+            "paddingTop": "none",
+            "paddingLeft": "none",
+            "paddingBottom": "none",
+            "paddingRight": "none",
+            "backgroundColor": null,
+            "contentType": "richcontent",
+            "ctas": []
+          },
+          {
+            "contentType": "contentlist",
+            "id": "65eVlCw6vmAvmuAX5Xewsh",
+            "gap": "xs",
+            "layout": "grid",
+            "columns": 1,
+            "ctas": [],
+            "contentItems": [
+              {
+                "title": "What is NovaJAM?",
+                "body": "With highly flexible blocks, you can easily build a page without coding. Build your next website within few minutes.",
+                "isCollapsed": true,
+                "contentType": "qa",
+                "id": "3FZTlC7NdbT0qqvrsOF6ak"
+              },
+              {
+                "title": "Does it work with CMS?",
+                "body": "With highly flexible blocks, you can easily build a page without coding. Build your next website within few minutes.",
+                "isCollapsed": true,
+                "contentType": "qa",
+                "id": "VSU4ltrGeEVeOdzZ2yWWM"
+              },
+              {
+                "title": "Will you provide support?",
+                "body": "Yes, we provide support for NovaJAM Pro, including setup guidance, CMS integration help, and issue resolution.",
+                "isCollapsed": true,
+                "contentType": "qa",
+                "id": "nZyPRz7uNr1WASjDx1Fcz"
+              },
+              {
+                "title": "Do I get free update?",
+                "body": "Yes, purchasing NovaJAM Pro includes free updates, ensuring you get the latest features, improvements, and compatibility enhancements.\n",
+                "isCollapsed": true,
+                "contentType": "qa",
+                "id": "1VyMT81LnfreAiHoO6NO3C"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "smartsection",
+        "id": "4jJeKrymycsxsp4bfxS42D",
+        "backgroundImage": null,
+        "htmlid": "saas-forms",
+        "layout": "Rows",
+        "gap": "lg",
+        "backgroundColor": null,
+        "enableParallaxEffect": false,
+        "inverse": null,
+        "sectionSeparator": false,
+        "paddingTop": "xl",
+        "paddingBottom": "xl",
+        "width": "standard",
+        "content": [
+          {
+            "eyebrow": null,
+            "title": "## __Need Help? Open a Ticket__",
+            "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+            "titleFontSize": "base",
+            "layout": null,
+            "alignment": "center",
+            "paddingTop": "none",
+            "paddingLeft": "none",
+            "paddingBottom": "none",
+            "paddingRight": "none",
+            "backgroundColor": null,
+            "contentType": "richcontent",
+            "ctas": []
+          },
+          {
+            "contentType": "form",
+            "id": "2kOnyT3TTiaON3ACAMVpZJ",
+            "internalName": "Open Ticket Form",
+            "submitButtonLabel": "Submit Ticket",
+            "submitButtonVariant": "primary",
+            "submitButtonPosition": "bottom",
+            "disclaimer": "By clicking submit button, you agree our terms and policy,",
+            "formType": "contact",
+            "dateFormat": "MM/DD/YYYY",
+            "successMessage": "Thank you! Your submission has been sent.",
+            "errorMessage": "Your submission has failed. Please try again.",
+            "fields": [
+              {
+                "label": "Name",
+                "fieldType": "text",
+                "options": null,
+                "required": true,
+                "placeholder": "i.e. John Doe",
+                "helpText": null,
+                "uiWidth": "half-size",
+                "hideLabel": null,
+                "id": "151avDQXrnv6ralBPaJgNz"
+              },
+              {
+                "label": "Company",
+                "fieldType": "text",
+                "options": null,
+                "required": false,
+                "placeholder": "i.e. Acme Corporation",
+                "helpText": null,
+                "uiWidth": "half-size",
+                "hideLabel": false,
+                "id": "6Oxm8aQm508ufBh186vVCX"
+              },
+              {
+                "label": "Email",
+                "fieldType": "email",
+                "options": null,
+                "required": true,
+                "placeholder": "i.e. john@gmail.com",
+                "helpText": null,
+                "uiWidth": "half-size",
+                "hideLabel": null,
+                "id": "64J2kPZZJlKgIzCBno2IMg"
+              },
+              {
+                "label": "Phone Number",
+                "fieldType": "tel",
+                "options": null,
+                "required": false,
+                "placeholder": "i.e. +1-234-567-7890",
+                "helpText": null,
+                "uiWidth": "half-size",
+                "hideLabel": false,
+                "id": "3YTQeZzHY8RucDIiOpWArK"
+              },
+              {
+                "label": "Message",
+                "fieldType": "textarea",
+                "options": null,
+                "required": false,
+                "placeholder": "Type your message",
+                "helpText": null,
+                "uiWidth": "full-size",
+                "hideLabel": false,
+                "id": "2sWaJTkn3S7RBuLUeh198J"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "contentType": "smartsection",
+        "id": "55S7dcxb5SB6oghpbPZcSu",
+        "backgroundImage": null,
+        "htmlid": "agency-cta-2",
+        "layout": "Classic",
+        "gap": "lg",
+        "backgroundColor": "#161c2d",
+        "enableParallaxEffect": false,
+        "inverse": true,
+        "sectionSeparator": false,
+        "paddingTop": "xl",
+        "paddingBottom": "xl",
+        "width": null,
+        "content": [
+          {
+            "eyebrow": null,
+            "title": "## __Ready to launch your next project?__",
+            "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+            "titleFontSize": "sm",
+            "layout": "cta-side",
+            "alignment": "start",
+            "paddingTop": "none",
+            "paddingLeft": "none",
+            "paddingBottom": "none",
+            "paddingRight": "none",
+            "backgroundColor": null,
+            "contentType": "richcontent",
+            "ctas": [
+              {
+                "icon": null,
+                "href": "https://getnovajam.com/blog/get-started-with-novajam",
+                "label": "Get started a project",
+                "eyebrow": null,
+                "openNewTab": false,
+                "variant": "primary",
+                "withArrow": false,
+                "disclaimer": null,
+                "id": "15lbnFPgCrvQ8wkJmxcZHa"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "NovaJAM | FAQ",
+    "url": "/faq",
+    "seo": null,
+    "fontMain": "Poppins",
+    "fontHeading": null,
+    "colorPrimary": "indigo",
+    "colorSecondary": null,
+    "borderRadius": "large",
+    "content": [
+      {
+        "contentType": "smartsection",
+        "id": "3rEt8vWsKMieYuIssJS3PJ",
+        "htmlid": "novajam-faq",
+        "layout": "Rows",
+        "gap": "lg",
+        "backgroundColor": "#f4f5f9",
+        "backgroundImage": null,
+        "enableParallaxEffect": false,
+        "darkMode": false,
+        "sectionSeparator": false,
+        "paddingTop": "2xl",
+        "paddingBottom": "xl",
+        "width": null,
+        "content": [
+          {
+            "eyebrow": null,
+            "title": "# __Frequently Asked Questions__",
+            "body": null,
+            "disclaimer": null,
+            "titleFontSize": "lg",
+            "alignment": "center",
+            "paddingTop": null,
+            "paddingLeft": null,
+            "paddingBottom": null,
+            "paddingRight": null,
+            "contentType": "richcontent",
+            "ctas": []
+          },
+          {
+            "contentType": "contentlist",
+            "id": "4Av7ggiCB7fPTx19DMk2Jz",
+            "gap": "base",
+            "layout": "grid",
+            "columns": 1,
+            "ctas": [],
+            "contentItems": [
+              {
+                "title": "What is NovaJAM?",
+                "body": "NovaJAM is a multi-purpose Next.js template integrated with headless CMS for landing pages, blog, custom forms, and more. It's built with a focus on ease of use, scalability, and practical functionality, making it unique for fast deployment.",
+                "isCollapsed": false,
+                "contentType": "qa",
+                "id": "4INRC6VubZJ38c7QV5lRmo"
+              },
+              {
+                "title": "Does NovaJAM support multiple CMS platforms?",
+                "body": "Yes, NovaJAM currently supports [Contentful](https://www.contentful.com/), [Directus](https://directus.io/) and plans to expand compatibility to additional platforms like [Sanity](https://www.sanity.io/), [Payload](https://payloadcms.com/), and [Storyblok](https://www.storyblok.com/) for flexibility in content management. Besides, You can configure it to fetch data dynamically from your CMS or use static JSON files for enhanced performance.",
+                "isCollapsed": true,
+                "contentType": "qa",
+                "id": "AFanPV5njQiSvUBxwEitf"
+              },
+              {
+                "title": "Can I customize the design?",
+                "body": "Absolutely! NovaJAM offers customizable SmartSection layouts and styling options, including flexible configurations, so you can adjust each section's appearance based on your needs.",
+                "isCollapsed": true,
+                "contentType": "qa",
+                "id": "2FD9hWooUADvxgB8uFiymE"
+              },
+              {
+                "title": "Is NovaJAM open-source?",
+                "body": "NovaJAM’s core is open-source, with a range of licenses available depending on the intended use. For commercial purposes, a Standard Commercial License is recommended.",
+                "isCollapsed": true,
+                "contentType": "qa",
+                "id": "1JBbAcOYiVGPG576skXDVs"
+              },
+              {
+                "title": "Is there a PRO version of NovaJAM?",
+                "body": "Yes, NovaJAM PRO includes additional features and components, available as a private repository. It’s designed for advanced use cases and offers exclusive functionalities for complex projects.",
+                "isCollapsed": true,
+                "contentType": "qa",
+                "id": "18b9kaQhWYHzM3Y5RBlNao"
+              },
+              {
+                "title": "How frequently is NovaJAM updated, and can I expect new features?",
+                "body": "NovaJAM is actively maintained, with regular updates and new features based on community feedback. You can look forward to improvements and integrations over time!",
+                "isCollapsed": true,
+                "contentType": "qa",
+                "id": "3gjVlrG5IBpjbrgULeUVlc"
+              }
+            ]
+          },
+          {
+            "eyebrow": null,
+            "title": null,
+            "body": "Haven’t got your answer? [Contact our support now](https://novajam.vercel.app/contact)",
+            "disclaimer": null,
+            "titleFontSize": "base",
+            "alignment": "center",
+            "paddingTop": "none",
+            "paddingLeft": "none",
+            "paddingBottom": "none",
+            "paddingRight": "none",
+            "contentType": "richcontent",
+            "ctas": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "NovaJAM | Contact Us",
+    "url": "/contact",
+    "seo": null,
+    "fontMain": "Poppins",
+    "fontHeading": null,
+    "colorPrimary": null,
+    "colorSecondary": null,
+    "borderRadius": "large",
+    "content": [
+      {
+        "contentType": "smartsection",
+        "id": "6Wc0xMQoZAkg20dWJ0WVHO",
+        "htmlid": "novajam-contact",
+        "layout": "Columns",
+        "gap": "xl",
+        "backgroundColor": null,
+        "backgroundImage": null,
+        "enableParallaxEffect": false,
+        "darkMode": false,
+        "sectionSeparator": false,
+        "paddingTop": "2xl",
+        "paddingBottom": "xl",
+        "width": null,
+        "content": [
+          {
+            "eyebrow": null,
+            "title": "# __Have a Question?__",
+            "body": "Feel free to contact us with any questions, queries, or ideas for NovaJAM.",
+            "disclaimer": null,
+            "titleFontSize": "lg",
+            "alignment": "start",
+            "paddingTop": null,
+            "paddingLeft": null,
+            "paddingBottom": null,
+            "paddingRight": null,
+            "contentType": "richcontent",
+            "ctas": []
+          },
+          {
+            "contentType": "form",
+            "id": "4GVYOLJAPkiNvA9NV4K64",
+            "internalName": "Contact NovaJAM",
+            "submitButtonLabel": null,
+            "submitButtonVariant": null,
+            "submitButtonPosition": null,
+            "disclaimer": null,
+            "formType": "contact",
+            "dateFormat": "MM/DD/YYYY",
+            "successMessage": null,
+            "errorMessage": "Your submission has failed. Please try again.",
+            "fields": [
+              {
+                "label": "Name",
+                "fieldType": "text",
+                "options": null,
+                "required": true,
+                "placeholder": "John Doe",
+                "helpText": null,
+                "uiWidth": "full-size",
+                "hideLabel": null,
+                "id": "7cTsNa2zV2NUQndFxl1sIU"
+              },
+              {
+                "label": "Email",
+                "fieldType": "email",
+                "options": null,
+                "required": true,
+                "placeholder": "john@gmail.com",
+                "helpText": null,
+                "uiWidth": "full-size",
+                "hideLabel": null,
+                "id": "5hAc9rRtJjmRCat0jlc7jv"
+              },
+              {
+                "label": "Message",
+                "fieldType": "textarea",
+                "options": null,
+                "required": true,
+                "placeholder": "How can we help?",
+                "helpText": null,
+                "uiWidth": "full-size",
+                "hideLabel": null,
+                "id": "3QCgDo32jMqQpujwelpzrI"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

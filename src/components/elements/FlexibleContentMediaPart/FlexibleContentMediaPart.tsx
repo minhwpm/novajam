@@ -2,7 +2,7 @@ import {
   AlignmentType,
   FlexibleContentType,
   MediaAspectRatioType,
-} from '@/helpers/types';
+} from '@/lib/types';
 import classNames from 'classnames';
 import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
 import { MediaCarousel } from '@/components/elements/MediaCarousel/MediaCarousel';

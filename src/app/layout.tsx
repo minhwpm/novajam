@@ -8,8 +8,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="dark:bg-slate-900 dark:text-slate-100">
+    <html lang="en" className="scroll-smooth bg-white">
+      <body className="dark:bg-slate-800 dark:text-slate-100">
         {children}
         <Analytics />
         <SpeedInsights />

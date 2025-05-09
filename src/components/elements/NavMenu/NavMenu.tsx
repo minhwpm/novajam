@@ -1,24 +1,17 @@
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import classNames from 'classnames';
-import { LinkType, NavigationLayout, SubmenuType } from '@/helpers/types';
-import { Submenu } from './Submenu/Submenu';
-import { NavLinkItem } from '../NavLinkItem/NavLinkItem';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { LinkType, NavigationLayout, SubmenuType } from '@/lib/types';
+import { NavLinkItem } from '@/components/elements/NavLinkItem/NavLinkItem';
 
-export function getMenuItemText(item: LinkType | SubmenuType): string {
-  return item.label;
-}
-
-const NavMenu: React.FC<{
+export const NavMenu: React.FC<{
   menuItems: Array<LinkType | SubmenuType>;
   layout?: NavigationLayout;
-}> = ({ menuItems, layout }) => {
+}> = ({ menuItems }) => {
   return (
-    <NavigationMenu.Root
-      className={classNames('NavMenu hidden lg:flex justify-end')}
-    >
+    <NavigationMenu.Root className={classNames('NavMenu hidden lg:flex')}>
       <NavigationMenu.List
         className={classNames(
-          'flex justify-center items-start px-5 list-none m-0',
+          'flex justify-center items-start px-2 list-none m-0',
         )}
       >
         {menuItems.map(
@@ -26,7 +19,8 @@ const NavMenu: React.FC<{
             item && (
               <NavigationMenu.Item
                 key={item.id}
-                className={classNames('text-smd py-7 px-5', {
+                className={classNames('text-smd px-4', {
+                  'py-5': item.contentType === 'link',
                   relative: 'menuItems' in item && item.layout === 'dropdown',
                 })}
               >
@@ -39,9 +33,6 @@ const NavMenu: React.FC<{
                     {item.label}
                   </NavLinkItem>
                 )}
-                {item.contentType === 'submenu' && (
-                  <Submenu key={item.id} data={item} layout={layout} />
-                )}
               </NavigationMenu.Item>
             ),
         )}
@@ -49,5 +40,3 @@ const NavMenu: React.FC<{
     </NavigationMenu.Root>
   );
 };
-
-export default NavMenu;

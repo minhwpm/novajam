@@ -1,42 +1,90 @@
-# NovaJAM Project Setup
+# NovaJAM
 
-NovaJAM is an Multi-purpose All-in-One JAMstack Template & Web Page Composer which is built with cutting edge technologies: React, NextJS 14, Typescript, Tailwind and seamlessly integrated with Contentful CMS.
+NovaJAM is an open-source, Jamstack-based web template designed for building modern landing pages quickly and effectively. Built with Next.js, it offers a developer-first structure, flexible content configuration, and clean, scalable design.
 
-## Getting Started
+## 🚀 Why NovaJAM?
 
-1. Create `.env` file from `.env.template` file
+- ⚡ Fast and Performance-Optimized: Powered by Next.js for server-side rendering and static site generation.
+- 🎨 Modern Design System: Clean, minimal, and fully responsive components.
+- 🧱 Composable Sections: Modular, reusable sections for building diverse layouts.
+- 🛠️ Developer-First Approach: Organized folder structure and TypeScript support.
+- 📦 Content Configuration: Manage content through JSON data files.
 
-```bash
-cp .env.template .env
+## 🧰 Tech Stack
+
+- Next.js (version 15, App Router, Server Actions)
+- TypeScript
+- Tailwind CSS
+- Zustand for state management
+
+## 🚨 Quick Start
+
+Clone the Repository:
+
+```
+git clone https://github.com/minhwpm/novajam.git
+cd novajam
 ```
 
-2. Install dependencies
+Install Dependencies:
 
-```bash
-yarn
+```
+yarn install
 ```
 
-3. Run the development server:
+Run the Development Server:
 
-```bash
+```
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Access the app at http://localhost:3000.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+📁 Project Structure
 
-## Deployment
+```
+/src
+  ├── app            # Next.js App Router structure
+  ├── components     # Reusable UI components
+  ├── lib            # Utilities and CMS clients
+  └── store          # Global state management
+```
 
-Easily deploy your Next.js app with [Vercel](https://vercel.com/new/git/external?repository-url=https://github.com/minhwpm/novajam) by clicking the button below:
+✏️ Content Configuration
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/minhwpm/novajam)
+NovaJAM leverages JSON data to structure page content. You can find these JSON files in the /src/lib/query/static-data/pages.json directory.
 
-## About Next.js
+```
+{
+  "title": "SaaS Landing Page",
+  "url": "/demo/saas",
+  "fontMain": "Poppins",
+  "fontHeading": null,
+  "colorPrimary": "indigo",
+  "colorSecondary": "rose",
+  "borderRadius": "large",
+  ...
+}
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🔌 CMS Integration (Pro Version)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The open-source version only supports JSON-based content configuration. For CMS integration (Contentful, Directus) and pre-built layout demos, consider upgrading to NovaJAM Pro.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Learn more: NovaJAM Pro
+
+## 📦 Deployment
+
+Easily deploy to Vercel, Netlify, or other Jamstack platforms. Example for Vercel:
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to open a PR or issue on GitHub.
+
+## 📄 License
+
+This project is open-source under the MIT License. See the LICENSE file for details.
+
+## 💬 Support
+
+Join the discussion on GitHub or contact us for questions and support. We'd love to hear from you!

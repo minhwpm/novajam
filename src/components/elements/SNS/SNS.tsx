@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { JSX, useState } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 import { RiFacebookFill } from 'react-icons/ri';
@@ -17,13 +17,15 @@ import * as Toast from '@radix-ui/react-toast';
 const SocialMediaLink: React.FC<{
   url: string;
   icon: JSX.Element;
-}> = ({ url, icon }) => (
+  label: string;
+}> = ({ url, icon, label }) => (
   <Link
     href={url}
     target="_blank"
     className={classNames(
       'group/sns w-10 h-10 rounded-full flex justify-center items-center bg-slate-100 hover:bg-slate-200 transition-colors duration-300 ease-in-out dark:bg-opacity-10 dark:hover:bg-opacity-5',
     )}
+    aria-label={label}
   >
     {React.cloneElement(icon, {
       className: '',
@@ -51,6 +53,7 @@ const CopyLinkToClipboard: React.FC = () => {
     <Toast.Provider swipeDirection="up">
       <button
         onClick={handleCopyLink}
+        aria-label="Copy link to clipboard"
         className={classNames(
           'group/sns cursor-pointer w-10 h-10 rounded-full flex justify-center items-center bg-slate-100 hover:bg-slate-200 transition-colors duration-300 ease-in-out dark:bg-opacity-10 dark:hover:bg-opacity-5',
         )}
@@ -58,7 +61,7 @@ const CopyLinkToClipboard: React.FC = () => {
         <FiLink size={15} className="rotate-45" />
       </button>
       {copied && (
-        <Toast.Root className="px-6 py-4 rounded-md bg-slate-900/90 text-slate-100">
+        <Toast.Root className="px-6 py-4 rounded-md bg-slate-800 text-slate-100">
           <Toast.Title className="font-semibold flex items-center">
             <IoMdCheckmark className="mr-2" /> Link copied to clipboard
           </Toast.Title>
@@ -87,19 +90,39 @@ export const SNS: React.FC<{
 }) => (
   <div className="flex gap-5 items-center py-3">
     {facebookUrl && (
-      <SocialMediaLink url={facebookUrl} icon={<RiFacebookFill size={15} />} />
+      <SocialMediaLink
+        label="Share on facebook"
+        url={facebookUrl}
+        icon={<RiFacebookFill size={15} />}
+      />
     )}
     {twitterUrl && (
-      <SocialMediaLink url={twitterUrl} icon={<FaXTwitter size={15} />} />
+      <SocialMediaLink
+        label="Share on X"
+        url={twitterUrl}
+        icon={<FaXTwitter size={15} />}
+      />
     )}
     {linkedInUrl && (
-      <SocialMediaLink url={linkedInUrl} icon={<FaLinkedinIn size={15} />} />
+      <SocialMediaLink
+        label="Share on LinkedIn"
+        url={linkedInUrl}
+        icon={<FaLinkedinIn size={15} />}
+      />
     )}
     {youtubeUrl && (
-      <SocialMediaLink url={youtubeUrl} icon={<FaYoutube size={15} />} />
+      <SocialMediaLink
+        label="Share on Youtube"
+        url={youtubeUrl}
+        icon={<FaYoutube size={15} />}
+      />
     )}
     {instagramUrl && (
-      <SocialMediaLink url={instagramUrl} icon={<FaInstagram size={15} />} />
+      <SocialMediaLink
+        label="Share on Instagram"
+        url={instagramUrl}
+        icon={<FaInstagram size={15} />}
+      />
     )}
     {copyLinkToClipboard && <CopyLinkToClipboard />}
   </div>

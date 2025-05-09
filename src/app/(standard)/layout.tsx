@@ -2,12 +2,10 @@ import classNames from 'classnames';
 import { Metadata } from 'next';
 import { Navigation } from '@/components/sections/Navigation/Navigation';
 import { Footer } from '@/components/sections/Footer/Footer';
-import { getNavigation } from '@/helpers/query/getNavigation';
-import { getFooter } from '@/helpers/query/getFooter';
-import { getPage } from '@/helpers/query/getPage';
-import { generateFontClassnames } from '@/helpers/fonts';
-import { generateColorClassnames } from '@/helpers/utils';
-import { NavigationType, FooterType } from '@/helpers/types';
+import { getNavigation } from '@/lib/query/getNavigation';
+import { getFooter } from '@/lib/query/getFooter';
+import { getPage } from '@/lib/query/getPage';
+import { generateColorClassnames, generateFontClassnames } from '@/lib/utils';
 import styles from '@/app/styles/theme.module.css';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -58,9 +56,9 @@ export default async function Layout({
         styles[colorTheme?.secondaryColor ?? ''],
       )}
     >
-      {navigation && <Navigation data={navigation as NavigationType} />}
+      {navigation && <Navigation data={navigation} />}
       {children}
-      {footer && <Footer data={footer as FooterType} />}
+      {footer && <Footer data={footer} />}
     </div>
   );
 }

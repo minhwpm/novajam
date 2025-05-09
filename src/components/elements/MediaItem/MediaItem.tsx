@@ -2,7 +2,7 @@
 import classNames from 'classnames';
 import { Image } from '@/components/elements/Image/Image';
 import { Video } from '@/components/elements/Video/Video';
-import { MediaAspectRatioType, MediaType } from '@/helpers/types';
+import { MediaAspectRatioType, MediaType } from '@/lib/types';
 
 export const MediaItem: React.FC<{
   data: MediaType | null;

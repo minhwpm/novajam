@@ -1,56 +1,33 @@
 'use client';
 import classNames from 'classnames';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-import { BlockType, ColumnsType, GapType } from '@/helpers/types';
+import { BlockType, ContentListType, GapType } from '@/lib/types';
 import { ContentMapping } from '@/components/blocks/ContentMapping/ContentMapping';
+
+const columnBreakpoints = {
+  320: { 6: 2, 5: 2, 4: 1, 3: 1, 2: 1, 1: 1 },
+  640: { 6: 3, 5: 3, 4: 2, 3: 1, 2: 1, 1: 1 },
+  768: { 6: 4, 5: 4, 4: 2, 3: 2, 2: 1, 1: 1 },
+  1024: { 6: 5, 5: 4, 4: 3, 3: 2, 2: 2, 1: 1 },
+  1280: { 6: 6, 5: 5, 4: 4, 3: 3, 2: 2, 1: 1 },
+};
 
 export const MasonryList: React.FC<{
   contentItems: BlockType[];
-  columns: ColumnsType;
+  columns: ContentListType['columns'];
   gap?: GapType;
 }> = ({ contentItems, columns, gap = 'base' }) => {
+  const columnsCountBreakPoints = Object.fromEntries(
+    Object.entries(columnBreakpoints).map(([breakpoint, mapping]) => [
+      Number(breakpoint),
+      columns ? mapping[columns] : 1,
+    ]),
+  );
+
   return (
     <ResponsiveMasonry
       className="w-full"
-      columnsCountBreakPoints={{
-        320: parseInt(
-          classNames({
-            2: columns === 5,
-            1: columns === 4 || columns === 3 || columns === 2 || columns === 1,
-          }),
-        ),
-        640: parseInt(
-          classNames({
-            3: columns === 5,
-            2: columns === 4,
-            1: columns === 3 || columns === 2 || columns === 1,
-          }),
-        ),
-        768: parseInt(
-          classNames({
-            4: columns === 5,
-            2: columns === 4 || columns === 3,
-            1: columns === 2 || columns === 1,
-          }),
-        ),
-        1024: parseInt(
-          classNames({
-            4: columns === 5,
-            3: columns === 4,
-            2: columns === 3 || columns === 2,
-            1: columns === 1,
-          }),
-        ),
-        1280: parseInt(
-          classNames({
-            5: columns === 5,
-            4: columns === 4,
-            3: columns === 3,
-            2: columns === 2,
-            1: columns === 1,
-          }),
-        ),
-      }}
+      columnsCountBreakPoints={columnsCountBreakPoints}
     >
       <Masonry
         gutter={classNames({
@@ -62,7 +39,12 @@ export const MasonryList: React.FC<{
         })}
       >
         {contentItems.map((item, idx) => (
-          <ContentMapping key={idx} index={idx} data={item} />
+          <ContentMapping
+            key={idx}
+            index={idx}
+            data={item}
+            itemsPerRow={columns ?? 1}
+          />
         ))}
       </Masonry>
     </ResponsiveMasonry>

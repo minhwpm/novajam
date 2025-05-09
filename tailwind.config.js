@@ -1,11 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   darkMode: 'class',
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     container: {
@@ -34,14 +35,28 @@ module.exports = {
       },
       colors: {
         primary: {
+          100: 'rgb(var(--primary-color-100), <alpha-value>)',
           200: 'rgb(var(--primary-color-200), <alpha-value>)',
+          300: 'rgb(var(--primary-color-300), <alpha-value>)',
+          400: 'rgb(var(--primary-color-400), <alpha-value>)',
           500: 'rgb(var(--primary-color-500), <alpha-value>)',
           600: 'rgb(var(--primary-color-600), <alpha-value>)',
+          700: 'rgb(var(--primary-color-700), <alpha-value>)',
+          800: 'rgb(var(--primary-color-800), <alpha-value>)',
+          900: 'rgb(var(--primary-color-900), <alpha-value>)',
+          950: 'rgb(var(--primary-color-950), <alpha-value>)',
         },
         secondary: {
+          100: 'rgb(var(--secondary-color-100), <alpha-value>)',
           200: 'rgb(var(--secondary-color-200), <alpha-value>)',
+          300: 'rgb(var(--secondary-color-300), <alpha-value>)',
+          400: 'rgb(var(--secondary-color-400), <alpha-value>)',
           500: 'rgb(var(--secondary-color-500), <alpha-value>)',
           600: 'rgb(var(--secondary-color-600), <alpha-value>)',
+          700: 'rgb(var(--secondary-color-700), <alpha-value>)',
+          800: 'rgb(var(--secondary-color-800), <alpha-value>)',
+          900: 'rgb(var(--secondary-color-900), <alpha-value>)',
+          950: 'rgb(var(--secondary-color-950), <alpha-value>)',
         },
       },
       borderRadius: {
@@ -56,6 +71,8 @@ module.exports = {
       },
       spacing: {
         1.25: '0.3125rem',
+        2.5: '0.625rem',
+        4.5: '1.125rem',
         7.5: '1.875rem',
         13: '3.25rem',
         14: '3.5rem',
@@ -117,24 +134,14 @@ module.exports = {
             opacity: 1,
           },
         },
-        slidingHeroContent: {
-          '0%': {
-            transform: 'translateX(-2.5rem)',
-            opacity: 0,
-          },
-          '100%': {
-            transform: 'translateX(0)',
-            opacity: 1,
-          },
-        },
         slidingUpContent: {
-          '0%': {
+          from: {
+            transform: 'translateY(40px)',
             opacity: 0,
-            bottom: '-50px',
           },
-          '100%': {
+          to: {
+            transform: 'translateY(0)',
             opacity: 1,
-            bottom: 0,
           },
         },
         headerSlideIn: {
@@ -185,22 +192,6 @@ module.exports = {
             transform: 'translateX(-200px)',
           },
         },
-        accordionSlideUp: {
-          from: {
-            height: 'var(--radix-accordion-content-height)',
-          },
-          to: {
-            height: 0,
-          },
-        },
-        accordionSlideDown: {
-          from: {
-            height: 0,
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)',
-          },
-        },
       },
 
       animation: {
@@ -208,17 +199,25 @@ module.exports = {
         fadeInSlideLeft: 'fadeInSlideLeft 0.5s ease-in-out forwards',
         slidingSubmenu: 'slidingSubmenu 0.3s ease-out forwards',
         slidingLinkgroup: 'slidingLinkgroup 0.3s ease-out forwards',
-        slidingHeroContent: 'slidingHeroContent 1s ease forwards',
-        slidingUpContent: 'slidingUpContent 0.5s ease-out forwards',
+        slidingUpContent: 'slidingUpContent 1s ease both',
         headerSlideIn: 'headerSlideIn 0.5s ease-out forwards',
-        accordionSlideUp: 'accordionSlideUp 0.3s ease-in-out',
-        accordionSlideDown: 'accordionSlideDown 0.3s ease-in-out',
       },
     },
   },
+  safelist: [
+    { pattern: /(pt|pb|pr|pl|gap)-(\d+)/, variants: ['md', 'lg'] },
+    {
+      pattern:
+        /text-(red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-500/,
+      variants: ['dark'], // Include dark mode variants if needed
+    },
+  ],
   plugins: [
     require('@tailwindcss/typography'),
     require('tailwindcss-3d'),
     require('tailwindcss-animation-delay'),
+    plugin(function ({ addVariant }) {
+      addVariant('inverse', '.inverse &');
+    }),
   ],
 };

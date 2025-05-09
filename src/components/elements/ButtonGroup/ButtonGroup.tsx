@@ -1,13 +1,14 @@
-import { AlignmentType, ButtonType } from '@/helpers/types';
 import classNames from 'classnames';
-import { Button } from '../Button/Button';
+import { AlignmentType, ButtonType } from '@/lib/types';
+import { Button } from '@/components/elements/Button/Button';
 
 export const ButtonGroup: React.FC<{
   data: Array<ButtonType>;
   alignment?: AlignmentType;
   size?: 'sm' | 'base' | 'lg';
   className?: string;
-}> = ({ data, alignment, size, className }) => {
+  fullWidth?: boolean;
+}> = ({ data, alignment, size, className, fullWidth }) => {
   return (
     <div
       className={classNames(
@@ -18,9 +19,12 @@ export const ButtonGroup: React.FC<{
       )}
     >
       {data.map((button) => (
-        <Button key={button.id} data={button} size={size ?? 'base'}>
-          {button.label}
-        </Button>
+        <Button
+          key={button.id}
+          data={button}
+          size={size ?? 'base'}
+          fullWidth={fullWidth}
+        />
       ))}
     </div>
   );

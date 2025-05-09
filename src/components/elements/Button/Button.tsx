@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ButtonType } from '@/helpers/types';
-import { IoIosArrowRoundForward } from 'react-icons/io';
+import { Image } from '@/components/elements/Image/Image';
+import { ButtonType } from '@/lib/types';
+import { GoArrowRight } from 'react-icons/go';
 
 interface ButtonProps {
   data: ButtonType;
@@ -28,138 +28,124 @@ export const Button: React.FC<ButtonProps> = ({
   const {
     label,
     href,
+    eyebrow,
     variant = 'primary',
     withArrow = false,
     openNewTab = false,
     icon,
+    disclaimer,
   } = data;
 
   const renderIcon = () =>
     icon && (
       <Image
         className={classNames('object-contain inline-block', {
-          'w-5 h-5 mr-2': size === 'sm' || size === 'base',
-          'w-7 h-7 mr-2.5': size === 'lg',
-          'group-hover/btn:brightness-100 group-hover/btn:invert transition-all duration-500 ease':
-            variant === 'outline-white',
+          'w-5 h-5 mr-2.5': size === 'sm',
+          'w-6 h-6 mr-3': size === 'base',
+          'w-7 h-7 mr-4': size === 'lg',
         })}
-        src={icon.url}
-        alt={icon.title}
-        width={icon.width}
-        height={icon.height}
+        data={icon}
+        alt={`Icon ${icon.title}`}
       />
     );
 
   const renderArrow = () =>
     withArrow && (
-      <IoIosArrowRoundForward
-        className={classNames(
-          'block ml-4 relative left-1 group-hover/btn:left-2 transition-all duration-300 ease',
-          {
-            'text-primary-600 group-hover/btn:text-slate-100':
-              variant === 'outline',
-            'text-inherit group-hover/btn:text-slate-100':
-              variant === 'outline-black',
-            'text-slate-100 group-hover/btn:text-inherit':
-              variant === 'outline-white',
-          },
-        )}
-        size={size === 'lg' ? 30 : 20}
+      <GoArrowRight
+        className="block ml-4 relative left-1 group-hover/btn:left-2 transition-all duration-300 ease"
+        size={size === 'lg' ? 20 : 17}
       />
+    );
+
+  const renderDisclaimer = () =>
+    disclaimer && (
+      <p
+        className={classNames(
+          'self-center text-sm font-normal tracking-wide text-slate-500/80 dark:text-slate-100/30',
+        )}
+      >
+        {disclaimer}
+      </p>
     );
 
   const renderButtonContent = () => (
     <>
       {renderIcon()}
-      {children || label}
+      {children || (
+        <span
+          className={classNames({
+            'underline-hover-effect': variant === 'link',
+          })}
+        >
+          {eyebrow && (
+            <span
+              className={classNames('block text-xs font-normal tracking-wide')}
+            >
+              {eyebrow}
+            </span>
+          )}
+          {label}
+        </span>
+      )}
       {renderArrow()}
     </>
   );
 
   const getVariantClasses = () => {
-    if (variant === 'ghost') {
-      return classNames(
-        'w-full relative left-0 font-medium hover:left-1 transition-all duration-500 ease dark:text-slate-100',
-        {
-          'text-sm': size === 'sm',
-          'text-base': size === 'base',
-          'xl:text-lg': size === 'lg',
-          'opacity-20 pointer-events-none cursor-not-allowed': disabled,
-        },
-        className,
-      );
-    }
-
     return classNames(
-      'w-full whitespace-nowrap relative border rounded-theme-button transition-all duration-500 ease',
+      'group/btn relative max-h-15 inline-flex justify-center items-center text-start whitespace-nowrap border-2 rounded-theme-button transition-all duration-500 ease',
       {
-        'border-primary-600 bg-primary-600 hover:brightness-110 text-slate-100':
+        'border-primary-600 bg-primary-600 hover:border-primary-700 hover:bg-primary-700 text-slate-100':
           variant === 'primary',
-        'border-secondary-600 bg-secondary-600 hover:brightness-110 text-slate-100':
+        'border-secondary-600 bg-secondary-600 hover:border-secondary-700 hover:bg-secondary-700 text-slate-100':
           variant === 'secondary',
-        'border-slate-950 bg-slate-950 text-slate-100 hover:bg-slate-900 hover:border-slate-900 dark:border-slate-700':
-          variant === 'black',
-        'text-slate-800 border-slate-50 bg-slate-50 hover:bg-white hover:border-white text-inherit':
-          variant === 'white',
-        'border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-slate-100':
+        'border-slate-900 bg-slate-900 text-slate-100 dark:border-slate-100 dark:bg-slate-100 dark:text-slate-800 inverse:border-slate-100 inverse:bg-slate-100 inverse:text-slate-800':
+          variant === 'neutral',
+        'border-slate-200 text-slate-800 bg-white hover:bg-slate-100 dark:text-slate-100 dark:bg-slate-800 dark:border-slate-600 dark:hover:bg-slate-700 inverse:text-slate-100 inverse:bg-slate-800 inverse:border-slate-600 inverse:hover:bg-slate-700':
           variant === 'outline',
-        'border-slate-900 text-inherit hover:bg-slate-950 hover:text-slate-100 dark:border-slate-100':
-          variant === 'outline-black',
-        'border-white text-slate-100 hover:bg-white hover:text-inherit drop-shadow-lg':
-          variant === 'outline-white',
-        'px-4 py-2 min-w-[100px] lg:min-w-[120px] text-sm font-medium':
+        'border-transparent text-slate-800 hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-800 inverse:text-slate-100 inverse:hover:bg-slate-800':
+          variant === 'ghost',
+        '!p-0 border-transparent text-slate-800 dark:text-slate-100 inverse:text-slate-100':
+          variant === 'link',
+        'px-4 py-1.5 min-w-[100px] lg:min-w-[120px] text-sm font-medium':
           size === 'sm',
-        'px-6 py-3 min-w-[100px] lg:min-w-[120px] text-base font-medium':
+        'px-6 py-2 min-w-[100px] lg:min-w-[120px] text-base font-medium':
           size === 'base',
-        'px-8 py-4 min-w-[130px] lg:min-w-[160px] xl:text-lg font-medium':
+        'px-7 py-3 min-w-[130px] lg:min-w-[160px] xl:text-lg font-medium':
           size === 'lg',
         'opacity-20 pointer-events-none cursor-not-allowed': disabled,
+        'w-full': fullWidth,
       },
       className,
     );
   };
-
-  const buttonClasses = classNames({ 'w-full': fullWidth });
-
-  const renderLinkOrSpan = () => {
-    const content = (
-      <span
-        className={classNames(
-          'group/btn flex justify-center items-center text-center',
-          getVariantClasses(),
-        )}
+  const renderButton = () =>
+    href ? (
+      <Link
+        className={classNames(getVariantClasses())}
+        href={href}
+        target={openNewTab ? '_blank' : '_self'}
       >
         {renderButtonContent()}
-      </span>
+      </Link>
+    ) : (
+      <button
+        type={type}
+        onClick={onClick}
+        disabled={disabled}
+        aria-label={label}
+        className={classNames(getVariantClasses())}
+      >
+        {renderButtonContent()}
+      </button>
     );
 
-    if (href) {
-      return (
-        <Link
-          className={classNames(
-            'group/btn flex justify-center items-center text-center',
-            getVariantClasses(),
-          )}
-          href={href}
-          target={openNewTab ? '_blank' : '_self'}
-        >
-          {renderButtonContent()}
-        </Link>
-      );
-    }
-
-    return content;
-  };
-
-  return (
-    <button
-      type={type}
-      onClick={onClick}
-      disabled={disabled}
-      aria-label={label}
-      className={buttonClasses}
-    >
-      {renderLinkOrSpan()}
-    </button>
+  return disclaimer ? (
+    <div className={classNames('flex flex-col gap-1', { 'w-full': fullWidth })}>
+      {renderButton()}
+      {renderDisclaimer()}
+    </div>
+  ) : (
+    renderButton()
   );
 };

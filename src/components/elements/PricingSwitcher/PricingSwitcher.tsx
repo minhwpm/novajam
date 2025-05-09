@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { usePricingOption } from '@/components/elements/PricingOptionProvider/PricingOptionProvider';
-import { PricingPlanType } from '@/helpers/types';
+import { usePricingOption } from '@/components/providers/PricingOptionProvider/PricingOptionProvider';
+import { PricingPlanType } from '@/lib/types';
 
 function getUniqueBillingCycles(pricingPlans: Array<PricingPlanType>) {
   return Array.from(
@@ -26,7 +26,7 @@ const ToggleSwitch: React.FC<{
     <div className="flex items-center gap-x-4">
       <span className="dark:text-slate-100">{options[0]}</span>
       <div
-        className="relative w-16 h-8 bg-slate-500 rounded-full cursor-pointer"
+        className="relative w-16 h-8 bg-primary-500 rounded-full cursor-pointer"
         onClick={handleToggle}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') handleToggle();
@@ -42,12 +42,7 @@ const ToggleSwitch: React.FC<{
           )}
         />
       </div>
-      <span className="dark:text-slate-100">
-        {options[1]}
-        <span className="ml-4 bg-primary-200 text-sm font-medium text-primary-600 tracking-wide px-2.5 py-1 rounded-full">
-          SAVE 15%
-        </span>
-      </span>
+      <span className="dark:text-slate-100">{options[1]}</span>
     </div>
   );
 };
@@ -62,11 +57,12 @@ const ButtonSwitcher: React.FC<{
       <button
         key={option}
         onClick={() => onSelect(option)}
+        aria-label={option}
         className={classNames(
-          'px-8 py-4 first:rounded-l-theme-button last:rounded-r-theme-button transition-colors',
+          'px-6 lg:px-8 py-4 text-sm font-medium tracking-wide rounded-full transition-colors',
           current === option
-            ? 'bg-primary-600 text-white'
-            : 'bg-slate-100 text-primary-600 hover:bg-primary-200',
+            ? 'bg-primary-600 text-slate-100'
+            : 'bg-white text-primary-600 hover:bg-primary-50 dark:bg-slate-800/80 dark:backdrop-blur-xl dark:text-primary-400 dark:hover:text-slate-100 dark:hover:bg-primary-500/50 transition-colors duration-300',
         )}
       >
         {option}
@@ -83,7 +79,7 @@ export const PricingSwitcher: React.FC<PricingSwitcherProps> = ({ plans }) => {
   const { billingCycle, setBillingCycle } = usePricingOption();
   const options = getUniqueBillingCycles(plans);
 
-  const handleToggle = (cycle: string) => setBillingCycle(cycle);
+  if (options.length <= 1) return null;
 
   return (
     <div className="w-full max-w-md mx-auto">
@@ -92,15 +88,15 @@ export const PricingSwitcher: React.FC<PricingSwitcherProps> = ({ plans }) => {
           <ToggleSwitch
             options={options}
             current={billingCycle}
-            onToggle={handleToggle}
+            onToggle={setBillingCycle}
           />
         </div>
       ) : (
-        <div className="flex justify-center mx-auto rounded-theme-button w-full max-w-fit shadow-radiant">
+        <div className="bg-white dark:bg-slate-800/80 flex gap-0.5 p-1 justify-center mx-auto rounded-full w-full max-w-fit shadow-radiant">
           <ButtonSwitcher
             options={options}
             current={billingCycle}
-            onSelect={handleToggle}
+            onSelect={setBillingCycle}
           />
         </div>
       )}

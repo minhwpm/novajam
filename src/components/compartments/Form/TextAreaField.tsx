@@ -1,4 +1,4 @@
-import { FormFieldType } from '@/helpers/types';
+import { FormFieldType } from '@/lib/types';
 import { UseFormRegister } from 'react-hook-form/dist/types/form';
 import { FormValues } from './Form';
 
@@ -9,7 +9,7 @@ export const TextAreaField: React.FC<{
   return (
     <textarea
       key={data.id}
-      className="block border border-slate-200 rounded-theme w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-inherit placeholder:text-slate-400"
+      className="block border border-slate-200 rounded-theme w-full px-4 py-3.5 focus:outline-none focus:shadow-lg text-inherit placeholder:text-slate-500 dark:bg-slate-700/60 dark:border-transparent dark:placeholder:text-slate-400"
       id={data.label}
       placeholder={
         (data.placeholder ? data.placeholder : data.label) +

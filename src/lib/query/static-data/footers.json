@@ -1,0 +1,193 @@
+[
+  {
+    "url": "/",
+    "logoRedirect": "/",
+    "description": "Designed by [Seju](https://www.figma.com/@sejal_ui_ux)",
+    "copyright": "© NovaJAM 2025 | All rights reserved.",
+    "backgroundColor": "#161c2d",
+    "backgroundImage": null,
+    "inverse": true,
+    "logo": {
+      "id": "7vvCItsTwfA8tl0SyqlzWT",
+      "url": "https://images.ctfassets.net/ehmycbmc25mu/7vvCItsTwfA8tl0SyqlzWT/138533e575dc63a59fa302011502ac6e/novajam_logo_black__1_.webp",
+      "width": 1055,
+      "height": 160,
+      "contentType": "image/webp",
+      "title": "novajam logo black",
+      "description": ""
+    },
+    "menuItems": [
+      {
+        "label": "Popular Demos",
+        "contentType": "submenu",
+        "id": "1n4UT8IdQirRzVwGCiS8wZ",
+        "layout": "dropdown",
+        "featuredContent": [],
+        "menuItems": [
+          {
+            "icon": null,
+            "label": "Agency",
+            "href": "/demo/agency",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "5MmnreS58HfVrlkacm3bSd"
+          },
+          {
+            "icon": null,
+            "label": "SaaS",
+            "href": "/demo/saas",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "ITn30i7b7Vb34oafuIb2g"
+          },
+          {
+            "icon": null,
+            "label": "Web Application",
+            "href": "/demo/web-application",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "6UcdebKLmDx8WsInEaNXM8"
+          },
+          {
+            "icon": null,
+            "label": "Mobile App",
+            "href": "/demo/mobile-app",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "5vhBdOKVcVaxZYI13jEnad"
+          },
+          {
+            "icon": null,
+            "label": "Blog",
+            "href": "/blog",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "4sUJIxbdevm199Cv3LCd2y"
+          }
+        ]
+      },
+      {
+        "label": "Other Demos",
+        "contentType": "submenu",
+        "id": "4X1LEuqWPucy4R9LomepLa",
+        "layout": "dropdown",
+        "featuredContent": [],
+        "menuItems": [
+          {
+            "icon": null,
+            "label": "Product",
+            "href": "/demo/product",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "1ptn6hQXlNFammo2yavjqU"
+          },
+          {
+            "icon": null,
+            "label": "Consultation",
+            "href": "/demo/consultation",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "6EuGpX7XgRbE22Rs0StYEC"
+          },
+          {
+            "icon": null,
+            "label": "Coworking",
+            "href": "/demo/coworking",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "5wemA7uxLIoHxyKbGnora1"
+          },
+          {
+            "icon": null,
+            "label": "B2B",
+            "href": "/demo/b2b",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "1egIkRCtFYBLOe74DDxaDJ"
+          }
+        ]
+      },
+      {
+        "label": "Inner Pages",
+        "contentType": "submenu",
+        "id": "1DM831uXkHCufKGWfUdPhS",
+        "layout": "dropdown",
+        "featuredContent": [],
+        "menuItems": [
+          {
+            "icon": null,
+            "label": "About Us",
+            "href": "/demo/about-us",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "4uzWCVHbeSd5XdUjL1PkQD"
+          },
+          {
+            "icon": null,
+            "label": "Pricing Plans",
+            "href": "/demo/pricing-plans",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "1RxD3o8d4vxPo3NnPPuht3"
+          },
+          {
+            "icon": null,
+            "label": "Contact",
+            "href": "/demo/contact",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "3yAvtamq4Dt86rUa8v27xj"
+          },
+          {
+            "icon": null,
+            "label": "Privacy Policy",
+            "href": "/demo/privacy-policy",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "4VqxWs2v3OpNxpdRtxHS7L"
+          }
+        ]
+      },
+      {
+        "label": "Support",
+        "contentType": "submenu",
+        "id": "7DoK2wldlEVEKH6nQwSlIm",
+        "layout": "dropdown",
+        "featuredContent": [],
+        "menuItems": [
+          {
+            "icon": null,
+            "label": "FAQ",
+            "href": "/faq",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "5kIh9UpbJMv3qjksjeQ68v"
+          },
+          {
+            "icon": null,
+            "label": "Contact",
+            "href": "/contact",
+            "description": null,
+            "openNewTab": false,
+            "contentType": "link",
+            "id": "kdsKP2AdvJXQrLLMXiAo8"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,15 +1,14 @@
 'use client';
+import classNames from 'classnames';
 import { useState } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import classNames from 'classnames';
-import { ButtonType, LinkType, SubmenuType } from '@/helpers/types';
+import { ButtonType, LinkType, SubmenuType } from '@/lib/types';
 import { IoCloseOutline } from 'react-icons/io5';
-import { CiMenuBurger } from 'react-icons/ci';
-import { Button } from '../Button/Button';
-import { SubmenuMobile } from './SubmenuMobile/SubmenuMobile';
-import { NavLinkItem } from '../NavLinkItem/NavLinkItem';
+import { RxHamburgerMenu } from 'react-icons/rx';
+import { Button } from '@/components/elements/Button/Button';
+import { NavLinkItem } from '@/components/elements/NavLinkItem/NavLinkItem';
 
-const NavMenuMobile: React.FC<{
+export const NavMenuMobile: React.FC<{
   menuItems: Array<LinkType | SubmenuType>;
   buttons?: Array<ButtonType>;
 }> = ({ menuItems, buttons }) => {
@@ -19,20 +18,22 @@ const NavMenuMobile: React.FC<{
     <>
       <NavigationMenu.Root
         className={classNames(
-          'lg:hidden absolute top-0 left-0 z-[99999] w-screen h-screen px-4 pt-20 pb-36 overflow-y-auto bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100 ',
+          'lg:hidden absolute top-0 left-0 z-[999] w-screen h-screen px-4 pt-20 pb-36 overflow-y-auto bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-100 ',
           { hidden: !mobileMenuShowed },
         )}
         orientation="vertical"
       >
         {mobileMenuShowed && (
-          <IoCloseOutline
-            className="cursor-pointer absolute right-4 top-8"
-            size={30}
+          <button
+            className="cursor-pointer absolute right-4 top-4 hover:bg-slate-200 dark:hover:bg-slate-700 p-1.5 lg:p-2 rounded-full"
+            aria-label="Close navigation menu"
             onClick={() => {
               setMobileMenuShowed(false);
               document.body.style.overflow = 'auto';
             }}
-          />
+          >
+            <IoCloseOutline size={25} />
+          </button>
         )}
         <NavigationMenu.List>
           {menuItems.map(
@@ -40,9 +41,7 @@ const NavMenuMobile: React.FC<{
               item && (
                 <NavigationMenu.Item
                   key={item.id}
-                  className={classNames(
-                    'py-2.5 border-b last:border-none border-slate-100 dark:border-slate-800',
-                  )}
+                  className={classNames('py-3')}
                 >
                   {item.contentType === 'link' && (
                     <NavLinkItem
@@ -54,12 +53,6 @@ const NavMenuMobile: React.FC<{
                     >
                       {item.label}
                     </NavLinkItem>
-                  )}
-                  {item.contentType === 'submenu' && (
-                    <SubmenuMobile
-                      data={item}
-                      setMobileMenuShowed={setMobileMenuShowed}
-                    />
                   )}
                 </NavigationMenu.Item>
               ),
@@ -86,18 +79,17 @@ const NavMenuMobile: React.FC<{
 
       <div className="lg:hidden ml-auto">
         {!mobileMenuShowed && (
-          <CiMenuBurger
-            className="cursor-pointer"
-            size={30}
+          <button
+            className="cursor-pointer w-10 h-10 flex justify-center items-center hover:bg-slate-200/80 dark:hover:bg-slate-100/20 rounded-full"
             onClick={() => {
               setMobileMenuShowed(true);
               document.body.style.overflow = 'hidden';
             }}
-          />
+          >
+            <RxHamburgerMenu className="cursor-pointer" size={22} />
+          </button>
         )}
       </div>
     </>
   );
 };
-
-export default NavMenuMobile;

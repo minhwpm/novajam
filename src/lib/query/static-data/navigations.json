@@ -1,0 +1,66 @@
+[
+  {
+    "url": "/",
+    "logoRedirect": "/",
+    "showModeSelector": true,
+    "layout": "standard",
+    "inverse": null,
+    "logo": {
+      "id": "7vvCItsTwfA8tl0SyqlzWT",
+      "url": "https://images.ctfassets.net/ehmycbmc25mu/7vvCItsTwfA8tl0SyqlzWT/138533e575dc63a59fa302011502ac6e/novajam_logo_black__1_.webp",
+      "width": 1055,
+      "height": 160,
+      "contentType": "image/webp",
+      "title": "novajam logo black"
+    },
+    "menuItems": [
+      {
+        "label": "Home",
+        "href": "/",
+        "openNewTab": false,
+        "contentType": "link",
+        "id": "home"
+      },
+      {
+        "label": "FAQ",
+        "href": "/faq",
+        "openNewTab": false,
+        "contentType": "link",
+        "id": "faq"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact",
+        "openNewTab": false,
+        "contentType": "link",
+        "id": "contact"
+      },
+      {
+        "label": "Github",
+        "href": "https://github.com/minhwpm/novajam",
+        "openNewTab": true,
+        "contentType": "link",
+        "id": "github"
+      },
+      {
+        "label": "NovaJAM Pro",
+        "href": "https://getnovajam.com",
+        "openNewTab": false,
+        "contentType": "link",
+        "id": "novajam-pro"
+      }
+    ],
+    "buttons": [
+      {
+        "icon": null,
+        "href": "https://getnovajam.com",
+        "label": "Explore PRO",
+        "openNewTab": true,
+        "variant": "primary",
+        "withArrow": false,
+        "id": "5ch7AWS9JLFOzlZ2HA35H5"
+      }
+    ],
+    "hotButtons": []
+  }
+]

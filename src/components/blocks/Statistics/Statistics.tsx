@@ -1,57 +1,49 @@
-'use client';
 import classNames from 'classnames';
-import { StatisticsType } from '@/helpers/types';
-import { useIntersecting } from '@/helpers/hooks/useIntersecting';
+import { StatisticsType } from '@/lib/types';
+import { getTextColorClass, getAlignmentClass } from '@/lib/utils';
+import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 
 export const Statistics: React.FC<{
   data: StatisticsType;
-  index: number;
-}> = ({ data, index }) => {
-  const { keyNumber, description } = data;
-  const layout = data.layout ?? 'vertical';
-  const alignment = data.alignment ?? 'center';
-
-  const [ref, isIntersecting] = useIntersecting();
+}> = ({ data }) => {
+  const {
+    keyNumber,
+    description,
+    layout = 'vertical',
+    alignment = 'center',
+    keyNumberColor = 'slate',
+  } = data;
 
   return (
     <div
-      ref={ref}
-      className={classNames('flex gap-6 rounded-theme', {
-        'flex-col': layout === 'vertical',
-        'flex-row items-center': layout === 'horizontal',
-        'perspective-2500 backface-hidden -rotate-y-90': !isIntersecting,
-        'perspective-none backface-hidden rotate-y-0 transition-transform ease duration-1000 ':
-          isIntersecting,
-        'items-center': alignment === 'center',
-        'items-end': alignment === 'end',
-      })}
-      style={{
-        transitionDelay: `${(index + 1) * 0.2}s`,
-      }}
+      className={classNames(
+        'flex gap-6 rounded-theme w-full py-2',
+        {
+          'flex-col': layout === 'vertical',
+          'flex-row items-center': layout === 'horizontal',
+        },
+        getAlignmentClass(alignment),
+      )}
     >
       <div
         className={classNames(
-          'font-heading text-lg-heading leading-none font-bold tracking-tight dark:text-slate-100',
+          'font-heading text-lg-heading leading-none font-bold tracking-tight',
+          getTextColorClass(keyNumberColor),
           {
             'self-start pt-1': layout === 'horizontal',
-            'text-center': alignment === 'center',
-            'text-end': alignment === 'end',
           },
         )}
       >
         {keyNumber}
       </div>
-      <div
+      <MarkdownRenderer
         className={classNames(
-          'tracking-wide leading-loose text-slate-600 dark:text-white/80',
-          {
-            'text-center': alignment === 'center',
-            'text-end': alignment === 'end',
-          },
+          'prose tracking-wide leading-loose text-slate-500 dark:prose-invert dark:text-slate-100/70 inverse:prose-invert inverse:text-slate-100/70',
+          getAlignmentClass(alignment),
         )}
       >
         {description}
-      </div>
+      </MarkdownRenderer>
     </div>
   );
 };

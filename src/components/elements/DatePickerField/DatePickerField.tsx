@@ -1,6 +1,6 @@
 import DatePicker from 'react-datepicker';
 import { useController } from 'react-hook-form';
-import { FormFieldType } from '@/helpers/types';
+import { FormFieldType } from '@/lib/types';
 import { Control } from 'react-hook-form/dist/types/form';
 import { FormValues } from '@/components/compartments/Form/Form';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -29,7 +29,7 @@ export function DatePickerField({
   });
   return (
     <DatePicker
-      className="w-full border border-slate-200 rounded-theme-button px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-inherit placeholder:text-slate-400"
+      className="w-full border border-slate-200 rounded-theme-button px-4 py-3.5 cursor-pointer focus:outline-none focus:shadow-lg text-inherit placeholder:text-slate-500 dark:bg-slate-700/60 dark:border-transparent dark:placeholder:text-slate-400"
       placeholderText={
         (data.placeholder ? data.placeholder : data.label) +
         (data.required ? '*' : '')

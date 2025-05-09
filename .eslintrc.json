@@ -8,7 +8,6 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
     "next/core-web-vitals"
   ],
   "rules": {
@@ -21,7 +20,6 @@
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "camelcase": "off",
-    // INVESTIGATE
     "@next/next/no-img-element": "off",
     // Errors
     "import/no-extraneous-dependencies": "error",
@@ -29,7 +27,7 @@
       "error",
       { "argsIgnorePattern": "^_" }
     ],
-    "complexity": ["error", { "max": 20 }], //@TODO complexity 15
+    "complexity": ["error", { "max": 10 }],
     // "import/no-default-export": "error",
     // "no-console": "error",
     "react/jsx-key": "error",

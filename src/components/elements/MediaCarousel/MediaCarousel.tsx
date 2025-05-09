@@ -1,7 +1,7 @@
 'use client';
 import classNames from 'classnames';
-import { MediaAspectRatioType, MediaType } from '@/helpers/types';
-import { MediaItem } from '../MediaItem/MediaItem';
+import { MediaAspectRatioType, MediaType } from '@/lib/types';
+import { MediaItem } from '@/components/elements/MediaItem/MediaItem';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {
   Autoplay,

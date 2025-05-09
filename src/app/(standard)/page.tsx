@@ -1,7 +1,7 @@
 import { SectionMapping } from '@/components/sections/SectionMapping/SectionMapping';
 import { notFound } from 'next/navigation';
-import { getPage } from '@/helpers/query/getPage';
-import { PageType } from '@/helpers/types';
+import { getPage } from '@/lib/query/getPage';
+import { PageType } from '@/lib/types';
 
 export default async function Home() {
   const data = (await getPage('/')) as unknown as PageType;

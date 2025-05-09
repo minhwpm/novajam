@@ -1,24 +1,16 @@
-'use client';
 import classNames from 'classnames';
 import { Button } from '@/components/elements/Button/Button';
-import { PricingPlanType } from '@/helpers/types';
+import { PricingPlanType } from '@/lib/types';
 import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
-import { useIntersecting } from '@/helpers/hooks/useIntersecting';
 import { IoCheckmarkSharp } from 'react-icons/io5';
 import { RxCross2 } from 'react-icons/rx';
-import { usePricingOption } from '@/components/elements/PricingOptionProvider/PricingOptionProvider';
-
-interface PricingPlanProps {
-  index?: number;
-  data: PricingPlanType;
-  animate?: boolean;
-}
+import { usePricingOption } from '@/components/providers/PricingOptionProvider/PricingOptionProvider';
 
 const PricingBadge: React.FC<{ badge?: string }> = ({ badge }) => {
   if (!badge) return null;
 
   return (
-    <div className="px-4 py-3 rounded-t-theme text-center font-heading bg-primary-600 text-slate-100 font-semibold tracking-wider">
+    <div className="px-2 py-1 rounded-theme text-primary-600 text-xs font-medium tracking-wider bg-primary-100 dark:text-primary-200 dark:bg-primary-600/60">
       {badge}
     </div>
   );
@@ -35,7 +27,7 @@ const PricingOptions: React.FC<{
           key={idx}
           className={classNames({ hidden: billingCycle !== item.billingCycle })}
         >
-          <div className="font-bold font-heading text-lg-heading text-slate-800">
+          <div className="font-bold font-heading text-lg-heading dark:text-slate-100">
             {item.price}
           </div>
           {item.priceSuffix && (
@@ -56,11 +48,11 @@ const PricingFeatures: React.FC<{
   if (!features?.length && !planLimitations?.length) return null;
 
   return (
-    <ul className="my-2 lg:my-4 pl-8 flex flex-col gap-2 prose">
+    <ul className="my-2 lg:my-4 pl-8 flex flex-col gap-2 prose dark:prose-invert">
       {features?.map((feature, idx) => (
         <li key={idx} className="relative list-none">
           <IoCheckmarkSharp
-            className="absolute -left-8 text-primary-500"
+            className="absolute -left-8 text-primary-600 dark:text-primary-400"
             size={25}
           />
           {feature}
@@ -68,7 +60,10 @@ const PricingFeatures: React.FC<{
       ))}
       {planLimitations?.map((limitation, idx) => (
         <li key={idx} className="relative list-none opacity-30">
-          <RxCross2 className="absolute -left-8 text-primary-500" size={25} />
+          <RxCross2
+            className="absolute -left-8 text-primary-600 dark:text-primary-400"
+            size={25}
+          />
           {limitation}
         </li>
       ))}
@@ -76,15 +71,7 @@ const PricingFeatures: React.FC<{
   );
 };
 
-export const PricingPlan: React.FC<PricingPlanProps> = ({
-  index,
-  data,
-  animate,
-}) => {
-  const { billingCycle } = usePricingOption();
-  const [ref, isIntersecting] = useIntersecting();
-  const animationDelay = index && animate ? `${(index + 1) * 0.15}s` : '0s';
-
+export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
   const {
     planName,
     pricingOptions,
@@ -93,28 +80,24 @@ export const PricingPlan: React.FC<PricingPlanProps> = ({
     features,
     planLimitations,
     cta,
-    disclaimer,
     featured,
     alignment = 'center',
   } = data;
 
+  const { billingCycle } = usePricingOption();
+
   return (
     <div
-      ref={ref}
       className={classNames(
-        'w-full max-w-3xl rounded-theme bg-white dark:bg-slate-50 border border-slate-100 dark:border-none',
+        'rounded-theme bg-white dark:bg-slate-800/80 dark:backdrop-blur-xl border border-slate-100 dark:border-slate-800/80 inverse:border-slate-800/80',
         {
-          'scale-105 shadow-lg': featured,
-          'relative -bottom-10 opacity-0': animate,
-          'animate-slidingUpContent': isIntersecting && animate,
+          'mx-2 shadow-radiant': featured,
         },
       )}
-      style={{ animationDelay }}
     >
-      <PricingBadge badge={badge} />
       <div
         className={classNames(
-          'px-8 lg:px-10 py-6 lg:py-8 flex flex-col gap-4 lg:gap-6',
+          'px-8 lg:px-10 py-8 flex flex-col gap-4 lg:gap-6',
           {
             'text-start items-start': alignment === 'start',
             'text-center items-center': alignment === 'center',
@@ -122,15 +105,25 @@ export const PricingPlan: React.FC<PricingPlanProps> = ({
           },
         )}
       >
-        <h4 className="text-sm font-semibold tracking-wider text-primary-600">
-          {planName}
-        </h4>
+        <div
+          className={classNames('w-full flex gap-4 items-start', {
+            'justify-start': alignment === 'start',
+            'justify-center': alignment === 'center',
+            'justify-end': alignment === 'end',
+          })}
+        >
+          <h4 className="text-base lg:text-lg font-semibold text-primary-600 dark:text-primary-200">
+            {planName}
+          </h4>
+          <PricingBadge badge={badge} />
+        </div>
+
         <PricingOptions
           pricingOptions={pricingOptions}
           billingCycle={billingCycle}
         />
         {description && (
-          <div className="mt-4 prose leading-loose">
+          <div className="mt-4 prose leading-loose dark:prose-invert">
             <MarkdownRenderer>{description}</MarkdownRenderer>
           </div>
         )}
@@ -138,18 +131,11 @@ export const PricingPlan: React.FC<PricingPlanProps> = ({
           features={features}
           planLimitations={planLimitations}
         />
-        <div className={classNames('flex flex-col gap-2')}>
-          {cta && (
-            <Button data={cta} size="lg">
-              {cta.label}
-            </Button>
-          )}
-          {disclaimer && (
-            <MarkdownRenderer className="prose text-smd text-slate-500">
-              {disclaimer}
-            </MarkdownRenderer>
-          )}
-        </div>
+        {cta && (
+          <Button data={cta} size="lg" fullWidth>
+            {cta.label}
+          </Button>
+        )}
       </div>
     </div>
   );

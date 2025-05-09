@@ -1,38 +1,29 @@
-import { useEffect, useState } from 'react';
+'use client';
 import { GoSun, GoMoon } from 'react-icons/go';
+import { useStore } from '@/store/useStore';
+import { useEffect } from 'react';
 
 export function DarkModeToggle() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { isDarkMode, toggleDarkMode } = useStore();
 
   useEffect(() => {
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark');
-      setIsDarkMode(true);
-    } else {
-      document.documentElement.classList.remove('dark');
-      setIsDarkMode(false);
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-      setIsDarkMode(false);
-    } else {
+    if (isDarkMode || localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
-      setIsDarkMode(true);
     }
-  };
+    if (!isDarkMode || localStorage.getItem('theme') === 'light') {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
 
   return (
     <button
-      onClick={toggleDarkMode}
+      className="w-9 h-9 p-1 flex justify-center items-center rounded-full hover:bg-slate-200/80 dark:hover:bg-slate-100/20 dark:text-slate-100"
       aria-label="Toggle Dark Mode"
-      className="w-10 h-10 p-2 flex justify-center items-center rounded-full hover:bg-slate-100/80 dark:hover:bg-slate-100/20 dark:text-slate-100"
+      onClick={toggleDarkMode}
     >
-      {isDarkMode ? <GoMoon /> : <GoSun />}
+      {isDarkMode ? <GoMoon size={20} /> : <GoSun size={20} />}
     </button>
   );
 }

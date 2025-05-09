@@ -1,6 +1,7 @@
+import classNames from 'classnames';
 import ReactSelect from 'react-select';
 import { useController } from 'react-hook-form';
-import { FormFieldType } from '@/helpers/types';
+import { FormFieldType } from '@/lib/types';
 import { Control } from 'react-hook-form/dist/types/form';
 import { FormValues } from './Form';
 import { useEffect, useState } from 'react';
@@ -22,7 +23,24 @@ export const SelectField: React.FC<{
 
   return isClient ? (
     <ReactSelect
-      className="w-full"
+      unstyled
+      classNames={{
+        input: () => classNames('focus:outline-none focus:shadow-lg'),
+        placeholder: () => classNames('text-slate-500 dark:text-slate-400'),
+        control: () =>
+          classNames(
+            'p-3.5 rounded-[--border-radius-theme-button] border border-slate-200 dark:border-transparent dark:bg-slate-700/60',
+          ),
+        menu: () =>
+          'mt-2 border border-slate-200 rounded-[--border-radius-theme-button] bg-white dark:bg-slate-800 dark:border-transparent',
+        option: (state) =>
+          classNames(
+            'cursor-pointer select-none relative py-2 px-4',
+            state.isFocused && 'bg-slate-200 dark:bg-slate-700',
+            state.isSelected && 'bg-slate-300 dark:bg-slate-600',
+            state.isDisabled && 'cursor-not-allowed opacity-50',
+          ),
+      }}
       name={data.label}
       options={data.options?.map((option) => {
         return {
@@ -30,19 +48,9 @@ export const SelectField: React.FC<{
           value: option,
         };
       })}
-      styles={{
-        control: (baseStyles) => ({
-          ...baseStyles,
-          padding: '8px 6px',
-          borderColor: '@apply border-slate-200',
-          borderRadius: 'var(--border-radius-theme-button)',
-        }),
-      }}
       placeholder={
-        <div className="text-slate-400">
-          {(data.placeholder ? data.placeholder : data.label) +
-            (data.required ? '*' : '')}
-        </div>
+        (data.placeholder ? data.placeholder : data.label) +
+        (data.required ? '*' : '')
       }
       onChange={(selectedOption) => {
         field.onChange(selectedOption?.value);

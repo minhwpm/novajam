@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { AlignmentType } from '@/helpers/types';
-import { MarkdownRenderer } from '../MarkdownRenderer/MarkdownRenderer';
+import { AlignmentType } from '@/lib/types';
+import { MarkdownRenderer } from '@/components/elements/MarkdownRenderer/MarkdownRenderer';
 
 export const Summary: React.FC<{
   content: string;
@@ -8,7 +8,7 @@ export const Summary: React.FC<{
 }> = ({ content, alignment }) => (
   <div
     className={classNames(
-      'prose lg:prose-lg 2xl:prose-xl max-w-xl lg:max-w-xl text-slate-600 dark:prose-invert dark:text-white/80',
+      'prose lg:prose-lg 2xl:prose-xl max-w-xl lg:max-w-xl text-slate-600 dark:prose-invert dark:text-slate-100/80',
       {
         'text-center': alignment === 'center',
         'text-end': alignment === 'end',

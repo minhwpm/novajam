@@ -1,16 +1,20 @@
+import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
+import rehypeRaw from 'rehype-raw';
 import { IoCheckmarkSharp } from 'react-icons/io5';
 
 export const MarkdownRenderer: React.FC<{
   children: string;
   className?: string;
   blogMode?: boolean;
-}> = ({ children, className, blogMode }) => {
+}> = ({ children, className, blogMode = false }) => {
   return (
     <ReactMarkdown
       className={className}
-      remarkPlugins={[remarkGfm]}
+      remarkPlugins={[remarkGfm, remarkBreaks]}
+      rehypePlugins={[rehypeRaw]} // Add raw HTML parsing support
       components={{
         h1: ({ children, ...props }) => (
           <h1 className="font-heading" {...props}>
@@ -42,11 +46,16 @@ export const MarkdownRenderer: React.FC<{
             {children}
           </h6>
         ),
-        ul: ({ children, ...props }) => (
-          <ul className="flex flex-wrap gap-x-10" {...props}>
-            {children}
-          </ul>
-        ),
+        ul: ({ children, ...props }) => {
+          if (!blogMode) {
+            return (
+              <ul className="flex flex-wrap gap-x-10" {...props}>
+                {children}
+              </ul>
+            );
+          }
+          return <ul {...props}>{children}</ul>;
+        },
         li: ({ children, ...props }) => {
           if (blogMode) {
             return <li {...props}>{children}</li>;
@@ -68,6 +77,14 @@ export const MarkdownRenderer: React.FC<{
           <del className="text-slate-300" {...props}>
             {children}
           </del>
+        ),
+        a: ({ children, ...props }) => (
+          <Link
+            className="underline underline-offset-4 decoration-1"
+            href={props.href ?? '#'}
+          >
+            {children}
+          </Link>
         ),
       }}
     >

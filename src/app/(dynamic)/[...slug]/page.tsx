@@ -1,16 +1,11 @@
 import { notFound } from 'next/navigation';
 import { SectionMapping } from '@/components/sections/SectionMapping/SectionMapping';
-import { getPage } from '@/helpers/query/getPage';
-import { PageType } from '@/helpers/types';
+import { getPage } from '@/lib/query/getPage';
 
-export default async function Page({
-  params,
-}: {
-  params: { slug: Array<string> };
-}) {
-  const data = (await getPage(
-    `/${params.slug!.join('/')}`,
-  )) as unknown as PageType;
+type Params = Promise<{ slug: string[] }>;
+export default async function Page(props: { params: Params }) {
+  const { slug } = await props.params;
+  const data = await getPage(`/${slug!.join('/')}`);
   if (!data) {
     notFound();
   }

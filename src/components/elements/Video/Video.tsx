@@ -1,7 +1,7 @@
 'use client';
 import classNames from 'classnames';
 import { useRef, useState } from 'react';
-import { MediaAspectRatioType, MediaType } from '@/helpers/types';
+import { MediaAspectRatioType, MediaType } from '@/lib/types';
 import { FaPlay } from 'react-icons/fa';
 
 export const Video: React.FC<{
@@ -54,14 +54,13 @@ export const Video: React.FC<{
           },
           className,
         )}
-        src={mediaSrc}
+        src={`${mediaSrc}#t=0.001`}
         autoPlay={videoAutoplay}
         loop={videoAutoplay}
         muted={videoAutoplay}
         ref={videoRef}
         controls={videoStarted && videoControls}
         playsInline={true}
-        preload="metadata"
         onError={handleError}
       >
         <track kind="captions" label={data?.title} />
