@@ -52,7 +52,7 @@ Access the app at http://localhost:3000.
 
 ✏️ Content Configuration
 
-NovaJAM leverages JSON data to structure page content. You can find these JSON files in the /src/lib/query/static-data/pages.json directory.
+NovaJAM leverages JSON data to structure page content. You can find these JSON files in the `/src/lib/query/static-data/pages.json` directory.
 
 ```
 {
@@ -71,7 +71,7 @@ NovaJAM leverages JSON data to structure page content. You can find these JSON f
 
 The open-source version only supports JSON-based content configuration. For CMS integration (Contentful, Directus) and pre-built layout demos, consider upgrading to NovaJAM Pro.
 
-Learn more: NovaJAM Pro
+Learn more about [NovaJAM Pro](https://getnovajam.com)
 
 ## 📦 Deployment
 
@@ -87,4 +87,4 @@ This project is open-source under the MIT License. See the LICENSE file for deta
 
 ## 💬 Support
 
-Join the discussion on GitHub or contact us for questions and support. We'd love to hear from you!
+Join the discussion or submit an issue on GitHub for questions and support. We'd love to hear from you!
