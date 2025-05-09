@@ -1342,8 +1342,8 @@
     "seo": null,
     "fontMain": "Poppins",
     "fontHeading": null,
-    "colorPrimary": null,
-    "colorSecondary": null,
+    "colorPrimary": "indigo",
+    "colorSecondary": "fuchsia",
     "borderRadius": "large",
     "content": [
       {
