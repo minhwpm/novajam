@@ -40,7 +40,7 @@ yarn dev
 
 Access the app at http://localhost:3000.
 
-📁 Project Structure
+## 📁 Project Structure
 
 ```
 /src
@@ -50,7 +50,7 @@ Access the app at http://localhost:3000.
   └── store          # Global state management
 ```
 
-✏️ Content Configuration
+## ✏️ Content Configuration
 
 NovaJAM leverages JSON data to structure page content. You can find these JSON files in the `/src/lib/query/static-data/pages.json` directory.
 
