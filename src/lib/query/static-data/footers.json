@@ -27,7 +27,7 @@
           {
             "icon": null,
             "label": "Agency",
-            "href": "/demo/agency",
+            "href": "https://www.getnovajam.com/demo/agency",
             "description": null,
             "openNewTab": false,
             "contentType": "link",
@@ -36,7 +36,7 @@
           {
             "icon": null,
             "label": "SaaS",
-            "href": "/demo/saas",
+            "href": "https://www.getnovajam.com/demo/saas",
             "description": null,
             "openNewTab": false,
             "contentType": "link",
@@ -45,7 +45,7 @@
           {
             "icon": null,
             "label": "Web Application",
-            "href": "/demo/web-application",
+            "href": "https://www.getnovajam.com/demo/web-application",
             "description": null,
             "openNewTab": false,
             "contentType": "link",
@@ -54,7 +54,7 @@
           {
             "icon": null,
             "label": "Mobile App",
-            "href": "/demo/mobile-app",
+            "href": "https://www.getnovajam.com/demo/mobile-app",
             "description": null,
             "openNewTab": false,
             "contentType": "link",
@@ -63,7 +63,7 @@
           {
             "icon": null,
             "label": "Blog",
-            "href": "/blog",
+            "href": "https://www.getnovajam.com/blog",
             "description": null,
             "openNewTab": false,
             "contentType": "link",
@@ -81,7 +81,7 @@
           {
             "icon": null,
             "label": "Product",
-            "href": "/demo/product",
+            "href": "https://www.getnovajam.com/demo/product",
             "description": null,
             "openNewTab": false,
             "contentType": "link",
@@ -90,7 +90,7 @@
           {
             "icon": null,
             "label": "Consultation",
-            "href": "/demo/consultation",
+            "href": "https://www.getnovajam.com/demo/consultation",
             "description": null,
             "openNewTab": false,
             "contentType": "link",
@@ -99,7 +99,7 @@
           {
             "icon": null,
             "label": "Coworking",
-            "href": "/demo/coworking",
+            "href": "https://www.getnovajam.com/demo/coworking",
             "description": null,
             "openNewTab": false,
             "contentType": "link",
@@ -108,7 +108,7 @@
           {
             "icon": null,
             "label": "B2B",
-            "href": "/demo/b2b",
+            "href": "https://www.getnovajam.com/demo/b2b",
             "description": null,
             "openNewTab": false,
             "contentType": "link",
@@ -126,7 +126,7 @@
           {
             "icon": null,
             "label": "About Us",
-            "href": "/demo/about-us",
+            "href": "https://www.getnovajam.com/demo/about-us",
             "description": null,
             "openNewTab": false,
             "contentType": "link",
@@ -135,7 +135,7 @@
           {
             "icon": null,
             "label": "Pricing Plans",
-            "href": "/demo/pricing-plans",
+            "href": "https://www.getnovajam.com/demo/pricing-plans",
             "description": null,
             "openNewTab": false,
             "contentType": "link",
@@ -144,7 +144,7 @@
           {
             "icon": null,
             "label": "Contact",
-            "href": "/demo/contact",
+            "href": "https://www.getnovajam.com/demo/contact",
             "description": null,
             "openNewTab": false,
             "contentType": "link",
@@ -153,7 +153,7 @@
           {
             "icon": null,
             "label": "Privacy Policy",
-            "href": "/demo/privacy-policy",
+            "href": "https://www.getnovajam.com/demo/privacy-policy",
             "description": null,
             "openNewTab": false,
             "contentType": "link",
@@ -170,8 +170,8 @@
         "menuItems": [
           {
             "icon": null,
-            "label": "FAQ",
-            "href": "/faq",
+            "label": "FAQs",
+            "href": "https://www.getnovajam.com/faq",
             "description": null,
             "openNewTab": false,
             "contentType": "link",
@@ -180,7 +180,7 @@
           {
             "icon": null,
             "label": "Contact",
-            "href": "/contact",
+            "href": "https://www.getnovajam.com/contact",
             "description": null,
             "openNewTab": false,
             "contentType": "link",

@@ -40,14 +40,14 @@
         "inverse": null,
         "sectionSeparator": false,
         "paddingTop": "2xl",
-        "paddingBottom": "lg",
+        "paddingBottom": "base",
         "width": null,
         "content": [
           {
             "eyebrow": null,
-            "title": "# Make workflow your __`competitive advantage`__",
-            "body": "Build high-performance landing pages with flexible layouts and CMS support—designed for developers and content creators to thrive.",
-            "titleFontSize": "xl",
+            "title": "# __Get things done by awesome remote team__",
+            "body": "We share common trends and strategies for improving your rental income and making sure you stay in high demand.",
+            "titleFontSize": "lg",
             "layout": null,
             "alignment": "center",
             "paddingTop": "none",
@@ -59,25 +59,25 @@
             "ctas": [
               {
                 "icon": null,
-                "href": "https://getnovajam.com/blog/get-started-with-novajam",
-                "label": "Get started for free",
-                "eyebrow": null,
-                "openNewTab": false,
-                "variant": "primary",
-                "withArrow": false,
-                "disclaimer": null,
-                "id": "4jw1KgKF0C9vHH3Zym3m6w"
-              },
-              {
-                "icon": null,
                 "href": "https://getnovajam.com",
                 "label": "Explore PRO",
                 "eyebrow": null,
                 "openNewTab": false,
-                "variant": "ghost",
+                "variant": "primary",
                 "withArrow": true,
                 "disclaimer": null,
                 "id": "6qJNP6mum4yxzvYD6kaBEN"
+              },
+              {
+                "icon": null,
+                "href": "https://getnovajam.com/blog/get-started-with-novajam",
+                "label": "Get started for free",
+                "eyebrow": null,
+                "openNewTab": false,
+                "variant": "link",
+                "withArrow": false,
+                "disclaimer": null,
+                "id": "4jw1KgKF0C9vHH3Zym3m6w"
               }
             ]
           },
@@ -97,177 +97,24 @@
       },
       {
         "contentType": "smartsection",
-        "id": "5KY9TtpWmo4ka9lqvGDuN3",
-        "backgroundImage": null,
-        "htmlid": "saas-logos",
-        "layout": "Rows",
-        "gap": "lg",
-        "backgroundColor": "#f4f7fa",
-        "enableParallaxEffect": false,
-        "inverse": null,
-        "sectionSeparator": false,
-        "paddingTop": "lg",
-        "paddingBottom": "lg",
-        "width": "standard",
-        "content": [
-          {
-            "contentType": "contentlist",
-            "id": "6blis37zuad0dDWNBzQcat",
-            "gap": "lg",
-            "layout": "flex",
-            "columns": 6,
-            "ctas": [],
-            "contentItems": [
-              {
-                "contentType": "flexiblecontent",
-                "id": "6kdyRHtsPakoZgpLtNLrud",
-                "title": null,
-                "eyebrow": null,
-                "body": null,
-                "redirectUrl": null,
-                "alignment": "center",
-                "layout": "vertical",
-                "buttons": [],
-                "media": [
-                  {
-                    "url": "https://images.ctfassets.net/ehmycbmc25mu/4nx7bW3MiNzhy7Ca2bKtub/bbc7e8a9f58fcaf248632ed946b98291/MakeLess__1_.svg",
-                    "width": 140,
-                    "height": 24,
-                    "contentType": "image/svg+xml",
-                    "description": null,
-                    "id": "4nx7bW3MiNzhy7Ca2bKtub"
-                  }
-                ]
-              },
-              {
-                "contentType": "flexiblecontent",
-                "id": "3tZYQLnTTBfiFkfdA6Z3g5",
-                "title": null,
-                "eyebrow": null,
-                "body": null,
-                "redirectUrl": null,
-                "alignment": "center",
-                "layout": "vertical",
-                "buttons": [],
-                "media": [
-                  {
-                    "url": "https://images.ctfassets.net/ehmycbmc25mu/6kFTfXSF2yOVBgzQc6MU9U/b418c1f34f56408ccfab9b17e2eba9cd/coworks__1_.svg",
-                    "width": 148,
-                    "height": 30,
-                    "contentType": "image/svg+xml",
-                    "description": null,
-                    "id": "6kFTfXSF2yOVBgzQc6MU9U"
-                  }
-                ]
-              },
-              {
-                "contentType": "flexiblecontent",
-                "id": "1dRayGmDcZyrl32juXJMcW",
-                "title": null,
-                "eyebrow": null,
-                "body": null,
-                "redirectUrl": null,
-                "alignment": "center",
-                "layout": "vertical",
-                "buttons": [],
-                "media": [
-                  {
-                    "url": "https://images.ctfassets.net/ehmycbmc25mu/2BZ0rp7KSalRgJKYwx3j3h/92af9dcd3565c0234b27fbe77fa9e6b3/saas-today.svg",
-                    "width": 93,
-                    "height": 34,
-                    "contentType": "image/svg+xml",
-                    "description": null,
-                    "id": "2BZ0rp7KSalRgJKYwx3j3h"
-                  }
-                ]
-              },
-              {
-                "contentType": "flexiblecontent",
-                "id": "4aIwXGwgIuR0JMXyGyXDCv",
-                "title": null,
-                "eyebrow": null,
-                "body": null,
-                "redirectUrl": null,
-                "alignment": "center",
-                "layout": "vertical",
-                "buttons": [],
-                "media": [
-                  {
-                    "url": "https://images.ctfassets.net/ehmycbmc25mu/4Ps04UsH8mkixDw9AZDeTw/a732aeb3fc8d25382070467d7964de20/greener__1_.svg",
-                    "width": 147,
-                    "height": 28,
-                    "contentType": "image/svg+xml",
-                    "description": null,
-                    "id": "4Ps04UsH8mkixDw9AZDeTw"
-                  }
-                ]
-              },
-              {
-                "contentType": "flexiblecontent",
-                "id": "66BYKszdtNXpu6YIkHfAqS",
-                "title": null,
-                "eyebrow": null,
-                "body": null,
-                "redirectUrl": null,
-                "alignment": "center",
-                "layout": "vertical",
-                "buttons": [],
-                "media": [
-                  {
-                    "url": "https://images.ctfassets.net/ehmycbmc25mu/7g7c0BWQ1KRhwb7tUxc2Iv/dcff6173cb69de7f0e4cd8bf7e82701d/Dorfus.svg",
-                    "width": 101,
-                    "height": 26,
-                    "contentType": "image/svg+xml",
-                    "description": null,
-                    "id": "7g7c0BWQ1KRhwb7tUxc2Iv"
-                  }
-                ]
-              },
-              {
-                "contentType": "flexiblecontent",
-                "id": "48dJUhObfVQDzhhcam9FYC",
-                "title": null,
-                "eyebrow": null,
-                "body": null,
-                "redirectUrl": null,
-                "alignment": "center",
-                "layout": "vertical",
-                "buttons": [],
-                "media": [
-                  {
-                    "url": "https://images.ctfassets.net/ehmycbmc25mu/3Blr9gVSAn4nPAGaUJWnV0/e86b0ed3dbd6bc22b58b9ac26b898999/askimat.svg",
-                    "width": 110,
-                    "height": 30,
-                    "contentType": "image/svg+xml",
-                    "description": null,
-                    "id": "3Blr9gVSAn4nPAGaUJWnV0"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "contentType": "smartsection",
         "id": "5eze6eOrxqvsRco1zmcgSS",
         "backgroundImage": null,
         "htmlid": "saas-features",
         "layout": "Rows",
-        "gap": "xl",
+        "gap": "lg",
         "backgroundColor": null,
         "enableParallaxEffect": false,
         "inverse": null,
         "sectionSeparator": false,
-        "paddingTop": "xl",
-        "paddingBottom": "2xl",
+        "paddingTop": "base",
+        "paddingBottom": "xl",
         "width": "standard",
         "content": [
           {
             "eyebrow": null,
             "title": "## __Features with `Real Impact`__",
             "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.\n",
-            "titleFontSize": "lg",
+            "titleFontSize": "base",
             "layout": null,
             "alignment": "center",
             "paddingTop": "none",
@@ -427,8 +274,8 @@
         "enableParallaxEffect": false,
         "inverse": null,
         "sectionSeparator": false,
-        "paddingTop": "2xl",
-        "paddingBottom": "lg",
+        "paddingTop": "xl",
+        "paddingBottom": "xl",
         "width": null,
         "content": [
           {
@@ -497,7 +344,7 @@
                 "description": "### __Active Users__\nWith lots of unique blocks, you can easily build a page without coding.",
                 "alignment": "start",
                 "layout": "vertical",
-                "keyNumberColor": "emerald",
+                "keyNumberColor": "slate",
                 "contentType": "statistics",
                 "id": "3rV6gX54yumAocUQ00d3WG"
               },
@@ -506,7 +353,7 @@
                 "description": "### __Downloads__\nWith lots of unique blocks, you can easily build a page without coding.",
                 "alignment": "start",
                 "layout": "vertical",
-                "keyNumberColor": "amber",
+                "keyNumberColor": "slate",
                 "contentType": "statistics",
                 "id": "3mvSMqGNFcCBDFtfr0ytDM"
               },
@@ -515,7 +362,7 @@
                 "description": "### __Positive feedback__\nWith lots of unique blocks, you can easily build a page without coding.",
                 "alignment": "start",
                 "layout": "vertical",
-                "keyNumberColor": "rose",
+                "keyNumberColor": "slate",
                 "contentType": "statistics",
                 "id": "NsfXzph28iUDbw27KiHyk"
               }
@@ -926,10 +773,10 @@
         "width": "standard",
         "content": [
           {
-            "eyebrow": null,
-            "title": "## __Join 100,000+ businesses accelerating their growth today.__\n",
-            "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
-            "titleFontSize": "base",
+            "eyebrow": "BUILD SMARTER. LAUCH FASTER.",
+            "title": "## __Kichstart with <u>NovaJAM Pro</u>__\n",
+            "body": "The ultimate Next.js landing page template — CMS-powered, modular, and built for developers and content creators to thrive.",
+            "titleFontSize": "lg",
             "layout": "cta-side",
             "alignment": "start",
             "paddingTop": "lg",
@@ -941,23 +788,12 @@
             "ctas": [
               {
                 "icon": null,
-                "href": "https://getnovajam.com/blog/get-started-with-novajam",
-                "label": "Get started for free",
-                "eyebrow": null,
+                "href": "https://getnovajam.com",
+                "label": "NovaJAM PRO",
+                "eyebrow": "Get started with",
                 "openNewTab": false,
                 "variant": "primary",
                 "withArrow": true,
-                "disclaimer": "No credit card required",
-                "id": "3hNfPXj31NTWgGU0ulZS32"
-              },
-              {
-                "icon": null,
-                "href": "https://getnovajam.com",
-                "label": "Explore PRO",
-                "eyebrow": null,
-                "openNewTab": false,
-                "variant": "neutral",
-                "withArrow": false,
                 "disclaimer": null,
                 "id": "3CVVkpQk993MFKK06uptyT"
               }
@@ -1183,10 +1019,10 @@
       },
       {
         "contentType": "smartsection",
-        "id": "55S7dcxb5SB6oghpbPZcSu",
+        "id": "proudly-open-source",
         "backgroundImage": null,
-        "htmlid": "agency-cta-2",
-        "layout": "Classic",
+        "htmlid": "saas-proudly-open-source",
+        "layout": "Rows",
         "gap": "lg",
         "backgroundColor": "#161c2d",
         "enableParallaxEffect": false,
@@ -1194,34 +1030,22 @@
         "sectionSeparator": false,
         "paddingTop": "xl",
         "paddingBottom": "xl",
-        "width": null,
+        "width": "standard",
         "content": [
           {
             "eyebrow": null,
-            "title": "## __Ready to launch your next project?__",
-            "body": "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
-            "titleFontSize": "sm",
-            "layout": "cta-side",
-            "alignment": "start",
+            "title": "## __Proudly Open Source__",
+            "body": "NovaJAM is open source and powered by open source software.\nThe code is available on [GitHub](https://github.com/minhwpm/novajam).",
+            "titleFontSize": "lg",
+            "layout": null,
+            "alignment": "center",
             "paddingTop": "none",
             "paddingLeft": "none",
             "paddingBottom": "none",
             "paddingRight": "none",
             "backgroundColor": null,
             "contentType": "richcontent",
-            "ctas": [
-              {
-                "icon": null,
-                "href": "https://getnovajam.com/blog/get-started-with-novajam",
-                "label": "Get started a project",
-                "eyebrow": null,
-                "openNewTab": false,
-                "variant": "primary",
-                "withArrow": false,
-                "disclaimer": null,
-                "id": "15lbnFPgCrvQ8wkJmxcZHa"
-              }
-            ]
+            "ctas": []
           }
         ]
       }
