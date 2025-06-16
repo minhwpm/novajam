@@ -35,7 +35,7 @@
     "remark-breaks": "^4.0.0",
     "remark-gfm": "^4.0.0",
     "swiper": "^10.0.0",
-    "zustand": "^5.0.3"
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
